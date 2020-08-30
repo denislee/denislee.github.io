@@ -6,6 +6,6 @@ order: 0
 
 # about me
 
-Here I can share all my findings in my life. Anything.
+here I can share all my findings in my life. Anything.
 
-Hope you enjoy it.
+hope you enjoy it.
