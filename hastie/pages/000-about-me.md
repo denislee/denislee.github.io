@@ -1,5 +1,5 @@
 ---
-title: Home
+title: About Me
 layout: page
 order: 0
 ---
