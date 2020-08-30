@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<title> Using Filters - test site</title>
+
+		<link rel="stylesheet" href="static/style.css"/>
+		
+			<link rel="stylesheet" href="static/prism.css"/>
+		
+		
+	</head>
+	<body>
+
+		<div class="container">
+			<header>
+				<h3>
+					<a href="/">test site</a>
+				</h3>
+				<div id="sidebar-toggle">
+					<button id="sidebar-toggle__button"
+						class="open"
+						onClick="document.getElementById('sidebar').classList.toggle('show');document.getElementById('sidebar-toggle__button').classList.toggle('open');"/>
+				</div>
+			</header>
+
+			<aside id="sidebar">
+				<nav>
+					<h3> Contents </h3>
+					<ul>
+						
+						<li><a href="//">Welcome to Hastie</a></li>
+						
+						<li><a href="//getting-started.html">Getting Started</a></li>
+						
+						<li><a href="//markdown-page.html">Markdown Page</a></li>
+						
+						<li><a href="//templates.html">Templates</a></li>
+						
+						<li><a href="//filters.html">Using Filters</a></li>
+						
+					</ul>
+				</nav>
+			</aside>
+
+			<main>
+				<article>
+					<p>Hastie allows for the use of command-line processing of files, provided the process takes the filename as input and spits out the results. It does so using <code>processFilters</code> configuration. You set a file extension mapped to the utility to process and the final extension.</p>
+
+<p>Configuration in hastie.json</p>
+
+<pre><code class="language-json">&quot;processFilters&quot;: {
+    &quot;less&quot;: [&quot;/usr/local/bin/lessc&quot;, &quot;css&quot;]
+}
+</code></pre>
+
+<p>The above example processes files with the extension <code>.less</code> and converts to <code>.css</code> using the lessc binary. The generated file is copied to the public directory at the same spot in the directory tree as the original less file.</p>
+
+				</article>
+			</main>
+			<footer>
+				<span>An <a href="https://mkaz.blog/">mkaz</a> joint </span> ·
+				<span>Built using <a href="https://github.com/mkaz/hastie" rel="generator">Hastie</a></span>
+			</footer>
+		</div>
+
+		
+			<script src="static/prism.js"></script>
+		
+		
+	</body>
+</html>
