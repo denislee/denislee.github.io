@@ -1,5 +1,5 @@
 ---
-title: denis lee blog
+title: Home
 layout: page
 order: 0
 ---
