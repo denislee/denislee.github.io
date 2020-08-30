@@ -2,10 +2,8 @@
     "SourceDir"  : "pages",
     "LayoutDir"   : "./themes/docs/",
     "PublishDir" : "../",
-
 	"BaseURL": "/",
-
 	"Params": {
-		"SiteName": "test site"
+		"SiteName": "denislee.github.io"
 	}
 }
