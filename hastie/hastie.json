@@ -1,6 +1,6 @@
 {
     "SourceDir"  : "pages",
-    "LayoutDir"   : "./themes/docs/",
+    "LayoutDir"   : "./themes/blog/",
     "PublishDir" : "../",
 	"BaseURL": "https://denislee.github.io",
 	"Params": {

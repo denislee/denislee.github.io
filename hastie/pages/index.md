@@ -1,7 +1,7 @@
 ---
 title: about me
-layout: page
-order: 0
+layout: post
+date: 2020-08-30
 ---
 
 # about me
