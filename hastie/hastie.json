@@ -1,5 +1,5 @@
 {
-    "SourceDir"  : "pages",
+    "SourceDir"  : "posts",
     "LayoutDir"   : "./themes/blog/",
     "PublishDir" : "../",
 	"BaseURL": "https://denislee.github.io",
