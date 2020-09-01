@@ -5,6 +5,8 @@ category: blog
 date: 2020-08-30
 ---
 
+![denis lee](denislee-avatar.jpg)
+
 # about me
 
 here I can share all my findings in my life. Anything.
