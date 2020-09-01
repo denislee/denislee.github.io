@@ -5,7 +5,7 @@ category: blog
 date: 2020-08-30
 ---
 
-![denis lee](denislee-avatar.jpg)
+![denis lee](me.webp)
 
 # about me
 
