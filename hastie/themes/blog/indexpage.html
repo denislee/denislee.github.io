@@ -2,7 +2,7 @@
 
 {{ .Content }}
 
-<p>Recent Posts</p>
+<p>recent posts</p>
 <ul>
   {{ range .Recent }}
     <li><a href="{{ .Params.BaseURL }}/{{ .Url }}">{{ .Title }}</a></li>

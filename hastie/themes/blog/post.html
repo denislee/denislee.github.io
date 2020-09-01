@@ -8,18 +8,18 @@
 
   <br clear="both"/>
   <div class="archive_link">
-    Archive: <a href="{{ .Params.BaseURL }}{{ .Category }}/">{{ .Category }}</a>
+    archive: <a href="{{ .Params.BaseURL }}{{ .Category }}/">{{ .Category }}</a>
   </div>
 </div>
 
 
-<div class="prev">Previous: <a href="{{ .Params.BaseURL }}{{ .PrevUrl }}">{{ .PrevTitle }}</a></div>
-<div class="next">Next: <a href="{{ .Params.BaseURL }}{{ .NextUrl }}">{{ .NextTitle }}</a></div>
+<div class="prev">previous: <a href="{{ .Params.BaseURL }}{{ .PrevUrl }}">{{ .PrevTitle }}</a></div>
+<div class="next">next: <a href="{{ .Params.BaseURL }}{{ .NextUrl }}">{{ .NextTitle }}</a></div>
 
 
 <p><hr/></p>
 
-<p>Recent Posts</p>
+<p>recent Posts</p>
 <ul>
   {{ range .Recent }}
     <li> <a href="{{ .Params.BaseURL }}{{ .Url }}">{{.Title}}</a></li>
