@@ -1,6 +1,7 @@
 ---
 title: finally a blog
 layout: post
+category: blog
 date: 2020-08-30
 ---
 

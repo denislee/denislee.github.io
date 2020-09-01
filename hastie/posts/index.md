@@ -1,6 +1,7 @@
 ---
 title: about me
 layout: post
+category: blog
 date: 2020-08-30
 ---
 
