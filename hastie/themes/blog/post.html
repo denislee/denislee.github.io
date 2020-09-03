@@ -7,15 +7,10 @@
   {{ .Content }}
 
   <br clear="both"/>
-  <div class="archive_link">
-    archive: <a href="{{ .Params.BaseURL }}/{{ .Category }}/">{{ .Category }}</a>
-  </div>
 </div>
-
 
 <div class="prev">previous: <a href="{{ .Params.BaseURL }}{{ .PrevUrl }}">{{ .PrevTitle }}</a></div>
 <div class="next">next: <a href="{{ .Params.BaseURL }}{{ .NextUrl }}">{{ .NextTitle }}</a></div>
-
 
 <p><hr/></p>
 
