@@ -1,5 +1,5 @@
 ---
-title: viacao cometa alert
+title: viação cometa alert
 layout: post
 category: blog
 date: 2020-09-07
@@ -27,9 +27,9 @@ Simples assim. Apenas dois passos.
 
 # O site
 
-Imaaginei que precisaria fazer o tratammento do HTML do site. Porém, para a minha alegria, isso não seria necessário, uma vez que existe um endpoint que o front consulta, deixando tudo bem mais fácil.
+Imaginei que precisaria fazer o tratamento do HTML do site. Porém, para a minha alegria, isso não seria necessário, uma vez que existe um endpoint que o front consulta, deixando tudo bem mais fácil.
 
-Logo abaixo dá para ver que um simples GET já é possivel receber o JSON com as cidades que a empresa trabalha.
+Logo abaixo dá para ver que um simples GET já é possível receber o JSON com as cidades que a empresa trabalha.
 
 ``` sh
 $ http https://www.viacaocometa.com.br/content/jca/cometa/pt-br/jcr:content.getDestinos.json?origem=467
@@ -64,10 +64,10 @@ X-Vhost: www.viacaocometa.com.br
             }
         ]
     }
-} 
+}
 ```
 
-E então, depois de facilitar muito o meu trabalho retornando um JSON, foi simplesmente configurar como enviar uma mensagem pelo Whastapp.
+E então, depois de facilitar muito o meu trabalho retornando um JSON, foi simplesmente configurar como enviar uma mensagem pelo Whatsapp.
 
 # Whatsapp
 
@@ -85,7 +85,7 @@ A primeira estratégia foi em utilizar o:
 
 https://github.com/robfig/cron
 
-Porém, para deixar a aplicação cuidar disso, eu preciria que ele precisasse ficar rodando indefinitivamente. Com o risco da aplicação morrer ou qualquer outra instabilidade acontecer, prefiri passar a responsabilidade para o sistema operacional. Nesse caso, o Linux.
+Porém, para deixar a aplicação cuidar disso, eu precisaria que ele precisasse ficar rodando indefinitivamente. Com o risco da aplicação morrer ou qualquer outra instabilidade acontecer, preferi passar a responsabilidade para o sistema operacional. Nesse caso, o Linux.
 
 Como o Go não possui muitos problemas em executar os binários gerados pelo Go, então isso não seria um problema também.
 
@@ -94,3 +94,5 @@ Como o Go não possui muitos problemas em executar os binários gerados pelo Go,
 Para quem tiver curiosidade em verificar o código da aplicação simples que eu fiz, segue o link:
 
 https://github.com/denislee/viacaocometa-alert
+
+
