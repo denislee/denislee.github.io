@@ -1,0 +1,154 @@
+<DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> viacao cometa alert </title>
+  <link rel="stylesheet" media="screen" href="https://denislee.github.io/style.css" >
+  <link href='http://fonts.googleapis.com/css?family=Exo:400,300' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+<div id="canvas" class="clearfix">
+
+  <header>
+    <h3><a href="https://denislee.github.io">denislee.github.io</a></h3>
+    <p>twitter <a href="http://twitter.com/denislee">@denislee</a></p>
+  </header>
+
+  <div id="container">
+
+
+
+<div id="post">
+  <h2> viacao cometa alert </h2>
+  <div class="meta">date: mon, jan 7, 2020</div>
+
+  <h1>Viação Cometa Alert</h1>
+
+<p><img src="post-004-cover.webp" alt="viação cometa alerter" />
+(a aplicação.)</p>
+
+<p>Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.</p>
+
+<p>Uma das categorias de negócios mais afetada foi o transporte. Com a quarentena, não tem muito sentido as pessoas utilizarem transporte no geral, não sendo essencial. Por esse motivo, viagens foram canceladas e futuras passagens impedidas de serem compradas.</p>
+
+<p>Antes da pandemia aparecer em nossa dimensão, eu estava me encontrando com uma pessoa e, depois de tanto esperar (pacientemente), pude ver que as passagens começaram a serem vendidas novamente. Porém, reparei na minha repetição de entrar no site para verificar a disponibilidade de passagens. E vi a oportunidade de poder automatizar isso. Com isso em mente, surgiu a idéia de criar uma aplicação que faz essa verificação para mim.</p>
+
+<h1>O Plano</h1>
+
+<p>Nada de muito complicado. O fluxo seria o seguinte:</p>
+
+<ul>
+<li>verificação de passagens no site</li>
+<li>alertar os horários pelo whatsapp</li>
+</ul>
+
+<p>Simples assim. Apenas dois passos.</p>
+
+<h1>O site</h1>
+
+<p>Imaaginei que precisaria fazer o tratammento do HTML do site. Porém, para a minha alegria, isso não seria necessário, uma vez que existe um endpoint que o front consulta, deixando tudo bem mais fácil.</p>
+
+<p>Logo abaixo dá para ver que um simples GET já é possivel receber o JSON com as cidades que a empresa trabalha.</p>
+
+<pre><code class="language-sh">$ http https://www.viacaocometa.com.br/content/jca/cometa/pt-br/jcr:content.getDestinos.json?origem=467
+HTTP/1.1 200 OK
+X-Vhost: www.viacaocometa.com.br
+
+{
+    &quot;listaLocalidade&quot;: {
+        &quot;erro&quot;: {
+            &quot;descricaoAlerta&quot;: &quot;&quot;,
+            &quot;descricaoErro&quot;: &quot;&quot;,
+            &quot;ocorreuAlerta&quot;: false,
+            &quot;ocorreuErro&quot;: false,
+            &quot;sessionValid&quot;: true
+        },
+        &quot;lsLocalidade&quot;: [
+            {
+                &quot;cidade&quot;: &quot;A PRATA&quot;,
+                &quot;id&quot;: 443,
+                &quot;uf&quot;: &quot;SP&quot;
+            },
+            {
+                &quot;cidade&quot;: &quot;AMERICANA&quot;,
+                &quot;id&quot;: 64,
+                &quot;uf&quot;: &quot;SP&quot;
+            },
+            ...
+             {
+                &quot;cidade&quot;: &quot;ÁGUAS DA PRATA&quot;,
+                &quot;id&quot;: 14,
+                &quot;uf&quot;: &quot;SP&quot;
+            }
+        ]
+    }
+} 
+</code></pre>
+
+<p>E então, depois de facilitar muito o meu trabalho retornando um JSON, foi simplesmente configurar como enviar uma mensagem pelo Whastapp.</p>
+
+<h1>Whatsapp</h1>
+
+<p>Para isso, já tem uma galera que fez um excelente trabalho de simular todo o Whatsapp Web, deixando só o trabalho de chamar uma função para enviar uma mensagem (a única ação que eu precisaria, uma vez que eu não estou fazendo um bot de conversa).</p>
+
+<p>Precisei autorizar o uso do meu número (utilizando o QR Code). Após isso, foi só configurar o destinatário e pronto. Nesse caso, eu fiz para mandar mensagem para mim mesmo.</p>
+
+<p><a href="https://github.com/Rhymen/go-whatsapp">https://github.com/Rhymen/go-whatsapp</a></p>
+
+<h1>CronJob</h1>
+
+<p>Para fazer a verificação de tempos em tempos pensei em diversas estratégias.</p>
+
+<p>A primeira estratégia foi em utilizar o:</p>
+
+<p><a href="https://github.com/robfig/cron">https://github.com/robfig/cron</a></p>
+
+<p>Porém, para deixar a aplicação cuidar disso, eu preciria que ele precisasse ficar rodando indefinitivamente. Com o risco da aplicação morrer ou qualquer outra instabilidade acontecer, prefiri passar a responsabilidade para o sistema operacional. Nesse caso, o Linux.</p>
+
+<p>Como o Go não possui muitos problemas em executar os binários gerados pelo Go, então isso não seria um problema também.</p>
+
+<h1>Github</h1>
+
+<p>Para quem tiver curiosidade em verificar o código da aplicação simples que eu fiz, segue o link:</p>
+
+<p><a href="https://github.com/denislee/viacaocometa-alert">https://github.com/denislee/viacaocometa-alert</a></p>
+
+
+  <br clear="both"/>
+</div>
+
+<div class="prev">previous: <a href="https://denislee.github.io/post-003-daily-vlog.html">daily vlog</a></div>
+<div class="next">next: <a href="https://denislee.github.io"></a></div>
+
+<p><hr/></p>
+
+<p>recent Posts</p>
+<ul>
+  
+    <li> <a href="https://denislee.github.io/post-004-viacao-cometa.html">viacao cometa alert</a></li>
+  
+    <li> <a href="https://denislee.github.io/post-003-daily-vlog.html">daily vlog</a></li>
+  
+    <li> <a href="https://denislee.github.io/post-002-keyboard-layouts.html">keyboard layouts</a></li>
+  
+    <li> <a href="https://denislee.github.io/post-001-finally-a-blog.html">finally a blog</a></li>
+  
+    <li> <a href="https://denislee.github.io/">about me</a></li>
+  
+</ul>
+
+
+</div><!-- container -->
+
+<footer>
+    Powered by <a href="http://github.com/mkaz/hastie">hastie</a>
+</footer>
+
+</div><!-- canvas -->
+
+</body>
+</html>
+
