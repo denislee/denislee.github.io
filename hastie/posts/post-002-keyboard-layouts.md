@@ -8,9 +8,9 @@ date: 2020-08-31
 # Keyboard Layouts
 
 ![keyboard layouts](post-002-cover.webp)
-(sim, essa é uma foto minha e essa já foi uma bagunça minha.)
+(minha antiga mesa bagunçada.)
 
-## Quando tudo começou
+## Início
 
 Lembro da primeira vez que eu entrei em contato com um computador. Acredito que eu tinha os 12 anos (ou algo próximo disso). O ano acredito que era 1996. Mal existiam computadores aqui no Brasil. Tudo nesse equipamento havia me fascinado. Tudo era mágico. E, de todas as parte do computador, o teclado era a ponte para interagir com a máquina. E, por esse motivo, acaba ganhando uma atenção especial por seus usuários. Você precisava saber onde estavam as teclas para se falar com este artefato. Saber o que aconteceria depois de pressionar cada tecla. Teclado. Dígito. Digital. (Essa sequência de palavras não teve sentido algum, porém achei bonito e poético.)
 
@@ -18,7 +18,7 @@ Então, a primeira vista, o julgamento que tínhamos se a pessoa possuía o conh
 
 Passado um tempo e descobri que era tudo bobagem.
 
-## Vim e sua epopéia
+## Vim (não o verbo, a aplicação)
 
 Depois de mais velho, tive a oportunidade de ser apresentado, pelo meu irmão, o editor de texto chamado "Vim". Ele não usava efetivamente o editor em si, mas fez uma bela duma propaganda dizendo toda a filosofia por trás do editor. O sentido do posicionamento da mão direita sobre as teclas específicas. A falta de necessidade de usar o mouse para ser mais eficiente na navegação no texto. Enfim, você já deve conhecer toda essa história. Só sei que eu comprei a ideia e quis experimentar.
 

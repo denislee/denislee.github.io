@@ -6,9 +6,17 @@ date: 2020-08-30
 ---
 
 ![denis lee](me.webp)
+(Me @ covid19 hair style)
 
-# about me
+# About me
 
-here I can share all my findings in my life. Anything.
+Here I will share all my findings in my life. 
 
-hope you enjoy it.
+Hope you enjoy it.
+
+Current Job: Backend Developer (mainly Go) / DevOps
+
+Twitter: twitter.com/denislee
+YouTube: youtube.com/denislees
+Instagram: instagram.com/denislee
+
