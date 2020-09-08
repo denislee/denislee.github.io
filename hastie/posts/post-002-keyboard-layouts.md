@@ -8,7 +8,7 @@ date: 2020-08-31
 # Keyboard Layouts
 
 ![keyboard layouts](post-002-cover.webp)
-(minha antiga mesa bagunçada.)
+*(Minha antiga mesa bagunçada)*
 
 ## Início
 

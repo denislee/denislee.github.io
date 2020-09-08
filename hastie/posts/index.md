@@ -6,15 +6,16 @@ date: 2020-08-30
 ---
 
 ![denis lee](index-cover.webp)
-(Me @ covid19 hair style)
+
+*(Me @ covid19 hair style)*
 
 # Denis Lee
 
 Backend Developer (mainly Go) / DevOps
 
-Twitter: twitter.com/denislee
+Twitter: [twitter.com/denislee](https://twitter.com/denislee)
 
-YouTube: youtube.com/denislees
+YouTube: [youtube.com/denislees](https://youtube.com/denislees)
 
-Instagram: instagram.com/denislee
+Instagram: [instagram.com/denislee](https://instagram.com/denislee)
 

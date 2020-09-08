@@ -7,8 +7,8 @@ date: 2020-09-07
 
 # Viação Cometa Alert
 
-![viação cometa alerter](post-004-cover.webp)
-(a aplicação.)
+![viação cometa alert](post-004-cover.webp)
+*(A aplicação)*
 
 Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.
 
@@ -18,7 +18,7 @@ Antes da pandemia aparecer em nossa dimensão, eu estava me encontrando com uma 
 
 # O Plano
 
-Nada de muito complicado. O fluxo seria o seguinte:
+O fluxo seria o seguinte:
 
 - verificação de passagens no site
 - alertar os horários pelo whatsapp
@@ -77,7 +77,8 @@ Precisei autorizar o uso do meu número (utilizando o QR Code). Após isso, foi 
 
 https://github.com/Rhymen/go-whatsapp
 
-![viação cometa alerter](post-004-msg.webp)
+![mensagem no whatsapp](post-004-msg.webp)
+*(Como a mensagem fica no WhatsApp)*
 
 # CronJob
 
@@ -89,7 +90,7 @@ https://github.com/robfig/cron
 
 Porém, para deixar a aplicação cuidar disso, eu precisaria que ele precisasse ficar rodando indefinitivamente. Com o risco da aplicação morrer ou qualquer outra instabilidade acontecer, preferi passar a responsabilidade para o sistema operacional. Nesse caso, o Linux.
 
-Como o Go não possui muitos problemas em executar os binários gerados pelo Go, então isso não seria um problema também.
+Como o Linux não possui muitos problemas em executar os binários gerados pelo Go, então isso não seria um problema também.
 
 # Github
 

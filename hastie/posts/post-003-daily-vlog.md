@@ -8,7 +8,7 @@ date: 2020-09-07
 # Daily vlog
 
 ![daily vlog](post-003-cover.webp)
-(arquivo pessoal. eu olhando para a câmera.)
+*(Arquivo pessoal. Eu olhando para a câmera.)*
 
 Depois de ter muitas idéias na cabeça ao assistir diversos vídeos no YouTube. Pensei em colocar o meu sonho de voltar a fazer vídeos em prática. Assim como o próprio vídeo do rapaz que trabalha na Vox dizia: "se você tem uma idéia, a melhor coisa que você pode fazer, é colocar ela em prática". Não sei se ele disse exatamente isso, mas foi o que eu entendi.
 
