@@ -8,6 +8,7 @@ date: 2020-09-07
 # Viação Cometa Alert
 
 ![viação cometa alert](post-004-cover.webp)
+
 *(A aplicação)*
 
 Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.
@@ -23,7 +24,7 @@ O fluxo seria o seguinte:
 - verificação de passagens no site
 - alertar os horários pelo whatsapp
 
-Simples assim. Apenas dois passos.
+Dois passos.
 
 # O site
 
@@ -71,13 +72,14 @@ E então, depois de facilitar muito o meu trabalho retornando um JSON, foi simpl
 
 # Whatsapp
 
-Para isso, já tem uma galera que fez um excelente trabalho de simular todo o Whatsapp Web, deixando só o trabalho de chamar uma função para enviar uma mensagem (a única ação que eu precisaria, uma vez que eu não estou fazendo um bot de conversa).
+Para isso, uma galera fez um excelente trabalho de simular todo o Whatsapp Web, deixando só o esforco de chamar uma função para enviar uma mensagem (enviar uma mensagem seria única ação que eu precisaria, uma vez que eu não estou fazendo um bot de conversa).
 
 Precisei autorizar o uso do meu número (utilizando o QR Code). Após isso, foi só configurar o destinatário e pronto. Nesse caso, eu fiz para mandar mensagem para mim mesmo.
 
 https://github.com/Rhymen/go-whatsapp
 
 ![mensagem no whatsapp](post-004-msg.webp)
+
 *(Como a mensagem fica no WhatsApp)*
 
 # CronJob
