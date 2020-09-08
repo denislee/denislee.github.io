@@ -77,6 +77,8 @@ Precisei autorizar o uso do meu número (utilizando o QR Code). Após isso, foi 
 
 https://github.com/Rhymen/go-whatsapp
 
+![viação cometa alerter](post-004-msg.webp)
+
 # CronJob
 
 Para fazer a verificação de tempos em tempos pensei em diversas estratégias.
