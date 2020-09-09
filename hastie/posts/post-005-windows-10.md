@@ -2,7 +2,7 @@
 title: Windows 10 melhorado
 layout: post
 category: blog
-date: 2020-09-07
+date: 2020-09-09
 ---
 
 # Windows 10
@@ -45,6 +45,7 @@ Por esse motivo, estou deixando as minhas anotações da instalação aqui tamb�
 Faça download da imagem do Windows 10
 
 **Alternativa 1** Baixar o aplicativo Fido (funciona apenas no Windows) https://github.com/pbatard/Fido
+
 **Alternativa 2**: Selecionar no site https://tb.rg-adguard.net/public.php
 
 No caso, eu peguei a versao em ingles e pro. Importante ressaltar que nessa hora que apenas nessa hora que você poderá escolher a língua. Caso queira trocar futuramente, precisará reinstalar o Windows (acredito que você não queira fazer isso).
@@ -105,7 +106,7 @@ https://xubuntu.org/
 
 Precisamos baixar um programa para gravar o ISO do Windows no USB e deixar ele bootável. Para isso recomendo você baixar o seguinte programa
 
-Aternativa 1: https://rufus.ie/
+**Alternativa 1**: https://rufus.ie/
 
 Abra o Rufus e escolha o drive que está conectado o seu Pendrive, escolha a ISO do Windows e pronto.
 
@@ -177,12 +178,14 @@ dism /online /Cleanup-Image /StartComponentCleanup
 
 Clique com o botão direito no script e execute como administrador.
 
-Escolha 1: `Run Pre-Amelioration`
+**Escolha 1**: `Run Pre-Amelioration`
+
 - Espere o processo terminar.
 
+**Escolha 3**: `User Permissions`
 
-Escolha 3: `User Permissions`
 - Altere a senha de administrador.
+
 - Altere os privilégios do seu usuário local para `Standard User`
 
 Faça logout e logue novamente.
