@@ -37,5 +37,5 @@ footer {
 #post pre {
     background: #e8e8e8;
     padding: .5em;
-    white-space: pre-line;
+    white-space: pre-wrap;
 }
