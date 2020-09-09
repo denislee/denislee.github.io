@@ -26,7 +26,7 @@ https://notthebe.ee/Windows10.html
 
 E para facilitar, segui um híbrido de tutorial escrito do Wolfgang, quanto o vídeo dele. Ambos acabam complementando um ao outro. Mas, um parece nao funcionar sem o outro. Infelizmente.
 
-Por esse motivo, estou deixando as minhas anotações da instalação aqui também. (Para futuros usos pessoais também.) Que basicamente será uma transcrição em português do que já foi escrito pelo Wolfgang, porém com as minhas observações.
+Por esse motivo, estou deixando as minhas anotações da instalação aqui também. (Para futuros usos pessoais também.) Que basicamente será uma transcrição em português do que já foi escrito pelo Wolfgang.
 
 ## Resumo dos arquivos necessários
 
@@ -40,7 +40,9 @@ Por esse motivo, estou deixando as minhas anotações da instalação aqui tamb�
 8. Backup dos seus Drivers
 9. Hardentools (Security without borders)
 
-## Download da imagem do Windows 10
+## NO WINDOWS
+
+### Download da imagem do Windows 10
 
 Faça download da imagem do Windows 10
 
@@ -48,11 +50,11 @@ Faça download da imagem do Windows 10
 
 **Alternativa 2**: Selecionar no site https://tb.rg-adguard.net/public.php
 
-No caso, eu peguei a versao em ingles e pro. Importante ressaltar que nessa hora que apenas nessa hora que você poderá escolher a língua. Caso queira trocar futuramente, precisará reinstalar o Windows (acredito que você não queira fazer isso).
+No caso, eu peguei a versao em ingles e pro. Importante ressaltar que apenas nessa hora que você poderá escolher a língua do seu sistema operacional. Caso queira trocar futuramente, precisará reinstalar o Windows (acredito que você não queira fazer isso).
 
-## Verificação da imagem do Windows 10
+### Verificação da imagem do Windows 10
 
-Para verificar se a imagem do Windows que você acabou de baixar não está corrompida ou alterada precisamos de uma aplicação para calcular o hash.
+Para verificar se a imagem do Windows que você acabou de baixar não está corrompida ou alterada, precisamos de uma aplicação para calcular o hash.
 
 **Alternativa 1**: Utilização da ferramenta já existente no PowerShell
 
@@ -64,7 +66,7 @@ Get-FileHash -Algorithm SHA1 Windows_2004.iso
 
 Executando alguma dessas duas alternativas, será possível comparar a saida desses programas no site: https://sha1.rg-adguard.net/
 
-## Download dos updates
+### Download dos updates
 
 Para isso você devera entrar no site o Windows 10 Update History: https://support.microsoft.com/en-us/help/4555932/windows-10-update-history
 
@@ -76,19 +78,19 @@ Para isso você devera entrar no site o Windows 10 Update History: https://suppo
 
 4. Faça download da arquitetura do seu processador e para o seu Windows (cuidado para não baixar a versão para servidor)
 
-5. Volte para a pagina onde você copiou o código (KBXXXXXXX) e procure pela palavra chave: `the latest SSU` 
+5. Volte para a pagina onde você copiou o código (KBXXXXXXX) e procure pela palavra chave: `the latest SSU`
 
 6. Copie o código que vem logo em seguida dessa palavra que você procurou e vá para o site e faça download (passos 3. e 4. anteriores)
 
 No fim, você terá baixado dois arquivos de atualização do Windows
 
-## Download do script AME
+### Download do script AME
 
 **Alternativa 1**: https://git.ameliorated.info/malte/scripts/releases/download/1903.2020.03.06/amelioration_1903_2020.03.06.bat
 
 Caso o link esteja desatualizado. Entre no site https://ameliorated.info/documentation.html#ame_pre e procure pela palavra chave `Windows 10 Amelioration script` e faça download
 
-## Backup dos seus drivers
+### Backup dos seus drivers
 
 Abra o PowerShell como Admin e execute o comando
 
@@ -96,13 +98,13 @@ Abra o PowerShell como Admin e execute o comando
 pnputil /export-driver * "C:\backup-drivers"
 ```
 
-## Hora de baixar o Linux
+### Hora de baixar o Linux
 
-No tutorial ele (Wolfgang) recomendou baixar o xubuntu. Segui a recomendação, porém descobri na prática que qualquer imagem funciona. Poderia até ser um Arch, mas acredito que a recomendação foi mais pela facilidade de uso mesmo. A exigência para facilitar e que você consiga acessar a internet facilmente e tenha a modalidade de boot dentro do Linux sem instalar o mesmo.
+No tutorial ele (Wolfgang) recomendou baixar o xubuntu. Segui a recomendação, porém descobri na prática que qualquer imagem funciona. Poderia até ser um Arch, mas acredito que a recomendação foi mais pela facilidade de uso mesmo. A exigência para facilitar e que você consiga acessar a internet facilmente, consiga acessar o disco que o Windows será instalado, consiga acessar a Internet e tenha a modalidade de boot do Linux sem instalar o mesmo.
 
 https://xubuntu.org/
 
-## Criando um pendrive bootável
+### Criando um pendrive bootável
 
 Precisamos baixar um programa para gravar o ISO do Windows no pendrive e deixar ele bootável. Para isso recomendo você baixar o seguinte programa
 
@@ -110,15 +112,16 @@ Precisamos baixar um programa para gravar o ISO do Windows no pendrive e deixar 
 
 Abra o Rufus e escolha o drive que está conectado o seu Pendrive, escolha a ISO do Windows e pronto.
 
-## Copiando os arquivos
+### Copiando os arquivos
 
 Copie todos os arquivos que você baixou até agora para dentro do Pendrive. Segue a lista que deve entrar
 
 - ISO do linux
 - Rufus
 - Atualizações do Windows
+- Script AME
 
-## Instalando o Windows
+### Instalando o Windows
 
 Agora os passos para iniciar a instalação na sua máquina
 
@@ -129,7 +132,9 @@ Agora os passos para iniciar a instalação na sua máquina
 5. Talvez seja necessário desativar o boot de seguranca
 6. Instale o Windows
 
-## Primeiro boot no Windows
+## NO WINDOWS (NOVO)
+
+### Primeiro boot no Windows
 
 Responda não para todas as perguntas de compartilhamento de informação que eles perguntarem durante o setup final da instalação do Windows.
 
@@ -139,7 +144,7 @@ Assim que você já estiver dentro do sistema operacional, faça as seguintes a�
 - Faca unpin em todos os aplicativos do menu do botão iniciar.
 - Remova a barra de busca da barra de tarefas.
 
-## Instalação das atualizações
+### Instalação das atualizações
 
 Crie os seguintes diretórios no drive de onde foi instalado o Windows:
 
@@ -174,7 +179,7 @@ Reinicie duas vezes e agora execute o comando final
 dism /online /Cleanup-Image /StartComponentCleanup
 ```
 
-## Executando o script AME
+### Executando o script AME
 
 Clique com o botão direito no script e execute como administrador.
 
@@ -197,13 +202,15 @@ Abre um PowerShell como administrador e execute o comando para alterar a sua sen
 net user <seu-usuário> *
 ```
 
-## Criação do mídia de boot do Linux
+### Criação do mídia de boot do Linux
 
 Abra o Rufus e escolha o pendrive e o ISO do Linux para transformar o seu pendrive que você acabou de usar para instalar o Windows para instalar o Linux.
 
 Reinicie o computador com o pendrive conectado.
 
-## Dentro do Linux
+## NO LINUX
+
+### Dentro do Linux
 
 Nessa parte você já pode ligar novamente toda a conectividade do seu computador (que você havia desativado anteriormente na BIOS).
 
@@ -225,10 +232,13 @@ Caso tenha problemas em executar o script, faça os seguintes passo:
 sed -i 's/\r$//' <script-shell>
 ```
 
-Agora é só executar o script que você acabou de baixar e aguardar
+Agora é só executar o script que você acabou de baixar e aguardar.
 
+Só reiniciar e voltar para o Windows.
 
-## Post-Amelioration
+## NO WINDOWS (NOVO)
+
+### Post-Amelioration
 
 Edite o script AME que você usou antes de entrar no Linux e procure pela seguinte linha:
 
@@ -245,13 +255,13 @@ choco install -y --force --allow-empty-checksums firefox thunderbird vlc youtube
 Execute o script e escolha o Post-Amelioration
 
 
-## Hardening Windows Settings
+### Hardening Windows Settings
 
 Para ajudar na segurança, baixe e instale o Harden Tools.
 
 **Alternativa 1**: https://securitywithoutborders.org/tools/hardentools.html
 
-## Reinstalação dos drivers
+### Reinstalação dos drivers
 
 ```
 pnputil.exe /add-driver C:\backup-drivers\*.inf /subdirs /install /reboot
