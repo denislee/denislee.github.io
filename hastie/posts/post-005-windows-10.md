@@ -66,17 +66,17 @@ Executando alguma dessas duas alternativas, será possível comparar a saida des
 
 ## Download dos updates
 
-Para isso voce devera entrar no site o Windows 10 Update History: https://support.microsoft.com/en-us/help/4555932/windows-10-update-history
+Para isso você devera entrar no site o Windows 10 Update History: https://support.microsoft.com/en-us/help/4555932/windows-10-update-history
 
-1. E procurar a sua versão do windows. na primeira coluna da esquerda.
+1. E procurar a sua versão do Windows. na primeira coluna da esquerda.
 
 2. Depois clique na primeiro item da segunda coluna na esquerda (In this release)
 
 3. Copie o codigo do titulo da pagina KBXXXXXXX e va no site https://www.catalog.update.microsoft.com/Home.aspx e procure por esse codigo
 
-4. Faça download da versão para o seu Windows (cuidado para não baixar a versão para servidor)
+4. Faça download da arquitetura do seu processador e para o seu Windows (cuidado para não baixar a versão para servidor)
 
-5. Volte para a pagina onde voce copiou o codigo (KBXXXXXXX) e procure pela palavra chave: the latest SSU
+5. Volte para a pagina onde você copiou o codigo (KBXXXXXXX) e procure pela palavra chave: the latest SSU
 
 6. Copie o código que vem logo em seguida dessa palavra que você procurou e vá para o site e faça download (passos 3. e 4. anteriores)
 
@@ -129,7 +129,7 @@ Agora os passos para iniciar a instalação na sua máquina
 5. Talvez seja necessário desativar o boot de seguranca
 6. Instale o Windows
 
-## Primeiro boot no windows
+## Primeiro boot no Windows
 
 Responda não para todas as perguntas de compartilhamento de informação que eles perguntarem durante o setup final da instalação do Windows.
 
@@ -256,9 +256,4 @@ Para ajudar na segurança, baixe e instale o Harden Tools.
 ```
 pnputil.exe /add-driver C:\backup-drivers\*.inf /subdirs /install /reboot
 ```
-
-
-
-
-
 
