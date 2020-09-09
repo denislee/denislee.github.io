@@ -1,11 +1,11 @@
 ---
-title: Windows 10 melhorado
+title: windows 10, but better
 layout: post
 category: blog
 date: 2020-09-09
 ---
 
-# Windows 10
+# Windows 10, but better
 
 ![windows 10](post-005-cover.webp)
 
@@ -33,7 +33,7 @@ Por esse motivo, estou deixando as minhas anotações da instalação aqui tamb�
 1. ISO do Windows 10 completo (peguei a versão Pro)
 2. ISO do Linux (pode ser qualquer um)
 3. Aplicação para calcular o SHA1 da imagem
-4. Aplicação para criar um USB bootável
+4. Aplicação para criar um pendrive bootável
 5. Atualizacao do Windows 10 cumulativo
 6. Atualizacao do Windows 10 incremental
 7. Amelioration Script
@@ -102,9 +102,9 @@ No tutorial ele (Wolfgang) recomendou baixar o xubuntu. Segui a recomendação, 
 
 https://xubuntu.org/
 
-## Criando um USB bootável
+## Criando um pendrive bootável
 
-Precisamos baixar um programa para gravar o ISO do Windows no USB e deixar ele bootável. Para isso recomendo você baixar o seguinte programa
+Precisamos baixar um programa para gravar o ISO do Windows no pendrive e deixar ele bootável. Para isso recomendo você baixar o seguinte programa
 
 **Alternativa 1**: https://rufus.ie/
 
