@@ -26,7 +26,7 @@ https://notthebe.ee/Windows10.html
 
 E para facilitar, segui um híbrido de tutorial escrito do Wolfgang, quanto o vídeo dele. Ambos acabam complementando um ao outro. Mas, um parece nao funcionar sem o outro. Infelizmente.
 
-Por esse motivo, estou deixando as minhas anotações da instalação aqui também. (Para futuros usos pessoais também.) Que basicamente será uma transcrição em português do que já foi escrito pelo Wolfgang, porém com as minhas observações (e em português).
+Por esse motivo, estou deixando as minhas anotações da instalação aqui também. (Para futuros usos pessoais também.) Que basicamente será uma transcrição em português do que já foi escrito pelo Wolfgang, porém com as minhas observações.
 
 ## Resumo dos arquivos necessários
 
@@ -34,8 +34,8 @@ Por esse motivo, estou deixando as minhas anotações da instalação aqui tamb�
 2. ISO do Linux (pode ser qualquer um)
 3. Aplicação para calcular o SHA1 da imagem
 4. Aplicação para criar um pendrive bootável
-5. Atualizacao do Windows 10 cumulativo
-6. Atualizacao do Windows 10 incremental
+5. Atualização do Windows 10 cumulativo
+6. Atualização do Windows 10 incremental
 7. Amelioration Script
 8. Backup dos seus Drivers
 9. Hardentools (Security without borders)
@@ -68,25 +68,25 @@ Executando alguma dessas duas alternativas, será possível comparar a saida des
 
 Para isso você devera entrar no site o Windows 10 Update History: https://support.microsoft.com/en-us/help/4555932/windows-10-update-history
 
-1. E procurar a sua versão do Windows. na primeira coluna da esquerda.
+1. Procurar a sua versão do Windows. na primeira coluna da esquerda.
 
 2. Depois clique na primeiro item da segunda coluna na esquerda (In this release)
 
-3. Copie o codigo do titulo da pagina KBXXXXXXX e va no site https://www.catalog.update.microsoft.com/Home.aspx e procure por esse codigo
+3. Copie o código do titulo da pagina KBXXXXXXX e va no site https://www.catalog.update.microsoft.com/Home.aspx e procure por esse código
 
 4. Faça download da arquitetura do seu processador e para o seu Windows (cuidado para não baixar a versão para servidor)
 
-5. Volte para a pagina onde você copiou o codigo (KBXXXXXXX) e procure pela palavra chave: the latest SSU
+5. Volte para a pagina onde você copiou o código (KBXXXXXXX) e procure pela palavra chave: `the latest SSU` 
 
 6. Copie o código que vem logo em seguida dessa palavra que você procurou e vá para o site e faça download (passos 3. e 4. anteriores)
 
-No fim, você terá baixado dois arquivos de atualizacao do Windows
+No fim, você terá baixado dois arquivos de atualização do Windows
 
 ## Download do script AME
 
 **Alternativa 1**: https://git.ameliorated.info/malte/scripts/releases/download/1903.2020.03.06/amelioration_1903_2020.03.06.bat
 
-Caso o link esteja desatualizado. Entre no site https://ameliorated.info/documentation.html#ame_pre e procure pela palavra chave Windows 10 Amelioration script e faça download
+Caso o link esteja desatualizado. Entre no site https://ameliorated.info/documentation.html#ame_pre e procure pela palavra chave `Windows 10 Amelioration script` e faça download
 
 ## Backup dos seus drivers
 
@@ -215,7 +215,7 @@ Abra um terminal e entre no diretório raiz da instalação do seu Windows e fa�
 ```
 wget https://git.ameliorated.info/malte/scripts/releases/download/1903.2020.03.06/ameliorate_1903_2020.03.06.sh
 ```
-(esse link pode estar desatualizado. Nesse caso entre no link: https://ameliorated.info/documentation.html e procure pela palavra chave Linux Ameliorate script e copie o link)
+(esse link pode estar desatualizado. Nesse caso entre no link: https://ameliorated.info/documentation.html e procure pela palavra chave `Linux Ameliorate script` e copie o link)
 
 Agora é só executar o script.
 
