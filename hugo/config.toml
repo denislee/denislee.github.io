@@ -1,0 +1,6 @@
+baseURL = "https://denislee.github.io/"
+languageCode = "en-us"
+title = "dns blog"
+theme = "ananke"
+publishdir = ".."
+
