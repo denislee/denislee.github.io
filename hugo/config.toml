@@ -16,9 +16,9 @@ hasCJKLanguage = false
 	facebook = "your_facebook_id"
 
 	enableRSS = true
-	enableToc = true
+	enableToc = false
 
-	enableDisqus = true
+	enableDisqus = false
 	disqusShortname = "your_disqus_short_name"
 
 
@@ -27,12 +27,12 @@ hasCJKLanguage = false
 	useDescriptionReplaceSummary = false
 
 
-	enableGoogleAnalytics = true
+	enableGoogleAnalytics = false
 	enableBaiduAnalytics = false
 	# Set the value to your baidu analysis code if you want to use baidu analytics
 	baiduAnalytics = 'your_baidu_analysis_code'
 
-	enableTwitterCard = true
+	enableTwitterCard = false
 	# The url for twitter card image, default is avatar.png in static/images directory
 	twitterCardImage = ""
 
