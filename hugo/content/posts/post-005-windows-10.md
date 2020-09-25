@@ -8,10 +8,6 @@ tags:
   - untagged
 ---
 
-![windows 10](post-005-cover.webp)
-
-*(Windows 10)*
-
 Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.
 
 Os videos que eu assisti foram:

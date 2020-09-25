@@ -18,7 +18,7 @@ Uma das categorias de negócios mais afetada foi o transporte. Com a quarentena,
 
 Antes da pandemia aparecer em nossa dimensão, eu estava me encontrando com uma pessoa e, depois de tanto esperar (pacientemente), pude ver que as passagens começaram a serem vendidas novamente. Porém, reparei na minha repetição de entrar no site para verificar a disponibilidade de passagens. E vi a oportunidade de poder automatizar isso. Com isso em mente, surgiu a idéia de criar uma aplicação que faz essa verificação para mim.
 
-# O Plano
+## O Plano
 
 O fluxo seria o seguinte:
 
@@ -27,7 +27,7 @@ O fluxo seria o seguinte:
 
 Dois passos.
 
-# O site
+## O site
 
 Imaginei que precisaria fazer o tratamento do HTML do site. Porém, para a minha alegria, isso não seria necessário, uma vez que existe um endpoint que o front consulta, deixando tudo bem mais fácil.
 
@@ -71,7 +71,7 @@ X-Vhost: www.viacaocometa.com.br
 
 E então, depois de facilitar muito o meu trabalho retornando um JSON, foi simplesmente configurar como enviar uma mensagem pelo Whatsapp.
 
-# Whatsapp
+## Whatsapp
 
 Para isso, uma galera fez um excelente trabalho de simular todo o Whatsapp Web, deixando só o esforco de chamar uma função para enviar uma mensagem (enviar uma mensagem seria única ação que eu precisaria, uma vez que eu não estou fazendo um bot de conversa).
 
@@ -83,7 +83,7 @@ https://github.com/Rhymen/go-whatsapp
 
 *(Como a mensagem fica no WhatsApp)*
 
-# CronJob
+## CronJob
 
 Para fazer a verificação de tempos em tempos pensei em diversas estratégias.
 
@@ -95,10 +95,8 @@ Porém, para deixar a aplicação cuidar disso, eu precisaria que ele precisasse
 
 Como o Linux não possui muitos problemas em executar os binários gerados pelo Go, então isso não seria um problema também.
 
-# Github
+## Github
 
 Para quem tiver curiosidade em verificar o código da aplicação simples que eu fiz, segue o link:
 
 https://github.com/denislee/viacaocometa-alert
-
-

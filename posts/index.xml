@@ -15,11 +15,8 @@
 			<pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
 			
 			<guid>https://denislee.github.io/posts/post-006-vim-to-emacs/</guid>
-			<description>(Emacs)
-Como eu mudei do Vim para o Emacs? Antes preciso explicar como eu me empolgei com o Vim e como eu descobri ele.</description>
-			<content type="html"><![CDATA[<p><img src="post-006-cover.webp" alt="emacs"></p>
-<p><em>(Emacs)</em></p>
-<p>Como eu mudei do Vim para o Emacs? Antes preciso explicar como eu me empolgei com o Vim e como eu descobri ele.</p>
+			<description>Como eu mudei do Vim para o Emacs? Antes preciso explicar como eu me empolguei com o Vim e como eu descobri ele.</description>
+			<content type="html"><![CDATA[<p>Como eu mudei do Vim para o Emacs? Antes preciso explicar como eu me empolguei com o Vim e como eu descobri ele.</p>
 ]]></content>
 		</item>
 		
@@ -29,21 +26,18 @@ Como eu mudei do Vim para o Emacs? Antes preciso explicar como eu me empolgei co
 			<pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
 			
 			<guid>https://denislee.github.io/posts/post-007-tetris/</guid>
-			<description>(Tetris)
-Seria possivel criar um IA em Go para jogar tetris da forma mais otimizada possivel?
-Seguem alguns links para o inicio dos meus estudos em ML e AI.
+			<description>Seria possível criar um IA em Go para jogar tetris da forma mais otimizada possível?
+Seguem alguns links para o início dos meus estudos em ML e AI.
 https://pastebin.com/ZZmSNaHX
-A ideia Tudo surgiu depois de eu assistir alguns videos no YouTube explicando a historia de jogadores que tentam terminar os jogos da maneira mais rapido possivel. A gama de jogos de video game sao infinitas e, em grande parte, sao todos registrados na internet (para provar a veracidade dos recordes).</description>
-			<content type="html"><![CDATA[<p><img src="post-007-tetris.webp" alt="tetris"></p>
-<p><em>(Tetris)</em></p>
-<p>Seria possivel criar um IA em Go para jogar tetris da forma mais otimizada possivel?</p>
-<p>Seguem alguns links para o inicio dos meus estudos em ML e AI.</p>
+A ideia Tudo surgiu depois de eu assistir alguns vídeos no YouTube explicando a história de jogadores que tentam terminar os jogos da maneira mais rapido possivel. A gama de jogos de videogame são infinitas e, em grande parte, são todos registrados na internet (para provar a veracidade dos recordes).</description>
+			<content type="html"><![CDATA[<p>Seria possível criar um IA em Go para jogar tetris da forma mais otimizada possível?</p>
+<p>Seguem alguns links para o início dos meus estudos em ML e AI.</p>
 <p><a href="https://pastebin.com/ZZmSNaHX">https://pastebin.com/ZZmSNaHX</a></p>
-<h1 id="a-ideia">A ideia</h1>
-<p>Tudo surgiu depois de eu assistir alguns videos no YouTube explicando a historia de jogadores que tentam terminar os jogos da maneira mais rapido possivel. A gama de jogos de video game sao infinitas e, em grande parte, sao todos registrados na internet (para provar a veracidade dos recordes). O que eh otimo para fazer um video/documentario.</p>
-<p>Mas ai comecei a ver o Tetris, de como o pessoal tenta bater o recorde em questao de pontos. Aprendi sobre o tetris original de NES. A habilidade que alguns jogadores profissionais adquirem para mover as pecas rapidamente, chamado de hypertapping e de fazer o maximo numero de Tetris possivel. Ai veio o click: Poxa, acho que talvez eu consiga fazer o computador jogar esse jogo relativamente simples. Talvez ja existam ferramentas prontas na internet que eu possa fazer uso.</p>
-<h1 id="aprendizado">Aprendizado</h1>
-<p>Nunca estudei nada sobre Machine Lerning e como um programa poderia interagir com os emuladores. Entao, esse projeto poderia ser um prato cheio para aprender e me divertir programando.</p>
+<h2 id="a-ideia">A ideia</h2>
+<p>Tudo surgiu depois de eu assistir alguns vídeos no YouTube explicando a história de jogadores que tentam terminar os jogos da maneira mais rapido possivel. A gama de jogos de videogame são infinitas e, em grande parte, são todos registrados na internet (para provar a veracidade dos recordes). O que é ótimo para fazer um vídeo/documentário.</p>
+<p>Mas aí comecei a ver o Tetris, de como o pessoal tenta bater o recorde em questao de pontos. Aprendi sobre o tetris original de NES. A habilidade que alguns jogadores profissionais adquirem para mover as peças rapidamente, chamado de hyper tapping e de fazer o máximo número de Tetris possível. Aí veio o click: Poxa, acho que talvez eu consiga fazer o computador jogar esse jogo relativamente simples. Talvez já existam ferramentas prontas na internet que eu possa fazer uso.</p>
+<h2 id="aprendizado">Aprendizado</h2>
+<p>Nunca estudei nada sobre Machine Learning e como um programa poderia interagir com os emuladores. Então, esse projeto poderia ser um prato cheio para aprender e me divertir programando.</p>
 ]]></content>
 		</item>
 		
@@ -53,14 +47,11 @@ A ideia Tudo surgiu depois de eu assistir alguns videos no YouTube explicando a 
 			<pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
 			
 			<guid>https://denislee.github.io/posts/post-005-windows-10/</guid>
-			<description>(Windows 10)
-Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.
+			<description>Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.
 Os videos que eu assisti foram:
 We fixed Windows 10 - Microsoft will HATE this! https://www.youtube.com/watch?v=nwkiU6GG-YU
 Windows 10 for Power Users – Private, Secure, Zero Bloatware (Windows 10 Ameliorated) https://www.</description>
-			<content type="html"><![CDATA[<p><img src="post-005-cover.webp" alt="windows 10"></p>
-<p><em>(Windows 10)</em></p>
-<p>Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.</p>
+			<content type="html"><![CDATA[<p>Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.</p>
 <p>Os videos que eu assisti foram:</p>
 <p><em>We fixed Windows 10 - Microsoft will HATE this!</em>
 <a href="https://www.youtube.com/watch?v=nwkiU6GG-YU">https://www.youtube.com/watch?v=nwkiU6GG-YU</a></p>
@@ -224,28 +215,26 @@ expand -F:* name_of_the_cumulative_package.msu C:\Cumulative
 			<pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
 			
 			<guid>https://denislee.github.io/posts/post-003-daily-vlog/</guid>
-			<description>(Arquivo pessoal. Eu olhando para a câmera.)
-Depois de ter muitas idéias na cabeça ao assistir diversos vídeos no YouTube. Pensei em colocar o meu sonho de voltar a fazer vídeos em prática. Assim como o próprio vídeo do rapaz que trabalha na Vox dizia: &amp;ldquo;se você tem uma idéia, a melhor coisa que você pode fazer, é colocar ela em prática&amp;rdquo;. Não sei se ele disse exatamente isso, mas foi o que eu entendi.</description>
-			<content type="html"><![CDATA[<p><img src="post-003-cover.webp" alt="daily vlog">
-<em>(Arquivo pessoal. Eu olhando para a câmera.)</em></p>
-<p>Depois de ter muitas idéias na cabeça ao assistir diversos vídeos no YouTube. Pensei em colocar o meu sonho de voltar a fazer vídeos em prática. Assim como o próprio vídeo do rapaz que trabalha na Vox dizia: &ldquo;se você tem uma idéia, a melhor coisa que você pode fazer, é colocar ela em prática&rdquo;. Não sei se ele disse exatamente isso, mas foi o que eu entendi.</p>
-<p>As idéias que surgiram na minha cabeça, são simples. Eu, que atualmente estou viciado em assistir YouTube (ok, na verdade, boa parte do tempo livre acabo achando mais interessante fazer isso). Sempre que vejo alguma cena interessante, a primeira coisa que vem na minha cabeça é algo do tipo: &ldquo;puxa, eu poderia fazer algo semelhante, ou talvez melhor&rdquo;. Na realidade, parando para pensar, boa parte das coisas que eu ando assistindo (podendo ser desde um clipe de música como um filme dos anos 50) acaba me dando esse click.</p>
+			<description>Depois de ter muitas idéias na cabeça ao assistir diversos vídeos no YouTube. Pensei em colocar o meu sonho de voltar a fazer vídeos em prática. Assim como o próprio vídeo do rapaz que trabalha na Vox dizia: &amp;ldquo;se você tem uma idéia, a melhor coisa que você pode fazer, é colocar ela em prática&amp;rdquo;. Não sei se ele disse exatamente isso, mas foi o que eu entendi.
+As idéias que surgiram na minha cabeça, são simples.</description>
+			<content type="html"><![CDATA[<p>Depois de ter muitas idéias na cabeça ao assistir diversos vídeos no YouTube. Pensei em colocar o meu sonho de voltar a fazer vídeos em prática. Assim como o próprio vídeo do rapaz que trabalha na Vox dizia: &ldquo;se você tem uma idéia, a melhor coisa que você pode fazer, é colocar ela em prática&rdquo;. Não sei se ele disse exatamente isso, mas foi o que eu entendi.</p>
+<p>As idéias que surgiram na minha cabeça, são simples. Eu, que atualmente estou viciado em assistir YouTube (ok, na verdade, boa parte do tempo livre acabo achando mais interessante fazer isso). Sempre que vejo alguma cena interessante, a primeira coisa que vem na minha cabeça é algo do tipo: &ldquo;puxa, eu poderia fazer algo semelhante, ou talvez melhor&rdquo;. Na realidade, parando para pensar, boa parte das coisas que eu ando assistindo (podendo ser desde um clipe de música como um filme dos anos 50) acabou me dando esse click.</p>
 <p>Por ter essa chuva de clicks na minha cabeça e simplesmente postergando tudo, acaba me incomodando. Não gosto da idéia de ter muitos projetos guardados e nunca realizados. Isso me traz uma angústia. Preciso botar para fora. Preciso transformar em algo concreto.</p>
 <p>Com isso surgiu esse meu glorioso projeto de fazer um vlog diário. Do estilo Casey Neistat. Hahaha.</p>
-<h1 id="barreira">Barreira</h1>
-<p>Acredito que quem já gravou vídeo e parou; sabe que voltar não é tão simples assim. Você que ja experimentou dessa águas, sabe o quão complexo e complicado a parte técnica pode ser. Tudo, a gravação do áudio, vídeo, etc, não tem fim, e pode escalar até o infinito. Não posso cair nessa tentação de planejar o cenário perfeito para tornar tudo isso em ação. Eu poderia simplesmente esperar ter a iluminação perfeita, lentes perfeitas, diversas câmeras, computador ideal, microfone fantástico e etc. Se eu esperar tudo isso alinhar, nunca que eu poderia ter um vídeo produzido. Acredito que na prática que as coisas funcionam e evoluem até de forma mais eficiente.</p>
+<h2 id="barreira">Barreira</h2>
+<p>Acredito que quem já gravou vídeo e parou; sabe que voltar não é tão simples assim. Você que já experimentou dessa águas, sabe o quão complexo e complicado a parte técnica pode ser. Tudo, a gravação do áudio, vídeo, etc, não tem fim, e pode escalar até o infinito. Não posso cair nessa tentação de planejar o cenário perfeito para tornar tudo isso em ação. Eu poderia simplesmente esperar ter a iluminação perfeita, lentes perfeitas, diversas câmeras, computador ideal, microfone fantástico e etc. Se eu esperar tudo isso alinhar, nunca que eu poderia ter um vídeo produzido. Acredito que na prática que as coisas funcionam e evoluem até de forma mais eficiente.</p>
 <p>&ldquo;Eficiente?&rdquo; Você pode me questiona. &ldquo;Sim!&rdquo;, eu respondo!</p>
 <p>Um bom exemplo disso é o exemplo do vídeo do YouTube que eu assisti esses dias (para variar). Um garoto queria ter o recorde de apontar 10 lápis mais rápido possível usando apenas as mãos. Ele se preparou para fazer o streaming na Internet. Comprou luvas, lápis, importou um apontador do Japão. Basicamente investiu muito tempo nessa empreitada, para no final, nada disso servir. Sério, ele no fim acabou quebrando o recorde mundial sem ter usado absolutamente nada as coisas que ele tinha inicialmente planejado e estuda. Simples assim. Se já tivesse começado do jeito que estava, com certeza, já teria um bom norte para otimizar nas suas necessidades.</p>
 <p>Acredito que com o vídeo eu consiga fazer essa mesma trajetória de otimização. Talvez eu compre uma série de coisas que eu acabei nem usando no futuro. Seria realmente dinheiro jogado fora.</p>
-<h1 id="projeto-inicial">Projeto inicial</h1>
+<h2 id="projeto-inicial">Projeto inicial</h2>
 <p>Vou gravar um vídeo apenas usando meu celular e tentar editar para tornar algo interessante de ser assistido.</p>
-<h1 id="conteúdo">Conteúdo</h1>
+<h2 id="conteúdo">Conteúdo</h2>
 <ul>
 <li>gravar apenas o meu dia-a-dia</li>
 <li>fingir que eu já tenho um canal grande</li>
 <li>deixar o mais cinematográfico possível</li>
 </ul>
-<h1 id="melhoria-das-habilidades-pessoais">Melhoria das habilidades pessoais</h1>
+<h2 id="melhoria-das-habilidades-pessoais">Melhoria das habilidades pessoais</h2>
 <p>Nesse aspecto, posso ver que posso melhorar em minhas habilidade pessoais. Como:</p>
 <ul>
 <li>edição de vídeo</li>
@@ -255,7 +244,7 @@ Depois de ter muitas idéias na cabeça ao assistir diversos vídeos no YouTube.
 <li>velocidade de edição</li>
 <li>habilidade na utilização da ferramenta davinci resolve</li>
 </ul>
-<h1 id="futuro">Futuro</h1>
+<h2 id="futuro">Futuro</h2>
 <p>Na realidade, até eu chegar nesse desafio foi uma longa jornada e caminhada. Uma série de acontecimentos e desejos pessoais que acabaram levando a ele. Quais foram esses eventos?</p>
 <ul>
 <li>Vontade de querer voltar a gravar vídeos para o YouTube (fazer vídeos no geral)</li>
@@ -265,9 +254,9 @@ Depois de ter muitas idéias na cabeça ao assistir diversos vídeos no YouTube.
 <li>Para resolver o roteiro, acabei criando esse blog</li>
 <li>Para resolver a habilidade para falar com a câmera, acabei criando esse projeto aqui de fazer um vlog fictício</li>
 </ul>
-<h1 id="formalização">Formalização</h1>
+<h2 id="formalização">Formalização</h2>
 <p>Não gosto e nunca gostei de falar para a câmera. Por esse motivo, nunca me atraiu a chance de publicar alguma coisa. Será um experimento completamente pessoal. Um treinamento (bem como a escrita nesse blog também). Vou melhorar na prática, na marra e aí sim, quando eu me sentir confortável, vou divulgar e publicar. Enquanto eu não me sentir seguro, vou guardar tudo para mim, por enquanto.</p>
-<h1 id="conclusão">Conclusão</h1>
+<h2 id="conclusão">Conclusão</h2>
 <p>Vamos ver se essa ideia consegue sobreviver para pelo menos eu conseguir produzir um vídeo. Vou usar o meu tempo livre para fazer isso e existe grande chance de eu desistir no meio ou julgar ter outras prioridades. Mas, no meu atual espírito, eu quero que isso funcione. Aliás, nesse exato momento eu estou gravando o meu dia.</p>
 <p>Os próximos desdobramentos serão publicados aqui mesmo</p>
 ]]></content>
@@ -287,14 +276,14 @@ Uma das categorias de negócios mais afetada foi o transporte. Com a quarentena,
 <p>Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.</p>
 <p>Uma das categorias de negócios mais afetada foi o transporte. Com a quarentena, não tem muito sentido as pessoas utilizarem transporte no geral, não sendo essencial. Por esse motivo, viagens foram canceladas e futuras passagens impedidas de serem compradas.</p>
 <p>Antes da pandemia aparecer em nossa dimensão, eu estava me encontrando com uma pessoa e, depois de tanto esperar (pacientemente), pude ver que as passagens começaram a serem vendidas novamente. Porém, reparei na minha repetição de entrar no site para verificar a disponibilidade de passagens. E vi a oportunidade de poder automatizar isso. Com isso em mente, surgiu a idéia de criar uma aplicação que faz essa verificação para mim.</p>
-<h1 id="o-plano">O Plano</h1>
+<h2 id="o-plano">O Plano</h2>
 <p>O fluxo seria o seguinte:</p>
 <ul>
 <li>verificação de passagens no site</li>
 <li>alertar os horários pelo whatsapp</li>
 </ul>
 <p>Dois passos.</p>
-<h1 id="o-site">O site</h1>
+<h2 id="o-site">O site</h2>
 <p>Imaginei que precisaria fazer o tratamento do HTML do site. Porém, para a minha alegria, isso não seria necessário, uma vez que existe um endpoint que o front consulta, deixando tudo bem mais fácil.</p>
 <p>Logo abaixo dá para ver que um simples GET já é possível receber o JSON com as cidades que a empresa trabalha.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ http https://www.viacaocometa.com.br/content/jca/cometa/pt-br/jcr:content.getDestinos.json?origem<span class="o">=</span><span class="m">467</span>
@@ -331,19 +320,19 @@ X-Vhost: www.viacaocometa.com.br
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div><p>E então, depois de facilitar muito o meu trabalho retornando um JSON, foi simplesmente configurar como enviar uma mensagem pelo Whatsapp.</p>
-<h1 id="whatsapp">Whatsapp</h1>
+<h2 id="whatsapp">Whatsapp</h2>
 <p>Para isso, uma galera fez um excelente trabalho de simular todo o Whatsapp Web, deixando só o esforco de chamar uma função para enviar uma mensagem (enviar uma mensagem seria única ação que eu precisaria, uma vez que eu não estou fazendo um bot de conversa).</p>
 <p>Precisei autorizar o uso do meu número (utilizando o QR Code). Após isso, foi só configurar o destinatário e pronto. Nesse caso, eu fiz para mandar mensagem para mim mesmo.</p>
 <p><a href="https://github.com/Rhymen/go-whatsapp">https://github.com/Rhymen/go-whatsapp</a></p>
 <p><img src="post-004-msg.webp" alt="mensagem no whatsapp"></p>
 <p><em>(Como a mensagem fica no WhatsApp)</em></p>
-<h1 id="cronjob">CronJob</h1>
+<h2 id="cronjob">CronJob</h2>
 <p>Para fazer a verificação de tempos em tempos pensei em diversas estratégias.</p>
 <p>A primeira estratégia foi em utilizar o:</p>
 <p><a href="https://github.com/robfig/cron">https://github.com/robfig/cron</a></p>
 <p>Porém, para deixar a aplicação cuidar disso, eu precisaria que ele precisasse ficar rodando indefinitivamente. Com o risco da aplicação morrer ou qualquer outra instabilidade acontecer, preferi passar a responsabilidade para o sistema operacional. Nesse caso, o Linux.</p>
 <p>Como o Linux não possui muitos problemas em executar os binários gerados pelo Go, então isso não seria um problema também.</p>
-<h1 id="github">Github</h1>
+<h2 id="github">Github</h2>
 <p>Para quem tiver curiosidade em verificar o código da aplicação simples que eu fiz, segue o link:</p>
 <p><a href="https://github.com/denislee/viacaocometa-alert">https://github.com/denislee/viacaocometa-alert</a></p>
 ]]></content>
@@ -355,17 +344,14 @@ X-Vhost: www.viacaocometa.com.br
 			<pubDate>Mon, 31 Aug 2020 00:00:00 +0000</pubDate>
 			
 			<guid>https://denislee.github.io/posts/post-002-keyboard-layouts/</guid>
-			<description>(Minha antiga mesa bagunçada)
-Início Lembro da primeira vez que eu entrei em contato com um computador. Acredito que eu tinha os 12 anos (ou algo próximo disso). O ano acredito que era 1996. Mal existiam computadores aqui no Brasil. Tudo nesse equipamento havia me fascinado. Tudo era mágico. E, de todas as parte do computador, o teclado era a ponte para interagir com a máquina. E, por esse motivo, acaba ganhando uma atenção especial por seus usuários.</description>
-			<content type="html"><![CDATA[<p><img src="post-002-cover.webp" alt="keyboard layouts">
-<em>(Minha antiga mesa bagunçada)</em></p>
-<h2 id="início">Início</h2>
+			<description>Início Lembro da primeira vez que eu entrei em contato com um computador. Acredito que eu tinha os 12 anos (ou algo próximo disso). O ano acredito que era 1996. Mal existiam computadores aqui no Brasil. Tudo nesse equipamento havia me fascinado. Tudo era mágico. E, de todas as parte do computador, o teclado era a ponte para interagir com a máquina. E, por esse motivo, acaba ganhando uma atenção especial por seus usuários.</description>
+			<content type="html"><![CDATA[<h2 id="início">Início</h2>
 <p>Lembro da primeira vez que eu entrei em contato com um computador. Acredito que eu tinha os 12 anos (ou algo próximo disso). O ano acredito que era 1996. Mal existiam computadores aqui no Brasil. Tudo nesse equipamento havia me fascinado. Tudo era mágico. E, de todas as parte do computador, o teclado era a ponte para interagir com a máquina. E, por esse motivo, acaba ganhando uma atenção especial por seus usuários. Você precisava saber onde estavam as teclas para se falar com este artefato. Saber o que aconteceria depois de pressionar cada tecla. Teclado. Dígito. Digital. (Essa sequência de palavras não teve sentido algum, porém achei bonito e poético.)</p>
 <p>Então, a primeira vista, o julgamento que tínhamos se a pessoa possuía o conhecimento sobre o computador era diretamente proporcional a sua habilidade e destreza sobre o teclado (ok, o mouse também, mas não era tão glorioso como o teclado). Uma referência errada, mas era o que tinha para época.</p>
 <p>Passado um tempo e descobri que era tudo bobagem.</p>
 <h2 id="vim-não-o-verbo-a-aplicação">Vim (não o verbo, a aplicação)</h2>
 <p>Depois de mais velho, tive a oportunidade de ser apresentado, pelo meu irmão, o editor de texto chamado &ldquo;Vim&rdquo;. Ele não usava efetivamente o editor em si, mas fez uma bela duma propaganda dizendo toda a filosofia por trás do editor. O sentido do posicionamento da mão direita sobre as teclas específicas. A falta de necessidade de usar o mouse para ser mais eficiente na navegação no texto. Enfim, você já deve conhecer toda essa história. Só sei que eu comprei a ideia e quis experimentar.</p>
-<p>Logo encontrei a primeira dificuldade. Aquele posicionamento da mão direita, não fazia nenhum sentido para mim. Nunca havia posicionado o indicador da mão direita na tecla &ldquo;J&rdquo;. Aliás, nunca havia entendido o motivo de existir essa marcação nas teclas &ldquo;J&rdquo; e &ldquo;F&rdquo;. Então, a ficha caiu. Eu precisava fazer um curso de digitação. Tinha um passo antes que eu deveria cumprir antes de se quer começar a imaginar a usar esse editor de texto tão simples, porém com muita filosofia por trás (com a promessa de transformar você na pessoa mais eficiente do mundo).</p>
+<p>Logo encontrei a primeira dificuldade. Aquele posicionamento da mão direita, não fazia nenhum sentido para mim. Nunca havia posicionado o indicador da mão direita na tecla &ldquo;J&rdquo;. Aliás, nunca havia entendido o motivo de existir essa marcação nas teclas &ldquo;J&rdquo; e &ldquo;F&rdquo;. Então, a ficha caiu. Eu precisava fazer um curso de digitação. Tinha um passo antes que eu deveria cumprir antes de sequer começar a imaginar a usar esse editor de texto tão simples, porém com muita filosofia por trás (com a promessa de transformar você na pessoa mais eficiente do mundo).</p>
 <p>Encontrei alguns sites que ensinavam a digitar corretamente. E se você já chegou a fazer esses exercícios e tem uma força de vontade monstruosa; sabe que eles viciam. Sim, os sites de você treinar e ter dores nos dedos. Dedos que antes foram forjados a não ter disciplina e moviam livremente. Sem regras. Sem normas. Sem se importar em trombar em teclas erradas, ou recorrer à ajuda dos seus queridos olhos (já ocupados em fazer muitas outras tarefas). Eu fiquei viciado nesse sites.</p>
 <p>Em pouco tempo, pode já começar a digitar sem olhar para o teclado e isso já foi o suficiente para embarcar na aventura de aprender a usar o Vim (layout que eu sempre usei e uso até hoje. Inclusive, esse texto está sendo escrito no&hellip; Emacs, mas essa é uma história que ficará para próxima). E nunca mais tive mais interesse em aumentar a minha velocidade ou precisão da minha digitação. Toda vez que eu fazia alguma medição, ficava entre 60 a 80 (máx).</p>
 <h2 id="o-plateau">O plateau</h2>
@@ -386,9 +372,6 @@ Início Lembro da primeira vez que eu entrei em contato com um computador. Acred
 <li><a href="https://monkey-type.com/">https://monkey-type.com/</a></li>
 <li><a href="https://www.keybr.com/">https://www.keybr.com/</a></li>
 </ul>
-<p>E adivinhem só, depois de alguns dias de treino o que aconteceu?</p>
-<p><img src="post-002-wpm.webp" alt="wpm"></p>
-<p>Uhul!</p>
 ]]></content>
 		</item>
 		

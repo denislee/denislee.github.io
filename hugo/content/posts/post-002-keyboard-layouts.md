@@ -4,12 +4,9 @@ date: 2020-08-31
 draft: true
 toc: false
 images:
-tags: 
+tags:
   - untagged
 ---
-
-![keyboard layouts](post-002-cover.webp)
-*(Minha antiga mesa bagunçada)*
 
 ## Início
 
@@ -23,7 +20,7 @@ Passado um tempo e descobri que era tudo bobagem.
 
 Depois de mais velho, tive a oportunidade de ser apresentado, pelo meu irmão, o editor de texto chamado "Vim". Ele não usava efetivamente o editor em si, mas fez uma bela duma propaganda dizendo toda a filosofia por trás do editor. O sentido do posicionamento da mão direita sobre as teclas específicas. A falta de necessidade de usar o mouse para ser mais eficiente na navegação no texto. Enfim, você já deve conhecer toda essa história. Só sei que eu comprei a ideia e quis experimentar.
 
-Logo encontrei a primeira dificuldade. Aquele posicionamento da mão direita, não fazia nenhum sentido para mim. Nunca havia posicionado o indicador da mão direita na tecla "J". Aliás, nunca havia entendido o motivo de existir essa marcação nas teclas "J" e "F". Então, a ficha caiu. Eu precisava fazer um curso de digitação. Tinha um passo antes que eu deveria cumprir antes de se quer começar a imaginar a usar esse editor de texto tão simples, porém com muita filosofia por trás (com a promessa de transformar você na pessoa mais eficiente do mundo).
+Logo encontrei a primeira dificuldade. Aquele posicionamento da mão direita, não fazia nenhum sentido para mim. Nunca havia posicionado o indicador da mão direita na tecla "J". Aliás, nunca havia entendido o motivo de existir essa marcação nas teclas "J" e "F". Então, a ficha caiu. Eu precisava fazer um curso de digitação. Tinha um passo antes que eu deveria cumprir antes de sequer começar a imaginar a usar esse editor de texto tão simples, porém com muita filosofia por trás (com a promessa de transformar você na pessoa mais eficiente do mundo).
 
 Encontrei alguns sites que ensinavam a digitar corretamente. E se você já chegou a fazer esses exercícios e tem uma força de vontade monstruosa; sabe que eles viciam. Sim, os sites de você treinar e ter dores nos dedos. Dedos que antes foram forjados a não ter disciplina e moviam livremente. Sem regras. Sem normas. Sem se importar em trombar em teclas erradas, ou recorrer à ajuda dos seus queridos olhos (já ocupados em fazer muitas outras tarefas). Eu fiquei viciado nesse sites.
 
@@ -35,7 +32,7 @@ Certo, confesso que, uma vez ou outra eu tentava quebrar o limite, testando as m
 
 Então, descobri que existiam novos layouts de teclados. Dvorak, Colemak, etc. Todos com o objetivo de consertar o falho QWERTY que tanto usei.
 
-Pronto! Encontrei a solução para poder ultrapassar a meta dos 100 palavras por minutos. Estava empenhado em começar a finalmente configurar o meu teclado e começar novamente com passos de bebê. 
+Pronto! Encontrei a solução para poder ultrapassar a meta dos 100 palavras por minutos. Estava empenhado em começar a finalmente configurar o meu teclado e começar novamente com passos de bebê.
 
 Estava, até eu encontrar esse vídeo. (Não precisa assistir ele, vou resumir no próximo parágrafo.)
 
@@ -58,11 +55,4 @@ Encontrei sites interessantes como:
 - https://10fastfingers.com/
 - https://monkey-type.com/
 - https://www.keybr.com/
-
-E adivinhem só, depois de alguns dias de treino o que aconteceu?
-
-![wpm](post-002-wpm.webp)
-
-Uhul!
-
 

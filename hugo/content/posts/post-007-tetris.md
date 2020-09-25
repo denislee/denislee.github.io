@@ -4,27 +4,25 @@ date: 2020-09-09
 draft: true
 toc: false
 images:
-tags: 
+tags:
   - untagged
 ---
 
-![tetris](post-007-tetris.webp)
+Seria possível criar um IA em Go para jogar tetris da forma mais otimizada possível?
 
-*(Tetris)*
-
-Seria possivel criar um IA em Go para jogar tetris da forma mais otimizada possivel?
-
-Seguem alguns links para o inicio dos meus estudos em ML e AI.
+Seguem alguns links para o início dos meus estudos em ML e AI.
 
 https://pastebin.com/ZZmSNaHX
 
-# A ideia
+## A ideia
 
-Tudo surgiu depois de eu assistir alguns videos no YouTube explicando a historia de jogadores que tentam terminar os jogos da maneira mais rapido possivel. A gama de jogos de video game sao infinitas e, em grande parte, sao todos registrados na internet (para provar a veracidade dos recordes). O que eh otimo para fazer um video/documentario. 
+Tudo surgiu depois de eu assistir alguns vídeos no YouTube explicando a história de jogadores que tentam terminar os jogos da maneira mais rapido possivel. A gama de jogos de videogame são infinitas e, em grande parte, são todos registrados na internet (para provar a veracidade dos recordes). O que é ótimo para fazer um vídeo/documentário.
 
-Mas ai comecei a ver o Tetris, de como o pessoal tenta bater o recorde em questao de pontos. Aprendi sobre o tetris original de NES. A habilidade que alguns jogadores profissionais adquirem para mover as pecas rapidamente, chamado de hypertapping e de fazer o maximo numero de Tetris possivel. Ai veio o click: Poxa, acho que talvez eu consiga fazer o computador jogar esse jogo relativamente simples. Talvez ja existam ferramentas prontas na internet que eu possa fazer uso.
+Mas aí comecei a ver o Tetris, de como o pessoal tenta bater o recorde em questao de pontos. Aprendi sobre o tetris original de NES. A habilidade que alguns jogadores profissionais adquirem para mover as peças rapidamente, chamado de hyper tapping e de fazer o máximo número de Tetris possível. Aí veio o click: Poxa, acho que talvez eu consiga fazer o computador jogar esse jogo relativamente simples. Talvez já existam ferramentas prontas na internet que eu possa fazer uso.
 
-# Aprendizado
+## Aprendizado
 
-Nunca estudei nada sobre Machine Lerning e como um programa poderia interagir com os emuladores. Entao, esse projeto poderia ser um prato cheio para aprender e me divertir programando.
+Nunca estudei nada sobre Machine Learning e como um programa poderia interagir com os emuladores. Então, esse projeto poderia ser um prato cheio para aprender e me divertir programando.
+
+
 
