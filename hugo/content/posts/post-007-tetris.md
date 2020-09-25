@@ -8,8 +8,6 @@ tags:
   - untagged
 ---
 
-# Tetris
-
 ![tetris](post-007-tetris.webp)
 
 *(Tetris)*

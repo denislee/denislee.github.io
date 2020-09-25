@@ -8,8 +8,6 @@ tags:
   - untagged
 ---
 
-# Keyboard Layouts
-
 ![keyboard layouts](post-002-cover.webp)
 *(Minha antiga mesa bagunçada)*
 

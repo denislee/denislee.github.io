@@ -8,8 +8,6 @@ tags:
   - untagged
 ---
 
-# Viação Cometa Alert
-
 ![viação cometa alert](post-004-cover.webp)
 
 *(A aplicação)*

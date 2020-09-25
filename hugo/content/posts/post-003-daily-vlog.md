@@ -8,8 +8,6 @@ tags:
   - untagged
 ---
 
-# Daily vlog
-
 ![daily vlog](post-003-cover.webp)
 *(Arquivo pessoal. Eu olhando para a câmera.)*
 

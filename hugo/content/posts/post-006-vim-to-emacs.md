@@ -8,8 +8,6 @@ tags:
   - untagged
 ---
 
-# vim to emacs
-
 ![emacs](post-006-cover.webp)
 
 *(Emacs)*

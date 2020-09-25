@@ -8,8 +8,6 @@ tags:
   - untagged
 ---
 
-# Windows 10, but better
-
 ![windows 10](post-005-cover.webp)
 
 *(Windows 10)*
