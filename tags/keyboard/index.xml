@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>keyboard on Denis Lee</title>
+    <link>https://denislee.github.io/tags/keyboard/</link>
+    <description>Recent content in keyboard on Denis Lee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 30 Aug 2020 00:37:19 -0300</lastBuildDate>
+    
+	<atom:link href="https://denislee.github.io/tags/keyboard/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Keyboard Layouts</title>
+      <link>https://denislee.github.io/posts/keyboard-layouts/</link>
+      <pubDate>Sun, 30 Aug 2020 00:37:19 -0300</pubDate>
+      
+      <guid>https://denislee.github.io/posts/keyboard-layouts/</guid>
+      <description>Keyboard Layouts (Minha antiga mesa bagunçada)
+Início Lembro da primeira vez que eu entrei em contato com um computador. Acredito que eu tinha os 12 anos (ou algo próximo disso). O ano acredito que era 1996. Mal existiam computadores aqui no Brasil. Tudo nesse equipamento havia me fascinado. Tudo era mágico. E, de todas as parte do computador, o teclado era a ponte para interagir com a máquina. E, por esse motivo, acaba ganhando uma atenção especial por seus usuários.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>untagged on Denis Lee</title>
+    <link>https://denislee.github.io/tags/untagged/</link>
+    <description>Recent content in untagged on Denis Lee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Mon, 07 Sep 2020 00:39:18 -0300</lastBuildDate>
+    
+	<atom:link href="https://denislee.github.io/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Viacao Cometa</title>
+      <link>https://denislee.github.io/posts/viacao-cometa/</link>
+      <pubDate>Mon, 07 Sep 2020 00:39:18 -0300</pubDate>
+      
+      <guid>https://denislee.github.io/posts/viacao-cometa/</guid>
+      <description>Viação Cometa Alert (A aplicação)
+Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.
+Uma das categorias de negócios mais afetada foi o transporte. Com a quarentena, não tem muito sentido as pessoas utilizarem transporte no geral, não sendo essencial.</description>
+    </item>
+    
+  </channel>
+</rss>

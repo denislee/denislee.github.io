@@ -7,21 +7,106 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://denislee.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>about me</title>
-      <link>https://denislee.github.io/posts/</link>
+      <title>from vim to emacs</title>
+      <link>https://denislee.github.io/posts/post-006-vim-to-emacs/</link>
+      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-006-vim-to-emacs/</guid>
+      <description>vim to emacs (Emacs)
+Como eu mudei do Vim para o Emacs? Antes preciso explicar como eu me empolgei com o Vim e como eu descobri ele.</description>
+    </item>
+    
+    <item>
+      <title>tetris</title>
+      <link>https://denislee.github.io/posts/post-007-tetris/</link>
+      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-007-tetris/</guid>
+      <description>Tetris (Tetris)
+Seria possivel criar um IA em Go para jogar tetris da forma mais otimizada possivel?
+Seguem alguns links para o inicio dos meus estudos em ML e AI.
+https://pastebin.com/ZZmSNaHX
+A ideia Tudo surgiu depois de eu assistir alguns videos no YouTube explicando a historia de jogadores que tentam terminar os jogos da maneira mais rapido possivel. A gama de jogos de video game sao infinitas e, em grande parte, sao todos registrados na internet (para provar a veracidade dos recordes).</description>
+    </item>
+    
+    <item>
+      <title>windows 10, but better</title>
+      <link>https://denislee.github.io/posts/post-005-windows-10/</link>
+      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-005-windows-10/</guid>
+      <description>Windows 10, but better (Windows 10)
+Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.
+Os videos que eu assisti foram:
+We fixed Windows 10 - Microsoft will HATE this!</description>
+    </item>
+    
+    <item>
+      <title>Viacao Cometa</title>
+      <link>https://denislee.github.io/posts/viacao-cometa/</link>
+      <pubDate>Mon, 07 Sep 2020 00:39:18 -0300</pubDate>
+      
+      <guid>https://denislee.github.io/posts/viacao-cometa/</guid>
+      <description>Viação Cometa Alert (A aplicação)
+Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.
+Uma das categorias de negócios mais afetada foi o transporte. Com a quarentena, não tem muito sentido as pessoas utilizarem transporte no geral, não sendo essencial.</description>
+    </item>
+    
+    <item>
+      <title>daily vlog</title>
+      <link>https://denislee.github.io/posts/post-003-daily-vlog/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-003-daily-vlog/</guid>
+      <description>Daily vlog (Arquivo pessoal. Eu olhando para a câmera.)
+Depois de ter muitas idéias na cabeça ao assistir diversos vídeos no YouTube. Pensei em colocar o meu sonho de voltar a fazer vídeos em prática. Assim como o próprio vídeo do rapaz que trabalha na Vox dizia: &amp;ldquo;se você tem uma idéia, a melhor coisa que você pode fazer, é colocar ela em prática&amp;rdquo;. Não sei se ele disse exatamente isso, mas foi o que eu entendi.</description>
+    </item>
+    
+    <item>
+      <title>viação cometa alert</title>
+      <link>https://denislee.github.io/posts/post-004-viacao-cometa/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-004-viacao-cometa/</guid>
+      <description>Viação Cometa Alert (A aplicação)
+Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.
+Uma das categorias de negócios mais afetada foi o transporte. Com a quarentena, não tem muito sentido as pessoas utilizarem transporte no geral, não sendo essencial.</description>
+    </item>
+    
+    <item>
+      <title>keyboard layouts</title>
+      <link>https://denislee.github.io/posts/post-002-keyboard-layouts/</link>
+      <pubDate>Mon, 31 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-002-keyboard-layouts/</guid>
+      <description>Keyboard Layouts (Minha antiga mesa bagunçada)
+Início Lembro da primeira vez que eu entrei em contato com um computador. Acredito que eu tinha os 12 anos (ou algo próximo disso). O ano acredito que era 1996. Mal existiam computadores aqui no Brasil. Tudo nesse equipamento havia me fascinado. Tudo era mágico. E, de todas as parte do computador, o teclado era a ponte para interagir com a máquina. E, por esse motivo, acaba ganhando uma atenção especial por seus usuários.</description>
+    </item>
+    
+    <item>
+      <title>Keyboard Layouts</title>
+      <link>https://denislee.github.io/posts/keyboard-layouts/</link>
+      <pubDate>Sun, 30 Aug 2020 00:37:19 -0300</pubDate>
+      
+      <guid>https://denislee.github.io/posts/keyboard-layouts/</guid>
+      <description>Keyboard Layouts (Minha antiga mesa bagunçada)
+Início Lembro da primeira vez que eu entrei em contato com um computador. Acredito que eu tinha os 12 anos (ou algo próximo disso). O ano acredito que era 1996. Mal existiam computadores aqui no Brasil. Tudo nesse equipamento havia me fascinado. Tudo era mágico. E, de todas as parte do computador, o teclado era a ponte para interagir com a máquina. E, por esse motivo, acaba ganhando uma atenção especial por seus usuários.</description>
+    </item>
+    
+    <item>
+      <title>finally a blog</title>
+      <link>https://denislee.github.io/posts/post-001-finally-a-blog/</link>
       <pubDate>Sun, 30 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://denislee.github.io/posts/</guid>
-      <description>(Me @ covid19 hair style)
-Denis Lee Backend Developer (mainly Go) / DevOps
-Twitter: twitter.com/denislee
-YouTube: youtube.com/denislees
-Instagram: instagram.com/denislee</description>
+      <guid>https://denislee.github.io/posts/post-001-finally-a-blog/</guid>
+      <description>Finally a blog After a few attempts to create a blog without paying or depending on any SaaS. I finally found a nice tool named hastie. An incredible tool that can transform any set of markdown files into a static website. Simple to use and can be easily hosted here in github.io.
+I highly recommend this tool. (:</description>
     </item>
     
   </channel>
