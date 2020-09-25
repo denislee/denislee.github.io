@@ -1,8 +1,11 @@
 ---
-title: tetris
-layout: post
-category: blog
+title: "Tetris"
 date: 2020-09-09
+draft: true
+toc: false
+images:
+tags: 
+  - untagged
 ---
 
 # Tetris

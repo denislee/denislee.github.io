@@ -1,8 +1,11 @@
 ---
-title: keyboard layouts
-layout: post
-category: blog
+title: "Keyboard Layouts"
 date: 2020-08-31
+draft: true
+toc: false
+images:
+tags: 
+  - untagged
 ---
 
 # Keyboard Layouts

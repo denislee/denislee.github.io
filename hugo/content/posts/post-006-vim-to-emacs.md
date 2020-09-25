@@ -1,8 +1,11 @@
 ---
-title: from vim to emacs
-layout: post
-category: blog
+title: "From Vim to Emacs"
 date: 2020-09-09
+draft: true
+toc: false
+images:
+tags: 
+  - untagged
 ---
 
 # vim to emacs

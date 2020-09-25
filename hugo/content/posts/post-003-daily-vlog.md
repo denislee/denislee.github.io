@@ -1,8 +1,11 @@
 ---
-title: daily vlog
-layout: post
-category: blog
+title: "Daily vlog"
 date: 2020-09-07
+draft: true
+toc: false
+images:
+tags: 
+  - untagged
 ---
 
 # Daily vlog

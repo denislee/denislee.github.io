@@ -1,8 +1,11 @@
 ---
-title: finally a blog
-layout: post
-category: blog
+title: "Finally a blog"
 date: 2020-08-30
+draft: true
+toc: false
+images:
+tags: 
+  - untagged
 ---
 
 # Finally a blog 

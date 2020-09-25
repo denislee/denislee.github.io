@@ -10,7 +10,7 @@
 		<atom:link href="https://denislee.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
-			<title>from vim to emacs</title>
+			<title>From Vim to Emacs</title>
 			<link>https://denislee.github.io/posts/post-006-vim-to-emacs/</link>
 			<pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
 			
@@ -25,7 +25,7 @@ Como eu mudei do Vim para o Emacs? Antes preciso explicar como eu me empolgei co
 		</item>
 		
 		<item>
-			<title>tetris</title>
+			<title>Tetris</title>
 			<link>https://denislee.github.io/posts/post-007-tetris/</link>
 			<pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
 			
@@ -50,7 +50,7 @@ A ideia Tudo surgiu depois de eu assistir alguns videos no YouTube explicando a 
 		</item>
 		
 		<item>
-			<title>windows 10, but better</title>
+			<title>Windows 10, but better</title>
 			<link>https://denislee.github.io/posts/post-005-windows-10/</link>
 			<pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
 			
@@ -221,84 +221,7 @@ expand -F:* name_of_the_cumulative_package.msu C:\Cumulative
 		</item>
 		
 		<item>
-			<title>Viacao Cometa</title>
-			<link>https://denislee.github.io/posts/viacao-cometa/</link>
-			<pubDate>Mon, 07 Sep 2020 00:39:18 -0300</pubDate>
-			
-			<guid>https://denislee.github.io/posts/viacao-cometa/</guid>
-			<description>Viação Cometa Alert (A aplicação)
-Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.
-Uma das categorias de negócios mais afetada foi o transporte. Com a quarentena, não tem muito sentido as pessoas utilizarem transporte no geral, não sendo essencial.</description>
-			<content type="html"><![CDATA[<h1 id="viação-cometa-alert">Viação Cometa Alert</h1>
-<p><img src="post-004-cover.webp" alt="viação cometa alert"></p>
-<p><em>(A aplicação)</em></p>
-<p>Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.</p>
-<p>Uma das categorias de negócios mais afetada foi o transporte. Com a quarentena, não tem muito sentido as pessoas utilizarem transporte no geral, não sendo essencial. Por esse motivo, viagens foram canceladas e futuras passagens impedidas de serem compradas.</p>
-<p>Antes da pandemia aparecer em nossa dimensão, eu estava me encontrando com uma pessoa e, depois de tanto esperar (pacientemente), pude ver que as passagens começaram a serem vendidas novamente. Porém, reparei na minha repetição de entrar no site para verificar a disponibilidade de passagens. E vi a oportunidade de poder automatizar isso. Com isso em mente, surgiu a idéia de criar uma aplicação que faz essa verificação para mim.</p>
-<h1 id="o-plano">O Plano</h1>
-<p>O fluxo seria o seguinte:</p>
-<ul>
-<li>verificação de passagens no site</li>
-<li>alertar os horários pelo whatsapp</li>
-</ul>
-<p>Dois passos.</p>
-<h1 id="o-site">O site</h1>
-<p>Imaginei que precisaria fazer o tratamento do HTML do site. Porém, para a minha alegria, isso não seria necessário, uma vez que existe um endpoint que o front consulta, deixando tudo bem mais fácil.</p>
-<p>Logo abaixo dá para ver que um simples GET já é possível receber o JSON com as cidades que a empresa trabalha.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ http https://www.viacaocometa.com.br/content/jca/cometa/pt-br/jcr:content.getDestinos.json?origem<span class="o">=</span><span class="m">467</span>
-HTTP/1.1 <span class="m">200</span> OK
-X-Vhost: www.viacaocometa.com.br
-
-<span class="o">{</span>
-    <span class="s2">&#34;listaLocalidade&#34;</span>: <span class="o">{</span>
-        <span class="s2">&#34;erro&#34;</span>: <span class="o">{</span>
-            <span class="s2">&#34;descricaoAlerta&#34;</span>: <span class="s2">&#34;&#34;</span>,
-            <span class="s2">&#34;descricaoErro&#34;</span>: <span class="s2">&#34;&#34;</span>,
-            <span class="s2">&#34;ocorreuAlerta&#34;</span>: false,
-            <span class="s2">&#34;ocorreuErro&#34;</span>: false,
-            <span class="s2">&#34;sessionValid&#34;</span>: <span class="nb">true</span>
-        <span class="o">}</span>,
-        <span class="s2">&#34;lsLocalidade&#34;</span>: <span class="o">[</span>
-            <span class="o">{</span>
-                <span class="s2">&#34;cidade&#34;</span>: <span class="s2">&#34;A PRATA&#34;</span>,
-                <span class="s2">&#34;id&#34;</span>: 443,
-                <span class="s2">&#34;uf&#34;</span>: <span class="s2">&#34;SP&#34;</span>
-            <span class="o">}</span>,
-            <span class="o">{</span>
-                <span class="s2">&#34;cidade&#34;</span>: <span class="s2">&#34;AMERICANA&#34;</span>,
-                <span class="s2">&#34;id&#34;</span>: 64,
-                <span class="s2">&#34;uf&#34;</span>: <span class="s2">&#34;SP&#34;</span>
-            <span class="o">}</span>,
-            ...
-             <span class="o">{</span>
-                <span class="s2">&#34;cidade&#34;</span>: <span class="s2">&#34;ÁGUAS DA PRATA&#34;</span>,
-                <span class="s2">&#34;id&#34;</span>: 14,
-                <span class="s2">&#34;uf&#34;</span>: <span class="s2">&#34;SP&#34;</span>
-            <span class="o">}</span>
-        <span class="o">]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div><p>E então, depois de facilitar muito o meu trabalho retornando um JSON, foi simplesmente configurar como enviar uma mensagem pelo Whatsapp.</p>
-<h1 id="whatsapp">Whatsapp</h1>
-<p>Para isso, uma galera fez um excelente trabalho de simular todo o Whatsapp Web, deixando só o esforco de chamar uma função para enviar uma mensagem (enviar uma mensagem seria única ação que eu precisaria, uma vez que eu não estou fazendo um bot de conversa).</p>
-<p>Precisei autorizar o uso do meu número (utilizando o QR Code). Após isso, foi só configurar o destinatário e pronto. Nesse caso, eu fiz para mandar mensagem para mim mesmo.</p>
-<p><a href="https://github.com/Rhymen/go-whatsapp">https://github.com/Rhymen/go-whatsapp</a></p>
-<p><img src="post-004-msg.webp" alt="mensagem no whatsapp"></p>
-<p><em>(Como a mensagem fica no WhatsApp)</em></p>
-<h1 id="cronjob">CronJob</h1>
-<p>Para fazer a verificação de tempos em tempos pensei em diversas estratégias.</p>
-<p>A primeira estratégia foi em utilizar o:</p>
-<p><a href="https://github.com/robfig/cron">https://github.com/robfig/cron</a></p>
-<p>Porém, para deixar a aplicação cuidar disso, eu precisaria que ele precisasse ficar rodando indefinitivamente. Com o risco da aplicação morrer ou qualquer outra instabilidade acontecer, preferi passar a responsabilidade para o sistema operacional. Nesse caso, o Linux.</p>
-<p>Como o Linux não possui muitos problemas em executar os binários gerados pelo Go, então isso não seria um problema também.</p>
-<h1 id="github">Github</h1>
-<p>Para quem tiver curiosidade em verificar o código da aplicação simples que eu fiz, segue o link:</p>
-<p><a href="https://github.com/denislee/viacaocometa-alert">https://github.com/denislee/viacaocometa-alert</a></p>
-]]></content>
-		</item>
-		
-		<item>
-			<title>daily vlog</title>
+			<title>Daily vlog</title>
 			<link>https://denislee.github.io/posts/post-003-daily-vlog/</link>
 			<pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
 			
@@ -354,7 +277,7 @@ Depois de ter muitas idéias na cabeça ao assistir diversos vídeos no YouTube.
 		</item>
 		
 		<item>
-			<title>viação cometa alert</title>
+			<title>Viação Cometa Alert</title>
 			<link>https://denislee.github.io/posts/post-004-viacao-cometa/</link>
 			<pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
 			
@@ -431,7 +354,7 @@ X-Vhost: www.viacaocometa.com.br
 		</item>
 		
 		<item>
-			<title>keyboard layouts</title>
+			<title>Keyboard Layouts</title>
 			<link>https://denislee.github.io/posts/post-002-keyboard-layouts/</link>
 			<pubDate>Mon, 31 Aug 2020 00:00:00 +0000</pubDate>
 			
@@ -475,51 +398,7 @@ Início Lembro da primeira vez que eu entrei em contato com um computador. Acred
 		</item>
 		
 		<item>
-			<title>Keyboard Layouts</title>
-			<link>https://denislee.github.io/posts/keyboard-layouts/</link>
-			<pubDate>Sun, 30 Aug 2020 00:37:19 -0300</pubDate>
-			
-			<guid>https://denislee.github.io/posts/keyboard-layouts/</guid>
-			<description>Keyboard Layouts (Minha antiga mesa bagunçada)
-Início Lembro da primeira vez que eu entrei em contato com um computador. Acredito que eu tinha os 12 anos (ou algo próximo disso). O ano acredito que era 1996. Mal existiam computadores aqui no Brasil. Tudo nesse equipamento havia me fascinado. Tudo era mágico. E, de todas as parte do computador, o teclado era a ponte para interagir com a máquina. E, por esse motivo, acaba ganhando uma atenção especial por seus usuários.</description>
-			<content type="html"><![CDATA[<h1 id="keyboard-layouts">Keyboard Layouts</h1>
-<p><img src="post-002-cover.webp" alt="keyboard layouts">
-<em>(Minha antiga mesa bagunçada)</em></p>
-<h2 id="início">Início</h2>
-<p>Lembro da primeira vez que eu entrei em contato com um computador. Acredito que eu tinha os 12 anos (ou algo próximo disso). O ano acredito que era 1996. Mal existiam computadores aqui no Brasil. Tudo nesse equipamento havia me fascinado. Tudo era mágico. E, de todas as parte do computador, o teclado era a ponte para interagir com a máquina. E, por esse motivo, acaba ganhando uma atenção especial por seus usuários. Você precisava saber onde estavam as teclas para se falar com este artefato. Saber o que aconteceria depois de pressionar cada tecla. Teclado. Dígito. Digital. (Essa sequência de palavras não teve sentido algum, porém achei bonito e poético.)</p>
-<p>Então, a primeira vista, o julgamento que tínhamos se a pessoa possuía o conhecimento sobre o computador era diretamente proporcional a sua habilidade e destreza sobre o teclado (ok, o mouse também, mas não era tão glorioso como o teclado). Uma referência errada, mas era o que tinha para época.</p>
-<p>Passado um tempo e descobri que era tudo bobagem.</p>
-<h2 id="vim-não-o-verbo-a-aplicação">Vim (não o verbo, a aplicação)</h2>
-<p>Depois de mais velho, tive a oportunidade de ser apresentado, pelo meu irmão, o editor de texto chamado &ldquo;Vim&rdquo;. Ele não usava efetivamente o editor em si, mas fez uma bela duma propaganda dizendo toda a filosofia por trás do editor. O sentido do posicionamento da mão direita sobre as teclas específicas. A falta de necessidade de usar o mouse para ser mais eficiente na navegação no texto. Enfim, você já deve conhecer toda essa história. Só sei que eu comprei a ideia e quis experimentar.</p>
-<p>Logo encontrei a primeira dificuldade. Aquele posicionamento da mão direita, não fazia nenhum sentido para mim. Nunca havia posicionado o indicador da mão direita na tecla &ldquo;J&rdquo;. Aliás, nunca havia entendido o motivo de existir essa marcação nas teclas &ldquo;J&rdquo; e &ldquo;F&rdquo;. Então, a ficha caiu. Eu precisava fazer um curso de digitação. Tinha um passo antes que eu deveria cumprir antes de se quer começar a imaginar a usar esse editor de texto tão simples, porém com muita filosofia por trás (com a promessa de transformar você na pessoa mais eficiente do mundo).</p>
-<p>Encontrei alguns sites que ensinavam a digitar corretamente. E se você já chegou a fazer esses exercícios e tem uma força de vontade monstruosa; sabe que eles viciam. Sim, os sites de você treinar e ter dores nos dedos. Dedos que antes foram forjados a não ter disciplina e moviam livremente. Sem regras. Sem normas. Sem se importar em trombar em teclas erradas, ou recorrer à ajuda dos seus queridos olhos (já ocupados em fazer muitas outras tarefas). Eu fiquei viciado nesse sites.</p>
-<p>Em pouco tempo, pode já começar a digitar sem olhar para o teclado e isso já foi o suficiente para embarcar na aventura de aprender a usar o Vim (layout que eu sempre usei e uso até hoje. Inclusive, esse texto está sendo escrito no&hellip; Emacs, mas essa é uma história que ficará para próxima). E nunca mais tive mais interesse em aumentar a minha velocidade ou precisão da minha digitação. Toda vez que eu fazia alguma medição, ficava entre 60 a 80 (máx).</p>
-<h2 id="o-plateau">O plateau</h2>
-<p>Certo, confesso que, uma vez ou outra eu tentava quebrar o limite, testando as minhas habilidades no site de corrida de digitação. mas nunca tinha algo fora do comum. Achava que eu, realmente, havia chegado no meu limite.</p>
-<p>Então, descobri que existiam novos layouts de teclados. Dvorak, Colemak, etc. Todos com o objetivo de consertar o falho QWERTY que tanto usei.</p>
-<p>Pronto! Encontrei a solução para poder ultrapassar a meta dos 100 palavras por minutos. Estava empenhado em começar a finalmente configurar o meu teclado e começar novamente com passos de bebê.</p>
-<p>Estava, até eu encontrar esse vídeo. (Não precisa assistir ele, vou resumir no próximo parágrafo.)</p>
-<p><a href="https://www.youtube.com/watch?v=a2Nb9QVujgU">https://www.youtube.com/watch?v=a2Nb9QVujgU</a></p>
-<p>O garoto registrou a epopéia e trabalho que teve para sair do QWERTY e cair no Workman. Passou 3 meses só usando esse teclado. Ótimo, com certeza ele vai conseguir digitar mais rápido, certo? Errado. Não só ele não digitava mais rápido como antes, mas como ele conseguiu esquecer como digitar usando o QWERTY. Ou seja, só prejuízo.</p>
-<p>E outro fato curioso é o vídeo que ele encontrou ao pesquisar se é possível alternar facilmente entre layouts diferentes. E adivinhe qual vídeo ele encontrou?</p>
-<p><a href="https://www.youtube.com/watch?v=iajFOneci04">https://www.youtube.com/watch?v=iajFOneci04</a></p>
-<p>Um outro garoto que alterna entre três layouts. Sim, é possível alternar, mas o mais incrível (além dele conseguir alterar os teclados sem intervalo algum e manter uma velocidade surreal), é o fato dele digitar mais rápido no QWERTY. Motivo? Dentre os três layouts, o que ele mais praticou, com certeza foi o QWERTY.</p>
-<h2 id="conclusão">Conclusão</h2>
-<p>Enfim, fiquei com o QWERTY no final das contas. E comecei a praticar nesse velho layout que sempre me acompanhou durante a minha vida.</p>
-<p>Encontrei sites interessantes como:</p>
-<ul>
-<li><a href="https://10fastfingers.com/">https://10fastfingers.com/</a></li>
-<li><a href="https://monkey-type.com/">https://monkey-type.com/</a></li>
-<li><a href="https://www.keybr.com/">https://www.keybr.com/</a></li>
-</ul>
-<p>E adivinhem só, depois de alguns dias de treino o que aconteceu?</p>
-<p><img src="post-002-wpm.webp" alt="wpm"></p>
-<p>Uhul!</p>
-]]></content>
-		</item>
-		
-		<item>
-			<title>finally a blog</title>
+			<title>Finally a blog</title>
 			<link>https://denislee.github.io/posts/post-001-finally-a-blog/</link>
 			<pubDate>Sun, 30 Aug 2020 00:00:00 +0000</pubDate>
 			
