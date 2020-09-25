@@ -268,12 +268,9 @@ As idéias que surgiram na minha cabeça, são simples.</description>
 			<pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
 			
 			<guid>https://denislee.github.io/posts/post-004-viacao-cometa/</guid>
-			<description>(A aplicação)
-Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.
+			<description>Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.
 Uma das categorias de negócios mais afetada foi o transporte. Com a quarentena, não tem muito sentido as pessoas utilizarem transporte no geral, não sendo essencial.</description>
-			<content type="html"><![CDATA[<p><img src="post-004-cover.webp" alt="viação cometa alert"></p>
-<p><em>(A aplicação)</em></p>
-<p>Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.</p>
+			<content type="html"><![CDATA[<p>Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.</p>
 <p>Uma das categorias de negócios mais afetada foi o transporte. Com a quarentena, não tem muito sentido as pessoas utilizarem transporte no geral, não sendo essencial. Por esse motivo, viagens foram canceladas e futuras passagens impedidas de serem compradas.</p>
 <p>Antes da pandemia aparecer em nossa dimensão, eu estava me encontrando com uma pessoa e, depois de tanto esperar (pacientemente), pude ver que as passagens começaram a serem vendidas novamente. Porém, reparei na minha repetição de entrar no site para verificar a disponibilidade de passagens. E vi a oportunidade de poder automatizar isso. Com isso em mente, surgiu a idéia de criar uma aplicação que faz essa verificação para mim.</p>
 <h2 id="o-plano">O Plano</h2>
@@ -321,7 +318,7 @@ X-Vhost: www.viacaocometa.com.br
 <span class="o">}</span>
 </code></pre></div><p>E então, depois de facilitar muito o meu trabalho retornando um JSON, foi simplesmente configurar como enviar uma mensagem pelo Whatsapp.</p>
 <h2 id="whatsapp">Whatsapp</h2>
-<p>Para isso, uma galera fez um excelente trabalho de simular todo o Whatsapp Web, deixando só o esforco de chamar uma função para enviar uma mensagem (enviar uma mensagem seria única ação que eu precisaria, uma vez que eu não estou fazendo um bot de conversa).</p>
+<p>Para isso, uma galera fez um excelente trabalho de simular todo o Whatsapp Web, deixando só o esforço de chamar uma função para enviar uma mensagem (enviar uma mensagem seria única ação que eu precisaria, uma vez que eu não estou fazendo um bot de conversa).</p>
 <p>Precisei autorizar o uso do meu número (utilizando o QR Code). Após isso, foi só configurar o destinatário e pronto. Nesse caso, eu fiz para mandar mensagem para mim mesmo.</p>
 <p><a href="https://github.com/Rhymen/go-whatsapp">https://github.com/Rhymen/go-whatsapp</a></p>
 <p><img src="post-004-msg.webp" alt="mensagem no whatsapp"></p>

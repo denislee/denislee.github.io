@@ -4,13 +4,9 @@ date: 2020-09-07
 draft: true
 toc: false
 images:
-tags: 
+tags:
   - untagged
 ---
-
-![viação cometa alert](post-004-cover.webp)
-
-*(A aplicação)*
 
 Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.
 
@@ -73,7 +69,7 @@ E então, depois de facilitar muito o meu trabalho retornando um JSON, foi simpl
 
 ## Whatsapp
 
-Para isso, uma galera fez um excelente trabalho de simular todo o Whatsapp Web, deixando só o esforco de chamar uma função para enviar uma mensagem (enviar uma mensagem seria única ação que eu precisaria, uma vez que eu não estou fazendo um bot de conversa).
+Para isso, uma galera fez um excelente trabalho de simular todo o Whatsapp Web, deixando só o esforço de chamar uma função para enviar uma mensagem (enviar uma mensagem seria única ação que eu precisaria, uma vez que eu não estou fazendo um bot de conversa).
 
 Precisei autorizar o uso do meu número (utilizando o QR Code). Após isso, foi só configurar o destinatário e pronto. Nesse caso, eu fiz para mandar mensagem para mim mesmo.
 
