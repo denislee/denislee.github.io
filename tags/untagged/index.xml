@@ -7,39 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://denislee.github.io/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Dificuldades em publicar aqui</title>
-      <link>https://denislee.github.io/posts/post-009-back/</link>
-      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://denislee.github.io/posts/post-009-back/</guid>
-      <description>Olá,
-Depois de um bom tempo longe e frustrado com a falta de ferramentas para publicar bem o blog (a limitação do hugo para colocar facilmente imagens comparado aos outros blog atuais com muitas facilidades), acabou me afastando de escrever mais por aqui.
-Mas, com a ajuda de alguns scrips, acredito que fique mais freqüente as minha publicações (e, quem sabe, do blog vire vídeos novamente haha)
-Atualmente estou utilizando mais o Instagram de redes sociais.</description>
-    </item>
-    
-    <item>
-      <title>do i3 para o Sway</title>
-      <link>https://denislee.github.io/posts/post-011-sway/</link>
-      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://denislee.github.io/posts/post-011-sway/</guid>
-      <description>Motivação Uma das poucas coisas que me fariam mudar de ideia de trocar de sistema operacional, window manager ou qualquer software que eu uso no computador, com certeza, é velocidade/performance (por isso que, normalmente, não gosto de aplicações feitas em Electron, pois costumam ser bem devagar).
-E, visto que o Sway é a transição mais tranquila para usuários i3, porém com um twist bem importante para a performance, pois utiliza o wayland no lugar do xorg.</description>
-    </item>
-    
-    <item>
-      <title>Sou baunilha</title>
-      <link>https://denislee.github.io/posts/post-010-baunilha/</link>
-      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://denislee.github.io/posts/post-010-baunilha/</guid>
-      <description>Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).
-Ou seja, quando começo a usar algo, costumo deixar as coisas exatamente como estão. Só vou alterar algo no meu processo, apenas quando algo realmente me incomoda ou para atividades realmente repetitivas. Caso contrário, eu não procuro lugar para me coçar.</description>
-    </item>
-    
+    <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://denislee.github.io/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows 10, but better</title>
       <link>https://denislee.github.io/posts/post-005-windows-10/</link>
