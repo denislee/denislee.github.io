@@ -25,5 +25,3 @@ Outro motivador foi as minhas jogatinas nas lan houses com meus amigos (jogando 
 Mais um caso foi quando eu cogitei tentar aprender outro layout de teclado para aumentar a velocidade de digitação, evitar tendinite e otimizar a forma como eu uso a minha preciosa energia digitando. Adivinha como todos os teclados (de alfabeto romano) utilizam? Pois é, desisti na hora. Não, obrigado.
 
 Nem tudo são flores, obviamente. Hoje em dia, eu dificilmente acabo vendo a forma de personalizar ou tenho preguiça com mais freqüência em tentar solucionar um problema de usabilidade em minhas ferramentas. Simplesmente engulo o problema ou levanto a bunda da cadeira quando realmente estiver me irritando de verdade.
-
-

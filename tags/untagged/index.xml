@@ -21,6 +21,16 @@ Atualmente estou utilizando mais o Instagram de redes sociais.</description>
     </item>
     
     <item>
+      <title>do i3 para o Sway</title>
+      <link>https://denislee.github.io/posts/post-011-sway/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-011-sway/</guid>
+      <description>Motivação Uma das poucas coisas que me fariam mudar de ideia de trocar de sistema operacional, window manager ou qualquer software que eu uso no computador, com certeza, é velocidade/performance (por isso que, normalmente, não gosto de aplicações feitas em Electron, pois costumam ser bem devagar).
+E, visto que o Sway é a transição mais tranquila para usuários i3, porém com um twist bem importante para a performance, pois utiliza o wayland no lugar do xorg.</description>
+    </item>
+    
+    <item>
       <title>Sou baunilha</title>
       <link>https://denislee.github.io/posts/post-010-baunilha/</link>
       <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
