@@ -99,6 +99,31 @@ xkb_symbols &quot;basic&quot; {
 		</item>
 		
 		<item>
+			<title>qutebrowser</title>
+			<link>https://denislee.github.io/posts/post-012-qutebrowser/</link>
+			<pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+			
+			<guid>https://denislee.github.io/posts/post-012-qutebrowser/</guid>
+			<description>Motivação Como todo usuário de Vim e agraciado pelas suas teclas de atalho, além do window manager que melhor atende suas necessidades e potencializa o seu aprendizado no Vim, o navegador seria o próximo a ser beneficiado por essa memória muscular de navegação: hjkl.
+Por isso, a escolha mais comum de navegador seria o qutebrowser. Seguem algumas configurações (pequenas) que eu fiz, para deixar ele minimamente utilizável.
+Configurações Você poderá editar o arquivo .</description>
+			<content type="html"><![CDATA[<h1 id="motivação">Motivação</h1>
+<p>Como todo usuário de Vim e agraciado pelas suas teclas de atalho, além do window manager que melhor atende suas necessidades e potencializa o seu aprendizado no Vim, o navegador seria o próximo a ser beneficiado por essa memória muscular de navegação: hjkl.</p>
+<p>Por isso, a escolha mais comum de navegador seria o qutebrowser. Seguem algumas configurações (pequenas) que eu fiz, para deixar ele minimamente utilizável.</p>
+<h1 id="configurações">Configurações</h1>
+<p>Você poderá editar o arquivo <code>.config/qutebrowser/config.py</code> diretamente ou gerar/salvar um arquivo com o comando <code>:config-save-py --force</code></p>
+<p>E para editar as configurações correntes pelo próprio navegador com o comando: <code>:set</code> e depois salvar usando o <code>:config-save-py --force</code></p>
+<p>Seguem as configurações que eu deixo:</p>
+<h1 id="urlsearchengines">url.searchengines</h1>
+<pre><code>c.url.searchengines = {'DEFAULT': 'https://www.startpage.com/do/dsearch?query={}'}
+</code></pre><h1 id="contentnotifications">content.notifications</h1>
+<pre><code>c.content.notifications = False
+</code></pre><h1 id="contentgeolocation">content.geolocation</h1>
+<pre><code>c.content.notifications = False
+</code></pre>]]></content>
+		</item>
+		
+		<item>
 			<title>Sou baunilha</title>
 			<link>https://denislee.github.io/posts/post-010-baunilha/</link>
 			<pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>

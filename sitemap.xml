@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://denislee.github.io/tags/browser/</loc>
+    <lastmod>2021-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://denislee.github.io/tags/default/</loc>
     <lastmod>2021-02-22T00:00:00+00:00</lastmod>
   </url>
@@ -29,6 +34,16 @@
   
   <url>
     <loc>https://denislee.github.io/posts/</loc>
+    <lastmod>2021-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://denislee.github.io/tags/qutebrowser/</loc>
+    <lastmod>2021-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://denislee.github.io/posts/post-012-qutebrowser/</loc>
     <lastmod>2021-02-22T00:00:00+00:00</lastmod>
   </url>
   
