@@ -7,14 +7,48 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 22 Feb 2021 00:45:33 -0300</lastBuildDate><atom:link href="https://denislee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://denislee.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Post 010 Teste</title>
-      <link>https://denislee.github.io/posts/post-010-teste/</link>
-      <pubDate>Mon, 22 Feb 2021 00:45:33 -0300</pubDate>
+      <title>Dificuldades em publicar aqui</title>
+      <link>https://denislee.github.io/posts/post-009-back/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://denislee.github.io/posts/post-010-teste/</guid>
-      <description>teste</description>
+      <guid>https://denislee.github.io/posts/post-009-back/</guid>
+      <description>Olá,
+Depois de um bom tempo longe e frustrado com a falta de ferramentas para publicar bem o blog (a limitação do hugo para colocar facilmente imagens comparado aos outros blog atuais com muitas facilidades), acabou me afastando de escrever mais por aqui.
+Mas, com a ajuda de alguns scrips, acredito que fique mais freqüente as minha publicações (e, quem sabe, do blog vire vídeos novamente haha)
+Atualmente estou utilizando mais o Instagram de redes sociais.</description>
+    </item>
+    
+    <item>
+      <title>Windows 10, but better</title>
+      <link>https://denislee.github.io/posts/post-005-windows-10/</link>
+      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-005-windows-10/</guid>
+      <description>Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.
+Os videos que eu assisti foram:
+We fixed Windows 10 - Microsoft will HATE this! https://www.youtube.com/watch?v=nwkiU6GG-YU
+Windows 10 for Power Users – Private, Secure, Zero Bloatware (Windows 10 Ameliorated) https://www.</description>
+    </item>
+    
+    <item>
+      <title>Daily vlog</title>
+      <link>https://denislee.github.io/posts/post-003-daily-vlog/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-003-daily-vlog/</guid>
+      <description>Depois de ter muitas idéias na cabeça ao assistir diversos vídeos no YouTube. Pensei em colocar o meu sonho de voltar a fazer vídeos em prática. Assim como o próprio vídeo do rapaz que trabalha na Vox dizia: &amp;ldquo;se você tem uma idéia, a melhor coisa que você pode fazer, é colocar ela em prática&amp;rdquo;. Não sei se ele disse exatamente isso, mas foi o que eu entendi.
+As idéias que surgiram na minha cabeça, são simples.</description>
+    </item>
+    
+    <item>
+      <title>Keyboard Layouts</title>
+      <link>https://denislee.github.io/posts/post-002-keyboard-layouts/</link>
+      <pubDate>Mon, 31 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-002-keyboard-layouts/</guid>
+      <description>Início Lembro da primeira vez que eu entrei em contato com um computador. Acredito que eu tinha os 12 anos (ou algo próximo disso). O ano acredito que era 1996. Mal existiam computadores aqui no Brasil. Tudo nesse equipamento havia me fascinado. Tudo era mágico. E, de todas as parte do computador, o teclado era a ponte para interagir com a máquina. E, por esse motivo, acaba ganhando uma atenção especial por seus usuários.</description>
     </item>
     
   </channel>

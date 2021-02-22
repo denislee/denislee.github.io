@@ -1,7 +1,7 @@
 ---
 title: "Keyboard Layouts"
 date: 2020-08-31
-draft: true
+draft: false
 toc: false
 images:
 tags:
