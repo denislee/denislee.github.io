@@ -1,7 +1,7 @@
 ---
 title: "Sou baunilha"
 date: 2021-02-22
-draft: true
+draft: false
 toc: false
 images:
 tags:
