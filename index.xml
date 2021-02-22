@@ -6,6 +6,16 @@
     <description>Recent content on Denis Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://denislee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Mon, 22 Feb 2021 00:45:33 -0300</lastBuildDate><atom:link href="https://denislee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Post 010 Teste</title>
+      <link>https://denislee.github.io/posts/post-010-teste/</link>
+      <pubDate>Mon, 22 Feb 2021 00:45:33 -0300</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-010-teste/</guid>
+      <description>teste</description>
+    </item>
+    
   </channel>
 </rss>

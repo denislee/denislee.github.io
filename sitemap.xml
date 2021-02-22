@@ -4,10 +4,27 @@
   
   <url>
     <loc>https://denislee.github.io/</loc>
+    <lastmod>2021-02-22T00:45:33-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://denislee.github.io/posts/post-010-teste/</loc>
+    <lastmod>2021-02-22T00:45:33-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://denislee.github.io/posts/</loc>
+    <lastmod>2021-02-22T00:45:33-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://denislee.github.io/tags/</loc>
+    <lastmod>2021-02-22T00:45:33-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://denislee.github.io/tags/untagged/</loc>
+    <lastmod>2021-02-22T00:45:33-03:00</lastmod>
   </url>
   
 </urlset>
