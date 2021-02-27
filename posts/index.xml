@@ -68,7 +68,7 @@ Alternativas Os meus navegadores favoritos sempre foram:
 <p>Create a chrome directory if it doesn&rsquo;t exist:</p>
 </li>
 </ol>
-<pre><code>mkdir -p chrome
+<pre><code>mkdir chrome
 cd chrome
 </code></pre><ol start="5">
 <li>Copy the <code>userChrome.css</code> file from this repository to that folder</li>

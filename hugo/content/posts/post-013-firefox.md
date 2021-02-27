@@ -61,7 +61,7 @@ To install the theme:
 4. Create a chrome directory if it doesn't exist:
 
 ```
-mkdir -p chrome
+mkdir chrome
 cd chrome
 ```
 
