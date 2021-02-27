@@ -16,16 +16,15 @@
 			
 			<guid>https://denislee.github.io/posts/post-013-firefox/</guid>
 			<description>Motivação O meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior) e infelizmente eu estive tendo alguns problemas com ele.
- crashes constantes travamento do meu computador todo (teclado e mouse pararam de funcionar)  Acredito que esses já são bons motivos para ver alternativas.
-Alternativas Os meus navegadores favoritos sempre foram:
- Firefox Brave Wyeb  Porém, sempre gostei mais do firefox (só para ficar o mais longe do Chrome possível).</description>
+ crashes constantes travamento do meu computador todo (teclado e mouse pararam de funcionar)  Acredito que esses já são bons motivos para ver alternativas. E, tudo isso, infelizmente deve fazer parte da incompatibilidade nativa de funcionar no Wayland.
+Alternativas Os meus navegadores favoritos sempre foram:</description>
 			<content type="html"><![CDATA[<h1 id="motivação">Motivação</h1>
 <p>O meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior) e infelizmente eu estive tendo alguns problemas com ele.</p>
 <ul>
 <li>crashes constantes</li>
 <li>travamento do meu computador todo (teclado e mouse pararam de funcionar)</li>
 </ul>
-<p>Acredito que esses já são bons motivos para ver alternativas.</p>
+<p>Acredito que esses já são bons motivos para ver alternativas. E, tudo isso, infelizmente deve fazer parte da incompatibilidade nativa de funcionar no Wayland.</p>
 <h1 id="alternativas">Alternativas</h1>
 <p>Os meus navegadores favoritos sempre foram:</p>
 <ul>
@@ -34,9 +33,10 @@ Alternativas Os meus navegadores favoritos sempre foram:
 <li>Wyeb</li>
 </ul>
 <p>Porém, sempre gostei mais do firefox (só para ficar o mais longe do Chrome possível).</p>
-<p>Logo na minha primeira busca já encontrei esse link sobre como alterar o firefox para ficar com a cara do qutebrowser</p>
-<p><a href="https://github.com/aadilayub/firefox-i3wm-theme">https://github.com/aadilayub/firefox-i3wm-theme</a></p>
-<p>Era exatamente o que eu precisava. Mas, ainda pretendo buscar mais algumas soluções na internet. De todo modo, vou deixar aqui as instruções dele:</p>
+<p>Logo na minha primeira busca já encontrei esse link sobre como alterar o firefox para ficar com a cara do qutebrowser (sério, ficou bem parecido).</p>
+<p><a href="https://github.com/aadilayub/firefox-i3wm-theme">https://github.com/aadilayub/firefox-i3wm-theme</a>
+<a href="https://github.com/denislee/firefox-i3wm-theme">https://github.com/denislee/firefox-i3wm-theme</a> (meu fork)</p>
+<p>Era exatamente o que eu precisava. Mas, ainda pretendo buscar mais algumas soluções na internet. De todo modo, vou deixar aqui as instruções dele (caso o repositório dele vá para o beleléu, ou eu apague sem querer o fork):</p>
 <h1 id="firefox-i3-theme">Firefox i3 Theme</h1>
 <p><img src="screenshot.png" alt=""></p>
 <p>A theme for Firefox meant to emulate <a href="http://qutebrowser.org">qutebrowser</a> and integrate with the i3 window manager.</p>

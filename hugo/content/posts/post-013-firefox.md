@@ -16,7 +16,7 @@ O meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior
 - crashes constantes
 - travamento do meu computador todo (teclado e mouse pararam de funcionar)
 
-Acredito que esses já são bons motivos para ver alternativas.
+Acredito que esses já são bons motivos para ver alternativas. E, tudo isso, infelizmente deve fazer parte da incompatibilidade nativa de funcionar no Wayland.
 
 # Alternativas
 
@@ -28,11 +28,12 @@ Os meus navegadores favoritos sempre foram:
 
 Porém, sempre gostei mais do firefox (só para ficar o mais longe do Chrome possível).
 
-Logo na minha primeira busca já encontrei esse link sobre como alterar o firefox para ficar com a cara do qutebrowser
+Logo na minha primeira busca já encontrei esse link sobre como alterar o firefox para ficar com a cara do qutebrowser (sério, ficou bem parecido).
 
 https://github.com/aadilayub/firefox-i3wm-theme
+https://github.com/denislee/firefox-i3wm-theme (meu fork)
 
-Era exatamente o que eu precisava. Mas, ainda pretendo buscar mais algumas soluções na internet. De todo modo, vou deixar aqui as instruções dele:
+Era exatamente o que eu precisava. Mas, ainda pretendo buscar mais algumas soluções na internet. De todo modo, vou deixar aqui as instruções dele (caso o repositório dele vá para o beleléu, ou eu apague sem querer o fork):
 
 # Firefox i3 Theme
 
