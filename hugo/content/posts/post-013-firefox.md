@@ -11,9 +11,9 @@ tags:
 
 # Motivação
 
-O meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior) e infelizmente eu estive tendo alguns problemas com ele. 
+O meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior) e infelizmente eu estive tendo alguns problemas com ele.
 
-- crashed constantes
+- crashes constantes
 - travamento do meu computador todo (teclado e mouse pararam de funcionar)
 
 Acredito que esses já são bons motivos para ver alternativas.
@@ -26,7 +26,7 @@ Os meus navegadores favoritos sempre foram:
 - Brave
 - Wyeb
 
-Porém, sempre gostei mais do firefox (só para ficar o mais longe do Chrome possível). 
+Porém, sempre gostei mais do firefox (só para ficar o mais longe do Chrome possível).
 
 Logo na minha primeira busca já encontrei esse link sobre como alterar o firefox para ficar com a cara do qutebrowser
 
