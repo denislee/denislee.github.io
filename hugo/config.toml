@@ -2,7 +2,7 @@ baseURL = "https://denislee.github.io/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Denis Lee"
-theme = "hermit"
+theme = "mini"
 publishdir = ".."
 
 # enableGitInfo = true
