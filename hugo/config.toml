@@ -26,6 +26,16 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
 [taxonomies]
   tag = "tags"
   # Categories are disabled by default.
+  #
+[social]
+  github = "https://github.com/denislee"
+  twitter = "https://twitter.com/denislee"
+  instagram = "https://instagram.com/denislee"
+
+[markup]
+  [[highlight]]
+    guessSyntax = true
+    style = "emacs"
 
 [params]
   dateform        = "Jan 2, 2006"
