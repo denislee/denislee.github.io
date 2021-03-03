@@ -1,5 +1,5 @@
 ---
-title: "daily vlog"
+title: "Daily vlog"
 date: 2020-09-07
 draft: false
 toc: false

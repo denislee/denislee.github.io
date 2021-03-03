@@ -1,5 +1,5 @@
 ---
-title: "keyboard layouts"
+title: "Keyboard layouts"
 date: 2020-08-31
 draft: false
 toc: false

@@ -1,5 +1,5 @@
 ---
-title: "dificuldades em publicar aqui"
+title: "Dificuldades em publicar aqui"
 date: 2021-02-22
 draft: false
 toc: false

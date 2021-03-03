@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>firefox</title>
+      <title>Firefox</title>
       <link>https://denislee.github.io/firefox/</link>
       <pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate>
       
@@ -26,7 +26,19 @@ Alternativas Os meus navegadores favoritos sempre foram:</description>
     
     
     <item>
-      <title>dificuldades em publicar aqui</title>
+      <title>Baunilha</title>
+      <link>https://denislee.github.io/baunilha/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/baunilha/</guid>
+      <description>Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).
+Ou seja, quando começo a usar algo, costumo deixar as coisas exatamente como estão. Só vou alterar algo no meu processo, apenas quando algo realmente me incomoda ou para atividades realmente repetitivas. Caso contrário, eu não procuro lugar para me coçar.</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Dificuldades em publicar aqui</title>
       <link>https://denislee.github.io/dificuldades-em-publicar-aqui/</link>
       <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
       
@@ -40,7 +52,7 @@ Atualmente estou utilizando mais o Instagram de redes sociais.</description>
     
     
     <item>
-      <title>do i3 para o Sway</title>
+      <title>Do i3 para o Sway</title>
       <link>https://denislee.github.io/do-i3-para-o-sway/</link>
       <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
       
@@ -52,7 +64,7 @@ E, visto que o Sway é a transição mais tranquila para usuários i3, porém co
     
     
     <item>
-      <title>qutebrowser</title>
+      <title>Qutebrowser</title>
       <link>https://denislee.github.io/qutebrowser/</link>
       <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
       
@@ -65,19 +77,7 @@ Configurações Você poderá editar o arquivo .</description>
     
     
     <item>
-      <title>sou baunilha</title>
-      <link>https://denislee.github.io/sou-baunilha/</link>
-      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://denislee.github.io/sou-baunilha/</guid>
-      <description>Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).
-Ou seja, quando começo a usar algo, costumo deixar as coisas exatamente como estão. Só vou alterar algo no meu processo, apenas quando algo realmente me incomoda ou para atividades realmente repetitivas. Caso contrário, eu não procuro lugar para me coçar.</description>
-    </item>
-    
-    
-    
-    <item>
-      <title>windows 10, but better</title>
+      <title>Windows 10, but better</title>
       <link>https://denislee.github.io/windows-10-but-better/</link>
       <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
       
@@ -91,7 +91,7 @@ Windows 10 for Power Users – Private, Secure, Zero Bloatware (Windows 10 Ameli
     
     
     <item>
-      <title>daily vlog</title>
+      <title>Daily vlog</title>
       <link>https://denislee.github.io/daily-vlog/</link>
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
       
@@ -103,7 +103,7 @@ As idéias que surgiram na minha cabeça, são simples.</description>
     
     
     <item>
-      <title>keyboard layouts</title>
+      <title>Keyboard layouts</title>
       <link>https://denislee.github.io/keyboard-layouts/</link>
       <pubDate>Mon, 31 Aug 2020 00:00:00 +0000</pubDate>
       

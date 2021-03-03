@@ -1,5 +1,5 @@
 ---
-title: "windows 10, but better"
+title: "Windows 10, but better"
 date: 2020-09-09
 draft: false
 toc: false

@@ -1,5 +1,5 @@
 ---
-title: "qutebrowser"
+title: "Qutebrowser"
 date: 2021-02-22
 draft: false
 toc: false

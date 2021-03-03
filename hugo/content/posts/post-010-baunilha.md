@@ -1,5 +1,5 @@
 ---
-title: "sou baunilha"
+title: "Baunilha"
 date: 2021-02-22
 draft: false
 toc: false

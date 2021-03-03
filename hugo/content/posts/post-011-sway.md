@@ -1,5 +1,5 @@
 ---
-title: "do i3 para o Sway"
+title: "Do i3 para o Sway"
 date: 2021-02-22
 draft: false
 toc: false

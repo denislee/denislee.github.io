@@ -1,5 +1,5 @@
 ---
-title: "firefox"
+title: "Firefox"
 date: 2021-02-27
 draft: false
 toc: false
