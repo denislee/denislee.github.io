@@ -17,7 +17,7 @@ pygmentsUseClasses = true
     identifier = "posts"
     name = "posts"
     title = "posts"
-    url = "https://denislee.github.io/"
+    url = "/"
     weight = 10
 
   [[menu.main]]
