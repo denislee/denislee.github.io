@@ -1,122 +1,46 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <title>qutebrowser | Denis Lee</title>
-
+<html><head>
     <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
-<meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="Olá,
-Depois de um bom tempo longe e frustrado com a falta de ferramentas para publicar bem o blog (a limitação do hugo para colocar facilmente imagens comparado aos outros blog atuais com muitas facilidades), acabou me afastando de escrever mais por aqui.
-Mas, com a ajuda de alguns scrips, acredito que fique mais freqüente as minha publicações (e, quem sabe, do blog vire vídeos novamente haha)
-Atualmente estou utilizando mais o Instagram de redes sociais.">
-<meta name="generator" content="Hugo 0.80.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" href="https://denislee.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
 
-
-  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-
-
-<link rel="stylesheet" href="/css/style.css">
-<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-
-
-
-
-
-
-
-
-  </head>
-
-  <body>
-    <nav class="navigation">
-	
-		<a href="/"> <span class="arrow">←</span>Home</a>
-	
-	<a href="/posts">Archive</a>
-	<a href="/tags">Tags</a>
-	<a href="/about">About</a>
-
-	
-
-	
-</nav>
-
-
-    <main class="main">
-      
-
-<section id="single">
-    <h1 class="title">qutebrowser</h1>
-
-    <div class="tip">
-        <span>
-          Feb 22, 2021 00:00
-        </span>
-        <span class="split">
-          ·
-        </span>
-        <span>
-          
-            123 words
-          
-        </span>
-        <span class="split">
-          ·
-        </span>
-        <span>
-          1 minute read
-        </span>
-    </div>
-
-    <div class="content">
-      <h1 id="motivação">Motivação <a href="#motiva%c3%a7%c3%a3o" class="anchor">🔗</a></h1><p>Como todo usuário de Vim e agraciado pelas suas teclas de atalho, além do window manager que melhor atende suas necessidades e potencializa o seu aprendizado no Vim, o navegador seria o próximo a ser beneficiado por essa memória muscular de navegação: hjkl.</p>
+    <title>qutebrowser</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://denislee.github.io/">Denis Lee</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="posts/" title="">Posts</a>
+            </li><li>
+                <a href="about/" title="">About</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>qutebrowser</h1><time>February 22, 2021</time></header><h1 id="motivação">Motivação</h1>
+<p>Como todo usuário de Vim e agraciado pelas suas teclas de atalho, além do window manager que melhor atende suas necessidades e potencializa o seu aprendizado no Vim, o navegador seria o próximo a ser beneficiado por essa memória muscular de navegação: hjkl.</p>
 <p>Por isso, a escolha mais comum de navegador seria o qutebrowser. Seguem algumas configurações (pequenas) que eu fiz, para deixar ele minimamente utilizável.</p>
-<h1 id="configurações">Configurações <a href="#configura%c3%a7%c3%b5es" class="anchor">🔗</a></h1><p>Você poderá editar o arquivo <code>.config/qutebrowser/config.py</code> diretamente ou gerar/salvar um arquivo com o comando <code>:config-save-py --force</code></p>
+<h1 id="configurações">Configurações</h1>
+<p>Você poderá editar o arquivo <code>.config/qutebrowser/config.py</code> diretamente ou gerar/salvar um arquivo com o comando <code>:config-save-py --force</code></p>
 <p>E para editar as configurações correntes pelo próprio navegador com o comando: <code>:set</code> e depois salvar usando o <code>:config-save-py --force</code></p>
 <p>Seguem as configurações que eu deixo:</p>
-<h1 id="urlsearchengines">url.searchengines <a href="#urlsearchengines" class="anchor">🔗</a></h1><pre><code>c.url.searchengines = {'DEFAULT': 'https://www.startpage.com/do/dsearch?query={}'}
-</code></pre><h1 id="contentnotifications">content.notifications <a href="#contentnotifications" class="anchor">🔗</a></h1><pre><code>c.content.notifications = False
-</code></pre><h1 id="contentgeolocation">content.geolocation <a href="#contentgeolocation" class="anchor">🔗</a></h1><pre><code>c.content.notifications = False
-</code></pre>
-    </div>
+<h1 id="urlsearchengines">url.searchengines</h1>
+<pre><code>c.url.searchengines = {'DEFAULT': 'https://www.startpage.com/do/dsearch?query={}'}
+</code></pre><h1 id="contentnotifications">content.notifications</h1>
+<pre><code>c.content.notifications = False
+</code></pre><h1 id="contentgeolocation">content.geolocation</h1>
+<pre><code>c.content.notifications = False
+</code></pre></article>
 
+        </main><footer id="footer">
     
-        <div class="tags">
-            
-                <a href="https://denislee.github.io/tags/qutebrowser">qutebrowser</a>
-            
-                <a href="https://denislee.github.io/tags/browser">browser</a>
-            
-        </div>
-    
-    
-    
-
-</section>
-
-
-    </main>
-    
-    <footer id="footer">
-    
-
-    <p class="copyright">
-    
-       © Copyright 
-       2021 
-       <span class="split">
-        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
-  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
-</svg>
-       </span>
-       
-    
-    </p>
-    <p class="powerby">
-        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-    </p>
 </footer>
-
-  </body>
+</body>
 </html>

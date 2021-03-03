@@ -1,76 +1,30 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <title>Windows 10, but better | Denis Lee</title>
-
+<html><head>
     <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
-<meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="Olá,
-Depois de um bom tempo longe e frustrado com a falta de ferramentas para publicar bem o blog (a limitação do hugo para colocar facilmente imagens comparado aos outros blog atuais com muitas facilidades), acabou me afastando de escrever mais por aqui.
-Mas, com a ajuda de alguns scrips, acredito que fique mais freqüente as minha publicações (e, quem sabe, do blog vire vídeos novamente haha)
-Atualmente estou utilizando mais o Instagram de redes sociais.">
-<meta name="generator" content="Hugo 0.80.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" href="https://denislee.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
 
-
-  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-
-
-<link rel="stylesheet" href="/css/style.css">
-<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-
-
-
-
-
-
-
-
-  </head>
-
-  <body>
-    <nav class="navigation">
-	
-		<a href="/"> <span class="arrow">←</span>Home</a>
-	
-	<a href="/posts">Archive</a>
-	<a href="/tags">Tags</a>
-	<a href="/about">About</a>
-
-	
-
-	
-</nav>
-
-
-    <main class="main">
-      
-
-<section id="single">
-    <h1 class="title">Windows 10, but better</h1>
-
-    <div class="tip">
-        <span>
-          Sep 9, 2020 00:00
-        </span>
-        <span class="split">
-          ·
-        </span>
-        <span>
-          
-            1208 words
-          
-        </span>
-        <span class="split">
-          ·
-        </span>
-        <span>
-          6 minute read
-        </span>
-    </div>
-
-    <div class="content">
-      <p>Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.</p>
+    <title>Windows 10, but better</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://denislee.github.io/">Denis Lee</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="posts/" title="">Posts</a>
+            </li><li>
+                <a href="about/" title="">About</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Windows 10, but better</h1><time>September 9, 2020</time></header><p>Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.</p>
 <p>Os videos que eu assisti foram:</p>
 <p><em>We fixed Windows 10 - Microsoft will HATE this!</em>
 <a href="https://www.youtube.com/watch?v=nwkiU6GG-YU">https://www.youtube.com/watch?v=nwkiU6GG-YU</a></p>
@@ -80,7 +34,8 @@ Atualmente estou utilizando mais o Instagram de redes sociais.">
 <a href="https://notthebe.ee/Windows10.html">https://notthebe.ee/Windows10.html</a></p>
 <p>E para facilitar, segui um híbrido de tutorial escrito do Wolfgang, quanto o vídeo dele. Ambos acabam complementando um ao outro. Mas, um parece nao funcionar sem o outro. Infelizmente.</p>
 <p>Por esse motivo, estou deixando as minhas anotações da instalação aqui também. (Para futuros usos pessoais também.) Que basicamente será uma transcrição em português do que já foi escrito pelo Wolfgang.</p>
-<h2 id="resumo-dos-arquivos-necessários">Resumo dos arquivos necessários <a href="#resumo-dos-arquivos-necess%c3%a1rios" class="anchor">🔗</a></h2><ol>
+<h2 id="resumo-dos-arquivos-necessários">Resumo dos arquivos necessários</h2>
+<ol>
 <li>ISO do Windows 10 completo (peguei a versão Pro)</li>
 <li>ISO do Linux (pode ser qualquer um)</li>
 <li>Aplicação para calcular o SHA1 da imagem</li>
@@ -91,16 +46,20 @@ Atualmente estou utilizando mais o Instagram de redes sociais.">
 <li>Backup dos seus Drivers</li>
 <li>Hardentools (Security without borders)</li>
 </ol>
-<h2 id="no-windows">NO WINDOWS <a href="#no-windows" class="anchor">🔗</a></h2><h3 id="download-da-imagem-do-windows-10">Download da imagem do Windows 10 <a href="#download-da-imagem-do-windows-10" class="anchor">🔗</a></h3><p>Faça download da imagem do Windows 10</p>
+<h2 id="no-windows">NO WINDOWS</h2>
+<h3 id="download-da-imagem-do-windows-10">Download da imagem do Windows 10</h3>
+<p>Faça download da imagem do Windows 10</p>
 <p><strong>Alternativa 1</strong> Baixar o aplicativo Fido (funciona apenas no Windows) <a href="https://github.com/pbatard/Fido">https://github.com/pbatard/Fido</a></p>
 <p><strong>Alternativa 2</strong>: Selecionar no site <a href="https://tb.rg-adguard.net/public.php">https://tb.rg-adguard.net/public.php</a></p>
 <p>No caso, eu peguei a versao em ingles e pro. Importante ressaltar que apenas nessa hora que você poderá escolher a língua do seu sistema operacional. Caso queira trocar futuramente, precisará reinstalar o Windows (acredito que você não queira fazer isso).</p>
-<h3 id="verificação-da-imagem-do-windows-10">Verificação da imagem do Windows 10 <a href="#verifica%c3%a7%c3%a3o-da-imagem-do-windows-10" class="anchor">🔗</a></h3><p>Para verificar se a imagem do Windows que você acabou de baixar não está corrompida ou alterada, precisamos de uma aplicação para calcular o hash.</p>
+<h3 id="verificação-da-imagem-do-windows-10">Verificação da imagem do Windows 10</h3>
+<p>Para verificar se a imagem do Windows que você acabou de baixar não está corrompida ou alterada, precisamos de uma aplicação para calcular o hash.</p>
 <p><strong>Alternativa 1</strong>: Utilização da ferramenta já existente no PowerShell</p>
 <pre><code>Get-FileHash -Algorithm SHA1 Windows_2004.iso
 </code></pre><p><strong>Alternativa 2</strong>: <a href="https://www.adaic.org/resources/add_content/standards/articles/SHA-1.html">https://www.adaic.org/resources/add_content/standards/articles/SHA-1.html</a></p>
 <p>Executando alguma dessas duas alternativas, será possível comparar a saida desses programas no site: <a href="https://sha1.rg-adguard.net/">https://sha1.rg-adguard.net/</a></p>
-<h3 id="download-dos-updates">Download dos updates <a href="#download-dos-updates" class="anchor">🔗</a></h3><p>Para isso você devera entrar no site o Windows 10 Update History: <a href="https://support.microsoft.com/en-us/help/4555932/windows-10-update-history">https://support.microsoft.com/en-us/help/4555932/windows-10-update-history</a></p>
+<h3 id="download-dos-updates">Download dos updates</h3>
+<p>Para isso você devera entrar no site o Windows 10 Update History: <a href="https://support.microsoft.com/en-us/help/4555932/windows-10-update-history">https://support.microsoft.com/en-us/help/4555932/windows-10-update-history</a></p>
 <ol>
 <li>
 <p>Procurar a sua versão do Windows. na primeira coluna da esquerda.</p>
@@ -122,23 +81,29 @@ Atualmente estou utilizando mais o Instagram de redes sociais.">
 </li>
 </ol>
 <p>No fim, você terá baixado dois arquivos de atualização do Windows</p>
-<h3 id="download-do-script-ame">Download do script AME <a href="#download-do-script-ame" class="anchor">🔗</a></h3><p><strong>Alternativa 1</strong>: <a href="https://git.ameliorated.info/malte/scripts/releases/download/1903.2020.03.06/amelioration_1903_2020.03.06.bat">https://git.ameliorated.info/malte/scripts/releases/download/1903.2020.03.06/amelioration_1903_2020.03.06.bat</a></p>
+<h3 id="download-do-script-ame">Download do script AME</h3>
+<p><strong>Alternativa 1</strong>: <a href="https://git.ameliorated.info/malte/scripts/releases/download/1903.2020.03.06/amelioration_1903_2020.03.06.bat">https://git.ameliorated.info/malte/scripts/releases/download/1903.2020.03.06/amelioration_1903_2020.03.06.bat</a></p>
 <p>Caso o link esteja desatualizado. Entre no site <a href="https://ameliorated.info/documentation.html#ame_pre">https://ameliorated.info/documentation.html#ame_pre</a> e procure pela palavra chave <code>Windows 10 Amelioration script</code> e faça download</p>
-<h3 id="backup-dos-seus-drivers">Backup dos seus drivers <a href="#backup-dos-seus-drivers" class="anchor">🔗</a></h3><p>Abra o PowerShell como Admin e execute o comando</p>
+<h3 id="backup-dos-seus-drivers">Backup dos seus drivers</h3>
+<p>Abra o PowerShell como Admin e execute o comando</p>
 <pre><code>pnputil /export-driver * &quot;C:\backup-drivers&quot;
-</code></pre><h3 id="hora-de-baixar-o-linux">Hora de baixar o Linux <a href="#hora-de-baixar-o-linux" class="anchor">🔗</a></h3><p>No tutorial ele (Wolfgang) recomendou baixar o xubuntu. Segui a recomendação, porém descobri na prática que qualquer imagem funciona. Poderia até ser um Arch, mas acredito que a recomendação foi mais pela facilidade de uso mesmo. A exigência para facilitar e que você consiga acessar a internet facilmente, consiga acessar o disco que o Windows será instalado, consiga acessar a Internet e tenha a modalidade de boot do Linux sem instalar o mesmo.</p>
+</code></pre><h3 id="hora-de-baixar-o-linux">Hora de baixar o Linux</h3>
+<p>No tutorial ele (Wolfgang) recomendou baixar o xubuntu. Segui a recomendação, porém descobri na prática que qualquer imagem funciona. Poderia até ser um Arch, mas acredito que a recomendação foi mais pela facilidade de uso mesmo. A exigência para facilitar e que você consiga acessar a internet facilmente, consiga acessar o disco que o Windows será instalado, consiga acessar a Internet e tenha a modalidade de boot do Linux sem instalar o mesmo.</p>
 <p><a href="https://xubuntu.org/">https://xubuntu.org/</a></p>
-<h3 id="criando-um-pendrive-bootável">Criando um pendrive bootável <a href="#criando-um-pendrive-boot%c3%a1vel" class="anchor">🔗</a></h3><p>Precisamos baixar um programa para gravar o ISO do Windows no pendrive e deixar ele bootável. Para isso recomendo você baixar o seguinte programa</p>
+<h3 id="criando-um-pendrive-bootável">Criando um pendrive bootável</h3>
+<p>Precisamos baixar um programa para gravar o ISO do Windows no pendrive e deixar ele bootável. Para isso recomendo você baixar o seguinte programa</p>
 <p><strong>Alternativa 1</strong>: <a href="https://rufus.ie/">https://rufus.ie/</a></p>
 <p>Abra o Rufus e escolha o drive que está conectado o seu Pendrive, escolha a ISO do Windows e pronto.</p>
-<h3 id="copiando-os-arquivos">Copiando os arquivos <a href="#copiando-os-arquivos" class="anchor">🔗</a></h3><p>Copie todos os arquivos que você baixou até agora para dentro do Pendrive. Segue a lista que deve entrar</p>
+<h3 id="copiando-os-arquivos">Copiando os arquivos</h3>
+<p>Copie todos os arquivos que você baixou até agora para dentro do Pendrive. Segue a lista que deve entrar</p>
 <ul>
 <li>ISO do linux</li>
 <li>Rufus</li>
 <li>Atualizações do Windows</li>
 <li>Script AME</li>
 </ul>
-<h3 id="instalando-o-windows">Instalando o Windows <a href="#instalando-o-windows" class="anchor">🔗</a></h3><p>Agora os passos para iniciar a instalação na sua máquina</p>
+<h3 id="instalando-o-windows">Instalando o Windows</h3>
+<p>Agora os passos para iniciar a instalação na sua máquina</p>
 <ol>
 <li>Conecte o Pendrive no seu computador</li>
 <li>Reinicie o mesmo</li>
@@ -147,14 +112,17 @@ Atualmente estou utilizando mais o Instagram de redes sociais.">
 <li>Talvez seja necessário desativar o boot de seguranca</li>
 <li>Instale o Windows</li>
 </ol>
-<h2 id="no-windows-novo">NO WINDOWS (NOVO) <a href="#no-windows-novo" class="anchor">🔗</a></h2><h3 id="primeiro-boot-no-windows">Primeiro boot no Windows <a href="#primeiro-boot-no-windows" class="anchor">🔗</a></h3><p>Responda não para todas as perguntas de compartilhamento de informação que eles perguntarem durante o setup final da instalação do Windows.</p>
+<h2 id="no-windows-novo">NO WINDOWS (NOVO)</h2>
+<h3 id="primeiro-boot-no-windows">Primeiro boot no Windows</h3>
+<p>Responda não para todas as perguntas de compartilhamento de informação que eles perguntarem durante o setup final da instalação do Windows.</p>
 <p>Assim que você já estiver dentro do sistema operacional, faça as seguintes ações:</p>
 <ul>
 <li>Faca unpin em todos os aplicativos da barra de tarefas.</li>
 <li>Faca unpin em todos os aplicativos do menu do botão iniciar.</li>
 <li>Remova a barra de busca da barra de tarefas.</li>
 </ul>
-<h3 id="instalação-das-atualizações">Instalação das atualizações <a href="#instala%c3%a7%c3%a3o-das-atualiza%c3%a7%c3%b5es" class="anchor">🔗</a></h3><p>Crie os seguintes diretórios no drive de onde foi instalado o Windows:</p>
+<h3 id="instalação-das-atualizações">Instalação das atualizações</h3>
+<p>Crie os seguintes diretórios no drive de onde foi instalado o Windows:</p>
 <pre><code>- C:\SSU
 - C:\Cumulative
 </code></pre><p>Abra o PowerShell com permissão de administrador e dentro dele entre no drive do pendrive. E faça os seguintes comandos:</p>
@@ -166,7 +134,8 @@ expand -F:* name_of_the_cumulative_package.msu C:\Cumulative
 <pre><code>dism /online /add-package /packagepath=C:\Cumulative\name_of_the_cumulative.cab
 </code></pre><p>Reinicie duas vezes e agora execute o comando final</p>
 <pre><code>dism /online /Cleanup-Image /StartComponentCleanup
-</code></pre><h3 id="executando-o-script-ame">Executando o script AME <a href="#executando-o-script-ame" class="anchor">🔗</a></h3><p>Clique com o botão direito no script e execute como administrador.</p>
+</code></pre><h3 id="executando-o-script-ame">Executando o script AME</h3>
+<p>Clique com o botão direito no script e execute como administrador.</p>
 <p><strong>Escolha 1</strong>: <code>Run Pre-Amelioration</code></p>
 <ul>
 <li>Espere o processo terminar.</li>
@@ -183,9 +152,12 @@ expand -F:* name_of_the_cumulative_package.msu C:\Cumulative
 <p>Faça logout e logue novamente.</p>
 <p>Abre um PowerShell como administrador e execute o comando para alterar a sua senha:</p>
 <pre><code>net user &lt;seu-usuário&gt; *
-</code></pre><h3 id="criação-do-mídia-de-boot-do-linux">Criação do mídia de boot do Linux <a href="#cria%c3%a7%c3%a3o-do-m%c3%addia-de-boot-do-linux" class="anchor">🔗</a></h3><p>Abra o Rufus e escolha o pendrive e o ISO do Linux para transformar o seu pendrive que você acabou de usar para instalar o Windows para instalar o Linux.</p>
+</code></pre><h3 id="criação-do-mídia-de-boot-do-linux">Criação do mídia de boot do Linux</h3>
+<p>Abra o Rufus e escolha o pendrive e o ISO do Linux para transformar o seu pendrive que você acabou de usar para instalar o Windows para instalar o Linux.</p>
 <p>Reinicie o computador com o pendrive conectado.</p>
-<h2 id="no-linux">NO LINUX <a href="#no-linux" class="anchor">🔗</a></h2><h3 id="dentro-do-linux">Dentro do Linux <a href="#dentro-do-linux" class="anchor">🔗</a></h3><p>Nessa parte você já pode ligar novamente toda a conectividade do seu computador (que você havia desativado anteriormente na BIOS).</p>
+<h2 id="no-linux">NO LINUX</h2>
+<h3 id="dentro-do-linux">Dentro do Linux</h3>
+<p>Nessa parte você já pode ligar novamente toda a conectividade do seu computador (que você havia desativado anteriormente na BIOS).</p>
 <p>Entre no Linux pela escolha que não precisa instalar nada.</p>
 <p>Abra um terminal e entre no diretório raiz da instalação do seu Windows e faça o seguinte comando:</p>
 <pre><code>wget https://git.ameliorated.info/malte/scripts/releases/download/1903.2020.03.06/ameliorate_1903_2020.03.06.sh
@@ -195,51 +167,22 @@ expand -F:* name_of_the_cumulative_package.msu C:\Cumulative
 <pre><code>sed -i 's/\r$//' &lt;script-shell&gt;
 </code></pre><p>Agora é só executar o script que você acabou de baixar e aguardar.</p>
 <p>Só reiniciar e voltar para o Windows.</p>
-<h2 id="no-windows-novo-1">NO WINDOWS (NOVO) <a href="#no-windows-novo-1" class="anchor">🔗</a></h2><h3 id="post-amelioration">Post-Amelioration <a href="#post-amelioration" class="anchor">🔗</a></h3><p>Edite o script AME que você usou antes de entrar no Linux e procure pela seguinte linha:</p>
+<h2 id="no-windows-novo-1">NO WINDOWS (NOVO)</h2>
+<h3 id="post-amelioration">Post-Amelioration</h3>
+<p>Edite o script AME que você usou antes de entrar no Linux e procure pela seguinte linha:</p>
 <pre><code>choco install -y --force --allow-empty-checksums firefox thunderbird vlc youtube-dl 7zip open-shell jpegview vcredist-all directx onlyoffice
 </code></pre><p>E substitua para:</p>
 <pre><code>choco install -y --force --allow-empty-checksums firefox thunderbird vlc youtube-dl 7zip open-shell  -installArgs ADDLOCAL=StartMenu jpegview vcredist-all directx libreoffice
 </code></pre><p>Execute o script e escolha o Post-Amelioration</p>
-<h3 id="hardening-windows-settings">Hardening Windows Settings <a href="#hardening-windows-settings" class="anchor">🔗</a></h3><p>Para ajudar na segurança, baixe e instale o Harden Tools.</p>
+<h3 id="hardening-windows-settings">Hardening Windows Settings</h3>
+<p>Para ajudar na segurança, baixe e instale o Harden Tools.</p>
 <p><strong>Alternativa 1</strong>: <a href="https://securitywithoutborders.org/tools/hardentools.html">https://securitywithoutborders.org/tools/hardentools.html</a></p>
-<h3 id="reinstalação-dos-drivers">Reinstalação dos drivers <a href="#reinstala%c3%a7%c3%a3o-dos-drivers" class="anchor">🔗</a></h3><pre><code>pnputil.exe /add-driver C:\backup-drivers\*.inf /subdirs /install /reboot
-</code></pre>
-    </div>
+<h3 id="reinstalação-dos-drivers">Reinstalação dos drivers</h3>
+<pre><code>pnputil.exe /add-driver C:\backup-drivers\*.inf /subdirs /install /reboot
+</code></pre></article>
 
+        </main><footer id="footer">
     
-        <div class="tags">
-            
-                <a href="https://denislee.github.io/tags/untagged">untagged</a>
-            
-        </div>
-    
-    
-    
-
-</section>
-
-
-    </main>
-    
-    <footer id="footer">
-    
-
-    <p class="copyright">
-    
-       © Copyright 
-       2021 
-       <span class="split">
-        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
-  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
-</svg>
-       </span>
-       
-    
-    </p>
-    <p class="powerby">
-        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-    </p>
 </footer>
-
-  </body>
+</body>
 </html>

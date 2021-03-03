@@ -1,87 +1,45 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <title>do i3 para o Sway | Denis Lee</title>
-
+<html><head>
     <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
-<meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="Olá,
-Depois de um bom tempo longe e frustrado com a falta de ferramentas para publicar bem o blog (a limitação do hugo para colocar facilmente imagens comparado aos outros blog atuais com muitas facilidades), acabou me afastando de escrever mais por aqui.
-Mas, com a ajuda de alguns scrips, acredito que fique mais freqüente as minha publicações (e, quem sabe, do blog vire vídeos novamente haha)
-Atualmente estou utilizando mais o Instagram de redes sociais.">
-<meta name="generator" content="Hugo 0.80.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" href="https://denislee.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
 
-
-  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-
-
-<link rel="stylesheet" href="/css/style.css">
-<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-
-
-
-
-
-
-
-
-  </head>
-
-  <body>
-    <nav class="navigation">
-	
-		<a href="/"> <span class="arrow">←</span>Home</a>
-	
-	<a href="/posts">Archive</a>
-	<a href="/tags">Tags</a>
-	<a href="/about">About</a>
-
-	
-
-	
-</nav>
-
-
-    <main class="main">
-      
-
-<section id="single">
-    <h1 class="title">do i3 para o Sway</h1>
-
-    <div class="tip">
-        <span>
-          Feb 22, 2021 00:00
-        </span>
-        <span class="split">
-          ·
-        </span>
-        <span>
-          
-            591 words
-          
-        </span>
-        <span class="split">
-          ·
-        </span>
-        <span>
-          3 minute read
-        </span>
-    </div>
-
-    <div class="content">
-      <h1 id="motivação">Motivação <a href="#motiva%c3%a7%c3%a3o" class="anchor">🔗</a></h1><p>Uma das poucas coisas que me fariam mudar de ideia de trocar de sistema operacional, window manager ou qualquer software que eu uso no computador, com certeza, é velocidade/performance (por isso que, normalmente, não gosto de aplicações feitas em Electron, pois costumam ser bem devagar).</p>
+    <title>do i3 para o Sway</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://denislee.github.io/">Denis Lee</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="posts/" title="">Posts</a>
+            </li><li>
+                <a href="about/" title="">About</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>do i3 para o Sway</h1><time>February 22, 2021</time></header><h1 id="motivação">Motivação</h1>
+<p>Uma das poucas coisas que me fariam mudar de ideia de trocar de sistema operacional, window manager ou qualquer software que eu uso no computador, com certeza, é velocidade/performance (por isso que, normalmente, não gosto de aplicações feitas em Electron, pois costumam ser bem devagar).</p>
 <p>E, visto que o Sway é a transição mais tranquila para usuários i3, porém com um twist bem importante para a performance, pois utiliza o wayland no lugar do xorg.</p>
-<h1 id="dificuldades">Dificuldades <a href="#dificuldades" class="anchor">🔗</a></h1><p>Mas, nem tudo são flores. Apesar de eu ser super baunilha (sempre usei o Manjaro com i3 do jeito que veio), existem alguns programas bem específicos que eu uso no meu dia a dia. Eles são:</p>
+<h1 id="dificuldades">Dificuldades</h1>
+<p>Mas, nem tudo são flores. Apesar de eu ser super baunilha (sempre usei o Manjaro com i3 do jeito que veio), existem alguns programas bem específicos que eu uso no meu dia a dia. Eles são:</p>
 <ul>
 <li>Synergy (sério, tenho múltiplos computadores ligados na mesa.)</li>
 <li>Flameshot</li>
 <li>xmodmap</li>
 </ul>
 <p>O resto, eu realmente não liguei muito e minha configuração antiga do i3 serviu muito bem no Sway. Mas, nesses programas eu tive um bom atrito (um deles eu ainda não encontrei substituto).</p>
-<h1 id="flameshot">Flameshot <a href="#flameshot" class="anchor">🔗</a></h1><p>O problema foi resolvido com a sugestão de um colega meu do trabalho, com o combo de aplicações: grim, slurp e swappy. Que, honestamente, funciona melhor que o Flameshot no aspecto de edição da imagem antes de exportar.</p>
+<h1 id="flameshot">Flameshot</h1>
+<p>O problema foi resolvido com a sugestão de um colega meu do trabalho, com o combo de aplicações: grim, slurp e swappy. Que, honestamente, funciona melhor que o Flameshot no aspecto de edição da imagem antes de exportar.</p>
 <pre><code>    bindsym $mod+p exec grim -g &quot;$(slurp)&quot; - | swappy -f -
-</code></pre><h1 id="xmodmap">xmodmap <a href="#xmodmap" class="anchor">🔗</a></h1><p>No meu computador de trabalho eu não tive dificuldades, pois eu utilizei um teclado mecânico completamente configurável. E, com isso, consegui deixar as teclas do jeito que eu queria:</p>
+</code></pre><h1 id="xmodmap">xmodmap</h1>
+<p>No meu computador de trabalho eu não tive dificuldades, pois eu utilizei um teclado mecânico completamente configurável. E, com isso, consegui deixar as teclas do jeito que eu queria:</p>
 <ul>
 <li>Troca do Capslock por Ctrl</li>
 <li>Troca das teclas vizinhas do espaço pelos Supers (Mod4)</li>
@@ -105,7 +63,8 @@ xkb_symbols &quot;basic&quot; {
   xkb_layout jp-mod
   xkb_options caps:ctrl_modifier
 }
-</code></pre><h1 id="synergy">Synergy <a href="#synergy" class="anchor">🔗</a></h1><p>Infelizmente não existe substituto que funcione como o Synergy ou próximo disso. E, fazer ele funcionar no wayland é um esforço bem grande.</p>
+</code></pre><h1 id="synergy">Synergy</h1>
+<p>Infelizmente não existe substituto que funcione como o Synergy ou próximo disso. E, fazer ele funcionar no wayland é um esforço bem grande.</p>
 <p>Se você realizar uma busca na internet vai encontrar uma discussão sobre a compatibilidade do Synergy para o wayland de 2014. Sim, 2014:</p>
 <ul>
 <li><a href="https://github.com/symless/synergy-core/issues/4090">https://github.com/symless/synergy-core/issues/4090</a></li>
@@ -120,50 +79,16 @@ xkb_symbols &quot;basic&quot; {
 <li><a href="https://github.com/htrefil/rkvm">https://github.com/htrefil/rkvm</a></li>
 </ul>
 <p>Porém, diversas pessoas reportaram que não funciona. E, de fato, não funcionou para mim também. A única coisa que acontece, é travar o seu computador assim que sobe o server. Alguém, aparentemente, conseguiu mapear o problema, mas sem sucesso de fazer funcionar.</p>
-<h1 id="conclusão">Conclusão <a href="#conclus%c3%a3o" class="anchor">🔗</a></h1><p>Estou gostando bastante do Sway, mesmo não conseguindo utilizar 100% todas as aplicações que eu tinha acesso antigamente. Mas, mesmo assim, ainda acho que vale a pena a troca da falta do Synergy para a performance que ele prove.</p>
+<h1 id="conclusão">Conclusão</h1>
+<p>Estou gostando bastante do Sway, mesmo não conseguindo utilizar 100% todas as aplicações que eu tinha acesso antigamente. Mas, mesmo assim, ainda acho que vale a pena a troca da falta do Synergy para a performance que ele prove.</p>
 <p>Para quem tiver curiosidade:</p>
 <ul>
 <li><a href="https://swaywm.org/">https://swaywm.org/</a></li>
 </ul>
+</article>
 
-    </div>
-
+        </main><footer id="footer">
     
-        <div class="tags">
-            
-                <a href="https://denislee.github.io/tags/i3">i3</a>
-            
-                <a href="https://denislee.github.io/tags/sway">sway</a>
-            
-        </div>
-    
-    
-    
-
-</section>
-
-
-    </main>
-    
-    <footer id="footer">
-    
-
-    <p class="copyright">
-    
-       © Copyright 
-       2021 
-       <span class="split">
-        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
-  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
-</svg>
-       </span>
-       
-    
-    </p>
-    <p class="powerby">
-        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-    </p>
 </footer>
-
-  </body>
+</body>
 </html>
