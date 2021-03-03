@@ -5,6 +5,9 @@ draft: true
 toc: false
 images:
 tags:
-  - firefox 
-  - browser
+  - produtividade
 ---
+
+# Foco 
+
+Uma das coisas que sempre 
