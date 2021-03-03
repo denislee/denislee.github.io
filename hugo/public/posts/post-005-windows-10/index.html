@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Windows 10, but better - denislee</title><meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="Windows 10, but better" />
+<meta property="og:description" content="Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.
+Os videos que eu assisti foram:
+We fixed Windows 10 - Microsoft will HATE this! https://www.youtube.com/watch?v=nwkiU6GG-YU
+Windows 10 for Power Users – Private, Secure, Zero Bloatware (Windows 10 Ameliorated) https://www." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://denislee.github.io/posts/post-005-windows-10/" />
+<meta property="article:published_time" content="2020-09-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-09T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Windows 10, but better"/>
+<meta name="twitter:description" content="Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.
+Os videos que eu assisti foram:
+We fixed Windows 10 - Microsoft will HATE this! https://www.youtube.com/watch?v=nwkiU6GG-YU
+Windows 10 for Power Users – Private, Secure, Zero Bloatware (Windows 10 Ameliorated) https://www."/>
+<script src="https://denislee.github.io/js/feather.min.js"></script>
+	
+	<link href="https://denislee.github.io/css/fonts.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://denislee.github.io/css/main.css" /><link rel="stylesheet" type="text/css" href="https://denislee.github.io/css/dark.css" media="(prefers-color-scheme: dark)" />
+	
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://denislee.github.io/">denislee</a>
+	</div>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">All posts</a>
+		
+		<a href="/about">About</a>
+		
+		<a href="/tags">Tags</a>
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Windows 10, but better</h1>
+			<div class="meta">Posted on Sep 9, 2020</div>
+		</div>
+		
+
+		<section class="body">
+			<p>Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.</p>
+<p>Os videos que eu assisti foram:</p>
+<p><em>We fixed Windows 10 - Microsoft will HATE this!</em>
+<a href="https://www.youtube.com/watch?v=nwkiU6GG-YU">https://www.youtube.com/watch?v=nwkiU6GG-YU</a></p>
+<p><em>Windows 10 for Power Users – Private, Secure, Zero Bloatware (Windows 10 Ameliorated)</em>
+<a href="https://www.youtube.com/watch?v=YTL0i5XzS7k">https://www.youtube.com/watch?v=YTL0i5XzS7k</a></p>
+<p>Tutorial escrito pelo Wolfgang
+<a href="https://notthebe.ee/Windows10.html">https://notthebe.ee/Windows10.html</a></p>
+<p>E para facilitar, segui um híbrido de tutorial escrito do Wolfgang, quanto o vídeo dele. Ambos acabam complementando um ao outro. Mas, um parece nao funcionar sem o outro. Infelizmente.</p>
+<p>Por esse motivo, estou deixando as minhas anotações da instalação aqui também. (Para futuros usos pessoais também.) Que basicamente será uma transcrição em português do que já foi escrito pelo Wolfgang.</p>
+<h2 id="resumo-dos-arquivos-necessários">Resumo dos arquivos necessários</h2>
+<ol>
+<li>ISO do Windows 10 completo (peguei a versão Pro)</li>
+<li>ISO do Linux (pode ser qualquer um)</li>
+<li>Aplicação para calcular o SHA1 da imagem</li>
+<li>Aplicação para criar um pendrive bootável</li>
+<li>Atualização do Windows 10 cumulativo</li>
+<li>Atualização do Windows 10 incremental</li>
+<li>Amelioration Script</li>
+<li>Backup dos seus Drivers</li>
+<li>Hardentools (Security without borders)</li>
+</ol>
+<h2 id="no-windows">NO WINDOWS</h2>
+<h3 id="download-da-imagem-do-windows-10">Download da imagem do Windows 10</h3>
+<p>Faça download da imagem do Windows 10</p>
+<p><strong>Alternativa 1</strong> Baixar o aplicativo Fido (funciona apenas no Windows) <a href="https://github.com/pbatard/Fido">https://github.com/pbatard/Fido</a></p>
+<p><strong>Alternativa 2</strong>: Selecionar no site <a href="https://tb.rg-adguard.net/public.php">https://tb.rg-adguard.net/public.php</a></p>
+<p>No caso, eu peguei a versao em ingles e pro. Importante ressaltar que apenas nessa hora que você poderá escolher a língua do seu sistema operacional. Caso queira trocar futuramente, precisará reinstalar o Windows (acredito que você não queira fazer isso).</p>
+<h3 id="verificação-da-imagem-do-windows-10">Verificação da imagem do Windows 10</h3>
+<p>Para verificar se a imagem do Windows que você acabou de baixar não está corrompida ou alterada, precisamos de uma aplicação para calcular o hash.</p>
+<p><strong>Alternativa 1</strong>: Utilização da ferramenta já existente no PowerShell</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Get-FileHash -Algorithm SHA1 Windows_2004.iso
+</code></pre></div><p><strong>Alternativa 2</strong>: <a href="https://www.adaic.org/resources/add_content/standards/articles/SHA-1.html">https://www.adaic.org/resources/add_content/standards/articles/SHA-1.html</a></p>
+<p>Executando alguma dessas duas alternativas, será possível comparar a saida desses programas no site: <a href="https://sha1.rg-adguard.net/">https://sha1.rg-adguard.net/</a></p>
+<h3 id="download-dos-updates">Download dos updates</h3>
+<p>Para isso você devera entrar no site o Windows 10 Update History: <a href="https://support.microsoft.com/en-us/help/4555932/windows-10-update-history">https://support.microsoft.com/en-us/help/4555932/windows-10-update-history</a></p>
+<ol>
+<li>
+<p>Procurar a sua versão do Windows. na primeira coluna da esquerda.</p>
+</li>
+<li>
+<p>Depois clique na primeiro item da segunda coluna na esquerda (In this release)</p>
+</li>
+<li>
+<p>Copie o código do titulo da pagina KBXXXXXXX e va no site <a href="https://www.catalog.update.microsoft.com/Home.aspx">https://www.catalog.update.microsoft.com/Home.aspx</a> e procure por esse código</p>
+</li>
+<li>
+<p>Faça download da arquitetura do seu processador e para o seu Windows (cuidado para não baixar a versão para servidor)</p>
+</li>
+<li>
+<p>Volte para a pagina onde você copiou o código (KBXXXXXXX) e procure pela palavra chave: <code>the latest SSU</code></p>
+</li>
+<li>
+<p>Copie o código que vem logo em seguida dessa palavra que você procurou e vá para o site e faça download (passos 3. e 4. anteriores)</p>
+</li>
+</ol>
+<p>No fim, você terá baixado dois arquivos de atualização do Windows</p>
+<h3 id="download-do-script-ame">Download do script AME</h3>
+<p><strong>Alternativa 1</strong>: <a href="https://git.ameliorated.info/malte/scripts/releases/download/1903.2020.03.06/amelioration_1903_2020.03.06.bat">https://git.ameliorated.info/malte/scripts/releases/download/1903.2020.03.06/amelioration_1903_2020.03.06.bat</a></p>
+<p>Caso o link esteja desatualizado. Entre no site <a href="https://ameliorated.info/documentation.html#ame_pre">https://ameliorated.info/documentation.html#ame_pre</a> e procure pela palavra chave <code>Windows 10 Amelioration script</code> e faça download</p>
+<h3 id="backup-dos-seus-drivers">Backup dos seus drivers</h3>
+<p>Abra o PowerShell como Admin e execute o comando</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pnputil /export-driver * &#34;C:\backup-drivers&#34;
+</code></pre></div><h3 id="hora-de-baixar-o-linux">Hora de baixar o Linux</h3>
+<p>No tutorial ele (Wolfgang) recomendou baixar o xubuntu. Segui a recomendação, porém descobri na prática que qualquer imagem funciona. Poderia até ser um Arch, mas acredito que a recomendação foi mais pela facilidade de uso mesmo. A exigência para facilitar e que você consiga acessar a internet facilmente, consiga acessar o disco que o Windows será instalado, consiga acessar a Internet e tenha a modalidade de boot do Linux sem instalar o mesmo.</p>
+<p><a href="https://xubuntu.org/">https://xubuntu.org/</a></p>
+<h3 id="criando-um-pendrive-bootável">Criando um pendrive bootável</h3>
+<p>Precisamos baixar um programa para gravar o ISO do Windows no pendrive e deixar ele bootável. Para isso recomendo você baixar o seguinte programa</p>
+<p><strong>Alternativa 1</strong>: <a href="https://rufus.ie/">https://rufus.ie/</a></p>
+<p>Abra o Rufus e escolha o drive que está conectado o seu Pendrive, escolha a ISO do Windows e pronto.</p>
+<h3 id="copiando-os-arquivos">Copiando os arquivos</h3>
+<p>Copie todos os arquivos que você baixou até agora para dentro do Pendrive. Segue a lista que deve entrar</p>
+<ul>
+<li>ISO do linux</li>
+<li>Rufus</li>
+<li>Atualizações do Windows</li>
+<li>Script AME</li>
+</ul>
+<h3 id="instalando-o-windows">Instalando o Windows</h3>
+<p>Agora os passos para iniciar a instalação na sua máquina</p>
+<ol>
+<li>Conecte o Pendrive no seu computador</li>
+<li>Reinicie o mesmo</li>
+<li>Desative toda e qualquer conexão com a internet (wifi e ethernet) pela bios</li>
+<li>Troque a ordem do boot para iniciar pelo pendrive</li>
+<li>Talvez seja necessário desativar o boot de seguranca</li>
+<li>Instale o Windows</li>
+</ol>
+<h2 id="no-windows-novo">NO WINDOWS (NOVO)</h2>
+<h3 id="primeiro-boot-no-windows">Primeiro boot no Windows</h3>
+<p>Responda não para todas as perguntas de compartilhamento de informação que eles perguntarem durante o setup final da instalação do Windows.</p>
+<p>Assim que você já estiver dentro do sistema operacional, faça as seguintes ações:</p>
+<ul>
+<li>Faca unpin em todos os aplicativos da barra de tarefas.</li>
+<li>Faca unpin em todos os aplicativos do menu do botão iniciar.</li>
+<li>Remova a barra de busca da barra de tarefas.</li>
+</ul>
+<h3 id="instalação-das-atualizações">Instalação das atualizações</h3>
+<p>Crie os seguintes diretórios no drive de onde foi instalado o Windows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">- C:\SSU
+- C:\Cumulative
+</code></pre></div><p>Abra o PowerShell com permissão de administrador e dentro dele entre no drive do pendrive. E faça os seguintes comandos:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">expand -F:* name_of_the_ssu_package.msu C:\SSU
+expand -F:* name_of_the_cumulative_package.msu C:\Cumulative
+</code></pre></div><p>Em seguida faça o seguinte comando para instalar os pacotes descompactados</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">dism</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">online</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">add</span><span style="color:#f92672">-</span><span style="color:#f92672">package</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">packagepath</span>=<span style="color:#a6e22e">C</span>:<span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">SSU</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">name_of_the_ssu</span>.<span style="color:#a6e22e">cab</span>
+</code></pre></div><p>Vai reiniciar apos a instalacao. Depois de reiniciado instale a atualização cumulativa</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">dism</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">online</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">add</span><span style="color:#f92672">-</span><span style="color:#f92672">package</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">packagepath</span>=<span style="color:#a6e22e">C</span>:<span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Cumulative</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">name_of_the_cumulative</span>.<span style="color:#a6e22e">cab</span>
+</code></pre></div><p>Reinicie duas vezes e agora execute o comando final</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">dism /online /Cleanup-Image /StartComponentCleanup
+</code></pre></div><h3 id="executando-o-script-ame">Executando o script AME</h3>
+<p>Clique com o botão direito no script e execute como administrador.</p>
+<p><strong>Escolha 1</strong>: <code>Run Pre-Amelioration</code></p>
+<ul>
+<li>Espere o processo terminar.</li>
+</ul>
+<p><strong>Escolha 3</strong>: <code>User Permissions</code></p>
+<ul>
+<li>
+<p>Altere a senha de administrador.</p>
+</li>
+<li>
+<p>Altere os privilégios do seu usuário local para <code>Standard User</code></p>
+</li>
+</ul>
+<p>Faça logout e logue novamente.</p>
+<p>Abre um PowerShell como administrador e execute o comando para alterar a sua senha:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">net user &lt;seu-usuário&gt; *
+</code></pre></div><h3 id="criação-do-mídia-de-boot-do-linux">Criação do mídia de boot do Linux</h3>
+<p>Abra o Rufus e escolha o pendrive e o ISO do Linux para transformar o seu pendrive que você acabou de usar para instalar o Windows para instalar o Linux.</p>
+<p>Reinicie o computador com o pendrive conectado.</p>
+<h2 id="no-linux">NO LINUX</h2>
+<h3 id="dentro-do-linux">Dentro do Linux</h3>
+<p>Nessa parte você já pode ligar novamente toda a conectividade do seu computador (que você havia desativado anteriormente na BIOS).</p>
+<p>Entre no Linux pela escolha que não precisa instalar nada.</p>
+<p>Abra um terminal e entre no diretório raiz da instalação do seu Windows e faça o seguinte comando:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">wget https://git.ameliorated.info/malte/scripts/releases/download/1903.2020.03.06/ameliorate_1903_2020.03.06.sh
+</code></pre></div><p>(esse link pode estar desatualizado. Nesse caso entre no link: <a href="https://ameliorated.info/documentation.html">https://ameliorated.info/documentation.html</a> e procure pela palavra chave <code>Linux Ameliorate script</code> e copie o link)</p>
+<p>Agora é só executar o script.</p>
+<p>Caso tenha problemas em executar o script, faça os seguintes passo:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sed -i &#39;s/\r$//&#39; &lt;script-shell&gt;
+</code></pre></div><p>Agora é só executar o script que você acabou de baixar e aguardar.</p>
+<p>Só reiniciar e voltar para o Windows.</p>
+<h2 id="no-windows-novo-1">NO WINDOWS (NOVO)</h2>
+<h3 id="post-amelioration">Post-Amelioration</h3>
+<p>Edite o script AME que você usou antes de entrar no Linux e procure pela seguinte linha:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">choco install -y --force --allow-empty-checksums firefox thunderbird vlc youtube-dl 7zip open-shell jpegview vcredist-all directx onlyoffice
+</code></pre></div><p>E substitua para:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">choco install -y --force --allow-empty-checksums firefox thunderbird vlc youtube-dl 7zip open-shell  -installArgs ADDLOCAL=StartMenu jpegview vcredist-all directx libreoffice
+</code></pre></div><p>Execute o script e escolha o Post-Amelioration</p>
+<h3 id="hardening-windows-settings">Hardening Windows Settings</h3>
+<p>Para ajudar na segurança, baixe e instale o Harden Tools.</p>
+<p><strong>Alternativa 1</strong>: <a href="https://securitywithoutborders.org/tools/hardentools.html">https://securitywithoutborders.org/tools/hardentools.html</a></p>
+<h3 id="reinstalação-dos-drivers">Reinstalação dos drivers</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pnputil.exe /add-driver C:\backup-drivers\*.inf /subdirs /install /reboot
+</code></pre></div>
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/untagged">untagged</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr><a class="soc" href="https://github.com/denislee" title="GitHub"><i data-feather="github"></i></a>|<a class="soc" href="https://twitter.com/denislee" title="Twitter"><i data-feather="twitter"></i></a>|⚡️
+	2021  © Denis Lee |  <a href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+</footer>
+
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
+</html>

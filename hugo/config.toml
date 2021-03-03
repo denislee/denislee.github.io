@@ -1,35 +1,50 @@
 baseURL = "https://denislee.github.io/"
+languageCode = "en-us"
 title = "denislee"
-theme = "etch"
-languageCode = "en-US"
-enableInlineShortcodes = true
-pygmentsCodeFences = true
-pygmentsUseClasses = true
+theme="archie"
+copyright = "© Denis Lee"
+# Code Highlight
+pygmentsstyle = "monokai"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+paginate=3 # articles per page
 
 [params]
-  description = "personal blog"
-  copyright = "Copyright © 2020 denislee"
-  dark = "auto"
-  highlight = true
+	mode="auto" # color-mode → light,dark or auto
+	useCDN=false # don't use CDNs for fonts and icons, instead serve them locally.
+	subtitle = "Minimal and Clean [blog theme for Hugo](https://github.com/athul/archie)"
 
-[menu]
-  [[menu.main]]
-    identifier = "posts"
-    name = "posts"
-    title = "posts"
-    url = "/"
-    weight = 10
+# Social Tags
 
-  [[menu.main]]
-    identifier = "about"
-    name = "about"
-    title = "about"
-    url = "/about/"
-    weight = 20
+[[params.social]]
+name = "GitHub"
+icon = "github"
+url = "https://github.com/denislee"
 
-[permalinks]
-  posts = "/:title/"
+[[params.social]]
+name = "Twitter"
+icon = "twitter"
+url = "https://twitter.com/denislee"
 
-[markup.goldmark.renderer]
-  # Allows HTML in Markdown
-  unsafe = true
+# Main menu Items
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "All posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 3
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 4
