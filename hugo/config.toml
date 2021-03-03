@@ -1,5 +1,5 @@
 baseURL = "https://denislee.github.io/"
-title = "denislee.github.io"
+title = "denislee"
 theme = "etch"
 languageCode = "en-US"
 enableInlineShortcodes = true
