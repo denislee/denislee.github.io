@@ -9,7 +9,7 @@ publishdir = ".."
 
 [params]
   description = "personal blog"
-  copyright = "-"
+  copyright = ""
   dark = "auto"
   highlight = true
 
