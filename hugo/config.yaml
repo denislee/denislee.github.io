@@ -2,6 +2,7 @@ baseURL: https://denislee.github.io
 languageCode: en-us
 title: denislee
 theme: mini
+publishdir: ".."
 
 # for exampleSite only, you may need to delete the line: `themesDir: ../../`
 
