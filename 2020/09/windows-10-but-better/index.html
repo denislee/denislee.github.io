@@ -1,45 +1,102 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title> Windows 10, but better &middot; denis lee </title>
-
-
-<link rel="stylesheet" href="https://denislee.github.io/css/slim.css">
-<link rel="stylesheet" href="https://denislee.github.io/css/highlight.min.css">
-<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
-
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="/favicon.ico">
-
-
-<link href="" rel="alternate" type="application/rss+xml" title="denis lee" />
-
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Windows 10, but better</title>
+	
+	<meta name="description" content="">
+	<meta name="image" content="">
+	
+	<meta itemprop="name" content="Windows 10, but better">
+	<meta itemprop="description" content="">
+	<meta itemprop="image" content="">
+	
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Windows 10, but better">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:site" content="@denislee">
+	<meta name="twitter:creator" content="@denislee">
+	<meta name="twitter:image:src" content="">
+	
+	
+	<meta name="og:title" content="Windows 10, but better">
+	<meta name="og:description" content="">
+	
+	<meta name="og:url" content="https://denislee.github.io/2020/09/windows-10-but-better/">
+	<meta name="og:site_name" content="Windows 10, but better">
+	<meta name="og:type" content="article">
+	
+	<meta name="article:author" content="denislee">
+	<meta name="article:tag" content="untagged ">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<script src="/js/caption.js"></script>
 </head>
-
 <body>
-  <div class="container">
-    <div class="header">
-  <h1 class="site-title"><a href="https://denislee.github.io/">denis lee</a></h1>
-  <p class="site-tagline">blog!</p>
-  <div class="nav">
-    <a class="nav-btn" href="#">
-      <span class="ci ci-burger"></span>
-    </a>
-    <ul class="nav-list">
-       
-	  <li class="spacer">&ac;</li>
-  
-    </ul>
-  </div>
-</div>
-    <div class="content">
-      <div class="post">
-        <h2 class="post-title"><a href="https://denislee.github.io/2020/09/windows-10-but-better/">Windows 10, but better</a></h2>
-        <div class="post-content">
-          <p>Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.</p>
+
+<header >
+	<a href="/" style="float: left;color:#777;"><strong>denis lee</strong>
+	</a>
+	<a href="/index.xml" style="color:#777;float: left;"><strong>
+		&nbsp;
+	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+</strong></a>
+
+
+</header>
+
+
+<div id="loadingMask" style="width: 100%; height: 100%; position: fixed; background: #fff;"></div>
+<script>
+function fadeOut(el) {
+  el.style.opacity = 1;
+
+  var last = +new Date();
+  var tick = function() {
+    el.style.opacity = +el.style.opacity - (new Date() - last) / 80;
+    last = +new Date();
+    
+
+    if (el.style.opacity > 0) {
+      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+    } else {
+    	el.style.display='none';
+    }
+  };
+
+  tick();
+}
+
+function ready(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+         el = document.getElementById('loadingMask');
+         fadeOut(el);
+        var elements = document.querySelectorAll("img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("alt")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("alt"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+
+    } else {
+        document.addEventListener('DOMContentLoaded', fn);
+    }
+}
+window.onload = ready;
+</script>
+
+<div class="content">
+	<h1>Windows 10, but better <aside><a href="/tags/untagged/" class="w3-tag">/untagged</a>&nbsp;&nbsp;&nbsp;</aside></h1>
+	<p>Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.</p>
 <p>Os videos que eu assisti foram:</p>
 <p><em>We fixed Windows 10 - Microsoft will HATE this!</em>
 <a href="https://www.youtube.com/watch?v=nwkiU6GG-YU">https://www.youtube.com/watch?v=nwkiU6GG-YU</a></p>
@@ -195,19 +252,19 @@ expand -F:* name_of_the_cumulative_package.msu C:\Cumulative
 <h3 id="reinstalação-dos-drivers">Reinstalação dos drivers</h3>
 <pre><code>pnputil.exe /add-driver C:\backup-drivers\*.inf /subdirs /install /reboot
 </code></pre>
-        </div>
-      </div>
-    </div>
-    <div class="footer">
-  
-  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
-  
 </div>
 
-  </div>
-  <script src="https://denislee.github.io/js/slim.js"></script>
-  
 
+
+
+
+
+
+
+
+<footer>
+	<p>"On the Internet, nobody knows you're a dog." - <em>Peter Steiner</em></p>
+	<p>This site was made with <a href="https://github.com/gohugoio/hugo">Hugo</a> using theme <a href="https://github.com/schollz/onetwothree">onetwothree</a> made by <a href="https://github.com/schollz">schollz</a>.</p>
+</footer>
 </body>
-
 </html>

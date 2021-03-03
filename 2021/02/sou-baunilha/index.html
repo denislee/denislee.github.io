@@ -1,45 +1,102 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title> Sou baunilha &middot; denis lee </title>
-
-
-<link rel="stylesheet" href="https://denislee.github.io/css/slim.css">
-<link rel="stylesheet" href="https://denislee.github.io/css/highlight.min.css">
-<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
-
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="/favicon.ico">
-
-
-<link href="" rel="alternate" type="application/rss+xml" title="denis lee" />
-
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Sou baunilha</title>
+	
+	<meta name="description" content="">
+	<meta name="image" content="">
+	
+	<meta itemprop="name" content="Sou baunilha">
+	<meta itemprop="description" content="">
+	<meta itemprop="image" content="">
+	
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Sou baunilha">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:site" content="@denislee">
+	<meta name="twitter:creator" content="@denislee">
+	<meta name="twitter:image:src" content="">
+	
+	
+	<meta name="og:title" content="Sou baunilha">
+	<meta name="og:description" content="">
+	
+	<meta name="og:url" content="https://denislee.github.io/2021/02/sou-baunilha/">
+	<meta name="og:site_name" content="Sou baunilha">
+	<meta name="og:type" content="article">
+	
+	<meta name="article:author" content="denislee">
+	<meta name="article:tag" content="default vanilla ">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<script src="/js/caption.js"></script>
 </head>
-
 <body>
-  <div class="container">
-    <div class="header">
-  <h1 class="site-title"><a href="https://denislee.github.io/">denis lee</a></h1>
-  <p class="site-tagline">blog!</p>
-  <div class="nav">
-    <a class="nav-btn" href="#">
-      <span class="ci ci-burger"></span>
-    </a>
-    <ul class="nav-list">
-       
-	  <li class="spacer">&ac;</li>
-  
-    </ul>
-  </div>
-</div>
-    <div class="content">
-      <div class="post">
-        <h2 class="post-title"><a href="https://denislee.github.io/2021/02/sou-baunilha/">Sou baunilha</a></h2>
-        <div class="post-content">
-          <p>Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).</p>
+
+<header >
+	<a href="/" style="float: left;color:#777;"><strong>denis lee</strong>
+	</a>
+	<a href="/index.xml" style="color:#777;float: left;"><strong>
+		&nbsp;
+	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+</strong></a>
+
+
+</header>
+
+
+<div id="loadingMask" style="width: 100%; height: 100%; position: fixed; background: #fff;"></div>
+<script>
+function fadeOut(el) {
+  el.style.opacity = 1;
+
+  var last = +new Date();
+  var tick = function() {
+    el.style.opacity = +el.style.opacity - (new Date() - last) / 80;
+    last = +new Date();
+    
+
+    if (el.style.opacity > 0) {
+      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+    } else {
+    	el.style.display='none';
+    }
+  };
+
+  tick();
+}
+
+function ready(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+         el = document.getElementById('loadingMask');
+         fadeOut(el);
+        var elements = document.querySelectorAll("img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("alt")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("alt"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+
+    } else {
+        document.addEventListener('DOMContentLoaded', fn);
+    }
+}
+window.onload = ready;
+</script>
+
+<div class="content">
+	<h1>Sou baunilha <aside><a href="/tags/default/" class="w3-tag">/default</a>&nbsp;&nbsp;&nbsp;<a href="/tags/vanilla/" class="w3-tag">/vanilla</a>&nbsp;&nbsp;&nbsp;</aside></h1>
+	<p>Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).</p>
 <p>Ou seja, quando começo a usar algo, costumo deixar as coisas exatamente como estão. Só vou alterar algo no meu processo, apenas quando algo realmente me incomoda ou para atividades realmente repetitivas. Caso contrário, eu não procuro lugar para me coçar.</p>
 <p>Um bom exemplo disso é a publicação desse blog. Eu poderia seguir o caminho comum de fazer os commits e pushs tranquilamente, porém, isso se tornou uma pequena dificuldade/barreira que me impedia de querer escrever (só de pensar na chatice de publicar, me fazia desistir de escrever algo). Nesse caso, eu fiz um script que torna a publicação mais fácil de maneira bem ridícula.</p>
 <p>Lembro que eu gostava muito de personalizar as coisas. Uma das primeiras distribuições Linux que usei (e me encantei) foi o Slackware. Nele você precisava fazer todas as configurações, isso fazia você aprender sobre o sistema, personalizar ele e, assim, com todo o conhecimento adquirido, dar a liberdade de fazer qualquer alteração no mesmo. Porém, após eu trocar de computador, foi muito trabalhoso personalizar novamente. E com isso, tive que trabalhar para deixar toda a configuração portátil. E mesmo depois de deixar ele portátil, eu precisaria atualizar ele a cada atualização da distribuição e a decisão de determinados pacotes que a distribuição ditava em suas novas distribuições.</p>
@@ -49,19 +106,19 @@
 <p>Mais um caso foi quando eu cogitei tentar aprender outro layout de teclado para aumentar a velocidade de digitação, evitar tendinite e otimizar a forma como eu uso a minha preciosa energia digitando. Adivinha como todos os teclados (de alfabeto romano) utilizam? Pois é, desisti na hora. Não, obrigado.</p>
 <p>Nem tudo são flores, obviamente. Hoje em dia, eu dificilmente acabo vendo a forma de personalizar ou tenho preguiça com mais freqüência em tentar solucionar um problema de usabilidade em minhas ferramentas. Simplesmente engulo o problema ou levanto a bunda da cadeira quando realmente estiver me irritando de verdade.</p>
 
-        </div>
-      </div>
-    </div>
-    <div class="footer">
-  
-  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
-  
 </div>
 
-  </div>
-  <script src="https://denislee.github.io/js/slim.js"></script>
-  
 
+
+
+
+
+
+
+
+<footer>
+	<p>"On the Internet, nobody knows you're a dog." - <em>Peter Steiner</em></p>
+	<p>This site was made with <a href="https://github.com/gohugoio/hugo">Hugo</a> using theme <a href="https://github.com/schollz/onetwothree">onetwothree</a> made by <a href="https://github.com/schollz">schollz</a>.</p>
+</footer>
 </body>
-
 </html>
