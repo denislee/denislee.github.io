@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>qutebrowser on denislee</title>
+    <title>qutebrowser on denis lee</title>
     <link>https://denislee.github.io/tags/qutebrowser/</link>
-    <description>Recent content in qutebrowser on denislee</description>
+    <description>Recent content in qutebrowser on denis lee</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© Denis Lee</copyright>
     <lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://denislee.github.io/tags/qutebrowser/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>qutebrowser</title>
-      <link>https://denislee.github.io/posts/post-012-qutebrowser/</link>
+      <link>https://denislee.github.io/2021/02/qutebrowser/</link>
       <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://denislee.github.io/posts/post-012-qutebrowser/</guid>
+      <guid>https://denislee.github.io/2021/02/qutebrowser/</guid>
       <description>Motivação Como todo usuário de Vim e agraciado pelas suas teclas de atalho, além do window manager que melhor atende suas necessidades e potencializa o seu aprendizado no Vim, o navegador seria o próximo a ser beneficiado por essa memória muscular de navegação: hjkl.
 Por isso, a escolha mais comum de navegador seria o qutebrowser. Seguem algumas configurações (pequenas) que eu fiz, para deixar ele minimamente utilizável.
 Configurações Você poderá editar o arquivo .</description>
