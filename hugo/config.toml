@@ -2,6 +2,7 @@ baseURL = "https://denislee.github.io/"
 footnoteReturnLinkContents = "↩"
 title = "denis lee"
 publishdir = ".."
+theme = "slim"
 
 [params]
   AuthorName = "Denis Lee"

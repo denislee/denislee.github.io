@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> qutebrowser &middot; denis lee </title>
+
+
+<link rel="stylesheet" href="https://denislee.github.io/css/slim.css">
+<link rel="stylesheet" href="https://denislee.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="denis lee" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://denislee.github.io/">denis lee</a></h1>
+  <p class="site-tagline">blog!</p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="post">
+        <h2 class="post-title"><a href="https://denislee.github.io/2021/02/qutebrowser/">qutebrowser</a></h2>
+        <div class="post-content">
+          <h1 id="motivação">Motivação</h1>
+<p>Como todo usuário de Vim e agraciado pelas suas teclas de atalho, além do window manager que melhor atende suas necessidades e potencializa o seu aprendizado no Vim, o navegador seria o próximo a ser beneficiado por essa memória muscular de navegação: hjkl.</p>
+<p>Por isso, a escolha mais comum de navegador seria o qutebrowser. Seguem algumas configurações (pequenas) que eu fiz, para deixar ele minimamente utilizável.</p>
+<h1 id="configurações">Configurações</h1>
+<p>Você poderá editar o arquivo <code>.config/qutebrowser/config.py</code> diretamente ou gerar/salvar um arquivo com o comando <code>:config-save-py --force</code></p>
+<p>E para editar as configurações correntes pelo próprio navegador com o comando: <code>:set</code> e depois salvar usando o <code>:config-save-py --force</code></p>
+<p>Seguem as configurações que eu deixo:</p>
+<h1 id="urlsearchengines">url.searchengines</h1>
+<pre><code>c.url.searchengines = {'DEFAULT': 'https://www.startpage.com/do/dsearch?query={}'}
+</code></pre><h1 id="contentnotifications">content.notifications</h1>
+<pre><code>c.content.notifications = False
+</code></pre><h1 id="contentgeolocation">content.geolocation</h1>
+<pre><code>c.content.notifications = False
+</code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://denislee.github.io/js/slim.js"></script>
+  
+
+</body>
+
+</html>
