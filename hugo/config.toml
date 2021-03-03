@@ -10,6 +10,7 @@ theme = "onetwothree"
   SidebarRecentLimit = 5
   Subtitle = "blog!"
   twitter = "denislee"
+  style = "2"
 
 [permalinks]
   posts = "/:year/:month/:title/"
