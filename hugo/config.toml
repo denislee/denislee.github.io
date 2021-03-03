@@ -21,7 +21,6 @@ publishdir = ".."
     url = "/"
     weight = 10
 
-
 [permalinks]
   posts = "/:title/"
 
