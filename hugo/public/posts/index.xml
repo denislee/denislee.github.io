@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on denislee</title>
+    <link>https://denislee.github.io/posts/</link>
+    <description>Recent content in Posts on denislee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Denis Lee</copyright>
+    <lastBuildDate>Sat, 27 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://denislee.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>firefox</title>
+      <link>https://denislee.github.io/posts/post-013-firefox/</link>
+      <pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-013-firefox/</guid>
+      <description>Motivação O meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior) e infelizmente eu estive tendo alguns problemas com ele.
+ crashes constantes travamento do meu computador todo (teclado e mouse pararam de funcionar)  Acredito que esses já são bons motivos para ver alternativas. E, tudo isso, infelizmente deve fazer parte da incompatibilidade nativa de funcionar no Wayland.
+Alternativas Os meus navegadores favoritos sempre foram:</description>
+    </item>
+    
+    <item>
+      <title>Dificuldades em publicar aqui</title>
+      <link>https://denislee.github.io/posts/post-009-back/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-009-back/</guid>
+      <description>Olá,
+Depois de um bom tempo longe e frustrado com a falta de ferramentas para publicar bem o blog (a limitação do hugo para colocar facilmente imagens comparado aos outros blog atuais com muitas facilidades), acabou me afastando de escrever mais por aqui.
+Mas, com a ajuda de alguns scrips, acredito que fique mais freqüente as minha publicações (e, quem sabe, do blog vire vídeos novamente haha)
+Atualmente estou utilizando mais o Instagram de redes sociais.</description>
+    </item>
+    
+    <item>
+      <title>do i3 para o Sway</title>
+      <link>https://denislee.github.io/posts/post-011-sway/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-011-sway/</guid>
+      <description>Motivação Uma das poucas coisas que me fariam mudar de ideia de trocar de sistema operacional, window manager ou qualquer software que eu uso no computador, com certeza, é velocidade/performance (por isso que, normalmente, não gosto de aplicações feitas em Electron, pois costumam ser bem devagar).
+E, visto que o Sway é a transição mais tranquila para usuários i3, porém com um twist bem importante para a performance, pois utiliza o wayland no lugar do xorg.</description>
+    </item>
+    
+    <item>
+      <title>qutebrowser</title>
+      <link>https://denislee.github.io/posts/post-012-qutebrowser/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-012-qutebrowser/</guid>
+      <description>Motivação Como todo usuário de Vim e agraciado pelas suas teclas de atalho, além do window manager que melhor atende suas necessidades e potencializa o seu aprendizado no Vim, o navegador seria o próximo a ser beneficiado por essa memória muscular de navegação: hjkl.
+Por isso, a escolha mais comum de navegador seria o qutebrowser. Seguem algumas configurações (pequenas) que eu fiz, para deixar ele minimamente utilizável.
+Configurações Você poderá editar o arquivo .</description>
+    </item>
+    
+    <item>
+      <title>Sou baunilha</title>
+      <link>https://denislee.github.io/posts/post-010-baunilha/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-010-baunilha/</guid>
+      <description>Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).
+Ou seja, quando começo a usar algo, costumo deixar as coisas exatamente como estão. Só vou alterar algo no meu processo, apenas quando algo realmente me incomoda ou para atividades realmente repetitivas. Caso contrário, eu não procuro lugar para me coçar.</description>
+    </item>
+    
+    <item>
+      <title>Windows 10, but better</title>
+      <link>https://denislee.github.io/posts/post-005-windows-10/</link>
+      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-005-windows-10/</guid>
+      <description>Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.
+Os videos que eu assisti foram:
+We fixed Windows 10 - Microsoft will HATE this! https://www.youtube.com/watch?v=nwkiU6GG-YU
+Windows 10 for Power Users – Private, Secure, Zero Bloatware (Windows 10 Ameliorated) https://www.</description>
+    </item>
+    
+    <item>
+      <title>Daily vlog</title>
+      <link>https://denislee.github.io/posts/post-003-daily-vlog/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-003-daily-vlog/</guid>
+      <description>Depois de ter muitas idéias na cabeça ao assistir diversos vídeos no YouTube. Pensei em colocar o meu sonho de voltar a fazer vídeos em prática. Assim como o próprio vídeo do rapaz que trabalha na Vox dizia: &amp;ldquo;se você tem uma idéia, a melhor coisa que você pode fazer, é colocar ela em prática&amp;rdquo;. Não sei se ele disse exatamente isso, mas foi o que eu entendi.
+As idéias que surgiram na minha cabeça, são simples.</description>
+    </item>
+    
+    <item>
+      <title>Keyboard Layouts</title>
+      <link>https://denislee.github.io/posts/post-002-keyboard-layouts/</link>
+      <pubDate>Mon, 31 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-002-keyboard-layouts/</guid>
+      <description>Início Lembro da primeira vez que eu entrei em contato com um computador. Acredito que eu tinha os 12 anos (ou algo próximo disso). O ano acredito que era 1996. Mal existiam computadores aqui no Brasil. Tudo nesse equipamento havia me fascinado. Tudo era mágico. E, de todas as parte do computador, o teclado era a ponte para interagir com a máquina. E, por esse motivo, acaba ganhando uma atenção especial por seus usuários.</description>
+    </item>
+    
+  </channel>
+</rss>

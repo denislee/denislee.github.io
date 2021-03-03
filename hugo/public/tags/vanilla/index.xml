@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vanilla on denislee</title>
+    <link>https://denislee.github.io/tags/vanilla/</link>
+    <description>Recent content in vanilla on denislee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Denis Lee</copyright>
+    <lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://denislee.github.io/tags/vanilla/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sou baunilha</title>
+      <link>https://denislee.github.io/posts/post-010-baunilha/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/posts/post-010-baunilha/</guid>
+      <description>Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).
+Ou seja, quando começo a usar algo, costumo deixar as coisas exatamente como estão. Só vou alterar algo no meu processo, apenas quando algo realmente me incomoda ou para atividades realmente repetitivas. Caso contrário, eu não procuro lugar para me coçar.</description>
+    </item>
+    
+  </channel>
+</rss>
