@@ -1,30 +1,58 @@
 <!DOCTYPE html>
 <html><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="shortcut icon" href="https://denislee.github.io/favicon.ico">
-    
-    <link rel="stylesheet" href="/css/style.min.css">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>firefox - denislee</title><meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>firefox</title>
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="firefox" />
+<meta property="og:description" content="Motivação O meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior) e infelizmente eu estive tendo alguns problemas com ele.
+ crashes constantes travamento do meu computador todo (teclado e mouse pararam de funcionar)  Acredito que esses já são bons motivos para ver alternativas. E, tudo isso, infelizmente deve fazer parte da incompatibilidade nativa de funcionar no Wayland.
+Alternativas Os meus navegadores favoritos sempre foram:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://denislee.github.io/posts/post-013-firefox/" />
+<meta property="article:published_time" content="2021-02-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-27T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="firefox"/>
+<meta name="twitter:description" content="Motivação O meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior) e infelizmente eu estive tendo alguns problemas com ele.
+ crashes constantes travamento do meu computador todo (teclado e mouse pararam de funcionar)  Acredito que esses já são bons motivos para ver alternativas. E, tudo isso, infelizmente deve fazer parte da incompatibilidade nativa de funcionar no Wayland.
+Alternativas Os meus navegadores favoritos sempre foram:"/>
+<script src="https://denislee.github.io/js/feather.min.js"></script>
+	
+	<link href="https://denislee.github.io/css/fonts.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://denislee.github.io/css/main.css" /><link rel="stylesheet" type="text/css" href="https://denislee.github.io/css/dark.css" media="(prefers-color-scheme: dark)" />
+	
+	
 </head>
-<body><header id="banner">
-    <h2><a href="https://denislee.github.io/">Denis Lee</a></h2>
-    <nav>
-        <ul>
-            <li>
-                <a href="posts/" title="">Posts</a>
-            </li><li>
-                <a href="about/" title="">About</a>
-            </li>
-        </ul>
-    </nav>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://denislee.github.io/">denislee</a>
+	</div>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">All posts</a>
+		
+		<a href="/about">About</a>
+		
+		<a href="/tags">Tags</a>
+		
+	</nav>
 </header>
-<main id="content">
-<article>
-    <header id="post-header">
-        <h1>firefox</h1><time>February 27, 2021</time></header><h1 id="motivação">Motivação</h1>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">firefox</h1>
+			<div class="meta">Posted on Feb 27, 2021</div>
+		</div>
+		
+
+		<section class="body">
+			<h1 id="motivação">Motivação</h1>
 <p>O meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior) e infelizmente eu estive tendo alguns problemas com ele.</p>
 <ul>
 <li>crashes constantes</li>
@@ -74,17 +102,17 @@
 <p>Create a chrome directory if it doesn&rsquo;t exist:</p>
 </li>
 </ol>
-<pre><code>mkdir chrome
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">mkdir chrome
 cd chrome
-</code></pre><ol start="5">
+</code></pre></div><ol start="5">
 <li>Copy the <code>userChrome.css</code> file from this repository to that folder</li>
 </ol>
 <p>For best results, install the <a href="https://www.jetbrains.com/lp/mono/">Jetbrains Mono</a> font</p>
 <hr>
 <p>CSS based on <a href="https://github.com/0xbiel/dotfiles/blob/master/userChrome.css">0xbiel&rsquo;s dotfiles</a></p>
 <p>O CSS:</p>
-<pre><code>
-@namespace &quot;http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul&quot;;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">
+@namespace &#34;http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul&#34;;
 
 /* Hide close button on tabs */
 #tabbrowser-tabs .tabbrowser-tab .tab-close-button { display:none !important; }
@@ -107,14 +135,14 @@ cd chrome
 
 /* Change color of normal tabs */
 
-tab:not([selected=&quot;true&quot;]) { 
+tab:not([selected=&#34;true&#34;]) { 
   background-color: #222222 !important;
   color: #888888 !important;
   border: none;
 }
 
 /* tab font */
-tab { font-family: 'Jetbrains Mono', monospace; border: none; }
+tab { font-family: &#39;Jetbrains Mono&#39;, monospace; border: none; }
 
 /* safari style tab width */  
 .tabbrowser-tab[fadein]{ max-width: 100vw !important; border: none }
@@ -133,20 +161,20 @@ tab { font-family: 'Jetbrains Mono', monospace; border: none; }
     &gt; .tabbrowser-arrowscrollbox
     &gt; .tabbrowser-tab
     &gt; .tab-stack
-    &gt; .tab-background[multiselected='true']:-moz-lwtheme,
+    &gt; .tab-background[multiselected=&#39;true&#39;]:-moz-lwtheme,
   #tabbrowser-tabs:not([movingtab])
     &gt; .tabbrowser-arrowscrollbox
     &gt; .tabbrowser-tab
     &gt; .tab-stack
-    &gt; .tab-background[selected='true']:-moz-lwtheme,
+    &gt; .tab-background[selected=&#39;true&#39;]:-moz-lwtheme,
   * {
     /* --tab-line-color: var(--color1); */
     /* --tab-min-width: 76px; */
   }
   #urlbar, #navigator-toolbox #searchbar {border: none !important;}
 
-  #urlbar:not(.megabar):not([focused='true']):-moz-lwtheme,
-  #urlbar.megabar:not([focused='true']):-moz-lwtheme &gt; #urlbar-background,
+  #urlbar:not(.megabar):not([focused=&#39;true&#39;]):-moz-lwtheme,
+  #urlbar.megabar:not([focused=&#39;true&#39;]):-moz-lwtheme &gt; #urlbar-background,
   #navigator-toolbox #searchbar:not(:focus-within):-moz-lwtheme,
   #navigator-toolbox {
     border: none !important;
@@ -255,7 +283,7 @@ tab { font-family: 'Jetbrains Mono', monospace; border: none; }
     margin-right: 0 !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-    font-family: 'Jetbrains Mono', monospace;
+    font-family: &#39;Jetbrains Mono&#39;, monospace;
     font-size: 11px;
   }
 
@@ -368,10 +396,34 @@ tab:only-of-type { display: none; }
 /* hide window controls */
 .titlebar-buttonbox-container { display: none; }
 
-</code></pre></article>
+</code></pre></div>
+		</section>
 
-        </main><footer id="footer">
-    
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/firefox">firefox</a></li>
+					
+					<li><a href="/tags/browser">browser</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr><a class="soc" href="https://github.com/denislee" title="GitHub"><i data-feather="github"></i></a>|<a class="soc" href="https://twitter.com/denislee" title="Twitter"><i data-feather="twitter"></i></a>|⚡️
+	2021  © Denis Lee |  <a href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
 </footer>
-</body>
+
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
 </html>

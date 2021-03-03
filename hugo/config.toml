@@ -7,6 +7,7 @@ copyright = "© Denis Lee"
 pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
+publishdir = ".."
 
 paginate=3 # articles per page
 

@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Denis Lee</title>
+    <title>denislee</title>
     <link>https://denislee.github.io/</link>
-    <description>Recent content on Denis Lee</description>
+    <description>Recent content on denislee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 27 Feb 2021 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://denislee.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
+    <copyright>© Denis Lee</copyright>
+    <lastBuildDate>Sat, 27 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://denislee.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>firefox</title>
       <link>https://denislee.github.io/posts/post-013-firefox/</link>
@@ -23,8 +18,6 @@
  crashes constantes travamento do meu computador todo (teclado e mouse pararam de funcionar)  Acredito que esses já são bons motivos para ver alternativas. E, tudo isso, infelizmente deve fazer parte da incompatibilidade nativa de funcionar no Wayland.
 Alternativas Os meus navegadores favoritos sempre foram:</description>
     </item>
-    
-    
     
     <item>
       <title>Dificuldades em publicar aqui</title>
@@ -38,8 +31,6 @@ Mas, com a ajuda de alguns scrips, acredito que fique mais freqüente as minha p
 Atualmente estou utilizando mais o Instagram de redes sociais.</description>
     </item>
     
-    
-    
     <item>
       <title>do i3 para o Sway</title>
       <link>https://denislee.github.io/posts/post-011-sway/</link>
@@ -49,8 +40,6 @@ Atualmente estou utilizando mais o Instagram de redes sociais.</description>
       <description>Motivação Uma das poucas coisas que me fariam mudar de ideia de trocar de sistema operacional, window manager ou qualquer software que eu uso no computador, com certeza, é velocidade/performance (por isso que, normalmente, não gosto de aplicações feitas em Electron, pois costumam ser bem devagar).
 E, visto que o Sway é a transição mais tranquila para usuários i3, porém com um twist bem importante para a performance, pois utiliza o wayland no lugar do xorg.</description>
     </item>
-    
-    
     
     <item>
       <title>qutebrowser</title>
@@ -63,8 +52,6 @@ Por isso, a escolha mais comum de navegador seria o qutebrowser. Seguem algumas 
 Configurações Você poderá editar o arquivo .</description>
     </item>
     
-    
-    
     <item>
       <title>Sou baunilha</title>
       <link>https://denislee.github.io/posts/post-010-baunilha/</link>
@@ -74,8 +61,6 @@ Configurações Você poderá editar o arquivo .</description>
       <description>Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).
 Ou seja, quando começo a usar algo, costumo deixar as coisas exatamente como estão. Só vou alterar algo no meu processo, apenas quando algo realmente me incomoda ou para atividades realmente repetitivas. Caso contrário, eu não procuro lugar para me coçar.</description>
     </item>
-    
-    
     
     <item>
       <title>Windows 10, but better</title>
@@ -89,8 +74,6 @@ We fixed Windows 10 - Microsoft will HATE this! https://www.youtube.com/watch?v=
 Windows 10 for Power Users – Private, Secure, Zero Bloatware (Windows 10 Ameliorated) https://www.</description>
     </item>
     
-    
-    
     <item>
       <title>Daily vlog</title>
       <link>https://denislee.github.io/posts/post-003-daily-vlog/</link>
@@ -101,8 +84,6 @@ Windows 10 for Power Users – Private, Secure, Zero Bloatware (Windows 10 Ameli
 As idéias que surgiram na minha cabeça, são simples.</description>
     </item>
     
-    
-    
     <item>
       <title>Keyboard Layouts</title>
       <link>https://denislee.github.io/posts/post-002-keyboard-layouts/</link>
@@ -111,7 +92,6 @@ As idéias que surgiram na minha cabeça, são simples.</description>
       <guid>https://denislee.github.io/posts/post-002-keyboard-layouts/</guid>
       <description>Início Lembro da primeira vez que eu entrei em contato com um computador. Acredito que eu tinha os 12 anos (ou algo próximo disso). O ano acredito que era 1996. Mal existiam computadores aqui no Brasil. Tudo nesse equipamento havia me fascinado. Tudo era mágico. E, de todas as parte do computador, o teclado era a ponte para interagir com a máquina. E, por esse motivo, acaba ganhando uma atenção especial por seus usuários.</description>
     </item>
-    
     
   </channel>
 </rss>
