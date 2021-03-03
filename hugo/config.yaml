@@ -23,16 +23,15 @@ markup:
 # Social links in footer, support github,twitter,stackoverflow,facebook
 social:
   # e.g.
-  github: your-github-link
-  twitter: your-github-link
-  stackoverflow: your-github-link
+  github: https://github.com/denislee
+  twitter: https://twitter.com/denislee
   # facebook: your-facebook-link
 
 
 # Site parameters
 params:
   # Site Author
-  author: Author
+  author: Denis Lee
   # Author biography
   bio: Software Engineer
   # Site Description, used in HTML meat
