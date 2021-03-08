@@ -11,4 +11,4 @@ tags:
 # Post para testar o processamento de imagem
 
 
-![imagem](/static/index.jpg)
+![imagem](/static/index.webp)
