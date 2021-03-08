@@ -56,6 +56,8 @@ Todas as aplicações que não fazem parte da minha atividade principal eu mante
 
 Se a minha atividade atual não precisa dos programas/abas da atividade passada, por qual motivo elas deveriam permanecer abertas? se nao vai me ajudar, com certeza, vai me dar a chance de me fazer distrair mais. o que é algo que eu não quero mesmo. sem contar que o risco de acumular muitas coisas abertas ou eu me questionar do motivo que eu deixei aberto depois, vai ser bem grande. pior, ver algo da atividade passada e me convencer a voltar para a atividade passada, deixando mais de uma atividade pela metade.
 
+!(timer)[static/post-014-timer.jpg]
+
 ## Pomodoro em um timer separado
 
 Antes eu comecei com o pomodoro utilizando um timer de cozinha (como a maioria dos artigos fazem), porém vi que com o uso de um aplicativo no celular eu pude ver que eu tinha bem mais recursos bacanas para fazer o tracking dos meus ciclos. ledo engano, deixar qualquer coisa no celular é a pior coisa que você pode fazer, pois lá é exatamente a caixa de pandora das distrações que você não quer nem chegar perto. então, eu comprei um novo timer de cozinha para marcar o meu tempo. melhor coisa que eu já fiz.
