@@ -56,7 +56,7 @@ Todas as aplicações que não fazem parte da minha atividade principal eu mante
 
 Se a minha atividade atual não precisa dos programas/abas da atividade passada, por qual motivo elas deveriam permanecer abertas? se nao vai me ajudar, com certeza, vai me dar a chance de me fazer distrair mais. o que é algo que eu não quero mesmo. sem contar que o risco de acumular muitas coisas abertas ou eu me questionar do motivo que eu deixei aberto depois, vai ser bem grande. pior, ver algo da atividade passada e me convencer a voltar para a atividade passada, deixando mais de uma atividade pela metade.
 
-!(timer)[static/post-014-timer.jpg]
+![timer](/static/post-014-timer.jpg)
 
 ## Pomodoro em um timer separado
 
