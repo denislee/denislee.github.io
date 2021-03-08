@@ -62,8 +62,8 @@ Antes eu comecei com o pomodoro utilizando um timer de cozinha (como a maioria d
 
 # tl;dr
 
-- Ter mais de dois monitores não torna você mais produtivo; mas ter mais de um ajudando
-- Se for usar pomodoro, tenha um timer separado; não use o seu celular
+- Ter mais de um monitor ajuda, mas ter mais de dois pode atrapalhar;
+- Se for usar pomodoro, tenha um timer separado; não use o seu celular;
 - Se estiver realizando alguma atividade, feche todas as janelas/programas/abas que nao sao da atividade corrente
 
 
