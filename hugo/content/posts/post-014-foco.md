@@ -1,6 +1,6 @@
 ---
 title: "O que eu fiz para melhorar a minha produtividade"
-date: 2021-03-07"
+date: 2021-03-07
 draft: false
 toc: false
 images:
