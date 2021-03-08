@@ -8,7 +8,7 @@ tags:
   - produtividade
 ---
 
-# O maior inimigo da produtividade
+# O inimigo
 
 Quem nunca teve problema em se focar e se tornar uma máquina de produtividade? Sempre temos essa preocupação, seja em nosso lado pessoal de resolver as coisas e fazer as coisas acontecerem, quanto do lado profissional. queremos terminar, queremos realizar, queremos sentir com o dever cumprido ao deitar na cama ao fechar os olhos.
 
@@ -20,13 +20,13 @@ Uma das maiores armadilhas eu vejo que são no lado da multitarefa. achamos que 
 
 Eu tenho muitas telas, apesar de estudos apontarem que ter duas telas realmente aumenta a produtividade, porém, mas de duas parece não fazer muita diferença ou apenas atrapalhar (veja só).
 
-## Realizar outra atividade enquanto espera
+## Outra atividade enquanto espera
 
-as vezes estamos esperando um processo terminar em nosso fluxo de trabalho e tentamos preencher esse tempo de espera colocando outra atividade para preencher esse "tempo perdido". seja com outra atividade produtiva, seja com alguma distração alheia (e.g., ver o feed do instagram)
+As vezes estamos esperando um processo terminar em nosso fluxo de trabalho e tentamos preencher esse tempo de espera colocando outra atividade para preencher esse "tempo perdido". seja com outra atividade produtiva, seja com alguma distração alheia (e.g., ver o feed do instagram)
 
 ## Muitas abas no navegador
 
-durante as pesquisas ou procurando algo como referência em seu trabalho, é comum você ter dó de fechar alguma aba por "precisar disso em um futuro próximo"
+Durante as pesquisas ou procurando algo como referência em seu trabalho, é comum você ter dó de fechar alguma aba por "precisar disso em um futuro próximo"
 
 # Qual o caminho para resolver essas distrações?
 
