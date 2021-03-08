@@ -38,18 +38,6 @@ Alternativas Os meus navegadores favoritos sempre foram:</description>
     
     
     <item>
-      <title>Baunilha</title>
-      <link>https://denislee.github.io/baunilha/</link>
-      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://denislee.github.io/baunilha/</guid>
-      <description>Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).
-Ou seja, quando começo a usar algo, costumo deixar as coisas exatamente como estão. Só vou alterar algo no meu processo, apenas quando algo realmente me incomoda ou para atividades realmente repetitivas. Caso contrário, eu não procuro lugar para me coçar.</description>
-    </item>
-    
-    
-    
-    <item>
       <title>Dificuldades em publicar aqui</title>
       <link>https://denislee.github.io/dificuldades-em-publicar-aqui/</link>
       <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
@@ -71,6 +59,18 @@ Atualmente estou utilizando mais o Instagram de redes sociais.</description>
       <guid>https://denislee.github.io/do-i3-para-o-sway/</guid>
       <description>Motivação Uma das poucas coisas que me fariam mudar de ideia de trocar de sistema operacional, window manager ou qualquer software que eu uso no computador, com certeza, é velocidade/performance (por isso que, normalmente, não gosto de aplicações feitas em Electron, pois costumam ser bem devagar).
 E, visto que o Sway é a transição mais tranquila para usuários i3, porém com um twist bem importante para a performance, pois utiliza o wayland no lugar do xorg.</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>O motivo de eu preferir ser baunilha</title>
+      <link>https://denislee.github.io/o-motivo-de-eu-preferir-ser-baunilha/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/o-motivo-de-eu-preferir-ser-baunilha/</guid>
+      <description>Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).
+Ou seja, quando começo a usar algo, costumo deixar as coisas exatamente como estão. Só vou alterar algo no meu processo, apenas quando algo realmente me incomoda ou para atividades realmente repetitivas. Caso contrário, eu não procuro lugar para me coçar.</description>
     </item>
     
     
