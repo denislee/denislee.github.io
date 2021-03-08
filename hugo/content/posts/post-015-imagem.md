@@ -7,3 +7,8 @@ images:
 tags:
   - produtividade
 ---
+
+# Post para testar o processamento de imagem
+
+
+![imagem](/static/index.jpg)
