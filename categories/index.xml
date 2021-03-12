@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>Script para publicação dos posts</title>
+      <link>https://denislee.github.io/script-para-publica%C3%A7%C3%A3o-dos-posts/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/script-para-publica%C3%A7%C3%A3o-dos-posts/</guid>
+      <description>(logo do github pages)  Script para facilitar a minha vida Fiz um script para facilitar a publicação do blog usando o hugo + github pages. Que basicamente é um bash script. Deixo o arquivo no meu .local/bin/ com o nome de publish-blog. Assim posso chamar ele de qualquer lugar.
+Está divido em algumas partes, possui muitas redundâncias, mas o objetivo é pura e simplesmente publicar no blog e nada mais.</description>
+    </item>
+    
+    
+    
+    <item>
       <title>O que eu fiz para melhorar a minha produtividade</title>
       <link>https://denislee.github.io/o-que-eu-fiz-para-melhorar-a-minha-produtividade/</link>
       <pubDate>Sun, 07 Mar 2021 00:00:00 +0000</pubDate>
