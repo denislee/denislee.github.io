@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>Teste</title>
+      <link>https://denislee.github.io/teste/</link>
+      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/teste/</guid>
+      <description>(texto.)  Depois de um sufoco tentando fazer o mount e escrever no meu drive externo, finalmente consegui com a ajuda de alguns comandos no MacOS.
+Problema Eu tenho um drive externo de 8TB que não queria dar mount no MacOS de nenhuma maneira. Depois de uma rápida pesquisa na internet, vi que era possível matar o processo do fsck para tornar o drive acessível novamente. Depois de executar o sudo pkill fsck ainda não tive sucesso.</description>
+    </item>
+    
+    
+    
+    <item>
       <title>Script para publicação dos posts</title>
       <link>https://denislee.github.io/script-para-publica%C3%A7%C3%A3o-dos-posts/</link>
       <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
