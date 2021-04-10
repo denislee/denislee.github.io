@@ -25,6 +25,32 @@ Problema Eu tenho um drive externo de 8TB que não queria dar mount no MacOS de 
     
     
     <item>
+      <title>Gerenciar suas senhas</title>
+      <link>https://denislee.github.io/gerenciar-suas-senhas/</link>
+      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/gerenciar-suas-senhas/</guid>
+      <description>(texto.)  Depois de usar por um bom tempo o triste</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Instalando o Sway no Manjaro i3</title>
+      <link>https://denislee.github.io/instalando-o-sway-no-manjaro-i3/</link>
+      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/instalando-o-sway-no-manjaro-i3/</guid>
+      <description>(manjaro + sway)  Com a minha idéia de reservar um computador para usar exclusivamente para realizar as transmissões das minhas lives na Twitch, resolvi instalar um Manjaro e depois fazer a atualização do seu WM do i3 para o Sway. Seguem as instruções.
+Maioria das instruções estão aqui: https://wiki.archlinux.org/index.php/Sway
+Outra boa referência é o endereço: https://bennetthardwick.com/blog/change-to-sway-arch-linux/
+  instalar o pacote sway yay -S sway
+  instalar os outros pacotes:</description>
+    </item>
+    
+    
+    
+    <item>
       <title>Script para publicação dos posts</title>
       <link>https://denislee.github.io/script-para-publica%C3%A7%C3%A3o-dos-posts/</link>
       <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>

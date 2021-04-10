@@ -6,7 +6,7 @@
     <description>Recent content in sway on denislee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Apr 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://denislee.github.io/tags/sway/index.xml" rel="self" type="application/rss+xml" />
     
@@ -20,6 +20,32 @@
       <guid>https://denislee.github.io/erro-de-mount-do-exfat-no-macos/</guid>
       <description>(ícone do disk util)  Depois de um sufoco tentando fazer o mount e escrever no meu drive externo, finalmente consegui com a ajuda de alguns comandos no MacOS.
 Problema Eu tenho um drive externo de 8TB que não queria dar mount no MacOS de nenhuma maneira. Depois de uma rápida pesquisa na internet, vi que era possível matar o processo do fsck para tornar o drive acessível novamente. Depois de executar o sudo pkill fsck ainda não tive sucesso.</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Gerenciar suas senhas</title>
+      <link>https://denislee.github.io/gerenciar-suas-senhas/</link>
+      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/gerenciar-suas-senhas/</guid>
+      <description>(texto.)  Depois de usar por um bom tempo o triste</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Instalando o Sway no Manjaro i3</title>
+      <link>https://denislee.github.io/instalando-o-sway-no-manjaro-i3/</link>
+      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/instalando-o-sway-no-manjaro-i3/</guid>
+      <description>(manjaro + sway)  Com a minha idéia de reservar um computador para usar exclusivamente para realizar as transmissões das minhas lives na Twitch, resolvi instalar um Manjaro e depois fazer a atualização do seu WM do i3 para o Sway. Seguem as instruções.
+Maioria das instruções estão aqui: https://wiki.archlinux.org/index.php/Sway
+Outra boa referência é o endereço: https://bennetthardwick.com/blog/change-to-sway-arch-linux/
+  instalar o pacote sway yay -S sway
+  instalar os outros pacotes:</description>
     </item>
     
     
