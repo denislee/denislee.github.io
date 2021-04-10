@@ -38,7 +38,8 @@
 </ol>
 <pre><code>yay -S wlroot-git swaylock swayidle \
   alcritty waybar xorg-xwayland \
-  azote swaybg \
+  azote swaybg wlogout \
+  fuzzel \
   qt5-wayland qt6-wayland 
 </code></pre><ol start="3">
 <li>Adicionar o código para abrir automaticamente o Sway assim que ligar o computador. adicionar no <code>/etc/profile</code></li>
@@ -50,6 +51,10 @@ fi
 <li>Remover o <code>lightdm</code> e o <code>lightdm-gtk-greeter</code> com o comando:</li>
 </ol>
 <pre><code>yay -R lightdm lightdm-settings lightdm-slick-greeter
+</code></pre><ol start="5">
+<li>Gosto de inverter o SUPER do ALT, então no <code>.config/sway/config</code></li>
+</ol>
+<pre><code>xkb_options altwin:swap_alt_win
 </code></pre></article>
 
         </main><footer id="footer">
