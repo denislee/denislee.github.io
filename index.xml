@@ -18,7 +18,7 @@
       <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://denislee.github.io/erro-de-mount-do-exfat-no-macos/</guid>
-      <description>(texto.)  Depois de um sufoco tentando fazer o mount e escrever no meu drive externo, finalmente consegui com a ajuda de alguns comandos no MacOS.
+      <description>(ícone do disk util)  Depois de um sufoco tentando fazer o mount e escrever no meu drive externo, finalmente consegui com a ajuda de alguns comandos no MacOS.
 Problema Eu tenho um drive externo de 8TB que não queria dar mount no MacOS de nenhuma maneira. Depois de uma rápida pesquisa na internet, vi que era possível matar o processo do fsck para tornar o drive acessível novamente. Depois de executar o sudo pkill fsck ainda não tive sucesso.</description>
     </item>
     
