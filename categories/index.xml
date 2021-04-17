@@ -12,6 +12,21 @@
     
     
     <item>
+      <title>MacOS - Multiplos teclados</title>
+      <link>https://denislee.github.io/macos-multiplos-teclados/</link>
+      <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://denislee.github.io/macos-multiplos-teclados/</guid>
+      <description>(teclado.)  Meu teclado atual está fisicamente dividido em dois e infelizmente o MacOS acaba interpretando ele realmente como teclados dividos. Então as teclas modificadoras (e.g. ctrl) acabam não funcionando quando a tecla que ela vai fazer combinação está em outro teclado físico.
+Para contornar esse problema, encontrei uma aplicação que resolve isso:
+https://karabiner-elemets.pqrs.org
+Com ele, é possível ter dois (ou mais teclados) agindo como um único teclado.
+Uma maravilha</description>
+    </item>
+    
+    
+    
+    <item>
       <title>Erro de mount do ExFAT no MacOS</title>
       <link>https://denislee.github.io/erro-de-mount-do-exfat-no-macos/</link>
       <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
