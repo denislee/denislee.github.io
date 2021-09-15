@@ -1,65 +1,8 @@
-<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><link rel="shortcut icon" href="/favicon/favicon.ico"/><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-config" content="/favicon/browserconfig.xml"/><meta name="theme-color" content="#000"/><link rel="alternate" type="application/rss+xml" href="/feed.xml"/><meta name="description" content="blog."/><title>firefox | Next.js Blog Example with Markdown</title><meta name="next-head-count" content="14"/><link rel="preload" href="/_next/static/css/582c13877261c2d54d6a.css" as="style"/><link rel="stylesheet" href="/_next/static/css/582c13877261c2d54d6a.css" data-n-g=""/><link rel="preload" href="/_next/static/css/947c49e68dbf503d2ee0.css" as="style"/><link rel="stylesheet" href="/_next/static/css/947c49e68dbf503d2ee0.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js"></script><script src="/_next/static/chunks/webpack-fb76148cfcfb42ca18eb.js" defer=""></script><script src="/_next/static/chunks/framework-895f067827ebe11ffe45.js" defer=""></script><script src="/_next/static/chunks/main-8d15616dad332ac01c02.js" defer=""></script><script src="/_next/static/chunks/pages/_app-4419dadb93e234a9a363.js" defer=""></script><script src="/_next/static/chunks/328-d0bce99a0c5502a3e057.js" defer=""></script><script src="/_next/static/chunks/pages/posts/%5Bslug%5D-dfbbbde60d66ce531b70.js" defer=""></script><script src="/_next/static/-ZP1aG6cJNA7s1ymvVPQ2/_buildManifest.js" defer=""></script><script src="/_next/static/-ZP1aG6cJNA7s1ymvVPQ2/_ssgManifest.js" defer=""></script></head><body><div id="__next"><div class="min-h-screen"><div class="border-b bg-accent-1 border-accent-2"><div class="container mx-auto px-5"><div class="py-2 text-center text-sm"></div></div></div><main><div class="container mx-auto px-5"><h2 class="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8"><a class="hover:underline" href="/">blog</a>.</h2><article class="mb-32"><h1 class="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">firefox</h1><div class="hidden md:block md:mb-12"><div class="flex items-center"><div class="text-xl font-bold">denis lee</div></div></div><div class="mb-8 md:mb-16 sm:mx-0"></div><div class="max-w-2xl mx-auto"><div class="block md:hidden mb-6"><div class="flex items-center"><div class="text-xl font-bold">denis lee</div></div></div><div class="mb-6 text-lg"><time dateTime="2021-02-27T05:35:07.322Z">February	27, 2021</time></div></div><div class="max-w-2xl mx-auto"><div class="markdown-styles_markdown__1x9gM"><h1>Motivação</h1>
-<p>O meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior) e infelizmente eu estive tendo alguns problemas com ele.</p>
-<ul>
-<li>crashes constantes</li>
-<li>travamento do meu computador todo (teclado e mouse pararam de funcionar)</li>
-</ul>
-<p>Acredito que esses já são bons motivos para ver alternativas. E, tudo isso, infelizmente deve fazer parte da incompatibilidade nativa de funcionar no Wayland.</p>
-<h1>Alternativas</h1>
-<p>Os meus navegadores favoritos sempre foram:</p>
-<ul>
-<li>Firefox</li>
-<li>Brave</li>
-<li>Wyeb</li>
-</ul>
-<p>Porém, sempre gostei mais do firefox (só para ficar o mais longe do Chrome possível).</p>
-<p>Logo na minha primeira busca já encontrei esse link sobre como alterar o firefox para ficar com a cara do qutebrowser (sério, ficou bem parecido).</p>
-<p>https://github.com/aadilayub/firefox-i3wm-theme
-https://github.com/denislee/firefox-i3wm-theme (meu fork)</p>
-<p>Era exatamente o que eu precisava. Mas, ainda pretendo buscar mais algumas soluções na internet. De todo modo, vou deixar aqui as instruções dele (caso o repositório dele vá para o beleléu, ou eu apague sem querer o fork):</p>
-<h1>Firefox i3 Theme</h1>
-<p><img src="screenshot.png" alt=""></p>
-<p>A theme for Firefox meant to emulate <a href="http://qutebrowser.org">qutebrowser</a> and integrate with the i3 window manager.</p>
-<h2>Install &#x26; configuration instructions</h2>
-<p>Before installing the theme:</p>
-<ul>
-<li>
-<p>Install the <a href="https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/">Tridactyl</a> firefox extension</p>
-</li>
-<li>
-<p>Go in the "Customize" section of firefox and remove the new tab button from the navigation bar, and also set "Density" to "Compact".</p>
-</li>
-<li>
-<p><a href="https://www.youtube.com/watch?v=levqpofIJ_k&#x26;feature=youtu.be">Enable userChrome.css in about:config</a></p>
-</li>
-</ul>
-<p>To install the theme:</p>
-<ol>
-<li>
-<p>Go to <code>about:support</code> in Firefox.</p>
-</li>
-<li>
-<p>Application Basics > Profile Directory > Open Directory.</p>
-</li>
-<li>
-<p>Open directory in a terminal.</p>
-</li>
-<li>
-<p>Create a chrome directory if it doesn't exist:</p>
-</li>
-</ol>
-<pre><code>mkdir chrome
+<!DOCTYPE html><html lang="en"><head><meta name="robots" content="follow, index"/><meta name="description" content="um blog qualquer."/><meta property="og:site_name" content="denis lee | blog"/><meta property="og:description" content="um blog qualquer."/><meta property="og:title" content="denis lee | blog"/><meta property="og:image" content="https://assets.vercel.com/image/upload/q_auto/front/vercel/dps.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:site" content="@denislee"/><meta name="twitter:title" content="denis lee | blog"/><meta name="twitter:description" content="um blog qualquer."/><meta name="twitter:image" content="https://assets.vercel.com/image/upload/q_auto/front/vercel/dps.png"/><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml"/><link rel="preload" href="/fonts/Inter-roman.latin.var.woff2" as="font" type="font/woff2" crossorigin="anonymous"/><title>Firefox</title><meta name="next-head-count" content="5"/><link rel="preload" href="/_next/static/css/4a64bba6e2e114daab3e.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4a64bba6e2e114daab3e.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js"></script><script src="/_next/static/chunks/webpack-90a60b87fd0d5fc150f2.js" defer=""></script><script src="/_next/static/chunks/framework-5e34cdb415ba284ac5a9.js" defer=""></script><script src="/_next/static/chunks/main-8d15616dad332ac01c02.js" defer=""></script><script src="/_next/static/chunks/pages/_app-13d262b466834baec136.js" defer=""></script><script src="/_next/static/chunks/290-83ec1b894e0aea822950.js" defer=""></script><script src="/_next/static/chunks/pages/posts/007-firefox-7177125ed655f3919e14.js" defer=""></script><script src="/_next/static/ue5P71QvZUkOnbcLj_9e8/_buildManifest.js" defer=""></script><script src="/_next/static/ue5P71QvZUkOnbcLj_9e8/_ssgManifest.js" defer=""></script><style id="__jsx-791102496">a.jsx-791102496{float:right;}@media screen and (max-width:480px){article.jsx-791102496{padding-top:2rem;padding-bottom:4rem;}}</style></head><body><div id="__next"><article class="container prose prose-sm md:prose"><h1>Motivação</h1><div class="meta-line"><div class="meta"><time>Sat Feb 27 2021</time></div><a class="meta-back" href="/posts">Back</a></div><p>O meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior) e infelizmente eu estive tendo alguns problemas com ele.</p><ul><li>crashes constantes</li><li>travamento do meu computador todo (teclado e mouse pararam de funcionar)</li></ul><p>Acredito que esses já são bons motivos para ver alternativas. E, tudo isso, infelizmente deve fazer parte da incompatibilidade nativa de funcionar no Wayland.</p><h1>Alternativas</h1><p>Os meus navegadores favoritos sempre foram:</p><ul><li>Firefox</li><li>Brave</li><li>Wyeb</li></ul><p>Porém, sempre gostei mais do firefox (só para ficar o mais longe do Chrome possível).</p><p>Logo na minha primeira busca já encontrei esse link sobre como alterar o firefox para ficar com a cara do qutebrowser (sério, ficou bem parecido).</p><p>https://github.com/aadilayub/firefox-i3wm-theme
+https://github.com/denislee/firefox-i3wm-theme (meu fork)</p><p>Era exatamente o que eu precisava. Mas, ainda pretendo buscar mais algumas soluções na internet. De todo modo, vou deixar aqui as instruções dele (caso o repositório dele vá para o beleléu, ou eu apague sem querer o fork):</p><h1>Firefox i3 Theme</h1><p><img src="screenshot.png" alt=""/></p><p>A theme for Firefox meant to emulate <a href="http://qutebrowser.org">qutebrowser</a> and integrate with the i3 window manager.</p><h2>Install &amp; configuration instructions</h2><p>Before installing the theme:</p><ul><li><p>Install the <a href="https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/">Tridactyl</a> firefox extension</p></li><li><p>Go in the &quot;Customize&quot; section of firefox and remove the new tab button from the navigation bar, and also set &quot;Density&quot; to &quot;Compact&quot;.</p></li><li><p><a href="https://www.youtube.com/watch?v=levqpofIJ_k&amp;feature=youtu.be">Enable userChrome.css in about:config</a></p></li></ul><p>To install the theme:</p><ol><li><p>Go to <code>about:support</code> in Firefox.</p></li><li><p>Application Basics &gt; Profile Directory &gt; Open Directory.</p></li><li><p>Open directory in a terminal.</p></li><li><p>Create a chrome directory if it doesn&#x27;t exist:</p></li></ol><pre><code>mkdir chrome
 cd chrome
-</code></pre>
-<ol start="5">
-<li>Copy the <code>userChrome.css</code> file from this repository to that folder</li>
-</ol>
-<p>For best results, install the <a href="https://www.jetbrains.com/lp/mono/">Jetbrains Mono</a> font</p>
-<hr>
-<p>CSS based on <a href="https://github.com/0xbiel/dotfiles/blob/master/userChrome.css">0xbiel's dotfiles</a></p>
-<p>O CSS:</p>
-<pre><code>
-@namespace "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+</code></pre><ol start="5"><li>Copy the <code>userChrome.css</code> file from this repository to that folder</li></ol><p>For best results, install the <a href="https://www.jetbrains.com/lp/mono/">Jetbrains Mono</a> font</p><hr/><p>CSS based on <a href="https://github.com/0xbiel/dotfiles/blob/master/userChrome.css">0xbiel&#x27;s dotfiles</a></p><p>O CSS:</p><pre><code>
+@namespace &quot;http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul&quot;;
 
 /* Hide close button on tabs */
 #tabbrowser-tabs .tabbrowser-tab .tab-close-button { display:none !important; }
@@ -82,14 +25,14 @@ cd chrome
 
 /* Change color of normal tabs */
 
-tab:not([selected="true"]) { 
+tab:not([selected=&quot;true&quot;]) { 
   background-color: #222222 !important;
   color: #888888 !important;
   border: none;
 }
 
 /* tab font */
-tab { font-family: 'Jetbrains Mono', monospace; border: none; }
+tab { font-family: &#x27;Jetbrains Mono&#x27;, monospace; border: none; }
 
 /* safari style tab width */  
 .tabbrowser-tab[fadein]{ max-width: 100vw !important; border: none }
@@ -105,29 +48,29 @@ tab { font-family: 'Jetbrains Mono', monospace; border: none; }
   }
   .browser-toolbar:not(.titlebar-color),
   #tabbrowser-tabs:not([movingtab])
-    > .tabbrowser-arrowscrollbox
-    > .tabbrowser-tab
-    > .tab-stack
-    > .tab-background[multiselected='true']:-moz-lwtheme,
+    &gt; .tabbrowser-arrowscrollbox
+    &gt; .tabbrowser-tab
+    &gt; .tab-stack
+    &gt; .tab-background[multiselected=&#x27;true&#x27;]:-moz-lwtheme,
   #tabbrowser-tabs:not([movingtab])
-    > .tabbrowser-arrowscrollbox
-    > .tabbrowser-tab
-    > .tab-stack
-    > .tab-background[selected='true']:-moz-lwtheme,
+    &gt; .tabbrowser-arrowscrollbox
+    &gt; .tabbrowser-tab
+    &gt; .tab-stack
+    &gt; .tab-background[selected=&#x27;true&#x27;]:-moz-lwtheme,
   * {
     /* --tab-line-color: var(--color1); */
     /* --tab-min-width: 76px; */
   }
   #urlbar, #navigator-toolbox #searchbar {border: none !important;}
 
-  #urlbar:not(.megabar):not([focused='true']):-moz-lwtheme,
-  #urlbar.megabar:not([focused='true']):-moz-lwtheme > #urlbar-background,
+  #urlbar:not(.megabar):not([focused=&#x27;true&#x27;]):-moz-lwtheme,
+  #urlbar.megabar:not([focused=&#x27;true&#x27;]):-moz-lwtheme &gt; #urlbar-background,
   #navigator-toolbox #searchbar:not(:focus-within):-moz-lwtheme,
   #navigator-toolbox {
     border: none !important;
   }
   #urlbar:not(.megabar):-moz-lwtheme,
-  #urlbar.megabar:-moz-lwtheme > #urlbar-background,
+  #urlbar.megabar:-moz-lwtheme &gt; #urlbar-background,
   #navigator-toolbox #searchbar:-moz-lwtheme {
     background-color: var(--background) !important;
   }
@@ -152,7 +95,7 @@ tab { font-family: 'Jetbrains Mono', monospace; border: none; }
     transition: transform, ease-in-out 0.2s, opacity 0.2s ease-in-out !important;
   }
   /* All the states in which the URL bar is visible */
-  toolbox:focus-within > #nav-bar {
+  toolbox:focus-within &gt; #nav-bar {
     opacity: 1;
     transform: none;
     pointer-events: all;
@@ -212,7 +155,7 @@ tab { font-family: 'Jetbrains Mono', monospace; border: none; }
           width: 100% !important;
       }
   
-      #urlbar[breakout][breakout-extend] > #urlbar-input-container {
+      #urlbar[breakout][breakout-extend] &gt; #urlbar-input-container {
           height: var(--urlbar-height) !important;
           padding-block: 0 !important;
           padding-inline: 0 !important;
@@ -230,7 +173,7 @@ tab { font-family: 'Jetbrains Mono', monospace; border: none; }
     margin-right: 0 !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-    font-family: 'Jetbrains Mono', monospace;
+    font-family: &#x27;Jetbrains Mono&#x27;, monospace;
     font-size: 11px;
   }
 
@@ -300,7 +243,7 @@ tab { font-family: 'Jetbrains Mono', monospace; border: none; }
 tab:only-of-type { display: none; }
 
 /* remove min-height from tabs toolbar (needed for fullscreen one tab) */
-#TabsToolbar, #tabbrowser-tabs, #tabbrowser-tabs > .tabbrowser-arrowscrollbox, #tabbrowser-arrowscrollbox {
+#TabsToolbar, #tabbrowser-tabs, #tabbrowser-tabs &gt; .tabbrowser-arrowscrollbox, #tabbrowser-arrowscrollbox {
   min-height: 0 !important; 
 }
 
@@ -320,7 +263,7 @@ tab:only-of-type { display: none; }
 }
 
 /* remove white margin around active tabs */
-#tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[beforeselected-visible]::after, #tabbrowser-tabs[movingtab] > #tabbrowser-arrowscrollbox > .tabbrowser-tab[visuallyselected]::before,
+#tabbrowser-tabs:not([movingtab]) &gt; #tabbrowser-arrowscrollbox &gt; .tabbrowser-tab[beforeselected-visible]::after, #tabbrowser-tabs[movingtab] &gt; #tabbrowser-arrowscrollbox &gt; .tabbrowser-tab[visuallyselected]::before,
 .tabbrowser-tab[visuallyselected]::after {
   border: none !important;
 }
@@ -343,5 +286,4 @@ tab:only-of-type { display: none; }
 /* hide window controls */
 .titlebar-buttonbox-container { display: none; }
 
-</code></pre>
-</div></div></article></div></main></div><footer class="bg-accent-1 border-t border-accent-2"><div class="container mx-auto px-5"><div class="py-28 flex flex-col lg:flex-row items-center"><h3 class="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">denislee.github.io</h3></div></div></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"post":{"title":"firefox","date":"2021-02-27T05:35:07.322Z","slug":"007-firefox","author":{"name":"denis lee"},"content":"\u003ch1\u003eMotivação\u003c/h1\u003e\n\u003cp\u003eO meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior) e infelizmente eu estive tendo alguns problemas com ele.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003ecrashes constantes\u003c/li\u003e\n\u003cli\u003etravamento do meu computador todo (teclado e mouse pararam de funcionar)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eAcredito que esses já são bons motivos para ver alternativas. E, tudo isso, infelizmente deve fazer parte da incompatibilidade nativa de funcionar no Wayland.\u003c/p\u003e\n\u003ch1\u003eAlternativas\u003c/h1\u003e\n\u003cp\u003eOs meus navegadores favoritos sempre foram:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eFirefox\u003c/li\u003e\n\u003cli\u003eBrave\u003c/li\u003e\n\u003cli\u003eWyeb\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003ePorém, sempre gostei mais do firefox (só para ficar o mais longe do Chrome possível).\u003c/p\u003e\n\u003cp\u003eLogo na minha primeira busca já encontrei esse link sobre como alterar o firefox para ficar com a cara do qutebrowser (sério, ficou bem parecido).\u003c/p\u003e\n\u003cp\u003ehttps://github.com/aadilayub/firefox-i3wm-theme\nhttps://github.com/denislee/firefox-i3wm-theme (meu fork)\u003c/p\u003e\n\u003cp\u003eEra exatamente o que eu precisava. Mas, ainda pretendo buscar mais algumas soluções na internet. De todo modo, vou deixar aqui as instruções dele (caso o repositório dele vá para o beleléu, ou eu apague sem querer o fork):\u003c/p\u003e\n\u003ch1\u003eFirefox i3 Theme\u003c/h1\u003e\n\u003cp\u003e\u003cimg src=\"screenshot.png\" alt=\"\"\u003e\u003c/p\u003e\n\u003cp\u003eA theme for Firefox meant to emulate \u003ca href=\"http://qutebrowser.org\"\u003equtebrowser\u003c/a\u003e and integrate with the i3 window manager.\u003c/p\u003e\n\u003ch2\u003eInstall \u0026#x26; configuration instructions\u003c/h2\u003e\n\u003cp\u003eBefore installing the theme:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eInstall the \u003ca href=\"https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/\"\u003eTridactyl\u003c/a\u003e firefox extension\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGo in the \"Customize\" section of firefox and remove the new tab button from the navigation bar, and also set \"Density\" to \"Compact\".\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://www.youtube.com/watch?v=levqpofIJ_k\u0026#x26;feature=youtu.be\"\u003eEnable userChrome.css in about:config\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eTo install the theme:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eGo to \u003ccode\u003eabout:support\u003c/code\u003e in Firefox.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eApplication Basics \u003e Profile Directory \u003e Open Directory.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eOpen directory in a terminal.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCreate a chrome directory if it doesn't exist:\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cpre\u003e\u003ccode\u003emkdir chrome\ncd chrome\n\u003c/code\u003e\u003c/pre\u003e\n\u003col start=\"5\"\u003e\n\u003cli\u003eCopy the \u003ccode\u003euserChrome.css\u003c/code\u003e file from this repository to that folder\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eFor best results, install the \u003ca href=\"https://www.jetbrains.com/lp/mono/\"\u003eJetbrains Mono\u003c/a\u003e font\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003eCSS based on \u003ca href=\"https://github.com/0xbiel/dotfiles/blob/master/userChrome.css\"\u003e0xbiel's dotfiles\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eO CSS:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\n@namespace \"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul\";\n\n/* Hide close button on tabs */\n#tabbrowser-tabs .tabbrowser-tab .tab-close-button { display:none !important; }\n\n#TabsToolbar, .tabbrowser-tab {\n  max-height: 20px !important;\n  font-size: 11px;\n}\n\n:root:not([customizing]) #TabsToolbar{\n  background-color: #000000;\n}\n\n:root:not([customizing]) #navigator-toolbox {\n  background-color: #000000 !important;\n}\n\n/* Hide window controls on fullscreen */\n#window-controls { display: none; }\n\n/* Change color of normal tabs */\n\ntab:not([selected=\"true\"]) { \n  background-color: #222222 !important;\n  color: #888888 !important;\n  border: none;\n}\n\n/* tab font */\ntab { font-family: 'Jetbrains Mono', monospace; border: none; }\n\n/* safari style tab width */  \n.tabbrowser-tab[fadein]{ max-width: 100vw !important; border: none }\n\n/* hide nav bar */\n/* #nav-bar { visibility: collapse; } */\n\n/* auto-hide nav-bar (nav-bar shows when F6 is pressed)*/\n  #navigator-toolbox {\n    -moz-appearance: none;\n    background-color: transparent !important;\n    border-top: none;\n  }\n  .browser-toolbar:not(.titlebar-color),\n  #tabbrowser-tabs:not([movingtab])\n    \u003e .tabbrowser-arrowscrollbox\n    \u003e .tabbrowser-tab\n    \u003e .tab-stack\n    \u003e .tab-background[multiselected='true']:-moz-lwtheme,\n  #tabbrowser-tabs:not([movingtab])\n    \u003e .tabbrowser-arrowscrollbox\n    \u003e .tabbrowser-tab\n    \u003e .tab-stack\n    \u003e .tab-background[selected='true']:-moz-lwtheme,\n  * {\n    /* --tab-line-color: var(--color1); */\n    /* --tab-min-width: 76px; */\n  }\n  #urlbar, #navigator-toolbox #searchbar {border: none !important;}\n\n  #urlbar:not(.megabar):not([focused='true']):-moz-lwtheme,\n  #urlbar.megabar:not([focused='true']):-moz-lwtheme \u003e #urlbar-background,\n  #navigator-toolbox #searchbar:not(:focus-within):-moz-lwtheme,\n  #navigator-toolbox {\n    border: none !important;\n  }\n  #urlbar:not(.megabar):-moz-lwtheme,\n  #urlbar.megabar:-moz-lwtheme \u003e #urlbar-background,\n  #navigator-toolbox #searchbar:-moz-lwtheme {\n    background-color: var(--background) !important;\n  }\n  #navigator-toolbox {\n    --tabs-border-color: var(--background) !important;\n  }\n\n  toolbox {\n    z-index: 10;\n    margin-top: 0px !important;\n    margin-bottom: -30px !important;\n    height: 0 !important;\n    pointer-events: none;\n  }\n  vbox {pointer-events: all;}\n\n\n  #nav-bar {\n    opacity: 0;\n    transform-origin: 0 0;\n    pointer-events: none;\n    transition: transform, ease-in-out 0.2s, opacity 0.2s ease-in-out !important;\n  }\n  /* All the states in which the URL bar is visible */\n  toolbox:focus-within \u003e #nav-bar {\n    opacity: 1;\n    transform: none;\n    pointer-events: all;\n  }\n\n/* end auto hide nav-bar */\n\n/* debloat navbar */\n\n  #back-button { display: none; }\n\n  #forward-button { display: none; }\n\n  #reload-button { display: none; }\n\n  #stop-button { display: none; }\n\n  #home-button { display: none; }\n\n  #downloads-button { display: none; }\n\n  #library-button { display: none; }\n\n  #sidebar-button { display: none; }\n\n  /* Firefox account button */\n  #fxa-toolbar-menu-button { display: none; }\n\n  #nav-bar-overflow-button { display: none !important; }\n\n  /* General Firefox menu button */\n  #PanelUI-button { display: none; }\n\n  /* Empty space before and after the url bar */\n  #customizableui-special-spring1,\n  #customizableui-special-spring2 { display: none; }\n  /* style navbar */\n  #nav-bar,\n  #navigator-toolbox {\n    border-width: 0 !important;\n  }\n\n/* end debloat navbar */\n\n/* remove megabar */\n  /* https://github.com/WesleyBranton/Remove-Firefox-Megabar/blob/master/remove_megabar.css */\n  \n  /* REMOVE MEGABAR START\n   * VERSION 1.0.4\n   * CODE AT: http://userchrome.wesleybranton.com/megabar\n   * RELEASE NOTES: http://userchrome.wesleybranton.com/notes/megabar */\n  @-moz-document url(chrome://browser/content/browser.xhtml) {\n      /* DISABLE EXPANDING START */\n      #urlbar[breakout][breakout-extend] {\n          top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;\n          left: 0 !important;\n          width: 100% !important;\n      }\n  \n      #urlbar[breakout][breakout-extend] \u003e #urlbar-input-container {\n          height: var(--urlbar-height) !important;\n          padding-block: 0 !important;\n          padding-inline: 0 !important;\n      }\n      /* DISABLE EXPANDING END */\n  }\n  /* REMOVE MEGABAR END */\n\n/*  */\n\n/* style urlbar */\n  #urlbar-container {\n    --urlbar-container-height: var(--tab-min-height) !important;\n    margin-left: 0 !important;\n    margin-right: 0 !important;\n    padding-top: 0 !important;\n    padding-bottom: 0 !important;\n    font-family: 'Jetbrains Mono', monospace;\n    font-size: 11px;\n  }\n\n  #urlbar {\n    --urlbar-height: var(--tab-min-height) !important;\n    --urlbar-toolbar-height: var(--tab-min-height) !important;\n    min-height: var(--tab-min-height) !important;\n  }\n\n  #urlbar-background {\n    border-width: 0 !important;\n    border-radius: 0 !important;\n  }\n\n  #urlbar-input-container {\n    border-width: 0 !important;\n    margin-left: 1em !important;\n  }\n\n  #urlbar-input {\n    margin-left: 0.4em !important;\n    margin-right: 0.4em !important;\n  }\n\n  .urlbarView-row {\n    padding-top: 0 !important;\n    padding-bottom: 0 !important;\n    line-height: var(--urlbar-height) !important;\n  }\n\n  .urlbarView-row-inner {\n    padding-top: 0.3em !important;\n    padding-bottom: 0.3em !important;\n    height: var(--urlbar-height) !important;\n  }\n\n  .urlbarView-favicon {\n    height: 1em !important;\n    width: 1em !important;\n    margin-bottom: 0.2em !important;\n  }\n  \n/* debloat urlbar */\n  #tracking-protection-icon-container { display: none; }\n\n  #identity-box { display: none; }\n\n  #reader-mode-button { display: none; }\n\n  #pageActionButton { display: none; }\n\n  #pocket-button { display: none; }\n\n  #star-button { display: none; }\n\n  #urlbar-zoom-button { display: none; }\n\n  /* Go to arrow button at the end of the urlbar when searching */\n  #urlbar-go-button { display: none; }\n\n  /* Bottom left page loading status or url preview */\n  #statuspanel { display: none !important; }\n/* end debloat urlbar */\n\n\n/* hide tab bar if only one tab open */\ntab:only-of-type { display: none; }\n\n/* remove min-height from tabs toolbar (needed for fullscreen one tab) */\n#TabsToolbar, #tabbrowser-tabs, #tabbrowser-tabs \u003e .tabbrowser-arrowscrollbox, #tabbrowser-arrowscrollbox {\n  min-height: 0 !important; \n}\n\n/* Tab: selected colors */\n\n#tabbrowser-tabs .tabbrowser-tab[selected] .tab-content { \n  background: #285577 !important;\n  color: #ffffff !important;\n  border: none !important;\n}\n\n/* Tab: hovered colors */\n\n#tabbrowser-tabs .tabbrowser-tab:hover:not([selected]) .tab-content {\n  background: #285577 !important;\n  color: #ffffff !important;\n}\n\n/* remove white margin around active tabs */\n#tabbrowser-tabs:not([movingtab]) \u003e #tabbrowser-arrowscrollbox \u003e .tabbrowser-tab[beforeselected-visible]::after, #tabbrowser-tabs[movingtab] \u003e #tabbrowser-arrowscrollbox \u003e .tabbrowser-tab[visuallyselected]::before,\n.tabbrowser-tab[visuallyselected]::after {\n  border: none !important;\n}\n\n/*AGENT_SHEET*/\n#main-window #navigator-toolbox #TabsToolbar:not(:-moz-lwtheme){\n  background: #285577 !important;\n}\n\n/* hide favicons */\n.tabbrowser-tab .tab-icon-image {\n  display: none !important;\n}\n\n/* show favicon if tab is pinned */\n.tabbrowser-tab[pinned] .tab-icon-image {\n  display: inline !important;\n}\n\n/* hide window controls */\n.titlebar-buttonbox-container { display: none; }\n\n\u003c/code\u003e\u003c/pre\u003e\n"}},"__N_SSG":true},"page":"/posts/[slug]","query":{"slug":"007-firefox"},"buildId":"-ZP1aG6cJNA7s1ymvVPQ2","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
+</code></pre><small style="display:block;margin-top:8rem" class="jsx-791102496"><time class="jsx-791102496">2021</time> © denis lee.<a href="/feed.xml" class="jsx-791102496">RSS</a></small></article></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/posts/007-firefox","query":{},"buildId":"ue5P71QvZUkOnbcLj_9e8","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>
