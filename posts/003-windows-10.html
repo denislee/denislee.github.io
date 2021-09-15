@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><link rel="shortcut icon" href="/favicon/favicon.ico"/><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-config" content="/favicon/browserconfig.xml"/><meta name="theme-color" content="#000"/><link rel="alternate" type="application/rss+xml" href="/feed.xml"/><meta name="description" content="blog."/><title>windows 10 | Next.js Blog Example with Markdown</title><meta name="next-head-count" content="14"/><link rel="preload" href="/_next/static/css/582c13877261c2d54d6a.css" as="style"/><link rel="stylesheet" href="/_next/static/css/582c13877261c2d54d6a.css" data-n-g=""/><link rel="preload" href="/_next/static/css/947c49e68dbf503d2ee0.css" as="style"/><link rel="stylesheet" href="/_next/static/css/947c49e68dbf503d2ee0.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js"></script><script src="/_next/static/chunks/webpack-fb76148cfcfb42ca18eb.js" defer=""></script><script src="/_next/static/chunks/framework-895f067827ebe11ffe45.js" defer=""></script><script src="/_next/static/chunks/main-8d15616dad332ac01c02.js" defer=""></script><script src="/_next/static/chunks/pages/_app-4419dadb93e234a9a363.js" defer=""></script><script src="/_next/static/chunks/328-d0bce99a0c5502a3e057.js" defer=""></script><script src="/_next/static/chunks/pages/posts/%5Bslug%5D-dfbbbde60d66ce531b70.js" defer=""></script><script src="/_next/static/-ZP1aG6cJNA7s1ymvVPQ2/_buildManifest.js" defer=""></script><script src="/_next/static/-ZP1aG6cJNA7s1ymvVPQ2/_ssgManifest.js" defer=""></script></head><body><div id="__next"><div class="min-h-screen"><div class="border-b bg-accent-1 border-accent-2"><div class="container mx-auto px-5"><div class="py-2 text-center text-sm"></div></div></div><main><div class="container mx-auto px-5"><h2 class="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8"><a class="hover:underline" href="/">blog</a>.</h2><article class="mb-32"><h1 class="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">windows 10</h1><div class="hidden md:block md:mb-12"><div class="flex items-center"><div class="text-xl font-bold">denis lee</div></div></div><div class="mb-8 md:mb-16 sm:mx-0"></div><div class="max-w-2xl mx-auto"><div class="block md:hidden mb-6"><div class="flex items-center"><div class="text-xl font-bold">denis lee</div></div></div><div class="mb-6 text-lg"><time dateTime="2020-09-09T05:35:07.322Z">September	9, 2020</time></div></div><div class="max-w-2xl mx-auto"><div class="markdown-styles_markdown__1x9gM"><p>Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.</p>
+<p>Os videos que eu assisti foram:</p>
+<p><em>We fixed Windows 10 - Microsoft will HATE this!</em>
+https://www.youtube.com/watch?v=nwkiU6GG-YU</p>
+<p><em>Windows 10 for Power Users – Private, Secure, Zero Bloatware (Windows 10 Ameliorated)</em>
+https://www.youtube.com/watch?v=YTL0i5XzS7k</p>
+<p>Tutorial escrito pelo Wolfgang
+https://notthebe.ee/Windows10.html</p>
+<p>E para facilitar, segui um híbrido de tutorial escrito do Wolfgang, quanto o vídeo dele. Ambos acabam complementando um ao outro. Mas, um parece nao funcionar sem o outro. Infelizmente.</p>
+<p>Por esse motivo, estou deixando as minhas anotações da instalação aqui também. (Para futuros usos pessoais também.) Que basicamente será uma transcrição em português do que já foi escrito pelo Wolfgang.</p>
+<h2>Resumo dos arquivos necessários</h2>
+<ol>
+<li>ISO do Windows 10 completo (peguei a versão Pro)</li>
+<li>ISO do Linux (pode ser qualquer um)</li>
+<li>Aplicação para calcular o SHA1 da imagem</li>
+<li>Aplicação para criar um pendrive bootável</li>
+<li>Atualização do Windows 10 cumulativo</li>
+<li>Atualização do Windows 10 incremental</li>
+<li>Amelioration Script</li>
+<li>Backup dos seus Drivers</li>
+<li>Hardentools (Security without borders)</li>
+</ol>
+<h2>NO WINDOWS</h2>
+<h3>Download da imagem do Windows 10</h3>
+<p>Faça download da imagem do Windows 10</p>
+<p><strong>Alternativa 1</strong> Baixar o aplicativo Fido (funciona apenas no Windows) https://github.com/pbatard/Fido</p>
+<p><strong>Alternativa 2</strong>: Selecionar no site https://tb.rg-adguard.net/public.php</p>
+<p>No caso, eu peguei a versao em ingles e pro. Importante ressaltar que apenas nessa hora que você poderá escolher a língua do seu sistema operacional. Caso queira trocar futuramente, precisará reinstalar o Windows (acredito que você não queira fazer isso).</p>
+<h3>Verificação da imagem do Windows 10</h3>
+<p>Para verificar se a imagem do Windows que você acabou de baixar não está corrompida ou alterada, precisamos de uma aplicação para calcular o hash.</p>
+<p><strong>Alternativa 1</strong>: Utilização da ferramenta já existente no PowerShell</p>
+<pre><code>Get-FileHash -Algorithm SHA1 Windows_2004.iso
+</code></pre>
+<p><strong>Alternativa 2</strong>: https://www.adaic.org/resources/add_content/standards/articles/SHA-1.html</p>
+<p>Executando alguma dessas duas alternativas, será possível comparar a saida desses programas no site: https://sha1.rg-adguard.net/</p>
+<h3>Download dos updates</h3>
+<p>Para isso você devera entrar no site o Windows 10 Update History: https://support.microsoft.com/en-us/help/4555932/windows-10-update-history</p>
+<ol>
+<li>
+<p>Procurar a sua versão do Windows. na primeira coluna da esquerda.</p>
+</li>
+<li>
+<p>Depois clique na primeiro item da segunda coluna na esquerda (In this release)</p>
+</li>
+<li>
+<p>Copie o código do titulo da pagina KBXXXXXXX e va no site https://www.catalog.update.microsoft.com/Home.aspx e procure por esse código</p>
+</li>
+<li>
+<p>Faça download da arquitetura do seu processador e para o seu Windows (cuidado para não baixar a versão para servidor)</p>
+</li>
+<li>
+<p>Volte para a pagina onde você copiou o código (KBXXXXXXX) e procure pela palavra chave: <code>the latest SSU</code></p>
+</li>
+<li>
+<p>Copie o código que vem logo em seguida dessa palavra que você procurou e vá para o site e faça download (passos 3. e 4. anteriores)</p>
+</li>
+</ol>
+<p>No fim, você terá baixado dois arquivos de atualização do Windows</p>
+<h3>Download do script AME</h3>
+<p><strong>Alternativa 1</strong>: https://git.ameliorated.info/malte/scripts/releases/download/1903.2020.03.06/amelioration_1903_2020.03.06.bat</p>
+<p>Caso o link esteja desatualizado. Entre no site https://ameliorated.info/documentation.html#ame_pre e procure pela palavra chave <code>Windows 10 Amelioration script</code> e faça download</p>
+<h3>Backup dos seus drivers</h3>
+<p>Abra o PowerShell como Admin e execute o comando</p>
+<pre><code>pnputil /export-driver * "C:\backup-drivers"
+</code></pre>
+<h3>Hora de baixar o Linux</h3>
+<p>No tutorial ele (Wolfgang) recomendou baixar o xubuntu. Segui a recomendação, porém descobri na prática que qualquer imagem funciona. Poderia até ser um Arch, mas acredito que a recomendação foi mais pela facilidade de uso mesmo. A exigência para facilitar e que você consiga acessar a internet facilmente, consiga acessar o disco que o Windows será instalado, consiga acessar a Internet e tenha a modalidade de boot do Linux sem instalar o mesmo.</p>
+<p>https://xubuntu.org/</p>
+<h3>Criando um pendrive bootável</h3>
+<p>Precisamos baixar um programa para gravar o ISO do Windows no pendrive e deixar ele bootável. Para isso recomendo você baixar o seguinte programa</p>
+<p><strong>Alternativa 1</strong>: https://rufus.ie/</p>
+<p>Abra o Rufus e escolha o drive que está conectado o seu Pendrive, escolha a ISO do Windows e pronto.</p>
+<h3>Copiando os arquivos</h3>
+<p>Copie todos os arquivos que você baixou até agora para dentro do Pendrive. Segue a lista que deve entrar</p>
+<ul>
+<li>ISO do linux</li>
+<li>Rufus</li>
+<li>Atualizações do Windows</li>
+<li>Script AME</li>
+</ul>
+<h3>Instalando o Windows</h3>
+<p>Agora os passos para iniciar a instalação na sua máquina</p>
+<ol>
+<li>Conecte o Pendrive no seu computador</li>
+<li>Reinicie o mesmo</li>
+<li>Desative toda e qualquer conexão com a internet (wifi e ethernet) pela bios</li>
+<li>Troque a ordem do boot para iniciar pelo pendrive</li>
+<li>Talvez seja necessário desativar o boot de seguranca</li>
+<li>Instale o Windows</li>
+</ol>
+<h2>NO WINDOWS (NOVO)</h2>
+<h3>Primeiro boot no Windows</h3>
+<p>Responda não para todas as perguntas de compartilhamento de informação que eles perguntarem durante o setup final da instalação do Windows.</p>
+<p>Assim que você já estiver dentro do sistema operacional, faça as seguintes ações:</p>
+<ul>
+<li>Faca unpin em todos os aplicativos da barra de tarefas.</li>
+<li>Faca unpin em todos os aplicativos do menu do botão iniciar.</li>
+<li>Remova a barra de busca da barra de tarefas.</li>
+</ul>
+<h3>Instalação das atualizações</h3>
+<p>Crie os seguintes diretórios no drive de onde foi instalado o Windows:</p>
+<pre><code>- C:\SSU
+- C:\Cumulative
+</code></pre>
+<p>Abra o PowerShell com permissão de administrador e dentro dele entre no drive do pendrive. E faça os seguintes comandos:</p>
+<pre><code>expand -F:* name_of_the_ssu_package.msu C:\SSU
+expand -F:* name_of_the_cumulative_package.msu C:\Cumulative
+</code></pre>
+<p>Em seguida faça o seguinte comando para instalar os pacotes descompactados</p>
+<pre><code>dism /online /add-package /packagepath=C:\SSU\name_of_the_ssu.cab
+</code></pre>
+<p>Vai reiniciar apos a instalacao. Depois de reiniciado instale a atualização cumulativa</p>
+<pre><code>dism /online /add-package /packagepath=C:\Cumulative\name_of_the_cumulative.cab
+</code></pre>
+<p>Reinicie duas vezes e agora execute o comando final</p>
+<pre><code>dism /online /Cleanup-Image /StartComponentCleanup
+</code></pre>
+<h3>Executando o script AME</h3>
+<p>Clique com o botão direito no script e execute como administrador.</p>
+<p><strong>Escolha 1</strong>: <code>Run Pre-Amelioration</code></p>
+<ul>
+<li>Espere o processo terminar.</li>
+</ul>
+<p><strong>Escolha 3</strong>: <code>User Permissions</code></p>
+<ul>
+<li>
+<p>Altere a senha de administrador.</p>
+</li>
+<li>
+<p>Altere os privilégios do seu usuário local para <code>Standard User</code></p>
+</li>
+</ul>
+<p>Faça logout e logue novamente.</p>
+<p>Abre um PowerShell como administrador e execute o comando para alterar a sua senha:</p>
+<pre><code>net user &#x3C;seu-usuário> *
+</code></pre>
+<h3>Criação do mídia de boot do Linux</h3>
+<p>Abra o Rufus e escolha o pendrive e o ISO do Linux para transformar o seu pendrive que você acabou de usar para instalar o Windows para instalar o Linux.</p>
+<p>Reinicie o computador com o pendrive conectado.</p>
+<h2>NO LINUX</h2>
+<h3>Dentro do Linux</h3>
+<p>Nessa parte você já pode ligar novamente toda a conectividade do seu computador (que você havia desativado anteriormente na BIOS).</p>
+<p>Entre no Linux pela escolha que não precisa instalar nada.</p>
+<p>Abra um terminal e entre no diretório raiz da instalação do seu Windows e faça o seguinte comando:</p>
+<pre><code>wget https://git.ameliorated.info/malte/scripts/releases/download/1903.2020.03.06/ameliorate_1903_2020.03.06.sh
+</code></pre>
+<p>(esse link pode estar desatualizado. Nesse caso entre no link: https://ameliorated.info/documentation.html e procure pela palavra chave <code>Linux Ameliorate script</code> e copie o link)</p>
+<p>Agora é só executar o script.</p>
+<p>Caso tenha problemas em executar o script, faça os seguintes passo:</p>
+<pre><code>sed -i 's/\r$//' &#x3C;script-shell>
+</code></pre>
+<p>Agora é só executar o script que você acabou de baixar e aguardar.</p>
+<p>Só reiniciar e voltar para o Windows.</p>
+<h2>NO WINDOWS (NOVO)</h2>
+<h3>Post-Amelioration</h3>
+<p>Edite o script AME que você usou antes de entrar no Linux e procure pela seguinte linha:</p>
+<pre><code>choco install -y --force --allow-empty-checksums firefox thunderbird vlc youtube-dl 7zip open-shell jpegview vcredist-all directx onlyoffice
+</code></pre>
+<p>E substitua para:</p>
+<pre><code>choco install -y --force --allow-empty-checksums firefox thunderbird vlc youtube-dl 7zip open-shell  -installArgs ADDLOCAL=StartMenu jpegview vcredist-all directx libreoffice
+</code></pre>
+<p>Execute o script e escolha o Post-Amelioration</p>
+<h3>Hardening Windows Settings</h3>
+<p>Para ajudar na segurança, baixe e instale o Harden Tools.</p>
+<p><strong>Alternativa 1</strong>: https://securitywithoutborders.org/tools/hardentools.html</p>
+<h3>Reinstalação dos drivers</h3>
+<pre><code>pnputil.exe /add-driver C:\backup-drivers\*.inf /subdirs /install /reboot
+</code></pre>
+</div></div></article></div></main></div><footer class="bg-accent-1 border-t border-accent-2"><div class="container mx-auto px-5"><div class="py-28 flex flex-col lg:flex-row items-center"><h3 class="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">denislee.github.io</h3></div></div></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"post":{"title":"windows 10","date":"2020-09-09T05:35:07.322Z","slug":"003-windows-10","author":{"name":"denis lee"},"content":"\u003cp\u003eDepois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.\u003c/p\u003e\n\u003cp\u003eOs videos que eu assisti foram:\u003c/p\u003e\n\u003cp\u003e\u003cem\u003eWe fixed Windows 10 - Microsoft will HATE this!\u003c/em\u003e\nhttps://www.youtube.com/watch?v=nwkiU6GG-YU\u003c/p\u003e\n\u003cp\u003e\u003cem\u003eWindows 10 for Power Users – Private, Secure, Zero Bloatware (Windows 10 Ameliorated)\u003c/em\u003e\nhttps://www.youtube.com/watch?v=YTL0i5XzS7k\u003c/p\u003e\n\u003cp\u003eTutorial escrito pelo Wolfgang\nhttps://notthebe.ee/Windows10.html\u003c/p\u003e\n\u003cp\u003eE para facilitar, segui um híbrido de tutorial escrito do Wolfgang, quanto o vídeo dele. Ambos acabam complementando um ao outro. Mas, um parece nao funcionar sem o outro. Infelizmente.\u003c/p\u003e\n\u003cp\u003ePor esse motivo, estou deixando as minhas anotações da instalação aqui também. (Para futuros usos pessoais também.) Que basicamente será uma transcrição em português do que já foi escrito pelo Wolfgang.\u003c/p\u003e\n\u003ch2\u003eResumo dos arquivos necessários\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003eISO do Windows 10 completo (peguei a versão Pro)\u003c/li\u003e\n\u003cli\u003eISO do Linux (pode ser qualquer um)\u003c/li\u003e\n\u003cli\u003eAplicação para calcular o SHA1 da imagem\u003c/li\u003e\n\u003cli\u003eAplicação para criar um pendrive bootável\u003c/li\u003e\n\u003cli\u003eAtualização do Windows 10 cumulativo\u003c/li\u003e\n\u003cli\u003eAtualização do Windows 10 incremental\u003c/li\u003e\n\u003cli\u003eAmelioration Script\u003c/li\u003e\n\u003cli\u003eBackup dos seus Drivers\u003c/li\u003e\n\u003cli\u003eHardentools (Security without borders)\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2\u003eNO WINDOWS\u003c/h2\u003e\n\u003ch3\u003eDownload da imagem do Windows 10\u003c/h3\u003e\n\u003cp\u003eFaça download da imagem do Windows 10\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eAlternativa 1\u003c/strong\u003e Baixar o aplicativo Fido (funciona apenas no Windows) https://github.com/pbatard/Fido\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eAlternativa 2\u003c/strong\u003e: Selecionar no site https://tb.rg-adguard.net/public.php\u003c/p\u003e\n\u003cp\u003eNo caso, eu peguei a versao em ingles e pro. Importante ressaltar que apenas nessa hora que você poderá escolher a língua do seu sistema operacional. Caso queira trocar futuramente, precisará reinstalar o Windows (acredito que você não queira fazer isso).\u003c/p\u003e\n\u003ch3\u003eVerificação da imagem do Windows 10\u003c/h3\u003e\n\u003cp\u003ePara verificar se a imagem do Windows que você acabou de baixar não está corrompida ou alterada, precisamos de uma aplicação para calcular o hash.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eAlternativa 1\u003c/strong\u003e: Utilização da ferramenta já existente no PowerShell\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eGet-FileHash -Algorithm SHA1 Windows_2004.iso\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eAlternativa 2\u003c/strong\u003e: https://www.adaic.org/resources/add_content/standards/articles/SHA-1.html\u003c/p\u003e\n\u003cp\u003eExecutando alguma dessas duas alternativas, será possível comparar a saida desses programas no site: https://sha1.rg-adguard.net/\u003c/p\u003e\n\u003ch3\u003eDownload dos updates\u003c/h3\u003e\n\u003cp\u003ePara isso você devera entrar no site o Windows 10 Update History: https://support.microsoft.com/en-us/help/4555932/windows-10-update-history\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eProcurar a sua versão do Windows. na primeira coluna da esquerda.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDepois clique na primeiro item da segunda coluna na esquerda (In this release)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCopie o código do titulo da pagina KBXXXXXXX e va no site https://www.catalog.update.microsoft.com/Home.aspx e procure por esse código\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eFaça download da arquitetura do seu processador e para o seu Windows (cuidado para não baixar a versão para servidor)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVolte para a pagina onde você copiou o código (KBXXXXXXX) e procure pela palavra chave: \u003ccode\u003ethe latest SSU\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCopie o código que vem logo em seguida dessa palavra que você procurou e vá para o site e faça download (passos 3. e 4. anteriores)\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eNo fim, você terá baixado dois arquivos de atualização do Windows\u003c/p\u003e\n\u003ch3\u003eDownload do script AME\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eAlternativa 1\u003c/strong\u003e: https://git.ameliorated.info/malte/scripts/releases/download/1903.2020.03.06/amelioration_1903_2020.03.06.bat\u003c/p\u003e\n\u003cp\u003eCaso o link esteja desatualizado. Entre no site https://ameliorated.info/documentation.html#ame_pre e procure pela palavra chave \u003ccode\u003eWindows 10 Amelioration script\u003c/code\u003e e faça download\u003c/p\u003e\n\u003ch3\u003eBackup dos seus drivers\u003c/h3\u003e\n\u003cp\u003eAbra o PowerShell como Admin e execute o comando\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epnputil /export-driver * \"C:\\backup-drivers\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003eHora de baixar o Linux\u003c/h3\u003e\n\u003cp\u003eNo tutorial ele (Wolfgang) recomendou baixar o xubuntu. Segui a recomendação, porém descobri na prática que qualquer imagem funciona. Poderia até ser um Arch, mas acredito que a recomendação foi mais pela facilidade de uso mesmo. A exigência para facilitar e que você consiga acessar a internet facilmente, consiga acessar o disco que o Windows será instalado, consiga acessar a Internet e tenha a modalidade de boot do Linux sem instalar o mesmo.\u003c/p\u003e\n\u003cp\u003ehttps://xubuntu.org/\u003c/p\u003e\n\u003ch3\u003eCriando um pendrive bootável\u003c/h3\u003e\n\u003cp\u003ePrecisamos baixar um programa para gravar o ISO do Windows no pendrive e deixar ele bootável. Para isso recomendo você baixar o seguinte programa\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eAlternativa 1\u003c/strong\u003e: https://rufus.ie/\u003c/p\u003e\n\u003cp\u003eAbra o Rufus e escolha o drive que está conectado o seu Pendrive, escolha a ISO do Windows e pronto.\u003c/p\u003e\n\u003ch3\u003eCopiando os arquivos\u003c/h3\u003e\n\u003cp\u003eCopie todos os arquivos que você baixou até agora para dentro do Pendrive. Segue a lista que deve entrar\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eISO do linux\u003c/li\u003e\n\u003cli\u003eRufus\u003c/li\u003e\n\u003cli\u003eAtualizações do Windows\u003c/li\u003e\n\u003cli\u003eScript AME\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eInstalando o Windows\u003c/h3\u003e\n\u003cp\u003eAgora os passos para iniciar a instalação na sua máquina\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eConecte o Pendrive no seu computador\u003c/li\u003e\n\u003cli\u003eReinicie o mesmo\u003c/li\u003e\n\u003cli\u003eDesative toda e qualquer conexão com a internet (wifi e ethernet) pela bios\u003c/li\u003e\n\u003cli\u003eTroque a ordem do boot para iniciar pelo pendrive\u003c/li\u003e\n\u003cli\u003eTalvez seja necessário desativar o boot de seguranca\u003c/li\u003e\n\u003cli\u003eInstale o Windows\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2\u003eNO WINDOWS (NOVO)\u003c/h2\u003e\n\u003ch3\u003ePrimeiro boot no Windows\u003c/h3\u003e\n\u003cp\u003eResponda não para todas as perguntas de compartilhamento de informação que eles perguntarem durante o setup final da instalação do Windows.\u003c/p\u003e\n\u003cp\u003eAssim que você já estiver dentro do sistema operacional, faça as seguintes ações:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eFaca unpin em todos os aplicativos da barra de tarefas.\u003c/li\u003e\n\u003cli\u003eFaca unpin em todos os aplicativos do menu do botão iniciar.\u003c/li\u003e\n\u003cli\u003eRemova a barra de busca da barra de tarefas.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eInstalação das atualizações\u003c/h3\u003e\n\u003cp\u003eCrie os seguintes diretórios no drive de onde foi instalado o Windows:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e- C:\\SSU\n- C:\\Cumulative\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAbra o PowerShell com permissão de administrador e dentro dele entre no drive do pendrive. E faça os seguintes comandos:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eexpand -F:* name_of_the_ssu_package.msu C:\\SSU\nexpand -F:* name_of_the_cumulative_package.msu C:\\Cumulative\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eEm seguida faça o seguinte comando para instalar os pacotes descompactados\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003edism /online /add-package /packagepath=C:\\SSU\\name_of_the_ssu.cab\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eVai reiniciar apos a instalacao. Depois de reiniciado instale a atualização cumulativa\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003edism /online /add-package /packagepath=C:\\Cumulative\\name_of_the_cumulative.cab\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eReinicie duas vezes e agora execute o comando final\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003edism /online /Cleanup-Image /StartComponentCleanup\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003eExecutando o script AME\u003c/h3\u003e\n\u003cp\u003eClique com o botão direito no script e execute como administrador.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eEscolha 1\u003c/strong\u003e: \u003ccode\u003eRun Pre-Amelioration\u003c/code\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eEspere o processo terminar.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eEscolha 3\u003c/strong\u003e: \u003ccode\u003eUser Permissions\u003c/code\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eAltere a senha de administrador.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAltere os privilégios do seu usuário local para \u003ccode\u003eStandard User\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFaça logout e logue novamente.\u003c/p\u003e\n\u003cp\u003eAbre um PowerShell como administrador e execute o comando para alterar a sua senha:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003enet user \u0026#x3C;seu-usuário\u003e *\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003eCriação do mídia de boot do Linux\u003c/h3\u003e\n\u003cp\u003eAbra o Rufus e escolha o pendrive e o ISO do Linux para transformar o seu pendrive que você acabou de usar para instalar o Windows para instalar o Linux.\u003c/p\u003e\n\u003cp\u003eReinicie o computador com o pendrive conectado.\u003c/p\u003e\n\u003ch2\u003eNO LINUX\u003c/h2\u003e\n\u003ch3\u003eDentro do Linux\u003c/h3\u003e\n\u003cp\u003eNessa parte você já pode ligar novamente toda a conectividade do seu computador (que você havia desativado anteriormente na BIOS).\u003c/p\u003e\n\u003cp\u003eEntre no Linux pela escolha que não precisa instalar nada.\u003c/p\u003e\n\u003cp\u003eAbra um terminal e entre no diretório raiz da instalação do seu Windows e faça o seguinte comando:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ewget https://git.ameliorated.info/malte/scripts/releases/download/1903.2020.03.06/ameliorate_1903_2020.03.06.sh\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e(esse link pode estar desatualizado. Nesse caso entre no link: https://ameliorated.info/documentation.html e procure pela palavra chave \u003ccode\u003eLinux Ameliorate script\u003c/code\u003e e copie o link)\u003c/p\u003e\n\u003cp\u003eAgora é só executar o script.\u003c/p\u003e\n\u003cp\u003eCaso tenha problemas em executar o script, faça os seguintes passo:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003esed -i 's/\\r$//' \u0026#x3C;script-shell\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAgora é só executar o script que você acabou de baixar e aguardar.\u003c/p\u003e\n\u003cp\u003eSó reiniciar e voltar para o Windows.\u003c/p\u003e\n\u003ch2\u003eNO WINDOWS (NOVO)\u003c/h2\u003e\n\u003ch3\u003ePost-Amelioration\u003c/h3\u003e\n\u003cp\u003eEdite o script AME que você usou antes de entrar no Linux e procure pela seguinte linha:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003echoco install -y --force --allow-empty-checksums firefox thunderbird vlc youtube-dl 7zip open-shell jpegview vcredist-all directx onlyoffice\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eE substitua para:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003echoco install -y --force --allow-empty-checksums firefox thunderbird vlc youtube-dl 7zip open-shell  -installArgs ADDLOCAL=StartMenu jpegview vcredist-all directx libreoffice\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eExecute o script e escolha o Post-Amelioration\u003c/p\u003e\n\u003ch3\u003eHardening Windows Settings\u003c/h3\u003e\n\u003cp\u003ePara ajudar na segurança, baixe e instale o Harden Tools.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eAlternativa 1\u003c/strong\u003e: https://securitywithoutborders.org/tools/hardentools.html\u003c/p\u003e\n\u003ch3\u003eReinstalação dos drivers\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003epnputil.exe /add-driver C:\\backup-drivers\\*.inf /subdirs /install /reboot\n\u003c/code\u003e\u003c/pre\u003e\n"}},"__N_SSG":true},"page":"/posts/[slug]","query":{"slug":"003-windows-10"},"buildId":"-ZP1aG6cJNA7s1ymvVPQ2","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
