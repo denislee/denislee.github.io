@@ -4,13 +4,13 @@
         <description><![CDATA[denis lee]]></description>
         <link>https://denislee.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 15 Sep 2021 02:09:53 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 18 Sep 2021 03:14:04 GMT</lastBuildDate>
         <atom:link href="https://denislee.github.io/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
-            <title><![CDATA[Viação Cometa]]></title>
-            <description><![CDATA[Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.]]></description>
-            <link>/posts/002-viacao-cometa</link>
-            <guid isPermaLink="true">/posts/002-viacao-cometa</guid>
+            <title><![CDATA[Daily vlog]]></title>
+            <description><![CDATA[Depois de ter muitas idéias na cabeça ao assistir diversos vídeos no YouTube. Pensei em colocar o meu sonho de voltar a fazer vídeos em prática. Assim como o próprio vídeo do rapaz que trabalha na Vox dizia: “se você tem uma idéia, a melhor coisa que você pode fazer, é colocar ela em prática”. Não sei se ele disse exatamente isso, mas foi o que eu entendi.]]></description>
+            <link>/posts/001-daily-vlog</link>
+            <guid isPermaLink="true">/posts/001-daily-vlog</guid>
             <pubDate>Mon, 07 Sep 2020 05:35:07 GMT</pubDate>
         </item>
         <item>
@@ -19,6 +19,13 @@
             <link>/posts/000-keyboard-layouts</link>
             <guid isPermaLink="true">/posts/000-keyboard-layouts</guid>
             <pubDate>Mon, 31 Aug 2020 03:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Viação Cometa]]></title>
+            <description><![CDATA[Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.]]></description>
+            <link>/posts/002-viacao-cometa</link>
+            <guid isPermaLink="true">/posts/002-viacao-cometa</guid>
+            <pubDate>Mon, 07 Sep 2020 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Windows 10]]></title>
@@ -61,13 +68,6 @@
             <link>/posts/008-produtividade</link>
             <guid isPermaLink="true">/posts/008-produtividade</guid>
             <pubDate>Sun, 07 Mar 2021 05:35:07 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Daily vlog]]></title>
-            <description><![CDATA[Depois de ter muitas idéias na cabeça ao assistir diversos vídeos no YouTube. Pensei em colocar o meu sonho de voltar a fazer vídeos em prática. Assim como o próprio vídeo do rapaz que trabalha na Vox dizia: “se você tem uma idéia, a melhor coisa que você pode fazer, é colocar ela em prática”. Não sei se ele disse exatamente isso, mas foi o que eu entendi.]]></description>
-            <link>/posts/001-daily-vlog</link>
-            <guid isPermaLink="true">/posts/001-daily-vlog</guid>
-            <pubDate>Mon, 07 Sep 2020 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Sway no Manjaro i3]]></title>
