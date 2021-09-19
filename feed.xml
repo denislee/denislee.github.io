@@ -4,7 +4,7 @@
         <description><![CDATA[denis lee]]></description>
         <link>https://denislee.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 19 Sep 2021 15:40:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 19 Sep 2021 22:41:03 GMT</lastBuildDate>
         <atom:link href="https://denislee.github.io/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Keyboard layouts]]></title>
@@ -12,6 +12,13 @@
             <link>/posts/000-keyboard-layouts</link>
             <guid isPermaLink="true">/posts/000-keyboard-layouts</guid>
             <pubDate>Mon, 31 Aug 2020 03:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Windows 10]]></title>
+            <description><![CDATA[Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.]]></description>
+            <link>/posts/003-windows-10</link>
+            <guid isPermaLink="true">/posts/003-windows-10</guid>
+            <pubDate>Wed, 09 Sep 2020 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Daily vlog]]></title>
@@ -28,17 +35,17 @@
             <pubDate>Mon, 07 Sep 2020 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Windows 10]]></title>
-            <description><![CDATA[Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.]]></description>
-            <link>/posts/003-windows-10</link>
-            <guid isPermaLink="true">/posts/003-windows-10</guid>
-            <pubDate>Wed, 09 Sep 2020 05:35:07 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Baunilha]]></title>
             <description><![CDATA[Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).]]></description>
             <link>/posts/004-baunilha</link>
             <guid isPermaLink="true">/posts/004-baunilha</guid>
+            <pubDate>Mon, 22 Feb 2021 05:35:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Qutebrowser]]></title>
+            <description><![CDATA[Como todo usuário de Vim e agraciado pelas suas teclas de atalho, além do window manager que melhor atende suas necessidades e potencializa o seu aprendizado no Vim, o navegador seria o próximo a ser beneficiado por essa memória muscular de navegação: hjkl.]]></description>
+            <link>/posts/006-qutebrowser</link>
+            <guid isPermaLink="true">/posts/006-qutebrowser</guid>
             <pubDate>Mon, 22 Feb 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
@@ -49,11 +56,11 @@
             <pubDate>Sat, 22 Feb 2020 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Qutebrowser]]></title>
-            <description><![CDATA[Como todo usuário de Vim e agraciado pelas suas teclas de atalho, além do window manager que melhor atende suas necessidades e potencializa o seu aprendizado no Vim, o navegador seria o próximo a ser beneficiado por essa memória muscular de navegação: hjkl.]]></description>
-            <link>/posts/006-qutebrowser</link>
-            <guid isPermaLink="true">/posts/006-qutebrowser</guid>
-            <pubDate>Mon, 22 Feb 2021 05:35:07 GMT</pubDate>
+            <title><![CDATA[Produtividade]]></title>
+            <description><![CDATA[Quem nunca teve problema em se focar e se tornar uma máquina de produtividade? Sempre temos essa preocupação, seja em nosso lado pessoal de resolver as coisas e fazer as coisas acontecerem, quanto do lado profissional. queremos terminar, queremos realizar, queremos sentir com o dever cumprido ao deitar na cama ao fechar os olhos.]]></description>
+            <link>/posts/008-produtividade</link>
+            <guid isPermaLink="true">/posts/008-produtividade</guid>
+            <pubDate>Sun, 07 Mar 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Firefox]]></title>
@@ -63,18 +70,32 @@
             <pubDate>Sat, 27 Feb 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Produtividade]]></title>
-            <description><![CDATA[Quem nunca teve problema em se focar e se tornar uma máquina de produtividade? Sempre temos essa preocupação, seja em nosso lado pessoal de resolver as coisas e fazer as coisas acontecerem, quanto do lado profissional. queremos terminar, queremos realizar, queremos sentir com o dever cumprido ao deitar na cama ao fechar os olhos.]]></description>
-            <link>/posts/008-produtividade</link>
-            <guid isPermaLink="true">/posts/008-produtividade</guid>
-            <pubDate>Sun, 07 Mar 2021 05:35:07 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Sway no Manjaro i3]]></title>
             <description><![CDATA[Com a minha ideia de reservar um computador para usar exclusivamente para realizar as transmissões das minhas lives na Twitch, resolvi instalar um Manjaro e depois fazer a atualização do seu WM do i3 para o Sway. Seguem as instruções.]]></description>
             <link>/posts/009-sway</link>
             <guid isPermaLink="true">/posts/009-sway</guid>
             <pubDate>Sat, 10 Apr 2021 05:35:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Velocidade]]></title>
+            <description><![CDATA[Como faz uma boa diferença no sistema operacional de qualquer aparelho ser rápido para você querer utilizar. foi o que eu aprendi essa semana ao reparar a forma como eu procuro assistir vídeos enquanto almoço.]]></description>
+            <link>/posts/013-velocidade</link>
+            <guid isPermaLink="true">/posts/013-velocidade</guid>
+            <pubDate>Sat, 08 May 2021 05:35:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Sway - Brightness]]></title>
+            <description><![CDATA[Como configurar para funcionar as tecla de atalho do laptop conseguir controlar o brilho da tela]]></description>
+            <link>/posts/014-sway-brightness</link>
+            <guid isPermaLink="true">/posts/014-sway-brightness</guid>
+            <pubDate>Sat, 08 May 2021 05:35:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Motivação]]></title>
+            <description><![CDATA[Quem nunca se sentiu desmotivado ou sem energia para fazer algo? As vezes é a grande quantidade de responsabilidades que temos no dia a dia (e pior fica quando muitas envolvem um grande esforço mental); tudo isso acaba resultando em desânimo e falta de energia.]]></description>
+            <link>/posts/012-motivacao</link>
+            <guid isPermaLink="true">/posts/012-motivacao</guid>
+            <pubDate>Sun, 25 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Exfat no MacOS]]></title>
@@ -89,20 +110,6 @@
             <link>/posts/011-macos-teclado</link>
             <guid isPermaLink="true">/posts/011-macos-teclado</guid>
             <pubDate>Sat, 17 Apr 2021 05:35:07 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Motivação]]></title>
-            <description><![CDATA[Quem nunca se sentiu desmotivado ou sem energia para fazer algo? As vezes é a grande quantidade de responsabilidades que temos no dia a dia (e pior fica quando muitas envolvem um grande esforço mental); tudo isso acaba resultando em desânimo e falta de energia.]]></description>
-            <link>/posts/012-motivacao</link>
-            <guid isPermaLink="true">/posts/012-motivacao</guid>
-            <pubDate>Sun, 25 Apr 2021 05:35:07 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Velocidade]]></title>
-            <description><![CDATA[Como faz uma boa diferença no sistema operacional de qualquer aparelho ser rápido para você querer utilizar. foi o que eu aprendi essa semana ao reparar a forma como eu procuro assistir vídeos enquanto almoço.]]></description>
-            <link>/posts/013-velocidade</link>
-            <guid isPermaLink="true">/posts/013-velocidade</guid>
-            <pubDate>Sat, 08 May 2021 05:35:07 GMT</pubDate>
         </item>
     </channel>
 </rss>
