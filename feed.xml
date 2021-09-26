@@ -4,21 +4,21 @@
         <description><![CDATA[denis lee]]></description>
         <link>https://denislee.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 26 Sep 2021 20:55:58 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 26 Sep 2021 20:57:59 GMT</lastBuildDate>
         <atom:link href="https://denislee.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-        <item>
-            <title><![CDATA[Keyboard layouts]]></title>
-            <description><![CDATA[Lembro da primeira vez que eu entrei em contato com um computador. Acredito que eu tinha os 12 anos (ou algo próximo disso). O ano acredito que era 1996. Mal existiam computadores aqui no Brasil. Tudo nesse equipamento havia me fascinado. Tudo era mágico. E, de todas as parte do computador, o teclado era a ponte para interagir com a máquina. E, por esse motivo, acaba ganhando uma atenção especial por seus usuários. Você precisava saber onde estavam as teclas para se falar com este artefato. Saber o que aconteceria depois de pressionar cada tecla. Teclado. Dígito. Digital. ]]></description>
-            <link>/posts/000-keyboard-layouts</link>
-            <guid isPermaLink="true">/posts/000-keyboard-layouts</guid>
-            <pubDate>Mon, 31 Aug 2020 03:00:00 GMT</pubDate>
-        </item>
         <item>
             <title><![CDATA[Daily vlog]]></title>
             <description><![CDATA[Depois de ter muitas idéias na cabeça ao assistir diversos vídeos no YouTube. Pensei em colocar o meu sonho de voltar a fazer vídeos em prática. Assim como o próprio vídeo do rapaz que trabalha na Vox dizia: “se você tem uma idéia, a melhor coisa que você pode fazer, é colocar ela em prática”. Não sei se ele disse exatamente isso, mas foi o que eu entendi.]]></description>
             <link>/posts/001-daily-vlog</link>
             <guid isPermaLink="true">/posts/001-daily-vlog</guid>
             <pubDate>Mon, 07 Sep 2020 05:35:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Keyboard layouts]]></title>
+            <description><![CDATA[Lembro da primeira vez que eu entrei em contato com um computador. Acredito que eu tinha os 12 anos (ou algo próximo disso). O ano acredito que era 1996. Mal existiam computadores aqui no Brasil. Tudo nesse equipamento havia me fascinado. Tudo era mágico. E, de todas as parte do computador, o teclado era a ponte para interagir com a máquina. E, por esse motivo, acaba ganhando uma atenção especial por seus usuários. Você precisava saber onde estavam as teclas para se falar com este artefato. Saber o que aconteceria depois de pressionar cada tecla. Teclado. Dígito. Digital. ]]></description>
+            <link>/posts/000-keyboard-layouts</link>
+            <guid isPermaLink="true">/posts/000-keyboard-layouts</guid>
+            <pubDate>Mon, 31 Aug 2020 03:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Viação Cometa]]></title>
@@ -28,18 +28,18 @@
             <pubDate>Mon, 07 Sep 2020 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Windows 10]]></title>
-            <description><![CDATA[Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.]]></description>
-            <link>/posts/003-windows-10</link>
-            <guid isPermaLink="true">/posts/003-windows-10</guid>
-            <pubDate>Wed, 09 Sep 2020 05:35:07 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Baunilha]]></title>
             <description><![CDATA[Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).]]></description>
             <link>/posts/004-baunilha</link>
             <guid isPermaLink="true">/posts/004-baunilha</guid>
             <pubDate>Invalid Date</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Windows 10]]></title>
+            <description><![CDATA[Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.]]></description>
+            <link>/posts/003-windows-10</link>
+            <guid isPermaLink="true">/posts/003-windows-10</guid>
+            <pubDate>Wed, 09 Sep 2020 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Sway]]></title>
