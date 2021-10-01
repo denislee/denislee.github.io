@@ -4,7 +4,7 @@
         <description><![CDATA[denis lee]]></description>
         <link>https://denislee.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 01 Oct 2021 23:09:48 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 01 Oct 2021 23:19:48 GMT</lastBuildDate>
         <atom:link href="https://denislee.github.io/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Keyboard layouts]]></title>
@@ -28,13 +28,6 @@
             <pubDate>Mon, 07 Sep 2020 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Windows 10]]></title>
-            <description><![CDATA[Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.]]></description>
-            <link>/posts/003-windows-10</link>
-            <guid isPermaLink="true">/posts/003-windows-10</guid>
-            <pubDate>Wed, 09 Sep 2020 05:35:07 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Baunilha]]></title>
             <description><![CDATA[Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).]]></description>
             <link>/posts/004-baunilha</link>
@@ -49,11 +42,25 @@
             <pubDate>Sat, 22 Feb 2020 05:35:07 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[Windows 10]]></title>
+            <description><![CDATA[Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.]]></description>
+            <link>/posts/003-windows-10</link>
+            <guid isPermaLink="true">/posts/003-windows-10</guid>
+            <pubDate>Wed, 09 Sep 2020 05:35:07 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[Qutebrowser]]></title>
             <description><![CDATA[Como todo usuário de Vim e agraciado pelas suas teclas de atalho, além do window manager que melhor atende suas necessidades e potencializa o seu aprendizado no Vim, o navegador seria o próximo a ser beneficiado por essa memória muscular de navegação: hjkl.]]></description>
             <link>/posts/006-qutebrowser</link>
             <guid isPermaLink="true">/posts/006-qutebrowser</guid>
             <pubDate>Mon, 22 Feb 2021 05:35:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Produtividade]]></title>
+            <description><![CDATA[Quem nunca teve problema em se focar e se tornar uma máquina de produtividade? Sempre temos essa preocupação, seja em nosso lado pessoal de resolver as coisas e fazer as coisas acontecerem, quanto do lado profissional. queremos terminar, queremos realizar, queremos sentir com o dever cumprido ao deitar na cama ao fechar os olhos.]]></description>
+            <link>/posts/008-produtividade</link>
+            <guid isPermaLink="true">/posts/008-produtividade</guid>
+            <pubDate>Sun, 07 Mar 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Firefox]]></title>
@@ -63,11 +70,18 @@
             <pubDate>Sat, 27 Feb 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Produtividade]]></title>
-            <description><![CDATA[Quem nunca teve problema em se focar e se tornar uma máquina de produtividade? Sempre temos essa preocupação, seja em nosso lado pessoal de resolver as coisas e fazer as coisas acontecerem, quanto do lado profissional. queremos terminar, queremos realizar, queremos sentir com o dever cumprido ao deitar na cama ao fechar os olhos.]]></description>
-            <link>/posts/008-produtividade</link>
-            <guid isPermaLink="true">/posts/008-produtividade</guid>
-            <pubDate>Sun, 07 Mar 2021 05:35:07 GMT</pubDate>
+            <title><![CDATA[Motivação]]></title>
+            <description><![CDATA[Quem nunca se sentiu desmotivado ou sem energia para fazer algo? As vezes é a grande quantidade de responsabilidades que temos no dia a dia (e pior fica quando muitas envolvem um grande esforço mental); tudo isso acaba resultando em desânimo e falta de energia.]]></description>
+            <link>/posts/012-motivacao</link>
+            <guid isPermaLink="true">/posts/012-motivacao</guid>
+            <pubDate>Sun, 25 Apr 2021 05:35:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[MacOS multiplos teclados]]></title>
+            <description><![CDATA[Meu teclado atual está fisicamente dividido em dois e infelizmente o MacOS acaba interpretando ele realmente como teclados dividos. Então as teclas modificadoras (e.g. ctrl) acabam não funcionando quando a tecla que ela vai fazer combinação está em outro teclado físico.]]></description>
+            <link>/posts/011-macos-teclado</link>
+            <guid isPermaLink="true">/posts/011-macos-teclado</guid>
+            <pubDate>Sat, 17 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Sway no Manjaro i3]]></title>
@@ -84,25 +98,18 @@
             <pubDate>Sat, 10 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[MacOS multiplos teclados]]></title>
-            <description><![CDATA[Meu teclado atual está fisicamente dividido em dois e infelizmente o MacOS acaba interpretando ele realmente como teclados dividos. Então as teclas modificadoras (e.g. ctrl) acabam não funcionando quando a tecla que ela vai fazer combinação está em outro teclado físico.]]></description>
-            <link>/posts/011-macos-teclado</link>
-            <guid isPermaLink="true">/posts/011-macos-teclado</guid>
-            <pubDate>Sat, 17 Apr 2021 05:35:07 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Motivação]]></title>
-            <description><![CDATA[Quem nunca se sentiu desmotivado ou sem energia para fazer algo? As vezes é a grande quantidade de responsabilidades que temos no dia a dia (e pior fica quando muitas envolvem um grande esforço mental); tudo isso acaba resultando em desânimo e falta de energia.]]></description>
-            <link>/posts/012-motivacao</link>
-            <guid isPermaLink="true">/posts/012-motivacao</guid>
-            <pubDate>Sun, 25 Apr 2021 05:35:07 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Velocidade]]></title>
             <description><![CDATA[Como faz uma boa diferença no sistema operacional de qualquer aparelho ser rápido para você querer utilizar. foi o que eu aprendi essa semana ao reparar a forma como eu procuro assistir vídeos enquanto almoço.]]></description>
             <link>/posts/013-velocidade</link>
             <guid isPermaLink="true">/posts/013-velocidade</guid>
             <pubDate>Sat, 08 May 2021 05:35:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[O produto que mudou minha vida]]></title>
+            <description><![CDATA[Consegue se imaginar lavando a sua roupa? Difícil né? Ainda mais na vida moderna de hoje, é quase impossível sobrar tempo para lavar a sua roupa. E a sua louça? Você consegue lava rápido? Tem prazer em lavar? Não? Gostando ou não, acredite se quiser, a tecnologia já chegou para você não precisar mais perder tempo fazendo esse trabalho manual e arcaico.]]></description>
+            <link>/posts/018-maquina-de-lavar-louca</link>
+            <guid isPermaLink="true">/posts/018-maquina-de-lavar-louca</guid>
+            <pubDate>Thu, 30 Sep 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Sway - Brightness/Sound]]></title>
@@ -112,11 +119,11 @@
             <pubDate>Sun, 19 Sep 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Wayland JP keyboard]]></title>
-            <description><![CDATA[Com a vantagem de usar as teclas adicionais do teclado japones como os modificadores do sway (pois eu não escrevo japonês)]]></description>
-            <link>/posts/015-jp-keyboard</link>
-            <guid isPermaLink="true">/posts/015-jp-keyboard</guid>
-            <pubDate>Sun, 19 Sep 2021 00:00:00 GMT</pubDate>
+            <title><![CDATA[Adicionando o cedilha no Arch Linux]]></title>
+            <description><![CDATA[Como adicionar o cedilha no seu teclado no Arch Linux.]]></description>
+            <link>/posts/019-cedilha</link>
+            <guid isPermaLink="true">/posts/019-cedilha</guid>
+            <pubDate>Fri, 01 Oct 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[간부]]></title>
@@ -126,11 +133,11 @@
             <pubDate>Mon, 27 Sep 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[O produto que mudou minha vida]]></title>
-            <description><![CDATA[Consegue se imaginar lavando a sua roupa? Difícil né? Ainda mais na vida moderna de hoje, é quase impossível sobrar tempo para lavar a sua roupa. E a sua louça? Você consegue lava rápido? Tem prazer em lavar? Não? Gostando ou não, acredite se quiser, a tecnologia já chegou para você não precisar mais perder tempo fazendo esse trabalho manual e arcaico.]]></description>
-            <link>/posts/018-maquina-de-lavar-louca</link>
-            <guid isPermaLink="true">/posts/018-maquina-de-lavar-louca</guid>
-            <pubDate>Thu, 30 Sep 2021 00:00:00 GMT</pubDate>
+            <title><![CDATA[Wayland JP keyboard]]></title>
+            <description><![CDATA[Com a vantagem de usar as teclas adicionais do teclado japones como os modificadores do sway (pois eu não escrevo japonês)]]></description>
+            <link>/posts/015-jp-keyboard</link>
+            <guid isPermaLink="true">/posts/015-jp-keyboard</guid>
+            <pubDate>Sun, 19 Sep 2021 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
