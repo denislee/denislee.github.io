@@ -4,7 +4,7 @@
         <description><![CDATA[denis lee]]></description>
         <link>https://denislee.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 29 Sep 2021 01:26:10 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 01 Oct 2021 01:59:33 GMT</lastBuildDate>
         <atom:link href="https://denislee.github.io/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Keyboard layouts]]></title>
@@ -56,18 +56,18 @@
             <pubDate>Mon, 22 Feb 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Produtividade]]></title>
-            <description><![CDATA[Quem nunca teve problema em se focar e se tornar uma máquina de produtividade? Sempre temos essa preocupação, seja em nosso lado pessoal de resolver as coisas e fazer as coisas acontecerem, quanto do lado profissional. queremos terminar, queremos realizar, queremos sentir com o dever cumprido ao deitar na cama ao fechar os olhos.]]></description>
-            <link>/posts/008-produtividade</link>
-            <guid isPermaLink="true">/posts/008-produtividade</guid>
-            <pubDate>Sun, 07 Mar 2021 05:35:07 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Firefox]]></title>
             <description><![CDATA[O meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior) e infelizmente eu estive tendo alguns problemas com ele.]]></description>
             <link>/posts/007-firefox</link>
             <guid isPermaLink="true">/posts/007-firefox</guid>
             <pubDate>Sat, 27 Feb 2021 05:35:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Produtividade]]></title>
+            <description><![CDATA[Quem nunca teve problema em se focar e se tornar uma máquina de produtividade? Sempre temos essa preocupação, seja em nosso lado pessoal de resolver as coisas e fazer as coisas acontecerem, quanto do lado profissional. queremos terminar, queremos realizar, queremos sentir com o dever cumprido ao deitar na cama ao fechar os olhos.]]></description>
+            <link>/posts/008-produtividade</link>
+            <guid isPermaLink="true">/posts/008-produtividade</guid>
+            <pubDate>Sun, 07 Mar 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Sway no Manjaro i3]]></title>
@@ -124,6 +124,13 @@
             <link>/posts/017-ggambu</link>
             <guid isPermaLink="true">/posts/017-ggambu</guid>
             <pubDate>Mon, 27 Sep 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[O produto que mudou minha vida]]></title>
+            <description><![CDATA[Consegue se imaginar lavando a sua roupa? Difícil né? Ainda mais na vida moderna de hoje, é quase impossível sobrar tempo para lavar a sua roupa. E a sua louća? Você consegue lava rápido? Tem prazer em lavar? Não? Gostando ou não, acredite se quiser, a tecnologia já chegou para você não precisar mais perder tempo fazendo esse trabalho manual e arcaico.]]></description>
+            <link>/posts/018-maquina-de-lavar-louca</link>
+            <guid isPermaLink="true">/posts/018-maquina-de-lavar-louca</guid>
+            <pubDate>Thu, 30 Sep 2021 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
