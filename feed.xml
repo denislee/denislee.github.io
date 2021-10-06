@@ -4,8 +4,15 @@
         <description><![CDATA[denis lee]]></description>
         <link>https://denislee.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 05 Oct 2021 23:55:43 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 06 Oct 2021 15:50:01 GMT</lastBuildDate>
         <atom:link href="https://denislee.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Daily vlog]]></title>
+            <description><![CDATA[Depois de ter muitas idéias na cabeça ao assistir diversos vídeos no YouTube. Pensei em colocar o meu sonho de voltar a fazer vídeos em prática. Assim como o próprio vídeo do rapaz que trabalha na Vox dizia: “se você tem uma idéia, a melhor coisa que você pode fazer, é colocar ela em prática”. Não sei se ele disse exatamente isso, mas foi o que eu entendi.]]></description>
+            <link>/posts/001-daily-vlog</link>
+            <guid isPermaLink="true">/posts/001-daily-vlog</guid>
+            <pubDate>Mon, 07 Sep 2020 05:35:07 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Keyboard layouts]]></title>
             <description><![CDATA[Lembro da primeira vez que eu entrei em contato com um computador. Acredito que eu tinha os 12 anos (ou algo próximo disso). O ano acredito que era 1996. Mal existiam computadores aqui no Brasil. Tudo nesse equipamento havia me fascinado. Tudo era mágico. E, de todas as parte do computador, o teclado era a ponte para interagir com a máquina. E, por esse motivo, acaba ganhando uma atenção especial por seus usuários. Você precisava saber onde estavam as teclas para se falar com este artefato. Saber o que aconteceria depois de pressionar cada tecla. Teclado. Dígito. Digital. ]]></description>
@@ -14,10 +21,10 @@
             <pubDate>Mon, 31 Aug 2020 03:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Daily vlog]]></title>
-            <description><![CDATA[Depois de ter muitas idéias na cabeça ao assistir diversos vídeos no YouTube. Pensei em colocar o meu sonho de voltar a fazer vídeos em prática. Assim como o próprio vídeo do rapaz que trabalha na Vox dizia: “se você tem uma idéia, a melhor coisa que você pode fazer, é colocar ela em prática”. Não sei se ele disse exatamente isso, mas foi o que eu entendi.]]></description>
-            <link>/posts/001-daily-vlog</link>
-            <guid isPermaLink="true">/posts/001-daily-vlog</guid>
+            <title><![CDATA[Viação Cometa]]></title>
+            <description><![CDATA[Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.]]></description>
+            <link>/posts/002-viacao-cometa</link>
+            <guid isPermaLink="true">/posts/002-viacao-cometa</guid>
             <pubDate>Mon, 07 Sep 2020 05:35:07 GMT</pubDate>
         </item>
         <item>
@@ -28,11 +35,11 @@
             <pubDate>Wed, 09 Sep 2020 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Viação Cometa]]></title>
-            <description><![CDATA[Devido ao Covid-19 e a política de quarentena para amenizar as mortes e a queda do sistema de saúde pública aqui no Brasil, muitos comércios fecharam seu funcionamento. Porém, depois de um tempo, tivemos um afrouxamento da quarentena e a algumas empresas começaram a voltar a funcionar. Porém, aos poucos e com cuidado.]]></description>
-            <link>/posts/002-viacao-cometa</link>
-            <guid isPermaLink="true">/posts/002-viacao-cometa</guid>
-            <pubDate>Mon, 07 Sep 2020 05:35:07 GMT</pubDate>
+            <title><![CDATA[Baunilha]]></title>
+            <description><![CDATA[Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).]]></description>
+            <link>/posts/004-baunilha</link>
+            <guid isPermaLink="true">/posts/004-baunilha</guid>
+            <pubDate>Invalid Date</pubDate>
         </item>
         <item>
             <title><![CDATA[Sway]]></title>
@@ -49,11 +56,11 @@
             <pubDate>Mon, 22 Feb 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Baunilha]]></title>
-            <description><![CDATA[Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).]]></description>
-            <link>/posts/004-baunilha</link>
-            <guid isPermaLink="true">/posts/004-baunilha</guid>
-            <pubDate>Invalid Date</pubDate>
+            <title><![CDATA[Firefox]]></title>
+            <description><![CDATA[O meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior) e infelizmente eu estive tendo alguns problemas com ele.]]></description>
+            <link>/posts/007-firefox</link>
+            <guid isPermaLink="true">/posts/007-firefox</guid>
+            <pubDate>Sat, 27 Feb 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Produtividade]]></title>
@@ -63,24 +70,17 @@
             <pubDate>Sun, 07 Mar 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Firefox]]></title>
-            <description><![CDATA[O meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior) e infelizmente eu estive tendo alguns problemas com ele.]]></description>
-            <link>/posts/007-firefox</link>
-            <guid isPermaLink="true">/posts/007-firefox</guid>
-            <pubDate>Sat, 27 Feb 2021 05:35:07 GMT</pubDate>
+            <title><![CDATA[Sway no Manjaro i3]]></title>
+            <description><![CDATA[Com a minha ideia de reservar um computador para usar exclusivamente para realizar as transmissões das minhas lives na Twitch, resolvi instalar um Manjaro e depois fazer a atualização do seu WM do i3 para o Sway. Seguem as instruções.]]></description>
+            <link>/posts/009-sway</link>
+            <guid isPermaLink="true">/posts/009-sway</guid>
+            <pubDate>Sat, 10 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Exfat no MacOS]]></title>
             <description><![CDATA[Depois de um sufoco tentando fazer o mount e escrever no meu drive externo, finalmente consegui com a ajuda de alguns comandos no MacOS.]]></description>
             <link>/posts/010-exfat</link>
             <guid isPermaLink="true">/posts/010-exfat</guid>
-            <pubDate>Sat, 10 Apr 2021 05:35:07 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Sway no Manjaro i3]]></title>
-            <description><![CDATA[Com a minha ideia de reservar um computador para usar exclusivamente para realizar as transmissões das minhas lives na Twitch, resolvi instalar um Manjaro e depois fazer a atualização do seu WM do i3 para o Sway. Seguem as instruções.]]></description>
-            <link>/posts/009-sway</link>
-            <guid isPermaLink="true">/posts/009-sway</guid>
             <pubDate>Sat, 10 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
@@ -98,13 +98,6 @@
             <pubDate>Sun, 25 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Sway - Brightness/Sound]]></title>
-            <description><![CDATA[Como configurar para funcionar as tecla de atalho do laptop conseguir controlar o brilho da tela]]></description>
-            <link>/posts/014-sway-brightness</link>
-            <guid isPermaLink="true">/posts/014-sway-brightness</guid>
-            <pubDate>Sun, 19 Sep 2021 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Velocidade]]></title>
             <description><![CDATA[Como faz uma boa diferença no sistema operacional de qualquer aparelho ser rápido para você querer utilizar. foi o que eu aprendi essa semana ao reparar a forma como eu procuro assistir vídeos enquanto almoço.]]></description>
             <link>/posts/013-velocidade</link>
@@ -112,11 +105,39 @@
             <pubDate>Sat, 08 May 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[Sway - Brightness/Sound]]></title>
+            <description><![CDATA[Como configurar para funcionar as tecla de atalho do laptop conseguir controlar o brilho da tela]]></description>
+            <link>/posts/014-sway-brightness</link>
+            <guid isPermaLink="true">/posts/014-sway-brightness</guid>
+            <pubDate>Sun, 19 Sep 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[Wayland JP keyboard]]></title>
             <description><![CDATA[Com a vantagem de usar as teclas adicionais do teclado japones como os modificadores do sway (pois eu não escrevo japonês)]]></description>
             <link>/posts/015-jp-keyboard</link>
             <guid isPermaLink="true">/posts/015-jp-keyboard</guid>
             <pubDate>Sun, 19 Sep 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[간부]]></title>
+            <description><![CDATA[Esse post contém spoilers do seriado. recomendo assistir o seriado antes de ler.]]></description>
+            <link>/posts/017-ggambu</link>
+            <guid isPermaLink="true">/posts/017-ggambu</guid>
+            <pubDate>Mon, 27 Sep 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[O produto que mudou minha vida]]></title>
+            <description><![CDATA[Consegue se imaginar lavando a sua roupa? Difícil né? Ainda mais na vida moderna de hoje, é quase impossível sobrar tempo para lavar a sua roupa. E a sua louça? Você consegue lava rápido? Tem prazer em lavar? Não? Gostando ou não, acredite se quiser, a tecnologia já chegou para você não precisar mais perder tempo fazendo esse trabalho manual e arcaico.]]></description>
+            <link>/posts/018-maquina-de-lavar-louca</link>
+            <guid isPermaLink="true">/posts/018-maquina-de-lavar-louca</guid>
+            <pubDate>Thu, 30 Sep 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Adicionando o cedilha no Arch Linux]]></title>
+            <description><![CDATA[Como adicionar o cedilha no seu teclado no Arch Linux.]]></description>
+            <link>/posts/019-cedilha</link>
+            <guid isPermaLink="true">/posts/019-cedilha</guid>
+            <pubDate>Fri, 01 Oct 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Como venci o Slack (e minha ansiedade)]]></title>
@@ -133,25 +154,11 @@
             <pubDate>Tue, 05 Oct 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[간부]]></title>
-            <description><![CDATA[Esse post contém spoilers do seriado. recomendo assistir o seriado antes de ler.]]></description>
-            <link>/posts/017-ggambu</link>
-            <guid isPermaLink="true">/posts/017-ggambu</guid>
-            <pubDate>Mon, 27 Sep 2021 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Adicionando o cedilha no Arch Linux]]></title>
-            <description><![CDATA[Como adicionar o cedilha no seu teclado no Arch Linux.]]></description>
-            <link>/posts/019-cedilha</link>
-            <guid isPermaLink="true">/posts/019-cedilha</guid>
-            <pubDate>Fri, 01 Oct 2021 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[O produto que mudou minha vida]]></title>
-            <description><![CDATA[Consegue se imaginar lavando a sua roupa? Difícil né? Ainda mais na vida moderna de hoje, é quase impossível sobrar tempo para lavar a sua roupa. E a sua louça? Você consegue lava rápido? Tem prazer em lavar? Não? Gostando ou não, acredite se quiser, a tecnologia já chegou para você não precisar mais perder tempo fazendo esse trabalho manual e arcaico.]]></description>
-            <link>/posts/018-maquina-de-lavar-louca</link>
-            <guid isPermaLink="true">/posts/018-maquina-de-lavar-louca</guid>
-            <pubDate>Thu, 30 Sep 2021 00:00:00 GMT</pubDate>
+            <title><![CDATA[Até onde pode ir a liberdade de outra pessoa?]]></title>
+            <description><![CDATA[Agora que muitas pessoas estão começando a ser vacinadas aqui no Brasil e a ansiedade das pessoas querem se encontrar aumenta. Comecei a ver muitas pessoas realmente se encontrando e aglomerando. Mas, aí vem a questão. Até onde as pessoas têm o direito de se aglomerar ou não? Minha inconformidade é justificável?]]></description>
+            <link>/posts/022-liberdade</link>
+            <guid isPermaLink="true">/posts/022-liberdade</guid>
+            <pubDate>Wed, 06 Oct 2021 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
