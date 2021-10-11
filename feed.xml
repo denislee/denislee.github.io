@@ -4,7 +4,7 @@
         <description><![CDATA[denis lee]]></description>
         <link>https://denislee.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 10 Oct 2021 00:01:10 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 11 Oct 2021 23:05:20 GMT</lastBuildDate>
         <atom:link href="https://denislee.github.io/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Keyboard layouts]]></title>
@@ -56,18 +56,18 @@
             <pubDate>Mon, 22 Feb 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Firefox]]></title>
-            <description><![CDATA[O meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior) e infelizmente eu estive tendo alguns problemas com ele.]]></description>
-            <link>/posts/007-firefox</link>
-            <guid isPermaLink="true">/posts/007-firefox</guid>
-            <pubDate>Sat, 27 Feb 2021 05:35:07 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Produtividade]]></title>
             <description><![CDATA[Quem nunca teve problema em se focar e se tornar uma máquina de produtividade? Sempre temos essa preocupação, seja em nosso lado pessoal de resolver as coisas e fazer as coisas acontecerem, quanto do lado profissional. queremos terminar, queremos realizar, queremos sentir com o dever cumprido ao deitar na cama ao fechar os olhos.]]></description>
             <link>/posts/008-produtividade</link>
             <guid isPermaLink="true">/posts/008-produtividade</guid>
             <pubDate>Sun, 07 Mar 2021 05:35:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Firefox]]></title>
+            <description><![CDATA[O meu antigo navegador é o qutebrowser (como eu havia descrito no post anterior) e infelizmente eu estive tendo alguns problemas com ele.]]></description>
+            <link>/posts/007-firefox</link>
+            <guid isPermaLink="true">/posts/007-firefox</guid>
+            <pubDate>Sat, 27 Feb 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Sway no Manjaro i3]]></title>
@@ -77,11 +77,11 @@
             <pubDate>Sat, 10 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Exfat no MacOS]]></title>
-            <description><![CDATA[Depois de um sufoco tentando fazer o mount e escrever no meu drive externo, finalmente consegui com a ajuda de alguns comandos no MacOS.]]></description>
-            <link>/posts/010-exfat</link>
-            <guid isPermaLink="true">/posts/010-exfat</guid>
-            <pubDate>Sat, 10 Apr 2021 05:35:07 GMT</pubDate>
+            <title><![CDATA[Motivação]]></title>
+            <description><![CDATA[Quem nunca se sentiu desmotivado ou sem energia para fazer algo? As vezes é a grande quantidade de responsabilidades que temos no dia a dia (e pior fica quando muitas envolvem um grande esforço mental); tudo isso acaba resultando em desânimo e falta de energia.]]></description>
+            <link>/posts/012-motivacao</link>
+            <guid isPermaLink="true">/posts/012-motivacao</guid>
+            <pubDate>Sun, 25 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[MacOS multiplos teclados]]></title>
@@ -91,18 +91,11 @@
             <pubDate>Sat, 17 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Motivação]]></title>
-            <description><![CDATA[Quem nunca se sentiu desmotivado ou sem energia para fazer algo? As vezes é a grande quantidade de responsabilidades que temos no dia a dia (e pior fica quando muitas envolvem um grande esforço mental); tudo isso acaba resultando em desânimo e falta de energia.]]></description>
-            <link>/posts/012-motivacao</link>
-            <guid isPermaLink="true">/posts/012-motivacao</guid>
-            <pubDate>Sun, 25 Apr 2021 05:35:07 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Velocidade]]></title>
-            <description><![CDATA[Como faz uma boa diferença no sistema operacional de qualquer aparelho ser rápido para você querer utilizar. foi o que eu aprendi essa semana ao reparar a forma como eu procuro assistir vídeos enquanto almoço.]]></description>
-            <link>/posts/013-velocidade</link>
-            <guid isPermaLink="true">/posts/013-velocidade</guid>
-            <pubDate>Sat, 08 May 2021 05:35:07 GMT</pubDate>
+            <title><![CDATA[Exfat no MacOS]]></title>
+            <description><![CDATA[Depois de um sufoco tentando fazer o mount e escrever no meu drive externo, finalmente consegui com a ajuda de alguns comandos no MacOS.]]></description>
+            <link>/posts/010-exfat</link>
+            <guid isPermaLink="true">/posts/010-exfat</guid>
+            <pubDate>Sat, 10 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Sway - Brightness/Sound]]></title>
@@ -110,6 +103,13 @@
             <link>/posts/014-sway-brightness</link>
             <guid isPermaLink="true">/posts/014-sway-brightness</guid>
             <pubDate>Sun, 19 Sep 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Velocidade]]></title>
+            <description><![CDATA[Como faz uma boa diferença no sistema operacional de qualquer aparelho ser rápido para você querer utilizar. foi o que eu aprendi essa semana ao reparar a forma como eu procuro assistir vídeos enquanto almoço.]]></description>
+            <link>/posts/013-velocidade</link>
+            <guid isPermaLink="true">/posts/013-velocidade</guid>
+            <pubDate>Sat, 08 May 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Wayland JP keyboard]]></title>
@@ -126,13 +126,6 @@
             <pubDate>Mon, 27 Sep 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[O produto que mudou minha vida]]></title>
-            <description><![CDATA[Consegue se imaginar lavando a sua roupa? Difícil né? Ainda mais na vida moderna de hoje, é quase impossível sobrar tempo para lavar a sua roupa. E a sua louça? Você consegue lava rápido? Tem prazer em lavar? Não? Gostando ou não, acredite se quiser, a tecnologia já chegou para você não precisar mais perder tempo fazendo esse trabalho manual e arcaico.]]></description>
-            <link>/posts/018-maquina-de-lavar-louca</link>
-            <guid isPermaLink="true">/posts/018-maquina-de-lavar-louca</guid>
-            <pubDate>Thu, 30 Sep 2021 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Adicionando o cedilha no Arch Linux]]></title>
             <description><![CDATA[Como adicionar o cedilha no seu teclado no Arch Linux.]]></description>
             <link>/posts/019-cedilha</link>
@@ -140,11 +133,31 @@
             <pubDate>Fri, 01 Oct 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Como venci o Slack (e minha ansiedade)]]></title>
-            <description><![CDATA[O que vou falar aqui, é algo que funciona para mim. Talvez não funcione para você pelo fato de você ter um fluxo de trabalho diferente e/ou tarefas diferentes. Então, a minha sugestão é fazer seus ajustes e pegar as coisas que você achar mais interessante da minha metodologia, técnica, etc.]]></description>
-            <link>/posts/020-venci-o-slack</link>
-            <guid isPermaLink="true">/posts/020-venci-o-slack</guid>
-            <pubDate>Sun, 03 Oct 2021 00:00:00 GMT</pubDate>
+            <title><![CDATA[Novas palavras em Ingles]]></title>
+            <link>/posts/023-palavras</link>
+            <guid isPermaLink="true">/posts/023-palavras</guid>
+            <pubDate>Sat, 09 Oct 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[O produto que mudou minha vida]]></title>
+            <description><![CDATA[Consegue se imaginar lavando a sua roupa? Difícil né? Ainda mais na vida moderna de hoje, é quase impossível sobrar tempo para lavar a sua roupa. E a sua louça? Você consegue lava rápido? Tem prazer em lavar? Não? Gostando ou não, acredite se quiser, a tecnologia já chegou para você não precisar mais perder tempo fazendo esse trabalho manual e arcaico.]]></description>
+            <link>/posts/018-maquina-de-lavar-louca</link>
+            <guid isPermaLink="true">/posts/018-maquina-de-lavar-louca</guid>
+            <pubDate>Thu, 30 Sep 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Influências e vontades]]></title>
+            <description><![CDATA[Depois de ver que houve um vazamento sobre o estudo que o Facebook não queria divulgar os resultados sobre como o Instagram é prejudicial para os jovens; eu acabei refletindo um pouco mais sobre o assunto e como isso poderia afetar a minha vida especificamente.]]></description>
+            <link>/posts/024-influencias</link>
+            <guid isPermaLink="true">/posts/024-influencias</guid>
+            <pubDate>Sat, 09 Oct 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Trabalho presencial]]></title>
+            <description><![CDATA[Em tempos de pandemia e a volta ao novo(?) normal, é discutível que empresas que conseguem funcionar completamente remotas, se vão manter o trabalho completamente remoto ou se vão voltar com trabalho presencial. ]]></description>
+            <link>/posts/025-remoto</link>
+            <guid isPermaLink="true">/posts/025-remoto</guid>
+            <pubDate>Mon, 11 Oct 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Fuzzel]]></title>
@@ -161,17 +174,11 @@
             <pubDate>Wed, 06 Oct 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Novas palavras em Ingles]]></title>
-            <link>/posts/023-palavras</link>
-            <guid isPermaLink="true">/posts/023-palavras</guid>
-            <pubDate>Sat, 09 Oct 2021 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Influências e vontades]]></title>
-            <description><![CDATA[Depois de ver que houve um vazamento sobre o estudo que o Facebook não queria divulgar os resultados sobre como o Instagram é prejudicial para os jovens; eu acabei refletindo um pouco mais sobre o assunto e como isso poderia afetar a minha vida especificamente.]]></description>
-            <link>/posts/024-influencias</link>
-            <guid isPermaLink="true">/posts/024-influencias</guid>
-            <pubDate>Sat, 09 Oct 2021 00:00:00 GMT</pubDate>
+            <title><![CDATA[Como venci o Slack (e minha ansiedade)]]></title>
+            <description><![CDATA[O que vou falar aqui, é algo que funciona para mim. Talvez não funcione para você pelo fato de você ter um fluxo de trabalho diferente e/ou tarefas diferentes. Então, a minha sugestão é fazer seus ajustes e pegar as coisas que você achar mais interessante da minha metodologia, técnica, etc.]]></description>
+            <link>/posts/020-venci-o-slack</link>
+            <guid isPermaLink="true">/posts/020-venci-o-slack</guid>
+            <pubDate>Sun, 03 Oct 2021 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
