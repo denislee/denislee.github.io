@@ -4,7 +4,7 @@
         <description><![CDATA[denis lee]]></description>
         <link>https://denislee.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 11 Oct 2021 23:38:03 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 12 Oct 2021 00:29:45 GMT</lastBuildDate>
         <atom:link href="https://denislee.github.io/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Keyboard layouts]]></title>
@@ -84,18 +84,18 @@
             <pubDate>Sat, 10 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Motivação]]></title>
-            <description><![CDATA[Quem nunca se sentiu desmotivado ou sem energia para fazer algo? As vezes é a grande quantidade de responsabilidades que temos no dia a dia (e pior fica quando muitas envolvem um grande esforço mental); tudo isso acaba resultando em desânimo e falta de energia.]]></description>
-            <link>/posts/012-motivacao</link>
-            <guid isPermaLink="true">/posts/012-motivacao</guid>
-            <pubDate>Sun, 25 Apr 2021 05:35:07 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[MacOS multiplos teclados]]></title>
             <description><![CDATA[Meu teclado atual está fisicamente dividido em dois e infelizmente o MacOS acaba interpretando ele realmente como teclados dividos. Então as teclas modificadoras (e.g. ctrl) acabam não funcionando quando a tecla que ela vai fazer combinação está em outro teclado físico.]]></description>
             <link>/posts/011-macos-teclado</link>
             <guid isPermaLink="true">/posts/011-macos-teclado</guid>
             <pubDate>Sat, 17 Apr 2021 05:35:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Motivação]]></title>
+            <description><![CDATA[Quem nunca se sentiu desmotivado ou sem energia para fazer algo? As vezes é a grande quantidade de responsabilidades que temos no dia a dia (e pior fica quando muitas envolvem um grande esforço mental); tudo isso acaba resultando em desânimo e falta de energia.]]></description>
+            <link>/posts/012-motivacao</link>
+            <guid isPermaLink="true">/posts/012-motivacao</guid>
+            <pubDate>Sun, 25 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Velocidade]]></title>
@@ -154,17 +154,17 @@
             <pubDate>Tue, 05 Oct 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Novas palavras em Ingles]]></title>
-            <link>/posts/023-palavras</link>
-            <guid isPermaLink="true">/posts/023-palavras</guid>
-            <pubDate>Sat, 09 Oct 2021 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Até onde pode ir a liberdade de outra pessoa?]]></title>
             <description><![CDATA[Agora que muitas pessoas estão começando a ser vacinadas aqui no Brasil e a ansiedade das pessoas querem se encontrar aumenta. Comecei a ver muitas pessoas realmente se encontrando e aglomerando. Mas, aí vem a questão. Até onde as pessoas têm o direito de se aglomerar ou não? Minha inconformidade é justificável?]]></description>
             <link>/posts/022-liberdade</link>
             <guid isPermaLink="true">/posts/022-liberdade</guid>
             <pubDate>Wed, 06 Oct 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Novas palavras em Ingles]]></title>
+            <link>/posts/023-palavras</link>
+            <guid isPermaLink="true">/posts/023-palavras</guid>
+            <pubDate>Sat, 09 Oct 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Influências e vontades]]></title>
