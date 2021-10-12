@@ -4,7 +4,7 @@
         <description><![CDATA[denis lee]]></description>
         <link>https://denislee.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 12 Oct 2021 11:16:57 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 12 Oct 2021 11:29:52 GMT</lastBuildDate>
         <atom:link href="https://denislee.github.io/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Keyboard layouts]]></title>
@@ -42,18 +42,18 @@
             <pubDate>Invalid Date</pubDate>
         </item>
         <item>
-            <title><![CDATA[Qutebrowser]]></title>
-            <description><![CDATA[Como todo usuário de Vim e agraciado pelas suas teclas de atalho, além do window manager que melhor atende suas necessidades e potencializa o seu aprendizado no Vim, o navegador seria o próximo a ser beneficiado por essa memória muscular de navegação: hjkl.]]></description>
-            <link>/posts/006-qutebrowser</link>
-            <guid isPermaLink="true">/posts/006-qutebrowser</guid>
-            <pubDate>Mon, 22 Feb 2021 05:35:07 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Sway]]></title>
             <description><![CDATA[Uma das poucas coisas que me fariam mudar de ideia de trocar de sistema operacional, window manager ou qualquer software que eu uso no computador, com certeza, é velocidade/performance (por isso que, normalmente, não gosto de aplicações feitas em Electron, pois costumam ser bem devagar).]]></description>
             <link>/posts/005-sway</link>
             <guid isPermaLink="true">/posts/005-sway</guid>
             <pubDate>Sat, 22 Feb 2020 05:35:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Qutebrowser]]></title>
+            <description><![CDATA[Como todo usuário de Vim e agraciado pelas suas teclas de atalho, além do window manager que melhor atende suas necessidades e potencializa o seu aprendizado no Vim, o navegador seria o próximo a ser beneficiado por essa memória muscular de navegação: hjkl.]]></description>
+            <link>/posts/006-qutebrowser</link>
+            <guid isPermaLink="true">/posts/006-qutebrowser</guid>
+            <pubDate>Mon, 22 Feb 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Firefox]]></title>
