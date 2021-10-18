@@ -4,7 +4,7 @@
         <description><![CDATA[denis lee]]></description>
         <link>https://denislee.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 18 Oct 2021 12:15:12 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 18 Oct 2021 12:18:08 GMT</lastBuildDate>
         <atom:link href="https://denislee.github.io/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Keyboard layouts]]></title>
@@ -98,18 +98,18 @@
             <pubDate>Sun, 25 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Sway - Brightness/Sound]]></title>
-            <description><![CDATA[Como configurar para funcionar as tecla de atalho do laptop conseguir controlar o brilho da tela]]></description>
-            <link>/posts/014-sway-brightness</link>
-            <guid isPermaLink="true">/posts/014-sway-brightness</guid>
-            <pubDate>Sun, 19 Sep 2021 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Velocidade]]></title>
             <description><![CDATA[Como faz uma boa diferença no sistema operacional de qualquer aparelho ser rápido para você querer utilizar. foi o que eu aprendi essa semana ao reparar a forma como eu procuro assistir vídeos enquanto almoço.]]></description>
             <link>/posts/013-velocidade</link>
             <guid isPermaLink="true">/posts/013-velocidade</guid>
             <pubDate>Sat, 08 May 2021 05:35:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Sway - Brightness/Sound]]></title>
+            <description><![CDATA[Como configurar para funcionar as tecla de atalho do laptop conseguir controlar o brilho da tela]]></description>
+            <link>/posts/014-sway-brightness</link>
+            <guid isPermaLink="true">/posts/014-sway-brightness</guid>
+            <pubDate>Sun, 19 Sep 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Wayland JP keyboard]]></title>
