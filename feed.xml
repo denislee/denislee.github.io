@@ -4,7 +4,7 @@
         <description><![CDATA[denis lee]]></description>
         <link>https://denislee.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 27 Oct 2021 02:27:30 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 27 Oct 2021 11:59:25 GMT</lastBuildDate>
         <atom:link href="https://denislee.github.io/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Keyboard layouts]]></title>
@@ -35,18 +35,18 @@
             <pubDate>Wed, 09 Sep 2020 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Baunilha]]></title>
-            <description><![CDATA[Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).]]></description>
-            <link>/posts/004-baunilha</link>
-            <guid isPermaLink="true">/posts/004-baunilha</guid>
-            <pubDate>Invalid Date</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Sway]]></title>
             <description><![CDATA[Uma das poucas coisas que me fariam mudar de ideia de trocar de sistema operacional, window manager ou qualquer software que eu uso no computador, com certeza, é velocidade/performance (por isso que, normalmente, não gosto de aplicações feitas em Electron, pois costumam ser bem devagar).]]></description>
             <link>/posts/005-sway</link>
             <guid isPermaLink="true">/posts/005-sway</guid>
             <pubDate>Sat, 22 Feb 2020 05:35:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Baunilha]]></title>
+            <description><![CDATA[Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).]]></description>
+            <link>/posts/004-baunilha</link>
+            <guid isPermaLink="true">/posts/004-baunilha</guid>
+            <pubDate>Invalid Date</pubDate>
         </item>
         <item>
             <title><![CDATA[Qutebrowser]]></title>
@@ -84,11 +84,11 @@
             <pubDate>Sat, 10 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[MacOS multiplos teclados]]></title>
-            <description><![CDATA[Meu teclado atual está fisicamente dividido em dois e infelizmente o MacOS acaba interpretando ele realmente como teclados dividos. Então as teclas modificadoras (e.g. ctrl) acabam não funcionando quando a tecla que ela vai fazer combinação está em outro teclado físico.]]></description>
-            <link>/posts/011-macos-teclado</link>
-            <guid isPermaLink="true">/posts/011-macos-teclado</guid>
-            <pubDate>Sat, 17 Apr 2021 05:35:07 GMT</pubDate>
+            <title><![CDATA[Velocidade]]></title>
+            <description><![CDATA[Como faz uma boa diferença no sistema operacional de qualquer aparelho ser rápido para você querer utilizar. foi o que eu aprendi essa semana ao reparar a forma como eu procuro assistir vídeos enquanto almoço.]]></description>
+            <link>/posts/013-velocidade</link>
+            <guid isPermaLink="true">/posts/013-velocidade</guid>
+            <pubDate>Sat, 08 May 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Motivação]]></title>
@@ -98,11 +98,11 @@
             <pubDate>Sun, 25 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Velocidade]]></title>
-            <description><![CDATA[Como faz uma boa diferença no sistema operacional de qualquer aparelho ser rápido para você querer utilizar. foi o que eu aprendi essa semana ao reparar a forma como eu procuro assistir vídeos enquanto almoço.]]></description>
-            <link>/posts/013-velocidade</link>
-            <guid isPermaLink="true">/posts/013-velocidade</guid>
-            <pubDate>Sat, 08 May 2021 05:35:07 GMT</pubDate>
+            <title><![CDATA[MacOS multiplos teclados]]></title>
+            <description><![CDATA[Meu teclado atual está fisicamente dividido em dois e infelizmente o MacOS acaba interpretando ele realmente como teclados dividos. Então as teclas modificadoras (e.g. ctrl) acabam não funcionando quando a tecla que ela vai fazer combinação está em outro teclado físico.]]></description>
+            <link>/posts/011-macos-teclado</link>
+            <guid isPermaLink="true">/posts/011-macos-teclado</guid>
+            <pubDate>Sat, 17 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Sway - Brightness/Sound]]></title>
@@ -200,6 +200,13 @@
             <link>/posts/028-tablet</link>
             <guid isPermaLink="true">/posts/028-tablet</guid>
             <pubDate>Sun, 24 Oct 2021 03:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Sway no Chuwi Minibook]]></title>
+            <description><![CDATA[Configuracoes básicas para o Sway funcionar direito no Chuwi Minibook]]></description>
+            <link>/posts/029-sway-minibook</link>
+            <guid isPermaLink="true">/posts/029-sway-minibook</guid>
+            <pubDate>Tue, 26 Oct 2021 03:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
