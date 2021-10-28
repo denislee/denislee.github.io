@@ -4,7 +4,7 @@
         <description><![CDATA[denis lee]]></description>
         <link>https://denislee.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 28 Oct 2021 01:38:50 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 28 Oct 2021 01:39:52 GMT</lastBuildDate>
         <atom:link href="https://denislee.github.io/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Keyboard layouts]]></title>
@@ -77,18 +77,18 @@
             <pubDate>Sat, 10 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[MacOS multiplos teclados]]></title>
-            <description><![CDATA[Meu teclado atual está fisicamente dividido em dois e infelizmente o MacOS acaba interpretando ele realmente como teclados dividos. Então as teclas modificadoras (e.g. ctrl) acabam não funcionando quando a tecla que ela vai fazer combinação está em outro teclado físico.]]></description>
-            <link>/posts/011-macos-teclado</link>
-            <guid isPermaLink="true">/posts/011-macos-teclado</guid>
-            <pubDate>Sat, 17 Apr 2021 05:35:07 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Exfat no MacOS]]></title>
             <description><![CDATA[Depois de um sufoco tentando fazer o mount e escrever no meu drive externo, finalmente consegui com a ajuda de alguns comandos no MacOS.]]></description>
             <link>/posts/010-exfat</link>
             <guid isPermaLink="true">/posts/010-exfat</guid>
             <pubDate>Sat, 10 Apr 2021 05:35:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[MacOS multiplos teclados]]></title>
+            <description><![CDATA[Meu teclado atual está fisicamente dividido em dois e infelizmente o MacOS acaba interpretando ele realmente como teclados dividos. Então as teclas modificadoras (e.g. ctrl) acabam não funcionando quando a tecla que ela vai fazer combinação está em outro teclado físico.]]></description>
+            <link>/posts/011-macos-teclado</link>
+            <guid isPermaLink="true">/posts/011-macos-teclado</guid>
+            <pubDate>Sat, 17 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Motivação]]></title>
@@ -133,13 +133,6 @@
             <pubDate>Thu, 30 Sep 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Adicionando o cedilha no Arch Linux]]></title>
-            <description><![CDATA[Como adicionar o cedilha no seu teclado no Arch Linux.]]></description>
-            <link>/posts/019-cedilha</link>
-            <guid isPermaLink="true">/posts/019-cedilha</guid>
-            <pubDate>Fri, 01 Oct 2021 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Como venci o Slack (e minha ansiedade)]]></title>
             <description><![CDATA[O que vou falar aqui, é algo que funciona para mim. Talvez não funcione para você pelo fato de você ter um fluxo de trabalho diferente e/ou tarefas diferentes. Então, a minha sugestão é fazer seus ajustes e pegar as coisas que você achar mais interessante da minha metodologia, técnica, etc.]]></description>
             <link>/posts/020-venci-o-slack</link>
@@ -147,11 +140,11 @@
             <pubDate>Sun, 03 Oct 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Até onde pode ir a liberdade de outra pessoa?]]></title>
-            <description><![CDATA[Agora que muitas pessoas estão começando a ser vacinadas aqui no Brasil e a ansiedade das pessoas querem se encontrar aumenta. Comecei a ver muitas pessoas realmente se encontrando e aglomerando. Mas, aí vem a questão. Até onde as pessoas têm o direito de se aglomerar ou não? Minha inconformidade é justificável?]]></description>
-            <link>/posts/022-liberdade</link>
-            <guid isPermaLink="true">/posts/022-liberdade</guid>
-            <pubDate>Wed, 06 Oct 2021 00:00:00 GMT</pubDate>
+            <title><![CDATA[Adicionando o cedilha no Arch Linux]]></title>
+            <description><![CDATA[Como adicionar o cedilha no seu teclado no Arch Linux.]]></description>
+            <link>/posts/019-cedilha</link>
+            <guid isPermaLink="true">/posts/019-cedilha</guid>
+            <pubDate>Fri, 01 Oct 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Fuzzel]]></title>
@@ -159,6 +152,13 @@
             <link>/posts/021-fuzzel</link>
             <guid isPermaLink="true">/posts/021-fuzzel</guid>
             <pubDate>Tue, 05 Oct 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Até onde pode ir a liberdade de outra pessoa?]]></title>
+            <description><![CDATA[Agora que muitas pessoas estão começando a ser vacinadas aqui no Brasil e a ansiedade das pessoas querem se encontrar aumenta. Comecei a ver muitas pessoas realmente se encontrando e aglomerando. Mas, aí vem a questão. Até onde as pessoas têm o direito de se aglomerar ou não? Minha inconformidade é justificável?]]></description>
+            <link>/posts/022-liberdade</link>
+            <guid isPermaLink="true">/posts/022-liberdade</guid>
+            <pubDate>Wed, 06 Oct 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Novas palavras em Ingles]]></title>
