@@ -4,7 +4,7 @@
         <description><![CDATA[denis lee]]></description>
         <link>https://denislee.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 28 Oct 2021 01:35:03 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 28 Oct 2021 01:36:10 GMT</lastBuildDate>
         <atom:link href="https://denislee.github.io/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Keyboard layouts]]></title>
@@ -28,18 +28,18 @@
             <pubDate>Mon, 07 Sep 2020 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Baunilha]]></title>
-            <description><![CDATA[Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).]]></description>
-            <link>/posts/004-baunilha</link>
-            <guid isPermaLink="true">/posts/004-baunilha</guid>
-            <pubDate>Invalid Date</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Windows 10]]></title>
             <description><![CDATA[Depois de passar por muitos problemas com a conectividade do Windows 10, finalmente decidi fazer algo a respeito. Descobri através de alguns vídeos na internet que existe uma versão do Windows mais limpo, ou seja, sem todo o aparato de telemetría e spyware que a Microsoft deixa em seu sistema operacional.]]></description>
             <link>/posts/003-windows-10</link>
             <guid isPermaLink="true">/posts/003-windows-10</guid>
             <pubDate>Wed, 09 Sep 2020 05:35:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Baunilha]]></title>
+            <description><![CDATA[Se existe algo que eu costumo fazer muito é deixar as coisas mais padrões possíveis. Ou seja, personalizar muito, infelizmente, não faz parte da minha filosofia quando uso sistemas altamente personalizáveis (ou não).]]></description>
+            <link>/posts/004-baunilha</link>
+            <guid isPermaLink="true">/posts/004-baunilha</guid>
+            <pubDate>Invalid Date</pubDate>
         </item>
         <item>
             <title><![CDATA[Sway]]></title>
