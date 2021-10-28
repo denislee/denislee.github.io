@@ -4,7 +4,7 @@
         <description><![CDATA[denis lee]]></description>
         <link>https://denislee.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 28 Oct 2021 01:39:52 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 28 Oct 2021 01:40:19 GMT</lastBuildDate>
         <atom:link href="https://denislee.github.io/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Keyboard layouts]]></title>
@@ -98,18 +98,18 @@
             <pubDate>Sun, 25 Apr 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Velocidade]]></title>
-            <description><![CDATA[Como faz uma boa diferença no sistema operacional de qualquer aparelho ser rápido para você querer utilizar. foi o que eu aprendi essa semana ao reparar a forma como eu procuro assistir vídeos enquanto almoço.]]></description>
-            <link>/posts/013-velocidade</link>
-            <guid isPermaLink="true">/posts/013-velocidade</guid>
-            <pubDate>Sat, 08 May 2021 05:35:07 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Sway - Brightness/Sound]]></title>
             <description><![CDATA[Como configurar para funcionar as tecla de atalho do laptop conseguir controlar o brilho da tela]]></description>
             <link>/posts/014-sway-brightness</link>
             <guid isPermaLink="true">/posts/014-sway-brightness</guid>
             <pubDate>Sun, 19 Sep 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Velocidade]]></title>
+            <description><![CDATA[Como faz uma boa diferença no sistema operacional de qualquer aparelho ser rápido para você querer utilizar. foi o que eu aprendi essa semana ao reparar a forma como eu procuro assistir vídeos enquanto almoço.]]></description>
+            <link>/posts/013-velocidade</link>
+            <guid isPermaLink="true">/posts/013-velocidade</guid>
+            <pubDate>Sat, 08 May 2021 05:35:07 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Wayland JP keyboard]]></title>
@@ -133,18 +133,18 @@
             <pubDate>Thu, 30 Sep 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Como venci o Slack (e minha ansiedade)]]></title>
-            <description><![CDATA[O que vou falar aqui, é algo que funciona para mim. Talvez não funcione para você pelo fato de você ter um fluxo de trabalho diferente e/ou tarefas diferentes. Então, a minha sugestão é fazer seus ajustes e pegar as coisas que você achar mais interessante da minha metodologia, técnica, etc.]]></description>
-            <link>/posts/020-venci-o-slack</link>
-            <guid isPermaLink="true">/posts/020-venci-o-slack</guid>
-            <pubDate>Sun, 03 Oct 2021 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Adicionando o cedilha no Arch Linux]]></title>
             <description><![CDATA[Como adicionar o cedilha no seu teclado no Arch Linux.]]></description>
             <link>/posts/019-cedilha</link>
             <guid isPermaLink="true">/posts/019-cedilha</guid>
             <pubDate>Fri, 01 Oct 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Como venci o Slack (e minha ansiedade)]]></title>
+            <description><![CDATA[O que vou falar aqui, é algo que funciona para mim. Talvez não funcione para você pelo fato de você ter um fluxo de trabalho diferente e/ou tarefas diferentes. Então, a minha sugestão é fazer seus ajustes e pegar as coisas que você achar mais interessante da minha metodologia, técnica, etc.]]></description>
+            <link>/posts/020-venci-o-slack</link>
+            <guid isPermaLink="true">/posts/020-venci-o-slack</guid>
+            <pubDate>Sun, 03 Oct 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Fuzzel]]></title>
