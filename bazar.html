@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denis Lee - Lista de produtos a venda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .product {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+        }
+        .carousel img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+        .carousel img.active {
+            display: block;
+        }
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-controls button {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .product-description {
+            margin-bottom: 10px;
+        }
+        .product-price {
+            font-size: 1.2em;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Product 1 -->
+    <div class="product">
+        <div class="carousel">
+            <img src="images/escrivaninha/01.webp" class="active" alt="Product 1 Image 1">
+            <img src="images/escrivaninha/02.webp" alt="Product 1 Image 2">
+            <img src="images/escrivaninha/03.webp" alt="Product 1 Image 3">
+            <img src="images/escrivaninha/04.webp" alt="Product 1 Image 3">
+            <img src="images/escrivaninha/05.webp" alt="Product 1 Image 3">
+            <img src="images/escrivaninha/06.webp" alt="Product 1 Image 3">
+            <img src="images/escrivaninha/07.webp" alt="Product 1 Image 3">
+            <img src="images/escrivaninha/08.webp" alt="Product 1 Image 3">
+            <div class="carousel-controls">
+                <button class="prev" onclick="prevImage(this)">&#10094;</button>
+                <button class="next" onclick="nextImage(this)">&#10095;</button>
+            </div>
+        </div>
+        <div class="product-description">Escrivaninha com Gaveta Mandal - Off White</div>
+        <div class="product-price">R$ 1.000,00</div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product">
+        <div class="carousel">
+            <img src="images/freezer/01.webp" class="active" alt="Product 2 Image 1">
+            <img src="images/freezer/02.webp" alt="Product 2 Image 1">
+            <img src="images/freezer/03.webp" alt="Product 2 Image 1">
+            <img src="images/freezer/04.webp" alt="Product 2 Image 1">
+            <img src="images/freezer/05.webp" alt="Product 2 Image 1">
+            <img src="images/freezer/06.webp" alt="Product 2 Image 1">
+            <img src="images/freezer/07.webp" alt="Product 2 Image 1">
+            <div class="carousel-controls">
+                <button class="prev" onclick="prevImage(this)">&#10094;</button>
+                <button class="next" onclick="nextImage(this)">&#10095;</button>
+            </div>
+        </div>
+        <div class="product-description">Freezer Horizontal Degelo Manual Metalfrio 1 Porta 166 Litros Chest Freezer DA170B2001 110V</div>
+        <div class="product-price">R$ 1.900,00</div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product">
+        <div class="carousel">
+            <img src="images/mesa/01.webp" class="active" alt="Product 2 Image 1">
+            <img src="images/mesa/02.webp" alt="Product 2 Image 1">
+            <img src="images/mesa/03.webp" alt="Product 2 Image 1">
+            <img src="images/mesa/04.webp" alt="Product 2 Image 1">
+            <div class="carousel-controls">
+                <button class="prev" onclick="prevImage(this)">&#10094;</button>
+                <button class="next" onclick="nextImage(this)">&#10095;</button>
+            </div>
+        </div>
+        <div class="product-description">Mesa de Jantar 4 Lugares Redonda Biscoito Fino - Off White</div>
+        <div class="product-price">R$ 900,00</div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product">
+        <div class="carousel">
+            <img src="images/poltrona/01.webp" class="active" alt="Product 2 Image 1">
+            <img src="images/poltrona/02.webp" alt="Product 2 Image 1">
+            <img src="images/poltrona/03.webp" alt="Product 2 Image 1">
+            <img src="images/poltrona/04.webp" alt="Product 2 Image 1">
+            <img src="images/poltrona/05.webp" alt="Product 2 Image 1">
+            <img src="images/poltrona/06.webp" alt="Product 2 Image 1">
+            <img src="images/poltrona/07.webp" alt="Product 2 Image 1">
+            <div class="carousel-controls">
+                <button class="prev" onclick="prevImage(this)">&#10094;</button>
+                <button class="next" onclick="nextImage(this)">&#10095;</button>
+            </div>
+        </div>
+        <div class="product-description">Poltrona Charles Eames com Puff - Em PU - Cor Preta</div>
+        <div class="product-price">R$ 2.200,00</div>
+    </div>
+
+    contato por email: denislee [at] gmail.com
+</div>
+
+<script>
+    function nextImage(button) {
+        const carousel = button.closest('.carousel');
+        const images = carousel.querySelectorAll('img');
+        let activeIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+        images[activeIndex].classList.remove('active');
+        activeIndex = (activeIndex + 1) % images.length;
+        images[activeIndex].classList.add('active');
+    }
+
+    function prevImage(button) {
+        const carousel = button.closest('.carousel');
+        const images = carousel.querySelectorAll('img');
+        let activeIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+        images[activeIndex].classList.remove('active');
+        activeIndex = (activeIndex - 1 + images.length) % images.length;
+        images[activeIndex].classList.add('active');
+    }
+</script>
+
+</body>
+</html>
