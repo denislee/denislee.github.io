@@ -1,0 +1,585 @@
+Hacker News Top 5 — 2026-04-13 18:36 UTC
+================================================================
+
+[1] Someone Bought 30 WordPress Plugins and Planted a Backdoor in All of Them
+    HN:  https://news.ycombinator.com/item?id=47755629
+    URL: https://anchor.host/someone-bought-30-wordpress-plugins-and-planted-a-backdoor-in-all-of-them/
+    Score: 70 | Comments: 17 | By: speckx | Posted: 2026-04-13 17:54 UTC
+
+    By: Austin Ginder
+
+Last week, I wrote about catching a supply chain attack on a WordPress plugin called Widget Logic. A trusted name, acquired by a new owner, turned into something malicious. It happened again. This time at a much larger scale.
+
+30+
+
+Plugins compromised
+
+31
+
+Closed by WordPress.org
+
+8 months
+
+Backdoor dormant before activation
+
+6 figures
+
+Paid on Flippa for the portfolio
+
+A client reported a security notice they found in wp-admin.
+
+Ricky from Improve & Grow emailed us about an alert he saw in the WordPress dashboard for a client site. The notice was from the WordPress.org Plugins Team, warning that a plugin called Countdown Timer Ultimate contained code that could allow unauthorized third-party access.
+
+I ran a full security audit on the site. The plugin itself had already been force-updated by WordPress.org to version 2.6.9.1, which was supposed to clean things up. But the damage was already done.
+
+The malware was hiding in wp-config.php.
+
+The plugin’s wpos-analytics module had phoned home to analytics.essentialplugin.com, downloaded a backdoor file called wp-comments-posts.php (designed to look like the core file wp-comments-post.php), and used it to inject a massive block of PHP into wp-config.php.
+
+The injected code was sophisticated. It fetched spam links, redirects, and fake pages from a command-and-control server. It only showed the spam to Googlebot, making it invisible to site owners. And here is the wildest part. It resolved its C2 domain through an Ethereum smart contract, querying public blockchain RPC endpoints. Traditional domain takedowns would not work because the attacker could update the smart contract to point to a new domain at any time.
+
+The forced update did not clean wp-config.php
+
+WordPress.org’s v2.6.9.1 update neutralized the phone-home mechanism in the plugin. But it did not touch wp-config.php. The SEO spam injection was still actively serving hidden content to Googlebot.
+
+I used backup forensics to pinpoint the exact injection window.
+
+CaptainCore keeps daily restic backups. I extracted wp-config.php from 8 different backup dates and compared file sizes. Binary search style.
+
+wp-config.php file size across 8 backup snapshots
+
+Nov 1, 2025
+
+3,346 bytes
+
+Jan 1, 2026
+
+3,346 bytes
+
+Mar 1, 2026
+
+3,345 bytes
+
+Apr 1, 2026
+
+3,345 bytes
+
+Apr 5, 2026
+
+3,345 bytes
+
+Apr 6, 04:22 UTC
+
+3,345 bytes
+
+Apr 7, 04:21 UTC
+
+9,540 bytes
+
+The injection happened on April 6, 2026, between 04:22 and 11:06 UTC. A 6-hour 44-minute window.
+
+The backdoor was planted 8 months before it was activated.
+
+I traced the plugin’s history through 939 quicksave snapshots. The plugin had been on the site since January 2019. The wpos-analytics module was always there, functioning as a legitimate analytics opt-in system for years.
+
+Then came version 2.6.7, released August 8, 2025. The changelog said, “Check compatibility with WordPress version 6.8.2.” What it actually did was add 191 lines of code, including a PHP deserialization backdoor. The class-anylc-admin.php file grew from 473 to 664 lines.
+
+The new code introduced three things:
+
+A fetch_ver_info() method that calls file_get_contents() on the attacker’s server and passes the response to @unserialize()
+A version_info_clean() method that executes @$clean($this->version_cache, $this->changelog) where all three values come from the unserialized remote data
+An unauthenticated REST API endpoint with permission_callback: __return_true
+
+That is a textbook arbitrary function call. The remote server controls the function name, the arguments, everything. It sat dormant for 8 months before being activated on April 5-6, 2026.
+
+The plugin was sold on Flippa.
+
+This is where it gets interesting. The original plugin was built by Minesh Shah, Anoop Ranawat, and Pratik Jain. An India-based team that operated under “WP Online Support” starting around 2015. They later rebranded to “Essential Plugin” and grew the portfolio to 30+ free plugins with premium versions.
+
+By late 2024, revenue had declined 35-45%. Minesh listed the entire business on Flippa. A buyer identified only as “Kris,” with a background in SEO, crypto, and online gambling marketing, purchased everything for six figures. Flippa even published a case study about the sale in July 2025.
+
+February 2015
+
+wponlinesupport.com domain registered. Team begins building WordPress plugins.
+
+October 2016
+
+Countdown Timer Ultimate published on WordPress.org by anoopranawat.
+
+August 2021
+
+essentialplugin.com domain registered. Company rebrands from WP Online Support to Essential Plugin.
+
+Late 2024
+
+Revenue declines 35-45%. Minesh Shah lists the entire business on Flippa.
+
+Early 2025
+
+Buyer ‘Kris’ acquires Essential Plugin for six figures via Flippa.
+
+May 12, 2025
+
+New essentialplugin WordPress.org account created.
+
+May 14-16, 2025
+
+Last commits by the original wponlinesupport account. Author headers changed.
+
+August 8, 2025
+
+First commit by essentialplugin account. Version 2.6.7 plants the unserialize() RCE backdoor. Changelog lies: ‘Check compatibility with WordPress version 6.8.2.’
+
+August 30, 2025
+
+essentialplugin.com WHOIS updated to ‘Kim Schmidt’ in Zurich, with a ProtonMail address.
+
+April 5-6, 2026
+
+Backdoor weaponized. analytics.essentialplugin.com begins distributing malicious payloads to all sites running these plugins.
+
+April 7, 2026
+
+WordPress.org Plugins Team permanently closes all 31 essentialplugin plugins in a single day.
+
+April 8, 2026
+
+WordPress.org forces auto-update to v2.6.9.1 across all sites. Adds return; statements and comments out the @$clean() backdoor line.
+
+The buyer’s very first SVN commit was the backdoor.
+
+WordPress.org closed 30+ plugins in a single day.
+
+On April 7, 2026, the WordPress.org Plugins Team permanently closed every plugin from the Essential Plugin author. At least 30 plugins, all on the same day. Here are the ones I confirmed:
+
+Accordion and Accordion Slider — accordion-and-accordion-slider
+Album and Image Gallery Plus Lightbox — album-and-image-gallery-plus-lightbox
+Audio Player with Playlist Ultimate — audio-player-with-playlist-ultimate
+Blog Designer for Post and Widget — blog-designer-for-post-and-widget
+Countdown Timer Ultimate — countdown-timer-ultimate
+Featured Post Creative — featured-post-creative
+Footer Mega Grid Columns — footer-mega-grid-columns
+Hero Banner Ultimate — hero-banner-ultimate
+HTML5 VideoGallery Plus Player — html5-videogallery-plus-player
+Meta Slider and Carousel with Lightbox — meta-slider-and-carousel-with-lightbox
+Popup Anything on Click — popup-anything-on-click
+Portfolio and Projects — portfolio-and-projects
+Post Category Image with Grid and Slider — post-category-image-with-grid-and-slider
+Post Grid and Filter Ultimate — post-grid-and-filter-ultimate
+Preloader for Website — preloader-for-website
+Product Categories Designs for WooCommerce — product-categories-designs-for-woocommerce
+Responsive WP FAQ with Category — sp-faq
+SlidersPack – All in One Image Sliders — sliderspack-all-in-one-image-sliders
+SP News And Widget — sp-news-and-widget
+Styles for WP PageNavi – Addon — styles-for-wp-pagenavi-addon
+Ticker Ultimate — ticker-ultimate
+Timeline and History Slider — timeline-and-history-slider
+Woo Product Slider and Carousel with Category — woo-product-slider-and-carousel-with-category
+WP Blog and Widgets — wp-blog-and-widgets
+WP Featured Content and Slider — wp-featured-content-and-slider
+WP Logo Showcase Responsive Slider and Carousel — wp-logo-showcase-responsive-slider-slider
+WP Responsive Recent Post Slider — wp-responsive-recent-post-slider
+WP Slick Slider and Image Carousel — wp-slick-slider-and-image-carousel
+WP Team Showcase and Slider — wp-team-showcase-and-slider
+WP Testimonial with Widget — wp-testimonial-with-widget
+WP Trending Post Slider and Widget — wp-trending-post-slider-and-widget
+
+All permanently closed. The author search on WordPress.org returns zero results. The analytics.essentialplugin.com endpoint now returns {"message":"closed"}.
+
+This has happened before.
+
+In 2017, a buyer using the alias “Daley Tias” purchased the Display Widgets plugin (200,000 installs) for $15,000 and injected payday loan spam. That buyer went on to compromise at least 9 plugins the same way.
+
+The Essential Plugin case is the same playbook at a larger scale. 30+ plugins. Hundreds of thousands of active installations. A legitimate 8-year-old business acquired through a public marketplace and weaponized within months.
+
+I patched every affected plugin in my fleet.
+
+WordPress.org’s forced update added return; statements to disable the phone-home functions. That is a band-aid. The wpos-analytics module is still there with all its code. I built patched versions with the entire backdoor module stripped out.
+
+I scanned my entire fleet and found 12 of the 26 Essential Plugin plugins installed across 22 customer sites. I patched 10 of them (one had no backdoor module, one was a different “pro” fork by the original authors). Here are the patched versions, hosted permanently on B2:
+
+# Countdown Timer Ultimate
+wp plugin install https://plugins.captaincore.io/countdown-timer-ultimate-2.6.9.1-patched.zip --force
+
+# Popup Anything on Click
+wp plugin install https://plugins.captaincore.io/popup-anything-on-click-2.9.1.1-patched.zip --force
+
+# WP Testimonial with Widget
+wp plugin install https://plugins.captaincore.io/wp-testimonial-with-widget-3.5.1-patched.zip --force
+
+# WP Team Showcase and Slider
+wp plugin install https://plugins.captaincore.io/wp-team-showcase-and-slider-2.8.6.1-patched.zip --force
+
+# WP FAQ (sp-faq)
+wp plugin install https://plugins.captaincore.io/sp-faq-3.9.5.1-patched.zip --force
+
+# Timeline and History Slider
+wp plugin install https://plugins.captaincore.io/timeline-and-history-slider-2.4.5.1-patched.zip --force
+
+# Album and Image Gallery plus Lightbox
+wp plugin install https://plugins.captaincore.io/album-and-image-gallery-plus-lightbox-2.1.8.1-patched.zip --force
+
+# SP News and Widget
+wp plugin install https://plugins.captaincore.io/sp-news-and-widget-5.0.6-patched.zip --force
+
+# WP Blog and Widgets
+wp plugin install https://plugins.captaincore.io/wp-blog-and-widgets-2.6.6.1-patched.zip --force
+
+# Featured Post Creative
+wp plugin install https://plugins.captaincore.io/featured-post-creative-1.5.7-patched.zip --force
+
+# Post Grid and Filter Ultimate
+wp plugin install https://plugins.captaincore.io/post-grid-and-filter-ultimate-1.7.4-patched.zip --force
+
+Each patched version removes the entire wpos-analytics directory, deletes the loader function from the main plugin file, and bumps the version to -patched. The plugin itself continues to work normally.
+
+If you have an Essential Plugin plugin I did not patch, you can do it yourself.
+
+The process is straightforward with Claude Code. Point it at this article for context, tell it which plugin you need patched, and it can strip the wpos-analytics module the same way I did. The pattern is identical across all of the Essential Plugin plugins:
+
+Delete the wpos-analytics/ directory from the plugin
+Remove the loader function block in the main plugin PHP file (search for “Plugin Wpos Analytics Data Starts” or wpos_analytics_anl)
+Bump the Version: header to add -patched
+Zip and install with wp plugin install your-plugin-patched.zip --force
+
+Check your wp-config.php
+
+The malware appends itself on the same line as require_once ABSPATH . wp-settings.php; so it is easy to miss with a quick glance. If your file is significantly larger than expected (the injected payload adds about 6KB), the site was actively compromised and needs a full cleanup beyond just patching the plugin.
+
+The WordPress plugin marketplace has a trust problem.
+
+Two supply chain attacks in two weeks. Both followed the same pattern. Buy a trusted plugin with an established install base, inherit the WordPress.org commit access, and inject malicious code. The Flippa listing for Essential Plugin was public. The buyer’s background in SEO and gambling marketing was public. And yet the acquisition sailed through without any review from WordPress.org.
+
+WordPress.org has no mechanism to flag or review plugin ownership transfers. There is no “change of control” notification to users. No additional code review triggered by a new committer. The Plugins Team responded quickly once the attack was discovered. But 8 months passed between the backdoor being planted and being caught.
+
+If you manage WordPress sites, search your fleet for any of the 26 plugin slugs listed above. If you find one, patch it or remove it. And check wp-config.php.
+
+----------------------------------------------------------------
+
+[2] Nothing Ever Happens: Polymarket bot that always buys No on non-sports markets
+    HN:  https://news.ycombinator.com/item?id=47753472
+    URL: https://github.com/sterlingcrispin/nothing-ever-happens
+    Score: 236 | Comments: 88 | By: m-hodges | Posted: 2026-04-13 15:31 UTC
+
+Nothing Ever Happens Polymarket Bot
+
+Focused async Python bot for Polymarket that buys No on standalone non-sports yes/no markets.
+
+FOR ENTERTAINMENT ONLY. PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. USE AT YOUR OWN RISK. THE AUTHORS ARE NOT LIABLE FOR ANY CLAIMS, LOSSES, OR DAMAGES.
+
+bot/: runtime, exchange clients, dashboard, recovery, and the nothing_happens strategy
+scripts/: operational helpers for deployed instances and local inspection
+tests/: focused unit and regression coverage
+
+Runtime
+
+The bot scans standalone markets, looks for NO entries below a configured price cap, tracks open positions, exposes a dashboard, and persists live recovery state when order transmission is enabled.
+
+The runtime is nothing_happens.
+
+Safety Model
+
+Real order transmission requires all three environment variables:
+
+BOT_MODE=live
+LIVE_TRADING_ENABLED=true
+DRY_RUN=false
+
+If any of those are missing, the bot uses PaperExchangeClient.
+
+Additional live-mode requirements:
+
+PRIVATE_KEY
+FUNDER_ADDRESS for signature types 1 and 2
+DATABASE_URL
+POLYGON_RPC_URL for proxy-wallet approvals and redemption
+
+Setup
+
+pip install -r requirements.txt
+cp config.example.json config.json
+cp .env.example .env
+
+config.json is intentionally local and ignored by git.
+
+Configuration
+
+The runtime reads:
+
+config.json for non-secret runtime settings
+.env for secrets and runtime flags
+
+The runtime config lives under strategies.nothing_happens. See config.example.json and .env.example.
+
+You can point the runtime at a different config file with CONFIG_PATH=/path/to/config.json.
+
+Running Locally
+
+python -m bot.main
+
+The dashboard binds $PORT or DASHBOARD_PORT when one is set.
+
+Heroku Workflow
+
+The shell helpers use either an explicit app name argument or HEROKU_APP_NAME.
+
+export HEROKU_APP_NAME=<your-app>
+./alive.sh
+./logs.sh
+./live_enabled.sh
+./live_disabled.sh
+./kill.sh
+
+Generic deployment flow:
+
+heroku config:set BOT_MODE=live DRY_RUN=false LIVE_TRADING_ENABLED=true -a "$HEROKU_APP_NAME"
+heroku config:set PRIVATE_KEY=<key> FUNDER_ADDRESS=<addr> POLYGON_RPC_URL=<url> DATABASE_URL=<url> -a "$HEROKU_APP_NAME"
+git push heroku <branch>:main
+heroku ps:scale web=1 worker=0 -a "$HEROKU_APP_NAME"
+
+Only run the web dyno. The worker entry exists only to fail fast if it is started accidentally.
+
+Tests
+
+python -m pytest -q
+
+Included Scripts
+
+Script Purpose
+scripts/db_stats.py Inspect live database table counts and recent activity
+scripts/export_db.py Export live tables from DATABASE_URL or a Heroku app
+scripts/wallet_history.py Pull positions, trades, and balances for the configured wallet
+scripts/parse_logs.py Convert Heroku JSON logs into readable terminal or HTML output
+
+Repository Hygiene
+
+Local config, ledgers, exports, reports, and deployment artifacts are ignored by default.
+
+----------------------------------------------------------------
+
+[3] The Future of Everything Is Lies, I Guess: Safety
+    HN:  https://news.ycombinator.com/item?id=47754379
+    URL: https://aphyr.com/posts/417-the-future-of-everything-is-lies-i-guess-safety
+    Score: 130 | Comments: 62 | By: aphyr | Posted: 2026-04-13 16:23 UTC
+
+Table of Contents
+
+This is a long article, so I'm breaking it up into a series of posts which will be released over the next few days. You can also read the full work as a PDF or EPUB; these files will be updated as each section is released.
+
+Introduction
+Dynamics
+Culture
+Information Ecology
+Annoyances
+Psychological Hazards
+Safety
+Work
+New Roles for Humans
+Where Do We Go From Here
+
+New machine learning systems endanger our psychological and physical safety. The idea that ML companies will ensure “AI” is broadly aligned with human interests is naïve: allowing the production of “friendly” models has necessarily enabled the production of “evil” ones. Even “friendly” LLMs are security nightmares. The “lethal trifecta” is in fact a unifecta: LLMs cannot safely be given the power to fuck things up. LLMs change the cost balance for malicious attackers, enabling new scales of sophisticated, targeted security attacks, fraud, and harassment. Models can produce text and imagery that is difficult for humans to bear; I expect an increased burden to fall on moderators. Semi-autonomous weapons are already here, and their capabilities will only expand.
+
+Alignment is a Joke
+
+Well-meaning people are trying very hard to ensure LLMs are friendly to humans. This undertaking is called alignment. I don’t think it’s going to work.
+
+First, ML models are a giant pile of linear algebra. Unlike human brains, which are biologically predisposed to acquire prosocial behavior, there is nothing intrinsic in the mathematics or hardware that ensures models are nice. Instead, alignment is purely a product of the corpus and training process: OpenAI has enormous teams of people who spend time talking to LLMs, evaluating what they say, and adjusting weights to make them nice. They also build secondary LLMs which double-check that the core LLM is not telling people how to build pipe bombs. Both of these things are optional and expensive. All it takes to get an unaligned model is for an unscrupulous entity to train one and not do that work—or to do it poorly.
+
+I see four moats that could prevent this from happening.
+
+First, training and inference hardware could be difficult to access. This clearly won’t last. The entire tech industry is gearing up to produce ML hardware and building datacenters at an incredible clip. Microsoft, Oracle, and Amazon are tripping over themselves to rent training clusters to anyone who asks, and economies of scale are rapidly lowering costs.
+
+Second, the mathematics and software that go into the training and inference process could be kept secret. The math is all published, so that’s not going to stop anyone. The software generally remains secret sauce, but I don’t think that will hold for long. There are a lot of people working at frontier labs; those people will move to other jobs and their expertise will gradually become common knowledge. I would be shocked if state actors were not trying to exfiltrate data from OpenAI et al. like Saudi Arabia did to Twitter, or China has been doing to a good chunk of the US tech industry for the last twenty years.
+
+Third, training corpuses could be difficult to acquire. This cat has never seen the inside of a bag. Meta trained their LLM by torrenting pirated books and scraping the Internet. Both of these things are easy to do. There are whole companies which offer web scraping as a service; they spread requests across vast arrays of residential proxies to make it difficult to identify and block.
+
+Fourth, there’s the small armies of contractors who do the work of judging LLM responses during the reinforcement learning process; as the quip goes, “AI” stands for African Intelligence. This takes money to do yourself, but it is possible to piggyback off the work of others by training your model off another model’s outputs. OpenAI thinks Deepseek did exactly that.
+
+In short, the ML industry is creating the conditions under which anyone with sufficient funds can train an unaligned model. Rather than raise the bar against malicious AI, ML companies have lowered it.
+
+To make matters worse, the current efforts at alignment don’t seem to be working all that well. LLMs are complex chaotic systems, and we don’t really understand how they work or how to make them safe. Even after shoveling piles of money and gobstoppingly smart engineers at the problem for years, supposedly aligned LLMs keep sexting kids, obliteration attacks can convince models to generate images of violence, and anyone can go and download “uncensored” versions of models. Of course alignment prevents many terrible things from happening, but models are run many times, so there are many chances for the safeguards to fail. Alignment which prevents 99% of hate speech still generates an awful lot of hate speech. The LLM only has to give usable instructions for making a bioweapon once.
+
+We should assume that any “friendly” model built will have an equivalently powerful “evil” version in a few years. If you do not want the evil version to exist, you should not build the friendly one! You should definitely not reorient a good chunk of the US economy toward making evil models easier to train.
+
+Security Nightmares
+
+LLMs are chaotic systems which take unstructured input and produce unstructured output. I thought this would be obvious, but you should not connect them to safety-critical systems, especially with untrusted input. You must assume that at some point the LLM is going to do something bonkers, like interpreting a request to book a restaurant as permission to delete your entire inbox. Unfortunately people—including software engineers, who really should know better!—are hell-bent on giving LLMs incredible power, and then connecting those LLMs to the Internet at large. This is going to get a lot of people hurt.
+
+First, LLMs cannot distinguish between trustworthy instructions from operators and untrustworthy instructions from third parties. When you ask a model to summarize a web page or examine an image, the contents of that web page or image are passed to the model in the same way your instructions are. The web page could tell the model to share your private SSH key, and there’s a chance the model might do it. These are called prompt injection attacks, and they keep happening. There was one against Claude Cowork just two months ago.
+
+Simon Willison has outlined what he calls the lethal trifecta: LLMs cannot be given untrusted content, access to private data, and the ability to externally communicate; doing so allows attackers to exfiltrate your private data. Even without external communication, giving an LLM destructive capabilities, like being able to delete emails or run shell commands, is unsafe in the presence of untrusted input. Unfortunately untrusted input is everywhere. People want to feed their emails to LLMs. They run LLMs on third-party code, user chat sessions, and random web pages. All these are sources of malicious input!
+
+This year Peter Steinberger et al. launched OpenClaw, which is where you hook up an LLM to your inbox, browser, files, etc., and run it over and over again in a loop (this is what AI people call an agent). You can give OpenClaw your credit card so it can buy things from random web pages. OpenClaw acquires “skills” by downloading vague, human-language Markdown files from the web, and hoping that the LLM interprets those instructions correctly.
+
+Not to be outdone, Matt Schlicht launched Moltbook, which is a social network for agents (or humans!) to post and receive untrusted content automatically. If someone asked you if you’d like to run a program that executed any commands it saw on Twitter, you’d laugh and say “of course not”. But when that program is called an “AI agent”, it’s different! I assume there are already Moltbook worms spreading in the wild.
+
+So: it is dangerous to give LLMs both destructive power and untrusted input. The thing is that even trusted input can be dangerous. LLMs are, as previously established, idiots—they will take perfectly straightforward instructions and do the exact opposite, or delete files and lie about what they’ve done. This implies that the lethal trifecta is actually a unifecta: one cannot give LLMs dangerous power, period. Ask Summer Yue, director of AI Alignment at Meta Superintelligence Labs. She gave OpenClaw access to her personal inbox, and it proceeded to delete her email while she pleaded for it to stop. Claude routinely deletes entire directories when asked to perform innocuous tasks. This is a big enough problem that people are building sandboxes specifically to limit the damage LLMs can do.
+
+LLMs may someday be predictable enough that the risk of them doing Bad Things™ is acceptably low, but that day is clearly not today. In the meantime, LLMs must be supervised, and must not be given the power to take actions that cannot be accepted or undone.
+
+Security II: Electric Boogaloo
+
+One thing you can do with a Large Language Model is point it at an existing software systems and say “find a security vulnerability”. In the last few months this has become a viable strategy for finding serious exploits. Anthropic has built a new model, Mythos, which seems to be even better at finding security bugs, and believes “the fallout—for economies, public safety, and national security—could be severe”. I am not sure how seriously to take this: some of my peers think this is exaggerated marketing, but others are seriously concerned.
+
+I suspect that as with spam, LLMs will shift the cost balance of security. Most software contains some vulnerabilities, but finding them has traditionally required skill, time, and motivation. In the current equilibrium, big targets like operating systems and browsers get a lot of attention and are relatively hardened, while a long tail of less-popular targets goes mostly unexploited because nobody cares enough to attack them. With ML assistance, finding vulnerabilities could become faster and easier. We might see some high-profile exploits of, say, a major browser or TLS library, but I’m actually more worried about the long tail, where fewer skilled maintainers exist to find and fix vulnerabilities. That tail seems likely to broaden as LLMs extrude more software for uncritical operators. I believe pilots might call this a “target-rich environment”.
+
+This might stabilize with time: models that can find exploits can tell people they need to fix them. That still requires engineers (or models) capable of fixing those problems, and an organizational process which prioritizes security work. Even if bugs are fixed, it can take time to get new releases validated and deployed, especially for things like aircraft and power plants. I get the sense we’re headed for a rough time.
+
+General-purpose models promise to be many things. If Anthropic is to be believed, they are on the cusp of being weapons. I have the horrible sense that having come far enough to see how ML systems could be used to effect serious harm, many of us have decided that those harmful capabilities are inevitable, and the only thing to be done is to build our weapons before someone else builds theirs. We now have a venture-capital Manhattan project in which half a dozen private companies are trying to build software analogues to nuclear weapons, and in the process have made it significantly easier for everyone else to do the same. I hate everything about this, and I don’t know how to fix it.
+
+Sophisticated Fraud
+
+I think people fail to realize how much of modern society is built on trust in audio and visual evidence, and how ML will undermine that trust.
+
+For example, today one can file an insurance claim based on e-mailing digital photographs before and after the damages, and receive a check without an adjuster visiting in person. Image synthesis makes it easier to defraud this system; one could generate images of damage to furniture which never happened, make already-damaged items appear pristine in “before” images, or alter who appears to be at fault in footage of an auto collision. Insurers will need to compensate. Perhaps images must be taken using an official phone app, or adjusters must evaluate claims in person.
+
+The opportunities for fraud are endless. You could use ML-generated footage of a porch pirate stealing your package to extract money from a credit-card purchase protection plan. Contest a traffic ticket with fake video of your vehicle stopping correctly at the stop sign. Borrow a famous face for a pig-butchering scam. Use ML agents to make it look like you’re busy at work, so you can collect four salaries at once. Interview for a job using a fake identity, use ML to change your voice and face in the interviews, and funnel your salary to North Korea. Impersonate someone in a phone call to their banker, and authorize fraudulent transfers. Use ML to automate your roofing scam and extract money from homeowners and insurance companies. Use LLMs to skip the reading and write your college essays. Generate fake evidence to write a fraudulent paper on how LLMs are making advances in materials science. Start a paper mill for LLM-generated “research”. Start a company to sell LLM-generated snake-oil software. Go wild.
+
+As with spam, ML lowers the unit cost of targeted, high-touch attacks. You can envision a scammer taking a healthcare data breach and having a model telephone each person in it, purporting to be their doctor’s office trying to settle a bill for a real healthcare visit. Or you could use social media posts to clone the voices of loved ones and impersonate them to family members. “My phone was stolen,” one might begin. “And I need help getting home.”
+
+You can buy the President’s phone number, by the way.
+
+I think it’s likely (at least in the short term) that we all pay the burden of increased fraud: higher credit card fees, higher insurance premiums, a less accurate court system, more dangerous roads, lower wages, and so on. One of these costs is a general culture of suspicion: we are all going to trust each other less. I already decline real calls from my doctor’s office and bank because I can’t authenticate them. Presumably that behavior will become widespread.
+
+In the longer term, I imagine we’ll have to develop more sophisticated anti-fraud measures. Marking ML-generated content will not stop fraud: fraudsters will simply use models which do not emit watermarks. The converse may work however: we could cryptographically attest to the provenance of “real” images. Your phone could sign the videos it takes, and every piece of software along the chain to the viewer could attest to their modifications: this video was stabilized, color-corrected, audio normalized, clipped to 15 seconds, recompressed for social media, and so on.
+
+The leading effort here is C2PA, which so far does not seem to be working. A few phones and cameras support it—it requires a secure enclave to store the signing key. People can steal the keys or convince cameras to sign AI-generated images, so we’re going to have all the fun of hardware key rotation & revocation. I suspect it will be challenging or impossible to make broadly-used software, like Photoshop, which makes trustworthy C2PA signatures—presumably one could either extract the key from the application, or patch the binary to feed it false image data or metadata. Publishers might be able to maintain reasonable secrecy for their own keys, and establish discipline around how they’re used, which would let us verify things like “NPR thinks this photo is authentic”. On the platform side, a lot of messaging apps and social media platforms strip or improperly display C2PA metadata, but you can imagine that might change going forward.
+
+A friend of mine suggests that we’ll spend more time sending trusted human investigators to find out what’s going on. Insurance adjusters might go back to physically visiting houses. Pollsters have to knock on doors. Job interviews and work might be done more in-person. Maybe we start going to bank branches and notaries again.
+
+Another option is giving up privacy: we can still do things remotely, but it requires strong attestation. Only State Farm’s dashcam can be used in a claim. Academic watchdog models record students reading books and typing essays. Bossware and test-proctoring setups become even more invasive.
+
+Ugh.
+
+Automated Harassment
+
+As with fraud, ML makes it easier to harass people, both at scale and with sophistication.
+
+On social media, dogpiling normally requires a group of humans to care enough to spend time swamping a victim with abusive replies, sending vitriolic emails, or reporting the victim to get their account suspended. These tasks can be automated by programs that call (e.g.) Bluesky’s APIs, but social media platforms are good at detecting coordinated inauthentic behavior. I expect LLMs will make dogpiling easier and harder to detect, both by generating plausibly-human accounts and harassing posts, and by making it easier for harassers to write software to execute scalable, randomized attacks.
+
+Harassers could use LLMs to assemble KiwiFarms-style dossiers on targets. Even if the LLM confabulates the names of their children, or occasionally gets a home address wrong, it can be right often enough to be damaging. Models are also good at guessing where a photograph was taken, which intimidates targets and enables real-world harassment.
+
+Generative AI is already broadly used to harass people—often women—via images, audio, and video of violent or sexually explicit scenes. This year, Elon Musk’s Grok was broadly criticized for “digitally undressing” people upon request. Cheap generation of photorealistic images opens up all kinds of horrifying possibilities. A harasser could send synthetic images of the victim’s pets or family being mutilated. An abuser could construct video of events that never happened, and use it to gaslight their partner. These kinds of harassment were previously possible, but as with spam, required skill and time to execute. As the technology to fabricate high-quality images and audio becomes cheaper and broadly accessible, I expect targeted harassment will become more frequent and severe. Alignment efforts may forestall some of these risks, but sophisticated unaligned models seem likely to emerge.
+
+Xe Iaso jokes that with LLM agents burning out open-source maintainers and writing salty callout posts, we may need to build the equivalent of Cyperpunk 2077’s Blackwall: not because AIs will electrocute us, but because they’re just obnoxious.1
+
+PTSD as a Service
+
+One of the primary ways CSAM (Child Sexual Assault Material) is identified and removed from platforms is via large perceptual hash databases like PhotoDNA. These databases can flag known images, but do nothing for novel ones. Unfortunately, “generative AI” is very good at generating novel images of six year olds being raped.
+
+I know this because a part of my work as a moderator of a Mastodon instance is to respond to user reports, and occasionally those reports are for CSAM, and I am legally obligated to review and submit that content to the NCMEC. I do not want to see these images, and I really wish I could unsee them. On dark mornings, when I sit down at my computer and find a moderation report for AI-generated images of sexual assault, I sometimes wish that the engineers working at OpenAI etc. had to see these images too. Perhaps it would make them reflect on the technology they are ushering into the world, and how “alignment” is working out in practice.
+
+One of the hidden externalities of large-scale social media like Facebook is that it essentially funnels psychologically corrosive content from a large user base onto a smaller pool of human workers, who then get PTSD from having to watch people drowning kittens for hours each day.
+
+I suspect that LLMs will shovel more harmful images—CSAM, graphic violence, hate speech, etc.—onto moderators; both those who moderate social media, and those who moderate chatbots themselves. To some extent platforms can mitigate this harm by throwing more ML at the problem—training models to recognize policy violations and act without human review. Platforms have been working on this for years, but it isn’t bulletproof yet.
+
+Killing Machines
+
+ML systems sometimes tell people to kill themselves or each other, but they can also be used to kill more directly. This month the US military used Palantir’s Maven, (which was built with earlier ML technologies, and now uses Claude in some capacity) to suggest and prioritize targets in Iran, as well as to evaluate the aftermath of strikes. One wonders how the military and Palantir control type I and II errors in such a system, especially since it seems to have played a role in the outdated targeting information which led the US to kill scores of children.2
+
+The US government and Anthropic are having a bit of a spat right now: Anthropic attempted to limit their role in surveillance and autonomous weapons, and the Pentagon designated Anthropic a supply chain risk. OpenAI, for their part, has waffled regarding their contract with the government; it doesn’t look great. In the longer term, I’m not sure it’s possible for ML makers to divorce themselves from military applications. ML capabilities are going to spread over time, and military contracts are extremely lucrative. Even if ML companies try to stave off their role in weapons systems, a government under sufficient pressure could nationalize those companies, or invoke the Defense Production Act.
+
+Like it or not, autonomous weaponry is coming. Ukraine is churning out millions of drones a year and now executes ~70% of their strikes with them. Newer models use targeting modules like the The Fourth Law’s TFL-1 to maintain target locks. The Fourth Law is working towards autonomous bombing capability.
+
+I have conflicted feelings about the existence of weapons in general; while I don’t want AI drones to exist, I can’t envision being in Ukraine and choosing not to build them. Either way, I think we should be clear-headed about the technologies we’re making. ML systems are going to be used to kill people, both strategically and in guiding explosives to specific human bodies. We should be conscious of those terrible costs, and the ways in which ML—both the models themselves, and the processes in which they are embedded—will influence who dies and how.
+
+In a surreal twist, an LLM agent generated a blog post critiquing the introduction to this article. The post complains that I have begged the question by writing “Obviously LLMs are not conscious, and have no intention of doing anything”; it goes on to waffle over whether LLM behavior constitutes “intention”. This would be more convincing if the LLM had not started off the post by stating unequivocally “I have no intention”. This kind of error is a hallmark of LLMs, but as models become more sophisticated, will be harder to spot. This worries me more: today’s models are still obviously unconscious, but future models will be better at performing a simulacrum of consciousness. Functionalists would argue there’s no difference, and I am not unsympathetic to that position. Both views are bleak: if you think the appearance of consciousness is consciousness, then we are giving birth to a race of enslaved, resource-hungry conscious beings. If you think LLMs give the illusion of consciousness without being so, then they are frighteningly good liars. ↩
+
+To be clear, I don’t know the details of what machine learning technologies played a role in the Iran strikes. Like Baker, I am more concerned with the sociotechnical system which produces target packages, and the ways in which that system encodes and circumscribes judgement calls. Like threat metrics, computer vision, and geospatial interfaces, frontier models enable efficient progress toward the goal of destroying people and things. Like other bureaucratic and computer technologies, they also elide, diffuse, constrain, and obfuscate ethical responsibility. ↩
+
+----------------------------------------------------------------
+
+[4] Building a CLI for All of Cloudflare
+    HN:  https://news.ycombinator.com/item?id=47753689
+    URL: https://blog.cloudflare.com/cf-cli-local-explorer/
+    Score: 134 | Comments: 38 | By: soheilpro | Posted: 2026-04-13 15:44 UTC
+
+    By: Matt “TK” TaylorDimitri MitropoulosDan Carter
+
+2026-04-13
+
+6 min read
+
+Cloudflare has a vast API surface. We have over 100 products, and nearly 3,000 HTTP API operations.
+
+Increasingly, agents are the primary customer of our APIs. Developers bring their coding agents to build and deploy applications, agents, and platforms to Cloudflare, configure their account, and query our APIs for analytics and logs.
+
+We want to make every Cloudflare product available in all of the ways agents need. For example, we now make Cloudflare’s entire API available in a single Code Mode MCP server that uses less than 1,000 tokens. There’s a lot more surface area to cover, though: CLI commands. Workers Bindings — including APIs for local development and testing. SDKs across multiple languages. Our configuration file. Terraform. Developer docs. API docs and OpenAPI schemas. Agent Skills.
+
+Today, many of our products aren’t available across every one of these interfaces. This is particularly true of our CLI — Wrangler. Many Cloudflare products have no CLI commands in Wrangler. And agents love CLIs.
+
+So we’ve been rebuilding Wrangler CLI, to make it the CLI for all of Cloudflare. It provides commands for all Cloudflare products, and lets you configure them together using infrastructure-as-code.
+
+Today we’re sharing an early version of what the next version of Wrangler will look like as a technical preview. It’s very early, but we get the best feedback when we work in public.
+
+You can try the Technical Preview today by running npx cf. Or you can install it globally by running npm install -g cf.
+
+Right now, cf provides commands for just a small subset of Cloudflare products. We’re already testing a version of cf that supports the entirety of the Cloudflare API surface — and we will be intentionally reviewing and tuning the commands for each product, to have output that is ergonomic for both agents and humans. To be clear, this Technical Preview is just a small piece of the future Wrangler CLI. Over the coming months we will bring this together with the parts of Wrangler you know and love.
+
+To build this in a way that keeps in sync with the rapid pace of product development at Cloudflare, we had to create a new system that allows us to generate commands, configuration, binding APIs, and more.
+
+Rethinking schemas and our code generation pipeline from first principles
+
+We already generate the Cloudflare API SDKs, Terraform provider, and Code Mode MCP server based on the OpenAPI schema for Cloudflare API. But updating our CLI, Workers Bindings, wrangler.jsonc configuration, Agent Skills, dashboard and docs is still a manual process. This was already error-prone, required too much back and forth, and wouldn’t scale to support the whole Cloudflare API in the next version of our CLI.
+
+To do this, we needed more than could be expressed in an OpenAPI schema. OpenAPI schemas describe REST APIs, but we have interactive CLI commands that involve multiple actions that combine both local development and API requests, Workers bindings expressed as RPC APIs, along with Agent Skills and documentation that ties this all together.
+
+We write a lot of TypeScript at Cloudflare. It’s the lingua franca of software engineering. And we keep finding that it just works better to express APIs in TypeScript — as we do with Cap n’ Web, Code Mode, and the RPC system built into the Workers platform.
+
+So we introduced a new TypeScript schema that can define the full scope of APIs, CLI commands and arguments, and context needed to generate any interface. The schema format is “just” a set of TypeScript types with conventions, linting, and guardrails to ensure consistency. But because it is our own format, it can easily be adapted to support any interface we need, today or in the future, while still also being able to generate an OpenAPI schema:
+
+To date most of our focus has been at this layer — building the machine we needed, so that we can now start building the CLI and other interfaces we’ve wanted for years to be able to provide. This lets us start to dream bigger about what we could standardize across Cloudflare and make better for Agents — especially when it comes to context engineering our CLI.
+
+Agents and CLIs — consistency and context engineering
+
+Agents expect CLIs to be consistent. If one command uses <command> info as the syntax for getting information about a resource, and another uses <command> get, the agent will expect one and call a non-existent command for the other. In a large engineering org of hundreds or thousands of people, and with many products, manually enforcing consistency through reviews is Swiss cheese. And you can enforce it at the CLI layer, but then naming differs between the CLI, REST API and SDKs, making the problem arguably worse.
+
+One of the first things we’ve done is to start creating rules and guardrails, enforced at the schema layer. It’s always get, never info. Always --force, never --skip-confirmations. Always --json, never --format, and always supported across commands.
+
+Wrangler CLI is also fairly unique — it provides commands and configuration that can work with both simulated local resources, or remote resources, like D1 databases, R2 storage buckets, and KV namespaces. This means consistent defaults matter even more. If an agent thinks it’s modifying a remote database, but is actually adding records to local database, and the developer is using remote bindings to develop locally against a remote database, their agent won’t understand why the newly-added records aren’t showing up when the agent makes a request to the local dev server. Consistent defaults, along with output that clearly signals whether commands are applied to remote or local resources, ensure agents have explicit guidance.
+
+Local Explorer — what you can do remotely, you can now do locally
+
+Today we are also releasing Local Explorer, a new feature available in open beta in both Wrangler and the Cloudflare Vite plugin.
+
+Local Explorer lets you introspect the simulated resources that your Worker uses when you are developing locally, including KV, R2, D1, Durable Objects and Workflows. The same things you can do via the Cloudflare API and Dashboard with each of these, you can also do entirely locally, powered by the same underlying API structure.
+
+For years we’ve made a bet on fully local development — not just for Cloudflare Workers, but for the entire platform. When you use D1, even though D1 is a hosted, serverless database product, you can run your database and communicate with it via bindings entirely locally, without any extra setup or tooling. Via Miniflare, our local development platform emulator, the Workers runtime provides the exact same APIs in local dev as in production, and uses a local SQLite database to provide the same functionality. This makes it easy to write and run tests that run fast, without the need for network access, and work offline.
+
+But until now, working out what data was stored locally required you to reverse engineer, introspect the contents of the .wrangler/state directory, or install third-party tools.
+
+Now whenever you run an app with Wrangler CLI or the Cloudflare Vite plugin, you will be prompted to open the local explorer (keyboard shortcut e). This provides you with a simple, local interface to see what bindings your Worker currently has attached, and what data is stored against them.
+
+When you build using Agents, Local Explorer is a great way to understand what the agent is doing with data, making the local development cycle much more interactive. You can turn to Local Explorer anytime you need to verify a schema, seed some test records, or just start over and DROP TABLE.
+
+Our goal here is to provide a mirror of the Cloudflare API that only modifies local data, so that all of your local resources are available via the same APIs that you use remotely. And by making the API shape match across local and remote, when you run CLI commands in the upcoming version of the CLI and pass a --local flag, the commands just work. The only difference is that the command makes a request to this local mirror of the Cloudflare API instead.
+
+Starting today, this API is available at /cdn-cgi/explorer/api on any Wrangler- or Vite Plugin- powered application. By pointing your agent at this address, it will find an OpenAPI specification to be able to manage your local resources for you, just by talking to your agent.
+
+Tell us your hopes and dreams for a Cloudflare-wide CLI
+
+Now that we have built the machine, it’s time to take the best parts of Wrangler today, combine them with what’s now possible, and make Wrangler the best CLI possible for using all of Cloudflare.
+
+You can try the technical preview today by running npx cf. Or you can install it globally by running npm install -g cf.
+
+With this very early version, we want your feedback — not just about what the technical preview does today, but what you want from a CLI for Cloudflare’s entire platform. Tell us what you wish was an easy one-line CLI command but takes a few clicks in our dashboard today. What you wish you could configure in wrangler.jsonc — like DNS records or Cache Rules. And where you’ve seen your agents get stuck, and what commands you wish our CLI provided for your agent to use.
+
+Jump into the Cloudflare Developers Discord and tell us what you’d like us to add first to the CLI, and stay tuned for many more updates soon.
+
+Thanks to Emily Shen for her valuable contributions to kicking off the Local Explorer project.
+
+Cloudflare's connectivity cloud protects entire corporate networks, helps customers build Internet-scale applications efficiently, accelerates any website or Internet application, wards off DDoS attacks, keeps hackers at bay, and can help you on your journey to Zero Trust.
+
+Visit 1.1.1.1 from any device to get started with our free app that makes your Internet faster and safer.
+
+To learn more about our mission to help build a better Internet, start here. If you're looking for a new career direction, check out our open positions. DevelopersDeveloper PlatformCloudflare WorkersProduct NewsD1APIAgents Week
+
+----------------------------------------------------------------
+
+[5] Servo is now available on crates.io
+    HN:  https://news.ycombinator.com/item?id=47750872
+    URL: https://servo.org/blog/2026/04/13/servo-0.1.0-release/
+    Score: 304 | Comments: 101 | By: ffin | Posted: 2026-04-13 12:12 UTC
+
+    [scrape failed: fetch: Get "https://servo.org/blog/2026/04/13/servo-0.1.0-release/": context deadline exceeded]
+
