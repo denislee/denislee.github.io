@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <title>Hacker News Digests</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0645ad">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="https://news.ycombinator.com/favicon.ico">
 <style>
  body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;max-width:52rem;margin:2rem auto;padding:0 1rem;color:#222;background:#fafafa;line-height:1.5}
  h1{font-size:1.4rem;margin:0 0 0.25rem}
@@ -30,7 +33,7 @@
 <ul>
   <li>
     <span class="date">2026-04-15</span>
-    <span class="formats"><a href="2026-04-15.html">HTML</a><span class="size">461.1 KiB</span><a href="2026-04-15.epub">EPUB</a><span class="size">1.1 MiB</span>
+    <span class="formats"><a href="2026-04-15.html">HTML</a><span class="size">1.6 MiB</span><a href="2026-04-15.epub">EPUB</a><span class="size">5.1 MiB</span>
     </span>
   </li>
   <li>
@@ -44,6 +47,17 @@
     </span>
   </li>
 </ul>
-<footer>Last updated 2026-04-15 08:57 UTC.</footer>
+<footer>Last updated 2026-04-15 14:05 UTC.</footer>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').then(reg => {
+        console.log('SW registered:', reg);
+      }).catch(err => {
+        console.log('SW registration failed:', err);
+      });
+    });
+  }
+</script>
 </body>
 </html>

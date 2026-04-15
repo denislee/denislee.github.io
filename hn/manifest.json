@@ -1,0 +1,15 @@
+{
+  "name": "Hacker News Digests",
+  "short_name": "HN Digests",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#0645ad",
+  "icons": [
+    {
+      "src": "https://news.ycombinator.com/favicon.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
