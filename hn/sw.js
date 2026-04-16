@@ -2,7 +2,16 @@ const CACHE_NAME = 'hn-digests-v1';
 const ASSETS = [
   './',
   './index.html',
-  './manifest.json'
+  './manifest.json',
+  './favicon.ico',
+  './2026-04-16.html',
+  './2026-04-16.epub',
+  './2026-04-15.html',
+  './2026-04-15.epub',
+  './2026-04-14.html',
+  './2026-04-14.epub',
+  './2026-04-13.html',
+  './2026-04-13.epub'
 ];
 
 self.addEventListener('install', (event) => {
@@ -13,6 +22,8 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    fetch(event.request).catch(() => caches.match(event.request))
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    })
   );
 });
