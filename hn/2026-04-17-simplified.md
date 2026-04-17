@@ -1,6 +1,6 @@
 # Hacker News Top 30 — 2026-04-17
 
-Generated on 2026-04-17 19:52 UTC
+Generated on 2026-04-17 20:07 UTC
 
 ## [HN-TITLE] 1. Claude Design
 
@@ -8,7 +8,7 @@ Generated on 2026-04-17 19:52 UTC
 - **Site**: anthropic.com
 - **Submitter**: meetpateltech (Hacker News)
 - **Submitted**: 2026-04-17 15:04 UTC (Hacker News)
-- **HN activity**: 583 points · [link]
+- **HN activity**: 601 points · [link]
 - **Length**: 901 words (~4 min read)
 - **Language**: en
 
@@ -95,7 +95,7 @@ Our latest Opus model brings stronger performance across coding, agents, vision,
 - **Site**: Claude Code Camp
 - **Author**: Abhishek Ray
 - **Published**: 2026-04-16
-- **HN activity**: 363 points · [link]
+- **HN activity**: 378 points · [link]
 - **Length**: 1.8K words (~8 min read)
 - **Language**: en
 
@@ -582,7 +582,7 @@ So: tokens are 1.3–1.45x more expensive on English and code. Anthropic bought 
 - **Site**: esa.int
 - **Submitter**: cybermango (Hacker News)
 - **Submitted**: 2026-04-17 18:17 UTC (Hacker News)
-- **HN activity**: 79 points · [link]
+- **HN activity**: 96 points · [link]
 - **Length**: 609 words (~3 min read)
 - **Language**: en
 
@@ -651,7 +651,7 @@ This week ESA is hosting a [link] on lunar resources at the European Space Res
 - **Site**: GitHub
 - **Submitter**: binsquare (Hacker News)
 - **Submitted**: 2026-04-17 17:18 UTC (Hacker News)
-- **HN activity**: 92 points · [link]
+- **HN activity**: 103 points · [link]
 - **Length**: 729 words (~4 min read)
 - **Language**: en
 
@@ -809,7 +809,7 @@ See [link].
 - **Site**: hex.ooo
 - **Author**: Isaac Asimov
 - **Submitted**: 2026-04-17 12:01 UTC (Hacker News)
-- **HN activity**: 509 points · [link]
+- **HN activity**: 516 points · [link]
 - **Length**: 4.4K words (~20 min read)
 - **Language**: en
 
@@ -1195,7 +1195,7 @@ And there was light—
 - **Site**: NASA Force
 - **Submitter**: LorenDB (Hacker News)
 - **Submitted**: 2026-04-17 15:47 UTC (Hacker News)
-- **HN activity**: 127 points · [link]
+- **HN activity**: 130 points · [link]
 - **Length**: 298 words (~2 min read)
 - **Language**: en
 
@@ -1261,7 +1261,7 @@ If You Want Your Work to Operate Beyond Earth, This is Where it Begins.
 - **Site**: thehistoryblog.com
 - **Submitter**: speckx (Hacker News)
 - **Submitted**: 2026-04-17 14:41 UTC (Hacker News)
-- **HN activity**: 147 points · [link]
+- **HN activity**: 150 points · [link]
 
 > scrape failed: fetch: Get "https://www.thehistoryblog.com/archives/75848": tls: failed to verify certificate: x509: certificate signed by unknown authority
 
@@ -1273,7 +1273,7 @@ If You Want Your Work to Operate Beyond Earth, This is Where it Begins.
 - **Site**: risky.biz
 - **Author**: Catalin Cimpanu
 - **Submitted**: 2026-04-17 15:09 UTC (Hacker News)
-- **HN activity**: 118 points · [link]
+- **HN activity**: 121 points · [link]
 - **Length**: 3.8K words (~17 min read)
 
 ### Risky Bulletin Newsletter
@@ -1536,13 +1536,104 @@ NIST's new enrichment policy entered into effect this week, on Wednesday, April 
 
 ---
 
-## [HN-TITLE] 9. Ban the sale of precise geolocation
+## [HN-TITLE] 9. I built a 3D printing business and ran it for 8 months
+
+- **Source**: [link]
+- **Site**: Wespiser
+- **Author**: Adam Wespiser
+- **Submitted**: 2026-04-15 13:59 UTC (Hacker News)
+- **HN activity**: 17 points · [link]
+- **Length**: 1.6K words (~8 min read)
+- **Language**: en
+
+### ...and why I walked away
+
+Posted on April 12, 2026 by Adam Wespiser
+
+[image]
+
+I step down my front steps and into the brisk morning. I’m not dressed for January in New England, but fortunately I’m not going far. My hands grip a hastily constructed cardboard package, and beneath me is too much slush for slippers. I pass two houses before reaching my destination, peeking inside the front bay window as I go. No one’s home. I drop the package off on the brick stairs, fire a text—“dropped off”—and return to my apartment to find my dog nervously waiting at the top of the steps. Another 3D printed shipment complete!
+
+This 3D printing business started with the help of my dog, at the time a puppy, and his desire to see my neighbor’s puppy. We (the humans) began talking, and as we ran through a conversation about dogs, the topic came to his trading card business. He’d source cards all over the internet for his daily WhatNot auctions with thousands of followers. Impressive—not only a home business doing real volume, but a lens into a world I had no idea existed.
+
+I eventually noticed he had a 3D printed card stand, and with a printer at home, I offered to make him one myself. “Great,” he said, “I can sell them.”
+
+The first test was whether I could print a functional card stand: hold a card vertically without falling over that wasn’t geometrically impossible to print. This is where I’d like to say, “my years of product design experience made this easy,” but I can’t. In software, you engineer a loop, here was my loop: print a piece, realize it’s unstable, tweak the design, repeat. All while fighting my CAD model in Onshape to stay organized and extensible while using my iPhone 13 as a stability test.
+
+Eventually, the trick became clear: to make a card stand balance, you either use a thicker geometry that slows down printing, or you add weight to the base, seal it up, and leave the customer with something that feels more substantial than a plastic trinket, inspired by the Apple “impute value” philosophy behind their packaging.
+
+[image]
+
+With the first print done, the process evolved into a stream of client requests for images and names, design iteration which dominated the timeline, documenting the stand, customer approval, then handing off the production order to my neighbor to ship. All of this happened over text—not an organized workflow system, but good enough to handle a weekend’s worth of work, one weekend at a time. For a moment, the business worked. In reality, this was the easy part.
+
+[image]
+
+The first real system test was a piece my neighbor wanted for a family member, just like a regular order, but with a bit more pride on the line. The logo was the Boston Celtics logo. The problem? It’s not a minimal, modern logo; it’s a detailed, hand-drawn image from 1946.
+
+The starting issue was getting a 3D printable model of the logo. I spent about 30 minutes trying to model it in CAD, checked my progress, and was less than a quarter done. Instead, I found a “coffee coaster” version of the logo online and modified the card stand base to fit a resized coaster. The CAD detour was the first clear signal that the process was broken enough to need fixing, but the problems kept coming.
+
+The next conundrum: the Celtics logo has 6 colors, but my printer could only do 4 at the time. Expanding your plastic filament palette requires upfront investment, and color matching is hard—especially when you’re partially color blind. With the prints up to that point, I could get away with a “closest” match, like teal being light or dark green depending on how it matched the rest of the print. A 4-color Celtics logo exposed me, as I had to pick three different colors, collapse them into one, and hope the intensity values (brightness) wouldn’t turn details into a puddle of mud. I was able to take the tan, gold, and dark brown and compress them into the closest color, but the intensity values never felt right. When a design uses multiple colors, you just can’t reduce the colors and expect that same image.
+
+The first print of the Celtics logo came out with the Celtic tobacco pipe totally mangled. Print resolution has an easy fix: just switch to a smaller nozzle and wait about 4x longer due to inverse square scaling of flow rate to nozzle diameter. I printed it once—nozzle clogged, there goes the margin. Tried again—another clog, there goes my inventory.
+
+According to several informative YouTube videos, the methods I tried to unclog the nozzle should have worked: using softened plastic to pull it out, pushing in precision wires to unjam, even holding the nozzle with pliers over the stove to melt it clear. One minor burn that sent a hot nozzle flying across my floor later, with the sweet smell of burnt PLA plastic wafting through my living space, I was done with the 0.2mm nozzle. I’m sure there’s some way to unclog a nozzle and change the printing process to avoid future clogging, but I wasn’t going to get it working that night. Two nozzles down and I was underwater on the sale.
+
+After these several iterations, we finally got the card stand sent out.
+
+Inspired by failures of printing the Celtic logo, the details of the system locked in: all prints used PLA from a single source known for color selection and reliability. I locked in 0.4mm nozzles for all future prints. I also upgraded my setup: a second printer would prevent any problematic or failing prints from blocking the flow, and a third AMS unit expanded from 4 to 8 colors for one of my printers. I also gained a better sense of what client designs and ideas I could reject outright, and what was going to take an unusually long time to make work.
+
+So the system worked, but hinted at a larger problem: everything in the process required me. That’s not a business, it’s a job!
+
+[image]
+
+Instead of designing unique geometry for every print, we standardized the format: a back plate, the card stopper in front to prevent the card from sliding off, and the front text. This format made the card stands into parts that were easier and faster to print, and served as a model for customers to understand what could be customized.
+
+[image]
+
+Post-Celtics print, every part of the printing process was standardized and simplified. Beyond the limitations on nozzles, colors, and new gear, I started stocking replacement parts for everything that touches plastic on the printer or could break during handling. Still, if a part like a motor broke and I needed a few days to get a new one, it wouldn’t totally stop progress.
+
+My goal was simple handling: be able to wake up in the middle of the night and move the process forward, then go right back to bed without a cortisol spike or an “oh shit, this stretches the timeline” moment. Diagnose, displace, then replace what failed.
+
+The only problem?
+
+Instead of a scalable business, I had built a part-time job that relied on me to do the work.
+
+Some steps could be automated, but design still took about an hour of my time, and rounds of revision dragged things out. I golfed down a lot of the process, but the printer still required interrupting interventions. Finally, assembly was manual, and even if all the parts could magically summon themselves, the assembly was detail-intensive labor.
+
+On the economics, things worked.
+
+At steady state:  
+\- design time earned about $25/hour  
+\- $3666 total revenue  
+\- $3352 in expenses  
+\- ~50 orders fulfilled  
+\- ~3000 hours of logged print time.
+
+The problem was what came next. After seeing everything go wrong at least once and stabilizing the system, I faced a decision: do I want 500 more orders to level up again? There wasn’t an obvious path to get help with design, automating the order process, or finding a color-capable print farm. So after raising prices once, I transitioned to large orders only (no design), and gradually wound things down.
+
+3D printing is great for making a few of something: custom toys, bespoke lab equipment, or consumable plastic parts. What it’s not great at, in this context, is scaling to volumes where economies of scale matter. In other words, it’s mostly a design business.
+
+There’s definitely a niche for custom parts and small-batch manufacturing, but the next level was a big lift away from the home business stage. I’d need significant growth in my design skills, like time investment into learning more tools like Blender. I’d also need business development to create an online storefront and build a customer base to keep the orders coming. Not to mention shipping orders. Already, I was bored of making card stands, and closing the income gap between this $25/hour side job and my software engineering career at a big tech company meant a shift in focus I couldn’t justify.
+
+[image]
+
+For now, I’m focused on being a better software engineer, printing gifts for friends and family, and trying to perfect a greyhound-sized squeaky toy: soft enough to bite and shake like prey, but durable enough to survive more than a few play sessions. I’m on iteration 10 right now, and with how often it’s “stolen” in the dog park, it’s a hit!
+
+The card stands are complete. I didn’t shut it down because the business worked, but because I understood what comes next. Sometimes a thing that doesn’t scale is just fun to do
+
+[image]
+
+*A final picture: several screenshots of the card stands in action*
+
+---
+
+## [HN-TITLE] 10. Ban the sale of precise geolocation
 
 - **Source**: [link]
 - **Site**: Default
 - **Author**: Joshua Villanueva
 - **Submitted**: 2026-04-17 14:25 UTC (Hacker News)
-- **HN activity**: 433 points · [link]
+- **HN activity**: 440 points · [link]
 - **Length**: 2.0K words (~9 min read)
 - **Language**: en
 
@@ -1646,442 +1737,13 @@ The [link] April 8 at a seminar between several French government ministries, wh
 
 ---
 
-## [HN-TITLE] 10. Healthchecks.io now uses self-hosted object storage
-
-- **Source**: [link]
-- **Site**: Healthchecks.io
-- **Author**: Pēteris Caune
-- **Published**: 2026-04-17
-- **HN activity**: 109 points · [link]
-- **Length**: 1.1K words (~5 min read)
-- **Language**: en-US
-
-[link] ping endpoints accept HTTP HEAD, GET, and POST request methods. When using HTTP POST, clients can include an arbitrary payload in the request body. Healthchecks.io stores the first 100kB of the request body. If the request body is tiny, Healthchecks.io stores it in the PostgreSQL database. Otherwise, it stores it in S3-compatible object storage. We recently migrated from a managed to a self-hosted object storage. Our S3 API is now served by [link] and backed by a plain simple Btrfs filesystem.
-
-### The Managed Options
-
-In 2022, while [link], I was evaluating which object storage provider to use.
-
-**AWS S3** has per-request pricing, which would make it expensive-ish for Healthchecks.io usage patterns (frequent `PutObject` S3 operations, one operation per every large-enough ping request). Also, AWS being subject to the CLOUD Act, Healthchecks.io would need to encrypt data before handing it off to AWS, which would add complexity.
-
-**OVHcloud** is what I picked initially. There are no per-request fees, OVHcloud is an EU company, and the performance seemed good. Unfortunately, over time, I saw an increasing amount of performance and reliability issues. As my experience got worse and worse, I looked for alternatives.
-
-In 2024, I migrated to **UpCloud**. Same as OVHcloud, it has no per-request fees and is an EU company. There was a clear improvement in the quality of service: the S3 operations were quicker, and there were fewer server errors or timeouts. Unfortunately, over time, the performance of UpCloud object storage deteriorated as well. There were periods where all operations would become slow and hit our timeout limits. The S3 `DeleteObjects` operations in particular were getting slower and slower over time. So I looked for alternatives again, including self-hosted.
-
-### Requirements
-
-Our current (April 2026) object usage is:
-
-- 14 million objects, 119GB
-- Object sizes range from 100 bytes to 100’000 bytes. The average object size is 8KB.
-- 30 upload operations per second on average, with regular spikes to 150 uploads/second.
-- Constant churn of uploaded/deleted objects.
-
-Our candidate object storage system would need to be able to support this usage and have room to grow. Luckily, we are still at the scale where everything can easily fit on a single system, and operations like taking a full backup can be reasonably quick. Everything would be more complicated if we had many-terabyte requirements.
-
-Availability and durability: for the Healthchecks.io use cases, the object storage is not as mission-critical as our primary data store, the PostgreSQL database. If the database goes down, the service is completely broken, and monitoring alerts stop going out. If the object storage goes down, then users cannot inspect ping bodies through the web interface or through the API, but the system otherwise still functions. If some ping bodies get permanently lost, that is bad, but not as bad as losing any data going into the PostgreSQL database.
-
-Latency: the quicker, the better. There are places in code where Healthchecks.io does S3 operations during the HTTP request/response cycle. Individual S3 operations taking multiple seconds could choke the web server processes. While using UpCloud, I had to add [link] to prevent slow S3 operations from escalating into bigger issues.
-
-### The Self-Hosted Options
-
-I ran local experiments with [link], [link], and [link]. My primary objection to all of them was the operational complexity. It is not too hard to follow the “get started” instructions and get a basic cluster up and running. But, for a production-ready setup, I would need, as a minimum:
-
-- automate the setup of the cluster nodes,
-- learn and test the update procedure,
-- learn and test the procedure of replacing a failed cluster node,
-- set up monitoring and alerting for cluster-specific health issues.
-
-Since I’m a one-person team, and I already run self-hosted Postgres, self-hosted HAProxy load balancers, and [link], I would really like to avoid taking up the responsibility of running another non-trivial system. Something simple would be much preferred.
-
-### Versity S3 Gateway
-
-[link] turns your local filesystem into an S3 server. An S3 `PutObject` operation creates a regular file on the filesystem, an S3 `GetObject` operation reads a regular file from the filesystem, and an S3 `DeleteObject` operation deletes a file from the filesystem. It does not need a separate database for metadata storage. You can use any backup tool to take backups. The upgrade procedure is: replace a single binary and restart a systemd service. It is written in Go, and is being actively developed. [link] was fixed in just a few days.
-
-The big obvious caveat with Versity S3 Gateway and the filesystem as the backing store is, of course, availability and durability. The objects live on a single system, which can fail at any point of time without any prior warning. I need to be ready for this scenario.
-
-### The Setup
-
-In March 2026, I migrated to self-hosted object storage powered by Versity S3 Gateway.
-
-- S3 API runs on a dedicated server. It listens on a private IP address. Application servers talk to it over Wireguard tunnels.
-- Objects are stored on the server’s local drives (two NVMe drives in RAID 1 configuration).
-- Objects are stored on a Btrfs filesystem. With Btrfs, unlike ext4, there is no risk of running out of inodes when storing lots of tiny files.
-- Every two hours, a rsync process synchronizes the added and deleted files to a backup server.
-- Every day, the backup server takes a full backup, encrypts it, and stores it off-site. We keep full daily backups for the last 30 days.
-
-With this setup, if both drives on the object storage server fail at the same time, the system could lose up to 2 hours of not yet backed-up ping request bodies. This can be improved, as usual, with the cost of extra complexity.
-
-### The Results
-
-After switching to self-hosted object storage, the S3 operation latencies dropped:
-
-[image]
-
-The queue of ping bodies waiting to be uploaded to object storage shrank:
-
-[image]
-
-There have been no availability issues yet, but the new system has been live for only a couple of weeks.
-
-The list of our data sub-processors now has one less entry.
-
-The costs have increased: renting an additional dedicated server costs more than storing ~100GB at a managed object storage service. But the improved performance and reliability are worth it.
-
-I am cautiously optimistic about the new system, and I think it is an improvement over the old one. But I am also open to migrating again if I find a system with better tradeoffs.
-
-Thanks for reading, and happy monitoring,  
-–Pēteris
-
----
-
-## [HN-TITLE] 11. Show HN: PanicLock – Close your MacBook lid disable TouchID –> password unlock
-
-- **Source**: [link]
-- **Site**: GitHub
-- **Submitter**: seanieb (Hacker News)
-- **Submitted**: 2026-04-17 16:38 UTC (Hacker News)
-- **HN activity**: 59 points · [link]
-- **Length**: 561 words (~3 min read)
-- **Language**: en
-
-[[image]](https://github.com/paniclock/paniclock/blob/main/assets/paniclock-logo-and-name-v1.png)
-
-PanicLock is macOS menu bar utility that instantly disables Touch ID and locks the screen with a single click or closing your laptop lid.
-
-PanicLock fills a gap macOS leaves open: there is no built-in way to instantly disable Touch ID when it matters. Biometrics are convenient day-to-day, and sometimes preferable when you need speed or want to avoid your password being observed. But in sensitive situations, law enforcement and border agents in many countries can compel a biometric unlock in ways they cannot with a password. PanicLock gives you a one-click menu bar button, a customizable hotkey, or an automatic lock-on-lid-close option that immediately disables Touch ID and locks your screen, restoring password-only protection without killing your session or shutting down.
-
-[[image]](https://github.com/paniclock/paniclock/releases/latest/download/PanicLock.dmg)
-
-## Features
-
-[link]
-
-- **One-click panic lock** — Click the menu bar icon or press a hotkey to instantly lock
-- **Lock on Close** — Optionally lock and disable Touch ID when you close the lid
-- **Temporarily disables Touch ID** — Forces password-only unlock
-- **Auto-restore** — Original Touch ID settings restored after unlock
-- **Keyboard shortcut** — Configure a global hotkey (e.g., ⌃⌥⌘L)
-- **Launch at login** — Start automatically when you log in
-
-## Requirements
-
-[link]
-
-- macOS 14.0 (Sonoma) or later
-- Mac with Touch ID
-
-## Usage
-
-[link]
-
-Action Result **Left-click** icon Trigger panic lock immediately **Right-click** icon Open menu (Preferences, Uninstall, Quit)
-
-### Lock on Close
-
-[link]
-
-When enabled in Preferences, closing your Mac's lid will automatically disable Touch ID and lock your screen. Touch ID stays disabled until you re-login with your password. If your screen locks for other reasons (screensaver, display sleep, etc.), Touch ID will still work as normal.
-
-### First Launch
-
-[link]
-
-On first use, you'll be prompted for your admin password to install the privileged helper. This is a one-time setup.
-
-## Building from Source
-
-[link]
-
-1. Clone this repository
-2. Open `PanicLock.xcodeproj` in Xcode
-3. Set your Development Team in both targets (PanicLock and PanicLockHelper)
-4. Update Team ID in `Info.plist` (`SMPrivilegedExecutables`) and `Info-Helper.plist` (`SMAuthorizedClients`)
-5. Build and run
-
-## Uninstall
-
-[link]
-
-**From the app:** Right-click → "Uninstall PanicLock..." → Enter admin password
-
-**Manual:**
-
-```
-sudo launchctl bootout system/com.paniclock.helper
-sudo rm -f /Library/PrivilegedHelperTools/com.paniclock.helper
-sudo rm -f /Library/LaunchDaemons/com.paniclock.helper.plist
-rm -rf /Applications/PanicLock.app
-```
-
-## How It Works
-
-[link]
-
-PanicLock uses a privileged helper (installed via SMJobBless) to modify Touch ID timeout settings:
-
-1. Reads current timeout via `bioutil -r -s`
-2. Sets timeout to 1 second via `bioutil -w -s -o 1`
-3. Locks screen via `pmset displaysleepnow`
-4. Restores original timeout after ~2 seconds
-
-## Security
-
-[link]
-
-- **Minimal privileges** — Helper only runs 3 hardcoded commands (`bioutil`, `pmset`)
-- **No command injection** — Timeout parameter is a Swift `Int`, not a string
-- **Code-signed XPC** — Helper verifies connecting app's bundle ID + team ID + certificate
-- **No network activity** — App is 100% offline, no telemetry or analytics
-- **No data collection** — Only stores preferences (icon style, keyboard shortcut)
-- **Open source** — Full code available for audit
-
-## Releasing
-
-[link]
-
-The release script handles building, signing, notarizing, and packaging:
-
-```
-./scripts/release.sh
-```
-
-**Features:**
-
-- Extracts version from Xcode project automatically
-- Signs with Developer ID for distribution outside the App Store
-- Submits to Apple for notarization (can take minutes to hours)
-- Creates a notarized DMG for distribution
-- Supports parallel notarizations — each version gets its own `build/release/<version>/` directory
-
-**Workflow:**
-
-1. Bump `MARKETING_VERSION` in Xcode
-2. Run `./scripts/release.sh` — builds and submits for notarization
-3. Run again later to check status and continue when approved
-4. Final output: `build/release/<version>/PanicLock-<version>.dmg`
-
-## License
-
-[link]
-
-MIT License — See [link] for details.
-
-## Contributing
-
-[link]
-
-Contributions welcome! Please open an issue or pull request.
-
----
-
-## [HN-TITLE] 12. Kyber (YC W23) Is Hiring a Head of Engineering
-
-- **Source**: [link]
-- **Site**: Y Combinator
-- **Submitter**: asontha (Hacker News)
-- **Submitted**: 2026-04-17 17:01 UTC (Hacker News)
-- **HN activity**: 1 points · [link]
-- **Length**: 867 words (~4 min read)
-- **Language**: en
-
-[[image]]()
-
-Instantly draft, review, and send complex regulatory notices.
-
-## Head of Engineering
-
-$220K - $280K•0.50% - 1.50%•New York, NY, US
-
-**Job type**
-
-Full-time
-
-**Role**
-
-Engineering, Full stack
-
-**Experience**
-
-6+ years
-
-**Visa**
-
-US citizen/visa only
-
-**Skills**
-
-Express, JavaScript, Node.js, React, Redis, TypeScript, PostgreSQL
-
-Connect directly with founders of the best YC-funded startups.
-
-[link]
-
-[image]
-
-Arvind Sontha
-
-Founder
-
-## About the role
-
-At Kyber, we're building the next-generation document platform for enterprises. Today, our AI-native solution transforms regulatory document workflows, enabling insurance claims organizations to consolidate 80% of their templates, spend 65% less time drafting, and compress overall communication cycle times by 5x. Our vision is for every enterprise to seamlessly leverage AI templates to generate every document.
-
-Over the past 18 months, we’ve:
-
-- &gt;40x’d revenue and are profitable.
-- Landed multiple six and seven figure, multi-year contracts with leading insurance enterprises.
-- Launched strategic partnerships with industry leading software partners like Guidewire, Majesco, and Twilio Sendgrid.
-
-Kyber is backed by top Silicon Valley VCs, including Y Combinator and Fellows Fund.
-
-We're seeking a hands-on Head of Engineering with a clear line of sight to CTO. This role is ideal for someone who is already operating as a 10x engineer, thrives in early stage environments, and is excited to design and scale mission-critical AI systems from first principles.
-
-* * *
-
-**Responsibilities:**
-
-- **Be the Technical Owner of the Product**
-  
-  - Own end-to-end technical decisions across backend, frontend, data, infra.
-  - Ship features personally while keeping the team unblocked.
-- **Prioritize an Aggressive Product Roadmap**
-  
-  - Lead sprint/weekly planning and keep priorities tight
-  - Protect focus: decisively manage tradeoffs, push back when needed
-- **Unlock Leverage to Boost Engineering Capacity**
-  
-  - Scale adoption of Agentic AI coding tools (Cursor, Claude Code, Greptile) into large scale engineering and product workflows to accelerate time to market.
-  - Establish reusable patterns and interfaces so engineers and agents aren’t reinventing everything.
-- **Champion Reliability, Security, and Customer Trust**
-  
-  - Own uptime, performance, and incident response.
-  - Implement monitoring/alerts + fast debugging workflows.
-- **Mentor & Raise the Engineering Bar**
-  
-  - Set expectations for quality and ownership.
-  - Help recruit and evaluate future hires.
-
-* * *
-
-**What We’re Looking For in You:**
-
-- **10x Engineer with a love of building**
-  
-  - Your raw coding ability should be unmatched and only deeply amplified by AI.
-  - You love to build and relish seeing customers delighted by your work.
-- **Ship first, optimize and harden later**
-  
-  - You get something out as quickly as possible, prove it was the right thing to build, and then optimize and harden it.
-- **System Design Mastery**
-  
-  - You've architected large scale data-driven applications and have a full E2E understanding of what tradeoffs to make when.
-- **Systems-first thinking**
-  
-  - Not just in architecture, but also for how an AI-native engineering team will operate as we continue to grow.
-- **Accountability**
-  
-  - You're prepared and have been in roles before where you've had to hold other engineers accountable for their deliverables.
-- **Security and Compliance**
-  
-  - You've dealt with enterprise software compliance requirements (SOC 2, HIPAA, ISO, etc) and are comfortable incorporating those requirements in tandem with product build out.
-
-* * *
-
-### **Our Values**
-
-- **Possible Until Proven Otherwise**
-  
-  - Challenge assumptions with evidence. If it’s impossible, show us why.
-- **LOVE Your Customer**
-  
-  - Put customers at the heart of everything. Earn trust, deliver value, grow together.
-- **Take Pride In Your Craft**
-  
-  - Creating something from nothing is a privilege—embrace the process and perfect the details.
-- **Live Up To Your Expectations**
-  
-  - Set your standards high and let’s exceed them together—because no one should expect more of you than yourself.
-- **Have Fun & Nurture Those Around You**
-  
-  - The joy of building is amplified when shared. Remember to support, uplift, and celebrate each other as we grow.
-
-* * *
-
-### **Benefits**
-
-- Competitive salary
-- Generous stock package
-- 100% employer-covered medical, dental, and vision insurance
-
-* * *
-
-### **Why Kyber?**
-
-Join us in building and scaling a game-changing enterprise product powered by state-of-the-art AI. At Kyber, your contributions will directly impact how businesses handle some of their most critical workflows and customer interactions.
-
-If you’re obsessed with building, AI, and transforming enterprise workflows, we’d love to hear from you!
-
-### **How To Stand Out**
-
-We want to hear from extraordinary individuals who are ready to shape the future of enterprise documents. To stand out, ask someone you’ve worked with to send your resume or LinkedIn profile, along with a brief 2-3 sentence endorsement, directly to arvind \[at] [link].
-
-Referrals matter. They help us understand the impact you’ve already had and the kind of teammate you’ll be. A strong referee can elevate your application, so choose someone who knows your skills and character well.
-
-**Apply today** and help us bring enterprise documents into the AI-native age.
-
-## About the interview
-
-- Founder screen
-- Take home practical
-- Technical Deep Dive on Prior Project
-- System Design Scaling Interview
-- Leverage & Leadership Interview
-- 5 References
-
-## About Kyber
-
-With Kyber, companies operating in regulated industries can quickly draft, review, and send complex regulatory notices. For example, when Branch Insurance's claims team has to settle a claim, instead of spending hours piecing together evidence to draft a complex notice, they can simply upload the details of the claim to Kyber, auto-generate multiple best in-class drafts, easily assign reviewers, collaborate on notices in real-time, and then send the letter to the individual the notice is for. Kyber not only saves these teams time, it also improves overall quality, accountability, and traceability.
-
----
-
-## [HN-TITLE] 13. Iceye Open Data
-
-- **Source**: [link]
-- **Site**: iceye.com
-- **Submitter**: marklit (Hacker News)
-- **Submitted**: 2026-04-17 14:37 UTC (Hacker News)
-- **HN activity**: 83 points · [link]
-- **Length**: 100 words (~1 min read)
-- **Language**: en
-
-[[image]](https://iceye-open-data-catalog.s3.amazonaws.com/stac-items/summary/iceye-open-sar-data-thumbnails-map.html)
-
-### Open SAR Data Map Browser
-
-Browse available datasets on an interactive map. Filter by location, imaging mode, and acquisition date to find imagery relevant to your research area.
-
-[[image]](https://radiantearth.github.io/stac-browser/#/external/iceye-open-data-catalog.s3.amazonaws.com/catalog.json?.language=en)
-
-### Open SAR Data STAC Browser
-
-Search and access ICEYE open data through the SpatioTemporal Asset Catalog (STAC). The STAC browser lets you query metadata, preview acquisitions, and download individual assets in standard geospatial formats including SLC, GRD, and COG.
-
-[[image]](https://registry.opendata.aws/iceye-opendata/)
-
-### Open SAR AWS Data Exchange
-
-Access the ICEYE open data archive through the AWS Registry of Open Data. Pull datasets directly into your cloud workflows using standard S3 tools, with no authentication required.
-
----
-
-## [HN-TITLE] 14. Webloc: Analysis of Penlink's Ad-Based Geolocation Surveillance Tech
+## [HN-TITLE] 11. Webloc: Analysis of Penlink's Ad-Based Geolocation Surveillance Tech
 
 - **Source**: [link]
 - **Site**: The Citizen Lab
 - **Submitter**: Cider9986 (Hacker News)
 - **Submitted**: 2026-04-13 21:51 UTC (Hacker News)
-- **HN activity**: 19 points · [link]
+- **HN activity**: 22 points · [link]
 - **Length**: 22.4K words (~98 min read)
 - **Language**: en-CA
 
@@ -3731,94 +3393,432 @@ List of 10 additional hosts that we consider to be affiliated with Cobwebs Techn
 
 ---
 
-## [HN-TITLE] 15. I built a 3D printing business and ran it for 8 months
+## [HN-TITLE] 12. Kyber (YC W23) Is Hiring a Head of Engineering
 
 - **Source**: [link]
-- **Site**: Wespiser
-- **Author**: Adam Wespiser
-- **Submitted**: 2026-04-15 13:59 UTC (Hacker News)
-- **HN activity**: 13 points · [link]
-- **Length**: 1.6K words (~8 min read)
+- **Site**: Y Combinator
+- **Submitter**: asontha (Hacker News)
+- **Submitted**: 2026-04-17 17:01 UTC (Hacker News)
+- **HN activity**: 1 points · [link]
+- **Length**: 867 words (~4 min read)
 - **Language**: en
 
-### ...and why I walked away
+[[image]]()
 
-Posted on April 12, 2026 by Adam Wespiser
+Instantly draft, review, and send complex regulatory notices.
 
-[image]
+## Head of Engineering
 
-I step down my front steps and into the brisk morning. I’m not dressed for January in New England, but fortunately I’m not going far. My hands grip a hastily constructed cardboard package, and beneath me is too much slush for slippers. I pass two houses before reaching my destination, peeking inside the front bay window as I go. No one’s home. I drop the package off on the brick stairs, fire a text—“dropped off”—and return to my apartment to find my dog nervously waiting at the top of the steps. Another 3D printed shipment complete!
+$220K - $280K•0.50% - 1.50%•New York, NY, US
 
-This 3D printing business started with the help of my dog, at the time a puppy, and his desire to see my neighbor’s puppy. We (the humans) began talking, and as we ran through a conversation about dogs, the topic came to his trading card business. He’d source cards all over the internet for his daily WhatNot auctions with thousands of followers. Impressive—not only a home business doing real volume, but a lens into a world I had no idea existed.
+**Job type**
 
-I eventually noticed he had a 3D printed card stand, and with a printer at home, I offered to make him one myself. “Great,” he said, “I can sell them.”
+Full-time
 
-The first test was whether I could print a functional card stand: hold a card vertically without falling over that wasn’t geometrically impossible to print. This is where I’d like to say, “my years of product design experience made this easy,” but I can’t. In software, you engineer a loop, here was my loop: print a piece, realize it’s unstable, tweak the design, repeat. All while fighting my CAD model in Onshape to stay organized and extensible while using my iPhone 13 as a stability test.
+**Role**
 
-Eventually, the trick became clear: to make a card stand balance, you either use a thicker geometry that slows down printing, or you add weight to the base, seal it up, and leave the customer with something that feels more substantial than a plastic trinket, inspired by the Apple “impute value” philosophy behind their packaging.
+Engineering, Full stack
 
-[image]
+**Experience**
 
-With the first print done, the process evolved into a stream of client requests for images and names, design iteration which dominated the timeline, documenting the stand, customer approval, then handing off the production order to my neighbor to ship. All of this happened over text—not an organized workflow system, but good enough to handle a weekend’s worth of work, one weekend at a time. For a moment, the business worked. In reality, this was the easy part.
+6+ years
 
-[image]
+**Visa**
 
-The first real system test was a piece my neighbor wanted for a family member, just like a regular order, but with a bit more pride on the line. The logo was the Boston Celtics logo. The problem? It’s not a minimal, modern logo; it’s a detailed, hand-drawn image from 1946.
+US citizen/visa only
 
-The starting issue was getting a 3D printable model of the logo. I spent about 30 minutes trying to model it in CAD, checked my progress, and was less than a quarter done. Instead, I found a “coffee coaster” version of the logo online and modified the card stand base to fit a resized coaster. The CAD detour was the first clear signal that the process was broken enough to need fixing, but the problems kept coming.
+**Skills**
 
-The next conundrum: the Celtics logo has 6 colors, but my printer could only do 4 at the time. Expanding your plastic filament palette requires upfront investment, and color matching is hard—especially when you’re partially color blind. With the prints up to that point, I could get away with a “closest” match, like teal being light or dark green depending on how it matched the rest of the print. A 4-color Celtics logo exposed me, as I had to pick three different colors, collapse them into one, and hope the intensity values (brightness) wouldn’t turn details into a puddle of mud. I was able to take the tan, gold, and dark brown and compress them into the closest color, but the intensity values never felt right. When a design uses multiple colors, you just can’t reduce the colors and expect that same image.
+Express, JavaScript, Node.js, React, Redis, TypeScript, PostgreSQL
 
-The first print of the Celtics logo came out with the Celtic tobacco pipe totally mangled. Print resolution has an easy fix: just switch to a smaller nozzle and wait about 4x longer due to inverse square scaling of flow rate to nozzle diameter. I printed it once—nozzle clogged, there goes the margin. Tried again—another clog, there goes my inventory.
+Connect directly with founders of the best YC-funded startups.
 
-According to several informative YouTube videos, the methods I tried to unclog the nozzle should have worked: using softened plastic to pull it out, pushing in precision wires to unjam, even holding the nozzle with pliers over the stove to melt it clear. One minor burn that sent a hot nozzle flying across my floor later, with the sweet smell of burnt PLA plastic wafting through my living space, I was done with the 0.2mm nozzle. I’m sure there’s some way to unclog a nozzle and change the printing process to avoid future clogging, but I wasn’t going to get it working that night. Two nozzles down and I was underwater on the sale.
-
-After these several iterations, we finally got the card stand sent out.
-
-Inspired by failures of printing the Celtic logo, the details of the system locked in: all prints used PLA from a single source known for color selection and reliability. I locked in 0.4mm nozzles for all future prints. I also upgraded my setup: a second printer would prevent any problematic or failing prints from blocking the flow, and a third AMS unit expanded from 4 to 8 colors for one of my printers. I also gained a better sense of what client designs and ideas I could reject outright, and what was going to take an unusually long time to make work.
-
-So the system worked, but hinted at a larger problem: everything in the process required me. That’s not a business, it’s a job!
+[link]
 
 [image]
 
-Instead of designing unique geometry for every print, we standardized the format: a back plate, the card stopper in front to prevent the card from sliding off, and the front text. This format made the card stands into parts that were easier and faster to print, and served as a model for customers to understand what could be customized.
+Arvind Sontha
+
+Founder
+
+## About the role
+
+At Kyber, we're building the next-generation document platform for enterprises. Today, our AI-native solution transforms regulatory document workflows, enabling insurance claims organizations to consolidate 80% of their templates, spend 65% less time drafting, and compress overall communication cycle times by 5x. Our vision is for every enterprise to seamlessly leverage AI templates to generate every document.
+
+Over the past 18 months, we’ve:
+
+- &gt;40x’d revenue and are profitable.
+- Landed multiple six and seven figure, multi-year contracts with leading insurance enterprises.
+- Launched strategic partnerships with industry leading software partners like Guidewire, Majesco, and Twilio Sendgrid.
+
+Kyber is backed by top Silicon Valley VCs, including Y Combinator and Fellows Fund.
+
+We're seeking a hands-on Head of Engineering with a clear line of sight to CTO. This role is ideal for someone who is already operating as a 10x engineer, thrives in early stage environments, and is excited to design and scale mission-critical AI systems from first principles.
+
+* * *
+
+**Responsibilities:**
+
+- **Be the Technical Owner of the Product**
+  
+  - Own end-to-end technical decisions across backend, frontend, data, infra.
+  - Ship features personally while keeping the team unblocked.
+- **Prioritize an Aggressive Product Roadmap**
+  
+  - Lead sprint/weekly planning and keep priorities tight
+  - Protect focus: decisively manage tradeoffs, push back when needed
+- **Unlock Leverage to Boost Engineering Capacity**
+  
+  - Scale adoption of Agentic AI coding tools (Cursor, Claude Code, Greptile) into large scale engineering and product workflows to accelerate time to market.
+  - Establish reusable patterns and interfaces so engineers and agents aren’t reinventing everything.
+- **Champion Reliability, Security, and Customer Trust**
+  
+  - Own uptime, performance, and incident response.
+  - Implement monitoring/alerts + fast debugging workflows.
+- **Mentor & Raise the Engineering Bar**
+  
+  - Set expectations for quality and ownership.
+  - Help recruit and evaluate future hires.
+
+* * *
+
+**What We’re Looking For in You:**
+
+- **10x Engineer with a love of building**
+  
+  - Your raw coding ability should be unmatched and only deeply amplified by AI.
+  - You love to build and relish seeing customers delighted by your work.
+- **Ship first, optimize and harden later**
+  
+  - You get something out as quickly as possible, prove it was the right thing to build, and then optimize and harden it.
+- **System Design Mastery**
+  
+  - You've architected large scale data-driven applications and have a full E2E understanding of what tradeoffs to make when.
+- **Systems-first thinking**
+  
+  - Not just in architecture, but also for how an AI-native engineering team will operate as we continue to grow.
+- **Accountability**
+  
+  - You're prepared and have been in roles before where you've had to hold other engineers accountable for their deliverables.
+- **Security and Compliance**
+  
+  - You've dealt with enterprise software compliance requirements (SOC 2, HIPAA, ISO, etc) and are comfortable incorporating those requirements in tandem with product build out.
+
+* * *
+
+### **Our Values**
+
+- **Possible Until Proven Otherwise**
+  
+  - Challenge assumptions with evidence. If it’s impossible, show us why.
+- **LOVE Your Customer**
+  
+  - Put customers at the heart of everything. Earn trust, deliver value, grow together.
+- **Take Pride In Your Craft**
+  
+  - Creating something from nothing is a privilege—embrace the process and perfect the details.
+- **Live Up To Your Expectations**
+  
+  - Set your standards high and let’s exceed them together—because no one should expect more of you than yourself.
+- **Have Fun & Nurture Those Around You**
+  
+  - The joy of building is amplified when shared. Remember to support, uplift, and celebrate each other as we grow.
+
+* * *
+
+### **Benefits**
+
+- Competitive salary
+- Generous stock package
+- 100% employer-covered medical, dental, and vision insurance
+
+* * *
+
+### **Why Kyber?**
+
+Join us in building and scaling a game-changing enterprise product powered by state-of-the-art AI. At Kyber, your contributions will directly impact how businesses handle some of their most critical workflows and customer interactions.
+
+If you’re obsessed with building, AI, and transforming enterprise workflows, we’d love to hear from you!
+
+### **How To Stand Out**
+
+We want to hear from extraordinary individuals who are ready to shape the future of enterprise documents. To stand out, ask someone you’ve worked with to send your resume or LinkedIn profile, along with a brief 2-3 sentence endorsement, directly to arvind \[at] [link].
+
+Referrals matter. They help us understand the impact you’ve already had and the kind of teammate you’ll be. A strong referee can elevate your application, so choose someone who knows your skills and character well.
+
+**Apply today** and help us bring enterprise documents into the AI-native age.
+
+## About the interview
+
+- Founder screen
+- Take home practical
+- Technical Deep Dive on Prior Project
+- System Design Scaling Interview
+- Leverage & Leadership Interview
+- 5 References
+
+## About Kyber
+
+With Kyber, companies operating in regulated industries can quickly draft, review, and send complex regulatory notices. For example, when Branch Insurance's claims team has to settle a claim, instead of spending hours piecing together evidence to draft a complex notice, they can simply upload the details of the claim to Kyber, auto-generate multiple best in-class drafts, easily assign reviewers, collaborate on notices in real-time, and then send the letter to the individual the notice is for. Kyber not only saves these teams time, it also improves overall quality, accountability, and traceability.
+
+---
+
+## [HN-TITLE] 13. Healthchecks.io now uses self-hosted object storage
+
+- **Source**: [link]
+- **Site**: Healthchecks.io
+- **Author**: Pēteris Caune
+- **Published**: 2026-04-17
+- **HN activity**: 114 points · [link]
+- **Length**: 1.1K words (~5 min read)
+- **Language**: en-US
+
+[link] ping endpoints accept HTTP HEAD, GET, and POST request methods. When using HTTP POST, clients can include an arbitrary payload in the request body. Healthchecks.io stores the first 100kB of the request body. If the request body is tiny, Healthchecks.io stores it in the PostgreSQL database. Otherwise, it stores it in S3-compatible object storage. We recently migrated from a managed to a self-hosted object storage. Our S3 API is now served by [link] and backed by a plain simple Btrfs filesystem.
+
+### The Managed Options
+
+In 2022, while [link], I was evaluating which object storage provider to use.
+
+**AWS S3** has per-request pricing, which would make it expensive-ish for Healthchecks.io usage patterns (frequent `PutObject` S3 operations, one operation per every large-enough ping request). Also, AWS being subject to the CLOUD Act, Healthchecks.io would need to encrypt data before handing it off to AWS, which would add complexity.
+
+**OVHcloud** is what I picked initially. There are no per-request fees, OVHcloud is an EU company, and the performance seemed good. Unfortunately, over time, I saw an increasing amount of performance and reliability issues. As my experience got worse and worse, I looked for alternatives.
+
+In 2024, I migrated to **UpCloud**. Same as OVHcloud, it has no per-request fees and is an EU company. There was a clear improvement in the quality of service: the S3 operations were quicker, and there were fewer server errors or timeouts. Unfortunately, over time, the performance of UpCloud object storage deteriorated as well. There were periods where all operations would become slow and hit our timeout limits. The S3 `DeleteObjects` operations in particular were getting slower and slower over time. So I looked for alternatives again, including self-hosted.
+
+### Requirements
+
+Our current (April 2026) object usage is:
+
+- 14 million objects, 119GB
+- Object sizes range from 100 bytes to 100’000 bytes. The average object size is 8KB.
+- 30 upload operations per second on average, with regular spikes to 150 uploads/second.
+- Constant churn of uploaded/deleted objects.
+
+Our candidate object storage system would need to be able to support this usage and have room to grow. Luckily, we are still at the scale where everything can easily fit on a single system, and operations like taking a full backup can be reasonably quick. Everything would be more complicated if we had many-terabyte requirements.
+
+Availability and durability: for the Healthchecks.io use cases, the object storage is not as mission-critical as our primary data store, the PostgreSQL database. If the database goes down, the service is completely broken, and monitoring alerts stop going out. If the object storage goes down, then users cannot inspect ping bodies through the web interface or through the API, but the system otherwise still functions. If some ping bodies get permanently lost, that is bad, but not as bad as losing any data going into the PostgreSQL database.
+
+Latency: the quicker, the better. There are places in code where Healthchecks.io does S3 operations during the HTTP request/response cycle. Individual S3 operations taking multiple seconds could choke the web server processes. While using UpCloud, I had to add [link] to prevent slow S3 operations from escalating into bigger issues.
+
+### The Self-Hosted Options
+
+I ran local experiments with [link], [link], and [link]. My primary objection to all of them was the operational complexity. It is not too hard to follow the “get started” instructions and get a basic cluster up and running. But, for a production-ready setup, I would need, as a minimum:
+
+- automate the setup of the cluster nodes,
+- learn and test the update procedure,
+- learn and test the procedure of replacing a failed cluster node,
+- set up monitoring and alerting for cluster-specific health issues.
+
+Since I’m a one-person team, and I already run self-hosted Postgres, self-hosted HAProxy load balancers, and [link], I would really like to avoid taking up the responsibility of running another non-trivial system. Something simple would be much preferred.
+
+### Versity S3 Gateway
+
+[link] turns your local filesystem into an S3 server. An S3 `PutObject` operation creates a regular file on the filesystem, an S3 `GetObject` operation reads a regular file from the filesystem, and an S3 `DeleteObject` operation deletes a file from the filesystem. It does not need a separate database for metadata storage. You can use any backup tool to take backups. The upgrade procedure is: replace a single binary and restart a systemd service. It is written in Go, and is being actively developed. [link] was fixed in just a few days.
+
+The big obvious caveat with Versity S3 Gateway and the filesystem as the backing store is, of course, availability and durability. The objects live on a single system, which can fail at any point of time without any prior warning. I need to be ready for this scenario.
+
+### The Setup
+
+In March 2026, I migrated to self-hosted object storage powered by Versity S3 Gateway.
+
+- S3 API runs on a dedicated server. It listens on a private IP address. Application servers talk to it over Wireguard tunnels.
+- Objects are stored on the server’s local drives (two NVMe drives in RAID 1 configuration).
+- Objects are stored on a Btrfs filesystem. With Btrfs, unlike ext4, there is no risk of running out of inodes when storing lots of tiny files.
+- Every two hours, a rsync process synchronizes the added and deleted files to a backup server.
+- Every day, the backup server takes a full backup, encrypts it, and stores it off-site. We keep full daily backups for the last 30 days.
+
+With this setup, if both drives on the object storage server fail at the same time, the system could lose up to 2 hours of not yet backed-up ping request bodies. This can be improved, as usual, with the cost of extra complexity.
+
+### The Results
+
+After switching to self-hosted object storage, the S3 operation latencies dropped:
 
 [image]
 
-Post-Celtics print, every part of the printing process was standardized and simplified. Beyond the limitations on nozzles, colors, and new gear, I started stocking replacement parts for everything that touches plastic on the printer or could break during handling. Still, if a part like a motor broke and I needed a few days to get a new one, it wouldn’t totally stop progress.
-
-My goal was simple handling: be able to wake up in the middle of the night and move the process forward, then go right back to bed without a cortisol spike or an “oh shit, this stretches the timeline” moment. Diagnose, displace, then replace what failed.
-
-The only problem?
-
-Instead of a scalable business, I had built a part-time job that relied on me to do the work.
-
-Some steps could be automated, but design still took about an hour of my time, and rounds of revision dragged things out. I golfed down a lot of the process, but the printer still required interrupting interventions. Finally, assembly was manual, and even if all the parts could magically summon themselves, the assembly was detail-intensive labor.
-
-On the economics, things worked.
-
-At steady state:  
-\- design time earned about $25/hour  
-\- $3666 total revenue  
-\- $3352 in expenses  
-\- ~50 orders fulfilled  
-\- ~3000 hours of logged print time.
-
-The problem was what came next. After seeing everything go wrong at least once and stabilizing the system, I faced a decision: do I want 500 more orders to level up again? There wasn’t an obvious path to get help with design, automating the order process, or finding a color-capable print farm. So after raising prices once, I transitioned to large orders only (no design), and gradually wound things down.
-
-3D printing is great for making a few of something: custom toys, bespoke lab equipment, or consumable plastic parts. What it’s not great at, in this context, is scaling to volumes where economies of scale matter. In other words, it’s mostly a design business.
-
-There’s definitely a niche for custom parts and small-batch manufacturing, but the next level was a big lift away from the home business stage. I’d need significant growth in my design skills, like time investment into learning more tools like Blender. I’d also need business development to create an online storefront and build a customer base to keep the orders coming. Not to mention shipping orders. Already, I was bored of making card stands, and closing the income gap between this $25/hour side job and my software engineering career at a big tech company meant a shift in focus I couldn’t justify.
+The queue of ping bodies waiting to be uploaded to object storage shrank:
 
 [image]
 
-For now, I’m focused on being a better software engineer, printing gifts for friends and family, and trying to perfect a greyhound-sized squeaky toy: soft enough to bite and shake like prey, but durable enough to survive more than a few play sessions. I’m on iteration 10 right now, and with how often it’s “stolen” in the dog park, it’s a hit!
+There have been no availability issues yet, but the new system has been live for only a couple of weeks.
 
-The card stands are complete. I didn’t shut it down because the business worked, but because I understood what comes next. Sometimes a thing that doesn’t scale is just fun to do
+The list of our data sub-processors now has one less entry.
 
-[image]
+The costs have increased: renting an additional dedicated server costs more than storing ~100GB at a managed object storage service. But the improved performance and reliability are worth it.
 
-*A final picture: several screenshots of the card stands in action*
+I am cautiously optimistic about the new system, and I think it is an improvement over the old one. But I am also open to migrating again if I find a system with better tradeoffs.
+
+Thanks for reading, and happy monitoring,  
+–Pēteris
+
+---
+
+## [HN-TITLE] 14. Iceye Open Data
+
+- **Source**: [link]
+- **Site**: iceye.com
+- **Submitter**: marklit (Hacker News)
+- **Submitted**: 2026-04-17 14:37 UTC (Hacker News)
+- **HN activity**: 85 points · [link]
+- **Length**: 100 words (~1 min read)
+- **Language**: en
+
+[[image]](https://iceye-open-data-catalog.s3.amazonaws.com/stac-items/summary/iceye-open-sar-data-thumbnails-map.html)
+
+### Open SAR Data Map Browser
+
+Browse available datasets on an interactive map. Filter by location, imaging mode, and acquisition date to find imagery relevant to your research area.
+
+[[image]](https://radiantearth.github.io/stac-browser/#/external/iceye-open-data-catalog.s3.amazonaws.com/catalog.json?.language=en)
+
+### Open SAR Data STAC Browser
+
+Search and access ICEYE open data through the SpatioTemporal Asset Catalog (STAC). The STAC browser lets you query metadata, preview acquisitions, and download individual assets in standard geospatial formats including SLC, GRD, and COG.
+
+[[image]](https://registry.opendata.aws/iceye-opendata/)
+
+### Open SAR AWS Data Exchange
+
+Access the ICEYE open data archive through the AWS Registry of Open Data. Pull datasets directly into your cloud workflows using standard S3 tools, with no authentication required.
+
+---
+
+## [HN-TITLE] 15. Show HN: PanicLock – Close your MacBook lid disable TouchID –> password unlock
+
+- **Source**: [link]
+- **Site**: GitHub
+- **Submitter**: seanieb (Hacker News)
+- **Submitted**: 2026-04-17 16:38 UTC (Hacker News)
+- **HN activity**: 63 points · [link]
+- **Length**: 561 words (~3 min read)
+- **Language**: en
+
+[[image]](https://github.com/paniclock/paniclock/blob/main/assets/paniclock-logo-and-name-v1.png)
+
+PanicLock is macOS menu bar utility that instantly disables Touch ID and locks the screen with a single click or closing your laptop lid.
+
+PanicLock fills a gap macOS leaves open: there is no built-in way to instantly disable Touch ID when it matters. Biometrics are convenient day-to-day, and sometimes preferable when you need speed or want to avoid your password being observed. But in sensitive situations, law enforcement and border agents in many countries can compel a biometric unlock in ways they cannot with a password. PanicLock gives you a one-click menu bar button, a customizable hotkey, or an automatic lock-on-lid-close option that immediately disables Touch ID and locks your screen, restoring password-only protection without killing your session or shutting down.
+
+[[image]](https://github.com/paniclock/paniclock/releases/latest/download/PanicLock.dmg)
+
+## Features
+
+[link]
+
+- **One-click panic lock** — Click the menu bar icon or press a hotkey to instantly lock
+- **Lock on Close** — Optionally lock and disable Touch ID when you close the lid
+- **Temporarily disables Touch ID** — Forces password-only unlock
+- **Auto-restore** — Original Touch ID settings restored after unlock
+- **Keyboard shortcut** — Configure a global hotkey (e.g., ⌃⌥⌘L)
+- **Launch at login** — Start automatically when you log in
+
+## Requirements
+
+[link]
+
+- macOS 14.0 (Sonoma) or later
+- Mac with Touch ID
+
+## Usage
+
+[link]
+
+Action Result **Left-click** icon Trigger panic lock immediately **Right-click** icon Open menu (Preferences, Uninstall, Quit)
+
+### Lock on Close
+
+[link]
+
+When enabled in Preferences, closing your Mac's lid will automatically disable Touch ID and lock your screen. Touch ID stays disabled until you re-login with your password. If your screen locks for other reasons (screensaver, display sleep, etc.), Touch ID will still work as normal.
+
+### First Launch
+
+[link]
+
+On first use, you'll be prompted for your admin password to install the privileged helper. This is a one-time setup.
+
+## Building from Source
+
+[link]
+
+1. Clone this repository
+2. Open `PanicLock.xcodeproj` in Xcode
+3. Set your Development Team in both targets (PanicLock and PanicLockHelper)
+4. Update Team ID in `Info.plist` (`SMPrivilegedExecutables`) and `Info-Helper.plist` (`SMAuthorizedClients`)
+5. Build and run
+
+## Uninstall
+
+[link]
+
+**From the app:** Right-click → "Uninstall PanicLock..." → Enter admin password
+
+**Manual:**
+
+```
+sudo launchctl bootout system/com.paniclock.helper
+sudo rm -f /Library/PrivilegedHelperTools/com.paniclock.helper
+sudo rm -f /Library/LaunchDaemons/com.paniclock.helper.plist
+rm -rf /Applications/PanicLock.app
+```
+
+## How It Works
+
+[link]
+
+PanicLock uses a privileged helper (installed via SMJobBless) to modify Touch ID timeout settings:
+
+1. Reads current timeout via `bioutil -r -s`
+2. Sets timeout to 1 second via `bioutil -w -s -o 1`
+3. Locks screen via `pmset displaysleepnow`
+4. Restores original timeout after ~2 seconds
+
+## Security
+
+[link]
+
+- **Minimal privileges** — Helper only runs 3 hardcoded commands (`bioutil`, `pmset`)
+- **No command injection** — Timeout parameter is a Swift `Int`, not a string
+- **Code-signed XPC** — Helper verifies connecting app's bundle ID + team ID + certificate
+- **No network activity** — App is 100% offline, no telemetry or analytics
+- **No data collection** — Only stores preferences (icon style, keyboard shortcut)
+- **Open source** — Full code available for audit
+
+## Releasing
+
+[link]
+
+The release script handles building, signing, notarizing, and packaging:
+
+```
+./scripts/release.sh
+```
+
+**Features:**
+
+- Extracts version from Xcode project automatically
+- Signs with Developer ID for distribution outside the App Store
+- Submits to Apple for notarization (can take minutes to hours)
+- Creates a notarized DMG for distribution
+- Supports parallel notarizations — each version gets its own `build/release/<version>/` directory
+
+**Workflow:**
+
+1. Bump `MARKETING_VERSION` in Xcode
+2. Run `./scripts/release.sh` — builds and submits for notarization
+3. Run again later to check status and continue when approved
+4. Final output: `build/release/<version>/PanicLock-<version>.dmg`
+
+## License
+
+[link]
+
+MIT License — See [link] for details.
+
+## Contributing
+
+[link]
+
+Contributions welcome! Please open an issue or pull request.
 
 ---
 
@@ -3828,7 +3828,7 @@ The card stands are complete. I didn’t shut it down because the business worke
 - **Site**: GitHub
 - **Submitter**: PaulHoule (Hacker News)
 - **Submitted**: 2026-04-17 01:38 UTC (Hacker News)
-- **HN activity**: 27 points · [link]
+- **HN activity**: 28 points · [link]
 - **Length**: 18.5K words (~81 min read)
 - **Language**: en
 
@@ -7600,7 +7600,7 @@ The card stands are complete. I didn’t shut it down because the business worke
 - **Site**: datagirl.xyz
 - **Submitter**: atan2 (Hacker News)
 - **Submitted**: 2026-04-17 16:13 UTC (Hacker News)
-- **HN activity**: 33 points · [link]
+- **HN activity**: 34 points · [link]
 - **Length**: 1.9K words (~9 min read)
 - **Language**: en
 
@@ -7842,7 +7842,7 @@ While this was a fun project on its own, my intent wasn't just to detect DOSBox.
 - **Site**: gregorio-project.github.io
 - **Author**: The Gregorio project
 - **Submitted**: 2026-04-17 15:20 UTC (Hacker News)
-- **HN activity**: 31 points · [link]
+- **HN activity**: 32 points · [link]
 - **Length**: 124 words (~1 min read)
 - **Language**: en
 
@@ -7864,109 +7864,13 @@ This website contains an introduction, documentation and tutorial for Gregorio v
 
 ---
 
-## [HN-TITLE] 19. Designing the Transport Typeface
-
-- **Source**: [link]
-- **Site**: Thames & Hudson
-- **Author**: Isabel Mitchelson
-- **Published**: 2026-02-12
-- **HN activity**: 49 points · [link]
-- **Length**: 1.1K words (~5 min read)
-- **Language**: en
-
-12 February 2026
-
-In an extract from *Margaret Calvert: Woman at Work*, the pioneering graphic designer offers a behind-the-scenes glimpse into creating the iconic typeface 'Transport' seen across Britain’s motorways. 
-
-[image]
-
-###### © Margaret Calvert
-
-It is almost impossible to travel anywhere in the UK and not benefit from Margaret Calvert’s skill as a designer.  From the signs of Britain’s national road network to railway stations and the NHS, Margaret’s ultra-legible typeface and engaging pictograms have become an integral part of everyday British life.  
-
-Her remarkable career spans not just graphic design but education too: Margaret became an influential educator at the Royal College of Art, where she taught a generation of designers, many of whom have achieved global recognition, such as Quentin Blake and Marion Deuchars. 
-
-[link] is the first book dedicated to Margaret, a pioneer of design for public service. Capturing the full arc of her career, [link] offers a unique insight into her early years in South Africa and her formative experiences after moving to the UK as a teenager, before exploring the three distinct phases of her professional life.  
-
-In this extract, Margaret sheds light on how she and long-time collaborator Jock Kinneir set about creating a typeface suitable for use on motorway signage across the nation. The project came about after Kinneir helped to design signage for Gatwick Airport. He invited Calvert to join him as an assistant, and the pair went on to collaborate on numerous design projects, many which can still be seen across the country today. 
-
-[[image]](https://www.thamesandhudson.com/products/margaret-calvert-woman-at-work "Margaret Calvert: Woman at Work")[link]
-
-###### Above, left: Margaret Calvert in her studio, February 2026. Above, right: © Margaret Calvert. British Rail sign at Paddington Station in London.  Late 1960s.
-
-With British drivers taking to the roads in unprecedented numbers in the 1950s, the existing road signs proved to be totally inadequate for traffic travelling at speed. And it wasn’t long before the nation was following Germany, with the construction of motorways. Because of Jock’s work on Gatwick Airport, he was appointed by the Anderson Committee, headed by Colin Anderson, the chairman of P&O, to design the motorway signs. This was followed by a commission from the Worboys Committee to design a system for the all-purpose roads, as well as symbols and pictograms to replace the word-heavy traffic signs. 
-
-> In designing the British road signs, Jock’s guiding principles were clarity and creating a system that would not date - Margaret Calvert
-
-The intention was to follow the principles of the 1949 Geneva Convention on traffic signs, but with our own interpretation. This was how I got involved with the design of several signs such as School Children Crossing and Roadworks. There was also the all-important issue of what lettering to use. Jock had received a letter from Colin stating that on no account should we come up with a new letterform, as the Committee found the one used on the German autobahns perfectly adequate. We chose to ignore this, because we felt that it was a typeface designed by engineers and would not sit comfortably in the English landscape.  
-
-[[image]](https://www.thamesandhudson.com/products/margaret-calvert-woman-at-work "Margaret Calvert: Woman at Work")
-
-###### © Margaret Calvert. Hand-produced road sign maquettes showing motorway and all-purpose direction signs. Late 1950s, early 1960s.
-
-It was at this point that I got involved with the design of the lettering we used on the signs, which we named Transport. It was much influenced by Akzidenz-Grotesk and incorporated important details such as the curve at the end of the lowercase ‘l’, which was borrowed from the Johnston typeface – the corporate font of public transport in London, designed by Edward Johnston. The Transport lettering was specifically designed to aid legibility, using upper and lowercase letters for place names, when viewed at a distance and when travelling at speed. It wasn’t a typeface until the digital font New Transport came into being, designed in collaboration with Henrik Kubel in 2009. 
-
-> I think it must have been my passion for life drawing that gave me the necessary skill for drawing letterforms. I was never taught - Margaret Calvert
-
-[[image]](https://www.thamesandhudson.com/products/margaret-calvert-woman-at-work)
-
-###### © Margaret Calvert. Transport lettering in caps and lowercase. Early 1960s
-
-Since then, I’ve designed several new faces (not all of them serious). Most of them have been in collaboration with Henrik who is particularly brilliant at applying the technology required for creating a font. I think it must have been my passion for life drawing that gave me the necessary skill for drawing letterforms. I was never taught. In designing the British road signs, Jock’s guiding principles were clarity and creating a system that would not date. He wanted a set of minimal guidelines to aid standardisation by such companies as Buchanan Computing, headed at that time by Simon Morgan, before manufacturing of the signs took place.  
-
-[[image]](https://www.thamesandhudson.com/products/margaret-calvert-woman-at-work "Margaret Calvert: Woman at Work")
-
-###### © Margaret Calvert
-
-The colours of the direction signs were extremely important. White lettering on a blue background for the motorways, because blue is recessive, causing the eye to focus on the white place names. A green background for A-route signs, with place names in white and the route numbers in yellow. Black place names and route numbers on a white background for the smaller, more local B-route signs.  
-
-> The colours of the direction signs were extremely important. White lettering on a blue background for the motorways, because blue is recessive, causing the eye to focus on the white place names - Margaret Calvert
-
-It wasn’t long after the official opening of the Preston Bypass in December 1958, Britain’s first road built to motorway standards, that the new signs came under attack from the lettering establishment, most notably from the letter cutter David Kindersley, who, uninvited, had been working on a serif letterform, and only in capitals. He thought, regarding both legibility and economy, that this was the correct answer. In true diplomatic fashion, tests were conducted by the Road Research Laboratory and comparisons made between our lettering and Kindersley’s. His lettering was rejected on aesthetic grounds. 
-
-[[image]](https://www.thamesandhudson.com/products/margaret-calvert-woman-at-work "Margaret Calvert: Woman at Work")
-
-###### Above, left: © Margaret Calvert. Jock Kinneir, David Tuhill and Margaret Calvert outside the garage in Old Barrack Yard.  Early 1970s. Above, right: *Margaret Calvert: Woman at Work* at her stuido
-
-I soon found myself designing visual identities for such diverse clients as the fishmongers Burkett and Rudman and the British Airports Authority. And it wasn’t long after the acceptance of the road sign system, by an Act of Parliament in 1965, that we were approached by the Ministry of Health to look at NHS hospital signs. This was followed by signs for the British Airports Authority and British Rail. 
-
-*Words by Margaret Calvert.* 
-
-Updated: February 19 2026
-
-Margaret Calvert: Woman at Work
-
-[image] [image]
-
-Regular price
-
-£60.00
-
-Sale price
-
-£60.00
-
-Regular price
-
-Unit price
-
- per 
-
-## Sign up to our Newsletter
-
-Our weekly newsletter is a curated collection of interviews, articles, stunning images and books we think you’ll love. Sign up to get 20% off.
-
-In accordance with our [link], you may unsubscribe at any time.
-
----
-
-## [HN-TITLE] 20. Connie Converse was a folk-music genius. Then she vanished
+## [HN-TITLE] 19. Connie Converse was a folk-music genius. Then she vanished
 
 - **Source**: [link]
 - **Site**: BBC
 - **Author**: Thomas Hobbs
 - **Published**: 2026-04-14
-- **HN activity**: 26 points · [link]
+- **HN activity**: 27 points · [link]
 - **Length**: 2.1K words (~10 min read)
 - **Language**: en-GB
 
@@ -8072,13 +7976,109 @@ One that certainly does understand is Julia Steiner, the lead vocalist of the Ch
 
 ---
 
+## [HN-TITLE] 20. Designing the Transport Typeface
+
+- **Source**: [link]
+- **Site**: Thames & Hudson
+- **Author**: Isabel Mitchelson
+- **Published**: 2026-02-12
+- **HN activity**: 50 points · [link]
+- **Length**: 1.1K words (~5 min read)
+- **Language**: en
+
+12 February 2026
+
+In an extract from *Margaret Calvert: Woman at Work*, the pioneering graphic designer offers a behind-the-scenes glimpse into creating the iconic typeface 'Transport' seen across Britain’s motorways. 
+
+[image]
+
+###### © Margaret Calvert
+
+It is almost impossible to travel anywhere in the UK and not benefit from Margaret Calvert’s skill as a designer.  From the signs of Britain’s national road network to railway stations and the NHS, Margaret’s ultra-legible typeface and engaging pictograms have become an integral part of everyday British life.  
+
+Her remarkable career spans not just graphic design but education too: Margaret became an influential educator at the Royal College of Art, where she taught a generation of designers, many of whom have achieved global recognition, such as Quentin Blake and Marion Deuchars. 
+
+[link] is the first book dedicated to Margaret, a pioneer of design for public service. Capturing the full arc of her career, [link] offers a unique insight into her early years in South Africa and her formative experiences after moving to the UK as a teenager, before exploring the three distinct phases of her professional life.  
+
+In this extract, Margaret sheds light on how she and long-time collaborator Jock Kinneir set about creating a typeface suitable for use on motorway signage across the nation. The project came about after Kinneir helped to design signage for Gatwick Airport. He invited Calvert to join him as an assistant, and the pair went on to collaborate on numerous design projects, many which can still be seen across the country today. 
+
+[[image]](https://www.thamesandhudson.com/products/margaret-calvert-woman-at-work "Margaret Calvert: Woman at Work")[link]
+
+###### Above, left: Margaret Calvert in her studio, February 2026. Above, right: © Margaret Calvert. British Rail sign at Paddington Station in London.  Late 1960s.
+
+With British drivers taking to the roads in unprecedented numbers in the 1950s, the existing road signs proved to be totally inadequate for traffic travelling at speed. And it wasn’t long before the nation was following Germany, with the construction of motorways. Because of Jock’s work on Gatwick Airport, he was appointed by the Anderson Committee, headed by Colin Anderson, the chairman of P&O, to design the motorway signs. This was followed by a commission from the Worboys Committee to design a system for the all-purpose roads, as well as symbols and pictograms to replace the word-heavy traffic signs. 
+
+> In designing the British road signs, Jock’s guiding principles were clarity and creating a system that would not date - Margaret Calvert
+
+The intention was to follow the principles of the 1949 Geneva Convention on traffic signs, but with our own interpretation. This was how I got involved with the design of several signs such as School Children Crossing and Roadworks. There was also the all-important issue of what lettering to use. Jock had received a letter from Colin stating that on no account should we come up with a new letterform, as the Committee found the one used on the German autobahns perfectly adequate. We chose to ignore this, because we felt that it was a typeface designed by engineers and would not sit comfortably in the English landscape.  
+
+[[image]](https://www.thamesandhudson.com/products/margaret-calvert-woman-at-work "Margaret Calvert: Woman at Work")
+
+###### © Margaret Calvert. Hand-produced road sign maquettes showing motorway and all-purpose direction signs. Late 1950s, early 1960s.
+
+It was at this point that I got involved with the design of the lettering we used on the signs, which we named Transport. It was much influenced by Akzidenz-Grotesk and incorporated important details such as the curve at the end of the lowercase ‘l’, which was borrowed from the Johnston typeface – the corporate font of public transport in London, designed by Edward Johnston. The Transport lettering was specifically designed to aid legibility, using upper and lowercase letters for place names, when viewed at a distance and when travelling at speed. It wasn’t a typeface until the digital font New Transport came into being, designed in collaboration with Henrik Kubel in 2009. 
+
+> I think it must have been my passion for life drawing that gave me the necessary skill for drawing letterforms. I was never taught - Margaret Calvert
+
+[[image]](https://www.thamesandhudson.com/products/margaret-calvert-woman-at-work)
+
+###### © Margaret Calvert. Transport lettering in caps and lowercase. Early 1960s
+
+Since then, I’ve designed several new faces (not all of them serious). Most of them have been in collaboration with Henrik who is particularly brilliant at applying the technology required for creating a font. I think it must have been my passion for life drawing that gave me the necessary skill for drawing letterforms. I was never taught. In designing the British road signs, Jock’s guiding principles were clarity and creating a system that would not date. He wanted a set of minimal guidelines to aid standardisation by such companies as Buchanan Computing, headed at that time by Simon Morgan, before manufacturing of the signs took place.  
+
+[[image]](https://www.thamesandhudson.com/products/margaret-calvert-woman-at-work "Margaret Calvert: Woman at Work")
+
+###### © Margaret Calvert
+
+The colours of the direction signs were extremely important. White lettering on a blue background for the motorways, because blue is recessive, causing the eye to focus on the white place names. A green background for A-route signs, with place names in white and the route numbers in yellow. Black place names and route numbers on a white background for the smaller, more local B-route signs.  
+
+> The colours of the direction signs were extremely important. White lettering on a blue background for the motorways, because blue is recessive, causing the eye to focus on the white place names - Margaret Calvert
+
+It wasn’t long after the official opening of the Preston Bypass in December 1958, Britain’s first road built to motorway standards, that the new signs came under attack from the lettering establishment, most notably from the letter cutter David Kindersley, who, uninvited, had been working on a serif letterform, and only in capitals. He thought, regarding both legibility and economy, that this was the correct answer. In true diplomatic fashion, tests were conducted by the Road Research Laboratory and comparisons made between our lettering and Kindersley’s. His lettering was rejected on aesthetic grounds. 
+
+[[image]](https://www.thamesandhudson.com/products/margaret-calvert-woman-at-work "Margaret Calvert: Woman at Work")
+
+###### Above, left: © Margaret Calvert. Jock Kinneir, David Tuhill and Margaret Calvert outside the garage in Old Barrack Yard.  Early 1970s. Above, right: *Margaret Calvert: Woman at Work* at her stuido
+
+I soon found myself designing visual identities for such diverse clients as the fishmongers Burkett and Rudman and the British Airports Authority. And it wasn’t long after the acceptance of the road sign system, by an Act of Parliament in 1965, that we were approached by the Ministry of Health to look at NHS hospital signs. This was followed by signs for the British Airports Authority and British Rail. 
+
+*Words by Margaret Calvert.* 
+
+Updated: February 19 2026
+
+Margaret Calvert: Woman at Work
+
+[image] [image]
+
+Regular price
+
+£60.00
+
+Sale price
+
+£60.00
+
+Regular price
+
+Unit price
+
+ per 
+
+## Sign up to our Newsletter
+
+Our weekly newsletter is a curated collection of interviews, articles, stunning images and books we think you’ll love. Sign up to get 20% off.
+
+In accordance with our [link], you may unsubscribe at any time.
+
+---
+
 ## [HN-TITLE] 21. Show HN: Stage – Putting humans back in control of code review
 
 - **Source**: [link]
 - **Site**: stagereview.app
 - **Submitter**: cpan22 (Hacker News)
 - **Submitted**: 2026-04-16 17:36 UTC (Hacker News)
-- **HN activity**: 68 points · [link]
+- **HN activity**: 71 points · [link]
 - **Language**: en
 
 Hey HN! We're Charles and Dean, and we're building Stage: a code review tool that guides you through reading a PR step by step, instead of piecing together a giant diff.
@@ -8107,7 +8107,7 @@ We've had a lot of fun building this and are excited to take it further. If you'
 - **Site**: iqiipi.com
 - **Submitter**: mpweiher (Hacker News)
 - **Submitted**: 2026-04-17 08:51 UTC (Hacker News)
-- **HN activity**: 224 points · [link]
+- **HN activity**: 225 points · [link]
 - **Length**: 8.1K words (~36 min read)
 - **Language**: en
 
@@ -8293,7 +8293,7 @@ For more Civil War discoveries, join us tomorrow in Washington, DC, for the open
 - **Site**: chapel-lang.org
 - **Submitter**: matt\_d (Hacker News)
 - **Submitted**: 2026-04-13 23:45 UTC (Hacker News)
-- **HN activity**: 117 points · [link]
+- **HN activity**: 119 points · [link]
 - **Length**: 5.8K words (~26 min read)
 - **Language**: en
 
@@ -8597,51 +8597,7 @@ Date Change Apr 16, 2026 Added a new details section and a few sidenotes to tr
 
 ---
 
-## [HN-TITLE] 25. NeoGeo AES+: SNK announces reissue of retro console without emulation
-
-- **Source**: [link]
-- **Site**: heise online
-- **Author**: Josef Erl
-- **Published**: 2026-04-17
-- **HN activity**: 21 points · [link]
-- **Length**: 523 words (~3 min read)
-- **Language**: en
-
-With the NeoGeo AES+, a reissue of one of the most exclusive game consoles of the nineties will be released this year. As Plaion, together with manufacturer SNK, announces, the updated system will use ASICs (“Application-Specific Integrated Circuits”) to precisely replicate the behavior of the original hardware rather than relying on software emulation. The goal is to provide the most authentic arcade experience possible in the living room.
-
-### Reissue with modern technology and accessories
-
-Ten titles are planned for the launch, including “Metal Slug,” “The King of Fighters 2002,” and “Samurai Showdown V Special,” all of which will be delivered as cartridges in faithfully reproduced packaging. In addition to the classic AV output for older screens, the new hardware offers HDMI with up to 1080p. It also features savable high scores, BIOS menu options, and additional switches for faster settings.
-
-## Empfohlener redaktioneller Inhalt
-
-Mit Ihrer Zustimmung wird hier ein externes YouTube-Video (Google Ireland Limited) geladen.
-
-YouTube-Video immer laden
-
-Ich bin damit einverstanden, dass mir externe Inhalte angezeigt werden. Damit können personenbezogene Daten an Drittplattformen (Google Ireland Limited) übermittelt werden. Mehr dazu in unserer [link].
-
-The scope of delivery includes an arcade stick with a cable connection, a power adapter, and an HDMI cable. An replica of the AES gamepad, a revised memory card, and a wireless arcade stick in black or white are also available as optional accessories. Particularly relevant for collectors: The system is fully compatible with original cartridges.
-
-According to Plaion, pre-orders are possible immediately. The delivery of consoles, games, and accessories is scheduled to start on November 12, 2026. The price for the Neogeo AES+ is just under 200 euros for the standard version and just under 300 euros for a white anniversary edition. The latter also includes the game “Metal Slug” as a white cartridge. Games are expected to cost around 80 euros each.
-
-### Premium console for a niche audience
-
-The original NeoGeo AES was launched in Japan in 1990 and in the USA a year later, pursuing an unusual concept: it used the same technology as SNK's MVS arcade system. As a result, games ran identically at home as they did in the arcade, while other consoles often offered only cut-down versions.
-
-However, this technical advantage came at a price. The console cost around 650 US dollars, which, adjusted for inflation, is about 1500 dollars today. Individual cartridges cost 200 to 300 dollars. This put the system far above the prices of competing devices such as [link] or [link], which have also received successful reissues.
-
-SNK deliberately positioned the device as a premium product for enthusiasts. However, this led to low distribution: less than one million units were sold worldwide, even though the platform was extremely durable and continued to be supplied with new games until 2004. Today, the luxurious retro console is a coveted collector's item. Original devices often cost well over 1000 dollars, and rare games reach several thousand to five-figure amounts.
-
-([link])
-
-Don't miss any news – follow us on [link], [link] or [link].
-
-*This article was originally published in [link]. It was translated with technical assistance and editorially reviewed before publication.*
-
----
-
-## [HN-TITLE] 26. FIM – Linux framebuffer image viewer
+## [HN-TITLE] 25. FIM – Linux framebuffer image viewer
 
 - **Source**: [link]
 - **Site**: nongnu.org
@@ -11433,13 +11389,57 @@ Marta Carbone, for early testing and debugging
 
 ---
 
+## [HN-TITLE] 26. NeoGeo AES+: SNK announces reissue of retro console without emulation
+
+- **Source**: [link]
+- **Site**: heise online
+- **Author**: Josef Erl
+- **Published**: 2026-04-17
+- **HN activity**: 25 points · [link]
+- **Length**: 523 words (~3 min read)
+- **Language**: en
+
+With the NeoGeo AES+, a reissue of one of the most exclusive game consoles of the nineties will be released this year. As Plaion, together with manufacturer SNK, announces, the updated system will use ASICs (“Application-Specific Integrated Circuits”) to precisely replicate the behavior of the original hardware rather than relying on software emulation. The goal is to provide the most authentic arcade experience possible in the living room.
+
+### Reissue with modern technology and accessories
+
+Ten titles are planned for the launch, including “Metal Slug,” “The King of Fighters 2002,” and “Samurai Showdown V Special,” all of which will be delivered as cartridges in faithfully reproduced packaging. In addition to the classic AV output for older screens, the new hardware offers HDMI with up to 1080p. It also features savable high scores, BIOS menu options, and additional switches for faster settings.
+
+## Empfohlener redaktioneller Inhalt
+
+Mit Ihrer Zustimmung wird hier ein externes YouTube-Video (Google Ireland Limited) geladen.
+
+YouTube-Video immer laden
+
+Ich bin damit einverstanden, dass mir externe Inhalte angezeigt werden. Damit können personenbezogene Daten an Drittplattformen (Google Ireland Limited) übermittelt werden. Mehr dazu in unserer [link].
+
+The scope of delivery includes an arcade stick with a cable connection, a power adapter, and an HDMI cable. An replica of the AES gamepad, a revised memory card, and a wireless arcade stick in black or white are also available as optional accessories. Particularly relevant for collectors: The system is fully compatible with original cartridges.
+
+According to Plaion, pre-orders are possible immediately. The delivery of consoles, games, and accessories is scheduled to start on November 12, 2026. The price for the Neogeo AES+ is just under 200 euros for the standard version and just under 300 euros for a white anniversary edition. The latter also includes the game “Metal Slug” as a white cartridge. Games are expected to cost around 80 euros each.
+
+### Premium console for a niche audience
+
+The original NeoGeo AES was launched in Japan in 1990 and in the USA a year later, pursuing an unusual concept: it used the same technology as SNK's MVS arcade system. As a result, games ran identically at home as they did in the arcade, while other consoles often offered only cut-down versions.
+
+However, this technical advantage came at a price. The console cost around 650 US dollars, which, adjusted for inflation, is about 1500 dollars today. Individual cartridges cost 200 to 300 dollars. This put the system far above the prices of competing devices such as [link] or [link], which have also received successful reissues.
+
+SNK deliberately positioned the device as a premium product for enthusiasts. However, this led to low distribution: less than one million units were sold worldwide, even though the platform was extremely durable and continued to be supplied with new games until 2004. Today, the luxurious retro console is a coveted collector's item. Original devices often cost well over 1000 dollars, and rare games reach several thousand to five-figure amounts.
+
+([link])
+
+Don't miss any news – follow us on [link], [link] or [link].
+
+*This article was originally published in [link]. It was translated with technical assistance and editorially reviewed before publication.*
+
+---
+
 ## [HN-TITLE] 27. Average is all you need
 
 - **Source**: [link]
 - **Site**: rawquery
 - **Author**: rawquery team
 - **Published**: 2026-04-13
-- **HN activity**: 64 points · [link]
+- **HN activity**: 65 points · [link]
 - **Length**: 1.4K words (~7 min read)
 - **Language**: en
 
@@ -11643,7 +11643,7 @@ Honestly, average is clearly magic; prove me wrong.
 - **Site**: CadQuery
 - **Submitter**: gregsadetsky (Hacker News)
 - **Submitted**: 2026-04-14 23:20 UTC (Hacker News)
-- **HN activity**: 205 points · [link]
+- **HN activity**: 206 points · [link]
 - **Length**: 44 words (~1 min read)
 - **Language**: en-US
 
@@ -11665,7 +11665,7 @@ CadQuery is an open-source Python library for building 3D CAD models. It lets yo
 - **Site**: Is Your Site Agent-Ready?
 - **Submitter**: WesSouza (Hacker News)
 - **Submitted**: 2026-04-17 13:55 UTC (Hacker News)
-- **HN activity**: 84 points · [link]
+- **HN activity**: 86 points · [link]
 - **Length**: 149 words (~1 min read)
 - **Language**: en
 
