@@ -4,6 +4,8 @@ const ASSETS = [
   './index.html',
   './manifest.json',
   './favicon.ico',
+  './2026-04-17.html',
+  './2026-04-17.epub',
   './2026-04-16.html',
   './2026-04-16.epub',
   './2026-04-15.html',
