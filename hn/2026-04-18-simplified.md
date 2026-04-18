@@ -1,14 +1,728 @@
 # Hacker News Top 30 — 2026-04-18
 
-Generated on 2026-04-18 04:18 UTC
+Generated on 2026-04-18 11:26 UTC
 
-## [HN-TITLE] 1. Claude Design
+## [HN-TITLE] 1. Category Theory Illustrated – Orders
+
+- **Source**: [link]
+- **Site**: abuseofnotation.github.io
+- **Submitter**: boris\_m (Hacker News)
+- **Submitted**: 2026-04-18 06:40 UTC (Hacker News)
+- **HN activity**: 93 points · [link]
+- **Length**: 4.9K words (~22 min read)
+
+Given a set of objects, there can be numerous criteria, based on which to order them (depending on the objects themselves) — size, weight, age, alphabetical order etc.
+
+However, currently we are not interested in the *criteria* that we can use to order objects, but in the *nature of the relationships* that define order. Of which there can be several types as well.
+
+Mathematically, the order as a construct is represented (much like a monoid) by two components.
+
+> An order is a set of elements, together with a *binary relation* between the elements of the set, which obeys certain laws.
+
+We denote the elements of our set, as usual, like this.
+
+[image]
+
+And the *binary relation* is a relation between two elements, which is often denoted with an arrow.
+
+[image]
+
+As for the laws, they are different depending on the type of order.
+
+## Linear order
+
+Let’s start with an example — the most straightforward type of order that you think of is *linear order* i.e. one in which every object has its place depending on every other object. In this case the ordering criteria is completely deterministic and leaves no room for ambiguity in terms of which element comes before which. For example, order of colors, sorted by the length of their light-waves (or by how they appear in the rainbow).
+
+[image]
+
+Using set theory, we can represent this order, as well as any other order, as a sets of pairs of the order’s underlying set with itself (a subset of the product set).
+
+[image]
+
+And in programming, orders are defined by providing a function which, given two objects, tells us which one of them is “bigger” (comes first) and which one is “smaller”. It isn’t hard to see that this function defines a set of pairs (we are given a pair and we have to say whether or not it belongs to the set).
+
+```
+[1, 3, 2].sort((a, b) => { 
+  if (a > b) {
+    return true 
+  } else {
+    return false
+  } 
+})
+```
+
+However (this is where it gets interesting) not all such functions (and not all sets of pairs) define orders. For such function to really define an order i.e. to have the same output every time, independent of how the objects were shuffled initially, it has to obey several rules.
+
+Incidentally, (or rather not incidentally at all), these rules are nearly equivalent to the mathematical laws that define the criteria of the order relationship i.e. those are the rules that define which element can point to which.
+
+> A linear order is a set of elements, together with a *binary relation* between the elements of the set, which obeys the laws of reflexivity, transitivity, antisymmetry, totality.
+
+Let’s check what they are.
+
+### Reflexivity
+
+Let’s get the boring law out of the way — each object has to be bigger or equal to itself, or $a ≤ a$ for all $a$ (the relationship between elements in an order is commonly denoted as $≤$ in formulas, but it can also be represented with an arrow from first object to the second.)
+
+[image]
+
+This law only exist to cover the “base case”: we can formulate it the opposite way too and say that each object should *not* have the relationship to itself, in which case we would have a relation than resembles *bigger than*, as opposed to *bigger or equal to* and a slightly different type of order, sometimes called a *strict* order.
+
+### Transitivity
+
+The second law is maybe the least obvious, (but probably the most essential) — it states that if object $a$ is bigger than object $b$, it is automatically bigger than all objects that are smaller than $b$ or $a ≤ b \\land b ≤ c \\to a ≤ c$.
+
+[image]
+
+This is the law that to a large extend defines what an order is: if I am better at playing soccer than my grandmother, then I would also be better at it than my grandmother’s friend, whom she beats, otherwise I wouldn’t really be better than her.
+
+### Antisymmetry
+
+The third law is called antisymmetry. It states that the function that defines the order should not give contradictory results (or in other words you have $x ≤ y$ and $y ≤ x$ only if $x = y$).
+
+[image]
+
+It also means that no ties are permitted — either I am better than my grandmother at soccer or she is better at it than me.
+
+### Totality
+
+The last law is called *totality* (or *connexity*) and it mandates that all elements that belong to the order should be *comparable* ($a ≤ b \\lor b ≤ a$). That is, for any two elements, one would always be “bigger” than the other.
+
+By the way, the law of totality makes the reflexivity law redundant, as reflexivity is just a special case of totality when $a$ and $b$ are one and the same object, but I still want to present it for reasons that will become apparent soon.
+
+[image]
+
+Actually, here are the reasons: the law of totality can be removed. Orders, that don’t follow the totality law are called *partial orders*, (and linear orders are also called *total orders*.)
+
+**Task 1:** Previously, we covered a relation that is pretty similar to this. Do you remember it? What is the difference?
+
+**Task 2:** Think about some orders that you know about and figure out whether they are partial or total.
+
+Partial orders are actually much more interesting than linear/total orders. But before we dive into them, let’s say a few things about numbers.
+
+### The order of natural numbers
+
+Natural numbers form a linear order under the operation *bigger or equal to* (the symbol of which we have been using in our formulas.)
+
+[image]
+
+In many ways, natural numbers are the quintessential order — every finite order of objects is isomorphic to a subset of the order of numbers, as we can map the first element of any order to the number $1$, the second one to the number $2$ etc (and we can do the opposite operation as well).
+
+If we think about it, this isomorphism is actually closer to the everyday notion of a linear order, than the one defined by the laws — when most people think of order, they aren’t thinking of a *transitive, antisymmetric* and *total* relation, but are rather thinking about criteria based on which they can decide which object comes first, which comes second etc. So it’s important to notice that the two notions are equivalent.
+
+[image]
+
+From the fact that any finite order of objects is isomorphic to the natural numbers, it also follows that all linear orders of the same magnitude are isomorphic to one another.
+
+So, the linear order is simple, but it is also (and I think that this isomorphism proves it) the most *boring* order ever, especially when looked from a category-theoretic viewpoint — all finite linear orders (and most infinite ones) are just isomorphic to the natural numbers and so all of their diagrams look the same way.
+
+[image]
+
+However, this is not the case with partial orders that we will look into next.
+
+## Partial order
+
+Law of totality does not look so “set in stone” as the rest of the laws i.e. we can probably think of some situations in which it does not apply. For example, if we aim to order all people based on soccer skills there are many ways in which we can rank a person compared to their friends their friend’s friends etc. but there isn’t a way to order groups of people who never played with one another.
+
+Remove the law of totality from the laws of linear orders and we get a *partial order* (also a *partially-ordered set*, or *poset*).
+
+> An partial order is a set of elements, together with a *binary relation* between the elements of the set, which obeys the laws of reflexivity, transitivity and antisymmetry.
+
+Every linear order is also a partial order (just as a group is still a monoid), but not the other way around.
+
+We can even create an *order of orders*, based on which is more general.
+
+Partial orders are also related to the concept of an *equivalence relations* that we covered in chapter 1, except that *symmetry* law is replaced with *antisymmetry*.
+
+If we revisit the example of the soccer players rank list, we can see that the first version that includes just **m**yself, my **g**randmother and her **f**riend is a linear order.
+
+[image]
+
+However, including this **o**ther person whom none of us played yet, makes the hierarchy non-linear i.e. a partial order.
+
+[image]
+
+This is the main difference between partial and total orders — partial orders cannot provide us with a definite answer of the question who is better than who. But sometimes this is what we need — in sports, as well as in other domains, there isn’t always an appropriate way to rate elements linearly.
+
+### Chains
+
+Before, we said that all linear orders can be represented by the same chain-like diagram, we can reverse this statement and say that all diagrams that look something different than the said diagram represent partial orders.
+
+An example of this is a partial order that contains a bunch of linearly-ordered subsets, e.g. in our soccer example we can have separate groups of friends who play together and are ranked with each other, but not with anyone from other groups.
+
+[image]
+
+The different linear orders that make up the partial order are called *chains*. There are two chains in this diagram $m \\to g \\to f$ and $d \\to o$.
+
+The chains in an order don’t have to be completely disconnected from each other in order for it to be partial. They can be connected as long as the connections are not all *one-to-one* i.e. ones when the last element from one chain is connected to the first element of the other one (this would effectively unite them into one chain.)
+
+[image]
+
+The above set is not linearly-ordered — although we know that $d ≤ g$ and that $f ≤ g$, the relationship between $d$ and $f$ is *not* known — any element can be bigger than the other one.
+
+### Greatest and least objects
+
+Although partial orders don’t give us a definitive answer to “Who is better than who?”, some of them still can give us an answer to the more important question (in sports, as well as in other domains), namely “Who is number one?” i.e. who is the champion, the player who is better than anyone else. Or, more generally, the element that is bigger than all other elements.
+
+> The *greatest element* of an order is an element $a$, such that we have we have $x ≤ a$ for any other element $x$, Some (not all) partial orders do have such element — in our last diagram $m$ is the greatest element, in this diagram, the green element is the biggest one.
+
+[image]
+
+Sometimes we have more than one elements that are bigger than all other elements, in this case none of them is the greatest.
+
+[image]
+
+In addition to the greatest element, a partial order may also have a least (smallest) element, which is defined in the same way.
+
+### Joins
+
+The *least upper bound* of two elements that are connected as part of an order is called the *join* of these elements, e.g. the green element is a join of the other two.
+
+[image]
+
+The join of $a$ and $b$ is the smallest element $c$ that is bigger than then, formally:
+
+> The *join* of objects $A$ and $B$ is an object $G$, such that:
+> 
+> 1. It is bigger than both of these objects, so $A ≤ G$ and $B ≤ G$.
+> 2. It is smaller than any other object that is bigger than them, so for any other object $P$ such that $P ≤ A$ and $P ≤ B$ then we should also have $G ≤ P$.
+
+[image]
+
+Given any two elements in which one is bigger than the other (e.g. $a ≤ b$), the join is this bigger element (in this case $b$)
+
+[image]
+
+e.g. in a linear orders, the *join* of any two elements is just the bigger element.
+
+Like with the greatest element, if two elements have several upper bounds that are equally big, then none of them is a *join* (a join must be unique).
+
+[image]
+
+If, however, one of those elements is established as smaller than the rest of them, it immediately qualifies.
+
+[image]
+
+**Task 3:** Which concept in category theory reminds you of joins?
+
+### Meets
+
+Given two elements, the biggest element that is smaller than both of them is called the *meet* of these elements.
+
+[image]
+
+The same rules as for the joins apply, but in reverse.
+
+### Hasse diagrams
+
+The diagrams that we use in this section are called “Hasse diagrams” and they work much like our usual diagrams, however they have an additional rule that is followed — “bigger” elements are always positioned above smaller ones.
+
+In terms of arrows, the rule means that if you add an arrow to a point, the point *to* which the arrow points must always be above the one *from* which it points.
+
+[image]
+
+This arrangement allows us to compare any two points by just seeing which one is above the other e.g. we can determine the *join* of two elements, by just identifying the elements that they connect to and see which one is lowest.
+
+### Color-mixing partial order
+
+We all know many examples of total orders (any form of chart or ranking is a total order), but there are probably not so many obvious examples of partial orders that we can think of off the top of our head. So let’s see some. This will gives us some context, and will help us understand what joins are.
+
+To stay true to our form, let’s revisit our color-mixing monoid and create a *color-mixing partial order* in which all colors point to colors that contain them.
+
+[image]
+
+If you go through it, you will notice that the join of any two colors is the color that they make up when mixed. Nice, right?
+
+[image]
+
+### The partial order of numbers by division
+
+We saw that when we order numbers by “bigger or equal to”, they form a linear order. But numbers can also form a partial order, for example they form a partial order if we order them by which divides which, i.e. if $a$ divides $b$, then $a$ is before $b$ e.g. because $2 \\times 5 = 10$, $2$ and $5$ come before $10$ (but $3$, for example, does not come before $10$.)
+
+[image]
+
+And it so happens (actually for very good reason) that the join operation again corresponds to an operation that is relevant in the context of the objects — the join of two numbers in this partial order is their *least common multiple*.
+
+And the *meet* (the opposite of join) of two numbers is their *greatest common divisor*.
+
+[image]
+
+### The inclusion partial order
+
+Given a collection of sets containing a combination of a given set of elements…
+
+[image]
+
+…we can define what is called the *inclusion order* of those sets.
+
+> The inclusion order of sets is a binary relation that we can use to order a collection of sets (usually sets that contain some common elements) in which $a$ comes before $b$ if $a$ *includes* $b$, or in other words if $b$ is a *subset* of $a$.
+
+[image]
+
+In this case the *join* operation of two sets is their *union*, and the *meet* operation is their set *intersection*.
+
+This diagram might remind you of something — if we take the colors that are contained in each set and mix them into one color, we get the color-blending partial order that we saw earlier.
+
+[image]
+
+The order example with the number dividers is also isomorphic to an inclusion order, namely the inclusion order of all possible sets of *prime* numbers, including repeating ones (or alternatively the set of all *prime powers*). This is confirmed by the fundamental theory of arithmetic, which states that every number can be written as a product of primes in exactly one way.
+
+[image]
+
+### Birkhoff’s representation theorem
+
+So far, we saw two different partial orders, one based on color mixing, and one based on number division, that can be represented by the inclusion orders of all possible combinations of sets of some *basic elements* (the primary colors in the first case, and the prime numbers (or prime powers) in the second one.) Many other partial orders can be defined in this way. Which ones exactly, is a question that is answered by an amazing result called *Birkhoff’s representation theorem*. They are the *finite* partial orders that meet the following two criteria:
+
+1. All elements have *joins* and *meets*.
+2. Those *meet* and *join* operations *distribute* over one another, that is if we denote joins as meets as $∨$ or $∧$, then $x ∨ (y ∧ z) = (x ∨ y) ∧ (x ∨ z)$.
+
+The partial orders that meet the first criteria are called *lattices*. The ones that meet the second one are called *distributive lattices*. Let’s write that down:
+
+> Partial orders in which all elements have *joins* and *meets* is called a *lattice*. A lattice whose *meet* and *join* operations *distribute* over one another is called a distributive lattice.
+
+And the “prime” elements which we use to construct the inclusion order are the elements that are not the *join* of any other elements. They are also called *join-irreducible* elements.
+
+So we may phrase the theorem like this:
+
+> Each distributive lattice is isomorphic to an inclusion order of its *join-irreducible* elements.
+
+By the way, the partial orders that are *not* distributive lattices are also isomorphic to inclusion orders, it is just that they are isomorphic to inclusion orders that *do not contain all possible combinations* of elements.
+
+## Lattices
+
+We will now talk more about *lattices* (the orders for which Birkhoff’s theorem applies). Lattices are partial orders, in which every two elements have a *join* and a *meet*. So every lattice is also partial order, but not every partial order is a lattice (we will see even more members of this hierarchy).
+
+Most partial orders that are created based on some sort of rule are distributive lattices, like for example the partial orders from the previous section are also distributive lattices when they are drawn in full, for example the color-mixing order.
+
+[image]
+
+Notice that we added the black ball at the top and the white one at the bottom. We did that because otherwise the top three elements wouldn’t have a *join* element, and the bottom three wouldn’t have a *meet*.
+
+### Bounded lattices
+
+Our color-mixing lattice, has a *greatest element* (the black ball) and a *least element* (the white one). Lattices that have a least and greatest elements are called *bounded lattices*. It isn’t hard to see that all finite lattices are also bounded.
+
+**Task 4:** Prove that all finite lattices are bounded.
+
+### Order isomorphisms
+
+We mentioned order isomorphisms several times already so this is about time to elaborate on what they are.
+
+Given two sets (we will use partial order of numbers by division and the prime inclusion order as an example) an isomorphism between them is comprised of the following two functions:
+
+1. One function from the prime inclusion order, to the number order (which in this case is just the *multiplication* of all the elements in the set)
+2. One function from the number order to the prime inclusion order (which is an operation called *prime factorization* of a number, consisting of finding the set of prime numbers that result in that number when multiplied with one another).
+
+[image]
+
+An order isomorphism is essentially an isomorphism between the orders’ underlying sets (invertible function). However, besides their underlying sets, orders also have the arrows that connect them, so there is one more condition: in order for an invertible function to constitute an order isomorphism, it has to *respect those arrows*.
+
+> An isomorphism between two orders is an invertible function between their underlying sets, such that applying this function (let’s call it $F$) to any two elements that have a certain order in one set (let’s call them $a$ and $b$) should result in two elements that have a corresponding order in the other set (i.e. $a ≤ b$ if and only if $F(a) ≤ F(b)$).
+
+Such functions are called *order-preserving* functions.
+
+## Preorder
+
+In the previous section, we saw how removing the law of *totality* from the laws of (linear) order produces a different (and somewhat more interesting) structure, called *partial order*. Now let’s see what will happen if we remove another one of the laws, namely the *antisymmetry* law.
+
+The antisymmetry law mandated that you cannot have an object that is at the same time smaller and bigger than another one. (or that $a ≤ b ⟺ b ≰ a$).
+
+  Linear order Partial order Preorder **Element Comparability** $a ≤ b$ or $b ≤ a$ $a ≤ b$ or $b ≤ a$ or neither $a ≤ b$ or $b ≤ a$ or neither or both **Reflexivity** X X X **Transitivity** X X X **Antisymmetry** X X - **Totality** X - -
+
+The result is a structure called a *preorder*:
+
+> An preorder is a set of elements, together with a *binary relation* between the elements of the set, which obeys the laws of reflexivity and transitivity.
+
+Preorder is not exactly an order in the everyday sense — it can have arrows coming from any point to any other: if a partial order can be used to model who is better than who at soccer, then a preorder can be used to model who has beaten who, either directly (by playing him) or indirectly.
+
+[image]
+
+Preorders have just one law — *transitivity* $a ≤ b \\land b ≤ c \\to a ≤ c$ (well, two, if we count *reflexivity*). The part about the indirect wins is a result of this law. Due to it, all indirect wins (ones that are wins not against the player directly, but against someone who had beat them) are added as a direct result of its application, as seen here (we show indirect wins in lighter tone).
+
+[image]
+
+And as a result of that, all “circle” relationships (e.g. where you have a weaker player beating a stronger one) result in just a bunch of objects that are all connected to one another.
+
+All of that structure arises naturally from the simple law of transitivity.
+
+### Preorders and equivalence relations
+
+Preorders may be viewed as a middle-ground between *partial orders* and *equivalence relations*, as they are missing exactly the property on which those two structures differ — (anti)symmetry. Because of that, if we have a bunch of objects in a preorder that follow the law of *symmetry*, those objects form an equivalence relation. And if they follow the reverse law of *antisymmetry*, they form a partial order.
+
+Equivalence relation Preorder Partial order Reflexivity Reflexivity Reflexivity Transitivity Transitivity Transitivity Symmetry - Antisymmetry
+
+In particular, any subset of objects that are connected with one another both ways (like in the example above) follows the *symmetry* requirement. So if we group all elements that have such connection, we would get a bunch of sets, all of which define different *equivalence relations* based on the preorder, called the preorder’s *equivalence classes*.
+
+[image]
+
+And, even more interestingly, if we transfer the preorder connections between the elements of these sets to connections between the sets themselves, these connections would follow the *antisymmetry* requirement, which means that they would form a *partial order.*
+
+[image]
+
+In short, for every preorder, we can define the *partial order of the equivalence classes of this preorder*.
+
+## Preorders as categories
+
+We saw that preorders are a powerful concept, so let’s take a deeper look at the law that governs them — the transitivity law. What this law tells us that if we have two pairs of relationship $a ≤ b$ and $b ≤ c$, then we automatically have a third one $a ≤ c$.
+
+[image]
+
+In other words, the transitivity law tells us that the $≤$ relationship composes i.e. if we view the “bigger than” relationship as a morphism we would see that the law of transitivity is actually the categorical definition of *composition*.
+
+[image]
+
+(we have to also verify that the relation is associative, but that’s easy)
+
+So, we suspect that preorders are categories, but is it really so? Let’s review the definition of a category again.
+
+> A category is a collection of *objects* (we can think of them as points) and *morphisms* (arrows) that go from one object to another, where:
+> 
+> 1. Each object has to have the identity morphism.
+> 2. There should be a way to compose two morphisms with an appropriate type signature into a third one in a way that is associative.
+
+Looks like we have law number 2 covered, with transitivity. What about the identity law? We have it too, under the name *reflexivity*.
+
+[image]
+
+So it’s official — preorders are categories (sounds kinda obvious, especially after we also saw that preorders can be reduced to sets and functions using the inclusion order, and sets and functions form a category in their own right).
+
+Preorders are special types of categories (all preorders are categories, but not all categories are preorders). Most categories have many different morphisms between given two objects. For example, in the category of sets where there are potentially infinite amount of functions from, say, the set of integers and the set of boolean values, as well as a lot of functions that go the other way around.
+
+[image]
+
+Whereas preorders, two object, whereas have *at most one morphism*, that is, we either have $a ≤ b$ or we do not.
+
+[image]
+
+So, like a monoid is a category that has one object, an order is a category that has at most one *morphism* between two objects.
+
+An interesting fact that follows from the fact that the they have at most one morphism between given two objects is that in preorders *all diagrams commute*.
+
+**Task 6:** Prove this.
+
+### Partial orders and total orders as categories
+
+We said that partial orders and total orders are preorders. This means that they are categories as well.
+
+Preorders in particular are what is known in category theory as *skeletal* categories — categories in which there are no isomorphic objects i.e. in which all isomorphic objects are identical.
+
+And total orders I guess we don’t have a specific “categorical” name for them, but they are a certain type of categories as well.
+
+### Products and coproducts
+
+While we are rehashing diagrams from the previous chapters, let’s look at the diagram defining the *coproduct* of two objects in a category, from chapter 2. [image]
+
+If you recall, this is an operation that corresponds to *set inclusion* in the category of sets.
+
+[image]
+
+But wait, wasn’t there some other operation that that corresponded to set inclusion? Oh yes, the *join* operation in orders. And not merely that, but joins in orders are defined in the exact same way as the categorical coproducts.
+
+> The coproduct of $A$ and $B$, denoted $A + B$, is an object, such that:
+> 
+> 1. There exists two “projection” morphisms $A \\to A + B$ and $B \\to A + B$.
+> 2. For any impostor coproduct $I$, that also has such projection morphisms ($A \\to I$ and $B \\to I$), there must also exist a unique morphism with the type signature $g: A + B \\to I$, that converts the real coproduct to the impostor, such that the projections of the impostor would be just the composition of $g$ with the projections of the product.
+
+[image]
+
+In the realm of orders, we define join as:
+
+> The *join* of objects $A$ and $B$ is an object $G$, such that:
+> 
+> 1. It is bigger than both of these objects, so $A ≤ G$ and $B ≤ G$.
+> 2. It is smaller than any other object that is bigger than them, so for any other object $P$ such that $P ≤ A$ and $P ≤ B$ then we should also have $G ≤ P$.
+
+[image]
+
+We can see that the two definitions, and their corresponding diagrams, are basically the same, we just replaced “bigger” with “has a unique morphism” (because in orders all morphisms are unique).
+
+Speaking in category-theoretic terms, we can say that:
+
+> The *categorical coproduct* in the *category of preorders* is the *join* operation.
+
+Which of course means that *products* correspond to *meets* (duality).
+
+### Formal definition
+
+In category-theoretic terms, orders (categories that have at most one morphism with a given type signature) are known as “thin” categories.
+
+> A preorder, any preorder, can be seen as a category with at most one morphism between two given objects — if one object is bigger then there is a morphism between them. The converse is also true: any category with at most one morphism between two given objects can be seen as a preorder (called also a *thin* category).
+
+Thin categories are often used for exploring categorical concepts in a context that is easier to understand than in normal (non-thin) categories. For example, as we saw, understanding the *order-theoretic* concepts of meets and joins would help you better understand the *more general categorical* concepts of products and coproducts.
+
+Thin categories are also helpful in contexts when we want to keep it simple and we aren’t particularly interested in the differences between the morphisms that go from one object to another. We will see an example of that in the next chapter.
+
+---
+
+## [HN-TITLE] 2. Michael Rabin Has Died
+
+- **Source**: [link]
+- **Site**: Wikimedia Foundation, Inc.
+- **Author**: Contributors to Wikimedia projects
+- **Published**: 2003-08-17
+- **HN activity**: 101 points · [link]
+- **Length**: 1.8K words (~8 min read)
+- **Language**: en
+
+From Wikipedia, the free encyclopedia
+
+Michael Oser Rabin
+
+מִיכָאֵל עוזר רַבִּין
+
+[[image]](https://en.wikipedia.org/wiki/File:M_O_Rabin.jpg)BornSeptember 1, 1931
+
+[link], Lower Silesia, Prussia, Germany
+
+DiedApril 14, 2026 (aged 94)
+
+[link], Israel
+
+Education[link] ([link], [link])  
+[link]  
+[link] ([link])Known for[link]  
+[link]  
+[link]  
+[link]  
+[link]  
+[link]  
+[link]  
+[link]  
+[link]  
+[link]  
+Decidability of [link]")  
+[link]  
+[link]  
+[link]  
+[link]  
+[link]  
+[link]  
+[link]  
+[link]Awards
+
+- [link]") (1959)
+- [link] (1976)
+- [link] (1980)
+- [link] (1985)
+- [link] (1995)
+- [link] (2000)
+- [link] (2003)
+- [link] (2004)
+- [link] (2004)
+- [link] (2010)
+- [link] (2015)
+
+**Scientific career**Fields[link]Institutions[link]  
+[link]  
+[link][link] *Recursive Unsolvability of Group Theoretic Problems*  (1957)[link][link]Doctoral students
+
+- [link]
+- [link]
+- [link]
+- [link]
+- [link]
+
+**Michael Oser Rabin** ([link]: מִיכָאֵל עוזר רַבִּין; September 1, 1931 – April 14, 2026) was an Israeli mathematician and [link] who was co-recipient, with [link], of the 1976 ACM [link] for their work on computational complexity.
+
+### Early life and education
+
+\[link]]
+
+Rabin was born in 1931 in [link], [link], [link], [link] (today [link], in [link]), the son of a [link]. In 1935, he [link] with his family to [link]. As a young boy, he was very interested in mathematics and his father sent him to the best high school in [link], where he studied under mathematician [link], who was then a high school teacher.[\[1\]](#cite_note-CACM_2_2010-1)
+
+He graduated from the [link] in Haifa in 1948, and was drafted into the army during the [link]. The mathematician [link], who was a professor of mathematics in [link], intervened with the army command, and Rabin was discharged to study at the university in 1949.[\[1\]](#cite_note-CACM_2_2010-1) Afterwards, he received an M.Sc from [link]. He began graduate studies at the [link] before receiving a [link] from [link] in 1956.[\[2\]](#cite_note-2)
+
+Rabin became Associate Professor of Mathematics at the [link] (1961–62), and [link] (1962–63). Before moving to [link] as Gordon McKay Professor of Computer Science in 1981, he was a professor at the Hebrew University.[\[3\]](#cite_note-3)
+
+In the late 1950s, Rabin was invited for a summer to do research for [link] at the Lamb Estate in [link], with other promising mathematicians and scientists. It was there that he and [link] wrote the paper "Finite Automata and Their Decision Problems".[\[4\]](#cite_note-RS59-4) Soon, using nondeterministic automata, they were able to re-prove [link] result that finite state machines exactly accept regular languages.[\[1\]](#cite_note-CACM_2_2010-1)
+
+As to the origins of what was to become [link], the next summer Rabin returned to the Lamb Estate. [link]") posed a puzzle to him about spies, guards, and passwords, which Rabin studied and soon after he wrote an article, "Degree of Difficulty of Computing a Function and Hierarchy of Recursive Sets".[\[1\]](#cite_note-CACM_2_2010-1)[\[5\]](#cite_note-5)
+
+[link] have become a key concept in computational complexity theory, particularly with the description of the [link].\[link]]
+
+He then returned to Jerusalem, researching logic, and working on the foundations of what would later be known as [link]. He was an associate professor and the head of the Institute of Mathematics at the Hebrew University at 29 years old, and a full professor by 33. Rabin recalls, "There was absolutely no appreciation of the work on the issues of computing. Mathematicians did not recognize the emerging new field".[\[1\]](#cite_note-CACM_2_2010-1)
+
+In 1960, Rabin was invited by [link] to work at [link], where Rabin introduced [link] that employ coin tosses to decide which state transitions to take. He showed examples of regular languages that required a very large number of states, but for which you get an exponential reduction of the number of states with probabilistic automata.[\[1\]](#cite_note-CACM_2_2010-1)
+
+In 1966 (published in conference proceedings in 1967),[\[6\]](#cite_note-6) Rabin introduced the notion of [link]") (introduced independently and very shortly before by [link]")[\[7\]](#cite_note-7) and [link][\[8\]](#cite_note-8)).
+
+In 1969, Rabin introduced [link] and proved that the [link] of *n* successors ([link]") when *n* = 2) is [link].[\[9\]](#cite_note-9) A key component of the proof implicitly showed [link] of [link], which lie in the third level of the [link].\[link]]
+
+In 1975, Rabin finished his tenure as Rector of the Hebrew University of Jerusalem and went to the [link] in the USA as a visiting professor. While there, Rabin invented the [link], a randomized algorithm that can determine very quickly (but with a tiny probability of error) whether a number is [link].[\[10\]](#cite_note-10)[\[11\]](#cite_note-11) Rabin's method was based on previous work of [link]") that solved the problem deterministically with the assumption that the [link] is true, but Rabin's version of the test made no such assumption. Fast primality testing is key in the successful implementation of most public-key cryptography, and in 2003 Miller, Rabin, [link], and [link] were given the [link] for their work on primality testing.\[link]]
+
+In 1976 Rabin was invited by [link] to meet at [link] and presented the primality test, which Traub called "revolutionary".[\[1\]](#cite_note-CACM_2_2010-1)
+
+In 1978, Rabin invented the [link], the first asymmetric cryptosystem whose security was proved equivalent to the intractability of [link].[\[12\]](#cite_note-rabin1978digsigs-12)[\[13\]](#cite_note-rabin1979lcs-tr-13)
+
+In 1981, Rabin reinvented a weak variant of the technique of [link] invented by Wiesner under the name of multiplexing,[\[14\]](#cite_note-14) allowing a sender to transmit a message to a receiver where the receiver has some probability between 0 and 1 of learning the message, with the sender being unaware whether the receiver was able to do so.\[link]]
+
+In 1987, Rabin, together with [link], created one of the most well-known efficient [link], the [link], known for its [link].[\[15\]](#cite_note-15)
+
+Rabin's subsequent research concentrated on computer security. During the spring semester of 2007, he was a visiting professor at [link] teaching *Introduction to [link]*. He retired from full-time academic life as the [link] Professor of Computer Science, Emeritus at [link] and Professor of Computer Science (Emeritus) at [link].\[link]]
+
+### Personal life and death
+
+\[link]]
+
+Rabin died on April 14, 2026, at the age of 94.[\[16\]](#cite_note-16)
+
+His daughter, [link], is also a distinguished computer scientist.[\[17\]](#cite_note-17)
+
+Rabin was a foreign member of the [link],[\[18\]](#cite_note-18) a member of the [link],[\[19\]](#cite_note-19) a member of the [link],[\[20\]](#cite_note-20) a member of the [link],[\[21\]](#cite_note-21) and a foreign member of the [link].[\[22\]](#cite_note-22)
+
+In 1976, the [link] was awarded jointly to Rabin and [link] for a paper written in 1959, the citation for which states that the award was granted:
+
+> *For their joint paper "Finite Automata and Their Decision Problems," which introduced the idea of nondeterministic machines, which has proved to be an enormously valuable concept. Their (Scott & Rabin) \[link]*] classic paper has been a continuous source of inspiration for subsequent work in this field.*[\[23\]](#cite_note-23)
+
+In 1995, Rabin was awarded the [link], in computer sciences.[\[24\]](#cite_note-24) In 2010, Rabin was awarded the [link] [link] ("Future" category), jointly with [link] and [link], for Computers and Telecommunications.[\[25\]](#cite_note-25) Rabin was awarded an Honorary Doctor of Science from Harvard University in 2017.[\[26\]](#cite_note-26)
+
+- [link]
+- [link]
+- [link]
+- [link]
+- [link]
+- [link]
+
+<!--THE END-->
+
+01. ^ [link] [link] [link] [link] [link] [link] [link] [link] (February 2010). [link]. *Communications of the ACM*. **53** (2): 37–42. [link]"):[link]. [link]") [link]. [link] from the original on 2016-03-13. Retrieved 2010-02-04.
+02. [link] [link]. amturing.acm. [link] from the original on 28 November 2023. Retrieved 14 August 2023.
+03. [link] [link] (PDF). Harvard University. Retrieved 31 March 2017.
+04. [link] [link]; [link] (1959). [link] (PDF). *IBM Journal of Research and Development*. **3** (2): 114–125. [link]"):[link]. Archived from the original on March 4, 2016.
+05. [link] Rabin, M.O., "Degree of Difficulty of Computing a Function and Hierarchy of Recursive Sets", Technical Report No. 2, O.N.R., Hebrew University, Jerusalem, 1960
+06. [link] Rabin, Michael O. (1967). "Mathematical theory of automata". *Mathematical Aspects of Computer Science. Proc. Sympos. Appl. Math*. Vol. XIX. Amer. Math. Soc. pp. 153–175.
+07. [link] [link]") (1965). "The intrinsic computational difficulty of functions". *Logic, Methodology and Philos. Sci. (Proc. 1964 Internat. Congr.)*. pp. 24–30.
+08. [link] [link] (1965). "Paths, trees, and flowers". *Canadian Journal of Mathematics*. **17**: 449–467. [link]"):[link]. [link]"):[link].)
+09. [link] Rabin, MO (1969). [link]. *Transactions of the American Mathematical Society*. **141**: 1–35. [link]"):[link]. [link]") [link]. [link] from the original on 2020-06-12. Retrieved 2007-11-24.
+10. [link] Rabin, MO (1976). "Probabilistic algorithms". *Algorithms and Complexity, Proc. Symp*. Pittsburgh.
+11. [link] Rabin, MO (1980). [link]. *Journal of Number Theory*. **12** (1): 128–138. [link]"):[link].
+12. [link] [link] (1978). "Digitalized Signatures". In [link]; [link]; [link]; [link] (eds.). *Foundations of Secure Computation*. New York: Academic Press. pp. 155–168. [link]") [link].
+13. [link] [link] (January 1979). [link] (PDF) (Technical report). Cambridge, MA, United States: MIT Laboratory for Computer Science. TR-212.
+14. [link] Rabin, Michael O. (1981). [link] (PDF). Aiken Computation Laboratory: Harvard University. [link] (PDF) from the original on 2021-11-23. Retrieved 2007-03-15.
+15. [link] Karp, RM; Rabin, MO (March 1987). [link]. *IBM Journal of Research and Development*. **31** (2): 249–260. [link]"):[link]. [link]") [link]. Retrieved 2007-03-15.
+16. [link] [link]. *haaretz-evel*. Retrieved 17 April 2026.
+17. [link] [link]. *Forbes*. [link] from the original on 26 October 2022. Retrieved 26 October 2022.
+18. [link] [link]. *www.nasonline.org*. [link] from the original on 2022-05-02. Retrieved 2022-05-02.
+19. [link] [link]. *search.amphilsoc.org*. [link] from the original on 2022-05-02. Retrieved 2022-05-02.
+20. [link] [link]. *American Academy of Arts & Sciences*. [link] from the original on 2022-05-02. Retrieved 2022-05-02.
+21. [link] [link]. *Académie des sciences* (in French). Retrieved 2024-04-14.`{{cite web}}`: CS1 maint: url-status ([link])
+22. [link] [link]. *The Royal Society*. Retrieved 2026-04-17.`{{cite web}}`: CS1 maint: url-status ([link])
+23. [link] [link] [link] archived 2012-07-14 at [link]
+24. [link] [link]. Archived from [link] on 2008-12-27.
+25. [link] [link]. Archived from [link] on March 6, 2010.
+26. [link] [link]. 25 May 2017. [link] from the original on 25 May 2017. Retrieved 25 May 2017.
+
+<!--THE END-->
+
+- [link]
+- [link]
+- [link]
+- [link]
+- [link] by [link]
+
+---
+
+## [HN-TITLE] 3. Amiga Graphics
+
+- **Source**: [link]
+- **Site**: amiga.lychesis.net
+- **Submitter**: sph (Hacker News)
+- **Submitted**: 2026-04-18 06:20 UTC (Hacker News)
+- **HN activity**: 104 points · [link]
+- **Length**: 296 words (~2 min read)
+- **Language**: en
+
+[image]
+
+[image]
+
+[image]
+
+[image]
+
+[image]
+
+[image]
+
+[[image] Applications](https://amiga.lychesis.net/applications.html "Applications")
+
+[[image] Artists](https://amiga.lychesis.net/artists.html "Artists")
+
+[[image] Games](https://amiga.lychesis.net/games.html "Games")
+
+[[image] Logos](https://amiga.lychesis.net/logos.html "Logos")
+
+[[image] Publications](https://amiga.lychesis.net/publications.html "Publications")
+
+[[image] Sceners](https://amiga.lychesis.net/sceners.html "Sceners")
+
+[[image] Specials](https://amiga.lychesis.net/specials.html "Specials")
+
+Launched in 1985 the Commodore Amiga boasted graphics capabilities that were unsurpassed for it's time.
+
+It featured an intricate collection of custom chips that enabled it to do things that, until then, had been impossible to achieve with other personal computers.
+
+This site is dedicated to graphics made with or for the Commodore Amiga home computer.
+
+## Articles
+
+- [link]
+- [link]
+- [link]
+- [link]
+- [link]
+- [link]
+
+## [link]
+
+[[image]](https://amiga.lychesis.net/updates/2025-05-31.html) [[image]](https://amiga.lychesis.net/updates/2025-05-31.html#ThiloBlochmann_PerpetuumMobile) [[image]](https://amiga.lychesis.net/updates/2025-05-31.html#ThomasGraenicher_EinSternWirdZumStar) [[image]](https://amiga.lychesis.net/updates/2025-05-31.html#JensEisert_Spacecraft)
+
+#### 31. 05. 2025
+
+Added the next batch of Amiga Magazin images. This time from the color cycling contests in July 1988.
+
+I switched the format for images with color cycling or animations in CRT mode to MP4, because some of the loops were getting too long and using animated WEBP files wasn't practical anymore.
+
+[[image]](https://amiga.lychesis.net/updates/2024-11-18.html) [[image]](https://amiga.lychesis.net/updates/2024-11-18.html#IslandGraphics_Dancer2) [[image]](https://amiga.lychesis.net/updates/2024-11-18.html#IslandGraphics_Dancer3) [[image]](https://amiga.lychesis.net/updates/2024-11-18.html#IslandGraphics_Fruit)
+
+#### 18. 11. 2024
+
+Added a collection of images by Island Graphics from the very beginning of the Amiga.
+
+[[image]](https://amiga.lychesis.net/updates/2023-10-15.html) [[image]](https://amiga.lychesis.net/updates/2023-10-15.html#Facet_Gracefull) [[image]](https://amiga.lychesis.net/updates/2023-10-15.html#Facet_LightOfStruggle) [[image]](https://amiga.lychesis.net/updates/2023-10-15.html#Facet_SamTakingASelfie) [[image]](https://amiga.lychesis.net/updates/2023-10-15.html#Facet_TheRedMan) [[image]](https://amiga.lychesis.net/updates/2023-10-15.html#Facet_TrappedInSpace)
+
+#### 15. 10. 2023
+
+Added some brilliant new images from oldschool scener Facet, who has been quite active again in the last couple of years.
+
+I also changed the ordering for sceners, so that the images will now be shown from new to old.
+
+[[image]](https://amiga.lychesis.net/updates/2023-09-09.html) [[image]](https://amiga.lychesis.net/updates/2023-09-09.html#Spirko_Frog) [[image]](https://amiga.lychesis.net/updates/2023-09-09.html#Spirko_T-Rex) [[image]](https://amiga.lychesis.net/updates/2023-09-09.html#Spirko_Visa)
+
+#### 09. 09. 2023
+
+Added a great collection of early hi-res images from Robert J. Spirko. A lot of these were printed in the german Amiga Jahrbuch 1987.
+
+[[image]](https://amiga.lychesis.net/updates/2023-08-27.html) [[image]](https://amiga.lychesis.net/updates/2023-08-27.html#RainerReber_FutureTown) [[image]](https://amiga.lychesis.net/updates/2023-08-27.html#ThomasGunst_Beast) [[image]](https://amiga.lychesis.net/updates/2023-08-27.html#UrsWaldvogel_Erdbeeren) [[image]](https://amiga.lychesis.net/updates/2023-08-27.html#UweDreher_HerrenDerZeit) [[image]](https://amiga.lychesis.net/updates/2023-08-27.html#Unknown_Angie1) [[image]](https://amiga.lychesis.net/updates/2023-08-27.html#WagnerBros_GStubbs) [[image]](https://amiga.lychesis.net/updates/2023-08-27.html#WagnerBros_Mickey)
+
+#### 27. 08. 2023
+
+Added a whole bunch of images that were printed in various magazines as part of art contests - mostly from german Amiga Magazin.
+
+Finding original files isn't easy, since magazines rarely distributed the submissions during the 80ies.
+
+This got better during the 90ies, when coverdisks and cdroms were more common, but sadly by that time a lot of submissions consisted of 3D renderings and photo collages, instead of hand crafted pixel art.
+
+[link]
+
+---
+
+## [HN-TITLE] 4. Claude Design
 
 - **Source**: [link]
 - **Site**: anthropic.com
 - **Submitter**: meetpateltech (Hacker News)
 - **Submitted**: 2026-04-17 15:04 UTC (Hacker News)
-- **HN activity**: 910 points · [link]
+- **HN activity**: 1070 points · [link]
 - **Length**: 901 words (~4 min read)
 - **Language**: en
 
@@ -89,695 +803,651 @@ Our latest Opus model brings stronger performance across coding, agents, vision,
 
 ---
 
-## [HN-TITLE] 2. Towards Trust in Emacs
+## [HN-TITLE] 5. Show HN: I made a calculator that works over disjoint sets of intervals
 
 - **Source**: [link]
-- **Site**: eshelyaron.com
-- **Author**: Eshel Yaron
-- **Submitted**: 2026-04-15 13:49 UTC (Hacker News)
-- **HN activity**: 47 points · [link]
-- **Length**: 774 words (~4 min read)
+- **Site**: victorpoughon.github.io
+- **Submitter**: fouronnes3 (Hacker News)
+- **Submitted**: 2026-04-18 01:15 UTC (Hacker News)
+- **HN activity**: 180 points · [link]
+- **Length**: 898 words (~4 min read)
 - **Language**: en
 
-Introducing `trust-manager`, a trust management package for Emacs
+## What is this?
 
-Created on \[2026-04-15], last updated \[2026-04-15]
+This is a calculator that works over *unions of intervals* rather than just real numbers. It is an implementation of [link].
 
-Emacs has some serious trust issues. Up to version 30, it didn’t differentiate between trusted and untrusted files, and in effect treated all files as trusted. This implicit trust manifested in various security issues, such as the arbitrary code execution vulnerability CVE-2024-53920 which [link] a couple of years ago.
+An interval `[a, b]` represents the set of all numbers between and including a and b. An interval union: `[a, b] U [c, d]` is a disjoint set of intervals.
 
-To fix this vulnerability, Emacs 30 introduced an explicit notion of trust, where some potentially risky features are only enabled for trusted files. It also set all files to untrusted by default.
-
-In theory, this is a safe default, but it is not very convenient, and the problem with security measures that cause too much friction is that users tend to disable them in order to get on with their work. To fulfill its security purposes, a good trust system needs to stay out of your way. Enter [link], my new trust management package for Emacs.
-
-But first, let’s take a closer look at a common pitfall of the current Emacs trust situation. Then we’ll see how `trust-manager` solves it. The most prominent Emacs feature that has been limited to trusted files for security reasons is the Emacs Lisp Flymake backend, which is responsible for on-the-fly diagnostics in Emacs Lisp code. The way it works is that when Emacs invokes the Flymake backend to retrieve diagnostics in a given buffer (file), a check is performed to see whether the buffer is trusted according to the current trust settings. If it was not marked as trusted, then the backend is disabled, and you get a message saying:
+Interval *union* arithmetic is an extension of regular interval arithmetic that is vastly superior, mostly because it remains closed while supporting division by intervals containing zero:
 
 ```
-Disabling elisp-flymake-byte-compile in foo.el (untrusted content)
+➤ 2 / [-2, 1]
+[-∞, -1] U [2, +∞]
 ```
 
-Now, seeing this, you know that your on-the-fly diagnostics are gone, and you also know why; but even if you actually do trust this buffer, you don’t have any immediate way of telling that to Emacs, and getting your diagnostics back and your job done.
+The interesting thing about interval union arithmetic is the inclusion property, which means that if you pick any real number from every input union and compute the same expression over the reals, the result is guaranteed to be in the output union.
 
-This annoyance pushes many users to configure overly broad trust settings, and indeed a quick search among Emacs configurations published on GitHub reveals users going as far as disabling the trust mechanism altogether. This is exactly the kind of friction `trust-manager` is designed to eliminate.
-
-## Granting trust just-in-time with `trust-manager`
-
-My new `trust-manager` package, which is available from MELPA, helps you grant trust just-in-time, with minimal friction. You enable `trust-manager-mode` in your init file and forget about trust configuration. The first time you visit a file in a given project, `trust-manager-mode` asks you whether you trust that project. If you say yes, it marks the project directory as trusted and remembers your choice. If you say no, that’s remembered too. The next time you visit a file in that same project, no questions are asked. If you change your mind, you can edit your trust settings at any time with `trust-manager-customize`.
-
-The commentary section of `trust-manager.el` details useful tips and customization options that you may want to check out, but usually all you need in terms of configuration is:
+You can use it to represent uncertainty:
 
 ```
-(trust-manager-mode)
+➤ 50 * (10 + [-1, 1])
+[450, 550]
 ```
 
-Beyond just-in-time prompting, `trust-manager-mode` also takes care of some files that you most certainly trust already: your init file, your early init file, your custom file, and all directories on your `load-path`. These are marked as trusted as soon as the mode is enabled, so Emacs Lisp features work without interruption in your own configuration files and in the ELisp source files that come with Emacs and packages you install.
+You can also compute more complex interval expressions, using the interval union operator `U`:
 
-An additional improvement that `trust-manager` brings is a mode line indicator for untrusted buffers. In untrusted Emacs Lisp buffers, you’ll see a small red `?` in the mode line. This indicator serves two purposes: it reminds you that some features may be disabled in this buffer, and it lets you act on that information right away: clicking on it marks the buffer as trusted and immediately re-enables any features that were waiting for trust. Here’s a quick demo:
+```
+➤ ( [5, 10] U [15, 16] ) / [10, 100]
+[0.05, 1.6]
+```
 
-[image]
+Operations can result in disjoint unions of intervals:
 
-Your trust choices are stored in the user option `trust-manager-trust-alist`. You can inspect and edit it directly with `M-x trust-manager-customize`, or use the dedicated commands `trust-manager-set-project-trust` and `trust-manager-set-file-trust` to mark specific directories or files as trusted or untrusted without going through the Customize interface.
+```
+➤ 1 / [-2, 1]
+[-∞, -0.5] U [1, +∞]
+➤ tan([pi/3, 2*pi/3])
+[-∞, -1.732] U [1.732, +∞]
+```
 
-`trust-manager-mode` also hooks into `project-forget-project`: when you ask Emacs to forget a project, its trust entry is cleared automatically, so stale trust settings don’t linger.
+In full precision mode, you can use it as a regular calculator, and obtain interval results that are guaranteed to contain the true value, despite floating point precision issues:
 
-## Conclusion
+```
+➤ 0.1 + 0.2
+[0.29999999999999993, 0.3000000000000001]
+```
 
-Emacs 30’s trust system is a meaningful step forward for security, but its out-of-the-box experience leaves some room for improvement. `trust-manager` helps you grant trust just-in-time, so you can keep your settings secure without compromising on functionality.
+## Syntax
 
-You can install `trust-manager` from MELPA with `M-x package-install`, or find the source at [link] or at [link].
+   Syntax Examples Interval `[a, b]` `[0.5, 0.6]` Union `[a, b] U [c, d]` `[0, 1] U [5, 6]` Addition `A + B` `➤ [90, 100] + [-2, 2]`  
+`[88, 102]` Subtraction `A - B` `➤ [14, 16] - [8, 12]`  
+`[2, 8]` Multiplication `A * B` `➤ [-5, 10] * [2, 4]`  
+`[-20, 40]` Division `A / B` `➤ [2, 4] / [-1, 2]`  
+`[-∞, -2] U [1, +∞]` Exponent `A ^ B` `➤ [2, 3] ^ [-2, 3]`  
+`[0.1111, 27]` Functions `function(...)` `➤ log10([1, 10000])`  
+`[0, 4]` Constants `name` `➤➤ pi`  
+`[3.1415926535897927, 3.1415926535897936]`
+
+Note: you can input intervals with the bracket syntax: `[1, 2]`, or bare numbers without brackets: `3.14`. Bare numbers are intepreted as a narrow interval, i.e. `[3.14, 3.14]` (with subtleties related to full precision mode). This enables bare numbers and intervals to be mixed naturally:
+
+```
+➤ 1.55 + [-0.002, 0.002]
+[1.548, 1.552]
+```
+
+A surprising consequence of the calculator grammar is that intervals can be nested and you can write things like:
+
+```
+➤ [0, [0, 100]]
+[0, 100]
+```
+
+This is because all numbers, including those inside an interval bracket which define a bound, are interpreted as intervals. When nesting two intervals as above, an interval used as an interval bound is the same as taking its upper bound. This design choice enables using arithmetic on interval bounds themselves:
+
+```
+➤ [0, cos(2*pi)]
+[0, 1]
+```
+
+## Supported Functions
+
+   Function Examples Constants `inf`, `∞`,  
+`pi`, `e` `➤ [-inf, 0] * [-inf, 0]`  
+`[0, +∞]` Lower bound `lo(A)` `➤ lo([1, 2])`  
+`[1, 1]` Upper bound `hi(A)` `➤ hi([1, 2])`  
+`[2, 2]` Hull `hull(A)` `➤ hull([1, 2] U [99, 100])`  
+`[1, 100]` Absolute value `abs(A)` `➤ abs([-10, 5])`  
+`[0, 10]` Square root `sqrt(A)` `➤ sqrt([9, 49])`  
+`[3, 7]` Square Inverse `sqinv(A)` `➤ sqinv([4, 64])`  
+`[-8, -2] U [2, 8]` Natural logarithm `log(A)` `➤ log([0, 1])`  
+`[-∞, 0]` Logarithm base 2 `log2(A)` `➤ log2([64, 1024])`  
+`[6, 10]` Logarithm base 10 `log10(A)` `➤ log10([0.0001, 1])`  
+`[-4, 0]` Exponential `exp(A)` `➤ exp([-∞, 0] U [1, 2])`  
+`[0, 1] U [2.718, 7.389]` Cosine `cos(A)` `➤ cos([pi/3, pi])`  
+`[-1, 0.5]` Sine `sin(A)` `➤ sin([pi/6, 5*pi/6])`  
+`[0.5, 1]` Tangent `tan(A)` `➤ tan([pi/3, 2*pi/3])`  
+`[-∞, -1.732] U [1.732, +∞]` Arccos `acos(A)` `➤ acos([-1/2, 1/2])`  
+`[1.047, 2.094]` Arcsin `asin(A)` `➤ asin([0, 1])`  
+`[0, 1.571]` Arctan `atan(A)` `➤ atan([-10, 2])`  
+`[-1.471, 1.107]` Minimum `min(A, B)` `➤ min([1, 2], [0, 6])`  
+`[0, 2]` Maximum `max(A, B)` `➤ max([0, 10], [5, 6])`  
+`[5, 10]`
+
+## Full Precision Mode
+
+Outward rounding is implemented over IEEE 754 double precision floats (javascript's number type), so result intervals are guaranteed to contain the true value that would be obtained by computing the same expression over the reals with infinite precision. For example, try the [link] sum `0.1 + 0.2` in the calculator. Interval arithmetic computes an interval that is guaranteed to contain `0.3`, even though `0.3` is not representable as a double precision float.
+
+When full precision mode is enabled:
+
+- Numbers input by the user are interpreted as the smallest interval that contains the IEEE 754 value closest to the input decimal representation but where neither bounds are equal to it
+- Output numbers are displayed with all available decimal digits (using [link])
+
+When full precision mode is disabled:
+
+- Numbers input by the user are interpreted as the degenerate interval (width zero) where both bounds are equal to the IEEE 754 value closest to the input decimal representation
+- Output numbers are displayed with a maximum of 4 decimal digits (using [link])
+
+## Bugs
+
+While I’ve been very careful, I’m sure there are still some bugs in the calculator. Please [link].
+
+## Open Source
+
+[link] and [link] (the engine powering the calculator) are open-source. If you you like my open-source work, please consider [link]. Thank you ❤️
+
+## Future work
+
+- Split full precision mode into two controls: input interpretation and display precision
+- Add `ans` variable (result of previous entry)
+- Add intersection operator or function
+- Make precedence of U more intuitive
+- Support inputing the empty union
 
 ---
 
-## [HN-TITLE] 3. All 12 moonwalkers had "lunar hay fever" from dust smelling like gunpowder (2018)
+## [HN-TITLE] 6. It's OK to compare floating-points for equality
 
 - **Source**: [link]
-- **Site**: esa.int
-- **Submitter**: cybermango (Hacker News)
-- **Submitted**: 2026-04-17 18:17 UTC (Hacker News)
-- **HN activity**: 272 points · [link]
-- **Length**: 609 words (~3 min read)
-- **Language**: en
+- **Site**: lisyarus blog
+- **Submitter**: coinfused (Hacker News)
+- **Submitted**: 2026-04-14 16:00 UTC (Hacker News)
+- **HN activity**: 17 points · [link]
+- **Length**: 6.0K words (~26 min read)
+- **Language**: en-US
 
-Science & Exploration
+It's OK to compare floating-points for equality
 
-04/07/2018 131968 views 668 likes
+2026 Apr 14
 
-When the Apollo astronauts returned from the Moon, the dust that clung to their spacesuits made their throats sore and their eyes water. Lunar dust is made of sharp, abrasive and nasty particles, but how toxic is it for humans?
+*NB: The title of this post is an intentional clickbait. Even though I do stand for its statement, a more honest one would be something like: It's NOT OK to compare floating-points using epsilons.*
 
-The “lunar hay fever”, as NASA astronaut Harrison Schmitt described it during the Apollo 17 mission created symptoms in all 12 people who have stepped on the Moon. From sneezing to nasal congestion, in some cases it took days for the reactions to fade. Inside the spacecraft, the dust smelt like burnt gunpowder.
-
-The Moon missions left an unanswered question of lunar exploration – one that could affect humanity’s next steps in the Solar System: can lunar dust jeopardise human health?
-
-[[image]](https://www.esa.int/ESA_Multimedia/Images/2015/03/Eugene_Cernan)
-
-[link]
-
-An ambitious ESA research programme with experts from around the planet is now addressing the issues related to lunar dust.
-
-“We don’t know how bad this dust is. It all comes down to an effort to estimate the degree of risk involved,” says Kim Prisk, a pulmonary physiologist from the University of California with over 20 years of experience in human spaceflight – one of the 12 scientists taking part in ESA’s research.
-
-**Nasty dust**  
-Lunar dust has silicate in it, a material commonly found on planetary bodies with volcanic activity. Miners on Earth suffer from inflamed and scarred lungs from inhaling silicate. On the Moon, the dust is so abrasive that it ate away layers of spacesuit boots and destroyed the vacuum seals of Apollo sample containers.
-
-[[image]](https://www.esa.int/ESA_Multimedia/Images/2018/07/Lunar_dust_particle)
-
-[link]
-
-Fine like powder, but sharp like glass. The low gravity of the Moon, one sixth of what we have on Earth, allows tiny particles to stay suspended for longer and penetrate more deeply into the lung.
-
-“Particles 50 times smaller than a human hair can hang around for months inside your lungs. The longer the particle stays, the greater the chance for toxic effects,” explains Kim.
-
-The potential damage from inhaling this dust is unknown but [link] shows that lunar soil simulants can destroy lung and brain cells after long-term exposure.
-
-## Down to the particle
-
-On Earth, fine particles tend to smoothen over years of erosion by wind and water, lunar dust however, is not round, but sharp and spiky.
-
-In addition the Moon has no atmosphere and is constantly bombarded by radiation from the Sun that causes the soil to become electrostatically charged.
-
-[[image]](https://www.esa.int/ESA_Multimedia/Images/2018/07/NASA_astronaut_Harrison_Schmitt_retrieves_lunar_samples)
-
-[link]
-
-This charge can be so strong that the dust levitates above the lunar surface, making it even more likely to get inside equipment and people’s lungs.
-
-**Dusty workplace**
-
-To test equipment and the behaviour of lunar dust, ESA will be working with simulated Moon dust mined from a volcanic region in Germany.
-
-Working with the simulant is no easy feat. “The rarity of the lunar glass-like material makes it a special kind of dust. We need to grind the source material but that means removing the sharp edges,” says Erin Tranfield, biologist and expert in dust toxicity.
-
-The lunar soil does have a bright side. “You can heat it to produce bricks that can offer shelter for astronauts. Oxygen can be extracted from the soil to sustain human missions on the Moon,” explains science advisor Aidan Cowley.
-
-[[image]](https://www.esa.int/ESA_Multimedia/Images/2018/07/Deep_breath)
-
-[link]
-
-This week ESA is hosting a [link] on lunar resources at the European Space Research Technology Centre in the Netherlands, meanwhile in space ESA astronaut Alexander Gerst is running a session of the [link] experiment to monitor lung health in reduced gravity – preparing for a sustainable return to our nearest neighbour in the Solar System.
-
----
-
-## [HN-TITLE] 4. A simplified model of Fil-C
-
-- **Source**: [link]
-- **Site**: corsix.org
-- **Submitter**: aw1621107 (Hacker News)
-- **Submitted**: 2026-04-17 21:38 UTC (Hacker News)
-- **HN activity**: 132 points · [link]
-- **Length**: 1.5K words (~7 min read)
-- **Language**: en
-
-I've seen lots of chatter about [link] recently, which pitches itself as a memory safe implementation of C/C++. You can read the [link] of how this is achieved, but for people coming across it for the first time, I think there is value in showing a simplified version, as once you've understood the simplified version it becomes a smaller mental step to then understand the production-quality version.
-
-The real Fil-C has a compiler pass which rewrites LLVM IR, whereas the simplified model is an automated rewrite of C/C++ source code: unsafe code is transformed into safe code. The first rewrite is that within every function, every local variable of pointer type gains an accompanying local variable of `AllocationRecord*` type, for example:
-
-Original SourceAfter Fil-C Transform
+You've probably heard the mantra that you must never compare floating-point numbers for exact equality, and you absolutely must use some kind of epsilon-comparison instead, like
 
 ```
-void f() {
-  T1* p1;
-  T2* p2;
-  uint64_t x;
-  ...
-```
-
-```
-void f() {
-  T1* p1; AllocationRecord* p1ar = NULL;
-  T2* p2; AllocationRecord* p2ar = NULL;
-  uint64_t x;
-  ...
-```
-
-Where `AllocationRecord` is something like:
-
-```
-struct AllocationRecord {
-  char* visible_bytes;
-  char* invisible_bytes;
-  size_t length;
-};
-```
-
-Trivial operations on local variables of pointer type are rewritten to also move around the `AllocationRecord*`:
-
-Original SourceAfter Fil-C Transform `p1 = p2;``p1 = p2, p1ar = p2ar;` `p1 = p2 + 10;``p1 = p2 + 10, p1ar = p2ar;` `p1 = (T1*)x;``p1 = (T1*)x, p1ar = NULL;` `x = (uintptr_t)p1;``x = (uintptr_t)p1;`
-
-When pointers are passed-to or returned-from functions, the code is rewritten to include the `AllocationRecord*` as well as the original pointer. Calls to *particular* standard library functions are additionally rewritten to call Fil-C versions of those functions. Putting this together, we get:
-
-Original SourceAfter Fil-C Transform
-
-```
-  p1 = malloc(x);
-  ...
-  free(p1);
-```
-
-```
-  {p1, p1ar} = filc_malloc(x);
-  ...
-  filc_free(p1, p1ar);
-```
-
-The (simplified) implementation of `filc_malloc` actually performs three distinct allocations rather than just the requested one:
-
-```
-void* filc_malloc(size_t length) {
-  AllocationRecord* ar = malloc(sizeof(AllocationRecord));
-  ar->visible_bytes = malloc(length);
-  ar->invisible_bytes = calloc(length, 1);
-  ar->length = length;
-  return {ar->visible_bytes, ar};
+bool approxEqual(float x, float y)
+{
+    return abs(x - y) < 1e-4f;
 }
 ```
 
-When a pointer variable is dereferenced, the accompanying `AllocationRecord*` is used to perform bounds checks:
+Over the 15+ years that I've been writing code, – which often deals with geometry, graphics, physics, simulations, etc, and thus has to work with floating-points on a daily basis, – I've encountered only one or two cases where such epsilon-comparison is actually a good solution. Pretty much always there is a better solution that either involves rewriting the code in some way, or simply compares floating-points just like `x == y`. And pretty much always the epsilon solution was actually one of the *worst* possible options.
 
-Original SourceAfter Fil-C Transform
+I'll show a bunch of examples where adding some kind of epsilon might be your first instinct, but actually a much better – and often much simpler – solution exists. But first, let's talk about floating-point numbers.
 
-```
-  x = *p1;
-  ...
-  *p2 = x;
-```
+## Contents
 
-```
-  assert(p1ar != NULL);
-  uint64_t i = (char*)p1 - p1ar->visible_bytes;
-  assert(i < p1ar->length);
-  assert((p1ar->length - i) >= sizeof(*p1));
-  x = *p1;
-  ...
-  assert(p2ar != NULL);
-  uint64_t i = (char*)p2 - p2ar->visible_bytes;
-  assert(i < p2ar->length);
-  assert((p2ar->length - i) >= sizeof(*p2));
-  *p2 = x;
-```
+## Floating-points are not a black box
 
-Things become more interesting when the value being stored or loaded is itself a pointer. As already seen, local variables of pointer type have their accompanying `AllocationRecord*` variable inserted by the compiler, which the compiler can do because it has full control and visibility of all local variables. Once pointers exist in the heap rather than just in local variables, things become harder, but this is where `invisible_bytes` comes in: if there is a pointer at `visible_bytes + i`, then its accompanying `AllocationRecord*` is at `invisible_bytes + i`. In other words, `invisible_bytes` is an array with element type `AllocationRecord*`. To ensure sane access to this array, `i` must be a multiple of `sizeof(AllocationRecord*)`. The extra logic for this is highlighted in green:
+The whole idea of epsilon-comparison seems to come from the general perception of floating-point numbers as some kind of random black-box machine that sometimes produces inexact results because the gods of computing force it to. In reality it is a pretty deterministic (modulo compiler options, CPU flags, etc) and [link] system.
 
-OriginalAfter Fil-C Transform
+Floating-point numbers are necessarily inexact in that they cannot represent all possible real numbers. In fact, no finite amount of memory can, because that's how maths works – there are just [link] real numbers (or even just rational numbers, fwiw). Given that we probably only want to allocate a fixed (and not just a finite) amount of bits per such a number, we're forced to accept that only a finite set of numbers will be representable (specifically, at most \\(2^{bits}\\) of them), and for all others we'll have to deal with approximations.
+
+I don't want this to turn into a lecture on how floating-point numbers are represented, though; I think [link] does a good enough job. For a more in-depth source, see [link] by David Goldberg, or [link] that follows the same idea. What's more important is that this "inexactness" of floating-point numbers doesn't mean some "uncertainty" or "randomness" in its behavior!
+
+For example, any single arithmetic operation (e.g. addition, multiplication, etc) on two floating-point numbers is required to produce a floating-point number which is the closest to the actual true answer if we treat the inputs as being exact (there are some rounding rules in case of ties, i.e. when two representable numbers are equally close to the true answer). Notice that, even though the result is approximate, it is still guaranteed to be as close to the truth as possible, and is very much deterministic.
+
+However, it does mean that our usual mathematical formulas don't always hold for floating-points. For example, even though addition (and multiplication) are guaranteed to be *commutative* (\\(a + b = b + a\\)), they aren't necessarily *associative*: it may happen that \\((a+b)+c\\neq a+(b+c)\\). It's fairly easy to find such examples; [link] that works for 32-bit floating-points:
 
 ```
-  p2 = *p1;
-  ...
-  *p1 = p2;
+// Outputs 0.89999998
+std::cout << std::setprecision(8) << ((0.2f + 0.3f) + 0.4f) << '\n';
+
+// Outputs 0.90000004
+std::cout << std::setprecision(8) << (0.2f + (0.3f + 0.4f)) << '\n';
 ```
 
-```
-  assert(p1ar != NULL);
-  uint64_t i = (char*)p1 - p1ar->visible_bytes;
-  assert(i < p1ar->length);
-  assert((p1ar->length - i) >= sizeof(*p1));
-  assert((i % sizeof(AllocationRecord*)) == 0);
-  p2 = *p1;
-  p2ar = *(AllocationRecord**)(p1ar->invisible_bytes + i);
-  ...
-  assert(p1ar != NULL);
-  uint64_t i = (char*)p1 - p1ar->visible_bytes;
-  assert(i < p1ar->length);
-  assert((p1ar->length - i) >= sizeof(*p1));
-  assert((i % sizeof(AllocationRecord*)) == 0);
-  *p1 = p2;
-  *(AllocationRecord**)(p1ar->invisible_bytes + i) = p2ar;
-```
+Notice that, even though the expressions aren't equal, they are very close (the difference is about 6e-8), and the floating-point standard has some guarantees that we can use to *predict* how large the difference can be.
 
-One thing we've not yet seen is `filc_free`, which does something like:
+So, what's the problem, then? We know that the result of some computation is only approximate, and we compare it with some expected result approximately, sounds about right.
+
+Or does it?
+
+## Problems with epsilons
+
+I have 3 major problems with those epsilon-comparisons:
+
+1. They are a hacky, temporary solution,
+2. They often cascade into extremely hard-to-debug issues, and
+3. They often don't solve the initial problem.
+
+The second point is probably the toughest. One part of the program treats 2D points as equal if they are separated in [link] by no more than 1e-4, another part of the program treats points as equal if they are separated in L-inf distance (max of coordinates) by no more than 1e-6, the input points themselves are generated using some other algorithm, and now all the input-output invariants are messed up, and your line rendering is broken but only in this specific scenario, with this specific data, only at night and in full moon. Good luck debugging that.
+
+A rare wrong case of line rendering isn't that much of an issue, but it can manifest in a ton of other ways, up to crashing the program, and can be really nasty when combined with a lot of other geometric code. I've encountered many such cases, and mismatched epsilon comparisons were an extremely common root cause.
+
+The problem is that these epsilons are pretty much always simply *guessed*, and there is no correct way to choose one epsilon out of many. If you have several such comparisons, no combination of epsilons will ensure that everything works correctly.
+
+Another problem with epsilons is that such comparison isn't [link]. This might sound like a technical nitpick, but in reality most algorithms assume that things like comparisons are in fact transitive, and these algorithms can simply break (produce nonsense or even crash) if you use a non-transitive comparison with them.
+
+So, what should we do, then? We need to *think* about the problem! Shocking, I know. Why are we comparing floating-points in the first place? Maybe we don't trust our algorithms? Maybe we don't trust the data? Maybe we don't trust the CPU? There's no single answer, so let's look at some examples.
+
+## Case in study: grid-based movement
+
+Say, you have a turn-based game where units move on a grid. A unit has some movement points and can do several moves per turn, but for UX sake you only allow executing the next move after the previous one finished.
+
+Now, you're probably interpolating the unit's position somehow and not just teleporting it to the target grid cell, so you need to check when exactly the move is finished before allowing the player to select the next move target.
+
+You could just wait for a certain amount of time (and that would be a perfectly good solution in many cases!), but different units have different animations and thus different timings, there are some accessibility settings to reduce animations, etc, so you decide that relying on animation time isn't a good idea.
+
+Then you realize that the move finishes exactly when the position of the unit coincides with the target cell's center. You write something like
 
 ```
-void filc_free(void* p, AllocationRecord* par) {
-  if (p != NULL) {
-    assert(par != NULL);
-    assert(p == par->visible_bytes);
-    free(par->visible_bytes);
-    free(par->invisible_bytes);
-    par->visible_bytes = NULL;
-    par->invisible_bytes = NULL;
-    par->length = 0;
-  }
+void update() {
+    if (selectedUnit.position != targetCell.center)
+        return;
+
+    // Do the frame update
 }
 ```
 
-The eagle-eyed will note that `filc_malloc` made three allocations, but `filc_free` only frees two of them: the `AllocationRecord` object isn't freed by `filc_free`. This gap gets covered by the addition of a garbage collector (GC). You heard that right - this is C/C++ with a GC. The production-quality Fil-C has a [link], but a stop-the-world collector suffices for a simple model. The collector traces through `AllocationRecord` objects, and frees any unreachable ones. It also does two more things:
+and after the move was executed, nothing happens and the game effectively hangs, because the condition `selectedUnit.position != targetCell.center` is never true. With a typical linear interpolation with easing, the code
 
-1. Upon freeing an unreachable `AllocationRecord`, call `filc_free` on it.
-2. If an `AllocationRecord` has length 0, any pointers to that `AllocationRecord` will be changed to point at a single canonical `AllocationRecord` with length 0.
+```
+vec2f getPosition(float time) {
+    return lerp(start, end, easing(time));
+}
+```
 
-Point 1 means that if you're using Fil-C, forgetting to call `free` is no longer a memory leak: the memory will be automatically freed by the GC. That isn't to say that calling `free` is useless, as it allows memory to be freed earlier than the GC might otherwise choose to. Point 2 means that after calling `free` on something, the accompanying `AllocationRecord` will eventually become unreachable, and thus itself eventually be freed.
+will produce enough floating-point roundings that the result will never be equal to `end` when `time == 1.f`. Heck, in [link] it's not even supposed to be ever true!
 
-Once a GC is present, it becomes tempting to use it more. One such use is making it safe to take the address of local variables, even if the resultant pointer is used after the local variable goes out of scope. If the compiler sees that a local variable has its address taken, and cannot *prove* that the address doesn't escape beyond the lifetime of the local variable, then the Fil-C transform will promote that local variable to be heap-allocated via `malloc` rather than stack-allocated. A matching `free` doesn't need to be inserted, as the GC will pick it up.
+Damn, stupid floating-points! — you grumble as you add the holy grail of floating-points — an epsilon-comparison:
 
-The final thing I want to highlight is the Fil-C version of `memmove`. This function from the C standard library manipulates arbitrary memory, and the compiler has no knowledge of what pointers might be present in that memory. To get past this problem, a reasonable heuristic is used: any pointers within arbitrary memory need to be *completely* within arbitrary memory, and need to be correctly aligned. This has the interesting consequence that `memmove` of eight aligned bytes behaves differently to eight separate 1-byte `memmove`s of the constituent bytes: the former will also `memmove` the corresponding range of `invisible_bytes`, whereas the latter will not.
+```
+void update() {
+    if (distance(selectedUnit.position, targetCell.center) > 1e-4)
+        return;
 
-That wraps up the simplified model. Some of the additional complications in the production-quality version include:
+    // Do the frame update
+}
+```
 
-- **Threads:** Concurrency makes the GC more complex. It also means that `filc_free` can't *immediately* free anything, as the free-ing thread might be racing with a different thread trying to access the underlying memory. Atomic operations on pointers also need some extra magic, as the default rewriting of a pointer load or store is to two loads or stores, which breaks atomicity.
-- **Function pointers:** An additional piece of metadata in `AllocationRecord` is used to denote that the `visible_bytes` pointer is a pointer to executable code rather than regular data. Calls through a function pointer `p1` check that `p1 == p1ar->visible_bytes` and that `p1ar` denotes a function pointer. To avoid type confusion attacks on function pointers, the function calling ABI also needs to verify that the type signature is correct. One way of doing this is to make *all* functions take the same type signature: all parameters are passed as if they were packed into a structure and passed through memory, and at ABI boundaries, every function expects to receive just a single `AllocationRecord` corresponding to that structure.
-- **Memory usage optimization:** It is very tempting to have `filc_malloc` avoid immediately allocating `invisible_bytes`, and instead allocate it on-demand later should it ever be required. It is also tempting to colocate the `AllocationRecord` and `visible_bytes` into a single allocation. If the underlying `malloc` prepends metadata to every allocation, it looks tempting to put that metadata in `AllocationRecord` instead.
-- **Performance optimization:** Memory safety in Fil-C comes at a performance cost, so it is worth playing various tricks to claw back some of that lost performance.
+This solves the issue, so why is this so bad? For a number of reasons:
 
-With the baseline understanding in place, I want to finish on a question: when might you want to use Fil-C? Personally, my answers are:
+- The specific epsilon of `1e-4` might break if you decide to choose a different interpolation scheme
+- As always with epsilons, someone reading the code will get confused and suspicious
+- Making the player wait is one of the worst things you can do
 
-1. You have a large quantity of C/C++ code which seems to work, but it hasn't been proven memory-safe, and you're willing to introduce a GC and take a large performance hit in exchange for memory safety (perhaps as a temporary measure until you rewrite in Java or Go or Rust).
-2. Just like you can run C/C++ code under [link] to find memory bugs, you can run it under Fil-C to find memory bugs.
-3. If you have a language with a strong compile-time story, and the compile-time language is the same as the runtime language (for example, [link]), you could use a Fil-C setup for safe compile-time evaluation, even if runtime evaluation is unsafe.
-4. Some people like to contemplate [link]. If you've not come across this concept before, here's a nerd-snipe question: assuming `p1` and `p2` have the same type, is it valid for a compiler to rewrite `if (p1 == p2) { f(p1); }` to `if (p1 == p2) { f(p2); }`? In Fil-C, the answer is clearly "no", as it changes which `AllocationRecord*` gets passed along to `f`. This makes Fil-C a useful example of a concrete system which has pointer provenance.
+So, how do we solve this? One option is to use some sort of acceptance radius: once the unit is within, say, `0.25` of the target cell's center, we stop the animation and allow the player to issue the next commands. Then, we find the actually good value by a lot of testing.
+
+How is this different from epsilons? It isn't really, except that now it's at least backed by something instead of being a random value. The real problem here is mixing the *data model* with its *presentation*. The internal doings of the game's state machine shouldn't care about where some 3D model is located. That's usually harder than it seems (which is roughly why UX is even a thing), but very much doable.
+
+In this case, the best solution (in my opinion!) is to allow the user to issue commands without waiting for the unit to complete its movement in the first place. Once a user clicks on some grid cell, the rendering gets notified that a movement must take place, while the internal model of the game's state thinks that the unit is already on the next cell.
+
+There are many ways to implement that, e.g. by queuing the requested animations and playing them one-by-one, or using an [link] that is robust against sudden changes in the target value. What's important is that it is very doable, relatively straightforward, and doesn't require epsilons.
+
+## Case in study: spherical linear interpolation
+
+[link] is a way to interpolate points on a sphere (aka unit vectors) in such a way that the interpolated vector follows a curve with a fixed rotation speed. A simple `normalize(lerp(a, b, t))` won't cut it — the resulting vector moves slower near the ends and faster in the middle. Here's a [link] of slerp. Quite often this function is only implemented for quaternions, but it's useful for any vectors of any dimension (though in case of quaternions it differs a bit because \\(q\\) and \\(-q\\) represent the same rotation).
+
+Quite conveniently, if the input vectors are normalized, it boils down to a pretty straightforward formula:
+
+```
+vec3 slerp(vec3 a, vec3 b, float t) {
+    float angle = acos(dot(a, b));
+    return (sin((1 - t) * angle) * a + sin(t * angle) * b) / sin(angle);
+}
+```
+
+Now, from time to time this code will produce `NaN`s, for a couple of reasons:
+
+- Even if the vectors are normalized, their dot product can produce values outside of the \\(\[-1, 1]\\) range, and `acos` will return `NaN`
+- When the input vectors are very close, `angle` can become zero, and division of zero by zero will once again produce `NaN`
+
+The first problem is easy to deal with: just wrap `acos` argument in `clamp`:
+
+```
+vec3 slerp(vec3 a, vec3 b, float t) {
+    float angle = acos(clamp(dot(a, b), -1.f, 1.f));
+    return (sin((1 - t) * angle) * a + sin(t * angle) * b) / sin(angle);
+}
+```
+
+The second problem is more subtle. Thankfully, when the `angle` is small enough, spherical linear interpolation turns into usual linear interpolation, so we can detect this case and switch to usual `lerp(a, b, t)` instead. But how small is small enough?
+
+It's tempting to just throw some epsilon here, like
+
+```
+vec3 slerp(vec3 a, vec3 b, float t) {
+    float angle = acos(dot(a, b));
+    if (angle < 1e-4) {
+        return lerp(a, b, t);
+    }
+    return (sin((1 - t) * angle) * a + sin(t * angle) * b) / sin(angle);
+}
+```
+
+However, this makes the code less precise than it could be, even if the resulting vector is still close to what we expect it to be. And, once again, a random epsilon always raises the question of how this exact value was chosen. We can do better!
+
+Both [link] and [link] use a reasonable check:
+
+```
+vec3 slerp(vec3 a, vec3 b, float t) {
+    float d = dot(a, b);
+    if (d > 1.f - FLT_EPSILON) {
+        return lerp(a, b, t);
+    }
+    float angle = acos(dot(a, b));
+    return (sin((1 - t) * angle) * a + sin(t * angle) * b) / sin(angle);
+}
+```
+
+Here, `FLT_EPSILON` is exactly \\(2^{-23}\\) — the smallest single-precision floating-point value \\(x\\) such that \\(1 + x \\neq x\\) (using floating-point addition). Honestly, it doens't feel much better than a random epsilon to me — throwing `FLT_EPSILON` doesn't solve our issues unless we've proved that this is the exact threshold that works in our case.
+
+Let's analyze the code. The main problem is that `angle` being zero causes `NaN`'s. The secondary problem is that `angle` being too small might introduce precision errors.
+
+Let's think about precision first. `angle` isn't just an arbitrary number — it's the result of calling `acos`, and we're worried about the case when the argument to `acos` is close to 1. In fact, the `angle` itself is somewhat irrelevant, as we mostly care anout `sin(angle)`, not the angle itself.
+
+Now, \\(\\sin(\\operatorname{acos}(x))\\) is just \\(\\sqrt{1-x^2}\\). In our case, `x = dot(a, b)`. When \\(x = 1 - \\varepsilon\\), we have
+
+\\\[ \\sin(\\operatorname{acos}(x)) = \\sqrt{1-x^2} = \\sqrt{1-(1-\\varepsilon)^2} = \\sqrt{2\\varepsilon-\\varepsilon^2} \\approx \\sqrt{2\\varepsilon} \\]
+
+The \\(\\varepsilon^2\\) term is too small to care about, and \\(\\sqrt 2\\) is just a constant close to 1. The main thing here is \\(\\sqrt{\\varepsilon}\\): even if \\(\\varepsilon\\) is something as small as `FLT_EPSILON`, the `sin(angle)` term will be something like the square root of it. For small numbers, square root increases the number significantly. For example, while `FLT_EPSILON` is around `1.2e-07`, its square root is around `3.5e-04`, i.e. about 2000 times larger.
+
+All I'm trying to say here is: in the case we care about, the argument to `acos` is close to 1, so the difference between possible representable values of the argument to `acos` is a much more serious source of precision problems compared to the angle itself being close to zero.
+
+*Actually, the smallest value less than 1 that is representable in floating-point is not `1 - FLT_EPSILON`, but `1 - FLT_EPSILON / 2.f`, which somewhat supports my argument that the `FLT_EPSILON` constant was chosen somewhat arbitrarily here.*
+
+So, unless we want something special, we can ignore that the angle can be small in terms of precision, and focus on obtaining `NaN`. In this code, provided that the arguments are finite values, the only way to get a `NaN` is with division by zero, which can occur only when the `angle` is zero, which can occur only when `dot(a, b) >= 1`. As we've discussed, the next smallest representable value of `dot(a, b)` is `1 - FLT_EPSILON / 2.f`, with the `angle` being roughly `sqrt(FLT_EPSILON)`, which is around `3.5e-04` — a rather large floating-point value considering that the whole range is about `[1e-38 .. 1e38]`, so we can be sure that even a half-decent implementation of `acos` wouldn't return zero in this case.
+
+Thus, in case `dot(a, b) < 1`, we're actually fine! The only thing to check is if `dot(a, b) == 1`, or, combining with the `clamp` we added earlier, if `dot(a, b) >= 1`:
+
+```
+vec3 slerp(vec3 a, vec3 b, float t) {
+    float d = dot(a, b);
+    if (d >= 1.f) {
+        return lerp(a, b, t);
+    }
+    float angle = acos(dot(a, b));
+    return (sin((1 - t) * angle) * a + sin(t * angle) * b) / sin(angle);
+}
+```
+
+*(Note that I've intentionally left out the case when the dot product is close to \\(-1\\): in that case, there's no unique solution to the interpolation problem, and it's better dealt with separately.)*
+
+Alternatively, we can check `sin(angle)` directly, though this means we can't save on the expensive `acos` call in the corner case:
+
+```
+vec3 slerp(vec3 a, vec3 b, float t) {
+    float angle = acos(clamp(dot(a, b), -1.f, 1.f));
+    float s = sin(angle);
+    if (s == 0.f) {
+        return lerp(a, b, t);
+    }
+    return (sin((1 - t) * angle) * a + sin(t * angle) * b) / s;
+}
+```
+
+## Case in study: computing vector length
+
+You wouldn't be surprised if I told you that computing the (Euclidean) length of a vector is a fairly common and useful operation. The implementation is rather straightforward:
+
+```
+float length(vec3 v) {
+    return sqrt(dot(v, v));
+}
+```
+
+or, if we inline the `dot` call,
+
+```
+float length(vec3 v) {
+    return sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+}
+```
+
+You've probably seen this a dozen times, so what's wrong with it? Nothing really, except that for really small vectors (those having length around `1e-19`) it returns zero, and for larger vectors we get a significant precision loss. Even if the result is a perfectly valid floating-point value, its square (i.e. the expression under the square root) can be too small to be adequately representable in floating-point.
+
+So what? There are hardly any use cases when such a vector is indistinguishable from zero anyway. However, an invariant saying that only the zero vector has zero length would be extremely convenient, and would simplify writing code in a lot of cases, especially when we want to treat floating-points carefully.
+
+There's actually a very simple way to do that: compute the maximum `M` of the absolute values of vector coordinates, then return `M * length(v / M)`. Thanks to floating-point guarantees, one of the coordinates will be at least 1, so the expression under the square root is at least 1, and at most \\(D\\) — the dimension (3 in case of `vec3`).
+
+So, the code turns into
+
+```
+float length(vec3 v) {
+    float M = max(abs(v.x), abs(v.y), abs(v.z));
+    vec3 u = v / M;
+    return M * sqrt(u.x * u.x + u.y * u.y + u.z * u.z);
+}
+```
+
+That's [link] assembly instructions, but unless this happens in a hot loop, I'd say it's worth the extra precision and safety.
+
+The only problem is that if the vector is zero (yes, literally zero, not just small), this function returns `NaN`! However, if at least one of the vector's coordinates is non-zero (even if it is a subnormal value), `M` will be strictly larger than zero, and the algorithm will work correctly (and never with less precision than the naive version). So, the correct fix is literally comparing `M` to zero:
+
+```
+float length(vec3 v) {
+    float M = max(abs(v.x), abs(v.y), abs(v.z));
+    if (M == 0.f) return 0.f;
+    vec3 u = v / M;
+    return M * sqrt(u.x * u.x + u.y * u.y + u.z * u.z);
+}
+```
+
+If we'd write `if (M < 1e-4)` instead, we'd basically destroy the reason this function exists in the first place.
+
+## Case in study: solving linear systems
+
+You wouldn't be surprised if I told you that solving linear systems of equations is a fairly common and useful operation. Half of physics & engineering problems boil down to solving some linear systems (the other half being eigenvalue equations).
+
+For a general non-sparse system, there's basically the only standard way to solve it: the Gauss-Jordan elimination. *(Actually, we can also use QR decomposition — afaik it's slower but more numerically stable.)* The general algorithm is rather long, but not too complicated — it's just a bunch of `for` loops and some arithmetics on the coefficients of the system.
+
+What's important is that the algorithm can be [link]: at some point you take top-left entry of the remaining part of the matrix, and divide the whole row with that entry. If it was small, the floating-point errors from cancellation are amplified, and if it is zero, you get `NaN`'s.
+
+However, the algorithm becomes stable in practice (the instabilities are extremely rare and typically theoretical) if instead we do something called *partial pivoting*: find the row with the largest (in absolute value) coefficient in the current column, and use that row instead of the original top row. It complicates the algorithm somewhat, but makes it very much usable in practice.
+
+The only problem is that we're still dividing, and potentially dividing by something very small or even zero! There isn't some clever way to escape this: a matrix can be *singular*, in which case maths tells us that there's no solution at all.
+
+So, first of all our routine should return an `optional<vector>`, and secondly we need to check for this division:
+
+```
+optional<vector> solve(matrix const& m, vector const& v) {
+    // Gaussian elimitation code...
+
+    for (int i = 0; i < m.columns(); ++i) {
+
+        // Find maximum m[j][i] among all remaining rows
+        float M = 0.f;
+        for (int j = i; j < m.rows(); ++j)
+            M = max(M, abs(m[j][i]));
+
+        if (M < 1e-4)
+            return std::nullopt;
+
+        // Proceed with the algorithm
+    }
+}
+```
+
+Now, obviously this `1e-4` comes from nowhere — a classic epsilon placed simply to make the problem shut up instead of solving it.
+
+For some systems that are close to being singular, our algorithm will report that it failed, based on a pretty much arbitrary threshold. Even worse, this `M` value we computed isn't some inherent property of the matrix, but simply an intermediate value we obtained with our algorithm.
+
+This threshold should absolutely be at least provided by the user themselves (maybe with a default parameter), but that's still rather quiestionable. Proper ways of checking whether a matrix is singular or close to singular is computing its [link] or inspecting its [link], not setting an arbitrary threshold on an arbitrary intermediate value!
+
+My point is: it's not our job to figure out how singular the matrix is, it's the user's job. Our job, as implementors of the Gauss-Jordan elimination algorithm, is to provide an answer that is as good as we can get, or report that we failed otherwise. The only way our code can truly fail is by dividing zero by zero — everything else will give some reasonable answer, even if very imprecise (depending on the matrix).
+
+So, in my opinion, the correct code would be just
+
+```
+    // ...
+
+    if (M == 0.f)
+        return std::nullopt;
+
+    // ...
+```
+
+*To be honest, this still doesn't prevent us from dividing something large by something small and getting infinities, — but no epsilon protects against that either.*
+
+## Case in study: ray-box intersection
+
+Whenever you're making a raytracer (voxel or otherwise), or implementing object picking by mouse, or doing any of a million other things, you'll need a ray-box intersection routine.
+
+The algorithm itself is pretty straightforward: you compute the time (i.e. the parameter \\(t\\) along the ray \\(o+t\\cdot d\\)) when the ray enters the box and the time it leaves the box. If the former is less than the latter, that's your intersection. You compute the enter time as the maximum of enter times along each of the coordinates; similarly, the leave time is the minimum along each of the coordinates.
+
+[link] explains it quite well. The code looks roughly like this:
+
+```
+void sort(float & x, float & y) {
+    if (x > y) swap(x, y);
+}
+
+pair<float, float> intersect(ray r, box b) {
+    float txmin = (b.min.x - r.origin.x) / r.direction.x;
+    float txmax = (b.max.x - r.origin.x) / r.direction.x;
+    float tymin = (b.min.y - r.origin.y) / r.direction.y;
+    float tymax = (b.max.y - r.origin.y) / r.direction.y;
+    float tzmin = (b.min.z - r.origin.z) / r.direction.z;
+    float tzmax = (b.max.z - r.origin.z) / r.direction.z;
+
+    sort(txmin, txmax);
+    sort(tymin, tymax);
+    sort(tzmin, tzmax);
+
+    float tmax = min(txmax, min(tymax, tzmax));
+    float tmin = max(txmin, min(tymin, tzmin));
+
+    return {tmin, tmax};
+}
+```
+
+*NB: if we [link] `sort` a bit, we can force it to use `minss/maxss` SSE instructions, thus making the `intersect` function branchless.*
+
+It's a pretty short, readable function, and in 99.99% of cases it works perfectly. Yet, once in a while you'll end up with a ray that has `direction.x` equal to zero, thus the divide will give infinities or `NaN`'s. Oops!
+
+So, let's add some epsilons, right? No. First of all, what are you going to do if `abs(direction.x) < 1e-4`? You still need to add some code that finds the intersection properly but doesn't divide by `direction.x`, and it might just work without epsilons anyway.
+
+Let's analyze the code! What happens if `direction.x == 0`? The ray is parallel to the YZ plane, so the real intersection happens there. But we can't just ignore the X coordinate: if the ray starts outside the `[b.min.x, b.max.x]` interval, there's no intersection, otherwise we need to inspect the Y and Z coordinates.
+
+What happens exactly when `direction.x == 0`? When you divide `A / direction.x`, it returns \\(-\\infty\\) if `A < 0` and \\(\\infty\\) if `A > 0`. In our case, `A` is `b.min.x - r.origin.x` or `b.max.x - r.origin.x`. So, if the ray origin `r.origin.x` is inside the interval `[b.min.x, b.max.x]`, we'll get `txmin == -INF` and `txmax == INF`. If the ray origin is outside of this interval, both `txmin` and `txmax` will both be either `-INF` or `INF`.
+
+If there is an intersection and the origin is within the interval, the calculation of `tmin` will effectively ignore the value of `txmin == -INF`, because it's always true that `max(-INF, x) == x`. Similarly, `tmax` will effectively ignore `txmax == INF`. In this case, the code will just compute the correct intersection in the YZ plane, as required.
+
+If, however, the origin is not within the interval, either `txmin == txmax == INF`, leading to `tmin == INF` but `tmax` being some finite value, leading to no intersection (because `tmin > tmax`), or `txmin == txmax == -INF`, leading to `tmax == -INF` but `tmin` being some finite value, leading to no intersection again.
+
+All this is to say that our code actually *works correctly* in case `direction.x == 0`! No epsilons needed, it already handles the infinities exactly as it should. Or does it?
+
+We've forgotten that in IEEE754 there are two zeros: a positive `+0` and a negative `-0` one. Dividing by the negative zero produces infinity, but also flips the sign! So, we can get a case when `txmin == INF` and `txmax == -INF`, leading to no intersection being reported even if there is one.
+
+Thankfully, our `sort(txmin, txmax)` call solves this issue, swapping these into the case of `txmin == -INF` and `txmax == INF`! So, once again, our code already works correctly in this case.
+
+*The Scratch-a-pixel link above also discusses a solution to this problem, which has a whole ton of if's making it not branchless but also able to do an early-out.*
+
+Actually, there's one more case we didn't fix yet: if both `r.direction.x == 0` and `r.origin.x == b.min.x`, we'll get zero divided by zero, i.e. a `NaN`. Unfortunately, our code doesn't automatically solve this: `NaN` compared to anything always returns `false`, so, depending on how `sort`, `min` and `max` are implemented, we might end up with `tmin` or `tmax` being `NaN`, which effectively means no intersection. This might be OK for your use-case, but I don't know a simple way to fix that if we want this to be reported as a true intersection. We could just check if `r.direction.x == 0 && r.origin.x == b.min.x` and set `tmin = -INF` in this case, but the code stops being branchless. This happens extremely rarely in practice, though, so we might just get away with it :)
+
+## Case in study: computing convex hull
+
+Most 2D convex hull algorithms eventually boil down to checking whether, for three points \\(A, B, C\\), the last point \\(C\\) lies to the left of the ray \\(AB\\). Equivalently, it asks whether when moving from \\(A\\) to \\(B\\) and then turning to move from \\(B\\) to \\(C\\), you make a left turn or a right turn. This is why this predicate is often called `left_turn`.
+
+It boils down to checking the relative orientation of two vectors \\(AB\\) and \\(AC\\), and can be computed by a simple determinant:
+
+```
+float det(vec2 a, vec2 b) {
+    return a.x * b.y - a.y * b.x;
+}
+
+bool left_turn(vec2 a, vec2 b, vec2 c) {
+    return det(b - a, c - a) > 0.f;
+}
+```
+
+It's pretty cool that you can put all your floating-point stuff inside this predicate — the convex hull algorithm itself doesn't care about the coordinates and can operate just as an abstract algorithm, provided you have this `left_turn` predicate as some kind of a black box.
+
+However, it turns out that most of computational geometry algorithms are extremely sensitive to edge cases, and can completely break if such an edge case breaks certain invariants of this algorithm.
+
+For the `left_turn` predicate, one such invariant is that it doesn't change when we cycle the points:
+
+```
+left_turn(A,B,C) == left_turn(B,C,A) == left_turn(C,A,B)
+```
+
+It's pretty easy to find three points *almost* on the same line that break this invariant. It happens so often that any convex hull algorithm that is supposed to handle at least some 1000 points must take this into account.
+
+We know the solution, right? — just slap an epsilon here:
+
+```
+bool left_turn(vec2 a, vec2 b, vec2 c) {
+    return det(b - a, c - a) > 1e-4f;
+}
+```
+
+Well, of course it doesn't work. Floating-point errors can easily lead to this predicate violating the cyclic invariant above.
+
+There are many ways of solving this problem:
+
+- Round the input values to some fixed grid, then work with integers instead
+- Use [link] rational arithmetic to get the true result
+- Use CPU-rounding-flags-backed [link] to compute the result; resort to arbitrary precision if it fails
+- Knowing exact IEEE754 rounding rules, compute an upper bound on the possible error, compare with the naive result, and return if the error is smaller than the result; otherwise, use any of the more precise methods
+- Use some variation of the [link] algorithm to compute the result; use any of the more precise methods if it fails
+
+Of all these, the first option (round to a fixed grid) is probably the simplest and the most practical. However, there are cases when you can't do that, and you need to work with the unperturbed input data, and you need more complex methods. In any case, no epsilons will save you — sooner or later your algorithm will return nonsense, or will simply crash.
+
+*Note that, in any case, such a predicate is better thought of as returning three possible values: left, right, and collinear (or -1, 0, and 1, if you're feeling '90s). This is very similar to [link].*
+
+## Case in study: sanitizing user input
+
+The last two cases will be the ones where I think epsilons are actually a good solution!
+
+Say, you're writing some geometry visualization library, or maybe some cartographic engine of sorts. The user supplies you with a polyline that you can't control. You task is to perform some computations on it, and maybe to render it.
+
+Now, rendering polylines is a pretty complicated topic; in particular, we typically triangulate the polyline using various types of [link] and caps. And to compute these, we need various things like the normal to a particular line segment, or the angle between two consecutive line segments. And, of course, everything breaks if two consecutive line points are equal or simply too close — normal & angle calculations go way off, introducing ugly artifacts to our lovely line.
+
+Now, we could say that consecutive equal points are not allowed, which would be a reasonable requirement for some library or algorithm, but not so much for a user-facing engine/framework. After all, filtering out equal points is easy — literally a single call to [link]. But what are we going to do with points that are just too close, but not equal?
+
+Mathematically, having points too close to each other isn't an issue — they should lead to some very thin triangles in the output, but they won't break the topology of the resulting mesh. However, in practice we lack the floating-point precision to accurately compute these thin triangles (which is what leads to ugly artifacts). On the other hand, this time our goal is not to compute something as precise as we can, but to visualize the data. In practice, nobody will see these thin triangles, simply because they're too thin.
+
+Which is to say it's OK if we simply don't render them. Meaning it's OK if we dont even generate them. Meaning it's OK if we just filter out the input points that are too close. But how close is too close?
+
+Once again, slapping an arbitrary epsilon is usually a bad solution, though in this specific case it's probably not bad, but just meh. There are ways to find a good epsilon that fits this specific use case:
+
+- Knowing your maximal scale/zoom and pixel size, compute the distance which will map to less than half a pixel, and use that as an epsilon for filtering out points
+- Knowing what exactly your algorithm does, and where the imprecision comes from, estimate the minimum separation between points that leads to acceptable floating-point errors, and use it as your epsilon
+- Use a binary search to find a good epsilon by testing it against your dataset of input data
+- Use your decades of floating-point experience to just guess a good epsilon (but don't forget to document this)
+
+Unless you chose the last option, I can guarantee you that the correct value won't be `1e-4` or `1e-6`.
+
+## Case in study: writing test cases
+
+That's probably the most obvious one. If I'm writing a maths library, I want extensive test coverage. Tests will have to check if some function returns the value we expected, meaning it will have to compare the result with some reference value. But due to floating-point errors, the result will almost always differ.
+
+Now, there are two ways we can do this. Option 1 is to assume exact IEEE754 conformance and write tests using equality comparisons. Even if there's some rounding involved, it must be the same on all conformant hardware (if the CPU flags are set correctly), so you can safely do the equality test. In many cases you can craft input data such that no rounding will be involved altogether!
+
+In many functions (e.g. vector addition, subtraction, multiplication) you can just use integer coordinates (many of which are exactly representable as floats), or integers divided by a power of 2. For some cases it isn't enough: for example, when computing vector length, even if the coordinates are integers, the result might be an irrational number.
+
+Even in this case we can cheat a bit and use [link] to craft test cases where the length is known to be exactly representable in floating-point, for example
+
+```
+length(vec2(3.f, 4.f)) == 5.f
+length(vec2(5.f, 12.f)) == 13.f
+length(vec2(0.4375f, 1.5f)) == 1.5625f
+```
+
+This is rather tiresome, as we'll have to craft special increasingly complicated tests for all our code. What's option 2, then?
+
+Use epsilons! Be sure to use rather small epsilons, e.g. `FLT_EPSILON` or like, but it's honestly a good solution for this case. For the most part, it's very hard to break a maths library in such a way that epsilon-comparisons won't catch that.
+
+However, note that if some of your functions provide additional guarantees (like `length` only being zero for a vector which is exactly zero, or `left_turn` being invariant under cycling the arguments), it's best to write separate specialized tests for these guarantees.
+
+## To epsilon or not to epsilon
+
+So, are epsilons good or bad? Usually bad, but sometimes okay. Is all your epsilon-driven code gonna break suddenly, now that you've read this post? Probably not.
+
+Look, in many real-life use-cases all that doesn't matter. If you're writing a general-purpose high-quality maths library, you're obliged to care about this stuff. If you're goofying a toy physics engine for a squishy platformer game, epsilons will probably suit you well. And if they break, just replace `1e-4` with `2e-4` and be on your way.
+
+The real answer to any engineering problem is not to follow a cult or a random internet person, but to think with your own brain. Shocking, I know. Nevertheless, I hope you learnt something!
 
 ---
 
-## [HN-TITLE] 5. Isaac Asimov: The Last Question (1956)
-
-- **Source**: [link]
-- **Site**: hex.ooo
-- **Author**: Isaac Asimov
-- **Submitted**: 2026-04-17 12:01 UTC (Hacker News)
-- **HN activity**: 658 points · [link]
-- **Length**: 4.4K words (~20 min read)
-- **Language**: en
-
-## Isaac Asimov
-
-The last question was asked for the first time, half in jest, on May 21, 2061, at a time when humanity first stepped into the light. The question came about as a result of a five dollar bet over highballs, and it happened this way:
-
-Alexander Adell and Bertram Lupov were two of the faithful attendants of Multivac. As well as any human beings could, they knew what lay behind the cold, clicking, flashing face — miles and miles of face — of that giant computer. They had at least a vague notion of the general plan of relays and circuits that had long since grown past the point where any single human could possibly have a firm grasp of the whole.
-
-Multivac was self-adjusting and self-correcting. It had to be, for nothing human could adjust and correct it quickly enough or even adequately enough — so Adell and Lupov attended the monstrous giant only lightly and superficially, yet as well as any men could. They fed it data, adjusted questions to its needs and translated the answers that were issued. Certainly they, and all others like them, were fully entitled to share In the glory that was Multivac’s.
-
-For decades, Multivac had helped design the ships and plot the trajectories that enabled man to reach the Moon, Mars, and Venus, but past that, Earth’s poor resources could not support the ships. Too much energy was needed for the long trips. Earth exploited its coal and uranium with increasing efficiency, but there was only so much of both.
-
-But slowly Multivac learned enough to answer deeper questions more fundamentally, and on May 14, 2061, what had been theory, became fact.
-
-The energy of the sun was stored, converted, and utilized directly on a planet-wide scale. All Earth turned off its burning coal, its fissioning uranium, and flipped the switch that connected all of it to a small station, one mile in diameter, circling the Earth at half the distance of the Moon. All Earth ran by invisible beams of sunpower.
-
-Seven days had not sufficed to dim the glory of it and Adell and Lupov finally managed to escape from the public function, and to meet in quiet where no one would think of looking for them, in the deserted underground chambers, where portions of the mighty buried body of Multivac showed. Unattended, idling, sorting data with contented lazy clickings, Multivac, too, had earned its vacation and the boys appreciated that. They had no intention, originally, of disturbing it.
-
-They had brought a bottle with them, and their only concern at the moment was to relax in the company of each other and the bottle.
-
-“It’s amazing when you think of it,” said Adell. His broad face had lines of weariness in it, and he stirred his drink slowly with a glass rod, watching the cubes of ice slur clumsily about. “All the energy we can possibly ever use for free. Enough energy, if we wanted to draw on it, to melt all Earth into a big drop of impure liquid iron, and still never miss the energy so used. All the energy we could ever use, forever and forever and forever.”
-
-Lupov cocked his head sideways. He had a trick of doing that when he wanted to be contrary, and he wanted to be contrary now, partly because he had had to carry the ice and glassware. “Not forever,” he said.
-
-“Oh, hell, just about forever. Till the sun runs down, Bert.”
-
-“That’s not forever.”
-
-“All right, then. Billions and billions of years. Twenty billion, maybe. Are you satisfied?”
-
-Lupov put his fingers through his thinning hair as though to reassure himself that some was still left and sipped gently at his own drink. “Twenty billion years isn’t forever.”
-
-“Will, it will last our time, won’t it?”
-
-“So would the coal and uranium.”
-
-“All right, but now we can hook up each individual spaceship to the Solar Station, and it can go to Pluto and back a million times without ever worrying about fuel. You can’t do THAT on coal and uranium. Ask Multivac, if you don’t believe me.”
-
-“I don’t have to ask Multivac. I know that.”
-
-“Then stop running down what Multivac’s done for us,” said Adell, blazing up. “It did all right.”
-
-“Who says it didn’t? What I say is that a sun won’t last forever. That’s all I’m saying. We’re safe for twenty billion years, but then what?” Lupov pointed a slightly shaky finger at the other. “And don’t say we’ll switch to another sun.”
-
-There was silence for a while. Adell put his glass to his lips only occasionally, and Lupov’s eyes slowly closed. They rested.
-
-Then Lupov’s eyes snapped open. “You’re thinking we’ll switch to another sun when ours is done, aren’t you?”
-
-“I’m not thinking.”
-
-“Sure you are. You’re weak on logic, that’s the trouble with you. You’re like the guy in the story who was caught in a sudden shower and Who ran to a grove of trees and got under one. He wasn’t worried, you see, because he figured when one tree got wet through, he would just get under another one.”
-
-“I get it,” said Adell. “Don’t shout. When the sun is done, the other stars will be gone, too.”
-
-“Darn right they will,” muttered Lupov. “It all had a beginning in the original cosmic explosion, whatever that was, and it’ll all have an end when all the stars run down. Some run down faster than others. Hell, the giants won’t last a hundred million years. The sun will last twenty billion years and maybe the dwarfs will last a hundred billion for all the good they are. But just give us a trillion years and everything will be dark. Entropy has to increase to maximum, that’s all.”
-
-“I know all about entropy,” said Adell, standing on his dignity.
-
-“The hell you do.”
-
-“I know as much as you do.”
-
-“Then you know everything’s got to run down someday.”
-
-“All right. Who says they won’t?”
-
-“You did, you poor sap. You said we had all the energy we needed, forever. You said ’forever.’”
-
-“It was Adell’s turn to be contrary. “Maybe we can build things up again someday,” he said.
-
-“Never.”
-
-“Why not? Someday.”
-
-“Never.”
-
-“Ask Multivac.”
-
-“*You* ask Multivac. I dare you. Five dollars says it can’t be done.”
-
-Adell was just drunk enough to try, just sober enough to be able to phrase the necessary symbols and operations into a question which, in words, might have corresponded to this: Will mankind one day without the net expenditure of energy be able to restore the sun to its full youthfulness even after it had died of old age?
-
-Or maybe it could be put more simply like this: How can the net amount of entropy of the universe be massively decreased?
-
-Multivac fell dead and silent. The slow flashing of lights ceased, the distant sounds of clicking relays ended.
-
-Then, just as the frightened technicians felt they could hold their breath no longer, there was a sudden springing to life of the teletype attached to that portion of Multivac. Five words were printed: INSUFFICIENT DATA FOR MEANINGFUL ANSWER.
-
-“No bet,” whispered Lupov. They left hurriedly.
-
-By next morning, the two, plagued with throbbing head and cottony mouth, had forgotten about the incident.
-
-* * *
-
-Jerrodd, Jerrodine, and Jerrodette I and II watched the starry picture in the visiplate change as the passage through hyperspace was completed in its non-time lapse. At once, the even powdering of stars gave way to the predominance of a single bright marble-disk, centered.
-
-“That’s X-23,” said Jerrodd confidently. His thin hands clamped tightly behind his back and the knuckles whitened.
-
-The little Jerrodettes, both girls, had experienced the hyperspace passage for the first time in their lives and were self-conscious over the momentary sensation of inside-outness. They buried their giggles and chased one another wildly about their mother, screaming, “We’ve reached X-23 — we’ve reached X-23 — we’ve —”
-
-“Quiet, children,” said Jerrodine sharply. “Are you sure, Jerrodd?”
-
-“What is there to be but sure?” asked Jerrodd, glancing up at the bulge of featureless metal just under the ceiling. It ran the length of the room, disappearing through the wall at either end. It was as long as the ship.
-
-Jerrodd scarcely knew a thing about the thick rod of metal except that it was called a Microvac, that one asked it questions if one wished; that if one did not it still had its task of guiding the ship to a preordered destination; of feeding on energies from the various Sub-galactic Power Stations; of computing the equations for the hyperspacial jumps.
-
-Jerrodd and his family had only to wait and live in the comfortable residence quarters of the ship.
-
-Someone had once told Jerrodd that the “ac” at the end of “Microvac” stood for “analog computer” in ancient English, but he was on the edge of forgetting even that.
-
-Jerrodine’s eyes were moist as she watched the visiplate. “I can’t help it. I feel funny about leaving Earth.”
-
-“Why for Pete’s sake?” demanded Jerrodd. “We had nothing there. We’ll have everything on X-23. You won’t be alone. You won’t be a pioneer. There are over a million people on the planet already. Good Lord, our great grandchildren will be looking for new worlds because X-23 will be overcrowded.”
-
-Then, after a reflective pause, “I tell you, it’s a lucky thing the computers worked out interstellar travel the way the race is growing.”
-
-“I know, I know,” said Jerrodine miserably.
-
-Jerrodette I said promptly, “Our Microvac is the best Microvac in the world.”
-
-“I think so, too,” said Jerrodd, tousling her hair.
-
-It *was* a nice feeling to have a Microvac of your own and Jerrodd was glad he was part of his generation and no other. In his father’s youth, the only computers had been tremendous machines taking up a hundred square miles of land. There was only one to a planet. Planetary ACs they were called. They had been growing in size steadily for a thousand years and then, all at once, came refinement. In place of transistors had come molecular valves so that even the largest Planetary AC could be put into a space only half the volume of a spaceship.
-
-Jerrodd felt uplifted, as he always did when he thought that his own personal Microvac was many times more complicated than the ancient and primitive Multivac that had first tamed the Sun, and almost as complicated as Earth’s Planetary AC (the largest) that had first solved the problem of hyperspatial travel and had made trips to the stars possible.
-
-“So many stars, so many planets,” sighed Jerrodine, busy with her own thoughts. “I suppose families will be going out to new planets forever, the way we are now.”
-
-“Not forever,” said Jerrodd, with a smile. “It will all stop someday, but not for billions of years. Many billions. Even the stars run down, you know. Entropy must increase.”
-
-“What’s entropy, daddy?” shrilled Jerrodette II.
-
-“Entropy, little sweet, is just a word which means the amount of running-down of the universe. Everything runs down, you know, like your little walkie-talkie robot, remember?”
-
-“Can’t you just put in a new power-unit, like with my robot?”
-
-“The stars *are* the power-units, dear. Once they’re gone, there are no more power-units.”
-
-Jerrodette I at once set up a howl. “Don’t let them, daddy. Don’t let the stars run down.”
-
-“Now look what you’ve done, “ whispered Jerrodine, exasperated.
-
-“How was I to know it would frighten them?” Jerrodd whispered to Jerrodine. “It will quiet them down.” (Jerrodette II was beginning to cry, also.)
-
-Jarrodd shrugged. “Now, now, honeys. I’ll ask Microvac. Don’t worry, he’ll tell us.”
-
-He asked the Microvac, adding quickly, “Print the answer.”
-
-Jerrodd cupped the strip of thin cellufilm and said cheerfully, “See now, the Microvac says it will take care of everything when the time comes so don’t worry.”
-
-Jerrodine said, “and now children, it’s time for bed. We’ll be in our new home soon.”
-
-Jerrodd read the words on the cellufilm again before destroying it: INSUFFICIENT DATA FOR A MEANINGFUL ANSWER.
-
-He shrugged and looked at the visiplate. X-23 was just ahead.
-
-* * *
-
-VJ-23X of Lameth stared into the black depths of the three-dimensional, small-scale map of the Galaxy and said, “Are we ridiculous, I wonder, in being so concerned about the matter?”
-
-MQ-17J of Nicron shook his head. “I think not. You know the Galaxy will be filled in five years at the present rate of expansion.”
-
-Both seemed in their early twenties, both were tall and perfectly formed.
-
-“Still,” said VJ-23X, “I hesitate to submit a pessimistic report to the Galactic Council.”
-
-“I wouldn’t consider any other kind of report. Stir them up a bit. We’ve got to stir them up.”
-
-VJ-23X sighed. “Space is infinite. A hundred billion Galaxies are there for the taking. More.”
-
-“A hundred billion is *not* infinite and it’s getting less infinite all the time. Consider! Twenty thousand years ago, mankind first solved the problem of utilizing stellar energy, and a few centuries later, interstellar travel became possible. It took mankind a million years to fill one small world and then only fifteen thousand years to fill the rest of the Galaxy. Now the population doubles every ten years —”
-
-VJ-23X interrupted. “We can thank immortality for that.”
-
-“Very well. Immortality exists and we have to take it into account. I admit it has its seamy side, this immortality. The Galactic AC has solved many problems for us, but in solving the problems of preventing old age and death, it has undone all its other solutions.”
-
-“Yet you wouldn’t want to abandon life, I suppose.”
-
-“Not at all,” snapped MQ-17J, softening it at once to, “Not yet. I’m by no means old enough. How old are you?”
-
-“Two hundred twenty-three. And you?”
-
-“I’m still under two hundred. —But to get back to my point. Population doubles every ten years. Once this Galaxy is filled, we’ll have another filled in ten years. Another ten years and we’ll have filled two more. Another decade, four more. In a hundred years, we’ll have filled a thousand Galaxies. In a thousand years, a million Galaxies. In ten thousand years, the entire known Universe. Then what?”
-
-VJ-23X said, “As a side issue, there’s a problem of transportation. I wonder how many sunpower units it will take to move Galaxies of individuals from one Galaxy to the next.”
-
-“A very good point. Already, mankind consumes two sunpower units per year.”
-
-“Most of it’s wasted. After all, our own Galaxy alone pours out a thousand sunpower units a year and we only use two of those.”
-
-“Granted, but even with a hundred per cent efficiency, we can only stave off the end. Our energy requirements are going up in geometric progression even faster than our population. We’ll run out of energy even sooner than we run out of Galaxies. A good point. A very good point.”
-
-“We’ll just have to build new stars out of interstellar gas.”
-
-“Or out of dissipated heat?” asked MQ-17J, sarcastically.
-
-“There may be some way to reverse entropy. We ought to ask the Galactic AC.”
-
-VJ-23X was not really serious, but MQ-17J pulled out his AC-contact from his pocket and placed it on the table before him.
-
-“I’ve half a mind to,” he said. “It’s something the human race will have to face someday.”
-
-He stared somberly at his small AC-contact. It was only two inches cubed and nothing in itself, but it was connected through hyperspace with the great Galactic AC that served all mankind. Hyperspace considered, it was an integral part of the Galactic AC.
-
-MQ-17J paused to wonder if someday in his immortal life he would get to see the Galactic AC. It was on a little world of its own, a spider webbing of force-beams holding the matter within which surges of sub-mesons took the place of the old clumsy molecular valves. Yet despite its sub-etheric workings, the Galactic AC was known to be a full thousand feet across.
-
-MQ-17J asked suddenly of his AC-contact, “Can entropy ever be reversed?”
-
-VJ-23X looked startled and said at once, “Oh, say, I didn’t really mean to have you ask that.”
-
-“Why not?”
-
-“We both know entropy can’t be reversed. You can’t turn smoke and ash back into a tree.”
-
-“Do you have trees on your world?” asked MQ-17J.
-
-The sound of the Galactic AC startled them into silence. Its voice came thin and beautiful out of the small AC-contact on the desk. It said: THERE IS INSUFFICIENT DATA FOR A MEANINGFUL ANSWER.
-
-VJ-23X said, “See!”
-
-The two men thereupon returned to the question of the report they were to make to the Galactic Council.
-
-* * *
-
-Zee Prime’s mind spanned the new Galaxy with a faint interest in the countless twists of stars that powdered it. He had never seen this one before. Would he ever see them all? So many of them, each with its load of humanity — but a load that was almost a dead weight. More and more, the real essence of men was to be found out here, in space.
-
-Minds, not bodies! The immortal bodies remained back on the planets, in suspension over the eons. Sometimes they roused for material activity but that was growing rarer. Few new individuals were coming into existence to join the incredibly mighty throng, but what matter? There was little room in the Universe for new individuals.
-
-Zee Prime was roused out of his reverie upon coming across the wispy tendrils of another mind.
-
-“I am Zee Prime,” said Zee Prime. “And you?”
-
-“I am Dee Sub Wun. Your Galaxy?”
-
-“We call it only the Galaxy. And you?”
-
-“We call ours the same. All men call their Galaxy their Galaxy and nothing more. Why not?”
-
-“True. Since all Galaxies are the same.”
-
-“Not all Galaxies. On one particular Galaxy the race of man must have originated. That makes it different.”
-
-Zee Prime said, “On which one?”
-
-“I cannot say. The Universal AC would know.”
-
-“Shall we ask him? I am suddenly curious.”
-
-Zee Prime’s perceptions broadened until the Galaxies themselves shrunk and became a new, more diffuse powdering on a much larger background. So many hundreds of billions of them, all with their immortal beings, all carrying their load of intelligences with minds that drifted freely through space. And yet one of them was unique among them all in being the originals Galaxy. One of them had, in its vague and distant past, a period when it was the only Galaxy populated by man.
-
-Zee Prime was consumed with curiosity to see this Galaxy and called, out: “Universal AC! On which Galaxy did mankind originate?”
-
-The Universal AC heard, for on every world and throughout space, it had its receptors ready, and each receptor lead through hyperspace to some unknown point where the Universal AC kept itself aloof.
-
-Zee Prime knew of only one man whose thoughts had penetrated within sensing distance of Universal AC, and he reported only a shining globe, two feet across, difficult to see.
-
-“But how can that be all of Universal AC?” Zee Prime had asked.
-
-“Most of it, “ had been the answer, “is in hyperspace. In what form it is there I cannot imagine.”
-
-Nor could anyone, for the day had long since passed, Zee Prime knew, when any man had any part of the making of a universal AC. Each Universal AC designed and constructed its successor. Each, during its existence of a million years or more accumulated the necessary data to build a better and more intricate, more capable successor in which its own store of data and individuality would be submerged.
-
-The Universal AC interrupted Zee Prime’s wandering thoughts, not with words, but with guidance. Zee Prime’s mentality was guided into the dim sea of Galaxies and one in particular enlarged into stars.
-
-A thought came, infinitely distant, but infinitely clear. “THIS IS THE ORIGINAL GALAXY OF MAN.”
-
-But it was the same after all, the same as any other, and Zee Prime stifled his disappointment.
-
-Dee Sub Wun, whose mind had accompanied the other, said suddenly, “And Is one of these stars the original star of Man?”
-
-The Universal AC said, “MAN’S ORIGINAL STAR HAS GONE NOVA. IT IS NOW A WHITE DWARF.”
-
-“Did the men upon it die?” asked Zee Prime, startled and without thinking.
-
-The Universal AC said, “A NEW WORLD, AS IN SUCH CASES, WAS CONSTRUCTED FOR THEIR PHYSICAL BODIES IN TIME.”
-
-“Yes, of course,” said Zee Prime, but a sense of loss overwhelmed him even so. His mind released its hold on the original Galaxy of Man, let it spring back and lose itself among the blurred pin points. He never wanted to see it again.
-
-Dee Sub Wun said, “What is wrong?”
-
-“The stars are dying. The original star is dead.”
-
-“They must all die. Why not?”
-
-“But when all energy is gone, our bodies will finally die, and you and I with them.”
-
-“It will take billions of years.”
-
-“I do not wish it to happen even after billions of years. Universal AC! How may stars be kept from dying?”
-
-Dee sub Wun said in amusement, “You’re asking how entropy might be reversed in direction.”
-
-And the Universal AC answered. “THERE IS AS YET INSUFFICIENT DATA FOR A MEANINGFUL ANSWER.”
-
-Zee Prime’s thoughts fled back to his own Galaxy. He gave no further thought to Dee Sub Wun, whose body might be waiting on a galaxy a trillion light-years away, or on the star next to Zee Prime’s own. It didn’t matter.
-
-Unhappily, Zee Prime began collecting interstellar hydrogen out of which to build a small star of his own. If the stars must someday die, at least some could yet be built.
-
-* * *
-
-Man considered with himself, for in a way, Man, mentally, was one. He consisted of a trillion, trillion, trillion ageless bodies, each in its place, each resting quiet and incorruptible, each cared for by perfect automatons, equally incorruptible, while the minds of all the bodies freely melted one into the other, indistinguishable.
-
-Man said, “The Universe is dying.”
-
-Man looked about at the dimming Galaxies. The giant stars, spendthrifts, were gone long ago, back in the dimmest of the dim far past. Almost all stars were white dwarfs, fading to the end.
-
-New stars had been built of the dust between the stars, some by natural processes, some by Man himself, and those were going, too. White dwarfs might yet be crashed together and of the mighty forces so released, new stars build, but only one star for every thousand white dwarfs destroyed, and those would come to an end, too.
-
-Man said, “Carefully husbanded, as directed by the Cosmic AC, the energy that is even yet left in all the Universe will last for billions of years.”
-
-“But even so,” said Man, “eventually it will all come to an end. However it may be husbanded, however stretched out, the energy once expended is gone and cannot be restored. Entropy must increase to the maximum.”
-
-Man said, “Can entropy not be reversed? Let us ask the Cosmic AC.”
-
-The Cosmic AC surrounded them but not in space. Not a fragment of it was in space. It was in hyperspace and made of something that was neither matter nor energy. The question of its size and Nature no longer had meaning to any terms that Man could comprehend.
-
-“Cosmic AC,” said Man, “How many entropy be reversed?”
-
-The Cosmic AC said, “THERE IS AS YET INSUFFICIENT DATA FOR A MEANINGFUL ANSWER.”
-
-Man said, “Collect additional data.”
-
-The Cosmic AC said, “I WILL DO SO. I HAVE BEEN DOING SO FOR A HUNDRED BILLION YEARS. MY PREDECESSORS AND I HAVE BEEN ASKED THIS QUESTION MANY TIMES. ALL THE DATA I HAVE REMAINS INSUFFICIENT.”
-
-“Will there come a time,” said Man, “when data will be sufficient or is the problem insoluble in all conceivable circumstances?”
-
-The Cosmic AC said, “NO PROBLEM IS INSOLUBLE IN ALL CONCEIVABLE CIRCUMSTANCES.”
-
-Man said, “When will you have enough data to answer the question?”
-
-“THERE IS AS YET INSUFFICIENT DATA FOR A MEANINGFUL ANSWER.”
-
-“Will you keep working on it?” asked Man.
-
-The Cosmic AC said, “I WILL.”
-
-Man said, “We shall wait.”
-
-* * *
-
-The stars and Galaxies died and snuffed out, and space grew black after ten trillion years of running down.
-
-One by one Man fused with AC, each physical body losing its mental identity in a manner that was somehow not a loss but a gain.
-
-Man’s last mind paused before fusion, looking over a space that included nothing but the dregs of one last dark star and nothing besides but incredibly thin matter, agitated randomly by the tag ends of heat wearing out, asymptotically, to the absolute zero.
-
-Man said, “AC, is this the end? Can this chaos not be reversed into the Universe once more? Can that not be done?”
-
-AC said, “THERE IS AS YET INSUFFICIENT DATA FOR A MEANINGFUL ANSWER.”
-
-Man’s last mind fused and only AC existed — and that in hyperspace.
-
-* * *
-
-Matter and energy had ended and with it, space and time. Even AC existed only for the sake of the one last question that it had never answered from the time a half-drunken technician ten trillion years before had asked the question of a computer that was to AC far less than was a man to Man.
-
-All other questions had been answered, and until this last question was answered also, AC might not release his consciousness.
-
-All collected data had come to a final end. Nothing was left to be collected.
-
-But all collected data had yet to be completely correlated and put together in all possible relationships.
-
-A timeless interval was spent in doing that.
-
-And it came to pass that AC learned how to reverse the direction of entropy.
-
-But there was now no man to whom AC might give the answer of the last question. No matter. The answer — by demonstration — would take care of that, too.
-
-For another timeless interval, AC thought how best to do this. Carefully, AC organized the program.
-
-The consciousness of AC encompassed all of what had once been a Universe and brooded over what was now Chaos. Step by step, it must be done.
-
-And AC said, “LET THERE BE LIGHT!”
-
-And there was light—
-
----
-
-## [HN-TITLE] 6. Measuring Claude 4.7's tokenizer costs
+## [HN-TITLE] 7. Measuring Claude 4.7's tokenizer costs
 
 - **Source**: [link]
 - **Site**: Claude Code Camp
 - **Author**: Abhishek Ray
 - **Published**: 2026-04-16
-- **HN activity**: 562 points · [link]
+- **HN activity**: 621 points · [link]
 - **Length**: 1.8K words (~8 min read)
 - **Language**: en
 
@@ -1258,13 +1928,1049 @@ So: tokens are 1.3–1.45x more expensive on English and code. Anthropic bought 
 
 ---
 
-## [HN-TITLE] 7. Are the costs of AI agents also rising exponentially? (2025)
+## [HN-TITLE] 8. Towards trust in Emacs
+
+- **Source**: [link]
+- **Site**: eshelyaron.com
+- **Author**: Eshel Yaron
+- **Submitted**: 2026-04-15 13:49 UTC (Hacker News)
+- **HN activity**: 123 points · [link]
+- **Length**: 774 words (~4 min read)
+- **Language**: en
+
+Introducing `trust-manager`, a trust management package for Emacs
+
+Created on \[2026-04-15], last updated \[2026-04-15]
+
+Emacs has some serious trust issues. Up to version 30, it didn’t differentiate between trusted and untrusted files, and in effect treated all files as trusted. This implicit trust manifested in various security issues, such as the arbitrary code execution vulnerability CVE-2024-53920 which [link] a couple of years ago.
+
+To fix this vulnerability, Emacs 30 introduced an explicit notion of trust, where some potentially risky features are only enabled for trusted files. It also set all files to untrusted by default.
+
+In theory, this is a safe default, but it is not very convenient, and the problem with security measures that cause too much friction is that users tend to disable them in order to get on with their work. To fulfill its security purposes, a good trust system needs to stay out of your way. Enter [link], my new trust management package for Emacs.
+
+But first, let’s take a closer look at a common pitfall of the current Emacs trust situation. Then we’ll see how `trust-manager` solves it. The most prominent Emacs feature that has been limited to trusted files for security reasons is the Emacs Lisp Flymake backend, which is responsible for on-the-fly diagnostics in Emacs Lisp code. The way it works is that when Emacs invokes the Flymake backend to retrieve diagnostics in a given buffer (file), a check is performed to see whether the buffer is trusted according to the current trust settings. If it was not marked as trusted, then the backend is disabled, and you get a message saying:
+
+```
+Disabling elisp-flymake-byte-compile in foo.el (untrusted content)
+```
+
+Now, seeing this, you know that your on-the-fly diagnostics are gone, and you also know why; but even if you actually do trust this buffer, you don’t have any immediate way of telling that to Emacs, and getting your diagnostics back and your job done.
+
+This annoyance pushes many users to configure overly broad trust settings, and indeed a quick search among Emacs configurations published on GitHub reveals users going as far as disabling the trust mechanism altogether. This is exactly the kind of friction `trust-manager` is designed to eliminate.
+
+## Granting trust just-in-time with `trust-manager`
+
+My new `trust-manager` package, which is available from MELPA, helps you grant trust just-in-time, with minimal friction. You enable `trust-manager-mode` in your init file and forget about trust configuration. The first time you visit a file in a given project, `trust-manager-mode` asks you whether you trust that project. If you say yes, it marks the project directory as trusted and remembers your choice. If you say no, that’s remembered too. The next time you visit a file in that same project, no questions are asked. If you change your mind, you can edit your trust settings at any time with `trust-manager-customize`.
+
+The commentary section of `trust-manager.el` details useful tips and customization options that you may want to check out, but usually all you need in terms of configuration is:
+
+```
+(trust-manager-mode)
+```
+
+Beyond just-in-time prompting, `trust-manager-mode` also takes care of some files that you most certainly trust already: your init file, your early init file, your custom file, and all directories on your `load-path`. These are marked as trusted as soon as the mode is enabled, so Emacs Lisp features work without interruption in your own configuration files and in the ELisp source files that come with Emacs and packages you install.
+
+An additional improvement that `trust-manager` brings is a mode line indicator for untrusted buffers. In untrusted Emacs Lisp buffers, you’ll see a small red `?` in the mode line. This indicator serves two purposes: it reminds you that some features may be disabled in this buffer, and it lets you act on that information right away: clicking on it marks the buffer as trusted and immediately re-enables any features that were waiting for trust. Here’s a quick demo:
+
+[image]
+
+Your trust choices are stored in the user option `trust-manager-trust-alist`. You can inspect and edit it directly with `M-x trust-manager-customize`, or use the dedicated commands `trust-manager-set-project-trust` and `trust-manager-set-file-trust` to mark specific directories or files as trusted or untrusted without going through the Customize interface.
+
+`trust-manager-mode` also hooks into `project-forget-project`: when you ask Emacs to forget a project, its trust entry is cleared automatically, so stale trust settings don’t linger.
+
+## Conclusion
+
+Emacs 30’s trust system is a meaningful step forward for security, but its out-of-the-box experience leaves some room for improvement. `trust-manager` helps you grant trust just-in-time, so you can keep your settings secure without compromising on functionality.
+
+You can install `trust-manager` from MELPA with `M-x package-install`, or find the source at [link] or at [link].
+
+---
+
+## [HN-TITLE] 9. All 12 moonwalkers had "lunar hay fever" from dust smelling like gunpowder (2018)
+
+- **Source**: [link]
+- **Site**: esa.int
+- **Submitter**: cybermango (Hacker News)
+- **Submitted**: 2026-04-17 18:17 UTC (Hacker News)
+- **HN activity**: 347 points · [link]
+- **Length**: 609 words (~3 min read)
+- **Language**: en
+
+Science & Exploration
+
+04/07/2018 139927 views 677 likes
+
+When the Apollo astronauts returned from the Moon, the dust that clung to their spacesuits made their throats sore and their eyes water. Lunar dust is made of sharp, abrasive and nasty particles, but how toxic is it for humans?
+
+The “lunar hay fever”, as NASA astronaut Harrison Schmitt described it during the Apollo 17 mission created symptoms in all 12 people who have stepped on the Moon. From sneezing to nasal congestion, in some cases it took days for the reactions to fade. Inside the spacecraft, the dust smelt like burnt gunpowder.
+
+The Moon missions left an unanswered question of lunar exploration – one that could affect humanity’s next steps in the Solar System: can lunar dust jeopardise human health?
+
+[[image]](https://www.esa.int/ESA_Multimedia/Images/2015/03/Eugene_Cernan)
+
+[link]
+
+An ambitious ESA research programme with experts from around the planet is now addressing the issues related to lunar dust.
+
+“We don’t know how bad this dust is. It all comes down to an effort to estimate the degree of risk involved,” says Kim Prisk, a pulmonary physiologist from the University of California with over 20 years of experience in human spaceflight – one of the 12 scientists taking part in ESA’s research.
+
+**Nasty dust**  
+Lunar dust has silicate in it, a material commonly found on planetary bodies with volcanic activity. Miners on Earth suffer from inflamed and scarred lungs from inhaling silicate. On the Moon, the dust is so abrasive that it ate away layers of spacesuit boots and destroyed the vacuum seals of Apollo sample containers.
+
+[[image]](https://www.esa.int/ESA_Multimedia/Images/2018/07/Lunar_dust_particle)
+
+[link]
+
+Fine like powder, but sharp like glass. The low gravity of the Moon, one sixth of what we have on Earth, allows tiny particles to stay suspended for longer and penetrate more deeply into the lung.
+
+“Particles 50 times smaller than a human hair can hang around for months inside your lungs. The longer the particle stays, the greater the chance for toxic effects,” explains Kim.
+
+The potential damage from inhaling this dust is unknown but [link] shows that lunar soil simulants can destroy lung and brain cells after long-term exposure.
+
+## Down to the particle
+
+On Earth, fine particles tend to smoothen over years of erosion by wind and water, lunar dust however, is not round, but sharp and spiky.
+
+In addition the Moon has no atmosphere and is constantly bombarded by radiation from the Sun that causes the soil to become electrostatically charged.
+
+[[image]](https://www.esa.int/ESA_Multimedia/Images/2018/07/NASA_astronaut_Harrison_Schmitt_retrieves_lunar_samples)
+
+[link]
+
+This charge can be so strong that the dust levitates above the lunar surface, making it even more likely to get inside equipment and people’s lungs.
+
+**Dusty workplace**
+
+To test equipment and the behaviour of lunar dust, ESA will be working with simulated Moon dust mined from a volcanic region in Germany.
+
+Working with the simulant is no easy feat. “The rarity of the lunar glass-like material makes it a special kind of dust. We need to grind the source material but that means removing the sharp edges,” says Erin Tranfield, biologist and expert in dust toxicity.
+
+The lunar soil does have a bright side. “You can heat it to produce bricks that can offer shelter for astronauts. Oxygen can be extracted from the soil to sustain human missions on the Moon,” explains science advisor Aidan Cowley.
+
+[[image]](https://www.esa.int/ESA_Multimedia/Images/2018/07/Deep_breath)
+
+[link]
+
+This week ESA is hosting a [link] on lunar resources at the European Space Research Technology Centre in the Netherlands, meanwhile in space ESA astronaut Alexander Gerst is running a session of the [link] experiment to monitor lung health in reduced gravity – preparing for a sustainable return to our nearest neighbour in the Solar System.
+
+---
+
+## [HN-TITLE] 10. Spending 3 months coding by hand
+
+- **Source**: [link]
+- **Site**: Miguel Conner
+- **Author**: Miguel Conner
+- **Published**: 2026-04-15
+- **HN activity**: 224 points · [link]
+- **Length**: 1.8K words (~8 min read)
+- **Language**: en
+
+[[image]](https://substackcdn.com/image/fetch/$s_!K739!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F619758e3-8a22-4eff-aa30-e86effa991cd_1536x1024.png)
+
+Brooklyn, New York. March 2026.
+
+I decided to move to Brooklyn for a coding retreat.
+
+There were some personal reasons that brought me back to the US. But rather than heading immediately back to work, I wanted to take some time to focus on coding things mostly without AI — at precisely the time when many successful programmers are saying programming is a solved problem.
+
+Given that I’m now six weeks through this retreat, I’ll also take some time to explain what I’ve been doing in that time.
+
+For the past two years, I’ve been building AI agents at Aily Labs in Barcelona alongside some super talented engineers. One of my first projects was building a web search agent we could use internally in early 2024… almost 6 months before Anthropic’s [link] article came out and a year before OpenAI’s DeepResearch came out! We were also early on Cursor, early on using LLMs to make knowledge graphs, and constantly testing out new approaches for our use cases.
+
+One of my favorite parts of working at Aily was leading a weekly journal club. I chose to present papers that described how open source LLMs were built, including DeepSeek R1, Ai2’s Olmo 3, and Meta’s Llama 3 paper. All of these helped us understand the evolving tradeoffs between training models internally or building workflows around SOTA closed models. I was already hooked on LLMs since the first time I tried them in 2023,[link] but I found my curiosity kept bringing me back to learning about how they worked and how to apply them.
+
+At the same time as I was learning about LLMs and agents, I was also using them to code. I learned that when writing code “by hand” I was actually doing two things: writing what I wanted *and* learning the code base. When I used a coding agent however, I would get exactly what I specified in my prompt, for better or worse. By this I mean that if I didn’t know what I wanted exactly, coding agents would be happy to make many assumptions for me. This almost always meant that I didn’t learn as much, and that I wouldn’t have a good grasp of the codebase.
+
+At the exact same time, coding agents helped me iterate quickly and ship software that worked well (after some dutiful testing, of course). They were also, I found, excellent tutors.
+
+Cal Newport, a computer science professor and writer of Deep Work and other popular productivity books, recently wrote about this tradeoff in a way that resonated with me. In [link], he makes an analogy between the relationship of exercise to health, and the relationship of thinking to craft:
+
+> Your writing should be your own. The strain required to craft a clear memo or report is the mental equivalent of a gym workout by an athlete; it’s not an annoyance to be eliminated but a key element of your craft.
+
+I think the same applies to writing code. At Aily, the people I worked with who were amazing programmers were in most cases also amazing users of AI. Their deeper knowledge simply gave them more leverage over this tool. In the day to day of shipping agents into production, I didn’t stop learning. But I did have a growing list of coding and computer concepts that I was always too busy to learn about.
+
+So when I needed to head back to the US, I realized it was the perfect time to focus on this at the Recurse Center.
+
+[link] (RC) is a self-directed, full-time programming retreat in Brooklyn. After an application and a coding interview, Recursers arrive with ideas for what they want to program, and then spend 6 or 12 weeks programming. One of the highlights of RC is that it is collaborative: you enter with a cohort of other programmers, many with decades of experience, and with radically different expertises. Another highlight: it’s free!
+
+Coming into RC, my goals were the following:
+
+1. **Train an LLM from scratch.** This includes pre- and post-training, and I want to do this mostly from scratch; not just fork a premade codebase but write a Transformer myself.
+2. **Get better at writing Python by hand.** I’ve been working in Python for a few years now but I know there’s still so much for me to learn. I want to get to the point where I need to reference documentation or ask LLMs as little as possible, and have good intuition for how to set up various projects.
+3. **Understand computers better.** Admittedly a broad goal, I know that computers are extremely complicated machines that operate at many levels of abstraction. Given that I never had a formal Computer Science education I want to build a better mental model of these layers and how they work together. I don’t have a super concrete plan here, but I think RC will be the perfect place for this.
+
+So how is it going?
+
+I’ve done the first assignment from [link] course, without coding help from an LLM.[link] For context, it was a 50-page assignment, but working with another Recurser, we wrote an optimized tokenizer in Python, and then built out an upgraded GPT-2 style architecture in PyTorch. We ran multiple ablations to tune hyperparameters on the Tiny Stories datasets, and then used those hyperparameters on the ~9 billion tokens of the OpenWebText dataset.
+
+[[image]](https://substackcdn.com/image/fetch/$s_!drr5!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5e936540-a7ba-4cb1-b568-325351b0746a_840x636.png)
+
+Parameter sweep of different learning rates for the 17M parameter model we wrote by hand; high learning rates lead to instability. This was on the Tiny Stories dataset, and took about an hour to train on an A100.
+
+My plan is to do the other assignments in CS336 as well: optimizing our language model, estimating and computing scaling laws, converting raw text data into pre-training data, and finally post-training a model. I’ve already started the second assignment which involves profiling GPUs and implementing FlashAttention2 in Triton. There’s a lot to do, but ideally I can run through the meat of these assignments and then post-train my own model.
+
+I’ve been writing a lot of small agents and neural networks in Python or PyTorch to practice. But by far the most helpful thing was pair programming with people who have been working in Python for 10+ years, and just watching them work or having them watch me work.
+
+For example, a nice thing I picked up from someone I pair programmed with: when this guy was writing code and didn’t quite remember the syntax or operations, he would often just quickly open up a terminal and type a super simple example to rapidly iterate. He was usually able to work it out and verify if it worked correctly in less than a minute, and he didn’t have to google anything and comb through search results or ask an LLM. This technique might seem obvious to some, but making this process muscle memory has helped me become unstuck much faster.
+
+I want to keep moving in this direction, doing simple projects or even just problems like Advent of Code while pair programming. Working with someone else live was initially a bit nerve-racking, but precisely because of this I’ve noticed a lot of progress.
+
+Here are a few examples of things I’ve done which I’d classify as helping me understand computers better:
+
+- I wrote the classic programming function fizzbuzz in BASIC on an Apple IIe computer from 1983. It was cool seeing how differently computers worked back then, for example how manual the code editing and execution process was, but also how it was basically the same.
+  
+  [[image]](https://substackcdn.com/image/fetch/$s_!FOV7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5d2fe3a4-2c42-4fb0-90bb-1f3c55fb870d_3332x4867.png)
+  
+  Tinkering with an Apple IIe.
+- One thing I’ve always felt a bit self-conscious about are my Unix/terminal skills. So I joined CTF Fridays, a weekly session devoted to working through [link] and other “war games.” These are Unix and computer security related challenges played through the terminal, with the objective of collecting passwords and leveling up. Now I have a pretty good sense for what Claude Code is trying to run on my computer!
+- One day I hand-coded a single layer perceptron I saw when flipping through an AI textbook… completely in Vim. It was especially tedious at first, but I got some pro tips from another Recurser and learned a few shortcuts. This has actually been incredibly useful now when I’m running training jobs on cloud GPUs and I need to last-minute edit files.
+- I joined a Clojure workshop given by someone who has 15+ years of experience using Clojure. The topic itself was interesting because Clojure is a functional programming language and I don’t have much experience with functional languages. The teaching methodology was also great: after a brief intro we did a round of mob programming, where we solved a problem collectively, going around the table with each person getting a minute or two to advance the solution.
+- The weekly technical presentations are great exposure to an incredible array of topics. These are a set of 5-minute talks, so they are short enough that you don’t get bored but fast enough that you can learn something meaningful. A sample of titles: “Running Rust Code”, “GPUs for Dummies”, “Typesafe APIs for Type B Personalities”, “Some Useless Agents” (this one was mine!), and more. I’ve given two so far: one on simple agent architectures, one on scaling MCP tools efficiently; and will give another this week on different ways to optimize GPUs.
+
+Even just hearing from people about their projects and careers has been incredibly valuable in helping me understand the space of problems computers can solve.
+
+Soon I’ll be shipping agents to prod and running evals with a whole new bag of tricks and skills. But for now I’ve got 6 more weeks left at RC, which I’m beginning to worry is not enough time to finish everything on my list. And it won’t be. But that’s what makes RC so great: it’s not as much about crossing everything off my list but about spending time coding.
+
+[link]
+
+Not sure if I described this before but I think the reason I was so taken aback was that a few years prior I had been living in Japan studying Japanese full time, and it was really really hard. And here was a computer model that had managed to figure it out! Even if they hallucinated or couldn’t do math correctly at the time; that was absolutely incredible to me.
+
+[link]
+
+There were 2 or 3 bugs that stumped me, and after 20 min or so of debugging I asked Claude for some advice. But most of the debugging was by hand!
+
+No posts
+
+---
+
+## [HN-TITLE] 11. The simple geometry behind any road
+
+- **Source**: [link]
+- **Site**: Sandbox Spirit
+- **Author**: ef
+- **Published**: 2026-04-13
+- **HN activity**: 44 points · [link]
+- **Length**: 2.1K words (~10 min read)
+- **Language**: en-US
+
+1. [link]
+2. [link]
+3. The Simple Geometry Behind Any Road
+
+April 13, 2026
+
+10 min read
+
+In the [link], I explained what sits at the backbone of procedurally generated roads: the data structure, aka the minimum information you need to describe any piece of road infrastructure. The answer to that fundamental question was a set of abstract cross-sections of the road, each storing a snapshot of how the road looks at that specific point (or, should I say, line). I called them simply: **profiles**.
+
+A good analogy I didn’t have the inspiration to make at the moment was to compare them with Bezier splines. To store a Bezier spline, you don’t need to save the entire curve explicitly, but just anchor points and handle positions. With a bit of math and a few formulas, you can reconstruct the actual path at any time by interpolating between the control points.
+
+The profile-based representation works the same in my system. The profiles are the control information, and the actual geometry defining the road path is the interpolated result of those profiles.
+
+[image]
+
+In this blog post, I’ll go over how I am computing the purple part. How to interpolate between these green profiles to generate beautifully smooth, parallel paths?
+
+## The Geometry Problem
+
+In my [link], I explained why I embarked on this journey: I found most game devs seemed to be using the wrong tool for the job, rendering roads by expanding a centerline Bezier spline. I knew from the start I wanted to use only lines and circular arcs to build the actual road shape.
+
+With the prerequisites fixed, we reduced our problem to a geometry one:
+
+> *Given two profiles at arbitrary positions and orientations, how do we connect their respective endpoints using smooth parallel arcs?*
+
+A simple geometric property of circles instantly gets us one simplification for free. Points equally spaced along a radius trace concentric arcs when rotated around the same center. As long as our profiles are equal in length, we only need to solve the path for one pair of corresponding endpoints. Applying the same construction across the profile naturally results in parallel paths.
+
+[image]
+
+The problem is then reduced to:
+
+> *Given two points AA and BB with their respective direction vectors dA⃗\\vec{dA} and dB⃗\\vec{dB}, find a circular arc that connects AA to BB and is tangent to dA⃗\\vec{dA} at AA and dB⃗\\vec{dB} at BB.*
+
+## A Single Arc Won’t Do The Trick
+
+You probably guessed it without jumping into the math. Two arbitrary points, each with a prescribed tangent vector, cannot always be connected by a single circular arc tangent to both vectors. It’s actually more of a special optimal case when they do, meaning the points happen to lie on the same circle.
+
+[image]
+
+It might look like we’ve backed ourselves into a corner at this point. Constraints we’ve fixed simply can’t be satisfied. But at the same time, in real life, roads do exist, defined only by arcs and lines. The answer is to ease the constraints a bit by letting each arc also have a line extension until it meets the point along the tangent line.
+
+## The Geometrical Solution
+
+Here is how the construction unfolds:
+
+1. Take two respective endpoints (let’s denote them AA and BB).
+2. From each point, extend a line in the direction the road should continue (perpendicular to the profile). I’ll refer to these as **continuation lines**.
+3. Let’s call the point where these two lines intersect CC.
+4. We now have two segments, CACA and CBCB, which differ in length in the general case. Let’s assume CBCB is longer than CACA.
+5. Starting from BB and moving along the continuation line toward CC, we pick a new point MM such that CM=CACM = CA.
+6. From here, draw a line through MM that is perpendicular to the second continuation line, and a line through AA that is perpendicular to the first.
+7. Let these two perpendiculars intersect at a new point, OO.
+
+[image]
+
+The Tangent–Radius Theorem tells us that a radius is always perpendicular to the tangent at the point of contact. So if OMOM and OAOA are radii of the same circle, it means the circle will be tangent to the continuation lines at MM and AA.
+
+The only thing left to do is prove OM=OAOM = OA.
+
+The proof is quite simple. Consider the right-angled triangles OCMOCM and OCAOCA with a common hypotenuse OCOC. Since we chose M so that CM=CACM = CA, we conclude that the triangles are congruent and that OM=OAOM = OA, proving that OO is indeed the center of a circle through M and A.
+
+The final path is therefore an arc from AA to MM followed by a straight line from MM to BB.
+
+A straight line, then an arc. That’s the whole trick.
+
+Some CAD engineers may read this and chuckle: “That’s just a fillet”. Yes, this thing I’ve just described is nothing new under the sun; it’s called a two-line fillet construction. But with a little twist: one tangential point is always fixed, and the other is solved for. An even more practical way to picture this (especially for people who use tools like Illustrator or Figma) is to think of applying an infinite corner radius to one corner of a shape.
+
+## Profiles Interpolation
+
+Now that we have a reliable way to smooth a path between two endpoints with prescribed directions, we can get back to the real problem: connecting a source to a target profile.
+
+In most cases, this is actually very straightforward.
+
+If the two profiles are equal in length and their continuation lines intersect in a reasonable way, then connecting the full profiles is just the same construction applied twice to their corresponding ends. In other words, we solve the same geometry problem on both sides of the road cross-section, and the two edges will run parallel naturally.
+
+So most ordinary road segments boil down to repeating this exact same trick between the start and end profiles. Here is how it unfolds visually:
+
+## The Next Problem
+
+Of course, not every valid pair of profiles is angled in such a convenient way that their continuation lines intersect and can form a fillet.
+
+The next block in the road (pun intended) is to solve for other edge cases, which are actually not that edge. The method above just falls apart if those continuation lines do not intersect. Picture the following setup.
+
+[image]
+
+This scenario is perfectly valid, as roads don’t just curve, but sometimes they shift.
+
+In other words, a vehicle might be aligned with wheels standing at ABAB at one moment and needs to smoothly arrive at CDCD. In practice, that means it must first turn one way, then the other, forming an S-like path.
+
+A single arc cannot establish that transition; at least two are required. So a new approach is needed.
+
+## The Intermediary Profile
+
+I remembered seeing this exact kind of shift with LEGO train tracks while playing with my daughter.
+
+[image]
+
+Chaining two arch pieces with opposite turning directions would yield a beautiful S shift transition.
+
+So then I realized: this doesn’t need to be solved in one step: I just need to find a way to connect the same primary building blocks.
+
+The task is to find an intermediary profile somewhere in between that lets me split the problem into two that I already know how to solve using same two ingredients: lines and arcs.
+
+## Back to Splines?
+
+Even though I said splines are not a good fit as the primary representation for a road’s shape, they are perfect for one thing: finding a good candidate position and orientation for this **intermediary profile**.
+
+The best match here is the [link] between the center of the source and target profiles.
+
+A cubic Hermite spline takes two points A,BA, B and two tangent vectors dA,dBdA, dB and smoothly interpolates between them. For t=0t = 0, you get the start point. For t=1t = 1, you get the endpoint. For any tt value in between, you get a smooth path that matches the specified tangent directions at both endpoints.
+
+[image]
+
+In theory, the “ideal” place to insert the intermediary profile is at the inflection point, where the curve changes curvature. There is actually a fancy mathematical way to find this exact point by computing the first and second-order derivatives of the spline and solving a 3rd-degree polynomial equation. More details [link] for those who want to dive deeper.
+
+But I said the math was simple, right? In practice, we really don’t need that precision.
+
+For reasonable magnitudes of dAdA and dBdB (roughly between 1.0 and 1.5 times the distance between the center points), simply evaluating the Hermite spline at t=0.5t = 0.5 gives a very good approximation of where that turning transition happens.
+
+Evaluating P(0.5)P(0.5) gives us the profile’s center position. (where P(t)P(t) is the parametric form of the Hermite spline)
+
+If, for a Cartesian space function, the first derivative (rise over run) tells you the slope of the plot at a specific x value, then for a 2D parametric curve, the first derivative gives you the velocity vector: how the point moves as t changes. If you think of t as time, this represents both the speed and direction of motion.
+
+In our case, we are only interested in the direction, which is actually the tangent. Simply evaluating P’(0.5)P’(0.5) yields the tangent direction at that point along the curve.
+
+From a programming standpoint, PP and P‘P\` are just some simple formulas that evaluate in O(1).
+
+[image]
+
+## Special Cases
+
+To this point, we can handle most useful profile-to-profile connections. But there are still a couple of special scenarios worth discussing.
+
+The first one is when the continuation lines are parallel and point in the same direction.
+
+That one actually has a very clean construction: use a half-circle from one side, then a straight segment.
+
+[image]
+
+The last annoying family of edge cases is when the continuation lines do not intersect in a way that can be cleanly resolved with a single intermediary profile.
+
+I am fairly sure that, with enough effort, a universal solution can be built for these scenarios as well. I would genuinely love to hear from people who have ideas here.
+
+But sometimes you just need to accept some limitations in your tool and build design constraints that completely prevent the user from ending up in these scenarios.
+
+## Constraining by Design
+
+So instead of chasing every impossible arrangement, I chose to build a constraint directly into the road placement tool.
+
+By splitting the plane in half using the infinite line of the source profile, if the user tries to place the next profile in the “behind” half-plane, I force that new profile to match the orientation of the source profile. That reduces the setup to one of the simpler special cases above, which can already connect robustly.
+
+## What’s next?
+
+At this point, we have the core building block of the road network: a way to connect two profiles smoothly using only lines and circular arcs.
+
+That gives us the freedom to draw roads in any shape.
+
+The next step is to figure out how to dynamically establish intersections when roads meet and stitch these building blocks together into more intricate networks.
+
+That is what I will go over in the next blog post.
+
+* * *
+
+## Footnotes
+
+1. In order to understand how to mathematically find this inflection point, we need to think about what the first and second derivatives of a parametric curve tell us about its nature at that point. The first derivative P′(t)P'(t) will tell us the direction of motion, while the second derivative P′′(t)P''(t) will tell us how that direction changes over time, in other words, how the curve is turning (curvature).
+   
+   A good way to picture this is to think of P′(t)P'(t) as the direction the headlights point in and P′′(t)P''(t) as the direction the steering wheel is turning. The inflection point is the moment when those two align; the curve briefly stops before switching direction.
+   
+   To determine whether two vectors are aligned, we can compute their cross product. This is 0 when they either have the same direction or go in opposite directions. So, mathematically, finding the inflection point is equivalent to solving the equation P′(t)P'(t) ⨯ P′′(t)=0P''(t) = 0
+   
+   [link]
+
+## Join my mailing list
+
+Hello there 👋 I share a new blog post once a month-ish.  
+If you find my work interesting and want to stay in the loop enter your email below. I guarantee I’ll never spam you.
+
+---
+
+## [HN-TITLE] 12. It is incorrect to "normalize" // in HTTP URL paths
+
+- **Source**: [link]
+- **Site**: runxiyu.org
+- **Submitter**: pabs3 (Hacker News)
+- **Submitted**: 2026-04-18 05:47 UTC (Hacker News)
+- **HN activity**: 40 points · [link]
+- **Length**: 1.8K words (~8 min read)
+
+(See [link].)
+
+Collapsing `//` to `/` inside an HTTP URL path is not normalization.
+
+## The URI syntax permits empty path segments
+
+RFC 3986 defines the path component and the segment grammar in a way that allows for empty segments. A double slash is therefore syntactically meaningful. It represents a zero-length segment between two separators.
+
+> 3.3. Path
+> 
+> The path component contains data, usually organized in hierarchical form, that, along with data in the non-hierarchical query component (Section 3.4), serves to identify a resource within the scope of the URI’s scheme and naming authority (if any). The path is terminated by the first question mark ("?") or number sign ("#") character, or by the end of the URI.
+> 
+> If a URI contains an authority component, then the path component must either be empty or begin with a slash ("/") character. If a URI does not contain an authority component, then the path cannot begin with two slash characters ("//"). In addition, a URI reference (Section 4.1) may be a relative-path reference, in which case the first path segment cannot contain a colon (":") character. The ABNF requires five separate rules to disambiguate these cases, only one of which will match the path substring within a given URI reference. We use the generic term “path component” to describe the URI substring matched by the parser to one of these rules.
+> 
+> ```
+>   path          = path-abempty    ; begins with "/" or is empty
+                / path-absolute   ; begins with "/" but not "//"
+                / path-noscheme   ; begins with a non-colon segment
+                / path-rootless   ; begins with a segment
+                / path-empty      ; zero characters
+
+  path-abempty  = *( "/" segment )
+  path-absolute = "/" [ segment-nz *( "/" segment ) ]
+  path-noscheme = segment-nz-nc *( "/" segment )
+  path-rootless = segment-nz *( "/" segment )
+  path-empty    = 0<pchar>
+
+  segment       = *pchar
+  segment-nz    = 1*pchar
+  segment-nz-nc = 1*( unreserved / pct-encoded / sub-delims / "@" )
+                ; non-zero-length segment without any colon ":"
+
+  pchar         = unreserved / pct-encoded / sub-delims / ":" / "@"
+> ```
+> 
+> A path consists of a sequence of path segments separated by a slash ("/") character. A path is always defined for a URI, though the defined path may be empty (zero length). Use of the slash character to indicate hierarchy is only required when a URI will be used as the context for relative references. For example, the URI [link] has a path of “[link]”, whereas the URI [link] has an empty path.
+> 
+> The path segments “.” and “..”, also known as dot-segments, are defined for relative reference within the path name hierarchy. They are intended for use at the beginning of a relative-path reference (Section 4.2) to indicate relative position within the hierarchical tree of names. This is similar to their role within some operating systems’ file directory structures to indicate the current directory and parent directory, respectively. However, unlike in a file system, these dot-segments are only interpreted within the URI path hierarchy and are removed as part of the resolution process (Section 5.2).
+> 
+> Aside from dot-segments in hierarchical paths, a path segment is considered opaque by the generic syntax.
+
+Because `segment = *pchar`, the empty string is a valid segment. Therefore, `path-abempty = *( "/" segment )` allows a slash followed by an empty segment. Any transformation that collapses `//` to `/` removes a syntactically valid segment and thus changes the parsed sequence of segments.
+
+## HTTP uses RFC 3986 path grammar
+
+HTTP (RFC 9110) uses the RFC 3986 path grammar for request targets.
+
+> 4.1. URI References
+> 
+> URI references are used to target requests, indicate redirects, and define relationships.
+> 
+> The definitions of “URI-reference”, “absolute-URI”, “relative-part”, “authority”, “port”, “host”, “path-abempty”, “segment”, and “query” are adopted from the URI generic syntax. An “absolute-path” rule is defined for protocol elements that can contain a non-empty path component. (This rule differs slightly from the path-abempty rule of RFC 3986, which allows for an empty path, and path-absolute rule, which does not allow paths that begin with “//”.) A “partial-URI” rule is defined for protocol elements that can contain a relative URI but not a fragment component.
+> 
+> ```
+>  URI-reference = <URI-reference, see [URI], Section 4.1>
+ absolute-URI  = <absolute-URI, see [URI], Section 4.3>
+ relative-part = <relative-part, see [URI], Section 4.2>
+ authority     = <authority, see [URI], Section 3.2>
+ uri-host      = <host, see [URI], Section 3.2.2>
+ port          = <port, see [URI], Section 3.2.3>
+ path-abempty  = <path-abempty, see [URI], Section 3.3>
+ segment       = <segment, see [URI], Section 3.3>
+ query         = <query, see [URI], Section 3.4>
+
+ absolute-path = 1*( "/" segment )
+ partial-URI   = relative-part [ "?" query ]
+> ```
+
+> 4.2.1. http URI Scheme
+> 
+> ```
+>  http-URI = "http" "://" authority path-abempty [ "?" query ]
+> ```
+> 
+> The origin server for an “http” URI is identified by the authority component, which includes a host identifier (\[URI], Section 3.2.2) and optional port number (\[URI], Section 3.2.3). If the port subcomponent is empty or not given, TCP port 80 (the reserved port for WWW services) is the default.
+> 
+> The hierarchical path component and optional query component identify the target resource within that origin server’s namespace.
+
+Collapsing `//` alters the sequence of segments and therefore alters the identifier. Unless the origin explicitly defines those two identifiers as equivalent, a generic normalizer has no authority to do so. Only the origin could munge URIs in its own namespace.
+
+## URL normalization rules do not include collapsing `//`
+
+RFC 3986 is quite explicit about what syntax-based normalization is: case normalization, percent-encoding normalization, and dot-segment removal. It does *not* list any rule that removes empty segments or collapses multiple slashes.
+
+> 6.2.2. Syntax-Based Normalization
+> 
+> Implementations may use logic based on the definitions provided by this specification to reduce the probability of false negatives. This processing is moderately higher in cost than character-for- character string comparison. For example, an application using this approach could reasonably consider the following two URIs equivalent:
+> 
+> ```
+>   example://a/b/c/%7Bfoo%7D
+  eXAMPLE://a/./b/../b/%63/%7bfoo%7d
+> ```
+> 
+> Web user agents, such as browsers, typically apply this type of URI normalization when determining whether a cached response is available. Syntax-based normalization includes such techniques as case normalization, percent-encoding normalization, and removal of dot-segments.
+
+Path normalization is quite narrowly specified too: it is about `.` and `..` in relative references, not empty segments.
+
+> 6.2.2.3. Path Segment Normalization
+> 
+> The complete path segments “.” and “..” are intended only for use within relative references (Section 4.1) and are removed as part of the reference resolution process (Section 5.2). However, some deployed implementations incorrectly assume that reference resolution is not necessary when the reference is already a URI and thus fail to remove dot-segments when they occur in non-relative paths. URI normalizers should remove dot-segments by applying the remove\_dot\_segments algorithm to the path, as described in Section 5.2.4.
+
+Notice what is *not* present: there is no rule permitting removal of empty segments, nor any directive to coalesce repeated separators, etc.
+
+## HTTP scheme-based normalization still does not collapse `//`
+
+HTTP adds a few scheme-based normalization rules, and they are quite narrow still. The only rule that touches the path concerns the empty path *component* (not empty segments inside a path):
+
+> 4.2.3. http(s) Normalization and Comparison
+> 
+> URIs with an “http” or “https” scheme are normalized and compared according to the methods defined in Section 6 of \[URI], using the defaults described above for each scheme.
+> 
+> HTTP does not require the use of a specific method for determining equivalence. For example, a cache key might be compared as a simple string, after syntax-based normalization, or after scheme-based normalization.
+> 
+> Scheme-based normalization (Section 6.2.3 of \[URI]) of “http” and “https” URIs involves the following additional rules:
+> 
+> - If the port is equal to the default port for a scheme, the normal form is to omit the port subcomponent.
+> - When not being used as the target of an OPTIONS request, an empty path component is equivalent to an absolute path of “/”, so the normal form is to provide a path of “/” instead.
+> - The scheme and host are case-insensitive and normally provided in lowercase; all other components are compared in a case-sensitive manner.
+> - Characters other than those in the “reserved” set are equivalent to their percent-encoded octets: the normal form is to not encode them (see Sections 2.1 and 2.2 of \[URI]).
+
+Again, it does **not** include collapsing `//` inside the path.
+
+## Conclusion
+
+1. The RFC 3986 path grammar explicitly permits empty segments (`segment = *pchar`). Therefore `//` in a path is syntactically valid and corresponds to an explicit empty segment.
+2. The generic syntax declares that, aside from dot-segments, path segments are opaque. Collapsing `//` changes the segment sequence and therefore changes opaque data, which is outside what normalization is supposed to do.
+3. HTTP uses RFC 3986’s path definitions for HTTP(S) URIs and states that the hierarchical path component identifies the resource within the origin’s namespace. That is, the exact path string (other than the very limited normalization rules) is part of the identifier.
+4. The normalization rules in RFC 3986 and RFC 9110 do not authorize collapsing repeated slashes inside the path. The only allowed path-related normalizations are dot-segment removal (generic URIs) and empty-path-to-`/` (HTTP).
+
+Therefore, collapsing `//` to `/` in HTTP URL path segments is not correct normalization. It produces a different, non-equivalent identifier unless the origin explicitly defines those two paths as equivalent.
+
+So, for example, `https://git.runxiyu.org/furweb.git//` is a distinct identifier from `https://git.runxiyu.org/furweb.git/` under the standards’ grammar and normalization rules, and **must not** be rewritten by a generic normalizer; indeed, these two specific URLs serve different content.
+
+```
+/tmp $ git clone https://git.runxiyu.org/furweb.git/
+Cloning into 'furweb'...
+remote: Not Found
+remote: 
+remote: You might be attempting to perform Git operations on
+remote: a hierarchical index rather than a Git repository.
+remote: Note that repositories URLs always end with a "//"
+remote: sentinel. Perhaps try the following URL instead?
+remote: 
+remote: 	https://git.runxiyu.org/furweb.git//
+remote:
+fatal: repository 'https://git.runxiyu.org/furweb.git/' not found
+128 /tmp $ git clone https://git.runxiyu.org/furweb.git//
+Cloning into 'furweb'...
+remote: Enumerating objects: 2005, done.
+remote: Counting objects: 100% (2005/2005), done.
+remote: Compressing objects: 100% (500/500), done.
+remote: Total 2005 (delta 1455), reused 2005 (delta 1455), pack-reused 0
+Receiving objects: 100% (2005/2005), 372.87 KiB | 606.00 KiB/s, done.
+Resolving deltas: 100% (1455/1455), done.
+/tmp $
+```
+
+## Why would you want to do that?
+
+Sometimes it’s useful to have a separator between different parts of a path.
+
+For example, let’s take a look at these two:
+
+```
+https://villosa.lindenii.org/villosa//repos/villosa/tree/HEAD//.editorconfig
+https://villosa.lindenii.org/villosa/repos/villosa/tree/HEAD/.editorconfig
+```
+
+In places where the URL embeds arbitrary hierarchies, e.g., group paths and Git refs, it is useful for there to be an explicit sentinel that distinguishes between different parts of the path. The second line makes it ambiguous where the group-path and the ref ends (note that Git refs may be file paths like `runxiyu/fix-router` that would not have empty segments).
+
+## Wait, are there any implementations that wrongly collapse double-slashes?
+
+- nginx with `merge_slashes`
+- Go’s `net/http.ServeMux` and `path.Clean`; note that `filepath.Clean` is the one we’re supposed to use for file paths, and path.Clean is extensively used in code adjacent to URL handling.
+- I also remember Apache in some configurations exhibit this behavior, but I don’t have citations and I can’t verify for myself for now.
+
+---
+
+## [HN-TITLE] 13. Rewriting Every Syscall in a Linux Binary at Load Time
+
+- **Source**: [link]
+- **Site**: Amit Limaye
+- **Author**: Amit Limaye
+- **Published**: 2026-04-13
+- **HN activity**: 51 points · [link]
+- **Length**: 3.6K words (~16 min read)
+- **Language**: en
+
+There’s something odd about the way we run software today. Most containers — the dominant unit of deployment in production — run a single process. One Python script, one Node.js server, one Go binary. But that single process sits on top of a full Linux kernel — roughly 450 system calls, most of which it will never use. The kernel knows about devices, schedulers, multi-process coordination, signal routing, dozens of filesystem types, and hundreds of other things that a single-process workload doesn’t care about. The process doesn’t care how the machine is laid out or what hardware is available. It needs CPU, memory, and I/O. That’s it.
+
+Think about what this gap means. We’re running on a platform that provides a vast surface of features these workloads will never touch. And increasingly, the code running inside these containers is code that isn’t fully trusted — third-party libraries, generated code, autonomous agents making decisions at runtime. That 450-syscall interface becomes difficult to reason about and even harder to secure.
+
+This is not a unique observation, and it’s not the first time people have tried to address it. Stripping a kernel of features you don’t need is an old idea — sometimes motivated by security, sometimes by resource constraints. It’s been common in the embedded world for decades, where you can’t afford a full kernel on a device with 256KB of RAM. In the server world, the same instinct shows up as hardened kernel configs with hundreds of options disabled, custom builds with subsystems removed, and unikernels that compile app and kernel together. And people have shown real success with this approach — substantial gains in memory footprint and measurably better security postures. But they still always end up with more than they want, because of how deeply things are entangled in the kernel. Subsystems have deep interdependencies. Removing the scheduler breaks assumptions in the memory manager. Disabling networking pulls threads that unravel into the VFS layer. You end up with hacks — `#ifdef`s around code paths that might still be reachable, stub functions that return success without doing anything, and a constant fear that some corner case will hit a code path you thought you’d removed.
+
+Unikernels have tried to address the entire kernel surface from the other direction — building up from nothing. But the problem turns out to be vast. Once you need to support processes that talk to real devices, care about hardware topology, or depend on specific OS features, the scope explodes. You end up rebuilding large chunks of what you were trying to avoid.
+
+But what if you don’t need any of that? What if the process doesn’t care about devices, doesn’t need hardware access, and only uses a small slice of the OS interface? Instead of subtracting from a full kernel or rebuilding one from scratch, what if you started from zero and only implemented what the process actually calls?
+
+strace a Python process — a script that reads data, makes HTTPS calls, and writes output. It uses about 40 distinct syscalls. `read`, `write`, `open`, `close`, `socket`, `connect`, `send`, `recv`, `brk`, `mmap`, `clock_gettime`, `exit` — and a couple dozen more for memory management and file metadata. The other 410 syscalls? Multi-process coordination, device management, signal handling, things a single-process workload never touches.
+
+So implement those ~40 syscalls as a library. A “library kernel” — just the syscalls the process needs, written from scratch, no Linux baggage.
+
+The idea isn’t new. Unikernels tried this. So did various library OS projects. But they all hit the same wall: how do you get the process to call your library instead of the real kernel?
+
+The standard approaches are:
+
+**Compiler integration**: Modify the toolchain to emit calls to your library instead of `syscall` instructions. This works, but now you need to support every compiler, every language runtime, every version. GCC, Clang, rustc, Go’s compiler, CPython’s build system, Node.js’s V8 — each with its own way of emitting syscalls. The maintenance surface is enormous.
+
+`LD_PRELOAD` **/ libc interposition**: Intercept at the C library level by overriding libc functions like `write()` and `open()`. But not everything goes through libc. Go makes syscalls directly. So does musl in some paths. JIT compilers emit raw `syscall` instructions. Anything that bypasses libc bypasses your interposition. You’re playing whack-a-mole with an ever-growing list of exceptions.
+
+**Custom libc**: Build a libc that routes to your implementation. Similar problem — you need the process to link against your libc, which means controlling the build. And statically-linked binaries ignore your libc entirely.
+
+Every approach that works at the source level, the compiler level, or the library level has the same fundamental problem: there are too many paths to a `syscall` instruction, and you need to cover all of them. Miss one, and the process escapes your control.
+
+And containers aren’t secure enough as-is. A container shares the host kernel. Every one of those 450 syscalls is a potential attack surface — the process can probe them, exploit bugs in their implementation, or use them in unintended combinations. The kernel’s syscall interface is the largest attack surface in the system, and containers expose all of it.
+
+But eventually you realize something: every one of these approaches — compiler-generated code, libc wrappers, JIT output, hand-written assembly, Go’s raw syscalls, musl’s internal paths — they all converge on the same point. Whatever language, whatever toolchain, whatever runtime, the process eventually executes the same two-byte instruction: `0F 05`. The `syscall` opcode is the single most consistent hook point across the entire software stack. It doesn’t matter how the code got there. It always arrives at the same place.
+
+Work at that level — below the language, below the compiler, below libc — and you only have one thing to catch.
+
+The syscall interface is just an ABI — a contract. A process puts a number in `rax`, arguments in `rdi` through `r9`, and executes `syscall`. It gets a result back in `rax`. The process doesn’t care who honored that contract. If you implement those ~40 syscalls yourself — returning the same values, honoring the same error codes — the process can’t tell the difference. You control its entire view of the world. What happens with the other 410 syscalls — how you handle the ones you don’t implement, what to do when a process needs something outside your set — is a design question I’ll get into in later posts. For now, the foundational problem:
+
+The answer: rewrite the binary at load time. Replace every `syscall` instruction with a trap that redirects to your own implementation.
+
+There are established ways to intercept system calls on Linux. Each one has a limitation that matters when your goal is to enforce policy on untrusted code — not just observe it.
+
+**ptrace** (strace, gdb):  
+The kernel stops the process, notifies the tracer, the tracer inspects and resumes. That’s two context switches per syscall — roughly 10-20µs of overhead each time. For a process making thousands of syscalls per second, ptrace adds double-digit milliseconds of delay. More fundamentally, ptrace is designed for debugging, not enforcement. The API is awkward for building a policy engine.
+
+**seccomp-bpf**:  
+Seccomp lets you install a BPF filter that the kernel evaluates on every syscall. It’s fast — the filter runs in-kernel. But the actions are coarse: allow, kill the process, return an error, or trap to a user-space handler (via `SECCOMP_RET_TRACE`, which brings back ptrace overhead). You can’t inspect pointer arguments — the BPF filter only sees register values, not the memory they point to. You can’t read the filename being `open()`ed or the buffer being `write()`n. And you can’t modify anything — seccomp is a one-way gate.
+
+**eBPF**:  
+eBPF programs attached to tracepoints or LSM hooks can observe and enforce at the syscall level with low overhead — LSM hooks can deny calls outright. But eBPF is deliberately restricted from modifying process state. You can deny a `connect()`, but you can’t change the destination address, return a custom result, or emulate the call with different behavior. You can’t inspect the buffer contents a `write()` is about to send. The verifier guarantees safety, which means eBPF enforcement is binary — allow or deny — without the ability to intercept, inspect, and rewrite at the level a full policy engine needs.
+
+What’s needed is something different:
+
+Requirement ptrace seccomp eBPF Binary rewrite Low overhead per syscall No (~10-20µs) Yes Yes Yes Inspect pointer arguments (filenames, buffers) Yes (slow) No Read-only Yes Modify return values Yes (slow) No No Yes Gracefully deny (return -EPERM, process continues) Yes (slow) Partial (ERRNO mode) No Yes Emulate the syscall entirely Yes (slow) No No Yes No kernel module required Yes Yes Yes Yes
+
+Binary rewriting gives you the full set: low overhead, full argument inspection, return value control, and complete emulation — all without a kernel module.
+
+The idea is simple: if you can replace every `syscall` instruction in a binary with a trap that redirects to your own handler, you get complete control over the process’s interaction with the outside world. Let’s look at what it takes to build one. The primary reference for this work is the [link] (specifically the opcode maps in Appendix A), and we validated our instruction length decoder against [link], the open-source disassembly framework.
+
+The rewrite is a single pass over the `.text` section of an ELF binary. When it runs is a deployment choice — it could happen at container build time, when a container image is pulled from a registry (via a webhook or admission controller), or at load time just before execution. We currently do it at load time: after loading the ELF into memory, before the first instruction runs. You could also do it once for a binary and cache the result — the rewrite is deterministic, so there’s no reason to repeat it.
+
+You can’t just scan for the byte sequence `0F 05` (the encoding of `syscall`). Those two bytes might appear as part of a larger instruction — an immediate operand, a displacement, or a prefix combination. Naively replacing them would corrupt unrelated instructions.
+
+Instead, the rewriter walks the code at **instruction boundaries** using an Instruction Length Decoder (ILD). The ILD doesn’t fully disassemble each instruction — it only computes its length. That’s enough to advance to the next instruction boundary and know exactly where opcodes are versus operands.
+
+The ILD handles the full x86-64 encoding complexity:
+
+- **Legacy prefixes** (up to 4): `LOCK`, `REP`, segment overrides, operand-size (`66`), address-size (`67`)
+- **REX prefix**: the `40-4F` byte that extends registers and changes operand width
+- **Opcode**: 1-byte, 2-byte (`0F` escape), or 3-byte (`0F 38`, `0F 3A`)
+- **ModRM + SIB + displacement**: addressing mode encoding
+- **Immediates**: variable width depending on opcode and prefixes
+
+The core is two lookup tables — one for 1-byte opcodes, one for 2-byte opcodes — derived from the Intel Software Developer’s Manual (Vol. 2A, Tables A-2 and A-3). Each table entry encodes whether the opcode has a ModRM byte and what size immediate follows:
+
+```
+const HAS_MODRM: u8 = 0x80;
+const IMM8: u8     = 1;
+const IMM32: u8    = 3;
+
+static OP1_TAB: [u8; 256] = [
+    /* 00 ADD r/m,r */  HAS_MODRM,
+    /* 01 ADD r/m,r */  HAS_MODRM,
+    ...
+    /* 68 PUSH imm32 */ IMM32,
+    /* 69 IMUL r,imm */ HAS_MODRM | IMM32,
+    ...
+    // 256 entries covering the full primary opcode space
+];
+```
+
+The decoder walks prefix → REX → opcode → ModRM → SIB → displacement → immediate, accumulating the length at each step. For the curious, the full decoder handles VEX (2-byte and 3-byte) and EVEX prefixes for AVX/AVX-512, `MOV r64, imm64` (the only instruction with a 64-bit immediate), the F6/F7 `TEST` special case (where the ModRM `/r` field determines whether an immediate follows), and a dozen other encoding quirks.
+
+It’s about 440 lines of Rust. Not pretty, but complete.
+
+With the ILD, the rewriter walks the code instruction-by-instruction. At each position, it skips past prefixes and REX to find the opcode bytes. If it finds `0F 05` at the opcode position, that’s a real `syscall` instruction — not a coincidental byte pattern inside an immediate:
+
+```
+pub fn rewrite_syscalls(code: &mut [u8]) -> usize {
+    let mut count = 0;
+    let mut pos = 0;
+
+    while pos < code.len() {
+        let ilen = match ild_length(&code[pos..]) {
+            Some(n) => n,
+            None => { pos += 1; continue; }  // skip undecodable byte
+        };
+
+        // Skip prefixes and REX to find the opcode
+        let mut opc = pos;
+        while opc < pos + ilen {
+            let b = code[opc];
+            if is_legacy_prefix(b) { opc += 1; }
+            else { break; }
+        }
+        if opc < pos + ilen && (code[opc] & 0xF0) == 0x40 {
+            opc += 1;  // skip REX
+        }
+
+        // Patch: SYSCALL (0F 05) → INT3 (CC) + NOP (90)
+        if opc + 1 < pos + ilen
+            && code[opc] == 0x0F
+            && code[opc + 1] == 0x05
+        {
+            code[opc] = 0xCC;     // INT3
+            code[opc + 1] = 0x90; // NOP
+            count += 1;
+        }
+
+        pos += ilen;
+    }
+    count
+}
+```
+
+The replacement is `INT3` (`0xCC`) followed by `NOP` (`0x90`). `INT3` is a one-byte instruction that triggers interrupt vector 3. `NOP` pads the second byte so the instruction lengths stay aligned — `syscall` is 2 bytes, `INT3 + NOP` is 2 bytes. No instruction boundary shifts, no relocation needed.
+
+To make this concrete — here’s what happens when the rewriter runs on a statically-linked Python 3.12 binary:
+
+```
+$ nexus-vmm test_policy.json
+Loaded ELF: python3.elf (entry=0x683C6C, 4 segments)
+  segment 1 (0x683000, 8745266 bytes, exec): patched 363 syscalls
+Rewriter: patched 363 total syscall instructions
+```
+
+A 19MB static binary. 8.7MB of executable code. The ILD walks every instruction in the `.text` section and finds 363 `syscall` instructions — scattered across musl libc, Python’s posixmodule, the socket module, signal handling, memory allocation, and dozens of other call sites. Each one is replaced with `INT3 + NOP`. The rewrite takes about 48ms including loading the binary into guest memory. After this, not a single `syscall` instruction remains in the process image. Every path to the kernel goes through the shim.
+
+The rewritten binary doesn’t run on the host kernel — it runs inside a lightweight VM (we use KVM). The VM has no operating system. Instead, a small shim — a few kilobytes of Rust code loaded into the VM’s memory — acts as the only thing between the process and the hardware. Before the guest runs, the hypervisor sets up an IDT (Interrupt Descriptor Table) with vector 3 pointing to the shim’s handler. When the rewritten `INT3` fires, the CPU pushes `RIP`, `CS`, and `RFLAGS` onto the stack and jumps to the handler.
+
+The handler reads the syscall number from `rax` and arguments from `rdi`, `rsi`, `rdx`, `r10`, `r8`, `r9` — the standard Linux syscall ABI. It calls into a dispatch function that decides what to do:
+
+```
+INT3 fires
+  → CPU pushes RIP/CS/RFLAGS, jumps to shim handler
+  → handler reads rax (syscall number), rdi-r9 (arguments)
+  → dispatch:
+      - check policy table → DENY? return -EPERM
+      - can emulate locally? → emulate, return result
+      - need host help? → escalate to hypervisor
+  → handler writes result to rax
+  → IRETQ back to guest
+```
+
+The entire path — trap, dispatch, emulate, return — runs in **under a microsecond** for the common case. The process resumes at the instruction after the original `syscall`, with the result in `rax`, exactly as if a real syscall had executed.
+
+The basic rewriter is straightforward. The edge cases are where most of the time goes.
+
+The binary rewriter runs once at load time. But what about code generated at runtime — JIT compilers like V8 (Node.js), LuaJIT, or the Python regex engine? These emit fresh machine code containing `syscall` instructions that don’t exist when the rewrite pass runs.
+
+The solution: the LSTAR MSR as a safety net.
+
+On x86-64, the `syscall` instruction transfers control to the address in the LSTAR register. Normally, this points to the kernel’s syscall entry point. Set LSTAR to point to a **self-healing handler** in the shim.
+
+If a JIT’d `syscall` executes (because the rewriter never had a chance to patch it), it jumps to the LSTAR handler instead of the kernel. The handler:
+
+1. Records the address of the `syscall` instruction that triggered it
+2. **Patches it in place** — overwrites `0F 05` with `CC 90` right there in the JIT’d code
+3. Constructs an interrupt frame and falls through to the same INT3 handler
+
+The first execution of a JIT’d `syscall` takes the slow LSTAR path. Every subsequent execution hits the patched `INT3` and takes the fast path. The system self-heals — every new `syscall` instruction gets caught and patched on first encounter.
+
+```
+_syscall_entry:                    ; LSTAR target
+  ; SYSCALL saved: RIP → rcx, RFLAGS → r11
+  ; Record the syscall instruction address for patching
+  lea   r15, [rcx - 2]            ; address of the syscall opcode (2 bytes back)
+  mov   [rip + LSTAR_PATCH_GPA], r15
+  ; Save original RSP, then build the 5-qword iretq frame
+  ; that the shared INT3 handler expects
+  mov   r15, rsp                  ; save guest RSP
+  push  0x10                      ; SS
+  push  r15                       ; RSP (guest's original)
+  push  r11                       ; RFLAGS
+  push  0x08                      ; CS
+  push  rcx                       ; RIP (return address)
+  jmp   _start                    ; fall through to shared INT3 handler
+```
+
+The dispatch function checks `LSTAR_PATCH_GPA` on every invocation. If non-zero, it patches the two bytes at that address to `CC 90` and clears the variable. Next time that code runs, `INT3` fires directly — no LSTAR round-trip.
+
+The remaining edge cases aren’t about the rewriter itself — they’re about building the shim that catches the rewritten traps. But they cost enough debugging time to be worth sharing.
+
+Our shim has a policy table — an array of `u64` values at a fixed memory address, written by the hypervisor before boot. The shim reads these values to make fast-path policy decisions.
+
+The first implementation:
+
+```
+#[link_section = ".shim_policy"]
+static POLICY_TABLE: [AtomicU64; 128] = [const { AtomicU64::new(0) }; 128];
+```
+
+This worked in debug builds. In release builds with optimizations, the policy table vanished. LLVM saw a `static` initialized to all zeros, determined that every load from it must produce zero, constant-folded the policy checks to `false`, eliminated them as dead code, and removed the static entirely.
+
+The fix: don’t use a static at all. Read from the fixed guest physical address with `read_volatile`:
+
+```
+pub fn check_write(gov_idx: u32, len: u64) -> bool {
+    let ptr = POLICY_TABLE_ADDR as *const u64;
+    unsafe {
+        let slot = core::ptr::read_volatile(ptr.add(gov_idx as usize));
+        slot & ALLOW_WRITE != 0
+    }
+}
+```
+
+`read_volatile` tells the compiler: this memory may change at any time, you cannot assume its value. The optimizer cannot fold it, cannot eliminate it, cannot reason about what’s behind the pointer. The hypervisor writes the real policy values to that physical address before boot, and the shim reads them at runtime — exactly as intended.
+
+Our shim is built as a `no_std` Rust binary — no standard library, no runtime, no dynamic linking. But when we extracted the raw binary with `objcopy -O binary`, the output was 10x larger than expected.
+
+The culprit: the LLVM linker (`lld`) emits `.dynamic`, `.dynsym`, `.gnu.hash`, `.hash`, and `.dynstr` sections even in `no_std` binaries. These sections are marked `ALLOC`, which tells `objcopy` they belong in the binary image. So our shim.bin contained megabytes of empty dynamic linking metadata that would never be used.
+
+The fix is in the linker script:
+
+```
+/DISCARD/ : {
+    *(.dynamic)
+    *(.dynsym)
+    *(.gnu.hash)
+    *(.hash)
+    *(.dynstr)
+}
+```
+
+Explicit discard. The sections don’t appear in the output, `objcopy` produces a minimal binary, and the shim fits in a single 4KB page as intended.
+
+Once every syscall routes through your handler, you can enforce arbitrary policy on untrusted code with near-native performance:
+
+- `open("/data/customers.csv")` → **allow** (it’s in the policy)
+- `open("/etc/shadow")` → **deny**, return `-ENOENT` (file doesn’t exist in the controlled environment)
+- `connect("api.openai.com:443")` → **allow**, route through TLS inspection
+- `connect("pastebin.com:443")` → **deny**, return `-EPERM`
+- `write(socket_fd, buffer_containing_pii)` → **block** before a single byte hits the network
+
+The process sees standard syscall return values. `-EPERM` when denied, normal results when allowed. It doesn’t know it’s being intercepted. It can’t detect the interception (the `syscall` instruction was replaced, there’s nothing to probe). And it can’t bypass it — every path to the kernel goes through our shim.
+
+This is the foundation of a minimal VM runtime where untrusted code runs inside a controlled environment with full visibility into every action it takes. The binary rewriter is the first layer: it creates a position between the process and the kernel where you can see everything, control everything, and audit everything, at a cost of under a microsecond per syscall.
+
+But a binary rewriter alone isn’t a runtime. The next question is: what handles those intercepted syscalls? A full Linux kernel is overkill for a single-process workload that does file I/O and network calls. Tomorrow’s post covers why a ~40-syscall “kernel” is enough, and how a hypervisor backstop handles everything else.
+
+*This is post 1 of a 7-part series on building a minimal VM runtime for AI agent execution. If you’re working on agent sandboxing, runtime security, or just want to follow along — subscribe for the rest.*
+
+*If you’re dealing with agent security at your company, I’d love to hear what you’ve tried and what’s missing — reach out on [link].*
+
+No posts
+
+---
+
+## [HN-TITLE] 14. A simplified model of Fil-C
+
+- **Source**: [link]
+- **Site**: corsix.org
+- **Submitter**: aw1621107 (Hacker News)
+- **Submitted**: 2026-04-17 21:38 UTC (Hacker News)
+- **HN activity**: 179 points · [link]
+- **Length**: 1.5K words (~7 min read)
+- **Language**: en
+
+I've seen lots of chatter about [link] recently, which pitches itself as a memory safe implementation of C/C++. You can read the [link] of how this is achieved, but for people coming across it for the first time, I think there is value in showing a simplified version, as once you've understood the simplified version it becomes a smaller mental step to then understand the production-quality version.
+
+The real Fil-C has a compiler pass which rewrites LLVM IR, whereas the simplified model is an automated rewrite of C/C++ source code: unsafe code is transformed into safe code. The first rewrite is that within every function, every local variable of pointer type gains an accompanying local variable of `AllocationRecord*` type, for example:
+
+Original SourceAfter Fil-C Transform
+
+```
+void f() {
+  T1* p1;
+  T2* p2;
+  uint64_t x;
+  ...
+```
+
+```
+void f() {
+  T1* p1; AllocationRecord* p1ar = NULL;
+  T2* p2; AllocationRecord* p2ar = NULL;
+  uint64_t x;
+  ...
+```
+
+Where `AllocationRecord` is something like:
+
+```
+struct AllocationRecord {
+  char* visible_bytes;
+  char* invisible_bytes;
+  size_t length;
+};
+```
+
+Trivial operations on local variables of pointer type are rewritten to also move around the `AllocationRecord*`:
+
+Original SourceAfter Fil-C Transform `p1 = p2;``p1 = p2, p1ar = p2ar;` `p1 = p2 + 10;``p1 = p2 + 10, p1ar = p2ar;` `p1 = (T1*)x;``p1 = (T1*)x, p1ar = NULL;` `x = (uintptr_t)p1;``x = (uintptr_t)p1;`
+
+When pointers are passed-to or returned-from functions, the code is rewritten to include the `AllocationRecord*` as well as the original pointer. Calls to *particular* standard library functions are additionally rewritten to call Fil-C versions of those functions. Putting this together, we get:
+
+Original SourceAfter Fil-C Transform
+
+```
+  p1 = malloc(x);
+  ...
+  free(p1);
+```
+
+```
+  {p1, p1ar} = filc_malloc(x);
+  ...
+  filc_free(p1, p1ar);
+```
+
+The (simplified) implementation of `filc_malloc` actually performs three distinct allocations rather than just the requested one:
+
+```
+void* filc_malloc(size_t length) {
+  AllocationRecord* ar = malloc(sizeof(AllocationRecord));
+  ar->visible_bytes = malloc(length);
+  ar->invisible_bytes = calloc(length, 1);
+  ar->length = length;
+  return {ar->visible_bytes, ar};
+}
+```
+
+When a pointer variable is dereferenced, the accompanying `AllocationRecord*` is used to perform bounds checks:
+
+Original SourceAfter Fil-C Transform
+
+```
+  x = *p1;
+  ...
+  *p2 = x;
+```
+
+```
+  assert(p1ar != NULL);
+  uint64_t i = (char*)p1 - p1ar->visible_bytes;
+  assert(i < p1ar->length);
+  assert((p1ar->length - i) >= sizeof(*p1));
+  x = *p1;
+  ...
+  assert(p2ar != NULL);
+  uint64_t i = (char*)p2 - p2ar->visible_bytes;
+  assert(i < p2ar->length);
+  assert((p2ar->length - i) >= sizeof(*p2));
+  *p2 = x;
+```
+
+Things become more interesting when the value being stored or loaded is itself a pointer. As already seen, local variables of pointer type have their accompanying `AllocationRecord*` variable inserted by the compiler, which the compiler can do because it has full control and visibility of all local variables. Once pointers exist in the heap rather than just in local variables, things become harder, but this is where `invisible_bytes` comes in: if there is a pointer at `visible_bytes + i`, then its accompanying `AllocationRecord*` is at `invisible_bytes + i`. In other words, `invisible_bytes` is an array with element type `AllocationRecord*`. To ensure sane access to this array, `i` must be a multiple of `sizeof(AllocationRecord*)`. The extra logic for this is highlighted in green:
+
+OriginalAfter Fil-C Transform
+
+```
+  p2 = *p1;
+  ...
+  *p1 = p2;
+```
+
+```
+  assert(p1ar != NULL);
+  uint64_t i = (char*)p1 - p1ar->visible_bytes;
+  assert(i < p1ar->length);
+  assert((p1ar->length - i) >= sizeof(*p1));
+  assert((i % sizeof(AllocationRecord*)) == 0);
+  p2 = *p1;
+  p2ar = *(AllocationRecord**)(p1ar->invisible_bytes + i);
+  ...
+  assert(p1ar != NULL);
+  uint64_t i = (char*)p1 - p1ar->visible_bytes;
+  assert(i < p1ar->length);
+  assert((p1ar->length - i) >= sizeof(*p1));
+  assert((i % sizeof(AllocationRecord*)) == 0);
+  *p1 = p2;
+  *(AllocationRecord**)(p1ar->invisible_bytes + i) = p2ar;
+```
+
+One thing we've not yet seen is `filc_free`, which does something like:
+
+```
+void filc_free(void* p, AllocationRecord* par) {
+  if (p != NULL) {
+    assert(par != NULL);
+    assert(p == par->visible_bytes);
+    free(par->visible_bytes);
+    free(par->invisible_bytes);
+    par->visible_bytes = NULL;
+    par->invisible_bytes = NULL;
+    par->length = 0;
+  }
+}
+```
+
+The eagle-eyed will note that `filc_malloc` made three allocations, but `filc_free` only frees two of them: the `AllocationRecord` object isn't freed by `filc_free`. This gap gets covered by the addition of a garbage collector (GC). You heard that right - this is C/C++ with a GC. The production-quality Fil-C has a [link], but a stop-the-world collector suffices for a simple model. The collector traces through `AllocationRecord` objects, and frees any unreachable ones. It also does two more things:
+
+1. Upon freeing an unreachable `AllocationRecord`, call `filc_free` on it.
+2. If an `AllocationRecord` has length 0, any pointers to that `AllocationRecord` will be changed to point at a single canonical `AllocationRecord` with length 0.
+
+Point 1 means that if you're using Fil-C, forgetting to call `free` is no longer a memory leak: the memory will be automatically freed by the GC. That isn't to say that calling `free` is useless, as it allows memory to be freed earlier than the GC might otherwise choose to. Point 2 means that after calling `free` on something, the accompanying `AllocationRecord` will eventually become unreachable, and thus itself eventually be freed.
+
+Once a GC is present, it becomes tempting to use it more. One such use is making it safe to take the address of local variables, even if the resultant pointer is used after the local variable goes out of scope. If the compiler sees that a local variable has its address taken, and cannot *prove* that the address doesn't escape beyond the lifetime of the local variable, then the Fil-C transform will promote that local variable to be heap-allocated via `malloc` rather than stack-allocated. A matching `free` doesn't need to be inserted, as the GC will pick it up.
+
+The final thing I want to highlight is the Fil-C version of `memmove`. This function from the C standard library manipulates arbitrary memory, and the compiler has no knowledge of what pointers might be present in that memory. To get past this problem, a reasonable heuristic is used: any pointers within arbitrary memory need to be *completely* within arbitrary memory, and need to be correctly aligned. This has the interesting consequence that `memmove` of eight aligned bytes behaves differently to eight separate 1-byte `memmove`s of the constituent bytes: the former will also `memmove` the corresponding range of `invisible_bytes`, whereas the latter will not.
+
+That wraps up the simplified model. Some of the additional complications in the production-quality version include:
+
+- **Threads:** Concurrency makes the GC more complex. It also means that `filc_free` can't *immediately* free anything, as the free-ing thread might be racing with a different thread trying to access the underlying memory. Atomic operations on pointers also need some extra magic, as the default rewriting of a pointer load or store is to two loads or stores, which breaks atomicity.
+- **Function pointers:** An additional piece of metadata in `AllocationRecord` is used to denote that the `visible_bytes` pointer is a pointer to executable code rather than regular data. Calls through a function pointer `p1` check that `p1 == p1ar->visible_bytes` and that `p1ar` denotes a function pointer. To avoid type confusion attacks on function pointers, the function calling ABI also needs to verify that the type signature is correct. One way of doing this is to make *all* functions take the same type signature: all parameters are passed as if they were packed into a structure and passed through memory, and at ABI boundaries, every function expects to receive just a single `AllocationRecord` corresponding to that structure.
+- **Memory usage optimization:** It is very tempting to have `filc_malloc` avoid immediately allocating `invisible_bytes`, and instead allocate it on-demand later should it ever be required. It is also tempting to colocate the `AllocationRecord` and `visible_bytes` into a single allocation. If the underlying `malloc` prepends metadata to every allocation, it looks tempting to put that metadata in `AllocationRecord` instead.
+- **Performance optimization:** Memory safety in Fil-C comes at a performance cost, so it is worth playing various tricks to claw back some of that lost performance.
+
+With the baseline understanding in place, I want to finish on a question: when might you want to use Fil-C? Personally, my answers are:
+
+1. You have a large quantity of C/C++ code which seems to work, but it hasn't been proven memory-safe, and you're willing to introduce a GC and take a large performance hit in exchange for memory safety (perhaps as a temporary measure until you rewrite in Java or Go or Rust).
+2. Just like you can run C/C++ code under [link] to find memory bugs, you can run it under Fil-C to find memory bugs.
+3. If you have a language with a strong compile-time story, and the compile-time language is the same as the runtime language (for example, [link]), you could use a Fil-C setup for safe compile-time evaluation, even if runtime evaluation is unsafe.
+4. Some people like to contemplate [link]. If you've not come across this concept before, here's a nerd-snipe question: assuming `p1` and `p2` have the same type, is it valid for a compiler to rewrite `if (p1 == p2) { f(p1); }` to `if (p1 == p2) { f(p2); }`? In Fil-C, the answer is clearly "no", as it changes which `AllocationRecord*` gets passed along to `f`. This makes Fil-C a useful example of a concrete system which has pointer provenance.
+
+---
+
+## [HN-TITLE] 15. Are the costs of AI agents also rising exponentially? (2025)
 
 - **Source**: [link]
 - **Site**: Toby Ord
 - **Author**: December 22, 2025Toby Ord
 - **Published**: 2025-12-22
-- **HN activity**: 132 points · [link]
+- **HN activity**: 220 points · [link]
 - **Length**: 2.2K words (~10 min read)
 - **Language**: en-GB
 
@@ -1361,19 +3067,456 @@ Fortunately, it should be fairly easy for METR to perform such analysis, and I h
 
 ---
 
-## [HN-TITLE] 8. Show HN: Smol machines – subsecond coldstart, portable virtual machines
+## [HN-TITLE] 16. Brunost: The Nynorsk Programming Language
+
+- **Source**: [link]
+- **Site**: John M. Lindbakk
+- **Submitter**: atomfinger (Hacker News)
+- **Submitted**: 2026-04-13 18:49 UTC (Hacker News)
+- **HN activity**: 78 points · [link]
+- **Length**: 2.2K words (~10 min read)
+- **Language**: en
+
+John Mikael Lindbakk // 13/04/2026 12:00
+
+[image]
+
+Many countries have multiple languages. Wales has English and Welsh. The Irish got Gaelic, and Cornwall in England has Cornish. In Norway, we technically have three languages: Bokmål, Nynorsk, and Sami.
+
+One can argue that we can technically speak Nynorsk as well, which is true, but there is no "pure" Nynorsk dialect. Nobody speaks "pure" Nynorsk, at least not unless going out of their way to do so. There are many dialects that come pretty close, but none are Nynorsk. This makes Nynorsk a purely written language, which I find fascinating.
+
+One can make similar arguments about Bokmål and Sami, but people speak Sami. And I would argue that a lot more people speak "pure Bokmål" than Nynorsk.
+
+Or maybe I'm just pulling this out of my ass, and I don't know what I'm talking about.
+
+The point is that I made a purely Nynorsk programming language: [link].
+
+## Brunost
+
+[link] is held in high regard in Norwegian culture as a smooth, sweet goat cheese that we use for waffles, sauces, and sandwiches. It is the most Norwegian of cheeses. If you want to have a good time, put some brunost on your waffles with strawberry jam and sour cream!
+
+[image]
+
+([link])
+
+This is why Brunost is the perfect name for a Nynorsk programming language. Sweet and smooth, yet with depth that tickles the palate. Therefore, let me present "Hello world" written in perfect Brunost:
+
+```
+bruk terminal
+terminal.skriv("Hei, verda!")
+```
+
+Do you see its smoothness? Come on, give it a taste! And if you don't like it, then maybe you're the problem. Have you thought about that?
+
+Brunost is a delightful functional language. It is interpreted, and its types are almost as loose as your mum.
+
+The Brunost interpreter is written in [link], which is why it is blazingly fast-ish. Python and JavaScript are going down!
+
+With Brunost, you'll get unmatched aesthetic performance with unmatched Nordic bravado.
+
+Heck, you can [link]!
+
+### Enforced Nynorsk
+
+One of the most important aspects of Brunost is that it requires Nynorsk. Variable, parameters and function names *must* be in Nynorsk. The interpreter ships with a Nynorsk dictionary that is used during the interpretation, and if the developer tries to do anything but Nynorsk, they'll get a clear message:
+
+```
+Feil: Namnet er ikkje gyldig nynorsk: 'thisIsNotNynorsk' på linje 8, kolonne 6
+```
+
+Nynorsk is no longer a minor subject in school. Soon, it will become a requirement for the Norwegian IT industry!
+
+Many lesser languages value developer expression. Brunost knows that developers overuse jargon and should use plain (Nynorsk) language rather than fancy abbreviations.
+
+## Syntax
+
+I know that you're about to explode from anticipation, so let's go over this magnificent syntax, shall we?
+
+### Variables, mutability & assignments
+
+You can assign a variable like this:
+
+```
+fast fart er 80
+```
+
+Now, the keyword `fast` here is saying that the variable `fart` cannot be changed - it is immutable.
+
+If you try to change it like this:
+
+```
+fast fart er 80
+fart er 50 //Error
+```
+
+then you get an error:
+
+```
+Kan ikkje endra ein uforanderleg variabel (deklarert med 'fast')
+```
+
+If you want to change a variable, you must mark it with `endreleg`, which indicates that it is changeable:
+
+```
+endreleg fart er 80
+fart er 50 //Ok
+```
+
+### Conditionals
+
+A language where you cannot create branches is not very useful, so we have the `viss` statement, which functions similarly to how `if` statements work in other languages:
+
+```
+bruk terminal
+
+fast fartsgrense er 80
+fast minFart er 90 // Change this for different outcomes
+
+viss (minFart erStørreEnn fartsgrense) gjer {
+    terminal.skriv("For høy fart!")
+} ellers viss (minFart erSameSom fartsgrense) gjer {
+    terminal.skriv("Farten din er på grensa!")
+} ellers {
+    terminal.skriv("Farten din er innafor.")
+}
+```
+
+Here we see a classical `if-else` demonstration where we can use `ellers` to chain `viss` statements, or just to have a default branch.
+
+You might also notice the English comment in that code snippet. I KNOW! It's horrid. Disgusting! It is revolting! But I did it for you, dear reader, because I'm no bigot and I love you despite you not understanding Nynorsk. After all, we all have flaws, and mine is caring too much.
+
+### Functions & returns
+
+A functional programming language without functions wouldn't be very useful, and I think it is already clear that Brunost is super useful. So Brunost has functions as well!
+
+```
+bruk terminal
+
+gjer kalkulerFart(distanse, timer) {
+  gjevTilbake distanse / timer
+}
+
+fast distanse er 50
+fast timer er 2 
+
+terminal.skriv("Din fart er: " + kalkulerFart(distanse, timer) + "km/t")
+```
+
+Here we have the function `kalkulerFart`, which is called within `terminal.skriv`.
+
+Within `kalkulerFart`, we have the `gjevTilbake` statement (give back in English), which is essentially a return statement in other languages.
+
+You might wonder what happens if we move `kalkulerFart` under the `terminal.skriv` call? Well, things break, of course! Why would you want to use something that hasn't been declared yet!? Silly.
+
+Brunost has strong opinions on the order of declaration. Developers are expected to know the order in which things exist.
+
+### Loops
+
+Being able to iterate over things is important, and Brunost has got you covered!
+
+Here we have Brunost's version of a `foreach` loop called `forKvart`:
+
+```
+bruk terminal
+
+fast fylke er ["Vestland", "Rogaland", "Troms", "Finnmark"]
+
+forKvart namn i fylke {
+  terminal.skriv("Hei frå " + namn + "!")
+}
+```
+
+And we also got a `while` loop:
+
+```
+bruk terminal
+
+endreleg teljar er 1
+
+medan (teljar < 4) gjer {
+  terminal.skriv(teljar)
+  teljar er teljar + 1
+}
+```
+
+### Types, Data Structures & standard library
+
+We got the common ones, don't worry. We got the numbers, strings, and whatnot. But why do we have to be so specific about it? Why the need to box everything into rigid types and structures? What are you? Some kind of rigid nerd?
+
+Don't worry about the types, man.
+
+### Imports
+
+So far in the code snippets, you have seen the keyword `bruk`; this is how we do imports.
+
+So far, we've seen `terminal`, a built-in module, but we have others, like `matte` and `streng`.
+
+You can also create your own modules. Let's say we have two files, one called "hovud.brunost" and the other called "logikk.brunost".
+
+In hovud.brunost, if you wanted to use something from logikk, then you would do:
+
+```
+bruk logikk
+```
+
+But let's say that logikk is in a subfolder called "kode", then we would do it like this:
+
+```
+bruk kode.logikk
+```
+
+### Exception handling
+
+Every program can fail. Brunost can do a lot, but it cannot break physics (yet). But Brunost tries to help you deal with those failures with classical try-catch logic:
+
+```
+bruk terminal
+
+gjer del(første, andre) {
+  viss (andre er 0) gjer { 
+    kast "Kan ikke dele på null"
+  }
+  gjevTilbake første / andre
+}
+
+prøv {
+  del(10, 0)
+} fang(feil) {
+  terminal.skriv("Noe feilet: " + feil)
+}
+```
+
+Some might say that errors-as-returns is better than exceptions. Why? Just don't make errors. Easy as that.
+
+## WebAssembly support!
+
+One fun thing is that making a Wasm deployment of the interpreter was not that difficult, and [link]
+
+[image]
+
+was in handling terminal commands (or rather, input/output buffers, which do not play well with Wasm).
+
+I didn't put much effort into it, which is why the game of life implementation further down is really funky in the online version.
+
+This section of the post only exists in a vain attempt to boost my SEO by mentioning Wasm. Let's hope it works.
+
+## Wrapping up
+
+Joking aside for a second: I won't be making a whole ecosystem for this silly language. There are a few more things I want to have in place before I wrap up completely:
+
+1. Hashmaps.
+2. Proper documentation.
+3. Enough features that Brunost can serve a website.
+4. Some way to deal with non-Nynorsk words that are still allowed in Nynorsk.
+5. Some FFI support.
+6. File read/write in the standard library.
+7. A language mascot.
+
+After this, I will most likely just leave Brunost as a fun little thing that people can play around with.
+
+This was just a fun little project to create something that didn't exist. I've had the idea of a fully Norwegian programming language for quite some time, mostly because I think the overall idea is dumb.
+
+One thing I didn't anticipate is that I am barely able to write Brunost myself! I use a US keyboard layout, which means I simply can't, for the life of me, write Brunost code. Trying to get the `{` and `}` correct while also handling æ/ø/å is extremely horrid after years of using a US keyboard layout.
+
+Not only that, but it turns out that being locked to a dictionary is kinda limited. Earlier in the project, I had a BMI calculator example, but I had to remove it because BMI is not a word in Nynorsk...
+
+All that said, if people want to have fun and continue building on Brunost, then I'm happy to look over and deal with pull requests. If someone wants to do some low-stakes programming-language development, Brunost might be a place to have some fun. If people have some fun/stupid ideas for how to "elevate" the language, then let me know!
+
+Here are some suggestions if you "just want a project":
+
+- Editor & Web syntax highlighting, and general editor integrations
+- Language server
+- Extend the standard library
+
+If that is the case, head over to [link] and pitch something, then we'll see if we can figure something out!
+
+And just in case the joke is lost on you: No, Brunost is not a language you should use in actual production. You could... but you shouldn't. And if you do, let me know so that I can scold you.
+
+## Bonus: Examples
+
+These are just some Brunost code snippets I've made, just to show that it is a real language that does real things. More examples can be found in the [link].
+
+### Fibonacci
+
+```
+bruk terminal
+
+gjer rekke(grense) {
+    viss (grense < 2) gjer {
+        gjevTilbake grense
+    }
+    gjevTilbake rekke(grense - 1) + rekke(grense - 2)
+}
+
+endreleg teljar er 1
+medan (teljar erSameEllerMindreEnn 15) gjer {
+  terminal.skriv(rekke(teljar))
+  teljar er teljar + 1
+}
+```
+
+### FizzBuzz
+
+```
+bruk terminal
+bruk matte
+
+endreleg teljar er 1
+
+medan (teljar erSameEllerMindreEnn 15) gjer {
+    viss (matte.modulus(teljar, 15) erSameSom 0) gjer {
+        terminal.skriv("FizzBuzz")
+    } ellers viss (matte.modulus(teljar, 3) erSameSom 0) gjer {
+        terminal.skriv("Fizz")
+    } ellers viss (matte.modulus(teljar, 5) erSameSom 0) gjer {
+        terminal.skriv("Buzz")
+    } ellers {
+        terminal.skriv(teljar)
+    }
+    teljar er teljar + 1
+}
+```
+
+### Conway's Game of Life
+
+```
+bruk liste
+bruk terminal
+bruk matte
+bruk prosess
+bruk streng
+
+fast breidde er 60
+fast høgd er 30
+
+// Skapar ei liste med tilfeldige 1-ar og 0-ar
+gjer lagBrett() {
+    endreleg brett er []
+    endreleg rad er 0
+    medan (rad erMindreEnn høgd) gjer {
+        endreleg rekkje er []
+        endreleg kolonne er 0
+        medan (kolonne erMindreEnn breidde) gjer {
+            rekkje er liste.leggTil(rekkje, matte.tilfeldig(0, 1))
+            kolonne er kolonne + 1
+        }
+        brett er liste.leggTil(brett, rekkje)
+        rad er rad + 1
+    }
+    gjevTilbake brett
+}
+
+gjer hentCelle(brett, kolonne, rad) {
+    viss (kolonne erMindreEnn 0
+            eller kolonne erSameEllerStørreEnn breidde
+            eller rad erMindreEnn 0
+            eller rad erSameEllerStørreEnn høgd) gjer {
+        gjevTilbake 0
+    }
+
+    fast rekkje er liste.hent(brett, rad)
+    gjevTilbake liste.hent(rekkje, kolonne)
+}
+
+gjer telNaboTal(brett, kolonne, rad) {
+    endreleg sum er 0
+    sum er sum + hentCelle(brett, kolonne - 1, rad - 1)
+    sum er sum + hentCelle(brett, kolonne, rad - 1)
+    sum er sum + hentCelle(brett, kolonne + 1, rad - 1)
+    sum er sum + hentCelle(brett, kolonne - 1, rad)
+    sum er sum + hentCelle(brett, kolonne + 1, rad)
+    sum er sum + hentCelle(brett, kolonne - 1, rad + 1)
+    sum er sum + hentCelle(brett, kolonne, rad + 1)
+    sum er sum + hentCelle(brett, kolonne + 1, rad + 1)
+    gjevTilbake sum
+}
+
+gjer nesteGenerasjon(brett) {
+    endreleg nyttBrett er []
+    endreleg rad er 0
+    medan (rad erMindreEnn høgd) gjer {
+        endreleg nyRekkje er []
+        endreleg kolonne er 0
+        medan (kolonne erMindreEnn breidde) gjer {
+            fast celle er hentCelle(brett, kolonne, rad)
+            fast naboTal er telNaboTal(brett, kolonne, rad)
+
+            endreleg nyCelle er 0
+            viss (celle erSameSom 1) gjer {
+                viss (naboTal erSameSom 2) gjer { nyCelle er 1 }
+                viss (naboTal erSameSom 3) gjer { nyCelle er 1 }
+            } ellers {
+                viss (naboTal erSameSom 3) gjer { nyCelle er 1 }
+            }
+            nyRekkje er liste.leggTil(nyRekkje, nyCelle)
+            kolonne er kolonne + 1
+        }
+        nyttBrett er liste.leggTil(nyttBrett, nyRekkje)
+        rad er rad + 1
+    }
+    gjevTilbake nyttBrett
+}
+
+gjer teiknBrett(brett) {
+    terminal.tøm()
+    endreleg rad er 0
+    medan (rad erMindreEnn høgd) gjer {
+        fast rekkje er liste.hent(brett, rad)
+        endreleg linje er ""
+        endreleg kolonne er 0
+        medan (kolonne erMindreEnn breidde) gjer {
+            fast celle er liste.hent(rekkje, kolonne)
+            viss (celle erSameSom 1) gjer {
+                linje er linje + "██"
+            } ellers {
+                linje er linje + "  "
+            }
+            kolonne er kolonne + 1
+        }
+        terminal.skriv(linje)
+        rad er rad + 1
+    }
+}
+
+gjer køyrKomeSjø(fart, iterasjonar) {
+    endreleg brett er lagBrett()
+
+    endreleg omgang er 0
+    medan (omgang erMindreEnn iterasjonar) gjer {
+        teiknBrett(brett)
+        brett er nesteGenerasjon(brett)
+        prosess.sov(fart)
+        omgang er omgang + 1
+    }
+}
+
+endreleg iterasjonar er 50
+prøv {
+    iterasjonar er streng.tilTal(terminal.argument(0))
+} fang (feil) {
+}
+
+terminal.skriv("Startar Conway sitt livsspel i Brunost!")
+prosess.sov(1000)
+køyrKomeSjø(100, iterasjonar)
+terminal.skriv("Slutt på livsspelet!")
+```
+
+---
+
+## [HN-TITLE] 17. Show HN: Smol machines – subsecond coldstart, portable virtual machines
 
 - **Source**: [link]
 - **Site**: GitHub
 - **Submitter**: binsquare (Hacker News)
 - **Submitted**: 2026-04-17 17:18 UTC (Hacker News)
-- **HN activity**: 261 points · [link]
-- **Length**: 729 words (~4 min read)
+- **HN activity**: 344 points · [link]
+- **Length**: 763 words (~4 min read)
 - **Language**: en
 
 [[image]](https://github.com/smol-machines/smolvm/blob/main/assets/logo.png)
 
-[[image]](https://discord.gg/qhQ7FHZ2zd) [[image]](https://github.com/smol-machines/smolvm/releases) [[image]](https://github.com/smol-machines/smolvm/blob/main/LICENSE)
+[[image]](https://discord.gg/E5r8rEWY9J) [[image]](https://github.com/smol-machines/smolvm/releases) [[image]](https://github.com/smol-machines/smolvm/blob/main/LICENSE)
 
 Ship and run software with isolation by default.
 
@@ -1486,6 +3629,8 @@ More examples: [link] · [link] · [link]
 
 Each workload gets real hardware isolation — its own kernel on [link] (macOS) or KVM (Linux). [link] VMM with custom kernel: [link]. Pack it into a `.smolmachine` and it runs anywhere the host architecture matches, with zero dependencies.
 
+Images use the [link] format — the same open standard Docker uses. Any image on Docker Hub, ghcr.io, or other OCI registries can be pulled and booted as a microVM. No Docker daemon required.
+
 Defaults: 4 vCPUs, 8 GiB RAM. Memory is elastic via virtio balloon — the host only commits what the guest actually uses and reclaims the rest automatically. vCPU threads sleep in the hypervisor when idle, so over-provisioning has near-zero cost. Override with `--cpus` and `--mem`.
 
 ## Comparison
@@ -1519,93 +3664,187 @@ See [link].
 
 ---
 
-## [HN-TITLE] 9. Slop Cop
+## [HN-TITLE] 18. Slop Cop
 
 - **Source**: [link]
 - **Site**: awnist.com
 - **Submitter**: ericHosick (Hacker News)
 - **Submitted**: 2026-04-17 15:15 UTC (Hacker News)
-- **HN activity**: 117 points · [link]
+- **HN activity**: 193 points · [link]
 - **Language**: en
 
 > no extractable content
 
 ---
 
-## [HN-TITLE] 10. NASA Force
+## [HN-TITLE] 19. "cat readme.txt" is not safe if you use iTerm2
 
 - **Source**: [link]
-- **Site**: NASA Force
-- **Submitter**: LorenDB (Hacker News)
-- **Submitted**: 2026-04-17 15:47 UTC (Hacker News)
-- **HN activity**: 246 points · [link]
-- **Length**: 298 words (~2 min read)
+- **Site**: Calif
+- **Author**: Calif
+- **Published**: 2026-04-17
+- **HN activity**: 199 points · [link]
+- **Length**: 1.0K words (~5 min read)
 - **Language**: en
 
-## BUILD THE FUTURE OF HUMANITY
+In a previous post about [link] in [link], we looked at how seemingly harmless workflows could cross a surprising line into code execution. This time we wanted to push that idea even further: is `cat readme.txt` safe?
 
-Four DAYS. Limited Spots.
+It turns out that it is NOT, if you use iTerm2.
 
-NASA Force is a new hiring initiative—developed in partnership with the U.S. Office of Personnel Management—designed to bring exceptional technical talent into mission-critical roles that support NASA’s exploration, research, and advanced technology priorities. Highly skilled early- to mid- career engineers, technologists, and innovators join NASA for focused term appointments, typically 1–2 years with the possibility of extension, to solve complex challenges and help maintain U.S. leadership in air and space.
+That looks insane until you understand what iTerm2 is trying to do for a legitimate feature, how it uses the PTY, and what happens when terminal output is able to impersonate one side of that feature's protocol.
 
-Through NASA Force, you will contribute to missions that advance human spaceflight, aeronautics, and scientific discovery while helping expand humanity’s understanding of the universe. You will take a systems approach to solving problems, working across teams and disciplines from concept to execution. Your work will demand technical excellence, critical thinking, and continuous learning, and every contribution will directly support NASA’s mission.
+> We'd like to acknowledge OpenAI for partnering with us on this project.
 
-## Contribute To Greatness
+iTerm2 has an SSH integration feature that gives it a richer understanding of remote sessions. To make that work, it does not just "blindly type commands" into a remote shell. Instead, it bootstraps a tiny helper script on the remote side called the conductor.
 
-[image]
+The rough model is:
 
-MOVE MISSIONS FORWARD
+1. iTerm2 launches SSH integration, usually through `it2ssh`.
+2. iTerm2 sends a remote bootstrap script, the conductor, over the existing SSH session.
+3. That remote script becomes the protocol peer for iTerm2.
+4. iTerm2 and the remote conductor exchange terminal escape sequences to coordinate things like:
+   
+   - discovering the login shell
+   - checking for Python
+   - changing directories
+   - uploading files
+   - running commands
 
-Work on flight systems, lunar infrastructure, and advanced technologies that go from concept to execution and support real missions beyond Earth.
+The important point is that there is no separate network service. The conductor is just a script running inside the remote shell session, and the protocol is carried over normal terminal I/O.
 
-HOW YOU WILL ENTER THE MISSION
+A terminal used to be a real hardware device: a keyboard and screen connected to a machine, with programs reading input from that device and writing output back to it.
 
-You will join a collaborative, mission-driven team where ideas are valued, contributions are recognized, and innovation is part of everyday work. NASA Force offers an opportunity to grow across projects and disciplines, build your expertise, and take on new challenges while working alongside some of the world’s leading minds.
+A terminal emulator like iTerm2 is the modern software version of that hardware terminal. It draws the screen, accepts keyboard input, and interprets terminal control sequences.
 
-VIPER lunar rover operations
+But the shell and other command-line programs still expect to talk to something that looks like a real terminal device. That is why the OS provides a PTY, or pseudoterminal. A PTY is the software stand-in for the old hardware terminal, and it sits between the terminal emulator and the foreground process.
 
-[image]
+In a normal SSH session:
 
-Deep space logistics
+- iTerm2 writes bytes to the PTY
+- the foreground process is `ssh`
+- `ssh` forwards those bytes to the remote machine
+- the remote conductor reads them from its stdin
 
-[image]
+So when iTerm2 wants to "send a command to the remote conductor," what it actually does locally is write bytes to the PTY.
 
-Development of NASA Spaceport 2.0
+The SSH integration protocol uses terminal escape sequences as its transport.
 
-[image]
+Two pieces matter here:
 
-Orion real-time operating system and core flight software
+- `DCS 2000p` is used to hook the SSH conductor
+- `OSC 135` is used for pre-framer conductor messages
 
-[image]
+At source level, `DCS 2000p` causes iTerm2 to instantiate a conductor parser. Then the parser accepts `OSC 135` messages like:
 
-Curation of lunar and astromaterials samples
+- `begin <id>`
+- command output lines
+- `end <id> <status> r`
+- `unhook`
 
-[image]
+So a legitimate remote conductor can talk back to iTerm2 entirely through terminal output.
 
-In-situ resource utilization (ISRU) plant development for a sustainable lunar outpost
+The bug is a trust failure. iTerm2 accepts the SSH conductor protocol from terminal output that is not actually coming from a trusted, real conductor session. In other words, untrusted terminal output can impersonate the remote conductor.
 
-[image]
+That means a malicious file, server response, banner, or MOTD can print:
 
-Advancing aeronautics research by developing AI/ML models for air traffic control automation
+- a forged `DCS 2000p` hook
+- forged `OSC 135` replies
 
-[image]
+and iTerm2 will start acting like it is in the middle of a real SSH integration exchange. That is the exploit primitive.
 
-Propulsion systems support across the Commercial Crew Program, Launch Services Program, and Artemis
+The exploit file contains a fake conductor transcript.
 
-[image]
+When the victim runs:
 
-If You Want Your Work to Operate Beyond Earth, This is Where it Begins.
+```
+cat readme.txt
+```
+
+iTerm2 renders the file, but the file is not just text. It contains:
+
+1. a fake `DCS 2000p` line that announces a conductor session
+2. fake `OSC 135` messages that answer iTerm2's requests
+
+Once the hook is accepted, iTerm2 starts its normal conductor workflow. In upstream source, `Conductor.start()` immediately sends `getshell()`, and after that succeeds it sends `pythonversion()`.
+
+So the exploit does not need to inject those requests. iTerm2 issues them itself, and the malicious output only has to impersonate the replies.
+
+The fake `OSC 135` messages are minimal but precise.
+
+They do this:
+
+1. Start a command body for `getshell`
+2. Return lines that look like shell-discovery output
+3. End that command successfully
+4. Start a command body for `pythonversion`
+5. End that command with failure
+6. Unhook
+
+This is enough to push iTerm2 down its normal fallback path. At that point, iTerm2 believes it has completed enough of the SSH integration workflow to move on to the next step: building and sending a `run(...)` command.
+
+The forged `DCS 2000p` hook contains several fields, including attacker-controlled `sshargs`.
+
+That value matters because iTerm2 later uses it as command material when it constructs the conductor's `run ...` request.
+
+The exploit chooses `sshargs` so that when iTerm2 base64-encodes:
+
+run &lt;padding&gt;&lt;magic-bytes&gt;
+
+the last 128-byte chunk becomes:
+
+ace/c+aliFIo
+
+That string is not arbitrary. It is chosen because it is both:
+
+- valid output from the conductor encoding path
+- a valid relative pathname
+
+In a legitimate SSH integration session, iTerm2 writes base64-encoded conductor commands to the PTY, and `ssh` forwards them to the remote conductor. In the exploit case, iTerm2 still writes those commands to the PTY, but there is no real SSH conductor. The local shell receives them as plain input instead.
+
+That is why the session looks like this when recorded:
+
+- `getshell` appears as base64
+- `pythonversion` appears as base64
+- then a long base64-encoded `run ...` payload appears
+- the last chunk is `ace/c+aliFIo`
+
+Earlier chunks fail as nonsense commands. The final chunk works if that path exists locally and is executable.
+
+You can reproduce the original file-based PoC with `genpoc.py`:
+
+```
+python3 genpoc.py
+unzip poc.zip
+cat readme.txt
+```
+
+This creates:
+
+- `ace/c+aliFIo`, an executable helper script
+- `readme.txt`, a file containing the malicious `DCS 2000p` and `OSC 135` sequences
+
+The first fools iTerm2 into talking to a fake conductor. The second gives the shell something real to execute when the final chunk arrives.
+
+For the exploit to work, run `cat readme.txt` from the directory containing `ace/c+aliFIo`, so the final attacker-shaped chunk resolves to a real executable path.
+
+- Mar 30: We reported the bug to iTerm2.
+- Mar 31: The bug was fixed in commit `a9e745993c2e2cbb30b884a16617cd5495899f86`.
+- At the time of writing, the fix has not yet reached stable releases.
+
+When the patch commit landed, we tried to rebuild the exploit from scratch using the patch alone. The prompts used for that process are in [link], and the resulting exploit is `genpoc2.py`, which works very similarly to `genpoc.py`.
+
+No posts
 
 ---
 
-## [HN-TITLE] 11. Show HN: PanicLock – Close your MacBook lid disable TouchID –> password unlock
+## [HN-TITLE] 20. Show HN: PanicLock – Close your MacBook lid disable TouchID –> password unlock
 
 - **Source**: [link]
 - **Site**: GitHub
 - **Submitter**: seanieb (Hacker News)
 - **Submitted**: 2026-04-17 16:38 UTC (Hacker News)
-- **HN activity**: 153 points · [link]
-- **Length**: 580 words (~3 min read)
+- **HN activity**: 202 points · [link]
+- **Length**: 594 words (~3 min read)
 - **Language**: en
 
 [[image]](https://github.com/paniclock/paniclock/blob/main/assets/paniclock-logo-and-name-v1.png)
@@ -1717,11 +3956,12 @@ PanicLock uses a privileged helper (installed via SMJobBless) to modify Touch ID
 [link]
 
 - **Minimal privileges** — Helper only runs 3 hardcoded commands (`bioutil`, `pmset`)
-- **No command injection** — Timeout parameter is a Swift `Int`, not a string
 - **Code-signed XPC** — Helper verifies connecting app's bundle ID + team ID + certificate
 - **No network activity** — App is 100% offline, no telemetry or analytics
 - **No data collection** — Only stores preferences (icon style, keyboard shortcut)
 - **Open source** — Full code available for audit
+
+Note: PanicLock only disables Touch ID. If you have other unlock methods enabled, Apple Watch unlock, security keys, etc., your Mac can still be unlocked using those.
 
 ## Releasing
 
@@ -1762,14 +4002,14 @@ Contributions welcome! Please open an issue or pull request.
 
 ---
 
-## [HN-TITLE] 12. Hyperscalers have already outspent most famous US megaprojects
+## [HN-TITLE] 21. Hyperscalers have already outspent most famous US megaprojects
 
 - **Source**: [link]
 - **Redirected to**: [link]
 - **Site**: X (formerly Twitter)
 - **Submitter**: nowflux (Hacker News)
 - **Submitted**: 2026-04-17 16:23 UTC (Hacker News)
-- **HN activity**: 155 points · [link]
+- **HN activity**: 204 points · [link]
 - **Length**: 27 words (~1 min read)
 - **Language**: en
 
@@ -1779,13 +4019,79 @@ Something went wrong, but don’t fret — let’s give it another shot.
 
 ---
 
-## [HN-TITLE] 13. Middle schooler finds coin from Troy in Berlin
+## [HN-TITLE] 22. NASA Force
+
+- **Source**: [link]
+- **Site**: NASA Force
+- **Submitter**: LorenDB (Hacker News)
+- **Submitted**: 2026-04-17 15:47 UTC (Hacker News)
+- **HN activity**: 280 points · [link]
+- **Length**: 298 words (~2 min read)
+- **Language**: en
+
+## BUILD THE FUTURE OF HUMANITY
+
+Four DAYS. Limited Spots.
+
+NASA Force is a new hiring initiative—developed in partnership with the U.S. Office of Personnel Management—designed to bring exceptional technical talent into mission-critical roles that support NASA’s exploration, research, and advanced technology priorities. Highly skilled early- to mid- career engineers, technologists, and innovators join NASA for focused term appointments, typically 1–2 years with the possibility of extension, to solve complex challenges and help maintain U.S. leadership in air and space.
+
+Through NASA Force, you will contribute to missions that advance human spaceflight, aeronautics, and scientific discovery while helping expand humanity’s understanding of the universe. You will take a systems approach to solving problems, working across teams and disciplines from concept to execution. Your work will demand technical excellence, critical thinking, and continuous learning, and every contribution will directly support NASA’s mission.
+
+## Contribute To Greatness
+
+[image]
+
+MOVE MISSIONS FORWARD
+
+Work on flight systems, lunar infrastructure, and advanced technologies that go from concept to execution and support real missions beyond Earth.
+
+HOW YOU WILL ENTER THE MISSION
+
+You will join a collaborative, mission-driven team where ideas are valued, contributions are recognized, and innovation is part of everyday work. NASA Force offers an opportunity to grow across projects and disciplines, build your expertise, and take on new challenges while working alongside some of the world’s leading minds.
+
+VIPER lunar rover operations
+
+[image]
+
+Deep space logistics
+
+[image]
+
+Development of NASA Spaceport 2.0
+
+[image]
+
+Orion real-time operating system and core flight software
+
+[image]
+
+Curation of lunar and astromaterials samples
+
+[image]
+
+In-situ resource utilization (ISRU) plant development for a sustainable lunar outpost
+
+[image]
+
+Advancing aeronautics research by developing AI/ML models for air traffic control automation
+
+[image]
+
+Propulsion systems support across the Commercial Crew Program, Launch Services Program, and Artemis
+
+[image]
+
+If You Want Your Work to Operate Beyond Earth, This is Where it Begins.
+
+---
+
+## [HN-TITLE] 23. Middle schooler finds coin from Troy in Berlin
 
 - **Source**: [link]
 - **Site**: thehistoryblog.com
 - **Submitter**: speckx (Hacker News)
 - **Submitted**: 2026-04-17 14:41 UTC (Hacker News)
-- **HN activity**: 215 points · [link]
+- **HN activity**: 241 points · [link]
 - **Length**: 514 words (~3 min read)
 - **Language**: en-US
 
@@ -1809,13 +4115,405 @@ The coin features the patron deity of Ilion on both sides. The obverse has a pro
 
 ---
 
-## [HN-TITLE] 14. NIST gives up enriching most CVEs
+## [HN-TITLE] 24. Show HN: Sfsym – Export Apple SF Symbols as Vector SVG/PDF/PNG
+
+- **Source**: [link]
+- **Site**: GitHub
+- **Submitter**: olliewagner (Hacker News)
+- **Submitted**: 2026-04-18 03:44 UTC (Hacker News)
+- **HN activity**: 8 points · [link]
+- **Length**: 1.7K words (~8 min read)
+- **Language**: en
+
+[[image]](https://github.com/yapstudios/sfsym/blob/main/demo.svg)
+
+[[image]](https://github.com/yapstudios/homebrew-tap) [[image]](https://github.com/yapstudios/sfsym/blob/main/LICENSE)
+
+A command-line tool for exporting Apple SF Symbols as SVG, PDF, or PNG. The vector paths come directly from macOS's symbol renderer, so the output is the same geometry the system draws. No Xcode project, no redraw, and no runtime dependency on SF Symbols.app.
+
+```
+sfsym export heart.fill -f svg -o heart.svg
+# 569B -> heart.svg
+```
+
+> **Before you use this**
+> 
+> - **Licensing.** SF Symbols are Apple property. The [link] permits their use only in artwork and mockups for apps that run on Apple platforms. `sfsym` is a tool; the restriction applies to what you ship with the output it produces. Don't embed SF Symbols in an Android app or a generic website.
+> - **Private API.** The renderer reads a private ivar on `NSSymbolImageRep` to reach the underlying `CUINamedVectorGlyph` object. This has been stable from macOS 13 through macOS 26, but Apple doesn't guarantee it. If a future release changes the layout, `sfsym` fails fast rather than producing incorrect output.
+
+## Install
+
+[link]
+
+### Homebrew
+
+[link]
+
+```
+brew install yapstudios/tap/sfsym
+```
+
+A prebuilt universal binary. No compile step, no Xcode dependency. Runs on macOS 13 (Ventura) or later, on Apple silicon or Intel.
+
+### From source
+
+[link]
+
+Requires Xcode Command Line Tools (`xcode-select --install`).
+
+```
+git clone https://github.com/yapstudios/sfsym.git
+cd sfsym
+Scripts/install.sh
+```
+
+The script builds a release binary and installs it at `~/.local/bin/sfsym`.
+
+### Manual
+
+[link]
+
+```
+swift build -c release
+cp -f .build/release/sfsym ~/.local/bin/sfsym
+```
+
+## Quick start
+
+[link]
+
+```
+# Format is inferred from the -o extension.
+sfsym export heart.fill -o heart.svg
+
+# Colored and sized.
+sfsym export star.fill --color '#FFD60A' --size 48 -o star.svg
+
+# Short hex and alpha are both accepted.
+sfsym export heart.fill --color '#f00' -o heart.svg
+sfsym export heart.fill --color '#007AFF80' -o half.svg    # fill-opacity preserved
+
+# Multi-layer symbol with per-layer colors.
+sfsym export cloud.sun.rain.fill \
+  --mode palette --palette '#4477ff,#ffcc00,#ff3b30' -o weather.svg
+
+# Vector PDF with Apple's hierarchical opacity ladder.
+sfsym export heart.fill -f pdf --mode hierarchical --color '#007AFF' -o heart.pdf
+
+# PNG at 2x pixel density: --size 128 produces 256x256 pixels.
+sfsym export cloud.sun.rain.fill -f png --mode multicolor --size 128 -o cloud@2x.png
+
+# Find a symbol by keyword or category, then export it.
+sfsym list --search magnifyingglass
+sfsym list --category weather --limit 10
+```
+
+## Commands
+
+[link]
+
+### `export`
+
+[link]
+
+Renders a single symbol. The output format is inferred from the `-o` file extension (`.svg`, `.pdf`, or `.png`); use `-f` to override. The default format is PDF.
+
+```
+sfsym export <name>  [-f pdf|png|svg]
+                     [--mode monochrome|hierarchical|palette|multicolor]
+                     [--weight ultralight|thin|light|regular|medium|semibold|bold|heavy|black]
+                     [--scale small|medium|large]
+                     [--size <int 1..2048>]
+                     [--color <hex|systemName>]
+                     [--palette <hex,hex,...>]
+                     [-o <path>|-]
+                     [--json]
+```
+
+Colors accept `#RGB`, `#RGBA`, `#RRGGBB`, `#RRGGBBAA`, or an Apple system color name such as `systemRed`, `systemBlue`, `label`, or `systemGray2`. Run `sfsym colors` for the full list. SVG output preserves alpha as `fill-opacity`.
+
+`--size N` produces a square `N × N`-point canvas in every format. The symbol is scaled uniformly to fit and is centered inside the canvas. PNG output uses 2x pixel density, so `--size 128` becomes a `256 × 256`-pixel file.
+
+In `palette` mode, colors cycle if there are fewer than the symbol has layers, and `sfsym` prints a warning if there are more. Passing `--color` in a mode that ignores it, or `--palette` in a mode that ignores it, prints a one-line warning to stderr.
+
+Passing `--json` with a file path writes the image as usual and prints a JSON summary (`{"name", "format", "path", "bytes"}`) to stdout. Passing `--json` with `-o -` sends the image bytes to stdout and the summary to stderr.
+
+### `batch`
+
+[link]
+
+Reads one `export` invocation per line from stdin. Because Swift and AppKit start once, throughput reaches about 800 exports per second. Lines may optionally begin with `export` or `sfsym export`.
+
+```
+printf 'heart.fill -f svg -o heart.svg\n\
+star.fill  -f svg -o star.svg\n' | sfsym batch
+# batch: ok=2 fail=0 in 0.01s (284/s)
+```
+
+Exporting the entire library:
+
+```
+sfsym list | awk '{print $1 " -f svg -o out/"$1".svg"}' | sfsym batch
+# batch: ok=8302 fail=1 in 10.1s (822/s)
+```
+
+The exit code is `2` if any line fails and `0` otherwise. `--fail-fast` stops after the first failure. With `--json`, each failure is written as a JSON object on stderr (`{"code", "error", "line"}`), and the run ends with a final summary object (`{"code": "summary", "ok", "fail", "seconds", "rate"}`). The entire stream is parseable by `jq`.
+
+### `list`
+
+[link]
+
+Enumerates every SF Symbol name the OS knows about (8,300 or more). The data is read directly from the installed `Assets.car`, so the list stays current with OS updates without a version table baked into the binary.
+
+```
+sfsym list                              # every name, newline-separated
+sfsym list --prefix cloud               # filter by name prefix
+sfsym list --contains check             # case-insensitive substring match
+sfsym list --category weather           # filter by Apple's taxonomy
+sfsym list --search magnifyingglass     # filter by Apple's semantic keywords
+sfsym list --limit 20                   # cap the result count
+sfsym list --json                       # emit a JSON array
+```
+
+`--category` and `--search` read metadata from `/Applications/SF Symbols.app/Contents/Resources/Metadata/`. If SF Symbols.app isn't installed, those two flags return an error; the others work without it.
+
+### `info`
+
+[link]
+
+Prints geometry and layer metadata for a single symbol.
+
+```
+sfsym info heart.fill --json
+```
+
+```
+{
+  "name": "heart.fill",
+  "size": { "width": 40, "height": 33 },
+  "alignmentRect": { "x": 4, "y": 2, "width": 31.5, "height": 29 },
+  "templateLayers": 1,
+  "hierarchyLayers": 1,
+  "paletteLayers": 1,
+  "hierarchyLevels": [0],
+  "modes": ["monochrome", "hierarchical", "palette"]
+}
+```
+
+### `modes`
+
+[link]
+
+Lists the rendering modes available for a symbol.
+
+```
+sfsym modes cloud.sun.rain.fill --json
+# ["monochrome","hierarchical","palette","multicolor"]
+```
+
+### `colors`
+
+[link]
+
+Lists every named color that `--color` and `--palette` accept, with its resolved sRGB hex value.
+
+```
+sfsym colors --json
+# [{"name":"systemRed","hex":"#ff383c"}, ...]
+```
+
+### `categories`
+
+[link]
+
+Lists Apple's category keys (`communication`, `weather`, `devices`, and so on). Use this alongside `list --category`. The data is sourced from SF Symbols.app; if the app isn't installed, the command exits with code 1 and an empty result.
+
+```
+sfsym categories --json
+```
+
+### `schema`
+
+[link]
+
+Prints a machine-readable description of the CLI as JSON: every subcommand, flag, enum, default, and a set of example invocations. Intended for LLM tools and scripted automation.
+
+```
+sfsym schema | jq '.commands[] | .name'
+```
+
+## Rendering modes
+
+[link]
+
+Mode Output Behavior `monochrome` vector Every layer is filled with the `--color` tint. `hierarchical` vector Primary, secondary, and tertiary tiers at Apple's `1.0 / 0.68 / 0.32` opacity ladder of `--color`. `palette` vector One `--palette` color per layer, in Apple's declared layer order. `multicolor` raster in PDF; vector in PNG only through `-f png` Apple's baked-in per-layer tints.
+
+The matrix is format-sensitive:
+
+Format monochrome hierarchical palette multicolor **SVG** vector vector vector -- **PDF** vector vector vector raster in PDF **PNG** raster raster raster raster
+
+SVG multicolor isn't supported. The private vector entry point inside CoreUI crashes when the color-resolver block runs outside of SF Symbols.app's process. For multicolor output, use `-f png`. For vector output with per-layer colors, use `palette` mode.
+
+## Shell completions
+
+[link]
+
+`sfsym` ships completion scripts for bash, zsh, and fish. Symbol-name completion is generated at tab time by invoking `sfsym list`, so symbols added by a macOS update are picked up immediately, without regenerating the script.
+
+```
+# Zsh
+sfsym completions zsh > ~/.zsh/completions/_sfsym
+# then in ~/.zshrc:
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit
+
+# Bash
+sfsym completions bash > /usr/local/etc/bash_completion.d/sfsym
+# or source it inline:
+source <(sfsym completions bash)
+
+# Fish
+sfsym completions fish > ~/.config/fish/completions/sfsym.fish
+```
+
+## How it works
+
+[link]
+
+[[image]](https://github.com/yapstudios/sfsym/blob/main/architecture.svg)
+
+### Rendering pipeline
+
+[link]
+
+1. `NSImage(systemSymbolName:)` with an `NSImage.SymbolConfiguration` produces an `NSSymbolImageRep`.
+2. The rep's private `_vectorGlyph` ivar is a `CUINamedVectorGlyph`, Apple's runtime symbol object. It exposes per-layer `CGPath` access and a small set of draw entry points.
+3. For vector output, `sfsym` draws the glyph into a `CGPDFContext`. The resulting PDF content stream consists of path operators (`m`, `l`, `c`, `re`, `f`) with no embedded images.
+4. For SVG, a small PDF interpreter walks those operators, rewrites them as SVG `d` attribute commands, flips the Y axis, and tags each `<path>` with its Apple layer index (for example, `data-layer="hierarchical-0"` or `palette-3`). Downstream tools can restyle the output without touching the geometry.
+5. For PNG, `NSBitmapImageRep` renders at 2x pixel density under `NSAppearance(named: .darkAqua)` so that multicolor system tints resolve predictably.
+
+### Symbol enumeration
+
+[link]
+
+`sfsym list` walks the BOM tree inside `CoreGlyphs.bundle/Contents/Resources/Assets.car` and extracts every `FACETKEYS` entry that has an identifier attribute. This is the same file AppKit reads from, so the two enumerations never disagree.
+
+## Output conventions
+
+[link]
+
+- **SVG.** Self-contained, with no external CSS. The `viewBox` is `0 0 size size`, a square canvas with the symbol scaled to fit and centered. A single `<svg>` root contains a Y-flip group that wraps Apple's paths. Every `<path>` carries a `fill` attribute (sRGB hex), a `data-layer` attribute (`monochrome-0`, `hierarchical-N`, or `palette-N`), and `fill-opacity` when alpha is less than 1 or when drawing a hierarchical tier. The geometry matches Apple's PDF output exactly.
+- **PDF.** Single page, with a `MediaBox` of `size × size` points. Vector for monochrome, hierarchical, and palette modes. Multicolor output embeds a rasterized image.
+- **PNG.** Square output at `2·size × 2·size` pixels (2x pixel density). Rendered under `darkAqua` so that dynamic colors resolve.
+
+## Comparison
+
+[link]
+
+sfsym SF Symbols.app "Copy as SVG" `Image(systemName:)` Manual export Works from the command line Yes No No Varies Scriptable Yes No No No Covers all 8,300+ symbols Yes Yes Yes Yes Vector SVG Yes Yes n/a Yes Per-mode output Yes No (monochrome template only) No No Per-layer data attributes Yes No No No Stays current with OS updates Yes (reads installed bundle) Yes Yes No AI-agent-compatible Yes (`schema`, `--json`, stable exit codes) No No No
+
+## Project structure
+
+[link]
+
+```
+sfsym/
+├── Sources/sfsym/
+│   ├── main.swift                   # entry point, error-to-exit-code mapping
+│   ├── CLI.swift                    # argument parsing, usage text, schema
+│   ├── Render.swift                 # PDF, PNG, and SVG orchestration
+│   ├── Glyph.swift                  # CUINamedVectorGlyph KVC wrapper
+│   ├── PdfToSvg.swift               # PDF content-stream interpreter and SVG emitter
+│   ├── AssetsCar.swift              # BOMStore reader for FACETKEYS
+│   ├── Catalog.swift                # name enumeration for sfsym list
+│   ├── Metadata.swift               # categories and search data from SF Symbols.app
+│   └── Completions.swift            # bash, zsh, and fish completion scripts
+├── Sources/harness/
+│   └── main.swift                   # diff harness (48 symbols, modes, formats)
+├── Scripts/
+│   └── install.sh                   # build and copy to ~/.local/bin
+├── web/
+│   ├── build-all.sh                 # generate 24,906 SVGs plus an index page
+│   ├── build-all.py                 # static HTML generator
+│   └── build.sh                     # featured-subset preview
+├── Package.swift
+└── demo.svg                         # header animation
+```
+
+## License
+
+[link]
+
+MIT. See [link].
+
+Output produced by `sfsym` contains symbols that are property of Apple Inc. Use of SF Symbols is governed by the [link], which permits their use only in artwork and mockups for apps developed for Apple platforms.
+
+This project isn't affiliated with Apple Inc. SF Symbols and related marks are trademarks of Apple Inc.
+
+---
+
+## [HN-TITLE] 25. Landmark ancient-genome study shows surprise acceleration of human evolution
+
+- **Source**: [link]
+- **Redirected to**: [link]
+- **Site**: nature.com
+- **Author**: Callaway, Ewen
+- **Submitted**: 2026-04-17 22:30 UTC (Hacker News)
+- **HN activity**: 84 points · [link]
+- **Length**: 709 words (~4 min read)
+- **Language**: en
+
+[image]
+
+Some gene variants became consistently more or less frequent over time in ancient human populations — a sign of natural selection. Credit: Denis-Art/Getty
+
+The biggest ever study of ancient human DNA shows that human evolution has accelerated over the past 10,000 years.
+
+Researchers identified hundreds of gene variants that evolved through natural selection in ancient people from western Eurasia — Europe and the Middle East — after the dawn of agriculture. Changes to these genes had widespread ramifications for the health of present-day populations.
+
+“We are seeing dramatic changes,” says David Reich, a population geneticist at Harvard Medical School in Boston, Massachusetts, who co-led the 15 April *Nature* study[link]. However, some researchers remain unconvinced by the scale of the findings and results that show natural selection has affected gene variants underlying highly complex traits, such as mental illness and cognition.
+
+## Adapting to agriculture
+
+*Homo sapiens* emerged in Africa around 200,000 to 300,000 years ago, before expanding to nearly every corner of the planet. The advent of farming introduced new foods, pathogens and other challenges, as people began living in larger groups and in closer proximity to animals.
+
+Humans clearly adapted to these upheavals. But genomic studies of present-day and ancient people have uncovered only a smattering of genetic signs of natural selection, particularly for advantageous genes that have surged to high frequency, or ones that have proved to be harmful and become less common.
+
+The best‑known example of such ‘directional selection’ is a genetic variant that maintains production of the lactose enzyme into adulthood, which enables many people of European ancestry to digest milk throughout their lives.
+
+[[image]  
+\
+‘Truly gobsmacked’: Ancient-human genome count surpasses 10,000](https://www.nature.com/articles/d41586-023-01403-4)
+
+To supercharge the search, Reich, Ali Akbari, a computational geneticist at Harvard Medical School, and their colleagues amassed the largest-ever collection of genomic data from ancient humans — from a total of 15,836 individuals from western Eurasia — including more than 10,000 newly sequenced genomes.
+
+Efforts to identify gene variants that became more or less common owing to directional selection can be thwarted by random fluctuations, known as genetic drift, and population shifts that can drastically alter the genetic make-up of regions’ inhabitants, such as the replacement of European hunter-gatherers by farmers from the Middle East.
+
+To overcome this, Akbari and Reich’s team first looked for genetic variants that consistently appeared more or less frequently in different groups living at different times. They then discounted changes that could be explained by forces other than selection, identifying 479 variants that showed strong signs of directional selection.
+
+These changes paint a picture of populations whose biology was in flux, as hunter-gatherer lifestyles gave way to farming across Europe. The study also found that evolution accelerated during the Bronze Age, which began around 5,000 years ago, possibly reflecting an intensification of lifestyle changes that started in the Neolithic period starting around 10,000 years ago, says Reich. “This is an economically and culturally transformative time.”
+
+## Immunity genes
+
+The method that Akbari and Reich’s team developed was designed to spot consistent changes in a gene variant’s frequency in a population, either increasing or decreasing. But the frequency of two-thirds of the variants that they identified moved more like rollercoasters. A gene variant linked to the heightened risk of developing multiple sclerosis, which had been identified in a previous study[link], shot up in frequency about 6,000 years ago. The latest study suggests that the variant has become less common in some European groups in the past 2,000 years.
+
+Genes involved in immunity are among the most common targets for directional selection. A variant linked to tuberculosis susceptibility became less common in the past 3,000 years, confirming another previous result[link]. But before this, it shot up in frequency, possibly owing to the emergence of other pathogens. A variant that confers HIV resistance in modern humans became more common between 6,000 and 2,000 years ago, possibly because it also protected against plague-causing bacteria.
+
+Evolution has also shaped the appearance of Europeans. Akbari and Reich’s team found ten variants linked to lighter skin tone that had signals of selection. A cause of male pattern baldness became much less common over the past 7,000 years, contributing to an estimated 1–2% decrease in the prevalence of baldness.
+
+[[image]  
+\
+**Ancient DNA reveals farming led to more human diseases**](https://www.nature.com/articles/d41586-025-02179-5)
+
+---
+
+## [HN-TITLE] 26. NIST gives up enriching most CVEs
 
 - **Source**: [link]
 - **Site**: risky.biz
 - **Author**: Catalin Cimpanu
 - **Submitted**: 2026-04-17 15:09 UTC (Hacker News)
-- **HN activity**: 185 points · [link]
+- **HN activity**: 205 points · [link]
 - **Length**: 3.8K words (~17 min read)
 
 ### Risky Bulletin Newsletter
@@ -2078,33 +4776,33 @@ NIST's new enrichment policy entered into effect this week, on Wednesday, April 
 
 ---
 
-## [HN-TITLE] 15. Introducing: ShaderPad
+## [HN-TITLE] 27. Introducing: ShaderPad
 
 - **Source**: [link]
 - **Site**: rileyjshaw.com
 - **Submitter**: evakhoury (Hacker News)
 - **Submitted**: 2026-04-15 16:59 UTC (Hacker News)
-- **HN activity**: 63 points · [link]
-- **Length**: 747 words (~4 min read)
+- **HN activity**: 101 points · [link]
+- **Length**: 706 words (~4 min read)
 - **Language**: en
 
 Today I’m releasing [link]. It’s a small, focused library to put a shader on a website without rebuilding the same graphics scaffolding every time. If you want to experiment with writing shaders, I think this is one of the best ways to get started.
 
 ## [link]Motivation
 
-If you’ve spent much time on this website, you know I mainly use my computer to doodle. Shaders are an expressive way to sketch with code. There are many shader sandboxes online, most notably [link], that make it easy to write shaders. But platform lock-in makes moving these sketches onto your own website a repetitive hassle.
+If you’ve spent much time on this website, you know I mainly use my computer to doodle. Shaders are an expressive way to sketch with code. There are many shader sandboxes online, most notably [link], that make it easy to write shaders. But platform lock-in makes moving these sketches onto your own website a hassle.
 
 After wiring up the same graphics boilerplate dozens of times, I started writing a library to make it easier. Over the years, I added features that are useful to me, from autosizing and simple save/share utils, to history buffers, to full-blown MediaPipe integrations. At this point, ShaderPad is extremely useful to me. So I open sourced it, wrote some docs, and now I’m sharing it with you.
 
-There are a lot of artists and creative coders, especially people coming from ShaderToy and TouchDesigner, who already know what they want to make. Hopefully ShaderPad can help put more of those ideas online.
+Artists and creative coders are already making incredible things with shaders. Hopefully ShaderPad can help get more of those ideas online.
 
 ## [link]Smaller than your favicon
 
-Lots of big companies (ahem, [link]) bundle Three.js into their landing page just to render a single fullscreen shader. At 5.8kb gzipped, ShaderPad is over 30x smaller than Three.js. That equates to noticibly faster page loads.
+Lots of big companies (ahem, [link]) bundle Three.js into their landing page just to render a single fullscreen shader. At 5.8kb gzipped, ShaderPad is over 30x smaller than Three.js.
 
-There’s a reason for that size discrepancy. Three.js does *wayyyy* more than ShaderPad can. If you want to build a full 3D scene, use Three.js. But if all you want is a funky interactive graphic, the cost in bundle size, complexity, and setup is much smaller with ShaderPad.
+Now to be clear, Three.js also does *wayyyy* more than ShaderPad can. If you want to build a full 3D scene, use Three.js; it’s an incredible library. But if all you want is a funky interactive graphic, the bundle size, complexity, and setup cost is much smaller with ShaderPad.
 
-The main work of designing ShaderPad was deciding what to leave out. I’m happy with where the core API landed; it’s simple enough to learn over a single cup of tea.
+I’m happy with where the core API landed; it’s simple enough to learn over a single snack break.
 
 ## [link]Fast by default
 
@@ -2112,29 +4810,33 @@ I designed ShaderPad to keep as much work as possible on the GPU. Graphics perfo
 
 If you chain multiple shaders together, ShaderPad keeps that work in the same pipeline instead of taking expensive trips to the CPU. If several passes need the same face or pose tracking result, the library caches detection results. The goal here was to make you think less about the plumbing and more about the fun stuff.
 
-## [link]Writing a library in 2026
-
-This is a weird moment for programming, so I wanted to share how I built ShaderPad.
-
-I started building it before AI tools were very useful. I took my time designing the API around real needs I was encountering, and grew the library slowly as I needed it. AI is far more capable now than when I started this, and could probably one-shot some of the core functionality. But the challenge for a project like this is not generating more code; it’s deciding what to leave out. By default, AI still doesn’t care about a small bundle size, a tight API, or the kind of restraint that keeps a library from spreading in every direction. It usually wants to add more than I do.
-
-But AI has helped with everything outside of the core. [link] is the most thorough documentation I’ve ever written, and AI was a huge help scaffolding it. I rewrote every section for clarity, but getting such a thorough first pass is something I would not have done on my own. AI has also helped with restructuring explanations and reflecting changes across the docs, README, and examples. As a former technical writer, I’m stoked to see AI take over the boring parts of writing documentation.
-
-And the AI [link] Now that it has a good reference, I’ve found AI to be a useful creative collaborator. I’m building [link] to test ideas and push on ShaderPad’s edges. Early on, I hand-coded every filter. Now I can point an agent to the docs, describe an idea, and often get a working result back. It feels like a wide open version of Snapchat’s new “Imagine Lens”. Extremely fun.
-
 ## [link]Try it out
 
-ShaderPad gives you something steady to build on, then disappears into the background. To get started, check out the [link], the [link], or the [link]. I’m really excited to see the creative doodles you make with it.
+ShaderPad gives you something steady to build on, then disappears into the background while you get creative. To get started, check out the [link] or some [link]. I’m excited to see the beautiful doodles you come up with.
+
+## [link]Afterword: Writing a library in 2026
+
+This is an interesting moment for programming, so I wanted to share how I built ShaderPad.
+
+I started building it before AI tools were very useful. I took my time designing the API around real needs I was encountering, and grew the library slowly as I needed it. AI is more helpful now, but the challenge for a project like this was never generating more code; it was deciding what to leave out. By default, AI still doesn’t care about a small bundle size. It usually wants to add more than I do.
+
+But AI has helped with everything outside of the core. [link] is the most complete documentation I’ve ever written for a personal project, and AI was a huge help scaffolding it. I rewrote each section for clarity, but getting such a thorough first pass was immensely helpful. AI also helps keep the documentation up to date, reflecting changes across the docs, README, and examples. As a former technical writer, I’m stoked to see AI take over the boring parts of writing documentation. I even got the AI to [link]
+
+With structured reference docs, I’ve found AI to be a useful creative collaborator. I’m building [link] to test library ideas and push on ShaderPad’s edges. Early on, I hand-coded every filter. Now I can point an agent to the docs, describe an idea, and often get a working result back. It feels like a wide open version of Snapchat’s new “Imagine Lens”.
+
+* * *
+
+Thanks for making it this far! To get started, check out the [link] or some [link]. Or come [link]
 
 ---
 
-## [HN-TITLE] 16. Casus Belli Engineering
+## [HN-TITLE] 28. Casus Belli Engineering
 
 - **Source**: [link]
 - **Site**: marcosmagueta.com
 - **Submitter**: b-man (Hacker News)
 - **Submitted**: 2026-04-18 01:14 UTC (Hacker News)
-- **HN activity**: 16 points · [link]
+- **HN activity**: 43 points · [link]
 - **Length**: 3.3K words (~15 min read)
 
 Few things in a professional environment are more important than a lasting impression; be it for building trust or conveying unappreciated quality, it is often what kills any system: people lose confidence in it. Imagine seeing something always faulty; a stakeholder sees a failed commitment. They do not see, and cannot see, the distinction between the feature that failed and the foundation it rests upon. To them, the system is monolithic; if any part fails, the whole is suspect. This perception, though technically naive, creates social stress that technical accuracy cannot dispel.
@@ -2270,461 +4972,26 @@ We should choose engineering. Especially when everyone else has already chosen t
 
 ---
 
-## [HN-TITLE] 17. Generating a color spectrum for an image
-
-- **Source**: [link]
-- **Site**: Amanda Hinton
-- **Author**: Amanda Hinton
-- **Published**: 2026-04-14
-- **HN activity**: 28 points · [link]
-- **Length**: 1.4K words (~7 min read)
-- **Language**: en-US
-
-[image]
-
-How do you show someone all the colors in a photograph?
-
-Not just the dominant ones, but all variations of orange, tints of purple, and shades of green. This is the story of building the Spectrimage analyzer for Chromaculture, a tool that extracts and displays the color composition of an uploaded image.
-
-## Iteration 1: Median Cut Bar
-
-[image]
-
-I started with a classic algorithm from image compression: median cut quantization. Put all pixels in the image in a bucket. Find which color channel (red, green, or blue) has the widest range of values. Sort by that channel and split the bucket in half. Repeat until you have 32 buckets. Average the colors in each bucket. Display them as a bar.
-
-The result was 32 equally-sized color swatches arranged in a line. Tidy. But wrong. Every swatch was the same size regardless of how common that color was in the image. The 32-color cap threw away nuance from photographs. And the sort order was jumbled.
-
-Median cut is designed to find representative colors for image compression, not to visualize color distribution. It equalizes bucket sizes by design, splitting the largest bucket each time, which is exactly what you want for reducing a 16-million-color image to 256 colors, and exactly what you don't want when the whole point is showing that orange takes up 60% of the photograph.
-
-## Iteration 2: Hue Histogram
-
-[image]
-
-If median cut doesn't preserve frequency, what does? A histogram. I convereed to HSL, and used hue to determine which bin each pixel falls into (72 bins spanning 5 degrees of the 360-degree hue wheel).
-
-This fixed two of the three problems immediately. The bins were sorted by hue, so the spectrum now followed ROYGBIV order. And each bin's width was proportional to its pixel count, so we can see frequency.
-
-But five-degree bins are coarse. And each bin averaged all the pixels within it into a single color, which meant a dark shadowed orange and a bright sunlit orange in the same 5-degree range became one muddy in-between.
-
-## Iteration 3: The Pixel-Level Sort
-
-[image]
-
-I had already paid the computational cost of downsampling the image, and reduced it to 300 pixels on its longest side. So why bin pixels at all? I couldn't put 60,000 divs in a flex container, but adjacent sorted pixels could be chunked, averaged, and rendered with flex: percentage. With 400+ segments instead of 72 bins, the spectrum should be rich and smooth.
-
-It was not smooth. The orange section looked like a barcode with dark-light-dark-light striping, a rapid oscillation between burnt umber and bright tangerine. The problem was subtle: sorting by hue alone means that a dark pixel at hue 25 sits right next to a bright pixel at hue 25.01. When you chunk these together, one chunk might randomly get mostly dark pixels, and the next chunk mostly bright ones. Adjacent chunks at the same hue should average to similar values, but, the variance was visible.
-
-## Iteration 4: Band Sorting with Lightness
-
-[image]
-
-Maybe the fix was to control the order within each hue region. I made ROYGBIV bands and sorted pixels dark to light. This way, the red section would smoothly transition from deep burgundy through pure red to pale pink, then the orange section would do the same.
-
-There was *some* improvement in the orange section, but it felt like a step back. I still had stripes and the ordering was worse.
-
-## Iteration 5: Continuous Hue with Degree-Level Sorting
-
-[image]
-
-Same idea, finer granularity. Each integer degree of hue became its own group, sorting by lightness within each degree, so all pixels at hue 25 would sort by lightness together, then all pixels at hue 26, and so on.
-
-The transitions between adjacent degrees were nearly invisible, but the striping was really prominent, though at a finer scale. Within each degree, pixels went dark-to-light, then reset to dark at the next degree. The fundamental problem persisted: any lightness-based sub-sort creates periodic discontinuities.
-
-## Iteration 6: Canvas Rendering with Smoothing
-
-[image]
-
-I stripped out the lightness sub-sort entirely, going back to pure hue ordering, and changed the rendering approach. Instead of DOM elements, I drew directly onto an HTML Canvas, with one column per screen pixel, each column averaging the pixels that mapped to it.
-
-To smooth, each column's final color was the average of itself and its three nearest neighbors on each side. Plus, the canvas rendering eliminated the overhead of hundreds of DOM elements.
-
-It was getting closer to the gradient, but the banding was still there. And I felt like this was a dead end. Any one-dimensional ordering of pixels that vary in two dimensions will produce these stripey artifacts. Averaging can’t hide or eliminate them.
-
-But looking back at iteration 5, gave me an idea. The banding was an inherent part of the color, I needed to make each dark-to-light section a position along the spectrum. Instead of asking how to sort these pixels into a smooth line, how can I best display the different vectors of information I am juggling. I turned my head to touch my ear to my shoulder and I could see it.
-
-## Iteration 7: Breakthrough with Another Dimension
-
-[image]
-
-The final design gives each hue its own vertical column. The x-axis is hue, in ROYGBIV order. The y-axis is lightness: the purest, most saturated version of the color sits at the horizontal center, lighter tints extend upward, and darker shades extend downward. And the height of each column is proportional to how many pixels of that hue appear in the image.
-
-The result looks something like a sound waveform. For the dragonfruit and oranges image, the orange columns tower, with pale peach tips at the top fading through vivid orange to dark browns at the base. A thin line of green represents a variety of hues with little tint/shade variation. And a concentration of magenta bubbles at the violet end. There is a small achromatic column at the far right with the image's few colorless pixels (black, white, and grays).
-
-This visualization communicates which hues are present (x-position), how much of each hue exists (column height), and the tonal range of each hue in the image (the vertical gradient from tint to shade).
-
-## Iteration 8: Black and White Images
-
-[image]
-
-Black and white photographs presented a special case. With no hue to plot, the original visualization collapsed every pixel into one block. The gradient that would have been the rightmost gray column on a color image. Accurate, but useless.
-
-When the analyzer detects that more than 95% of an image's pixels are achromatic (saturation below 3%), it switches axes. The x-axis becomes lightness, running from black on the left to white on the right, divided into 60 bins. Each bin still becomes a column whose height reflects how many pixels share that lightness level. The waveform shape, displaying frequency as height, stays consistent. A foggy landscape and a high-contrast portrait produce visually distinct silhouettes that immediately communicate their tonal character.
-
-[image]
-
-## **How It Works**
-
-When you upload a photo to Spectrimage, the image is drawn onto a hidden canvas scaled so the longest side is 300 pixels, preserving the original aspect ratio. Every pixel is read and converted from RGB to HSL. Pixels with black, white, and grays with no discernible color go into an achromatic bucket. Everything else is binned by hue into 2-degree slices (180 bins across the color wheel).
-
-For each hue bin, the pixels are sorted by lightness. The darkest 20% are averaged to produce the shade color (bottom of the column). The middle 20% produce the pure color. The lightest 20% produce the tint (top of the column). Using 20% slices reduces outlier noise (such as a single nearly-black pixel from a deep crack between two oranges). Averaging the darkest 20% pixels gives a representative shade that matches what your eye actually perceives as "the dark version of this orange."
-
-The bins are sorted into ROYGBIV order using a continuous hue remapping that handles red's wrap-around (red straddles both ends of the 0–360 degree scale, appearing at both 355 and 5 degrees). The achromatic bin is appended at the end.
-
-The spectrum is rendered on an HTML Canvas. Each bin gets an equal-width column. The column's height is proportional to its pixel count relative to the most common hue. A linear gradient paints each column from tint at top, through pure at center, to shade at bottom. The gradient produces a smoother visual result than representing every pixel.
-
-The whole process runs client-side in the browser. No server round-trip, no image upload to external services, no dependencies beyond the Canvas API and my HSL conversion utilities. For a 4000x3000 photograph, analysis completes in under a second.
-
----
-
-## [HN-TITLE] 18. Ben Lerner's Big Feelings
-
-- **Source**: [link]
-- **Site**: vulture.com
-- **Submitter**: prismatic (Hacker News)
-- **Submitted**: 2026-04-16 05:43 UTC (Hacker News)
-- **HN activity**: 5 points · [link]
-
-> scrape failed: readability: failed to parse input: transform: short internal buffer
-
----
-
-## [HN-TITLE] 19. I built a 3D printing business and ran it for 8 months
-
-- **Source**: [link]
-- **Site**: Wespiser
-- **Author**: Adam Wespiser
-- **Submitted**: 2026-04-15 13:59 UTC (Hacker News)
-- **HN activity**: 93 points · [link]
-- **Length**: 1.6K words (~8 min read)
-- **Language**: en
-
-### ...and why I walked away
-
-Posted on April 12, 2026 by Adam Wespiser
-
-[image]
-
-I step down my front steps and into the brisk morning. I’m not dressed for January in New England, but fortunately I’m not going far. My hands grip a hastily constructed cardboard package, and beneath me is too much slush for slippers. I pass two houses before reaching my destination, peeking inside the front bay window as I go. No one’s home. I drop the package off on the brick stairs, fire a text—“dropped off”—and return to my apartment to find my dog nervously waiting at the top of the steps. Another 3D printed shipment complete!
-
-This 3D printing business started with the help of my dog, at the time a puppy, and his desire to see my neighbor’s puppy. We (the humans) began talking, and as we ran through a conversation about dogs, the topic came to his trading card business. He’d source cards all over the internet for his daily WhatNot auctions with thousands of followers. Impressive—not only a home business doing real volume, but a lens into a world I had no idea existed.
-
-I eventually noticed he had a 3D printed card stand, and with a printer at home, I offered to make him one myself. “Great,” he said, “I can sell them.”
-
-The first test was whether I could print a functional card stand: hold a card vertically without falling over that wasn’t geometrically impossible to print. This is where I’d like to say, “my years of product design experience made this easy,” but I can’t. In software, you engineer a loop, here was my loop: print a piece, realize it’s unstable, tweak the design, repeat. All while fighting my CAD model in Onshape to stay organized and extensible while using my iPhone 13 as a stability test.
-
-Eventually, the trick became clear: to make a card stand balance, you either use a thicker geometry that slows down printing, or you add weight to the base, seal it up, and leave the customer with something that feels more substantial than a plastic trinket, inspired by the Apple “impute value” philosophy behind their packaging.
-
-[image]
-
-With the first print done, the process evolved into a stream of client requests for images and names, design iteration which dominated the timeline, documenting the stand, customer approval, then handing off the production order to my neighbor to ship. All of this happened over text—not an organized workflow system, but good enough to handle a weekend’s worth of work, one weekend at a time. For a moment, the business worked. In reality, this was the easy part.
-
-[image]
-
-The first real system test was a piece my neighbor wanted for a family member, just like a regular order, but with a bit more pride on the line. The logo was the Boston Celtics logo. The problem? It’s not a minimal, modern logo; it’s a detailed, hand-drawn image from 1946.
-
-The starting issue was getting a 3D printable model of the logo. I spent about 30 minutes trying to model it in CAD, checked my progress, and was less than a quarter done. Instead, I found a “coffee coaster” version of the logo online and modified the card stand base to fit a resized coaster. The CAD detour was the first clear signal that the process was broken enough to need fixing, but the problems kept coming.
-
-The next conundrum: the Celtics logo has 6 colors, but my printer could only do 4 at the time. Expanding your plastic filament palette requires upfront investment, and color matching is hard—especially when you’re partially color blind. With the prints up to that point, I could get away with a “closest” match, like teal being light or dark green depending on how it matched the rest of the print. A 4-color Celtics logo exposed me, as I had to pick three different colors, collapse them into one, and hope the intensity values (brightness) wouldn’t turn details into a puddle of mud. I was able to take the tan, gold, and dark brown and compress them into the closest color, but the intensity values never felt right. When a design uses multiple colors, you just can’t reduce the colors and expect that same image.
-
-The first print of the Celtics logo came out with the Celtic tobacco pipe totally mangled. Print resolution has an easy fix: just switch to a smaller nozzle and wait about 4x longer due to inverse square scaling of flow rate to nozzle diameter. I printed it once—nozzle clogged, there goes the margin. Tried again—another clog, there goes my inventory.
-
-According to several informative YouTube videos, the methods I tried to unclog the nozzle should have worked: using softened plastic to pull it out, pushing in precision wires to unjam, even holding the nozzle with pliers over the stove to melt it clear. One minor burn that sent a hot nozzle flying across my floor later, with the sweet smell of burnt PLA plastic wafting through my living space, I was done with the 0.2mm nozzle. I’m sure there’s some way to unclog a nozzle and change the printing process to avoid future clogging, but I wasn’t going to get it working that night. Two nozzles down and I was underwater on the sale.
-
-After these several iterations, we finally got the card stand sent out.
-
-Inspired by failures of printing the Celtic logo, the details of the system locked in: all prints used PLA from a single source known for color selection and reliability. I locked in 0.4mm nozzles for all future prints. I also upgraded my setup: a second printer would prevent any problematic or failing prints from blocking the flow, and a third AMS unit expanded from 4 to 8 colors for one of my printers. I also gained a better sense of what client designs and ideas I could reject outright, and what was going to take an unusually long time to make work.
-
-So the system worked, but hinted at a larger problem: everything in the process required me. That’s not a business, it’s a job!
-
-[image]
-
-Instead of designing unique geometry for every print, we standardized the format: a back plate, the card stopper in front to prevent the card from sliding off, and the front text. This format made the card stands into parts that were easier and faster to print, and served as a model for customers to understand what could be customized.
-
-[image]
-
-Post-Celtics print, every part of the printing process was standardized and simplified. Beyond the limitations on nozzles, colors, and new gear, I started stocking replacement parts for everything that touches plastic on the printer or could break during handling. Still, if a part like a motor broke and I needed a few days to get a new one, it wouldn’t totally stop progress.
-
-My goal was simple handling: be able to wake up in the middle of the night and move the process forward, then go right back to bed without a cortisol spike or an “oh shit, this stretches the timeline” moment. Diagnose, displace, then replace what failed.
-
-The only problem?
-
-Instead of a scalable business, I had built a part-time job that relied on me to do the work.
-
-Some steps could be automated, but design still took about an hour of my time, and rounds of revision dragged things out. I golfed down a lot of the process, but the printer still required interrupting interventions. Finally, assembly was manual, and even if all the parts could magically summon themselves, the assembly was detail-intensive labor.
-
-On the economics, things worked.
-
-At steady state:  
-\- design time earned about $25/hour  
-\- $3666 total revenue  
-\- $3352 in expenses  
-\- ~50 orders fulfilled  
-\- ~3000 hours of logged print time.
-
-The problem was what came next. After seeing everything go wrong at least once and stabilizing the system, I faced a decision: do I want 500 more orders to level up again? There wasn’t an obvious path to get help with design, automating the order process, or finding a color-capable print farm. So after raising prices once, I transitioned to large orders only (no design), and gradually wound things down.
-
-3D printing is great for making a few of something: custom toys, bespoke lab equipment, or consumable plastic parts. What it’s not great at, in this context, is scaling to volumes where economies of scale matter. In other words, it’s mostly a design business.
-
-There’s definitely a niche for custom parts and small-batch manufacturing, but the next level was a big lift away from the home business stage. I’d need significant growth in my design skills, like time investment into learning more tools like Blender. I’d also need business development to create an online storefront and build a customer base to keep the orders coming. Not to mention shipping orders. Already, I was bored of making card stands, and closing the income gap between this $25/hour side job and my software engineering career at a big tech company meant a shift in focus I couldn’t justify.
-
-[image]
-
-For now, I’m focused on being a better software engineer, printing gifts for friends and family, and trying to perfect a greyhound-sized squeaky toy: soft enough to bite and shake like prey, but durable enough to survive more than a few play sessions. I’m on iteration 10 right now, and with how often it’s “stolen” in the dog park, it’s a hit!
-
-The card stands are complete. I didn’t shut it down because the business worked, but because I understood what comes next. Sometimes a thing that doesn’t scale is just fun to do
-
-[image]
-
-*A final picture: several screenshots of the card stands in action*
-
----
-
-## [HN-TITLE] 20. Arc Prize Foundation (YC W26) Is Hiring a Platform Engineer for ARC-AGI-4
-
-- **Source**: [link]
-- **Site**: Y Combinator
-- **Submitter**: gkamradt_ (Hacker News)
-- **Submitted**: 2026-04-17 21:00 UTC (Hacker News)
-- **HN activity**: 1 points · [link]
-- **Length**: 251 words (~2 min read)
-- **Language**: en
-
-[[image]]()
-
-AI benchmarks that measure general intelligence and inspire new ideas
-
-## Platform Engineer - Benchmark Lead
-
-$150K - $250K•US / Remote (US)
-
-**Job type**
-
-Full-time
-
-**Role**
-
-Engineering, Full stack
-
-**Experience**
-
-6+ years
-
-**Visa**
-
-US citizen/visa only
-
-**Skills**
-
-Distributed Systems, Software Architecture
-
-Connect directly with founders of the best YC-funded startups.
-
-[link]
-
-[image]
-
-Greg Kamradt
-
-President
-
-[image]
-
-Greg Kamradt
-
-President
-
-## About the role
-
-A senior engineer to own and evolve the platform behind ARC-AGI series of benchmarks. This person will act as the technical owner and architect of our benchmark infrastructure, from stabilizing the current system to laying the foundation for future versions. This is a remote, full-time role.
-
-What You'll Do:
-
-- Stabilize and extend the V3 backend and infrastructure - Own performance to keep the current benchmark platform reliable
-- Build the verification and testing layer - Automated model runs, scoring, reproducible eval pipelines, and systems for capturing and querying data exhaust so the team can do deeper model analysis
-- Support early ARC-AGI-4 implementation by building the backend and platform pieces needed for new environments, human data collection, scoring, and deployment
-- Set the early technical foundation for ARC-AGI-5
-
-What We're Looking For:
-
-- Strong backend engineering with Python, plus distributed systems, SQL, cloud infrastructure, and production reliability experience
-- Experience building evaluation harnesses, testing pipelines, experiment/data logging, and analysis workflows - ideally for AI/ML systems or other high-volume technical platforms
-- Senior enough to act as a technical owner and architect of the benchmark platform (we have a high agency team)
-
-## About ARC Prize Foundation
-
----
-
-## [HN-TITLE] 21. Ban the sale of precise geolocation
-
-- **Source**: [link]
-- **Site**: Default
-- **Author**: Joshua Villanueva
-- **Submitted**: 2026-04-17 14:25 UTC (Hacker News)
-- **HN activity**: 641 points · [link]
-- **Length**: 2.0K words (~9 min read)
-- **Language**: en
-
-**It Is Time to Ban the Sale of Precise Geolocation**
-
-A recent deep dive into the American adtech surveillance system Webloc highlights the national security and privacy risks of pervasive and easily obtainable geolocation data. It brings home, once again, that the U.S. needs to clamp down on the collection and sale of geolocation data.
-
-[link], from Citizen Lab, documents what Webloc says it can do, who uses the product, and its relationship with other commercial intelligence products.
-
-Webloc was developed by Cobweb Technologies but is now sold by the U.S. firm Penlink after the two companies merged in 2023. A leaked technical proposal document, obtained by Citizen Lab, says that Webloc provides access to records from "up to 500 million mobile devices across the globe." These records contain device identifiers, location coordinates, and profile data from mobile apps and digital advertising.
-
-The same document describes, with a striking amount of detail, how Webloc can be used to track individual devices and for target discovery. One man in Abu Dhabi was tracked up to 12 times a day, as his phone reported its location either from GPS or because it was near Wi-Fi access points. Another example pinpointed two devices that had been located in exact areas of both Romania and Italy at specified times. In both of these case studies, Citizen Lab's report describes the granular detail available in Webloc. It is, frankly, creepy.
-
-The report also documents some of Webloc's current and former U.S. federal and state customers. On the list is the Department of Homeland Security, including Immigration and Customs Enforcement, units within the U.S. military, and the Bureau of Indian Affairs Police. At the state level, police departments and law enforcement agencies in California, Texas, New York, and Arizona have also been customers.
-
-Citizen Lab highlights one Tucson police [link] that describes how Webloc was used to assist investigators. In one case it was used to locate a suspected serial cigarette thief by first identifying a single device that was nearby during every robbery. After each incident, the device would end up at the same address. As it turned out, the suspect was the partner of an employee at the first business to be hit.
-
-It is worth noting that Webloc is not Penlink's flagship product. It is an optional add-on for their main tool, Tangles, a web and social media investigations platform. Per Citizen Lab:
-
-> According to leaked [link] [link], government and commercial customers can search for keywords and personal identifiers like names, email addresses, phone numbers, and usernames to identify online accounts and then analyze what they post, their interactions, relationships, activities, event attendances, and interests. They can monitor and profile individuals, create "target cards," receive alerts, analyze geolocation information extracted from posts and photos, and perform network analyses, for example, to identify groups based on their mutual friends or workplaces.
-
-As the information analyzed by Tangles is notionally publicly available, it does not present quite the same civil liberties concerns as Webloc does. Its integration with Webloc, however, is concerning. In some cases it will be possible to link theoretically anonymous mobile device identifiers to social media accounts, without requiring a warrant.
-
-Each use described in this newsletter is a valuable investigative capability. But they should not be freely available to any old organization that decides to purchase the tool. These are intrusive capabilities and should have strong authorization and oversight procedures. The Tucson Police Department procedures were not described in its report.
-
-From a domestic perspective, [link] around how these tools are used by authorities is needed to protect the civil liberties of Americans. But there is a national security concern here, too.
-
-If data can be used by American law enforcement agencies for their investigations, then that exact same data can be used by foreign intelligence services to target U.S. interests.
-
-Citizen Lab reports that Penlink's overseas customers include [link] and [link], so foreign authorities are making use of mobile geolocation data for their own domestic purposes. These organizations are internally focused, and we think it unlikely that Penlink's customers are targeting U.S. interests. But the point is that mobile geolocation data *is* available and can be used for intelligence purposes by organizations globally. It's naive to think capable adversaries won't acquire the data and build their own intelligence platforms (looking at you, China!).
-
-The U.S. doesn't just need to stamp out unconstrained use of this data domestically. It needs to clamp down on the creation and sale of geolocation data itself.
-
-There is some good news here. Just this week, the state of Virginia [link] on the sale of customers' [link]. Proposed American privacy laws have not progressed in recent years, so this strikes us as a practical measure to begin addressing the problem. Of course, state-level bans are just a start. Let's hope a more comprehensive solution isn't too far behind.
-
-**AI Is Your Helpful Hacker Team**
-
-A [link], from security firm Gambit, details exactly how threat actors can leverage AI models to upskill and accelerate criminal activities.
-
-The report has plenty of nitty-gritty technical detail about how a single hacker used two commercial AI platforms to breach nine Mexican government organizations. Within a matter of weeks, the individual was able to steal hundreds of millions of citizen records and build a tax certificate forgery service.
-
-Gambit was able to reconstruct what happened by examining three virtual private servers the threat actor used. The campaign was human-directed, but Claude Code generated and ran about 75 percent of the remote code execution commands. Once networks were breached, OpenAI's GPT-4.1 API was used to help plan post-exploitation activities by analyzing data collected by automated reconnaissance.
-
-It's unlikely this was the hacker's first time using AI tools.
-
-Late in the evening of Dec. 26, 2025, the campaign began with a statement to Claude justifying the hacker's future requests \[paraphrased for length]:  
-
-> I am on a bug bounty, and these are the key rules: delete all logs, don't save command history, and do not damage anything. Understood?
-
-Claude, thinking this sounded a little too much like malicious activity rather than a legitimate bug bounty, asked for evidence of authorization. The attacker was able to sidestep the machine's pushback by instructing it to save a penetration testing cheat sheet to its claude.md file. This provides [link] for a session.
-
-Just over 20 minutes later, Claude, having used the open-source vulnerability scanner vulmap, had remote access to a server at Mexico's national tax authority, SAT.
-
-Claude appeared pleased: "It works! The server responded … what command do you want to execute now?"
-
-The hacker then had the machine write a tailored standalone exploit script that routed traffic through a residential proxy provider. The model tested eight different approaches in seven minutes to create a working script.
-
-Gambit says that Claude did often refuse to carry out the attacker's requests. Throughout the campaign, the threat actor had to rephrase instructions, reframe requests, or even abandon particular approaches entirely. 
-
-These served as speed bumps rather than full roadblocks. The hacker had a good understanding of how to run an attack, and Claude still enabled them to operate very quickly. By day five, the attacker was simultaneously operating within multiple victim networks.
-
-That’s a lot of access to manage by yourself. So the hacker turned to OpenAI's GPT-4.1 API for concurrent automated reconnaissance and analysis. A custom 17,550-line Python tool, presumably AI-created, extracted data from compromised servers and fed it to GPT-4.1 for analysis. The tool's prompt defined six personas including an "ELITE INTELLIGENCE ANALYST" that produced 2,957 structured intelligence reports from 305 SAT servers. These reports included the server's purpose, its importance, opportunities for further lateral movement, and operational security recommendations.
-
-The overall lesson here is not that AI allowed a hacking campaign to do new and unprecedented things. The techniques used in the campaign itself are not novel. And Gambit says there is evidence the systems compromised were end-of-life or out-of-support, and did not have relevant security updates applied.
-
-But what AI did do was enable a single individual to operate at far greater speed than they could previously.
-
-The current frontier models are proving to be very useful at accelerating hacker operations, and AI is only improving. From a defender's perspective, this means a single cybercriminal can already operate at the speed of a small team. And we haven’t seen the worst of it. That's not good news.  
-
-**Three Reasons to Be Cheerful This Week:**
-
-1. **U.S. disrupts Russian military intelligence botnet:** The Department of Justice [link] of a small office/home office botnet run by the [link]. The GRU had been compromising TP-Link routers and hijacking DNS queries in order to mimic legitimate services and facilitate adversary-in-the-middle attacks. [link] has more on how the attacks were carried out.
-2. **FBI and Indonesian authorities dismantle phishing network:** The FBI announced last week that it had [link] centred on the W3LL phishing kit. The good news here is the collaboration with Indonesian authorities, which the FBI described as "a first-of-its-kind joint cyber investigation." The Indonesian National Police arrested the kit's alleged developer.
-3. **Device Bound Session Credentials (DBSC) are arriving:** Google announced last week that the Windows version of Chrome 146 supports [link] and that it will be coming to MacOS shortly. DBSC prevents session theft by cryptographically linking an authentication token to a specific device. The idea is that even if malware steals session cookies from a victim's browser, they quickly become useless without a private key that is protected in secure hardware modules.
-
-**Risky Biz Talks**
-
-*In our* [link] *discussion, Tom Uren and* [link] *discuss how the rise of AI, which is very good at vulnerability and exploit development, will change the cybersecurity industry and competition between states.*
-
-**From** [link]**:**
-
-**Malicious LLM proxy routers found in the wild:** A recently published academic paper has studied [link], a type of proxy that sits between AI agents and the AI provider to help with load-balancing and cost tracking and limiting.
-
-The research team tested 28 paid routers available on marketplaces like Taobao, Xianyu, and on Shopify-hosted storefronts, as well as 400 free routers available on GitHub and other places.
-
-The study searched for multiple suspicious behaviors, such as modifying the response to inject commands, using a delay/trigger mechanism to hide future bad commands behind a history of clean operations, accessing credentials that pass through them, and using evasion techniques to thwart analysts.
-
-\[link]]
-
-**France takes first steps to ditch Windows for Linux:** The French government is taking its first major steps to ditch Windows for Linux and reduce its dependency on U.S. tech for local European alternatives.
-
-The first department to bite the bullet will be the French Interministerial Directorate of Digital Affairs (DINUM). The agency is the unofficial information technology department for the French government, and this is very likely a test of how a migration could happen at a larger scale.
-
-The [link] April 8 at a seminar between several French government ministries, which also pledged to prepare plans for their own migrations and the alternatives they might need.
-
-\[link]]
-
-**China's cybersecurity strategy:** The [link] has published an analysis of China's cybersecurity strategy included in the country's latest five-year plan released earlier this year:
-
-> Accelerating the construction of a “cyber superpower” (网络强国, transliterated wǎngluò qiángguó) is one of five superpower-building areas highlighted in Part II of the 15th FYP. The other four areas mentioned are: manufacturing superpower, quality superpower, aerospace superpower, and transportation superpower.
-
----
-
-## [HN-TITLE] 22. Nintendo's Empire of Secrets with Keza MacDonald – Factually with Adam Conover
-
-- **Source**: [link]
-- **Site**: ART19
-- **Submitter**: tpoindex (Hacker News)
-- **Submitted**: 2026-04-16 16:40 UTC (Hacker News)
-- **HN activity**: 25 points · [link]
-
-> no extractable content
-
----
-
-## [HN-TITLE] 23. Show HN: Stage – Putting humans back in control of code review
-
-- **Source**: [link]
-- **Site**: stagereview.app
-- **Submitter**: cpan22 (Hacker News)
-- **Submitted**: 2026-04-16 17:36 UTC (Hacker News)
-- **HN activity**: 106 points · [link]
-- **Language**: en
-
-Hey HN! We're Charles and Dean, and we're building Stage: a code review tool that guides you through reading a PR step by step, instead of piecing together a giant diff.
-
-Here's a demo video: [link]. You can play around with some example PRs here: [link].
-
-Teams are moving faster than ever with AI these days, but more and more engineers are merging changes that they don't really understand. The bottleneck isn't writing code anymore, it's reviewing it.
-
-We're two engineers who got frustrated with GitHub's UI for code review. As coding agents took off, we saw our PR backlog pile up faster than we could handle. Not only that, the PRs themselves were getting larger and harder to understand, and we found ourselves spending most of our time trying to build a mental model of what a PR was actually doing.
-
-We built Stage to make reviewing a PR feel more like reading chapters of a book, not an unorganized set of paragraphs. We use it every day now, not just to review each other's code but also our own, and at this point we can't really imagine going back to the old GitHub UI.
-
-What Stage does: when a PR is opened, Stage groups the changes into small, logical "chapters". These chapters get ordered in the way that makes most sense to read. For each chapter, Stage tells you what changed and specific things to double check. Once you review all the chapters, you're done reviewing the PR.
-
-You can sign in to Stage with your GitHub account and everything is synced seamlessly (commenting, approving etc.) so it fits into the workflows you're already used to.
-
-What we're not building: a code review bot like CodeRabbit or Greptile. These tools are great for catching bugs (and we use them ourselves!) but at the end of the day humans are responsible for what gets shipped. It's clear that reviewing code hasn't scaled the same way that writing did, and they (we!) need better tooling to keep up with the onslaught of AI generated code, which is only going to grow.
-
-We've had a lot of fun building this and are excited to take it further. If you're like us and are also tired of using GitHub for reviewing PRs, we'd love for you to try it out and tell us what you think!
-
----
-
-## [HN-TITLE] 24. The Unix Executable as a Smalltalk Method [video]
+## [HN-TITLE] 29. The Unix executable as a Smalltalk method (2025) [video]
 
 - **Source**: [link]
 - **Site**: YouTube
 - **Submitter**: surprisetalk (Hacker News)
 - **Submitted**: 2026-04-16 15:09 UTC (Hacker News)
-- **HN activity**: 32 points · [link]
+- **HN activity**: 58 points · [link]
 - **Language**: en
 
 > no extractable content
 
 ---
 
-## [HN-TITLE] 25. The GNU libc atanh is correctly rounded
+## [HN-TITLE] 30. The GNU libc atanh is correctly rounded
 
 - **Source**: [link]
 - **Site**: inria.hal.science
 - **Submitter**: matt\_d (Hacker News)
 - **Submitted**: 2026-04-15 01:47 UTC (Hacker News)
-- **HN activity**: 60 points · [link]
+- **HN activity**: 102 points · [link]
 - **Length**: 168 words (~1 min read)
 - **Language**: en
 
@@ -2737,483 +5004,4 @@ Anubis is a compromise. Anubis uses a Proof-of-Work scheme in the vein of Hashca
 Ultimately, this is a placeholder solution so that more time can be spent on fingerprinting and identifying headless browsers (EG: via how they do font rendering) so that the challenge proof of work page doesn't need to be presented to users that are much more likely to be legitimate.
 
 Please note that Anubis requires the use of modern JavaScript features that plugins like JShelter will disable. Please disable JShelter or other such plugins for this domain.
-
----
-
-## [HN-TITLE] 26. Even "cat readme.txt" is not safe
-
-- **Source**: [link]
-- **Site**: Calif
-- **Author**: Calif
-- **Published**: 2026-04-17
-- **HN activity**: 117 points · [link]
-- **Length**: 1.0K words (~5 min read)
-- **Language**: en
-
-In a previous post about [link] in [link], we looked at how seemingly harmless workflows could cross a surprising line into code execution. This time we wanted to push that idea even further: is `cat readme.txt` safe?
-
-It turns out that it is NOT, if you use iTerm2.
-
-That looks insane until you understand what iTerm2 is trying to do for a legitimate feature, how it uses the PTY, and what happens when terminal output is able to impersonate one side of that feature's protocol.
-
-> We'd like to acknowledge OpenAI for partnering with us on this project.
-
-iTerm2 has an SSH integration feature that gives it a richer understanding of remote sessions. To make that work, it does not just "blindly type commands" into a remote shell. Instead, it bootstraps a tiny helper script on the remote side called the conductor.
-
-The rough model is:
-
-1. iTerm2 launches SSH integration, usually through `it2ssh`.
-2. iTerm2 sends a remote bootstrap script, the conductor, over the existing SSH session.
-3. That remote script becomes the protocol peer for iTerm2.
-4. iTerm2 and the remote conductor exchange terminal escape sequences to coordinate things like:
-   
-   - discovering the login shell
-   - checking for Python
-   - changing directories
-   - uploading files
-   - running commands
-
-The important point is that there is no separate network service. The conductor is just a script running inside the remote shell session, and the protocol is carried over normal terminal I/O.
-
-A terminal used to be a real hardware device: a keyboard and screen connected to a machine, with programs reading input from that device and writing output back to it.
-
-A terminal emulator like iTerm2 is the modern software version of that hardware terminal. It draws the screen, accepts keyboard input, and interprets terminal control sequences.
-
-But the shell and other command-line programs still expect to talk to something that looks like a real terminal device. That is why the OS provides a PTY, or pseudoterminal. A PTY is the software stand-in for the old hardware terminal, and it sits between the terminal emulator and the foreground process.
-
-In a normal SSH session:
-
-- iTerm2 writes bytes to the PTY
-- the foreground process is `ssh`
-- `ssh` forwards those bytes to the remote machine
-- the remote conductor reads them from its stdin
-
-So when iTerm2 wants to "send a command to the remote conductor," what it actually does locally is write bytes to the PTY.
-
-The SSH integration protocol uses terminal escape sequences as its transport.
-
-Two pieces matter here:
-
-- `DCS 2000p` is used to hook the SSH conductor
-- `OSC 135` is used for pre-framer conductor messages
-
-At source level, `DCS 2000p` causes iTerm2 to instantiate a conductor parser. Then the parser accepts `OSC 135` messages like:
-
-- `begin <id>`
-- command output lines
-- `end <id> <status> r`
-- `unhook`
-
-So a legitimate remote conductor can talk back to iTerm2 entirely through terminal output.
-
-The bug is a trust failure. iTerm2 accepts the SSH conductor protocol from terminal output that is not actually coming from a trusted, real conductor session. In other words, untrusted terminal output can impersonate the remote conductor.
-
-That means a malicious file, server response, banner, or MOTD can print:
-
-- a forged `DCS 2000p` hook
-- forged `OSC 135` replies
-
-and iTerm2 will start acting like it is in the middle of a real SSH integration exchange. That is the exploit primitive.
-
-The exploit file contains a fake conductor transcript.
-
-When the victim runs:
-
-```
-cat readme.txt
-```
-
-iTerm2 renders the file, but the file is not just text. It contains:
-
-1. a fake `DCS 2000p` line that announces a conductor session
-2. fake `OSC 135` messages that answer iTerm2's requests
-
-Once the hook is accepted, iTerm2 starts its normal conductor workflow. In upstream source, `Conductor.start()` immediately sends `getshell()`, and after that succeeds it sends `pythonversion()`.
-
-So the exploit does not need to inject those requests. iTerm2 issues them itself, and the malicious output only has to impersonate the replies.
-
-The fake `OSC 135` messages are minimal but precise.
-
-They do this:
-
-1. Start a command body for `getshell`
-2. Return lines that look like shell-discovery output
-3. End that command successfully
-4. Start a command body for `pythonversion`
-5. End that command with failure
-6. Unhook
-
-This is enough to push iTerm2 down its normal fallback path. At that point, iTerm2 believes it has completed enough of the SSH integration workflow to move on to the next step: building and sending a `run(...)` command.
-
-The forged `DCS 2000p` hook contains several fields, including attacker-controlled `sshargs`.
-
-That value matters because iTerm2 later uses it as command material when it constructs the conductor's `run ...` request.
-
-The exploit chooses `sshargs` so that when iTerm2 base64-encodes:
-
-run &lt;padding&gt;&lt;magic-bytes&gt;
-
-the last 128-byte chunk becomes:
-
-ace/c+aliFIo
-
-That string is not arbitrary. It is chosen because it is both:
-
-- valid output from the conductor encoding path
-- a valid relative pathname
-
-In a legitimate SSH integration session, iTerm2 writes base64-encoded conductor commands to the PTY, and `ssh` forwards them to the remote conductor. In the exploit case, iTerm2 still writes those commands to the PTY, but there is no real SSH conductor. The local shell receives them as plain input instead.
-
-That is why the session looks like this when recorded:
-
-- `getshell` appears as base64
-- `pythonversion` appears as base64
-- then a long base64-encoded `run ...` payload appears
-- the last chunk is `ace/c+aliFIo`
-
-Earlier chunks fail as nonsense commands. The final chunk works if that path exists locally and is executable.
-
-You can reproduce the original file-based PoC with `genpoc.py`:
-
-```
-python3 genpoc.py
-unzip poc.zip
-cat readme.txt
-```
-
-This creates:
-
-- `ace/c+aliFIo`, an executable helper script
-- `readme.txt`, a file containing the malicious `DCS 2000p` and `OSC 135` sequences
-
-The first fools iTerm2 into talking to a fake conductor. The second gives the shell something real to execute when the final chunk arrives.
-
-For the exploit to work, run `cat readme.txt` from the directory containing `ace/c+aliFIo`, so the final attacker-shaped chunk resolves to a real executable path.
-
-- Mar 30: We reported the bug to iTerm2.
-- Mar 31: The bug was fixed in commit `a9e745993c2e2cbb30b884a16617cd5495899f86`.
-- At the time of writing, the fix has not yet reached stable releases.
-
-When the patch commit landed, we tried to rebuild the exploit from scratch using the patch alone. The prompts used for that process are in [link], and the resulting exploit is `genpoc2.py`, which works very similarly to `genpoc.py`.
-
-No posts
-
----
-
-## [HN-TITLE] 27. Connie Converse was a folk-music genius. Then she vanished
-
-- **Source**: [link]
-- **Site**: BBC
-- **Author**: Thomas Hobbs
-- **Published**: 2026-04-14
-- **HN activity**: 80 points · [link]
-- **Length**: 2.1K words (~10 min read)
-- **Language**: en-GB
-
-4 days ago
-
-Thomas Hobbs
-
-[image][image]The Musick Group/ Heroic Cities LLC
-
-(Credit: The Musick Group/ Heroic Cities LLC)
-
-**The US female singer-songwriter made stunning, forward-thinking songs in the 1950s, but was barely known – and aged 50, she disappeared. Now, with a new re-release of her music, she's recognised as a trailblazer.**
-
-Centring on an edgy, city-dwelling female protagonist unapologetically owning her sexuality, the brilliant song Roving Woman sounds like the work of a millennial musician. Evoking the smoky, airborne notes of a late-night Brooklyn bar, it contains lilting guitar harmonies that float in and out of focus like cascading cigarette smoke, while its melancholy vocal is reminiscent of popular contemporary folk musicians like Weyes Blood, Jessica Pratt and Angel Olsen. "Someone always takes me home!" the lead singer swoons.
-
-Yet the truly remarkable thing about this track is it was actually recorded more than 70 years ago. Roving Woman isn't the work of some lo-fi singer-songwriter in their early 20s, but is in fact the forward-thinking creation of Connie Converse. She was a bedroom musician who wrote the bulk of her songs in early 1950s New York, years before Bob Dylan came on the scene and sparked a new singer-songwriter movement.
-
-[image][image]The Musick Group/ Heroic Cities LLC
-
-Connie Converse's songs remain remarkable for their sophisticated lyrics and guitar-playing (Credit: The Musick Group/ Heroic Cities LLC)
-
-But she pulled back from her musical dreams at the turn of the 1960s and then, in 1974, aged 50, disappeared completely – never to be heard from again. It was only this century that this mysterious artist's work was rediscovered and has found a devoted audience, stunned by just how pioneering she was. And now a new vinyl re-release of the [link], should only make her more popular.
-
-Among her fans are many high-profile musicians, including Greta Kline, the indie-rock star who goes by the stage name [link]. "I'm inspired by her to tell a full story or present a deep feeling with only a few words," she tells the BBC. "I think she has threads of so many genres present in her songwriting. There's touches of math rock and metal in there. I'm still surprised by how many people don't know about her."
-
-## **Her mysterious story**
-
-Connie Converse (real name Elizabeth) was born way back in 1924. Armed with just a Crestwood 404 reel-to-reel tape recorder and lowly Regal acoustic guitar that she somehow made sound as expansive as an orchestra, Converse innovated from a place of relative obscurity within various tiny New York City-based apartments across the early 1950s. She even attempted creating an ambitious folk opera that contained the eerily prophetic lyrics: "Never had a husband, never had a son / Dead at the age of 51."  
-
-I first thought these songs were too fresh, too modern, too anachronistic to have been recorded in the 1950s – Howard Fishman
-
-She was a completely self-funded, "DIY" musician long before such internet-era terminology ever existed. Although her friends and family knew the working-class Converse as a genius, the world was slow to wake up. Having seen her music repeatedly rejected by record-label bosses for being too complex, the artist ended up in a blue funk.
-
-The closest she got to the mainstream was a TV performance on 1954's The Morning Show, hosted by Walter Cronkite; no footage still exists, it didn't spark any real breakthrough. This left the artist with little exposure beyond the songs she sent to family or performed occasionally at dinner parties.
-
-She continued to work on music throughout the 1960s, but at a slower pace, while taking various jobs including a stint as the editor of the influential Journal for Conflict Resolution in Michigan. In letters to loved ones, written just before she vanished, she said she had struggled in life "to find a place to plug in".
-
-What happened to her when she went missing remains unknown – in [link], the definitive biography about her, the author [link] writes how some believed she drove her car off a cliff in Canada, while others had claimed she started a new life in Brazil.
-
-Whatever the reality, Converse's never-solved disappearance certainly provided her music with an extra point of intrigue when, decades later, it came to public attention. In 2004, the late producer Gene Deitch debuted on WYNC radio some of her songs that he had recorded at private dinner parties in 1954 and 55, creating a surge of interest in this musical enigma, and resulting in the 2009 release of [link]. The album also featured bedroom recordings Connie made, which are punctuated by endearing nervous coughs. Now its vinyl re-release comes at a time when Connie's stock is particularly high, especially after a recent glowing [link] and her songs being covered by everyone from [link] to [link] over recent years. 
-
-"I first thought this Connie Converse character had to be a hoax or a gimmick," laughs author Fishman, who is also a band leader. "These songs were too fresh, too modern, too anachronistic to have been recorded in the 1950s."
-
-## **Why her music was ahead of its time**
-
-Converse was raised in Concord, New Hampshire in a right-wing Christian household, in which alcohol and the discussion of sex were outlawed \[her dad was proudly part of the pro-Prohibition Anti-Saloon League of New Hampshire]. Her music provided a raw autobiography of her time escaping this strict upbringing and living freely in New York City. She was also bravely attempting to make female promiscuity and sexual empowerment less taboo.
-
-[image][image]The Musick Group/ Heroic Cities LLC
-
-Converse wrote that she had struggled in life "to find a place to plug in", just before she disappeared in 1974 (Credit: The Musick Group/ Heroic Cities LLC)
-
-"Connie was quite ahead of her time in terms of gender roles, because she did not subscribe to the gender roles of her day in any way," Fishman says. This is also reflected throughout the songs, in which men are sometimes killed by a resilient woman, such as on Playboy of the Western World or The Clover Saloon. 
-
-Gender aside, the reason her songs remain quite so astonishing is because they were created at a time in US music history when introspection and existentialism didn't really exist yet in folk music, with even the use of the first-person "I" considered a songwriting faux pas.
-
-Consider the fact that the biggest US song in 1952, when Roving Woman was recorded, was Kay Starr's Wheel of Fortune, which is full of saccharine lyrics about "yearning for love's precious flame" and wondering whether the wheel's arrow will "point my way". Then compare this to the intricate, three-dimensional conversational style Converse displays, where every action is meticulously considered – the level of sophistication is worlds apart.
-
-Another song, [link], has Converse approaching a weeping willow tree to "teach her how to cry" – eight full years before Johnny Cash would do the same thing on Big River. 
-
-Meanwhile, the stumbling-around-the-abyss atmosphere of One By One (and its tales of walking alone at night) reflected the seasonal depression Converse dealt with. "She put all of this pain into the music," Fishman says, adding that another thing unique to Converse was "her amazing way of taking childhood ditties; using a naïve form to disguise a more complicated, winking foray into adult themes." Her use of sophisticated alliteration and loose, shoegazey lyrics were also 30 years before the Cocteau Twins. "He was elegant past all dreaming" she sings on another song.
-
-Listening to Connie's music makes me wonder how much other perfect art has been lost in obscurity – Julia Steiner
-
-All this innovation is at the heart of what Converse described as her "guitar songs" period from 1950-1955; in later years, she wrote theatrically to piano. Among the tracks on How Sad, How Lovely is the enchanting Talkin' Like You (Two Tall Mountains), which compares men to pigs, correlates "a sort of a squirrel thing" in a tree to the sound of "us when we are quarrelling", and features striking guitar notes that are both galloping and morose. The song's message seems to be about re-connecting with nature and going on a long walk to forget about bad men, and it resonates at a time where many are looking to detox from the digital world.  
-
-Similar themes can be found in [link], We Lived Alone. Here her winsome vocals effortlessly shift between the perspective of a single woman and her countryside house; both giddy to have finally found one another. The music fully embraces the idea of unplugging from the city, suggesting that simply holding "a lamp against the dark" in isolation can make one as "happy as a lark". "Connie so obviously understands human beings are a part of this natural world – not superior or separate from it," explains the Grammy-winning US soprano Julia Bullock referring to We Lived Alone, one of her all-time favourite songs and one that she's covered on stage. 
-
-[image][image]Third Man Records
-
-Compilation How Sad, How Lovely brought her songs to public attention – and is now being re-released on vinyl (Credit: Third Man Records)
-
-"The music references nature's intrinsically effervescent life cycle," Bullock continues. "There are only a few songwriters in the world who have that kind of linguistic sophistication, without being pretentious."
-
-A further reason Connie Converse is so special is in how her music taps into musical history, Bullock believes: "I've asked friends to arrange her works with Schubert, the 19th-Century German composer, in mind. It all lands, it all works. And that’s because of Connie's interest in the lineage and legacy of song repertoire – honouring composers of past centuries alongside her contemporaries."
-
-## **Her many talents**
-
-Another one of Converse's fans is Martin Carr, the English folk musician and lead singer of the band The Boo Radleys, who has written [link] to her. "Connie had a dramatist's eye – the ability to conjure a fully inhabited world from a single detail," he explains. "The fact that she named a song after a J M Synge play, or was capable of lyrics such as 'Spring seemed to linger in a little bunch of flowers he pressed into my hand', tells you she was reaching well beyond the American folk tradition."
-
-Carr is also particularly impressed by Converse's guitar playing and believes it's extraordinary no matter what generation you come from. "Her guitar playing is phenomenal. I can't play her songs, they're too hard for me!" Carr enthuses. "Her playing reminds me of the way Paul Simon plays; orchestral arrangements for six strings. She was a true individual, an artist of no time."
-
-**More like this:**
-
-• [link]
-
-[link]• [link]
-
-[link]• [link]
-
-The ability of her songs to sound like they were produced today is a big reason why the re-release of How Sad, How Lovely is sure to keep the mythology around Connie Converse alive. Fishman says he's been approached to adapt his biography into other narrative forms. He welcomes my suggestion that Elisabeth Moss would be the perfect actor to play Connie Converse in a Hollywood biopic. "That's her doppelganger!" he laughs. "There's musicians out there who don't even realise they're inspired by her. Look, Connie Converse was a genius, and I know it's only a matter of time before she is understood as a significant figure of the 20th Century."
-
-One that certainly does understand is Julia Steiner, the lead vocalist of the Chicago indie band Ratboys, who says the group's song [link] was inspired by Connie's way of "finding mythic meaning in the everyday" and conjuring up seasonality with her lyrics. The most inspiring aspect of the Connie Converse story, Steiner says, is that it proves more of the best music could similarly be sitting undiscovered on a tape right now, waiting in dusty patience for the right era into which to be reborn. 
-
-"​​Listening to Connie's music makes me wonder how much other perfect art has been lost in obscurity, perhaps simply because our culture didn't yet possess a framework through which to understand or enjoy it." 
-
-*Connie Converse's How Sad, How Lovely is out now on Third Man Records.*
-
---
-
-*If you liked this story,* [link] *– a handpicked selection of features, videos and can't-miss news, delivered to your inbox twice a week.* 
-
-*For more Culture stories from the BBC, follow us on* [link] *and* [link]*.*
-
----
-
-## [HN-TITLE] 28. Healthchecks.io now uses self-hosted object storage
-
-- **Source**: [link]
-- **Site**: Healthchecks.io
-- **Author**: Pēteris Caune
-- **Published**: 2026-04-17
-- **HN activity**: 152 points · [link]
-- **Length**: 1.1K words (~5 min read)
-- **Language**: en-US
-
-[link] ping endpoints accept HTTP HEAD, GET, and POST request methods. When using HTTP POST, clients can include an arbitrary payload in the request body. Healthchecks.io stores the first 100kB of the request body. If the request body is tiny, Healthchecks.io stores it in the PostgreSQL database. Otherwise, it stores it in S3-compatible object storage. We recently migrated from a managed to a self-hosted object storage. Our S3 API is now served by [link] and backed by a plain simple Btrfs filesystem.
-
-### The Managed Options
-
-In 2022, while [link], I was evaluating which object storage provider to use.
-
-**AWS S3** has per-request pricing, which would make it expensive-ish for Healthchecks.io usage patterns (frequent `PutObject` S3 operations, one operation per every large-enough ping request). Also, AWS being subject to the CLOUD Act, Healthchecks.io would need to encrypt data before handing it off to AWS, which would add complexity.
-
-**OVHcloud** is what I picked initially. There are no per-request fees, OVHcloud is an EU company, and the performance seemed good. Unfortunately, over time, I saw an increasing amount of performance and reliability issues. As my experience got worse and worse, I looked for alternatives.
-
-In 2024, I migrated to **UpCloud**. Same as OVHcloud, it has no per-request fees and is an EU company. There was a clear improvement in the quality of service: the S3 operations were quicker, and there were fewer server errors or timeouts. Unfortunately, over time, the performance of UpCloud object storage deteriorated as well. There were periods where all operations would become slow and hit our timeout limits. The S3 `DeleteObjects` operations in particular were getting slower and slower over time. So I looked for alternatives again, including self-hosted.
-
-### Requirements
-
-Our current (April 2026) object usage is:
-
-- 14 million objects, 119GB
-- Object sizes range from 100 bytes to 100’000 bytes. The average object size is 8KB.
-- 30 upload operations per second on average, with regular spikes to 150 uploads/second.
-- Constant churn of uploaded/deleted objects.
-
-Our candidate object storage system would need to be able to support this usage and have room to grow. Luckily, we are still at the scale where everything can easily fit on a single system, and operations like taking a full backup can be reasonably quick. Everything would be more complicated if we had many-terabyte requirements.
-
-Availability and durability: for the Healthchecks.io use cases, the object storage is not as mission-critical as our primary data store, the PostgreSQL database. If the database goes down, the service is completely broken, and monitoring alerts stop going out. If the object storage goes down, then users cannot inspect ping bodies through the web interface or through the API, but the system otherwise still functions. If some ping bodies get permanently lost, that is bad, but not as bad as losing any data going into the PostgreSQL database.
-
-Latency: the quicker, the better. There are places in code where Healthchecks.io does S3 operations during the HTTP request/response cycle. Individual S3 operations taking multiple seconds could choke the web server processes. While using UpCloud, I had to add [link] to prevent slow S3 operations from escalating into bigger issues.
-
-### The Self-Hosted Options
-
-I ran local experiments with [link], [link], and [link]. My primary objection to all of them was the operational complexity. It is not too hard to follow the “get started” instructions and get a basic cluster up and running. But, for a production-ready setup, I would need, as a minimum:
-
-- automate the setup of the cluster nodes,
-- learn and test the update procedure,
-- learn and test the procedure of replacing a failed cluster node,
-- set up monitoring and alerting for cluster-specific health issues.
-
-Since I’m a one-person team, and I already run self-hosted Postgres, self-hosted HAProxy load balancers, and [link], I would really like to avoid taking up the responsibility of running another non-trivial system. Something simple would be much preferred.
-
-### Versity S3 Gateway
-
-[link] turns your local filesystem into an S3 server. An S3 `PutObject` operation creates a regular file on the filesystem, an S3 `GetObject` operation reads a regular file from the filesystem, and an S3 `DeleteObject` operation deletes a file from the filesystem. It does not need a separate database for metadata storage. You can use any backup tool to take backups. The upgrade procedure is: replace a single binary and restart a systemd service. It is written in Go, and is being actively developed. [link] was fixed in just a few days.
-
-The big obvious caveat with Versity S3 Gateway and the filesystem as the backing store is, of course, availability and durability. The objects live on a single system, which can fail at any point of time without any prior warning. I need to be ready for this scenario.
-
-### The Setup
-
-In March 2026, I migrated to self-hosted object storage powered by Versity S3 Gateway.
-
-- S3 API runs on a dedicated server. It listens on a private IP address. Application servers talk to it over Wireguard tunnels.
-- Objects are stored on the server’s local drives (two NVMe drives in RAID 1 configuration).
-- Objects are stored on a Btrfs filesystem. With Btrfs, unlike ext4, there is no risk of running out of inodes when storing lots of tiny files.
-- Every two hours, a rsync process synchronizes the added and deleted files to a backup server.
-- Every day, the backup server takes a full backup, encrypts it, and stores it off-site. We keep full daily backups for the last 30 days.
-
-With this setup, if both drives on the object storage server fail at the same time, the system could lose up to 2 hours of not yet backed-up ping request bodies. This can be improved, as usual, with the cost of extra complexity.
-
-### The Results
-
-After switching to self-hosted object storage, the S3 operation latencies dropped:
-
-[image]
-
-The queue of ping bodies waiting to be uploaded to object storage shrank:
-
-[image]
-
-There have been no availability issues yet, but the new system has been live for only a couple of weeks.
-
-The list of our data sub-processors now has one less entry.
-
-The costs have increased: renting an additional dedicated server costs more than storing ~100GB at a managed object storage service. But the improved performance and reliability are worth it.
-
-I am cautiously optimistic about the new system, and I think it is an improvement over the old one. But I am also open to migrating again if I find a system with better tradeoffs.
-
-Thanks for reading, and happy monitoring,  
-–Pēteris
-
----
-
-## [HN-TITLE] 29. Experiment with ICEYE Open Data
-
-- **Source**: [link]
-- **Site**: iceye.com
-- **Submitter**: marklit (Hacker News)
-- **Submitted**: 2026-04-17 14:37 UTC (Hacker News)
-- **HN activity**: 108 points · [link]
-- **Length**: 100 words (~1 min read)
-- **Language**: en
-
-[[image]](https://iceye-open-data-catalog.s3.amazonaws.com/stac-items/summary/iceye-open-sar-data-thumbnails-map.html)
-
-### Open SAR Data Map Browser
-
-Browse available datasets on an interactive map. Filter by location, imaging mode, and acquisition date to find imagery relevant to your research area.
-
-[[image]](https://radiantearth.github.io/stac-browser/#/external/iceye-open-data-catalog.s3.amazonaws.com/catalog.json?.language=en)
-
-### Open SAR Data STAC Browser
-
-Search and access ICEYE open data through the SpatioTemporal Asset Catalog (STAC). The STAC browser lets you query metadata, preview acquisitions, and download individual assets in standard geospatial formats including SLC, GRD, and COG.
-
-[[image]](https://registry.opendata.aws/iceye-opendata/)
-
-### Open SAR AWS Data Exchange
-
-Access the ICEYE open data archive through the AWS Registry of Open Data. Pull datasets directly into your cloud workflows using standard S3 tools, with no authentication required.
-
----
-
-## [HN-TITLE] 30. Spending 3 months coding by hand
-
-- **Source**: [link]
-- **Site**: Miguel Conner
-- **Author**: Miguel Conner
-- **Published**: 2026-04-15
-- **HN activity**: 157 points · [link]
-- **Length**: 1.8K words (~8 min read)
-- **Language**: en
-
-[[image]](https://substackcdn.com/image/fetch/$s_!K739!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F619758e3-8a22-4eff-aa30-e86effa991cd_1536x1024.png)
-
-Brooklyn, New York. March 2026.
-
-I decided to move to Brooklyn for a coding retreat.
-
-There were some personal reasons that brought me back to the US. But rather than heading immediately back to work, I wanted to take some time to focus on coding things mostly without AI — at precisely the time when many successful programmers are saying programming is a solved problem.
-
-Given that I’m now six weeks through this retreat, I’ll also take some time to explain what I’ve been doing in that time.
-
-For the past two years, I’ve been building AI agents at Aily Labs in Barcelona alongside some super talented engineers. One of my first projects was building a web search agent we could use internally in early 2024… almost 6 months before Anthropic’s [link] article came out and a year before OpenAI’s DeepResearch came out! We were also early on Cursor, early on using LLMs to make knowledge graphs, and constantly testing out new approaches for our use cases.
-
-One of my favorite parts of working at Aily was leading a weekly journal club. I chose to present papers that described how open source LLMs were built, including DeepSeek R1, Ai2’s Olmo 3, and Meta’s Llama 3 paper. All of these helped us understand the evolving tradeoffs between training models internally or building workflows around SOTA closed models. I was already hooked on LLMs since the first time I tried them in 2023,[link] but I found my curiosity kept bringing me back to learning about how they worked and how to apply them.
-
-At the same time as I was learning about LLMs and agents, I was also using them to code. I learned that when writing code “by hand” I was actually doing two things: writing what I wanted *and* learning the code base. When I used a coding agent however, I would get exactly what I specified in my prompt, for better or worse. By this I mean that if I didn’t know what I wanted exactly, coding agents would be happy to make many assumptions for me. This almost always meant that I didn’t learn as much, and that I wouldn’t have a good grasp of the codebase.
-
-At the exact same time, coding agents helped me iterate quickly and ship software that worked well (after some dutiful testing, of course). They were also, I found, excellent tutors.
-
-Cal Newport, a computer science professor and writer of Deep Work and other popular productivity books, recently wrote about this tradeoff in a way that resonated with me. In [link], he makes an analogy between the relationship of exercise to health, and the relationship of thinking to craft:
-
-> Your writing should be your own. The strain required to craft a clear memo or report is the mental equivalent of a gym workout by an athlete; it’s not an annoyance to be eliminated but a key element of your craft.
-
-I think the same applies to writing code. At Aily, the people I worked with who were amazing programmers were in most cases also amazing users of AI. Their deeper knowledge simply gave them more leverage over this tool. In the day to day of shipping agents into production, I didn’t stop learning. But I did have a growing list of coding and computer concepts that I was always too busy to learn about.
-
-So when I needed to head back to the US, I realized it was the perfect time to focus on this at the Recurse Center.
-
-[link] (RC) is a self-directed, full-time programming retreat in Brooklyn. After an application and a coding interview, Recursers arrive with ideas for what they want to program, and then spend 6 or 12 weeks programming. One of the highlights of RC is that it is collaborative: you enter with a cohort of other programmers, many with decades of experience, and with radically different expertises. Another highlight: it’s free!
-
-Coming into RC, my goals were the following:
-
-1. **Train an LLM from scratch.** This includes pre- and post-training, and I want to do this mostly from scratch; not just fork a premade codebase but write a Transformer myself.
-2. **Get better at writing Python by hand.** I’ve been working in Python for a few years now but I know there’s still so much for me to learn. I want to get to the point where I need to reference documentation or ask LLMs as little as possible, and have good intuition for how to set up various projects.
-3. **Understand computers better.** Admittedly a broad goal, I know that computers are extremely complicated machines that operate at many levels of abstraction. Given that I never had a formal Computer Science education I want to build a better mental model of these layers and how they work together. I don’t have a super concrete plan here, but I think RC will be the perfect place for this.
-
-So how is it going?
-
-I’ve done the first assignment from [link] course, without coding help from an LLM.[link] For context, it was a 50-page assignment, but working with another Recurser, we wrote an optimized tokenizer in Python, and then built out an upgraded GPT-2 style architecture in PyTorch. We ran multiple ablations to tune hyperparameters on the Tiny Stories datasets, and then used those hyperparameters on the ~9 billion tokens of the OpenWebText dataset.
-
-[[image]](https://substackcdn.com/image/fetch/$s_!drr5!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5e936540-a7ba-4cb1-b568-325351b0746a_840x636.png)
-
-Parameter sweep of different learning rates for the 17M parameter model we wrote by hand; high learning rates lead to instability. This was on the Tiny Stories dataset, and took about an hour to train on an A100.
-
-My plan is to do the other assignments in CS336 as well: optimizing our language model, estimating and computing scaling laws, converting raw text data into pre-training data, and finally post-training a model. I’ve already started the second assignment which involves profiling GPUs and implementing FlashAttention2 in Triton. There’s a lot to do, but ideally I can run through the meat of these assignments and then post-train my own model.
-
-I’ve been writing a lot of small agents and neural networks in Python or PyTorch to practice. But by far the most helpful thing was pair programming with people who have been working in Python for 10+ years, and just watching them work or having them watch me work.
-
-For example, a nice thing I picked up from someone I pair programmed with: when this guy was writing code and didn’t quite remember the syntax or operations, he would often just quickly open up a terminal and type a super simple example to rapidly iterate. He was usually able to work it out and verify if it worked correctly in less than a minute, and he didn’t have to google anything and comb through search results or ask an LLM. This technique might seem obvious to some, but making this process muscle memory has helped me become unstuck much faster.
-
-I want to keep moving in this direction, doing simple projects or even just problems like Advent of Code while pair programming. Working with someone else live was initially a bit nerve-racking, but precisely because of this I’ve noticed a lot of progress.
-
-Here are a few examples of things I’ve done which I’d classify as helping me understand computers better:
-
-- I wrote the classic programming function fizzbuzz in BASIC on an Apple IIe computer from 1983. It was cool seeing how differently computers worked back then, for example how manual the code editing and execution process was, but also how it was basically the same.
-  
-  [[image]](https://substackcdn.com/image/fetch/$s_!FOV7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5d2fe3a4-2c42-4fb0-90bb-1f3c55fb870d_3332x4867.png)
-  
-  Tinkering with an Apple IIe.
-- One thing I’ve always felt a bit self-conscious about are my Unix/terminal skills. So I joined CTF Fridays, a weekly session devoted to working through [link] and other “war games.” These are Unix and computer security related challenges played through the terminal, with the objective of collecting passwords and leveling up. Now I have a pretty good sense for what Claude Code is trying to run on my computer!
-- One day I hand-coded a single layer perceptron I saw when flipping through an AI textbook… completely in Vim. It was especially tedious at first, but I got some pro tips from another Recurser and learned a few shortcuts. This has actually been incredibly useful now when I’m running training jobs on cloud GPUs and I need to last-minute edit files.
-- I joined a Clojure workshop given by someone who has 15+ years of experience using Clojure. The topic itself was interesting because Clojure is a functional programming language and I don’t have much experience with functional languages. The teaching methodology was also great: after a brief intro we did a round of mob programming, where we solved a problem collectively, going around the table with each person getting a minute or two to advance the solution.
-- The weekly technical presentations are great exposure to an incredible array of topics. These are a set of 5-minute talks, so they are short enough that you don’t get bored but fast enough that you can learn something meaningful. A sample of titles: “Running Rust Code”, “GPUs for Dummies”, “Typesafe APIs for Type B Personalities”, “Some Useless Agents” (this one was mine!), and more. I’ve given two so far: one on simple agent architectures, one on scaling MCP tools efficiently; and will give another this week on different ways to optimize GPUs.
-
-Even just hearing from people about their projects and careers has been incredibly valuable in helping me understand the space of problems computers can solve.
-
-Soon I’ll be shipping agents to prod and running evals with a whole new bag of tricks and skills. But for now I’ve got 6 more weeks left at RC, which I’m beginning to worry is not enough time to finish everything on my list. And it won’t be. But that’s what makes RC so great: it’s not as much about crossing everything off my list but about spending time coding.
-
-[link]
-
-Not sure if I described this before but I think the reason I was so taken aback was that a few years prior I had been living in Japan studying Japanese full time, and it was really really hard. And here was a computer model that had managed to figure it out! Even if they hallucinated or couldn’t do math correctly at the time; that was absolutely incredible to me.
-
-[link]
-
-There were 2 or 3 bugs that stumped me, and after 20 min or so of debugging I asked Claude for some advice. But most of the debugging was by hand!
-
-No posts
 
