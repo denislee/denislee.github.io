@@ -1,6 +1,6 @@
 # Hacker News Top 30 — 2026-04-18
 
-Generated on 2026-04-18 03:28 UTC
+Generated on 2026-04-18 04:18 UTC
 
 ## [HN-TITLE] 1. Claude Design
 
@@ -8,7 +8,7 @@ Generated on 2026-04-18 03:28 UTC
 - **Site**: anthropic.com
 - **Submitter**: meetpateltech (Hacker News)
 - **Submitted**: 2026-04-17 15:04 UTC (Hacker News)
-- **HN activity**: 891 points · [link]
+- **HN activity**: 910 points · [link]
 - **Length**: 901 words (~4 min read)
 - **Language**: en
 
@@ -89,13 +89,140 @@ Our latest Opus model brings stronger performance across coding, agents, vision,
 
 ---
 
-## [HN-TITLE] 2. A simplified model of Fil-C
+## [HN-TITLE] 2. Towards Trust in Emacs
+
+- **Source**: [link]
+- **Site**: eshelyaron.com
+- **Author**: Eshel Yaron
+- **Submitted**: 2026-04-15 13:49 UTC (Hacker News)
+- **HN activity**: 47 points · [link]
+- **Length**: 774 words (~4 min read)
+- **Language**: en
+
+Introducing `trust-manager`, a trust management package for Emacs
+
+Created on \[2026-04-15], last updated \[2026-04-15]
+
+Emacs has some serious trust issues. Up to version 30, it didn’t differentiate between trusted and untrusted files, and in effect treated all files as trusted. This implicit trust manifested in various security issues, such as the arbitrary code execution vulnerability CVE-2024-53920 which [link] a couple of years ago.
+
+To fix this vulnerability, Emacs 30 introduced an explicit notion of trust, where some potentially risky features are only enabled for trusted files. It also set all files to untrusted by default.
+
+In theory, this is a safe default, but it is not very convenient, and the problem with security measures that cause too much friction is that users tend to disable them in order to get on with their work. To fulfill its security purposes, a good trust system needs to stay out of your way. Enter [link], my new trust management package for Emacs.
+
+But first, let’s take a closer look at a common pitfall of the current Emacs trust situation. Then we’ll see how `trust-manager` solves it. The most prominent Emacs feature that has been limited to trusted files for security reasons is the Emacs Lisp Flymake backend, which is responsible for on-the-fly diagnostics in Emacs Lisp code. The way it works is that when Emacs invokes the Flymake backend to retrieve diagnostics in a given buffer (file), a check is performed to see whether the buffer is trusted according to the current trust settings. If it was not marked as trusted, then the backend is disabled, and you get a message saying:
+
+```
+Disabling elisp-flymake-byte-compile in foo.el (untrusted content)
+```
+
+Now, seeing this, you know that your on-the-fly diagnostics are gone, and you also know why; but even if you actually do trust this buffer, you don’t have any immediate way of telling that to Emacs, and getting your diagnostics back and your job done.
+
+This annoyance pushes many users to configure overly broad trust settings, and indeed a quick search among Emacs configurations published on GitHub reveals users going as far as disabling the trust mechanism altogether. This is exactly the kind of friction `trust-manager` is designed to eliminate.
+
+## Granting trust just-in-time with `trust-manager`
+
+My new `trust-manager` package, which is available from MELPA, helps you grant trust just-in-time, with minimal friction. You enable `trust-manager-mode` in your init file and forget about trust configuration. The first time you visit a file in a given project, `trust-manager-mode` asks you whether you trust that project. If you say yes, it marks the project directory as trusted and remembers your choice. If you say no, that’s remembered too. The next time you visit a file in that same project, no questions are asked. If you change your mind, you can edit your trust settings at any time with `trust-manager-customize`.
+
+The commentary section of `trust-manager.el` details useful tips and customization options that you may want to check out, but usually all you need in terms of configuration is:
+
+```
+(trust-manager-mode)
+```
+
+Beyond just-in-time prompting, `trust-manager-mode` also takes care of some files that you most certainly trust already: your init file, your early init file, your custom file, and all directories on your `load-path`. These are marked as trusted as soon as the mode is enabled, so Emacs Lisp features work without interruption in your own configuration files and in the ELisp source files that come with Emacs and packages you install.
+
+An additional improvement that `trust-manager` brings is a mode line indicator for untrusted buffers. In untrusted Emacs Lisp buffers, you’ll see a small red `?` in the mode line. This indicator serves two purposes: it reminds you that some features may be disabled in this buffer, and it lets you act on that information right away: clicking on it marks the buffer as trusted and immediately re-enables any features that were waiting for trust. Here’s a quick demo:
+
+[image]
+
+Your trust choices are stored in the user option `trust-manager-trust-alist`. You can inspect and edit it directly with `M-x trust-manager-customize`, or use the dedicated commands `trust-manager-set-project-trust` and `trust-manager-set-file-trust` to mark specific directories or files as trusted or untrusted without going through the Customize interface.
+
+`trust-manager-mode` also hooks into `project-forget-project`: when you ask Emacs to forget a project, its trust entry is cleared automatically, so stale trust settings don’t linger.
+
+## Conclusion
+
+Emacs 30’s trust system is a meaningful step forward for security, but its out-of-the-box experience leaves some room for improvement. `trust-manager` helps you grant trust just-in-time, so you can keep your settings secure without compromising on functionality.
+
+You can install `trust-manager` from MELPA with `M-x package-install`, or find the source at [link] or at [link].
+
+---
+
+## [HN-TITLE] 3. All 12 moonwalkers had "lunar hay fever" from dust smelling like gunpowder (2018)
+
+- **Source**: [link]
+- **Site**: esa.int
+- **Submitter**: cybermango (Hacker News)
+- **Submitted**: 2026-04-17 18:17 UTC (Hacker News)
+- **HN activity**: 272 points · [link]
+- **Length**: 609 words (~3 min read)
+- **Language**: en
+
+Science & Exploration
+
+04/07/2018 131968 views 668 likes
+
+When the Apollo astronauts returned from the Moon, the dust that clung to their spacesuits made their throats sore and their eyes water. Lunar dust is made of sharp, abrasive and nasty particles, but how toxic is it for humans?
+
+The “lunar hay fever”, as NASA astronaut Harrison Schmitt described it during the Apollo 17 mission created symptoms in all 12 people who have stepped on the Moon. From sneezing to nasal congestion, in some cases it took days for the reactions to fade. Inside the spacecraft, the dust smelt like burnt gunpowder.
+
+The Moon missions left an unanswered question of lunar exploration – one that could affect humanity’s next steps in the Solar System: can lunar dust jeopardise human health?
+
+[[image]](https://www.esa.int/ESA_Multimedia/Images/2015/03/Eugene_Cernan)
+
+[link]
+
+An ambitious ESA research programme with experts from around the planet is now addressing the issues related to lunar dust.
+
+“We don’t know how bad this dust is. It all comes down to an effort to estimate the degree of risk involved,” says Kim Prisk, a pulmonary physiologist from the University of California with over 20 years of experience in human spaceflight – one of the 12 scientists taking part in ESA’s research.
+
+**Nasty dust**  
+Lunar dust has silicate in it, a material commonly found on planetary bodies with volcanic activity. Miners on Earth suffer from inflamed and scarred lungs from inhaling silicate. On the Moon, the dust is so abrasive that it ate away layers of spacesuit boots and destroyed the vacuum seals of Apollo sample containers.
+
+[[image]](https://www.esa.int/ESA_Multimedia/Images/2018/07/Lunar_dust_particle)
+
+[link]
+
+Fine like powder, but sharp like glass. The low gravity of the Moon, one sixth of what we have on Earth, allows tiny particles to stay suspended for longer and penetrate more deeply into the lung.
+
+“Particles 50 times smaller than a human hair can hang around for months inside your lungs. The longer the particle stays, the greater the chance for toxic effects,” explains Kim.
+
+The potential damage from inhaling this dust is unknown but [link] shows that lunar soil simulants can destroy lung and brain cells after long-term exposure.
+
+## Down to the particle
+
+On Earth, fine particles tend to smoothen over years of erosion by wind and water, lunar dust however, is not round, but sharp and spiky.
+
+In addition the Moon has no atmosphere and is constantly bombarded by radiation from the Sun that causes the soil to become electrostatically charged.
+
+[[image]](https://www.esa.int/ESA_Multimedia/Images/2018/07/NASA_astronaut_Harrison_Schmitt_retrieves_lunar_samples)
+
+[link]
+
+This charge can be so strong that the dust levitates above the lunar surface, making it even more likely to get inside equipment and people’s lungs.
+
+**Dusty workplace**
+
+To test equipment and the behaviour of lunar dust, ESA will be working with simulated Moon dust mined from a volcanic region in Germany.
+
+Working with the simulant is no easy feat. “The rarity of the lunar glass-like material makes it a special kind of dust. We need to grind the source material but that means removing the sharp edges,” says Erin Tranfield, biologist and expert in dust toxicity.
+
+The lunar soil does have a bright side. “You can heat it to produce bricks that can offer shelter for astronauts. Oxygen can be extracted from the soil to sustain human missions on the Moon,” explains science advisor Aidan Cowley.
+
+[[image]](https://www.esa.int/ESA_Multimedia/Images/2018/07/Deep_breath)
+
+[link]
+
+This week ESA is hosting a [link] on lunar resources at the European Space Research Technology Centre in the Netherlands, meanwhile in space ESA astronaut Alexander Gerst is running a session of the [link] experiment to monitor lung health in reduced gravity – preparing for a sustainable return to our nearest neighbour in the Solar System.
+
+---
+
+## [HN-TITLE] 4. A simplified model of Fil-C
 
 - **Source**: [link]
 - **Site**: corsix.org
 - **Submitter**: aw1621107 (Hacker News)
 - **Submitted**: 2026-04-17 21:38 UTC (Hacker News)
-- **HN activity**: 126 points · [link]
+- **HN activity**: 132 points · [link]
 - **Length**: 1.5K words (~7 min read)
 - **Language**: en
 
@@ -258,140 +385,13 @@ With the baseline understanding in place, I want to finish on a question: when m
 
 ---
 
-## [HN-TITLE] 3. All 12 moonwalkers had "lunar hay fever" from dust smelling like gunpowder (2018)
-
-- **Source**: [link]
-- **Site**: esa.int
-- **Submitter**: cybermango (Hacker News)
-- **Submitted**: 2026-04-17 18:17 UTC (Hacker News)
-- **HN activity**: 256 points · [link]
-- **Length**: 609 words (~3 min read)
-- **Language**: en
-
-Science & Exploration
-
-04/07/2018 128414 views 667 likes
-
-When the Apollo astronauts returned from the Moon, the dust that clung to their spacesuits made their throats sore and their eyes water. Lunar dust is made of sharp, abrasive and nasty particles, but how toxic is it for humans?
-
-The “lunar hay fever”, as NASA astronaut Harrison Schmitt described it during the Apollo 17 mission created symptoms in all 12 people who have stepped on the Moon. From sneezing to nasal congestion, in some cases it took days for the reactions to fade. Inside the spacecraft, the dust smelt like burnt gunpowder.
-
-The Moon missions left an unanswered question of lunar exploration – one that could affect humanity’s next steps in the Solar System: can lunar dust jeopardise human health?
-
-[[image]](https://www.esa.int/ESA_Multimedia/Images/2015/03/Eugene_Cernan)
-
-[link]
-
-An ambitious ESA research programme with experts from around the planet is now addressing the issues related to lunar dust.
-
-“We don’t know how bad this dust is. It all comes down to an effort to estimate the degree of risk involved,” says Kim Prisk, a pulmonary physiologist from the University of California with over 20 years of experience in human spaceflight – one of the 12 scientists taking part in ESA’s research.
-
-**Nasty dust**  
-Lunar dust has silicate in it, a material commonly found on planetary bodies with volcanic activity. Miners on Earth suffer from inflamed and scarred lungs from inhaling silicate. On the Moon, the dust is so abrasive that it ate away layers of spacesuit boots and destroyed the vacuum seals of Apollo sample containers.
-
-[[image]](https://www.esa.int/ESA_Multimedia/Images/2018/07/Lunar_dust_particle)
-
-[link]
-
-Fine like powder, but sharp like glass. The low gravity of the Moon, one sixth of what we have on Earth, allows tiny particles to stay suspended for longer and penetrate more deeply into the lung.
-
-“Particles 50 times smaller than a human hair can hang around for months inside your lungs. The longer the particle stays, the greater the chance for toxic effects,” explains Kim.
-
-The potential damage from inhaling this dust is unknown but [link] shows that lunar soil simulants can destroy lung and brain cells after long-term exposure.
-
-## Down to the particle
-
-On Earth, fine particles tend to smoothen over years of erosion by wind and water, lunar dust however, is not round, but sharp and spiky.
-
-In addition the Moon has no atmosphere and is constantly bombarded by radiation from the Sun that causes the soil to become electrostatically charged.
-
-[[image]](https://www.esa.int/ESA_Multimedia/Images/2018/07/NASA_astronaut_Harrison_Schmitt_retrieves_lunar_samples)
-
-[link]
-
-This charge can be so strong that the dust levitates above the lunar surface, making it even more likely to get inside equipment and people’s lungs.
-
-**Dusty workplace**
-
-To test equipment and the behaviour of lunar dust, ESA will be working with simulated Moon dust mined from a volcanic region in Germany.
-
-Working with the simulant is no easy feat. “The rarity of the lunar glass-like material makes it a special kind of dust. We need to grind the source material but that means removing the sharp edges,” says Erin Tranfield, biologist and expert in dust toxicity.
-
-The lunar soil does have a bright side. “You can heat it to produce bricks that can offer shelter for astronauts. Oxygen can be extracted from the soil to sustain human missions on the Moon,” explains science advisor Aidan Cowley.
-
-[[image]](https://www.esa.int/ESA_Multimedia/Images/2018/07/Deep_breath)
-
-[link]
-
-This week ESA is hosting a [link] on lunar resources at the European Space Research Technology Centre in the Netherlands, meanwhile in space ESA astronaut Alexander Gerst is running a session of the [link] experiment to monitor lung health in reduced gravity – preparing for a sustainable return to our nearest neighbour in the Solar System.
-
----
-
-## [HN-TITLE] 4. Towards Trust in Emacs
-
-- **Source**: [link]
-- **Site**: eshelyaron.com
-- **Author**: Eshel Yaron
-- **Submitted**: 2026-04-15 13:49 UTC (Hacker News)
-- **HN activity**: 38 points · [link]
-- **Length**: 774 words (~4 min read)
-- **Language**: en
-
-Introducing `trust-manager`, a trust management package for Emacs
-
-Created on \[2026-04-15], last updated \[2026-04-15]
-
-Emacs has some serious trust issues. Up to version 30, it didn’t differentiate between trusted and untrusted files, and in effect treated all files as trusted. This implicit trust manifested in various security issues, such as the arbitrary code execution vulnerability CVE-2024-53920 which [link] a couple of years ago.
-
-To fix this vulnerability, Emacs 30 introduced an explicit notion of trust, where some potentially risky features are only enabled for trusted files. It also set all files to untrusted by default.
-
-In theory, this is a safe default, but it is not very convenient, and the problem with security measures that cause too much friction is that users tend to disable them in order to get on with their work. To fulfill its security purposes, a good trust system needs to stay out of your way. Enter [link], my new trust management package for Emacs.
-
-But first, let’s take a closer look at a common pitfall of the current Emacs trust situation. Then we’ll see how `trust-manager` solves it. The most prominent Emacs feature that has been limited to trusted files for security reasons is the Emacs Lisp Flymake backend, which is responsible for on-the-fly diagnostics in Emacs Lisp code. The way it works is that when Emacs invokes the Flymake backend to retrieve diagnostics in a given buffer (file), a check is performed to see whether the buffer is trusted according to the current trust settings. If it was not marked as trusted, then the backend is disabled, and you get a message saying:
-
-```
-Disabling elisp-flymake-byte-compile in foo.el (untrusted content)
-```
-
-Now, seeing this, you know that your on-the-fly diagnostics are gone, and you also know why; but even if you actually do trust this buffer, you don’t have any immediate way of telling that to Emacs, and getting your diagnostics back and your job done.
-
-This annoyance pushes many users to configure overly broad trust settings, and indeed a quick search among Emacs configurations published on GitHub reveals users going as far as disabling the trust mechanism altogether. This is exactly the kind of friction `trust-manager` is designed to eliminate.
-
-## Granting trust just-in-time with `trust-manager`
-
-My new `trust-manager` package, which is available from MELPA, helps you grant trust just-in-time, with minimal friction. You enable `trust-manager-mode` in your init file and forget about trust configuration. The first time you visit a file in a given project, `trust-manager-mode` asks you whether you trust that project. If you say yes, it marks the project directory as trusted and remembers your choice. If you say no, that’s remembered too. The next time you visit a file in that same project, no questions are asked. If you change your mind, you can edit your trust settings at any time with `trust-manager-customize`.
-
-The commentary section of `trust-manager.el` details useful tips and customization options that you may want to check out, but usually all you need in terms of configuration is:
-
-```
-(trust-manager-mode)
-```
-
-Beyond just-in-time prompting, `trust-manager-mode` also takes care of some files that you most certainly trust already: your init file, your early init file, your custom file, and all directories on your `load-path`. These are marked as trusted as soon as the mode is enabled, so Emacs Lisp features work without interruption in your own configuration files and in the ELisp source files that come with Emacs and packages you install.
-
-An additional improvement that `trust-manager` brings is a mode line indicator for untrusted buffers. In untrusted Emacs Lisp buffers, you’ll see a small red `?` in the mode line. This indicator serves two purposes: it reminds you that some features may be disabled in this buffer, and it lets you act on that information right away: clicking on it marks the buffer as trusted and immediately re-enables any features that were waiting for trust. Here’s a quick demo:
-
-[image]
-
-Your trust choices are stored in the user option `trust-manager-trust-alist`. You can inspect and edit it directly with `M-x trust-manager-customize`, or use the dedicated commands `trust-manager-set-project-trust` and `trust-manager-set-file-trust` to mark specific directories or files as trusted or untrusted without going through the Customize interface.
-
-`trust-manager-mode` also hooks into `project-forget-project`: when you ask Emacs to forget a project, its trust entry is cleared automatically, so stale trust settings don’t linger.
-
-## Conclusion
-
-Emacs 30’s trust system is a meaningful step forward for security, but its out-of-the-box experience leaves some room for improvement. `trust-manager` helps you grant trust just-in-time, so you can keep your settings secure without compromising on functionality.
-
-You can install `trust-manager` from MELPA with `M-x package-install`, or find the source at [link] or at [link].
-
----
-
 ## [HN-TITLE] 5. Isaac Asimov: The Last Question (1956)
 
 - **Source**: [link]
 - **Site**: hex.ooo
 - **Author**: Isaac Asimov
 - **Submitted**: 2026-04-17 12:01 UTC (Hacker News)
-- **HN activity**: 647 points · [link]
+- **HN activity**: 658 points · [link]
 - **Length**: 4.4K words (~20 min read)
 - **Language**: en
 
@@ -777,7 +777,7 @@ And there was light—
 - **Site**: Claude Code Camp
 - **Author**: Abhishek Ray
 - **Published**: 2026-04-16
-- **HN activity**: 556 points · [link]
+- **HN activity**: 562 points · [link]
 - **Length**: 1.8K words (~8 min read)
 - **Language**: en
 
@@ -1264,7 +1264,7 @@ So: tokens are 1.3–1.45x more expensive on English and code. Anthropic bought 
 - **Site**: Toby Ord
 - **Author**: December 22, 2025Toby Ord
 - **Published**: 2025-12-22
-- **HN activity**: 122 points · [link]
+- **HN activity**: 132 points · [link]
 - **Length**: 2.2K words (~10 min read)
 - **Language**: en-GB
 
@@ -1367,7 +1367,7 @@ Fortunately, it should be fairly easy for METR to perform such analysis, and I h
 - **Site**: GitHub
 - **Submitter**: binsquare (Hacker News)
 - **Submitted**: 2026-04-17 17:18 UTC (Hacker News)
-- **HN activity**: 249 points · [link]
+- **HN activity**: 261 points · [link]
 - **Length**: 729 words (~4 min read)
 - **Language**: en
 
@@ -1519,13 +1519,92 @@ See [link].
 
 ---
 
-## [HN-TITLE] 9. Show HN: PanicLock – Close your MacBook lid disable TouchID –> password unlock
+## [HN-TITLE] 9. Slop Cop
+
+- **Source**: [link]
+- **Site**: awnist.com
+- **Submitter**: ericHosick (Hacker News)
+- **Submitted**: 2026-04-17 15:15 UTC (Hacker News)
+- **HN activity**: 117 points · [link]
+- **Language**: en
+
+> no extractable content
+
+---
+
+## [HN-TITLE] 10. NASA Force
+
+- **Source**: [link]
+- **Site**: NASA Force
+- **Submitter**: LorenDB (Hacker News)
+- **Submitted**: 2026-04-17 15:47 UTC (Hacker News)
+- **HN activity**: 246 points · [link]
+- **Length**: 298 words (~2 min read)
+- **Language**: en
+
+## BUILD THE FUTURE OF HUMANITY
+
+Four DAYS. Limited Spots.
+
+NASA Force is a new hiring initiative—developed in partnership with the U.S. Office of Personnel Management—designed to bring exceptional technical talent into mission-critical roles that support NASA’s exploration, research, and advanced technology priorities. Highly skilled early- to mid- career engineers, technologists, and innovators join NASA for focused term appointments, typically 1–2 years with the possibility of extension, to solve complex challenges and help maintain U.S. leadership in air and space.
+
+Through NASA Force, you will contribute to missions that advance human spaceflight, aeronautics, and scientific discovery while helping expand humanity’s understanding of the universe. You will take a systems approach to solving problems, working across teams and disciplines from concept to execution. Your work will demand technical excellence, critical thinking, and continuous learning, and every contribution will directly support NASA’s mission.
+
+## Contribute To Greatness
+
+[image]
+
+MOVE MISSIONS FORWARD
+
+Work on flight systems, lunar infrastructure, and advanced technologies that go from concept to execution and support real missions beyond Earth.
+
+HOW YOU WILL ENTER THE MISSION
+
+You will join a collaborative, mission-driven team where ideas are valued, contributions are recognized, and innovation is part of everyday work. NASA Force offers an opportunity to grow across projects and disciplines, build your expertise, and take on new challenges while working alongside some of the world’s leading minds.
+
+VIPER lunar rover operations
+
+[image]
+
+Deep space logistics
+
+[image]
+
+Development of NASA Spaceport 2.0
+
+[image]
+
+Orion real-time operating system and core flight software
+
+[image]
+
+Curation of lunar and astromaterials samples
+
+[image]
+
+In-situ resource utilization (ISRU) plant development for a sustainable lunar outpost
+
+[image]
+
+Advancing aeronautics research by developing AI/ML models for air traffic control automation
+
+[image]
+
+Propulsion systems support across the Commercial Crew Program, Launch Services Program, and Artemis
+
+[image]
+
+If You Want Your Work to Operate Beyond Earth, This is Where it Begins.
+
+---
+
+## [HN-TITLE] 11. Show HN: PanicLock – Close your MacBook lid disable TouchID –> password unlock
 
 - **Source**: [link]
 - **Site**: GitHub
 - **Submitter**: seanieb (Hacker News)
 - **Submitted**: 2026-04-17 16:38 UTC (Hacker News)
-- **HN activity**: 147 points · [link]
+- **HN activity**: 153 points · [link]
 - **Length**: 580 words (~3 min read)
 - **Language**: en
 
@@ -1683,85 +1762,6 @@ Contributions welcome! Please open an issue or pull request.
 
 ---
 
-## [HN-TITLE] 10. NASA Force
-
-- **Source**: [link]
-- **Site**: NASA Force
-- **Submitter**: LorenDB (Hacker News)
-- **Submitted**: 2026-04-17 15:47 UTC (Hacker News)
-- **HN activity**: 239 points · [link]
-- **Length**: 298 words (~2 min read)
-- **Language**: en
-
-## BUILD THE FUTURE OF HUMANITY
-
-Four DAYS. Limited Spots.
-
-NASA Force is a new hiring initiative—developed in partnership with the U.S. Office of Personnel Management—designed to bring exceptional technical talent into mission-critical roles that support NASA’s exploration, research, and advanced technology priorities. Highly skilled early- to mid- career engineers, technologists, and innovators join NASA for focused term appointments, typically 1–2 years with the possibility of extension, to solve complex challenges and help maintain U.S. leadership in air and space.
-
-Through NASA Force, you will contribute to missions that advance human spaceflight, aeronautics, and scientific discovery while helping expand humanity’s understanding of the universe. You will take a systems approach to solving problems, working across teams and disciplines from concept to execution. Your work will demand technical excellence, critical thinking, and continuous learning, and every contribution will directly support NASA’s mission.
-
-## Contribute To Greatness
-
-[image]
-
-MOVE MISSIONS FORWARD
-
-Work on flight systems, lunar infrastructure, and advanced technologies that go from concept to execution and support real missions beyond Earth.
-
-HOW YOU WILL ENTER THE MISSION
-
-You will join a collaborative, mission-driven team where ideas are valued, contributions are recognized, and innovation is part of everyday work. NASA Force offers an opportunity to grow across projects and disciplines, build your expertise, and take on new challenges while working alongside some of the world’s leading minds.
-
-VIPER lunar rover operations
-
-[image]
-
-Deep space logistics
-
-[image]
-
-Development of NASA Spaceport 2.0
-
-[image]
-
-Orion real-time operating system and core flight software
-
-[image]
-
-Curation of lunar and astromaterials samples
-
-[image]
-
-In-situ resource utilization (ISRU) plant development for a sustainable lunar outpost
-
-[image]
-
-Advancing aeronautics research by developing AI/ML models for air traffic control automation
-
-[image]
-
-Propulsion systems support across the Commercial Crew Program, Launch Services Program, and Artemis
-
-[image]
-
-If You Want Your Work to Operate Beyond Earth, This is Where it Begins.
-
----
-
-## [HN-TITLE] 11. Slop Cop
-
-- **Source**: [link]
-- **Site**: awnist.com
-- **Submitter**: ericHosick (Hacker News)
-- **Submitted**: 2026-04-17 15:15 UTC (Hacker News)
-- **HN activity**: 98 points · [link]
-- **Language**: en
-
-> no extractable content
-
----
-
 ## [HN-TITLE] 12. Hyperscalers have already outspent most famous US megaprojects
 
 - **Source**: [link]
@@ -1769,7 +1769,7 @@ If You Want Your Work to Operate Beyond Earth, This is Where it Begins.
 - **Site**: X (formerly Twitter)
 - **Submitter**: nowflux (Hacker News)
 - **Submitted**: 2026-04-17 16:23 UTC (Hacker News)
-- **HN activity**: 141 points · [link]
+- **HN activity**: 155 points · [link]
 - **Length**: 27 words (~1 min read)
 - **Language**: en
 
@@ -1785,7 +1785,7 @@ Something went wrong, but don’t fret — let’s give it another shot.
 - **Site**: thehistoryblog.com
 - **Submitter**: speckx (Hacker News)
 - **Submitted**: 2026-04-17 14:41 UTC (Hacker News)
-- **HN activity**: 210 points · [link]
+- **HN activity**: 215 points · [link]
 - **Length**: 514 words (~3 min read)
 - **Language**: en-US
 
@@ -1809,155 +1809,13 @@ The coin features the patron deity of Ilion on both sides. The obverse has a pro
 
 ---
 
-## [HN-TITLE] 14. Casus Belli Engineering
-
-- **Source**: [link]
-- **Site**: marcosmagueta.com
-- **Submitter**: b-man (Hacker News)
-- **Submitted**: 2026-04-18 01:14 UTC (Hacker News)
-- **HN activity**: 10 points · [link]
-- **Length**: 3.3K words (~15 min read)
-
-Few things in a professional environment are more important than a lasting impression; be it for building trust or conveying unappreciated quality, it is often what kills any system: people lose confidence in it. Imagine seeing something always faulty; a stakeholder sees a failed commitment. They do not see, and cannot see, the distinction between the feature that failed and the foundation it rests upon. To them, the system is monolithic; if any part fails, the whole is suspect. This perception, though technically naive, creates social stress that technical accuracy cannot dispel.
-
-As failures accumulate, pressure builds; someone must be responsible, and something must be done. The organization demands resolution, not in the form of root cause analysis or targeted fixes, but in the form of visible action, decisive change and ritual purification. The tension must be released.
-
-What follows is as old as human society itself: the stressed group selects a victim, to which the guilt is assigned, and finally, the victim is destroyed. Through its destruction, social cohesion is restored. The Aztecs sacrificed captives atop pyramids to ensure the sun would rise. We sacrifice codebases in conference rooms to ensure projects will ship. The mechanism is identical; only the altar has changed.
-
-[image]
-
-René Girard observed that human communities in crisis often resolve internal conflict through scapegoating: the selection of a victim to bear collective guilt, whose expulsion restores order. The scapegoat need not be guilty; it need only be acceptable as a target. Its guilt is constructed through narrative, not discovered through investigation (see \[5], \[6]).
-
-Some dangerous individuals, however, institutionalize such ritualistic practices into what I call Casus Belli Engineering: the use of perceived failure as pretext to replace working systems with one's preferred worldview. The broken feature is the crisis that demands resolution. The foundation becomes the scapegoat, selected not for its vulnerability and the convenience of its replacement. And in most cases, this unfolds organically, driven by genuine belief in the narrative. These individuals are truly alchemists at heart; they have the power to manipulate the phantoms of lasting impressions to their favor \[14]. They do not wait for crisis, they nourish it. They do not stumble into scapegoating, they engineer it. They fabricate casus belli deliberately, using the ancient machinery of collective violence to remake systems in their own image. These are not confused engineers making honest mistakes in attribution. These are political operators who have discovered that technical failure can be converted into organizational power.
-
-The danger here is not the scapegoating itself; humans will scapegoat at all times. The danger is those who have learned to trigger the mechanism strategically, who can reliably convert any failure into an opportunity to destroy what exists and build what they prefer. They are the high priests of a secular religion, and their rituals shape our technological landscape more than any technical merit.
-
-### The Scapegoat Mechanism
-
-In software organizations the pattern obeys the same liturgy. What follows is my perception of its unfolding.
-
-When failures generate tension, demand explanation, and threaten careers, the organization selects a scapegoat rather than confront the actual causes, which might implicate recent decisions, current leadership, or systemic dysfunction. It must be plausibly proximate to the failure (a dependency, a framework, an architectural pattern), unable to defend itself (because it is old, unfashionable, or championed by people who have departed), and replaceable with something the accusers prefer. This last criterion is the essential one: the scapegoat's destruction must clear the ground for the accuser's alternative.
-
-Once selected, the scapegoat is ritually condemned. Its guilt is established through repetition ("We keep having problems because of X") while the actual causes (error handling, testing, operational neglect) recede into the background. X becomes the problem, and X must be destroyed. The war's stated objective has nothing to do with its actual aim: replacing one paradigm with another, under the cover of failure.
-
-### The Pattern
-
-The progression is predictable. A feature breaks repeatedly, whether from poor integration with external systems, inadequate error handling, or environmental fragility, and it happens to depend on some foundational component that functions correctly and has always functioned correctly. The failures are not caused by the foundation, but the foundation exists in the dependency chain, and that adjacency is sufficient for indictment.
-
-Someone decides the foundational component is "the problem." Not the actual source of breakage, but the architecture, the paradigm, the way things are done. The real failures become ammunition: "We keep having issues with X" mutates into "X is built on Y, and Y is the problem," while the actual causes (external dependencies, testing deficits, error handling gaps) are eclipsed by a narrative that indicts the foundation wholesale.
-
-A replacement is proposed, and it aligns with suspicious precision to the proposer's preferred technologies, methodologies, or architectural convictions. Both the broken feature and its working foundation are then scrapped together; the broken feature retroactively "proves" the foundation was wrong all along, and the fact that the foundation functioned correctly is dismissed as irrelevant, as "the wrong approach."
-
-### The Psychology of the Hunt
-
-Girard identified three preconditions for scapegoating: crisis, undifferentiated rivalry, and collective mimesis. Software organizations furnish all three (see \[5], \[6]). The crisis is the broken feature, the production incident, the customer escalation; something that has failed visibly and demands accountability. The undifferentiated rivalry is the familiar condition of multiple engineers or teams of comparable status competing for influence, where no settled authority governs technical direction and many opinions coexist without decisive power. And the collective mimesis is the propagation of framing: once someone declares the foundation "the problem," others imitate the judgment, doubt hardens into consensus, and what began as one person's opinion calcifies into organizational truth.
-
-Into this environment steps a personality profile that Hogan, Kaiser, and colleagues have documented extensively in the dark-side leadership literature (see \[7], \[8], \[9], \[10]). These individuals substitute narrative coherence for causal analysis; they do not trace failure to its mechanism but accept the most rhetorically satisfying explanation, treating correlation as causation not because the distinction is unknown to them but because the rigor it demands is neither possessed nor valued. They are simultaneously highly engaged, deeply invested in outcomes, vocal, and tenacious, lending the narrative a force that ensures it will be pressed until it becomes orthodoxy. And they are technically insecure in a way that demands external validation: they cannot propose their preferred solution on its merits alone but must first delegitimize the existing approach, converting advocacy into prosecution.
-
-This profile is ideally suited to initiating the scapegoat mechanism, combining the motivation to identify a target, the rhetorical facility to construct a narrative, and the psychological compulsion to see the sacrifice through to completion. The insecurity is what transforms mere advocacy into destruction: the scapegoat must die so that the accuser's worldview can be consecrated as the remedy.
-
-### The Case of Agile: Industrial-Scale Scapegoating
-
-To be precise, the problem is not iterative or incremental development itself. Those ideas are older than Agile, well-established, and technically sound; explicit advocacy for IID appears decades before Agile branding, in mainstream software engineering literature arguing that large-program design must proceed incrementally because requirements are never complete up front (see \[1], \[2]).
-
-The problem is what happened at movement scale: Agile discourse became one of the most accomplished instances of Casus Belli Development in software history, Girardian scapegoating performed at industrial scale.
-
-The crisis was real enough: software projects failing, over budget, over schedule, wrong requirements, poor quality. The scapegoat was "Waterfall," "Heavyweight processes," "Big upfront design," "Comprehensive documentation," a constellation of practices bundled together and assigned a collective name so they could be ritually condemned.
-
-The brilliance was in the selection. "Waterfall" as a term was largely a straw man; few organizations practiced pure sequential development as described in the caricature. Even the 1970 Royce paper, routinely cited as the origin of waterfall, includes explicit iteration and feedback loops rather than strict one-pass sequencing (see \[3]). But the label was plausible enough (projects did fail, documentation standards existed, phase gates existed) and that plausibility was sufficient. Context mattered less than rhetorical utility. Social pressure had already accumulated; what the narrative required was a guilty name and a cleansing alternative.
-
-Ron Garret illustrates the same dynamic in a different domain. In his account of Lisp at JPL, the word itself had become unspeakable regardless of the technical merits it designated, a case where terms, not ideas, are the true casualties of the scapegoat mechanism:
-
-> "It is incredibly frustrating watching all this happen. My job today (I am now working on software verification and validation) is to solve problems that can be traced directly back to the use of purely imperative languages with poorly defined semantics like C and C++. (The situation is a little better with Java, but not much.) But, of course, the obvious solution (to use non-imperative languages with well defined semantics like Lisp) is not an option. I can't even say the word Lisp without cementing my reputation as a crazy lunatic who thinks Lisp is the Answer to Everything. So I keep my mouth shut (mostly) and watch helplessly as millions of tax dollars get wasted. (I would pin some hope on a wave of grass-roots outrage over this blatant waste of money coming to the rescue, but, alas, on the scale of outrageous waste that happens routinely in government endeavors this is barely a blip.)"
-> 
-> Ron Garret, "Lisping at JPL," 2002
-
-The Agile Manifesto provided the ritual language for this sacrifice. To be fair, the document includes an explicit caveat: there is value on both sides, but more on the left. Read literally, this is not an absolute rejection of process, documentation, contracts, or plans. The problem is how this language functioned socially.
-
-In practice, the caveat is what evaporates. What persists are slogans built on asymmetry:
-
-**"Individuals and interactions over processes and tools"** becomes a standing suspicion of process itself.
-
-**"Working software over comprehensive documentation"** becomes a durable excuse to underinvest in documentation until knowledge collapses into oral tradition.
-
-**"Customer collaboration over contract negotiation"** becomes a way to frame governance and contractual discipline as anti-customer bureaucracy.
-
-**"Responding to change over following a plan"** becomes rhetorical permission to treat planning as naive, even when disciplined planning is precisely what makes adaptation coherent.
-
-The issue is not that the manifesto text is verbatim absurd. The issue is that it is rhetorically engineered for movement politics: morally legible, easily memetic, and difficult to oppose without sounding regressive. Each pair supplies a reusable villain class ("processes," "documentation," "contracts," "plans") and a ready moral identity for the alternative. That is why it scales as narrative power even when the underlying engineering ideas were already known (see \[1], \[2], \[4]).
-
-The manifesto did not invent iterative thinking. It furnished a casus belli, permission to replace existing processes by framing those processes as the source of failure. The actual problems (poor requirements gathering, lack of customer access, inadequate testing, unrealistic schedules, management dysfunction) went unaddressed. "Waterfall" became the scapegoat, and its destruction became the solution.
-
-Agile succeeded at movement scale not because it introduced unprecedented engineering ideas, but because it performed the scapegoat mechanism with extraordinary fidelity: a plausible enemy identified, its guilt constructed, salvation offered in the same gesture. That the "new" core was largely a rebranding of existing iterative practices was immaterial (see \[1], \[2], \[4]). The ritual was completed, the scapegoat consumed, the narrative triumphant.
-
-### Why It Works
-
-Casus Belli Development exploits cognitive biases and organizational dynamics with particular efficacy. The recent failure is vivid and salient while the years of the foundation functioning correctly are abstract and unremembered; availability bias turns the incident into "proof" of systemic deficiency. Once someone concludes the foundation is flawed, confirmation bias ensures that every subsequent issue becomes corroboration; successes are dismissed as having occurred "despite" the foundation, and failures are treated as evidence of inherent defect. The status quo bias, ordinarily a conservative force, inverts the moment the status quo is framed as "failed": the incident demonstrates failure, therefore the foundation must go. In low-trust environments, authority compounds the effect: repeated assertion that the foundation is at fault supplants independent investigation, and consensus is mistaken for truth (see \[11], \[12]). And finally, replacement offers an escape from the sunk cost confrontation that repair would demand; one is not "fixing mistakes" but "adopting better practices," reframing retreat as progress.
-
-### The Damage
-
-The consequences are substantial and compounding. Proven foundations, systems that functioned reliably and embodied years of institutional refinement, are dismantled because they were adjacent to a failure, and the organization forfeits accumulated knowledge and battle-tested solutions in the process. The root causes persist: the actual sources of breakage (poor error handling, insufficient testing, environmental fragility) survive the transition intact and will resurface in the replacement, because they were never confronted.
-
-Every few years a new incident furnishes a new casus belli, and the cycle iterates: foundations replaced, then replaced again, nothing stabilizing because stability is indistinguishable from stagnation to those who profit from upheaval. When replacements fail to resolve the problems they claimed to address, confidence deteriorates further, but rather than recognize the pattern, organizations indict the new foundation and begin searching for the next one. Meanwhile, engineers who understand causation, who can distinguish correlation from mechanism, grow frustrated and leave. What remains are those who excel at political maneuvering dressed as technical leadership.
-
-### Recognition and Resistance
-
-Casus Belli Development betrays itself through several signatures. The scope of the proposed solution exceeds the scope of the problem: a feature that fails due to external API timeouts does not necessitate rewriting the entire service layer in a different language, and when the remedy dwarfs the ailment, ulterior motives deserve scrutiny. The failure is used to indict a paradigm rather than a specific implementation ("This OOP code is hard to maintain" becomes "OOP is the problem," "This microservice is hard to debug" becomes "microservices were a mistake"), and this leap from the particular to the general is precisely where the casus belli operates. The proposed replacement aligns with suspicious precision to the proposer's preferences; if the person who has been advocating for GraphQL suddenly determines that a REST API failure proves REST fundamentally flawed, skepticism is warranted. The actual root causes are not analyzed with rigor: the investigation terminates at "X is built on Y, therefore Y is wrong" rather than continuing to "X fails because of Z, which is unrelated to Y." And the rhetoric emphasizes revolution over evolution, "We need to completely rethink how we do X" rather than "we need to fix this specific defect in X." Revolutionary rhetoric is diagnostic; it signals that the objective is replacement, not repair.
-
-Resistance demands its own discipline. Insist on root cause analysis: not "the system is deficient" but "this specific invocation fails under this specific condition"; causation, not correlation. Separate the failure from the foundation and ask whether the failure can be remedied without replacing the foundation; if so, the replacement discussion is premature. Demand that proposals address the identified causes rather than merely relocate them to a different stratum. Evaluate proposed alternatives on intrinsic merit, not as saviors from a "failed" predecessor, for a new approach must stand on its own value, not derive legitimacy from the demolition of what came before. And attend to the psychological patterns at work: is this person seeking to validate their worldview rather than solve a problem? Motivation matters (see \[8], \[9], \[10]).
-
-### The Agile Postscript
-
-What would honest advocacy for iterative development have looked like? It would have said: "We have found that iterative development with frequent customer feedback reduces requirement mismatches. Here are case studies. Here are measured outcomes. We propose adopting these practices." Instead, we received: "Traditional development is broken. It values processes over people. It produces documentation instead of working software. We propose a new paradigm."
-
-The first is an engineering argument. The second is a casus belli. The first might have led to measured adoption of practices already known in substance. The second led to wholesale replacement of development methodologies with "Agile" frameworks that often preserved the worst attributes of what they claimed to supplant (rigid processes, now called "ceremonies"; comprehensive documentation, now called "backlogs"; detailed planning, now called "sprint planning").
-
-Agile succeeded not because iterative development was deficient before its arrival, but because Agile branding furnished a casus belli for those who desired paradigm change and required politically acceptable justification. The manifesto supplied that justification, the failing projects supplied the evidence, "Waterfall" supplied the scapegoat, and once the narrative was established the replacement became inevitable. This is how Casus Belli Development operates at scale.
-
-### A Final Observation
-
-Girard noted that scapegoating requires collective blindness; the community must not recognize the mechanism while it operates. Once the scapegoat is perceived for what it is, an innocent bearer of projected guilt, the ritual loses its power. But so long as the community believes the scapegoat genuinely culpable, the mechanism functions perfectly (see \[6]).
-
-This is why Casus Belli Development endures. Its participants do not perceive themselves as performing a ritual. They believe they are solving problems, making sound technical decisions, improving the system. The narrative feels true because everyone around them concurs. The scapegoat's guilt feels self-evident because it has been asserted beyond counting.
-
-The pattern persists because it succeeds at what it actually accomplishes: the discharge of organizational tension, the validation of preferred worldviews, the enablement of political change under technical cover. That it fails to resolve the underlying technical problems is immaterial to its efficacy as a social mechanism (see \[11], \[12], \[13]).
-
-But once you perceive it, the perception is irreversible. The next time an incident provokes calls to replace the foundation, you will recognize the anatomy: the crisis, the scapegoat, the spurious causation, the preferred alternative waiting in the wings, the ritual language of condemnation.
-
-And you will face a choice: participate in the ritual, or refuse it.
-
-Refusal is arduous. It demands insisting on causation when narrative is more compelling, defending systems that have been marked for destruction, accepting the role of the person who "doesn't get it," who "resists change," who "clings to the status quo."
-
-But refusal is engineering. Casus Belli Development is not. It is politics costumed as engineering, ritual costumed as analysis, scapegoating costumed as problem-solving. Engineering is the commitment to understanding what actually causes what, to targeted remediation grounded in evidence, to the disciplined separation of correlation from causation, especially when the narrative is seductive.
-
-We should choose engineering. Especially when everyone else has already chosen the narrative.
-
-### References
-
-01. Peter Van Roy and Seif Haridi, *Concepts, Techniques, and Models of Computer Programming* (MIT Press, 2004), ch. 6 "Program design in the large," sec. 6.7.1 "Design methodology" (explicit IID advocacy; notes successful use since at least the 1950s).
-02. Craig Larman and Victor R. Basili, "Iterative and Incremental Development: A Brief History," *IEEE Computer* 36, no. 6 (2003): 47-56.
-03. Winston W. Royce, "Managing the Development of Large Software Systems," in *Proceedings of IEEE WESCON* (1970).
-04. Manifesto for Agile Software Development (2001), [link]
-05. René Girard, *Violence and the Sacred* (Johns Hopkins University Press, 1977 \[orig. 1972]).
-06. René Girard, *The Scapegoat* (Johns Hopkins University Press, 1986 \[orig. 1982]).
-07. Robert Hogan, Gordon J. Curphy, and Joyce Hogan, "What We Know About Leadership: Effectiveness and Personality," *American Psychologist* 49, no. 6 (1994): 493-504.
-08. Robert Hogan and Joyce Hogan, "Assessing Leadership: A View from the Dark Side," *International Journal of Selection and Assessment* 9, no. 1-2 (2001): 40-51.
-09. Robert Hogan and Robert B. Kaiser, "What We Know About Leadership," *Review of General Psychology* 9, no. 2 (2005): 169-180.
-10. Robert B. Kaiser, Jarrett M. LeBreton, and Joyce Hogan, "The Dark Side of Personality and Extreme Leader Behavior," *Applied Psychology* 64, no. 1 (2015): 55-92.
-11. Irving L. Janis, *Victims of Groupthink* (Houghton Mifflin, 1972).
-12. Amy C. Edmondson, "Psychological Safety and Learning Behavior in Work Teams," *Administrative Science Quarterly* 44, no. 2 (1999): 350-383.
-13. Sidney Dekker, *The Field Guide to Understanding Human Error*, 3rd ed. (Ashgate, 2014).
-14. Ioan P. Couliano, *Eros and Magic in the Renaissance* (University of Chicago Press, 1987 \[orig. 1984])
-
----
-
-## [HN-TITLE] 15. NIST gives up enriching most CVEs
+## [HN-TITLE] 14. NIST gives up enriching most CVEs
 
 - **Source**: [link]
 - **Site**: risky.biz
 - **Author**: Catalin Cimpanu
 - **Submitted**: 2026-04-17 15:09 UTC (Hacker News)
-- **HN activity**: 184 points · [link]
+- **HN activity**: 185 points · [link]
 - **Length**: 3.8K words (~17 min read)
 
 ### Risky Bulletin Newsletter
@@ -2220,17 +2078,17 @@ NIST's new enrichment policy entered into effect this week, on Wednesday, April 
 
 ---
 
-## [HN-TITLE] 16. Introducing: ShaderPad
+## [HN-TITLE] 15. Introducing: ShaderPad
 
 - **Source**: [link]
 - **Site**: rileyjshaw.com
 - **Submitter**: evakhoury (Hacker News)
 - **Submitted**: 2026-04-15 16:59 UTC (Hacker News)
-- **HN activity**: 54 points · [link]
-- **Length**: 758 words (~4 min read)
+- **HN activity**: 63 points · [link]
+- **Length**: 747 words (~4 min read)
 - **Language**: en
 
-Today I’m releasing [link]. It is the library I wish I had a few years ago: a small, focused way to put a shader on a website without rebuilding the same graphics scaffolding every time. If you want to experiment with writing shaders, I think this is one of the best ways to get started.
+Today I’m releasing [link]. It’s a small, focused library to put a shader on a website without rebuilding the same graphics scaffolding every time. If you want to experiment with writing shaders, I think this is one of the best ways to get started.
 
 ## [link]Motivation
 
@@ -2270,104 +2128,155 @@ ShaderPad gives you something steady to build on, then disappears into the backg
 
 ---
 
-## [HN-TITLE] 17. I built a 3D printing business and ran it for 8 months
+## [HN-TITLE] 16. Casus Belli Engineering
 
 - **Source**: [link]
-- **Site**: Wespiser
-- **Author**: Adam Wespiser
-- **Submitted**: 2026-04-15 13:59 UTC (Hacker News)
-- **HN activity**: 89 points · [link]
-- **Length**: 1.6K words (~8 min read)
-- **Language**: en
+- **Site**: marcosmagueta.com
+- **Submitter**: b-man (Hacker News)
+- **Submitted**: 2026-04-18 01:14 UTC (Hacker News)
+- **HN activity**: 16 points · [link]
+- **Length**: 3.3K words (~15 min read)
 
-### ...and why I walked away
+Few things in a professional environment are more important than a lasting impression; be it for building trust or conveying unappreciated quality, it is often what kills any system: people lose confidence in it. Imagine seeing something always faulty; a stakeholder sees a failed commitment. They do not see, and cannot see, the distinction between the feature that failed and the foundation it rests upon. To them, the system is monolithic; if any part fails, the whole is suspect. This perception, though technically naive, creates social stress that technical accuracy cannot dispel.
 
-Posted on April 12, 2026 by Adam Wespiser
+As failures accumulate, pressure builds; someone must be responsible, and something must be done. The organization demands resolution, not in the form of root cause analysis or targeted fixes, but in the form of visible action, decisive change and ritual purification. The tension must be released.
 
-[image]
-
-I step down my front steps and into the brisk morning. I’m not dressed for January in New England, but fortunately I’m not going far. My hands grip a hastily constructed cardboard package, and beneath me is too much slush for slippers. I pass two houses before reaching my destination, peeking inside the front bay window as I go. No one’s home. I drop the package off on the brick stairs, fire a text—“dropped off”—and return to my apartment to find my dog nervously waiting at the top of the steps. Another 3D printed shipment complete!
-
-This 3D printing business started with the help of my dog, at the time a puppy, and his desire to see my neighbor’s puppy. We (the humans) began talking, and as we ran through a conversation about dogs, the topic came to his trading card business. He’d source cards all over the internet for his daily WhatNot auctions with thousands of followers. Impressive—not only a home business doing real volume, but a lens into a world I had no idea existed.
-
-I eventually noticed he had a 3D printed card stand, and with a printer at home, I offered to make him one myself. “Great,” he said, “I can sell them.”
-
-The first test was whether I could print a functional card stand: hold a card vertically without falling over that wasn’t geometrically impossible to print. This is where I’d like to say, “my years of product design experience made this easy,” but I can’t. In software, you engineer a loop, here was my loop: print a piece, realize it’s unstable, tweak the design, repeat. All while fighting my CAD model in Onshape to stay organized and extensible while using my iPhone 13 as a stability test.
-
-Eventually, the trick became clear: to make a card stand balance, you either use a thicker geometry that slows down printing, or you add weight to the base, seal it up, and leave the customer with something that feels more substantial than a plastic trinket, inspired by the Apple “impute value” philosophy behind their packaging.
+What follows is as old as human society itself: the stressed group selects a victim, to which the guilt is assigned, and finally, the victim is destroyed. Through its destruction, social cohesion is restored. The Aztecs sacrificed captives atop pyramids to ensure the sun would rise. We sacrifice codebases in conference rooms to ensure projects will ship. The mechanism is identical; only the altar has changed.
 
 [image]
 
-With the first print done, the process evolved into a stream of client requests for images and names, design iteration which dominated the timeline, documenting the stand, customer approval, then handing off the production order to my neighbor to ship. All of this happened over text—not an organized workflow system, but good enough to handle a weekend’s worth of work, one weekend at a time. For a moment, the business worked. In reality, this was the easy part.
+René Girard observed that human communities in crisis often resolve internal conflict through scapegoating: the selection of a victim to bear collective guilt, whose expulsion restores order. The scapegoat need not be guilty; it need only be acceptable as a target. Its guilt is constructed through narrative, not discovered through investigation (see \[5], \[6]).
 
-[image]
+Some dangerous individuals, however, institutionalize such ritualistic practices into what I call Casus Belli Engineering: the use of perceived failure as pretext to replace working systems with one's preferred worldview. The broken feature is the crisis that demands resolution. The foundation becomes the scapegoat, selected not for its vulnerability and the convenience of its replacement. And in most cases, this unfolds organically, driven by genuine belief in the narrative. These individuals are truly alchemists at heart; they have the power to manipulate the phantoms of lasting impressions to their favor \[14]. They do not wait for crisis, they nourish it. They do not stumble into scapegoating, they engineer it. They fabricate casus belli deliberately, using the ancient machinery of collective violence to remake systems in their own image. These are not confused engineers making honest mistakes in attribution. These are political operators who have discovered that technical failure can be converted into organizational power.
 
-The first real system test was a piece my neighbor wanted for a family member, just like a regular order, but with a bit more pride on the line. The logo was the Boston Celtics logo. The problem? It’s not a minimal, modern logo; it’s a detailed, hand-drawn image from 1946.
+The danger here is not the scapegoating itself; humans will scapegoat at all times. The danger is those who have learned to trigger the mechanism strategically, who can reliably convert any failure into an opportunity to destroy what exists and build what they prefer. They are the high priests of a secular religion, and their rituals shape our technological landscape more than any technical merit.
 
-The starting issue was getting a 3D printable model of the logo. I spent about 30 minutes trying to model it in CAD, checked my progress, and was less than a quarter done. Instead, I found a “coffee coaster” version of the logo online and modified the card stand base to fit a resized coaster. The CAD detour was the first clear signal that the process was broken enough to need fixing, but the problems kept coming.
+### The Scapegoat Mechanism
 
-The next conundrum: the Celtics logo has 6 colors, but my printer could only do 4 at the time. Expanding your plastic filament palette requires upfront investment, and color matching is hard—especially when you’re partially color blind. With the prints up to that point, I could get away with a “closest” match, like teal being light or dark green depending on how it matched the rest of the print. A 4-color Celtics logo exposed me, as I had to pick three different colors, collapse them into one, and hope the intensity values (brightness) wouldn’t turn details into a puddle of mud. I was able to take the tan, gold, and dark brown and compress them into the closest color, but the intensity values never felt right. When a design uses multiple colors, you just can’t reduce the colors and expect that same image.
+In software organizations the pattern obeys the same liturgy. What follows is my perception of its unfolding.
 
-The first print of the Celtics logo came out with the Celtic tobacco pipe totally mangled. Print resolution has an easy fix: just switch to a smaller nozzle and wait about 4x longer due to inverse square scaling of flow rate to nozzle diameter. I printed it once—nozzle clogged, there goes the margin. Tried again—another clog, there goes my inventory.
+When failures generate tension, demand explanation, and threaten careers, the organization selects a scapegoat rather than confront the actual causes, which might implicate recent decisions, current leadership, or systemic dysfunction. It must be plausibly proximate to the failure (a dependency, a framework, an architectural pattern), unable to defend itself (because it is old, unfashionable, or championed by people who have departed), and replaceable with something the accusers prefer. This last criterion is the essential one: the scapegoat's destruction must clear the ground for the accuser's alternative.
 
-According to several informative YouTube videos, the methods I tried to unclog the nozzle should have worked: using softened plastic to pull it out, pushing in precision wires to unjam, even holding the nozzle with pliers over the stove to melt it clear. One minor burn that sent a hot nozzle flying across my floor later, with the sweet smell of burnt PLA plastic wafting through my living space, I was done with the 0.2mm nozzle. I’m sure there’s some way to unclog a nozzle and change the printing process to avoid future clogging, but I wasn’t going to get it working that night. Two nozzles down and I was underwater on the sale.
+Once selected, the scapegoat is ritually condemned. Its guilt is established through repetition ("We keep having problems because of X") while the actual causes (error handling, testing, operational neglect) recede into the background. X becomes the problem, and X must be destroyed. The war's stated objective has nothing to do with its actual aim: replacing one paradigm with another, under the cover of failure.
 
-After these several iterations, we finally got the card stand sent out.
+### The Pattern
 
-Inspired by failures of printing the Celtic logo, the details of the system locked in: all prints used PLA from a single source known for color selection and reliability. I locked in 0.4mm nozzles for all future prints. I also upgraded my setup: a second printer would prevent any problematic or failing prints from blocking the flow, and a third AMS unit expanded from 4 to 8 colors for one of my printers. I also gained a better sense of what client designs and ideas I could reject outright, and what was going to take an unusually long time to make work.
+The progression is predictable. A feature breaks repeatedly, whether from poor integration with external systems, inadequate error handling, or environmental fragility, and it happens to depend on some foundational component that functions correctly and has always functioned correctly. The failures are not caused by the foundation, but the foundation exists in the dependency chain, and that adjacency is sufficient for indictment.
 
-So the system worked, but hinted at a larger problem: everything in the process required me. That’s not a business, it’s a job!
+Someone decides the foundational component is "the problem." Not the actual source of breakage, but the architecture, the paradigm, the way things are done. The real failures become ammunition: "We keep having issues with X" mutates into "X is built on Y, and Y is the problem," while the actual causes (external dependencies, testing deficits, error handling gaps) are eclipsed by a narrative that indicts the foundation wholesale.
 
-[image]
+A replacement is proposed, and it aligns with suspicious precision to the proposer's preferred technologies, methodologies, or architectural convictions. Both the broken feature and its working foundation are then scrapped together; the broken feature retroactively "proves" the foundation was wrong all along, and the fact that the foundation functioned correctly is dismissed as irrelevant, as "the wrong approach."
 
-Instead of designing unique geometry for every print, we standardized the format: a back plate, the card stopper in front to prevent the card from sliding off, and the front text. This format made the card stands into parts that were easier and faster to print, and served as a model for customers to understand what could be customized.
+### The Psychology of the Hunt
 
-[image]
+Girard identified three preconditions for scapegoating: crisis, undifferentiated rivalry, and collective mimesis. Software organizations furnish all three (see \[5], \[6]). The crisis is the broken feature, the production incident, the customer escalation; something that has failed visibly and demands accountability. The undifferentiated rivalry is the familiar condition of multiple engineers or teams of comparable status competing for influence, where no settled authority governs technical direction and many opinions coexist without decisive power. And the collective mimesis is the propagation of framing: once someone declares the foundation "the problem," others imitate the judgment, doubt hardens into consensus, and what began as one person's opinion calcifies into organizational truth.
 
-Post-Celtics print, every part of the printing process was standardized and simplified. Beyond the limitations on nozzles, colors, and new gear, I started stocking replacement parts for everything that touches plastic on the printer or could break during handling. Still, if a part like a motor broke and I needed a few days to get a new one, it wouldn’t totally stop progress.
+Into this environment steps a personality profile that Hogan, Kaiser, and colleagues have documented extensively in the dark-side leadership literature (see \[7], \[8], \[9], \[10]). These individuals substitute narrative coherence for causal analysis; they do not trace failure to its mechanism but accept the most rhetorically satisfying explanation, treating correlation as causation not because the distinction is unknown to them but because the rigor it demands is neither possessed nor valued. They are simultaneously highly engaged, deeply invested in outcomes, vocal, and tenacious, lending the narrative a force that ensures it will be pressed until it becomes orthodoxy. And they are technically insecure in a way that demands external validation: they cannot propose their preferred solution on its merits alone but must first delegitimize the existing approach, converting advocacy into prosecution.
 
-My goal was simple handling: be able to wake up in the middle of the night and move the process forward, then go right back to bed without a cortisol spike or an “oh shit, this stretches the timeline” moment. Diagnose, displace, then replace what failed.
+This profile is ideally suited to initiating the scapegoat mechanism, combining the motivation to identify a target, the rhetorical facility to construct a narrative, and the psychological compulsion to see the sacrifice through to completion. The insecurity is what transforms mere advocacy into destruction: the scapegoat must die so that the accuser's worldview can be consecrated as the remedy.
 
-The only problem?
+### The Case of Agile: Industrial-Scale Scapegoating
 
-Instead of a scalable business, I had built a part-time job that relied on me to do the work.
+To be precise, the problem is not iterative or incremental development itself. Those ideas are older than Agile, well-established, and technically sound; explicit advocacy for IID appears decades before Agile branding, in mainstream software engineering literature arguing that large-program design must proceed incrementally because requirements are never complete up front (see \[1], \[2]).
 
-Some steps could be automated, but design still took about an hour of my time, and rounds of revision dragged things out. I golfed down a lot of the process, but the printer still required interrupting interventions. Finally, assembly was manual, and even if all the parts could magically summon themselves, the assembly was detail-intensive labor.
+The problem is what happened at movement scale: Agile discourse became one of the most accomplished instances of Casus Belli Development in software history, Girardian scapegoating performed at industrial scale.
 
-On the economics, things worked.
+The crisis was real enough: software projects failing, over budget, over schedule, wrong requirements, poor quality. The scapegoat was "Waterfall," "Heavyweight processes," "Big upfront design," "Comprehensive documentation," a constellation of practices bundled together and assigned a collective name so they could be ritually condemned.
 
-At steady state:  
-\- design time earned about $25/hour  
-\- $3666 total revenue  
-\- $3352 in expenses  
-\- ~50 orders fulfilled  
-\- ~3000 hours of logged print time.
+The brilliance was in the selection. "Waterfall" as a term was largely a straw man; few organizations practiced pure sequential development as described in the caricature. Even the 1970 Royce paper, routinely cited as the origin of waterfall, includes explicit iteration and feedback loops rather than strict one-pass sequencing (see \[3]). But the label was plausible enough (projects did fail, documentation standards existed, phase gates existed) and that plausibility was sufficient. Context mattered less than rhetorical utility. Social pressure had already accumulated; what the narrative required was a guilty name and a cleansing alternative.
 
-The problem was what came next. After seeing everything go wrong at least once and stabilizing the system, I faced a decision: do I want 500 more orders to level up again? There wasn’t an obvious path to get help with design, automating the order process, or finding a color-capable print farm. So after raising prices once, I transitioned to large orders only (no design), and gradually wound things down.
+Ron Garret illustrates the same dynamic in a different domain. In his account of Lisp at JPL, the word itself had become unspeakable regardless of the technical merits it designated, a case where terms, not ideas, are the true casualties of the scapegoat mechanism:
 
-3D printing is great for making a few of something: custom toys, bespoke lab equipment, or consumable plastic parts. What it’s not great at, in this context, is scaling to volumes where economies of scale matter. In other words, it’s mostly a design business.
+> "It is incredibly frustrating watching all this happen. My job today (I am now working on software verification and validation) is to solve problems that can be traced directly back to the use of purely imperative languages with poorly defined semantics like C and C++. (The situation is a little better with Java, but not much.) But, of course, the obvious solution (to use non-imperative languages with well defined semantics like Lisp) is not an option. I can't even say the word Lisp without cementing my reputation as a crazy lunatic who thinks Lisp is the Answer to Everything. So I keep my mouth shut (mostly) and watch helplessly as millions of tax dollars get wasted. (I would pin some hope on a wave of grass-roots outrage over this blatant waste of money coming to the rescue, but, alas, on the scale of outrageous waste that happens routinely in government endeavors this is barely a blip.)"
+> 
+> Ron Garret, "Lisping at JPL," 2002
 
-There’s definitely a niche for custom parts and small-batch manufacturing, but the next level was a big lift away from the home business stage. I’d need significant growth in my design skills, like time investment into learning more tools like Blender. I’d also need business development to create an online storefront and build a customer base to keep the orders coming. Not to mention shipping orders. Already, I was bored of making card stands, and closing the income gap between this $25/hour side job and my software engineering career at a big tech company meant a shift in focus I couldn’t justify.
+The Agile Manifesto provided the ritual language for this sacrifice. To be fair, the document includes an explicit caveat: there is value on both sides, but more on the left. Read literally, this is not an absolute rejection of process, documentation, contracts, or plans. The problem is how this language functioned socially.
 
-[image]
+In practice, the caveat is what evaporates. What persists are slogans built on asymmetry:
 
-For now, I’m focused on being a better software engineer, printing gifts for friends and family, and trying to perfect a greyhound-sized squeaky toy: soft enough to bite and shake like prey, but durable enough to survive more than a few play sessions. I’m on iteration 10 right now, and with how often it’s “stolen” in the dog park, it’s a hit!
+**"Individuals and interactions over processes and tools"** becomes a standing suspicion of process itself.
 
-The card stands are complete. I didn’t shut it down because the business worked, but because I understood what comes next. Sometimes a thing that doesn’t scale is just fun to do
+**"Working software over comprehensive documentation"** becomes a durable excuse to underinvest in documentation until knowledge collapses into oral tradition.
 
-[image]
+**"Customer collaboration over contract negotiation"** becomes a way to frame governance and contractual discipline as anti-customer bureaucracy.
 
-*A final picture: several screenshots of the card stands in action*
+**"Responding to change over following a plan"** becomes rhetorical permission to treat planning as naive, even when disciplined planning is precisely what makes adaptation coherent.
+
+The issue is not that the manifesto text is verbatim absurd. The issue is that it is rhetorically engineered for movement politics: morally legible, easily memetic, and difficult to oppose without sounding regressive. Each pair supplies a reusable villain class ("processes," "documentation," "contracts," "plans") and a ready moral identity for the alternative. That is why it scales as narrative power even when the underlying engineering ideas were already known (see \[1], \[2], \[4]).
+
+The manifesto did not invent iterative thinking. It furnished a casus belli, permission to replace existing processes by framing those processes as the source of failure. The actual problems (poor requirements gathering, lack of customer access, inadequate testing, unrealistic schedules, management dysfunction) went unaddressed. "Waterfall" became the scapegoat, and its destruction became the solution.
+
+Agile succeeded at movement scale not because it introduced unprecedented engineering ideas, but because it performed the scapegoat mechanism with extraordinary fidelity: a plausible enemy identified, its guilt constructed, salvation offered in the same gesture. That the "new" core was largely a rebranding of existing iterative practices was immaterial (see \[1], \[2], \[4]). The ritual was completed, the scapegoat consumed, the narrative triumphant.
+
+### Why It Works
+
+Casus Belli Development exploits cognitive biases and organizational dynamics with particular efficacy. The recent failure is vivid and salient while the years of the foundation functioning correctly are abstract and unremembered; availability bias turns the incident into "proof" of systemic deficiency. Once someone concludes the foundation is flawed, confirmation bias ensures that every subsequent issue becomes corroboration; successes are dismissed as having occurred "despite" the foundation, and failures are treated as evidence of inherent defect. The status quo bias, ordinarily a conservative force, inverts the moment the status quo is framed as "failed": the incident demonstrates failure, therefore the foundation must go. In low-trust environments, authority compounds the effect: repeated assertion that the foundation is at fault supplants independent investigation, and consensus is mistaken for truth (see \[11], \[12]). And finally, replacement offers an escape from the sunk cost confrontation that repair would demand; one is not "fixing mistakes" but "adopting better practices," reframing retreat as progress.
+
+### The Damage
+
+The consequences are substantial and compounding. Proven foundations, systems that functioned reliably and embodied years of institutional refinement, are dismantled because they were adjacent to a failure, and the organization forfeits accumulated knowledge and battle-tested solutions in the process. The root causes persist: the actual sources of breakage (poor error handling, insufficient testing, environmental fragility) survive the transition intact and will resurface in the replacement, because they were never confronted.
+
+Every few years a new incident furnishes a new casus belli, and the cycle iterates: foundations replaced, then replaced again, nothing stabilizing because stability is indistinguishable from stagnation to those who profit from upheaval. When replacements fail to resolve the problems they claimed to address, confidence deteriorates further, but rather than recognize the pattern, organizations indict the new foundation and begin searching for the next one. Meanwhile, engineers who understand causation, who can distinguish correlation from mechanism, grow frustrated and leave. What remains are those who excel at political maneuvering dressed as technical leadership.
+
+### Recognition and Resistance
+
+Casus Belli Development betrays itself through several signatures. The scope of the proposed solution exceeds the scope of the problem: a feature that fails due to external API timeouts does not necessitate rewriting the entire service layer in a different language, and when the remedy dwarfs the ailment, ulterior motives deserve scrutiny. The failure is used to indict a paradigm rather than a specific implementation ("This OOP code is hard to maintain" becomes "OOP is the problem," "This microservice is hard to debug" becomes "microservices were a mistake"), and this leap from the particular to the general is precisely where the casus belli operates. The proposed replacement aligns with suspicious precision to the proposer's preferences; if the person who has been advocating for GraphQL suddenly determines that a REST API failure proves REST fundamentally flawed, skepticism is warranted. The actual root causes are not analyzed with rigor: the investigation terminates at "X is built on Y, therefore Y is wrong" rather than continuing to "X fails because of Z, which is unrelated to Y." And the rhetoric emphasizes revolution over evolution, "We need to completely rethink how we do X" rather than "we need to fix this specific defect in X." Revolutionary rhetoric is diagnostic; it signals that the objective is replacement, not repair.
+
+Resistance demands its own discipline. Insist on root cause analysis: not "the system is deficient" but "this specific invocation fails under this specific condition"; causation, not correlation. Separate the failure from the foundation and ask whether the failure can be remedied without replacing the foundation; if so, the replacement discussion is premature. Demand that proposals address the identified causes rather than merely relocate them to a different stratum. Evaluate proposed alternatives on intrinsic merit, not as saviors from a "failed" predecessor, for a new approach must stand on its own value, not derive legitimacy from the demolition of what came before. And attend to the psychological patterns at work: is this person seeking to validate their worldview rather than solve a problem? Motivation matters (see \[8], \[9], \[10]).
+
+### The Agile Postscript
+
+What would honest advocacy for iterative development have looked like? It would have said: "We have found that iterative development with frequent customer feedback reduces requirement mismatches. Here are case studies. Here are measured outcomes. We propose adopting these practices." Instead, we received: "Traditional development is broken. It values processes over people. It produces documentation instead of working software. We propose a new paradigm."
+
+The first is an engineering argument. The second is a casus belli. The first might have led to measured adoption of practices already known in substance. The second led to wholesale replacement of development methodologies with "Agile" frameworks that often preserved the worst attributes of what they claimed to supplant (rigid processes, now called "ceremonies"; comprehensive documentation, now called "backlogs"; detailed planning, now called "sprint planning").
+
+Agile succeeded not because iterative development was deficient before its arrival, but because Agile branding furnished a casus belli for those who desired paradigm change and required politically acceptable justification. The manifesto supplied that justification, the failing projects supplied the evidence, "Waterfall" supplied the scapegoat, and once the narrative was established the replacement became inevitable. This is how Casus Belli Development operates at scale.
+
+### A Final Observation
+
+Girard noted that scapegoating requires collective blindness; the community must not recognize the mechanism while it operates. Once the scapegoat is perceived for what it is, an innocent bearer of projected guilt, the ritual loses its power. But so long as the community believes the scapegoat genuinely culpable, the mechanism functions perfectly (see \[6]).
+
+This is why Casus Belli Development endures. Its participants do not perceive themselves as performing a ritual. They believe they are solving problems, making sound technical decisions, improving the system. The narrative feels true because everyone around them concurs. The scapegoat's guilt feels self-evident because it has been asserted beyond counting.
+
+The pattern persists because it succeeds at what it actually accomplishes: the discharge of organizational tension, the validation of preferred worldviews, the enablement of political change under technical cover. That it fails to resolve the underlying technical problems is immaterial to its efficacy as a social mechanism (see \[11], \[12], \[13]).
+
+But once you perceive it, the perception is irreversible. The next time an incident provokes calls to replace the foundation, you will recognize the anatomy: the crisis, the scapegoat, the spurious causation, the preferred alternative waiting in the wings, the ritual language of condemnation.
+
+And you will face a choice: participate in the ritual, or refuse it.
+
+Refusal is arduous. It demands insisting on causation when narrative is more compelling, defending systems that have been marked for destruction, accepting the role of the person who "doesn't get it," who "resists change," who "clings to the status quo."
+
+But refusal is engineering. Casus Belli Development is not. It is politics costumed as engineering, ritual costumed as analysis, scapegoating costumed as problem-solving. Engineering is the commitment to understanding what actually causes what, to targeted remediation grounded in evidence, to the disciplined separation of correlation from causation, especially when the narrative is seductive.
+
+We should choose engineering. Especially when everyone else has already chosen the narrative.
+
+### References
+
+01. Peter Van Roy and Seif Haridi, *Concepts, Techniques, and Models of Computer Programming* (MIT Press, 2004), ch. 6 "Program design in the large," sec. 6.7.1 "Design methodology" (explicit IID advocacy; notes successful use since at least the 1950s).
+02. Craig Larman and Victor R. Basili, "Iterative and Incremental Development: A Brief History," *IEEE Computer* 36, no. 6 (2003): 47-56.
+03. Winston W. Royce, "Managing the Development of Large Software Systems," in *Proceedings of IEEE WESCON* (1970).
+04. Manifesto for Agile Software Development (2001), [link]
+05. René Girard, *Violence and the Sacred* (Johns Hopkins University Press, 1977 \[orig. 1972]).
+06. René Girard, *The Scapegoat* (Johns Hopkins University Press, 1986 \[orig. 1982]).
+07. Robert Hogan, Gordon J. Curphy, and Joyce Hogan, "What We Know About Leadership: Effectiveness and Personality," *American Psychologist* 49, no. 6 (1994): 493-504.
+08. Robert Hogan and Joyce Hogan, "Assessing Leadership: A View from the Dark Side," *International Journal of Selection and Assessment* 9, no. 1-2 (2001): 40-51.
+09. Robert Hogan and Robert B. Kaiser, "What We Know About Leadership," *Review of General Psychology* 9, no. 2 (2005): 169-180.
+10. Robert B. Kaiser, Jarrett M. LeBreton, and Joyce Hogan, "The Dark Side of Personality and Extreme Leader Behavior," *Applied Psychology* 64, no. 1 (2015): 55-92.
+11. Irving L. Janis, *Victims of Groupthink* (Houghton Mifflin, 1972).
+12. Amy C. Edmondson, "Psychological Safety and Learning Behavior in Work Teams," *Administrative Science Quarterly* 44, no. 2 (1999): 350-383.
+13. Sidney Dekker, *The Field Guide to Understanding Human Error*, 3rd ed. (Ashgate, 2014).
+14. Ioan P. Couliano, *Eros and Magic in the Renaissance* (University of Chicago Press, 1987 \[orig. 1984])
 
 ---
 
-## [HN-TITLE] 18. Generating a color spectrum for an image
+## [HN-TITLE] 17. Generating a color spectrum for an image
 
 - **Source**: [link]
 - **Site**: Amanda Hinton
 - **Author**: Amanda Hinton
 - **Published**: 2026-04-14
-- **HN activity**: 24 points · [link]
+- **HN activity**: 28 points · [link]
 - **Length**: 1.4K words (~7 min read)
 - **Language**: en-US
 
@@ -2467,7 +2376,110 @@ The whole process runs client-side in the browser. No server round-trip, no imag
 
 ---
 
-## [HN-TITLE] 19. Arc Prize Foundation (YC W26) Is Hiring a Platform Engineer for ARC-AGI-4
+## [HN-TITLE] 18. Ben Lerner's Big Feelings
+
+- **Source**: [link]
+- **Site**: vulture.com
+- **Submitter**: prismatic (Hacker News)
+- **Submitted**: 2026-04-16 05:43 UTC (Hacker News)
+- **HN activity**: 5 points · [link]
+
+> scrape failed: readability: failed to parse input: transform: short internal buffer
+
+---
+
+## [HN-TITLE] 19. I built a 3D printing business and ran it for 8 months
+
+- **Source**: [link]
+- **Site**: Wespiser
+- **Author**: Adam Wespiser
+- **Submitted**: 2026-04-15 13:59 UTC (Hacker News)
+- **HN activity**: 93 points · [link]
+- **Length**: 1.6K words (~8 min read)
+- **Language**: en
+
+### ...and why I walked away
+
+Posted on April 12, 2026 by Adam Wespiser
+
+[image]
+
+I step down my front steps and into the brisk morning. I’m not dressed for January in New England, but fortunately I’m not going far. My hands grip a hastily constructed cardboard package, and beneath me is too much slush for slippers. I pass two houses before reaching my destination, peeking inside the front bay window as I go. No one’s home. I drop the package off on the brick stairs, fire a text—“dropped off”—and return to my apartment to find my dog nervously waiting at the top of the steps. Another 3D printed shipment complete!
+
+This 3D printing business started with the help of my dog, at the time a puppy, and his desire to see my neighbor’s puppy. We (the humans) began talking, and as we ran through a conversation about dogs, the topic came to his trading card business. He’d source cards all over the internet for his daily WhatNot auctions with thousands of followers. Impressive—not only a home business doing real volume, but a lens into a world I had no idea existed.
+
+I eventually noticed he had a 3D printed card stand, and with a printer at home, I offered to make him one myself. “Great,” he said, “I can sell them.”
+
+The first test was whether I could print a functional card stand: hold a card vertically without falling over that wasn’t geometrically impossible to print. This is where I’d like to say, “my years of product design experience made this easy,” but I can’t. In software, you engineer a loop, here was my loop: print a piece, realize it’s unstable, tweak the design, repeat. All while fighting my CAD model in Onshape to stay organized and extensible while using my iPhone 13 as a stability test.
+
+Eventually, the trick became clear: to make a card stand balance, you either use a thicker geometry that slows down printing, or you add weight to the base, seal it up, and leave the customer with something that feels more substantial than a plastic trinket, inspired by the Apple “impute value” philosophy behind their packaging.
+
+[image]
+
+With the first print done, the process evolved into a stream of client requests for images and names, design iteration which dominated the timeline, documenting the stand, customer approval, then handing off the production order to my neighbor to ship. All of this happened over text—not an organized workflow system, but good enough to handle a weekend’s worth of work, one weekend at a time. For a moment, the business worked. In reality, this was the easy part.
+
+[image]
+
+The first real system test was a piece my neighbor wanted for a family member, just like a regular order, but with a bit more pride on the line. The logo was the Boston Celtics logo. The problem? It’s not a minimal, modern logo; it’s a detailed, hand-drawn image from 1946.
+
+The starting issue was getting a 3D printable model of the logo. I spent about 30 minutes trying to model it in CAD, checked my progress, and was less than a quarter done. Instead, I found a “coffee coaster” version of the logo online and modified the card stand base to fit a resized coaster. The CAD detour was the first clear signal that the process was broken enough to need fixing, but the problems kept coming.
+
+The next conundrum: the Celtics logo has 6 colors, but my printer could only do 4 at the time. Expanding your plastic filament palette requires upfront investment, and color matching is hard—especially when you’re partially color blind. With the prints up to that point, I could get away with a “closest” match, like teal being light or dark green depending on how it matched the rest of the print. A 4-color Celtics logo exposed me, as I had to pick three different colors, collapse them into one, and hope the intensity values (brightness) wouldn’t turn details into a puddle of mud. I was able to take the tan, gold, and dark brown and compress them into the closest color, but the intensity values never felt right. When a design uses multiple colors, you just can’t reduce the colors and expect that same image.
+
+The first print of the Celtics logo came out with the Celtic tobacco pipe totally mangled. Print resolution has an easy fix: just switch to a smaller nozzle and wait about 4x longer due to inverse square scaling of flow rate to nozzle diameter. I printed it once—nozzle clogged, there goes the margin. Tried again—another clog, there goes my inventory.
+
+According to several informative YouTube videos, the methods I tried to unclog the nozzle should have worked: using softened plastic to pull it out, pushing in precision wires to unjam, even holding the nozzle with pliers over the stove to melt it clear. One minor burn that sent a hot nozzle flying across my floor later, with the sweet smell of burnt PLA plastic wafting through my living space, I was done with the 0.2mm nozzle. I’m sure there’s some way to unclog a nozzle and change the printing process to avoid future clogging, but I wasn’t going to get it working that night. Two nozzles down and I was underwater on the sale.
+
+After these several iterations, we finally got the card stand sent out.
+
+Inspired by failures of printing the Celtic logo, the details of the system locked in: all prints used PLA from a single source known for color selection and reliability. I locked in 0.4mm nozzles for all future prints. I also upgraded my setup: a second printer would prevent any problematic or failing prints from blocking the flow, and a third AMS unit expanded from 4 to 8 colors for one of my printers. I also gained a better sense of what client designs and ideas I could reject outright, and what was going to take an unusually long time to make work.
+
+So the system worked, but hinted at a larger problem: everything in the process required me. That’s not a business, it’s a job!
+
+[image]
+
+Instead of designing unique geometry for every print, we standardized the format: a back plate, the card stopper in front to prevent the card from sliding off, and the front text. This format made the card stands into parts that were easier and faster to print, and served as a model for customers to understand what could be customized.
+
+[image]
+
+Post-Celtics print, every part of the printing process was standardized and simplified. Beyond the limitations on nozzles, colors, and new gear, I started stocking replacement parts for everything that touches plastic on the printer or could break during handling. Still, if a part like a motor broke and I needed a few days to get a new one, it wouldn’t totally stop progress.
+
+My goal was simple handling: be able to wake up in the middle of the night and move the process forward, then go right back to bed without a cortisol spike or an “oh shit, this stretches the timeline” moment. Diagnose, displace, then replace what failed.
+
+The only problem?
+
+Instead of a scalable business, I had built a part-time job that relied on me to do the work.
+
+Some steps could be automated, but design still took about an hour of my time, and rounds of revision dragged things out. I golfed down a lot of the process, but the printer still required interrupting interventions. Finally, assembly was manual, and even if all the parts could magically summon themselves, the assembly was detail-intensive labor.
+
+On the economics, things worked.
+
+At steady state:  
+\- design time earned about $25/hour  
+\- $3666 total revenue  
+\- $3352 in expenses  
+\- ~50 orders fulfilled  
+\- ~3000 hours of logged print time.
+
+The problem was what came next. After seeing everything go wrong at least once and stabilizing the system, I faced a decision: do I want 500 more orders to level up again? There wasn’t an obvious path to get help with design, automating the order process, or finding a color-capable print farm. So after raising prices once, I transitioned to large orders only (no design), and gradually wound things down.
+
+3D printing is great for making a few of something: custom toys, bespoke lab equipment, or consumable plastic parts. What it’s not great at, in this context, is scaling to volumes where economies of scale matter. In other words, it’s mostly a design business.
+
+There’s definitely a niche for custom parts and small-batch manufacturing, but the next level was a big lift away from the home business stage. I’d need significant growth in my design skills, like time investment into learning more tools like Blender. I’d also need business development to create an online storefront and build a customer base to keep the orders coming. Not to mention shipping orders. Already, I was bored of making card stands, and closing the income gap between this $25/hour side job and my software engineering career at a big tech company meant a shift in focus I couldn’t justify.
+
+[image]
+
+For now, I’m focused on being a better software engineer, printing gifts for friends and family, and trying to perfect a greyhound-sized squeaky toy: soft enough to bite and shake like prey, but durable enough to survive more than a few play sessions. I’m on iteration 10 right now, and with how often it’s “stolen” in the dog park, it’s a hit!
+
+The card stands are complete. I didn’t shut it down because the business worked, but because I understood what comes next. Sometimes a thing that doesn’t scale is just fun to do
+
+[image]
+
+*A final picture: several screenshots of the card stands in action*
+
+---
+
+## [HN-TITLE] 20. Arc Prize Foundation (YC W26) Is Hiring a Platform Engineer for ARC-AGI-4
 
 - **Source**: [link]
 - **Site**: Y Combinator
@@ -2542,25 +2554,13 @@ What We're Looking For:
 
 ---
 
-## [HN-TITLE] 20. Ben Lerner's Big Feelings
-
-- **Source**: [link]
-- **Site**: vulture.com
-- **Submitter**: prismatic (Hacker News)
-- **Submitted**: 2026-04-16 05:43 UTC (Hacker News)
-- **HN activity**: 3 points · [link]
-
-> scrape failed: readability: failed to parse input: transform: short internal buffer
-
----
-
 ## [HN-TITLE] 21. Ban the sale of precise geolocation
 
 - **Source**: [link]
 - **Site**: Default
 - **Author**: Joshua Villanueva
 - **Submitted**: 2026-04-17 14:25 UTC (Hacker News)
-- **HN activity**: 628 points · [link]
+- **HN activity**: 641 points · [link]
 - **Length**: 2.0K words (~9 min read)
 - **Language**: en
 
@@ -2664,26 +2664,67 @@ The [link] April 8 at a seminar between several French government ministries, wh
 
 ---
 
-## [HN-TITLE] 22. The Unix Executable as a Smalltalk Method [video]
+## [HN-TITLE] 22. Nintendo's Empire of Secrets with Keza MacDonald – Factually with Adam Conover
+
+- **Source**: [link]
+- **Site**: ART19
+- **Submitter**: tpoindex (Hacker News)
+- **Submitted**: 2026-04-16 16:40 UTC (Hacker News)
+- **HN activity**: 25 points · [link]
+
+> no extractable content
+
+---
+
+## [HN-TITLE] 23. Show HN: Stage – Putting humans back in control of code review
+
+- **Source**: [link]
+- **Site**: stagereview.app
+- **Submitter**: cpan22 (Hacker News)
+- **Submitted**: 2026-04-16 17:36 UTC (Hacker News)
+- **HN activity**: 106 points · [link]
+- **Language**: en
+
+Hey HN! We're Charles and Dean, and we're building Stage: a code review tool that guides you through reading a PR step by step, instead of piecing together a giant diff.
+
+Here's a demo video: [link]. You can play around with some example PRs here: [link].
+
+Teams are moving faster than ever with AI these days, but more and more engineers are merging changes that they don't really understand. The bottleneck isn't writing code anymore, it's reviewing it.
+
+We're two engineers who got frustrated with GitHub's UI for code review. As coding agents took off, we saw our PR backlog pile up faster than we could handle. Not only that, the PRs themselves were getting larger and harder to understand, and we found ourselves spending most of our time trying to build a mental model of what a PR was actually doing.
+
+We built Stage to make reviewing a PR feel more like reading chapters of a book, not an unorganized set of paragraphs. We use it every day now, not just to review each other's code but also our own, and at this point we can't really imagine going back to the old GitHub UI.
+
+What Stage does: when a PR is opened, Stage groups the changes into small, logical "chapters". These chapters get ordered in the way that makes most sense to read. For each chapter, Stage tells you what changed and specific things to double check. Once you review all the chapters, you're done reviewing the PR.
+
+You can sign in to Stage with your GitHub account and everything is synced seamlessly (commenting, approving etc.) so it fits into the workflows you're already used to.
+
+What we're not building: a code review bot like CodeRabbit or Greptile. These tools are great for catching bugs (and we use them ourselves!) but at the end of the day humans are responsible for what gets shipped. It's clear that reviewing code hasn't scaled the same way that writing did, and they (we!) need better tooling to keep up with the onslaught of AI generated code, which is only going to grow.
+
+We've had a lot of fun building this and are excited to take it further. If you're like us and are also tired of using GitHub for reviewing PRs, we'd love for you to try it out and tell us what you think!
+
+---
+
+## [HN-TITLE] 24. The Unix Executable as a Smalltalk Method [video]
 
 - **Source**: [link]
 - **Site**: YouTube
 - **Submitter**: surprisetalk (Hacker News)
 - **Submitted**: 2026-04-16 15:09 UTC (Hacker News)
-- **HN activity**: 31 points · [link]
+- **HN activity**: 32 points · [link]
 - **Language**: en
 
 > no extractable content
 
 ---
 
-## [HN-TITLE] 23. The GNU libc atanh is correctly rounded
+## [HN-TITLE] 25. The GNU libc atanh is correctly rounded
 
 - **Source**: [link]
 - **Site**: inria.hal.science
 - **Submitter**: matt\_d (Hacker News)
 - **Submitted**: 2026-04-15 01:47 UTC (Hacker News)
-- **HN activity**: 55 points · [link]
+- **HN activity**: 60 points · [link]
 - **Length**: 168 words (~1 min read)
 - **Language**: en
 
@@ -2699,13 +2740,13 @@ Please note that Anubis requires the use of modern JavaScript features that plug
 
 ---
 
-## [HN-TITLE] 24. Even "cat readme.txt" is not safe
+## [HN-TITLE] 26. Even "cat readme.txt" is not safe
 
 - **Source**: [link]
 - **Site**: Calif
 - **Author**: Calif
 - **Published**: 2026-04-17
-- **HN activity**: 108 points · [link]
+- **HN activity**: 117 points · [link]
 - **Length**: 1.0K words (~5 min read)
 - **Language**: en
 
@@ -2859,142 +2900,13 @@ No posts
 
 ---
 
-## [HN-TITLE] 25. Spending 3 months coding by hand
-
-- **Source**: [link]
-- **Site**: Miguel Conner
-- **Author**: Miguel Conner
-- **Published**: 2026-04-15
-- **HN activity**: 152 points · [link]
-- **Length**: 1.8K words (~8 min read)
-- **Language**: en
-
-[[image]](https://substackcdn.com/image/fetch/$s_!K739!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F619758e3-8a22-4eff-aa30-e86effa991cd_1536x1024.png)
-
-Brooklyn, New York. March 2026.
-
-I decided to move to Brooklyn for a coding retreat.
-
-There were some personal reasons that brought me back to the US. But rather than heading immediately back to work, I wanted to take some time to focus on coding things mostly without AI — at precisely the time when many successful programmers are saying programming is a solved problem.
-
-Given that I’m now six weeks through this retreat, I’ll also take some time to explain what I’ve been doing in that time.
-
-For the past two years, I’ve been building AI agents at Aily Labs in Barcelona alongside some super talented engineers. One of my first projects was building a web search agent we could use internally in early 2024… almost 6 months before Anthropic’s [link] article came out and a year before OpenAI’s DeepResearch came out! We were also early on Cursor, early on using LLMs to make knowledge graphs, and constantly testing out new approaches for our use cases.
-
-One of my favorite parts of working at Aily was leading a weekly journal club. I chose to present papers that described how open source LLMs were built, including DeepSeek R1, Ai2’s Olmo 3, and Meta’s Llama 3 paper. All of these helped us understand the evolving tradeoffs between training models internally or building workflows around SOTA closed models. I was already hooked on LLMs since the first time I tried them in 2023,[link] but I found my curiosity kept bringing me back to learning about how they worked and how to apply them.
-
-At the same time as I was learning about LLMs and agents, I was also using them to code. I learned that when writing code “by hand” I was actually doing two things: writing what I wanted *and* learning the code base. When I used a coding agent however, I would get exactly what I specified in my prompt, for better or worse. By this I mean that if I didn’t know what I wanted exactly, coding agents would be happy to make many assumptions for me. This almost always meant that I didn’t learn as much, and that I wouldn’t have a good grasp of the codebase.
-
-At the exact same time, coding agents helped me iterate quickly and ship software that worked well (after some dutiful testing, of course). They were also, I found, excellent tutors.
-
-Cal Newport, a computer science professor and writer of Deep Work and other popular productivity books, recently wrote about this tradeoff in a way that resonated with me. In [link], he makes an analogy between the relationship of exercise to health, and the relationship of thinking to craft:
-
-> Your writing should be your own. The strain required to craft a clear memo or report is the mental equivalent of a gym workout by an athlete; it’s not an annoyance to be eliminated but a key element of your craft.
-
-I think the same applies to writing code. At Aily, the people I worked with who were amazing programmers were in most cases also amazing users of AI. Their deeper knowledge simply gave them more leverage over this tool. In the day to day of shipping agents into production, I didn’t stop learning. But I did have a growing list of coding and computer concepts that I was always too busy to learn about.
-
-So when I needed to head back to the US, I realized it was the perfect time to focus on this at the Recurse Center.
-
-[link] (RC) is a self-directed, full-time programming retreat in Brooklyn. After an application and a coding interview, Recursers arrive with ideas for what they want to program, and then spend 6 or 12 weeks programming. One of the highlights of RC is that it is collaborative: you enter with a cohort of other programmers, many with decades of experience, and with radically different expertises. Another highlight: it’s free!
-
-Coming into RC, my goals were the following:
-
-1. **Train an LLM from scratch.** This includes pre- and post-training, and I want to do this mostly from scratch; not just fork a premade codebase but write a Transformer myself.
-2. **Get better at writing Python by hand.** I’ve been working in Python for a few years now but I know there’s still so much for me to learn. I want to get to the point where I need to reference documentation or ask LLMs as little as possible, and have good intuition for how to set up various projects.
-3. **Understand computers better.** Admittedly a broad goal, I know that computers are extremely complicated machines that operate at many levels of abstraction. Given that I never had a formal Computer Science education I want to build a better mental model of these layers and how they work together. I don’t have a super concrete plan here, but I think RC will be the perfect place for this.
-
-So how is it going?
-
-I’ve done the first assignment from [link] course, without coding help from an LLM.[link] For context, it was a 50-page assignment, but working with another Recurser, we wrote an optimized tokenizer in Python, and then built out an upgraded GPT-2 style architecture in PyTorch. We ran multiple ablations to tune hyperparameters on the Tiny Stories datasets, and then used those hyperparameters on the ~9 billion tokens of the OpenWebText dataset.
-
-[[image]](https://substackcdn.com/image/fetch/$s_!drr5!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5e936540-a7ba-4cb1-b568-325351b0746a_840x636.png)
-
-Parameter sweep of different learning rates for the 17M parameter model we wrote by hand; high learning rates lead to instability. This was on the Tiny Stories dataset, and took about an hour to train on an A100.
-
-My plan is to do the other assignments in CS336 as well: optimizing our language model, estimating and computing scaling laws, converting raw text data into pre-training data, and finally post-training a model. I’ve already started the second assignment which involves profiling GPUs and implementing FlashAttention2 in Triton. There’s a lot to do, but ideally I can run through the meat of these assignments and then post-train my own model.
-
-I’ve been writing a lot of small agents and neural networks in Python or PyTorch to practice. But by far the most helpful thing was pair programming with people who have been working in Python for 10+ years, and just watching them work or having them watch me work.
-
-For example, a nice thing I picked up from someone I pair programmed with: when this guy was writing code and didn’t quite remember the syntax or operations, he would often just quickly open up a terminal and type a super simple example to rapidly iterate. He was usually able to work it out and verify if it worked correctly in less than a minute, and he didn’t have to google anything and comb through search results or ask an LLM. This technique might seem obvious to some, but making this process muscle memory has helped me become unstuck much faster.
-
-I want to keep moving in this direction, doing simple projects or even just problems like Advent of Code while pair programming. Working with someone else live was initially a bit nerve-racking, but precisely because of this I’ve noticed a lot of progress.
-
-Here are a few examples of things I’ve done which I’d classify as helping me understand computers better:
-
-- I wrote the classic programming function fizzbuzz in BASIC on an Apple IIe computer from 1983. It was cool seeing how differently computers worked back then, for example how manual the code editing and execution process was, but also how it was basically the same.
-  
-  [[image]](https://substackcdn.com/image/fetch/$s_!FOV7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5d2fe3a4-2c42-4fb0-90bb-1f3c55fb870d_3332x4867.png)
-  
-  Tinkering with an Apple IIe.
-- One thing I’ve always felt a bit self-conscious about are my Unix/terminal skills. So I joined CTF Fridays, a weekly session devoted to working through [link] and other “war games.” These are Unix and computer security related challenges played through the terminal, with the objective of collecting passwords and leveling up. Now I have a pretty good sense for what Claude Code is trying to run on my computer!
-- One day I hand-coded a single layer perceptron I saw when flipping through an AI textbook… completely in Vim. It was especially tedious at first, but I got some pro tips from another Recurser and learned a few shortcuts. This has actually been incredibly useful now when I’m running training jobs on cloud GPUs and I need to last-minute edit files.
-- I joined a Clojure workshop given by someone who has 15+ years of experience using Clojure. The topic itself was interesting because Clojure is a functional programming language and I don’t have much experience with functional languages. The teaching methodology was also great: after a brief intro we did a round of mob programming, where we solved a problem collectively, going around the table with each person getting a minute or two to advance the solution.
-- The weekly technical presentations are great exposure to an incredible array of topics. These are a set of 5-minute talks, so they are short enough that you don’t get bored but fast enough that you can learn something meaningful. A sample of titles: “Running Rust Code”, “GPUs for Dummies”, “Typesafe APIs for Type B Personalities”, “Some Useless Agents” (this one was mine!), and more. I’ve given two so far: one on simple agent architectures, one on scaling MCP tools efficiently; and will give another this week on different ways to optimize GPUs.
-
-Even just hearing from people about their projects and careers has been incredibly valuable in helping me understand the space of problems computers can solve.
-
-Soon I’ll be shipping agents to prod and running evals with a whole new bag of tricks and skills. But for now I’ve got 6 more weeks left at RC, which I’m beginning to worry is not enough time to finish everything on my list. And it won’t be. But that’s what makes RC so great: it’s not as much about crossing everything off my list but about spending time coding.
-
-[link]
-
-Not sure if I described this before but I think the reason I was so taken aback was that a few years prior I had been living in Japan studying Japanese full time, and it was really really hard. And here was a computer model that had managed to figure it out! Even if they hallucinated or couldn’t do math correctly at the time; that was absolutely incredible to me.
-
-[link]
-
-There were 2 or 3 bugs that stumped me, and after 20 min or so of debugging I asked Claude for some advice. But most of the debugging was by hand!
-
-No posts
-
----
-
-## [HN-TITLE] 26. Show HN: Stage – Putting humans back in control of code review
-
-- **Source**: [link]
-- **Site**: stagereview.app
-- **Submitter**: cpan22 (Hacker News)
-- **Submitted**: 2026-04-16 17:36 UTC (Hacker News)
-- **HN activity**: 104 points · [link]
-- **Language**: en
-
-Hey HN! We're Charles and Dean, and we're building Stage: a code review tool that guides you through reading a PR step by step, instead of piecing together a giant diff.
-
-Here's a demo video: [link]. You can play around with some example PRs here: [link].
-
-Teams are moving faster than ever with AI these days, but more and more engineers are merging changes that they don't really understand. The bottleneck isn't writing code anymore, it's reviewing it.
-
-We're two engineers who got frustrated with GitHub's UI for code review. As coding agents took off, we saw our PR backlog pile up faster than we could handle. Not only that, the PRs themselves were getting larger and harder to understand, and we found ourselves spending most of our time trying to build a mental model of what a PR was actually doing.
-
-We built Stage to make reviewing a PR feel more like reading chapters of a book, not an unorganized set of paragraphs. We use it every day now, not just to review each other's code but also our own, and at this point we can't really imagine going back to the old GitHub UI.
-
-What Stage does: when a PR is opened, Stage groups the changes into small, logical "chapters". These chapters get ordered in the way that makes most sense to read. For each chapter, Stage tells you what changed and specific things to double check. Once you review all the chapters, you're done reviewing the PR.
-
-You can sign in to Stage with your GitHub account and everything is synced seamlessly (commenting, approving etc.) so it fits into the workflows you're already used to.
-
-What we're not building: a code review bot like CodeRabbit or Greptile. These tools are great for catching bugs (and we use them ourselves!) but at the end of the day humans are responsible for what gets shipped. It's clear that reviewing code hasn't scaled the same way that writing did, and they (we!) need better tooling to keep up with the onslaught of AI generated code, which is only going to grow.
-
-We've had a lot of fun building this and are excited to take it further. If you're like us and are also tired of using GitHub for reviewing PRs, we'd love for you to try it out and tell us what you think!
-
----
-
-## [HN-TITLE] 27. Nintendo's Empire of Secrets with Keza MacDonald – Factually with Adam Conover
-
-- **Source**: [link]
-- **Site**: ART19
-- **Submitter**: tpoindex (Hacker News)
-- **Submitted**: 2026-04-16 16:40 UTC (Hacker News)
-- **HN activity**: 20 points · [link]
-
-> no extractable content
-
----
-
-## [HN-TITLE] 28. Connie Converse was a folk-music genius. Then she vanished
+## [HN-TITLE] 27. Connie Converse was a folk-music genius. Then she vanished
 
 - **Source**: [link]
 - **Site**: BBC
 - **Author**: Thomas Hobbs
 - **Published**: 2026-04-14
-- **HN activity**: 79 points · [link]
+- **HN activity**: 80 points · [link]
 - **Length**: 2.1K words (~10 min read)
 - **Language**: en-GB
 
@@ -3100,43 +3012,13 @@ One that certainly does understand is Julia Steiner, the lead vocalist of the Ch
 
 ---
 
-## [HN-TITLE] 29. Experiment with ICEYE Open Data
-
-- **Source**: [link]
-- **Site**: iceye.com
-- **Submitter**: marklit (Hacker News)
-- **Submitted**: 2026-04-17 14:37 UTC (Hacker News)
-- **HN activity**: 107 points · [link]
-- **Length**: 100 words (~1 min read)
-- **Language**: en
-
-[[image]](https://iceye-open-data-catalog.s3.amazonaws.com/stac-items/summary/iceye-open-sar-data-thumbnails-map.html)
-
-### Open SAR Data Map Browser
-
-Browse available datasets on an interactive map. Filter by location, imaging mode, and acquisition date to find imagery relevant to your research area.
-
-[[image]](https://radiantearth.github.io/stac-browser/#/external/iceye-open-data-catalog.s3.amazonaws.com/catalog.json?.language=en)
-
-### Open SAR Data STAC Browser
-
-Search and access ICEYE open data through the SpatioTemporal Asset Catalog (STAC). The STAC browser lets you query metadata, preview acquisitions, and download individual assets in standard geospatial formats including SLC, GRD, and COG.
-
-[[image]](https://registry.opendata.aws/iceye-opendata/)
-
-### Open SAR AWS Data Exchange
-
-Access the ICEYE open data archive through the AWS Registry of Open Data. Pull datasets directly into your cloud workflows using standard S3 tools, with no authentication required.
-
----
-
-## [HN-TITLE] 30. Healthchecks.io now uses self-hosted object storage
+## [HN-TITLE] 28. Healthchecks.io now uses self-hosted object storage
 
 - **Source**: [link]
 - **Site**: Healthchecks.io
 - **Author**: Pēteris Caune
 - **Published**: 2026-04-17
-- **HN activity**: 151 points · [link]
+- **HN activity**: 152 points · [link]
 - **Length**: 1.1K words (~5 min read)
 - **Language**: en-US
 
@@ -3216,4 +3098,122 @@ I am cautiously optimistic about the new system, and I think it is an improvemen
 
 Thanks for reading, and happy monitoring,  
 –Pēteris
+
+---
+
+## [HN-TITLE] 29. Experiment with ICEYE Open Data
+
+- **Source**: [link]
+- **Site**: iceye.com
+- **Submitter**: marklit (Hacker News)
+- **Submitted**: 2026-04-17 14:37 UTC (Hacker News)
+- **HN activity**: 108 points · [link]
+- **Length**: 100 words (~1 min read)
+- **Language**: en
+
+[[image]](https://iceye-open-data-catalog.s3.amazonaws.com/stac-items/summary/iceye-open-sar-data-thumbnails-map.html)
+
+### Open SAR Data Map Browser
+
+Browse available datasets on an interactive map. Filter by location, imaging mode, and acquisition date to find imagery relevant to your research area.
+
+[[image]](https://radiantearth.github.io/stac-browser/#/external/iceye-open-data-catalog.s3.amazonaws.com/catalog.json?.language=en)
+
+### Open SAR Data STAC Browser
+
+Search and access ICEYE open data through the SpatioTemporal Asset Catalog (STAC). The STAC browser lets you query metadata, preview acquisitions, and download individual assets in standard geospatial formats including SLC, GRD, and COG.
+
+[[image]](https://registry.opendata.aws/iceye-opendata/)
+
+### Open SAR AWS Data Exchange
+
+Access the ICEYE open data archive through the AWS Registry of Open Data. Pull datasets directly into your cloud workflows using standard S3 tools, with no authentication required.
+
+---
+
+## [HN-TITLE] 30. Spending 3 months coding by hand
+
+- **Source**: [link]
+- **Site**: Miguel Conner
+- **Author**: Miguel Conner
+- **Published**: 2026-04-15
+- **HN activity**: 157 points · [link]
+- **Length**: 1.8K words (~8 min read)
+- **Language**: en
+
+[[image]](https://substackcdn.com/image/fetch/$s_!K739!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F619758e3-8a22-4eff-aa30-e86effa991cd_1536x1024.png)
+
+Brooklyn, New York. March 2026.
+
+I decided to move to Brooklyn for a coding retreat.
+
+There were some personal reasons that brought me back to the US. But rather than heading immediately back to work, I wanted to take some time to focus on coding things mostly without AI — at precisely the time when many successful programmers are saying programming is a solved problem.
+
+Given that I’m now six weeks through this retreat, I’ll also take some time to explain what I’ve been doing in that time.
+
+For the past two years, I’ve been building AI agents at Aily Labs in Barcelona alongside some super talented engineers. One of my first projects was building a web search agent we could use internally in early 2024… almost 6 months before Anthropic’s [link] article came out and a year before OpenAI’s DeepResearch came out! We were also early on Cursor, early on using LLMs to make knowledge graphs, and constantly testing out new approaches for our use cases.
+
+One of my favorite parts of working at Aily was leading a weekly journal club. I chose to present papers that described how open source LLMs were built, including DeepSeek R1, Ai2’s Olmo 3, and Meta’s Llama 3 paper. All of these helped us understand the evolving tradeoffs between training models internally or building workflows around SOTA closed models. I was already hooked on LLMs since the first time I tried them in 2023,[link] but I found my curiosity kept bringing me back to learning about how they worked and how to apply them.
+
+At the same time as I was learning about LLMs and agents, I was also using them to code. I learned that when writing code “by hand” I was actually doing two things: writing what I wanted *and* learning the code base. When I used a coding agent however, I would get exactly what I specified in my prompt, for better or worse. By this I mean that if I didn’t know what I wanted exactly, coding agents would be happy to make many assumptions for me. This almost always meant that I didn’t learn as much, and that I wouldn’t have a good grasp of the codebase.
+
+At the exact same time, coding agents helped me iterate quickly and ship software that worked well (after some dutiful testing, of course). They were also, I found, excellent tutors.
+
+Cal Newport, a computer science professor and writer of Deep Work and other popular productivity books, recently wrote about this tradeoff in a way that resonated with me. In [link], he makes an analogy between the relationship of exercise to health, and the relationship of thinking to craft:
+
+> Your writing should be your own. The strain required to craft a clear memo or report is the mental equivalent of a gym workout by an athlete; it’s not an annoyance to be eliminated but a key element of your craft.
+
+I think the same applies to writing code. At Aily, the people I worked with who were amazing programmers were in most cases also amazing users of AI. Their deeper knowledge simply gave them more leverage over this tool. In the day to day of shipping agents into production, I didn’t stop learning. But I did have a growing list of coding and computer concepts that I was always too busy to learn about.
+
+So when I needed to head back to the US, I realized it was the perfect time to focus on this at the Recurse Center.
+
+[link] (RC) is a self-directed, full-time programming retreat in Brooklyn. After an application and a coding interview, Recursers arrive with ideas for what they want to program, and then spend 6 or 12 weeks programming. One of the highlights of RC is that it is collaborative: you enter with a cohort of other programmers, many with decades of experience, and with radically different expertises. Another highlight: it’s free!
+
+Coming into RC, my goals were the following:
+
+1. **Train an LLM from scratch.** This includes pre- and post-training, and I want to do this mostly from scratch; not just fork a premade codebase but write a Transformer myself.
+2. **Get better at writing Python by hand.** I’ve been working in Python for a few years now but I know there’s still so much for me to learn. I want to get to the point where I need to reference documentation or ask LLMs as little as possible, and have good intuition for how to set up various projects.
+3. **Understand computers better.** Admittedly a broad goal, I know that computers are extremely complicated machines that operate at many levels of abstraction. Given that I never had a formal Computer Science education I want to build a better mental model of these layers and how they work together. I don’t have a super concrete plan here, but I think RC will be the perfect place for this.
+
+So how is it going?
+
+I’ve done the first assignment from [link] course, without coding help from an LLM.[link] For context, it was a 50-page assignment, but working with another Recurser, we wrote an optimized tokenizer in Python, and then built out an upgraded GPT-2 style architecture in PyTorch. We ran multiple ablations to tune hyperparameters on the Tiny Stories datasets, and then used those hyperparameters on the ~9 billion tokens of the OpenWebText dataset.
+
+[[image]](https://substackcdn.com/image/fetch/$s_!drr5!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5e936540-a7ba-4cb1-b568-325351b0746a_840x636.png)
+
+Parameter sweep of different learning rates for the 17M parameter model we wrote by hand; high learning rates lead to instability. This was on the Tiny Stories dataset, and took about an hour to train on an A100.
+
+My plan is to do the other assignments in CS336 as well: optimizing our language model, estimating and computing scaling laws, converting raw text data into pre-training data, and finally post-training a model. I’ve already started the second assignment which involves profiling GPUs and implementing FlashAttention2 in Triton. There’s a lot to do, but ideally I can run through the meat of these assignments and then post-train my own model.
+
+I’ve been writing a lot of small agents and neural networks in Python or PyTorch to practice. But by far the most helpful thing was pair programming with people who have been working in Python for 10+ years, and just watching them work or having them watch me work.
+
+For example, a nice thing I picked up from someone I pair programmed with: when this guy was writing code and didn’t quite remember the syntax or operations, he would often just quickly open up a terminal and type a super simple example to rapidly iterate. He was usually able to work it out and verify if it worked correctly in less than a minute, and he didn’t have to google anything and comb through search results or ask an LLM. This technique might seem obvious to some, but making this process muscle memory has helped me become unstuck much faster.
+
+I want to keep moving in this direction, doing simple projects or even just problems like Advent of Code while pair programming. Working with someone else live was initially a bit nerve-racking, but precisely because of this I’ve noticed a lot of progress.
+
+Here are a few examples of things I’ve done which I’d classify as helping me understand computers better:
+
+- I wrote the classic programming function fizzbuzz in BASIC on an Apple IIe computer from 1983. It was cool seeing how differently computers worked back then, for example how manual the code editing and execution process was, but also how it was basically the same.
+  
+  [[image]](https://substackcdn.com/image/fetch/$s_!FOV7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5d2fe3a4-2c42-4fb0-90bb-1f3c55fb870d_3332x4867.png)
+  
+  Tinkering with an Apple IIe.
+- One thing I’ve always felt a bit self-conscious about are my Unix/terminal skills. So I joined CTF Fridays, a weekly session devoted to working through [link] and other “war games.” These are Unix and computer security related challenges played through the terminal, with the objective of collecting passwords and leveling up. Now I have a pretty good sense for what Claude Code is trying to run on my computer!
+- One day I hand-coded a single layer perceptron I saw when flipping through an AI textbook… completely in Vim. It was especially tedious at first, but I got some pro tips from another Recurser and learned a few shortcuts. This has actually been incredibly useful now when I’m running training jobs on cloud GPUs and I need to last-minute edit files.
+- I joined a Clojure workshop given by someone who has 15+ years of experience using Clojure. The topic itself was interesting because Clojure is a functional programming language and I don’t have much experience with functional languages. The teaching methodology was also great: after a brief intro we did a round of mob programming, where we solved a problem collectively, going around the table with each person getting a minute or two to advance the solution.
+- The weekly technical presentations are great exposure to an incredible array of topics. These are a set of 5-minute talks, so they are short enough that you don’t get bored but fast enough that you can learn something meaningful. A sample of titles: “Running Rust Code”, “GPUs for Dummies”, “Typesafe APIs for Type B Personalities”, “Some Useless Agents” (this one was mine!), and more. I’ve given two so far: one on simple agent architectures, one on scaling MCP tools efficiently; and will give another this week on different ways to optimize GPUs.
+
+Even just hearing from people about their projects and careers has been incredibly valuable in helping me understand the space of problems computers can solve.
+
+Soon I’ll be shipping agents to prod and running evals with a whole new bag of tricks and skills. But for now I’ve got 6 more weeks left at RC, which I’m beginning to worry is not enough time to finish everything on my list. And it won’t be. But that’s what makes RC so great: it’s not as much about crossing everything off my list but about spending time coding.
+
+[link]
+
+Not sure if I described this before but I think the reason I was so taken aback was that a few years prior I had been living in Japan studying Japanese full time, and it was really really hard. And here was a computer model that had managed to figure it out! Even if they hallucinated or couldn’t do math correctly at the time; that was absolutely incredible to me.
+
+[link]
+
+There were 2 or 3 bugs that stumped me, and after 20 min or so of debugging I asked Claude for some advice. But most of the debugging was by hand!
+
+No posts
 
