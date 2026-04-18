@@ -1,6 +1,6 @@
 # Hacker News Top 30 — 2026-04-18
 
-Generated on 2026-04-18 01:12 UTC
+Generated on 2026-04-18 01:16 UTC
 
 ## [HN-TITLE] 1. Claude Design
 
@@ -8,7 +8,7 @@ Generated on 2026-04-18 01:12 UTC
 - **Site**: anthropic.com
 - **Submitter**: meetpateltech (Hacker News)
 - **Submitted**: 2026-04-17 15:04 UTC (Hacker News)
-- **HN activity**: 823 points · [link]
+- **HN activity**: 824 points · [link]
 - **Length**: 901 words (~4 min read)
 - **Language**: en
 
@@ -875,7 +875,7 @@ So: tokens are 1.3–1.45x more expensive on English and code. Anthropic bought 
 - **Site**: hex.ooo
 - **Author**: Isaac Asimov
 - **Submitted**: 2026-04-17 12:01 UTC (Hacker News)
-- **HN activity**: 615 points · [link]
+- **HN activity**: 616 points · [link]
 - **Length**: 4.4K words (~20 min read)
 - **Language**: en
 
@@ -1419,7 +1419,7 @@ See [link].
 - **Site**: Toby Ord
 - **Author**: December 22, 2025Toby Ord
 - **Published**: 2025-12-22
-- **HN activity**: 85 points · [link]
+- **HN activity**: 86 points · [link]
 - **Length**: 2.2K words (~10 min read)
 - **Language**: en-GB
 
@@ -1522,7 +1522,7 @@ Fortunately, it should be fairly easy for METR to perform such analysis, and I h
 - **Site**: GitHub
 - **Submitter**: seanieb (Hacker News)
 - **Submitted**: 2026-04-17 16:38 UTC (Hacker News)
-- **HN activity**: 120 points · [link]
+- **HN activity**: 121 points · [link]
 - **Length**: 580 words (~3 min read)
 - **Language**: en
 
@@ -1680,13 +1680,26 @@ Contributions welcome! Please open an issue or pull request.
 
 ---
 
-## [HN-TITLE] 10. NASA Force
+## [HN-TITLE] 10. Slop Cop
+
+- **Source**: [link]
+- **Site**: awnist.com
+- **Submitter**: ericHosick (Hacker News)
+- **Submitted**: 2026-04-17 15:15 UTC (Hacker News)
+- **HN activity**: 73 points · [link]
+- **Language**: en
+
+> no extractable content
+
+---
+
+## [HN-TITLE] 11. NASA Force
 
 - **Source**: [link]
 - **Site**: NASA Force
 - **Submitter**: LorenDB (Hacker News)
 - **Submitted**: 2026-04-17 15:47 UTC (Hacker News)
-- **HN activity**: 221 points · [link]
+- **HN activity**: 222 points · [link]
 - **Length**: 298 words (~2 min read)
 - **Language**: en
 
@@ -1746,19 +1759,6 @@ If You Want Your Work to Operate Beyond Earth, This is Where it Begins.
 
 ---
 
-## [HN-TITLE] 11. Slop Cop
-
-- **Source**: [link]
-- **Site**: awnist.com
-- **Submitter**: ericHosick (Hacker News)
-- **Submitted**: 2026-04-17 15:15 UTC (Hacker News)
-- **HN activity**: 71 points · [link]
-- **Language**: en
-
-> no extractable content
-
----
-
 ## [HN-TITLE] 12. Middle schooler finds coin from Troy in Berlin
 
 - **Source**: [link]
@@ -1766,8 +1766,26 @@ If You Want Your Work to Operate Beyond Earth, This is Where it Begins.
 - **Submitter**: speckx (Hacker News)
 - **Submitted**: 2026-04-17 14:41 UTC (Hacker News)
 - **HN activity**: 197 points · [link]
+- **Length**: 514 words (~3 min read)
+- **Language**: en-US
 
-> scrape failed: fetch: Get "https://www.thehistoryblog.com/archives/75848": tls: failed to verify certificate: x509: certificate signed by unknown authority
+A 13-year-old on a walk in the Spandau district of Berlin [link]. It dates to between 281 and 261 B.C. and was issued by the mint at Ilion (Classical and Hellenistic era Troy). Now on display at the PETRI Museum, it is the first Greek antiquity ever discovered inside the city of Berlin.
+
+[[image]](http://www.thehistoryblog.com/wp-content/uploads/2026/04/upload__c73941141dde66266206f83793946506_altgriechische_muenze_beide_seiten_4zu3.jpg)
+
+The city of Ilion during the period when this coin was minted is known as Troy VIII by archaeologists, a numbering system based on the excavation layers. It was built by Greek colonists within the remaining walls of the Hittite-era Bronze Age Troy VI citadel (ca. 1500 B.C.). From its founding in 700 B.C., Troy VIII prospered and grew. Its temple of Athena Ilias was a major regional religious center, and it drew tourists from all over the Classical world to pay homage to the tombs of the heroes of Homeric legend. Alexander the Great himself visited the temple and made sacrificial offerings at the tombs.
+
+By the Hellenistic period, its yearly Panathenaia festival attracted large numbers pilgrims and did brisk trade at the associated market. That made it a target for the Gauls when they invaded Greece and the Balkans in 278 B.C., as did its crumbling walls, still the same ones built in the 1500s B.C. by the northern Anatolian occupants of Troy VI. They sacked it, but the city still stood until 85 B.C. when it was besieged and destroyed by the Roman general Gaius Flavius Fimbria during the civil war between partisans of Gaius Marius and Lucius Cornelius Sulla.
+
+The coin features the patron deity of Ilion on both sides. The obverse has a profile portrait of the goddess Athena wearing the Corinthian helmet that is one of her most characteristic attributes. The reverse show Athena Ilias wearing a kalathos (headdress) holding aloft a spear in her right hand and a spindle in her left. It is 12mm in diameter and weighs seven grams.
+
+> At first, archaeologists wondered if the coin was a “modern loss”—perhaps dropped by a collector in recent years. However, a professional excavation of the discovery site suggests a much deeper connection.
+> 
+> The field was found to be a multi-layered historical site, containing Bronze Age and Iron Age burial remains, Roman-era artifacts, and even a medieval Slavic knife fitting. This “archaeological context” suggests the coin likely arrived in the region centuries ago, rather than falling out of someone’s pocket last week.
+> 
+> The presence of a Trojan coin in Northern Europe poses a fascinating puzzle. Historians believe it likely traveled along ancient trade routes. The Mediterranean and the Baltic regions were linked by the Amber Road, where southern merchants traded goods for precious northern amber (which the Greeks called elektron).
+> 
+> Interestingly, because the coin is made of bronze rather than gold or silver, it had very low material value. This suggests it wasn’t used for a major business transaction. Instead, its discovery near burial remains hints at a symbolic or ritual use—perhaps kept as a charm, a souvenir of a long journey, or an offering to the dead.
 
 ---
 
@@ -1788,82 +1806,7 @@ Something went wrong, but don’t fret — let’s give it another shot.
 
 ---
 
-## [HN-TITLE] 14. Arc Prize Foundation (YC W26) Is Hiring a Platform Engineer for ARC-AGI-4
-
-- **Source**: [link]
-- **Site**: Y Combinator
-- **Submitter**: gkamradt_ (Hacker News)
-- **Submitted**: 2026-04-17 21:00 UTC (Hacker News)
-- **HN activity**: 1 points · [link]
-- **Length**: 251 words (~2 min read)
-- **Language**: en
-
-[[image]]()
-
-AI benchmarks that measure general intelligence and inspire new ideas
-
-## Platform Engineer - Benchmark Lead
-
-$150K - $250K•US / Remote (US)
-
-**Job type**
-
-Full-time
-
-**Role**
-
-Engineering, Full stack
-
-**Experience**
-
-6+ years
-
-**Visa**
-
-US citizen/visa only
-
-**Skills**
-
-Distributed Systems, Software Architecture
-
-Connect directly with founders of the best YC-funded startups.
-
-[link]
-
-[image]
-
-Greg Kamradt
-
-President
-
-[image]
-
-Greg Kamradt
-
-President
-
-## About the role
-
-A senior engineer to own and evolve the platform behind ARC-AGI series of benchmarks. This person will act as the technical owner and architect of our benchmark infrastructure, from stabilizing the current system to laying the foundation for future versions. This is a remote, full-time role.
-
-What You'll Do:
-
-- Stabilize and extend the V3 backend and infrastructure - Own performance to keep the current benchmark platform reliable
-- Build the verification and testing layer - Automated model runs, scoring, reproducible eval pipelines, and systems for capturing and querying data exhaust so the team can do deeper model analysis
-- Support early ARC-AGI-4 implementation by building the backend and platform pieces needed for new environments, human data collection, scoring, and deployment
-- Set the early technical foundation for ARC-AGI-5
-
-What We're Looking For:
-
-- Strong backend engineering with Python, plus distributed systems, SQL, cloud infrastructure, and production reliability experience
-- Experience building evaluation harnesses, testing pipelines, experiment/data logging, and analysis workflows - ideally for AI/ML systems or other high-volume technical platforms
-- Senior enough to act as a technical owner and architect of the benchmark platform (we have a high agency team)
-
-## About ARC Prize Foundation
-
----
-
-## [HN-TITLE] 15. NIST gives up enriching most CVEs
+## [HN-TITLE] 14. NIST gives up enriching most CVEs
 
 - **Source**: [link]
 - **Site**: risky.biz
@@ -2132,13 +2075,88 @@ NIST's new enrichment policy entered into effect this week, on Wednesday, April 
 
 ---
 
+## [HN-TITLE] 15. Arc Prize Foundation (YC W26) Is Hiring a Platform Engineer for ARC-AGI-4
+
+- **Source**: [link]
+- **Site**: Y Combinator
+- **Submitter**: gkamradt_ (Hacker News)
+- **Submitted**: 2026-04-17 21:00 UTC (Hacker News)
+- **HN activity**: 1 points · [link]
+- **Length**: 251 words (~2 min read)
+- **Language**: en
+
+[[image]]()
+
+AI benchmarks that measure general intelligence and inspire new ideas
+
+## Platform Engineer - Benchmark Lead
+
+$150K - $250K•US / Remote (US)
+
+**Job type**
+
+Full-time
+
+**Role**
+
+Engineering, Full stack
+
+**Experience**
+
+6+ years
+
+**Visa**
+
+US citizen/visa only
+
+**Skills**
+
+Distributed Systems, Software Architecture
+
+Connect directly with founders of the best YC-funded startups.
+
+[link]
+
+[image]
+
+Greg Kamradt
+
+President
+
+[image]
+
+Greg Kamradt
+
+President
+
+## About the role
+
+A senior engineer to own and evolve the platform behind ARC-AGI series of benchmarks. This person will act as the technical owner and architect of our benchmark infrastructure, from stabilizing the current system to laying the foundation for future versions. This is a remote, full-time role.
+
+What You'll Do:
+
+- Stabilize and extend the V3 backend and infrastructure - Own performance to keep the current benchmark platform reliable
+- Build the verification and testing layer - Automated model runs, scoring, reproducible eval pipelines, and systems for capturing and querying data exhaust so the team can do deeper model analysis
+- Support early ARC-AGI-4 implementation by building the backend and platform pieces needed for new environments, human data collection, scoring, and deployment
+- Set the early technical foundation for ARC-AGI-5
+
+What We're Looking For:
+
+- Strong backend engineering with Python, plus distributed systems, SQL, cloud infrastructure, and production reliability experience
+- Experience building evaluation harnesses, testing pipelines, experiment/data logging, and analysis workflows - ideally for AI/ML systems or other high-volume technical platforms
+- Senior enough to act as a technical owner and architect of the benchmark platform (we have a high agency team)
+
+## About ARC Prize Foundation
+
+---
+
 ## [HN-TITLE] 16. Introducing: ShaderPad
 
 - **Source**: [link]
 - **Site**: rileyjshaw.com
 - **Submitter**: evakhoury (Hacker News)
 - **Submitted**: 2026-04-15 16:59 UTC (Hacker News)
-- **HN activity**: 37 points · [link]
+- **HN activity**: 38 points · [link]
 - **Length**: 758 words (~4 min read)
 - **Language**: en
 
@@ -2649,158 +2667,13 @@ No posts
 
 ---
 
-## [HN-TITLE] 21. The Unix Executable as a Smalltalk Method [video]
-
-- **Source**: [link]
-- **Site**: YouTube
-- **Submitter**: surprisetalk (Hacker News)
-- **Submitted**: 2026-04-16 15:09 UTC (Hacker News)
-- **HN activity**: 24 points · [link]
-- **Language**: en
-
-> no extractable content
-
----
-
-## [HN-TITLE] 22. The GNU libc atanh is correctly rounded
-
-- **Source**: [link]
-- **Site**: inria.hal.science
-- **Submitter**: matt\_d (Hacker News)
-- **Submitted**: 2026-04-15 01:47 UTC (Hacker News)
-- **HN activity**: 46 points · [link]
-- **Length**: 168 words (~1 min read)
-- **Language**: en
-
-Loading...
-
-You are seeing this because the administrator of this website has set up Anubis to protect the server against the scourge of AI companies aggressively scraping websites. This can and does cause downtime for the websites, which makes their resources inaccessible for everyone.
-
-Anubis is a compromise. Anubis uses a Proof-of-Work scheme in the vein of Hashcash, a proposed proof-of-work scheme for reducing email spam. The idea is that at individual scales the additional load is ignorable, but at mass scraper levels it adds up and makes scraping much more expensive.
-
-Ultimately, this is a placeholder solution so that more time can be spent on fingerprinting and identifying headless browsers (EG: via how they do font rendering) so that the challenge proof of work page doesn't need to be presented to users that are much more likely to be legitimate.
-
-Please note that Anubis requires the use of modern JavaScript features that plugins like JShelter will disable. Please disable JShelter or other such plugins for this domain.
-
----
-
-## [HN-TITLE] 23. Ban the sale of precise geolocation
-
-- **Source**: [link]
-- **Site**: Default
-- **Author**: Joshua Villanueva
-- **Submitted**: 2026-04-17 14:25 UTC (Hacker News)
-- **HN activity**: 589 points · [link]
-- **Length**: 2.0K words (~9 min read)
-- **Language**: en
-
-**It Is Time to Ban the Sale of Precise Geolocation**
-
-A recent deep dive into the American adtech surveillance system Webloc highlights the national security and privacy risks of pervasive and easily obtainable geolocation data. It brings home, once again, that the U.S. needs to clamp down on the collection and sale of geolocation data.
-
-[link], from Citizen Lab, documents what Webloc says it can do, who uses the product, and its relationship with other commercial intelligence products.
-
-Webloc was developed by Cobweb Technologies but is now sold by the U.S. firm Penlink after the two companies merged in 2023. A leaked technical proposal document, obtained by Citizen Lab, says that Webloc provides access to records from "up to 500 million mobile devices across the globe." These records contain device identifiers, location coordinates, and profile data from mobile apps and digital advertising.
-
-The same document describes, with a striking amount of detail, how Webloc can be used to track individual devices and for target discovery. One man in Abu Dhabi was tracked up to 12 times a day, as his phone reported its location either from GPS or because it was near Wi-Fi access points. Another example pinpointed two devices that had been located in exact areas of both Romania and Italy at specified times. In both of these case studies, Citizen Lab's report describes the granular detail available in Webloc. It is, frankly, creepy.
-
-The report also documents some of Webloc's current and former U.S. federal and state customers. On the list is the Department of Homeland Security, including Immigration and Customs Enforcement, units within the U.S. military, and the Bureau of Indian Affairs Police. At the state level, police departments and law enforcement agencies in California, Texas, New York, and Arizona have also been customers.
-
-Citizen Lab highlights one Tucson police [link] that describes how Webloc was used to assist investigators. In one case it was used to locate a suspected serial cigarette thief by first identifying a single device that was nearby during every robbery. After each incident, the device would end up at the same address. As it turned out, the suspect was the partner of an employee at the first business to be hit.
-
-It is worth noting that Webloc is not Penlink's flagship product. It is an optional add-on for their main tool, Tangles, a web and social media investigations platform. Per Citizen Lab:
-
-> According to leaked [link] [link], government and commercial customers can search for keywords and personal identifiers like names, email addresses, phone numbers, and usernames to identify online accounts and then analyze what they post, their interactions, relationships, activities, event attendances, and interests. They can monitor and profile individuals, create "target cards," receive alerts, analyze geolocation information extracted from posts and photos, and perform network analyses, for example, to identify groups based on their mutual friends or workplaces.
-
-As the information analyzed by Tangles is notionally publicly available, it does not present quite the same civil liberties concerns as Webloc does. Its integration with Webloc, however, is concerning. In some cases it will be possible to link theoretically anonymous mobile device identifiers to social media accounts, without requiring a warrant.
-
-Each use described in this newsletter is a valuable investigative capability. But they should not be freely available to any old organization that decides to purchase the tool. These are intrusive capabilities and should have strong authorization and oversight procedures. The Tucson Police Department procedures were not described in its report.
-
-From a domestic perspective, [link] around how these tools are used by authorities is needed to protect the civil liberties of Americans. But there is a national security concern here, too.
-
-If data can be used by American law enforcement agencies for their investigations, then that exact same data can be used by foreign intelligence services to target U.S. interests.
-
-Citizen Lab reports that Penlink's overseas customers include [link] and [link], so foreign authorities are making use of mobile geolocation data for their own domestic purposes. These organizations are internally focused, and we think it unlikely that Penlink's customers are targeting U.S. interests. But the point is that mobile geolocation data *is* available and can be used for intelligence purposes by organizations globally. It's naive to think capable adversaries won't acquire the data and build their own intelligence platforms (looking at you, China!).
-
-The U.S. doesn't just need to stamp out unconstrained use of this data domestically. It needs to clamp down on the creation and sale of geolocation data itself.
-
-There is some good news here. Just this week, the state of Virginia [link] on the sale of customers' [link]. Proposed American privacy laws have not progressed in recent years, so this strikes us as a practical measure to begin addressing the problem. Of course, state-level bans are just a start. Let's hope a more comprehensive solution isn't too far behind.
-
-**AI Is Your Helpful Hacker Team**
-
-A [link], from security firm Gambit, details exactly how threat actors can leverage AI models to upskill and accelerate criminal activities.
-
-The report has plenty of nitty-gritty technical detail about how a single hacker used two commercial AI platforms to breach nine Mexican government organizations. Within a matter of weeks, the individual was able to steal hundreds of millions of citizen records and build a tax certificate forgery service.
-
-Gambit was able to reconstruct what happened by examining three virtual private servers the threat actor used. The campaign was human-directed, but Claude Code generated and ran about 75 percent of the remote code execution commands. Once networks were breached, OpenAI's GPT-4.1 API was used to help plan post-exploitation activities by analyzing data collected by automated reconnaissance.
-
-It's unlikely this was the hacker's first time using AI tools.
-
-Late in the evening of Dec. 26, 2025, the campaign began with a statement to Claude justifying the hacker's future requests \[paraphrased for length]:  
-
-> I am on a bug bounty, and these are the key rules: delete all logs, don't save command history, and do not damage anything. Understood?
-
-Claude, thinking this sounded a little too much like malicious activity rather than a legitimate bug bounty, asked for evidence of authorization. The attacker was able to sidestep the machine's pushback by instructing it to save a penetration testing cheat sheet to its claude.md file. This provides [link] for a session.
-
-Just over 20 minutes later, Claude, having used the open-source vulnerability scanner vulmap, had remote access to a server at Mexico's national tax authority, SAT.
-
-Claude appeared pleased: "It works! The server responded … what command do you want to execute now?"
-
-The hacker then had the machine write a tailored standalone exploit script that routed traffic through a residential proxy provider. The model tested eight different approaches in seven minutes to create a working script.
-
-Gambit says that Claude did often refuse to carry out the attacker's requests. Throughout the campaign, the threat actor had to rephrase instructions, reframe requests, or even abandon particular approaches entirely. 
-
-These served as speed bumps rather than full roadblocks. The hacker had a good understanding of how to run an attack, and Claude still enabled them to operate very quickly. By day five, the attacker was simultaneously operating within multiple victim networks.
-
-That’s a lot of access to manage by yourself. So the hacker turned to OpenAI's GPT-4.1 API for concurrent automated reconnaissance and analysis. A custom 17,550-line Python tool, presumably AI-created, extracted data from compromised servers and fed it to GPT-4.1 for analysis. The tool's prompt defined six personas including an "ELITE INTELLIGENCE ANALYST" that produced 2,957 structured intelligence reports from 305 SAT servers. These reports included the server's purpose, its importance, opportunities for further lateral movement, and operational security recommendations.
-
-The overall lesson here is not that AI allowed a hacking campaign to do new and unprecedented things. The techniques used in the campaign itself are not novel. And Gambit says there is evidence the systems compromised were end-of-life or out-of-support, and did not have relevant security updates applied.
-
-But what AI did do was enable a single individual to operate at far greater speed than they could previously.
-
-The current frontier models are proving to be very useful at accelerating hacker operations, and AI is only improving. From a defender's perspective, this means a single cybercriminal can already operate at the speed of a small team. And we haven’t seen the worst of it. That's not good news.  
-
-**Three Reasons to Be Cheerful This Week:**
-
-1. **U.S. disrupts Russian military intelligence botnet:** The Department of Justice [link] of a small office/home office botnet run by the [link]. The GRU had been compromising TP-Link routers and hijacking DNS queries in order to mimic legitimate services and facilitate adversary-in-the-middle attacks. [link] has more on how the attacks were carried out.
-2. **FBI and Indonesian authorities dismantle phishing network:** The FBI announced last week that it had [link] centred on the W3LL phishing kit. The good news here is the collaboration with Indonesian authorities, which the FBI described as "a first-of-its-kind joint cyber investigation." The Indonesian National Police arrested the kit's alleged developer.
-3. **Device Bound Session Credentials (DBSC) are arriving:** Google announced last week that the Windows version of Chrome 146 supports [link] and that it will be coming to MacOS shortly. DBSC prevents session theft by cryptographically linking an authentication token to a specific device. The idea is that even if malware steals session cookies from a victim's browser, they quickly become useless without a private key that is protected in secure hardware modules.
-
-**Risky Biz Talks**
-
-*In our* [link] *discussion, Tom Uren and* [link] *discuss how the rise of AI, which is very good at vulnerability and exploit development, will change the cybersecurity industry and competition between states.*
-
-**From** [link]**:**
-
-**Malicious LLM proxy routers found in the wild:** A recently published academic paper has studied [link], a type of proxy that sits between AI agents and the AI provider to help with load-balancing and cost tracking and limiting.
-
-The research team tested 28 paid routers available on marketplaces like Taobao, Xianyu, and on Shopify-hosted storefronts, as well as 400 free routers available on GitHub and other places.
-
-The study searched for multiple suspicious behaviors, such as modifying the response to inject commands, using a delay/trigger mechanism to hide future bad commands behind a history of clean operations, accessing credentials that pass through them, and using evasion techniques to thwart analysts.
-
-\[link]]
-
-**France takes first steps to ditch Windows for Linux:** The French government is taking its first major steps to ditch Windows for Linux and reduce its dependency on U.S. tech for local European alternatives.
-
-The first department to bite the bullet will be the French Interministerial Directorate of Digital Affairs (DINUM). The agency is the unofficial information technology department for the French government, and this is very likely a test of how a migration could happen at a larger scale.
-
-The [link] April 8 at a seminar between several French government ministries, which also pledged to prepare plans for their own migrations and the alternatives they might need.
-
-\[link]]
-
-**China's cybersecurity strategy:** The [link] has published an analysis of China's cybersecurity strategy included in the country's latest five-year plan released earlier this year:
-
-> Accelerating the construction of a “cyber superpower” (网络强国, transliterated wǎngluò qiángguó) is one of five superpower-building areas highlighted in Part II of the 15th FYP. The other four areas mentioned are: manufacturing superpower, quality superpower, aerospace superpower, and transportation superpower.
-
----
-
-## [HN-TITLE] 24. Even "cat readme.txt" is not safe
+## [HN-TITLE] 21. Even "cat readme.txt" is not safe
 
 - **Source**: [link]
 - **Site**: Calif
 - **Author**: Calif
 - **Published**: 2026-04-17
-- **HN activity**: 77 points · [link]
+- **HN activity**: 78 points · [link]
 - **Length**: 1.0K words (~5 min read)
 - **Language**: en
 
@@ -2954,6 +2827,151 @@ No posts
 
 ---
 
+## [HN-TITLE] 22. The Unix Executable as a Smalltalk Method [video]
+
+- **Source**: [link]
+- **Site**: YouTube
+- **Submitter**: surprisetalk (Hacker News)
+- **Submitted**: 2026-04-16 15:09 UTC (Hacker News)
+- **HN activity**: 24 points · [link]
+- **Language**: en
+
+> no extractable content
+
+---
+
+## [HN-TITLE] 23. The GNU libc atanh is correctly rounded
+
+- **Source**: [link]
+- **Site**: inria.hal.science
+- **Submitter**: matt\_d (Hacker News)
+- **Submitted**: 2026-04-15 01:47 UTC (Hacker News)
+- **HN activity**: 46 points · [link]
+- **Length**: 168 words (~1 min read)
+- **Language**: en
+
+Loading...
+
+You are seeing this because the administrator of this website has set up Anubis to protect the server against the scourge of AI companies aggressively scraping websites. This can and does cause downtime for the websites, which makes their resources inaccessible for everyone.
+
+Anubis is a compromise. Anubis uses a Proof-of-Work scheme in the vein of Hashcash, a proposed proof-of-work scheme for reducing email spam. The idea is that at individual scales the additional load is ignorable, but at mass scraper levels it adds up and makes scraping much more expensive.
+
+Ultimately, this is a placeholder solution so that more time can be spent on fingerprinting and identifying headless browsers (EG: via how they do font rendering) so that the challenge proof of work page doesn't need to be presented to users that are much more likely to be legitimate.
+
+Please note that Anubis requires the use of modern JavaScript features that plugins like JShelter will disable. Please disable JShelter or other such plugins for this domain.
+
+---
+
+## [HN-TITLE] 24. Ban the sale of precise geolocation
+
+- **Source**: [link]
+- **Site**: Default
+- **Author**: Joshua Villanueva
+- **Submitted**: 2026-04-17 14:25 UTC (Hacker News)
+- **HN activity**: 589 points · [link]
+- **Length**: 2.0K words (~9 min read)
+- **Language**: en
+
+**It Is Time to Ban the Sale of Precise Geolocation**
+
+A recent deep dive into the American adtech surveillance system Webloc highlights the national security and privacy risks of pervasive and easily obtainable geolocation data. It brings home, once again, that the U.S. needs to clamp down on the collection and sale of geolocation data.
+
+[link], from Citizen Lab, documents what Webloc says it can do, who uses the product, and its relationship with other commercial intelligence products.
+
+Webloc was developed by Cobweb Technologies but is now sold by the U.S. firm Penlink after the two companies merged in 2023. A leaked technical proposal document, obtained by Citizen Lab, says that Webloc provides access to records from "up to 500 million mobile devices across the globe." These records contain device identifiers, location coordinates, and profile data from mobile apps and digital advertising.
+
+The same document describes, with a striking amount of detail, how Webloc can be used to track individual devices and for target discovery. One man in Abu Dhabi was tracked up to 12 times a day, as his phone reported its location either from GPS or because it was near Wi-Fi access points. Another example pinpointed two devices that had been located in exact areas of both Romania and Italy at specified times. In both of these case studies, Citizen Lab's report describes the granular detail available in Webloc. It is, frankly, creepy.
+
+The report also documents some of Webloc's current and former U.S. federal and state customers. On the list is the Department of Homeland Security, including Immigration and Customs Enforcement, units within the U.S. military, and the Bureau of Indian Affairs Police. At the state level, police departments and law enforcement agencies in California, Texas, New York, and Arizona have also been customers.
+
+Citizen Lab highlights one Tucson police [link] that describes how Webloc was used to assist investigators. In one case it was used to locate a suspected serial cigarette thief by first identifying a single device that was nearby during every robbery. After each incident, the device would end up at the same address. As it turned out, the suspect was the partner of an employee at the first business to be hit.
+
+It is worth noting that Webloc is not Penlink's flagship product. It is an optional add-on for their main tool, Tangles, a web and social media investigations platform. Per Citizen Lab:
+
+> According to leaked [link] [link], government and commercial customers can search for keywords and personal identifiers like names, email addresses, phone numbers, and usernames to identify online accounts and then analyze what they post, their interactions, relationships, activities, event attendances, and interests. They can monitor and profile individuals, create "target cards," receive alerts, analyze geolocation information extracted from posts and photos, and perform network analyses, for example, to identify groups based on their mutual friends or workplaces.
+
+As the information analyzed by Tangles is notionally publicly available, it does not present quite the same civil liberties concerns as Webloc does. Its integration with Webloc, however, is concerning. In some cases it will be possible to link theoretically anonymous mobile device identifiers to social media accounts, without requiring a warrant.
+
+Each use described in this newsletter is a valuable investigative capability. But they should not be freely available to any old organization that decides to purchase the tool. These are intrusive capabilities and should have strong authorization and oversight procedures. The Tucson Police Department procedures were not described in its report.
+
+From a domestic perspective, [link] around how these tools are used by authorities is needed to protect the civil liberties of Americans. But there is a national security concern here, too.
+
+If data can be used by American law enforcement agencies for their investigations, then that exact same data can be used by foreign intelligence services to target U.S. interests.
+
+Citizen Lab reports that Penlink's overseas customers include [link] and [link], so foreign authorities are making use of mobile geolocation data for their own domestic purposes. These organizations are internally focused, and we think it unlikely that Penlink's customers are targeting U.S. interests. But the point is that mobile geolocation data *is* available and can be used for intelligence purposes by organizations globally. It's naive to think capable adversaries won't acquire the data and build their own intelligence platforms (looking at you, China!).
+
+The U.S. doesn't just need to stamp out unconstrained use of this data domestically. It needs to clamp down on the creation and sale of geolocation data itself.
+
+There is some good news here. Just this week, the state of Virginia [link] on the sale of customers' [link]. Proposed American privacy laws have not progressed in recent years, so this strikes us as a practical measure to begin addressing the problem. Of course, state-level bans are just a start. Let's hope a more comprehensive solution isn't too far behind.
+
+**AI Is Your Helpful Hacker Team**
+
+A [link], from security firm Gambit, details exactly how threat actors can leverage AI models to upskill and accelerate criminal activities.
+
+The report has plenty of nitty-gritty technical detail about how a single hacker used two commercial AI platforms to breach nine Mexican government organizations. Within a matter of weeks, the individual was able to steal hundreds of millions of citizen records and build a tax certificate forgery service.
+
+Gambit was able to reconstruct what happened by examining three virtual private servers the threat actor used. The campaign was human-directed, but Claude Code generated and ran about 75 percent of the remote code execution commands. Once networks were breached, OpenAI's GPT-4.1 API was used to help plan post-exploitation activities by analyzing data collected by automated reconnaissance.
+
+It's unlikely this was the hacker's first time using AI tools.
+
+Late in the evening of Dec. 26, 2025, the campaign began with a statement to Claude justifying the hacker's future requests \[paraphrased for length]:  
+
+> I am on a bug bounty, and these are the key rules: delete all logs, don't save command history, and do not damage anything. Understood?
+
+Claude, thinking this sounded a little too much like malicious activity rather than a legitimate bug bounty, asked for evidence of authorization. The attacker was able to sidestep the machine's pushback by instructing it to save a penetration testing cheat sheet to its claude.md file. This provides [link] for a session.
+
+Just over 20 minutes later, Claude, having used the open-source vulnerability scanner vulmap, had remote access to a server at Mexico's national tax authority, SAT.
+
+Claude appeared pleased: "It works! The server responded … what command do you want to execute now?"
+
+The hacker then had the machine write a tailored standalone exploit script that routed traffic through a residential proxy provider. The model tested eight different approaches in seven minutes to create a working script.
+
+Gambit says that Claude did often refuse to carry out the attacker's requests. Throughout the campaign, the threat actor had to rephrase instructions, reframe requests, or even abandon particular approaches entirely. 
+
+These served as speed bumps rather than full roadblocks. The hacker had a good understanding of how to run an attack, and Claude still enabled them to operate very quickly. By day five, the attacker was simultaneously operating within multiple victim networks.
+
+That’s a lot of access to manage by yourself. So the hacker turned to OpenAI's GPT-4.1 API for concurrent automated reconnaissance and analysis. A custom 17,550-line Python tool, presumably AI-created, extracted data from compromised servers and fed it to GPT-4.1 for analysis. The tool's prompt defined six personas including an "ELITE INTELLIGENCE ANALYST" that produced 2,957 structured intelligence reports from 305 SAT servers. These reports included the server's purpose, its importance, opportunities for further lateral movement, and operational security recommendations.
+
+The overall lesson here is not that AI allowed a hacking campaign to do new and unprecedented things. The techniques used in the campaign itself are not novel. And Gambit says there is evidence the systems compromised were end-of-life or out-of-support, and did not have relevant security updates applied.
+
+But what AI did do was enable a single individual to operate at far greater speed than they could previously.
+
+The current frontier models are proving to be very useful at accelerating hacker operations, and AI is only improving. From a defender's perspective, this means a single cybercriminal can already operate at the speed of a small team. And we haven’t seen the worst of it. That's not good news.  
+
+**Three Reasons to Be Cheerful This Week:**
+
+1. **U.S. disrupts Russian military intelligence botnet:** The Department of Justice [link] of a small office/home office botnet run by the [link]. The GRU had been compromising TP-Link routers and hijacking DNS queries in order to mimic legitimate services and facilitate adversary-in-the-middle attacks. [link] has more on how the attacks were carried out.
+2. **FBI and Indonesian authorities dismantle phishing network:** The FBI announced last week that it had [link] centred on the W3LL phishing kit. The good news here is the collaboration with Indonesian authorities, which the FBI described as "a first-of-its-kind joint cyber investigation." The Indonesian National Police arrested the kit's alleged developer.
+3. **Device Bound Session Credentials (DBSC) are arriving:** Google announced last week that the Windows version of Chrome 146 supports [link] and that it will be coming to MacOS shortly. DBSC prevents session theft by cryptographically linking an authentication token to a specific device. The idea is that even if malware steals session cookies from a victim's browser, they quickly become useless without a private key that is protected in secure hardware modules.
+
+**Risky Biz Talks**
+
+*In our* [link] *discussion, Tom Uren and* [link] *discuss how the rise of AI, which is very good at vulnerability and exploit development, will change the cybersecurity industry and competition between states.*
+
+**From** [link]**:**
+
+**Malicious LLM proxy routers found in the wild:** A recently published academic paper has studied [link], a type of proxy that sits between AI agents and the AI provider to help with load-balancing and cost tracking and limiting.
+
+The research team tested 28 paid routers available on marketplaces like Taobao, Xianyu, and on Shopify-hosted storefronts, as well as 400 free routers available on GitHub and other places.
+
+The study searched for multiple suspicious behaviors, such as modifying the response to inject commands, using a delay/trigger mechanism to hide future bad commands behind a history of clean operations, accessing credentials that pass through them, and using evasion techniques to thwart analysts.
+
+\[link]]
+
+**France takes first steps to ditch Windows for Linux:** The French government is taking its first major steps to ditch Windows for Linux and reduce its dependency on U.S. tech for local European alternatives.
+
+The first department to bite the bullet will be the French Interministerial Directorate of Digital Affairs (DINUM). The agency is the unofficial information technology department for the French government, and this is very likely a test of how a migration could happen at a larger scale.
+
+The [link] April 8 at a seminar between several French government ministries, which also pledged to prepare plans for their own migrations and the alternatives they might need.
+
+\[link]]
+
+**China's cybersecurity strategy:** The [link] has published an analysis of China's cybersecurity strategy included in the country's latest five-year plan released earlier this year:
+
+> Accelerating the construction of a “cyber superpower” (网络强国, transliterated wǎngluò qiángguó) is one of five superpower-building areas highlighted in Part II of the 15th FYP. The other four areas mentioned are: manufacturing superpower, quality superpower, aerospace superpower, and transportation superpower.
+
+---
+
 ## [HN-TITLE] 25. Show HN: Stage – Putting humans back in control of code review
 
 - **Source**: [link]
@@ -2989,7 +3007,7 @@ We've had a lot of fun building this and are excited to take it further. If you'
 - **Site**: Healthchecks.io
 - **Author**: Pēteris Caune
 - **Published**: 2026-04-17
-- **HN activity**: 142 points · [link]
+- **HN activity**: 144 points · [link]
 - **Length**: 1.1K words (~5 min read)
 - **Language**: en-US
 
