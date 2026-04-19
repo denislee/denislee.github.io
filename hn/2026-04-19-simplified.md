@@ -1,6 +1,6 @@
 # Hacker News Top 30 — 2026-04-19
 
-Generated on 2026-04-19 10:01 UTC
+Generated on 2026-04-19 10:03 UTC
 
 ## [HN-TITLE] 1. SPEAKE(a)R: Turn Speakers to Microphones for Fun and Profit [pdf] (2017)
 
@@ -20,7 +20,7 @@ Generated on 2026-04-19 10:01 UTC
 - **Site**: Kotaku
 - **Author**: Zack Zwiezen
 - **Published**: 2026-04-09
-- **HN activity**: 108 points · [link]
+- **HN activity**: 109 points · [link]
 - **Length**: 950 words (~5 min read)
 - **Language**: en-US
 
@@ -73,12 +73,82 @@ My big takeaway from all of these responses is that, generally speaking, pausing
 ## [HN-TITLE] 3. NIST scientists create 'any wavelength' lasers
 
 - **Source**: [link]
-- **Site**: nist.gov
-- **Submitter**: rbanffy (Hacker News)
-- **Submitted**: 2026-04-18 20:54 UTC (Hacker News)
+- **Site**: National Institute of Standards and Technology
+- **Author**: Gabriel Popkin
+- **Published**: 2026-04-15
 - **HN activity**: 310 points · [link]
+- **Length**: 1.1K words (~5 min read)
+- **Language**: en
 
-> scrape failed: fetch: Get "https://www.nist.gov/news-events/news/2026/04/any-color-you-nist-scientists-create-any-wavelength-lasers-tiny-circuits": dial tcp [2606:4700:78::90:0:183]:443: connect: network is unreachable
+[image]
+
+Lindell Williams (left) and Grant Brodnik align an optical fiber with the edge of an integrated photonics chip. Optical fibers act as pipes for light, enabling the light generated on these chips to be collected and routed off the chip for use in experiments and applications.
+
+Credit: R. Jacobson/NIST
+
+Computer chips that cram billions of electronic devices into a few square inches have powered the digital economy and transformed the world. Scientists may be on the cusp of launching a similar technological revolution — this time using light.
+
+In a significant advance toward that goal, National Institute of Standards and Technology (NIST) scientists and collaborators have pioneered a way to make integrated circuits for light by depositing complex patterns of specialized materials onto silicon wafers. These so-called photonics chips use optical devices such as lasers, waveguides, filters and switches to shuttle light around and process information. The new advance could provide a big boost for emerging technologies such as artificial intelligence, quantum computers and optical atomic clocks.
+
+Making circuitry for light as powerful and ubiquitous as circuitry for electrons is one of today’s technological frontiers, says Scott Papp, a NIST physicist whose group led the research, [link]*.* “We’re learning to make complex circuits with many functions, cutting across many application areas.”
+
+## Light Speed
+
+When it comes to information transfer and processing, light can do things that electricity can’t. Photons — particles of light — are far zippier than electrons at working their way through circuits.
+
+Laser light is also essential for controlling powerful, emerging quantum technologies such as [link] and [link].
+
+But several hurdles remain before integrated photonics can truly hit its stride. One involves lasers. High-quality, compact and efficient lasers exist in only a few wavelengths, or colors, of light. For example, semiconductor lasers are very good at generating infrared light with a wavelength of 980 nanometers, or billionths of a meter — a color just outside the range of human vision. 
+
+Emerging technologies such as optical atomic clocks and quantum computers need laser light in many other colors as well. The lasers that produce those colors are big, costly and power-hungry, effectively confining these quantum technologies to a handful of special-purpose labs. 
+
+By integrating lasers into circuits on chips, scientists hope to help quantum technologies become cheaper and more portable, so they can start to fulfill their vast promise.
+
+[image]
+
+NIST researchers Grant Brodnik, Alexa Carollo, Lindell Williams and Scott Papp, among others, worked to make integrated circuits for light by depositing complex patterns of specialized materials onto silicon wafers. 
+
+Credit: R. Jacobson/NIST
+
+## A Multilayered Approach
+
+The new NIST photonics chip is a bit like a layer cake. NIST physicists Papp and Grant Brodnik, along with colleagues, started with a standard wafer of silicon coated with silicon dioxide (glass) and lithium niobate, a so-called nonlinear material that can change the color of light coming into it. 
+
+The researchers then added pieces of metal to electrically control how the circuits convert one color of light to others. The scientists also created other metal-lithium niobate interfaces that allowed them to rapidly turn light on and off within the circuits — a crucial ability for data processing and high-speed routing.
+
+The icing on the cake, so to speak, was a second nonlinear material called tantalum pentoxide, or tantala. Tantala can transform light in ways that feel like magic, taking in a single laser color and putting out the full rainbow of visible light colors plus a wide range of infrared wavelengths. Papp and colleagues have spent years [link] without heating it up, allowing the material to be deposited onto other materials without damaging them. 
+
+[image]
+
+This small rectangular chip has been fabricated with numerous circuits designed to change the color of laser light. In the photo, one of these circuits is shown converting invisible infrared light into visible blue light. (A dime provides a size comparison.)
+
+Credit: R. Jacobson/NIST
+
+By patterning the different materials on top of each other in a three-dimensional stack, the researchers produced a single chip that efficiently routes light between layers. That allowed them to merge the light-manipulating wizardry of tantala with the controllability of lithium niobate. The new technique “allows seamless integration,” says Brodnik. “The real power is that tantala can be added to existing circuitry.”
+
+Ultimately, the researchers were able to fit roughly 50 fingernail-sized chips containing 10,000 photonic circuits, each outputting a unique color, onto a wafer roughly the size of a beer coaster. “We can create all these different colors, just by designing circuits,” says Papp.
+
+## One Chip, Many Potential Uses
+
+Quantum technologies such as clocks and computers could be among the biggest beneficiaries of integrated photonics. These devices often use arrays of atoms to store and process information. For each type of atom, physicists need lasers tailored to the atom’s internal quantum energy levels. For example, rubidium atoms, commonly used in quantum computers and clocks, respond to red light with a wavelength of 780 nanometers. Strontium atoms, another popular choice, “see” blue light at 461 nanometers. Shine other colors on the atoms and nothing happens.
+
+The bulky, costly and complicated lasers needed to produce these bespoke colors have been a major hindrance to getting quantum computers and optical clocks out of the lab and into the field, where they could have big impacts. Cheap, low-power, portable optical clocks, for example, could [link] Quantum computers could offer new ways to study the physics and chemistry of drugs and materials.
+
+[image]
+
+A chip based on nonlinear optics contains lasers in several dozen colors.
+
+Credit: S. Papp/NIST
+
+Integrated photonic circuits aren’t just for quantum. Papp believes NIST’s photonics chips could help efficiently shuttle signals between the specialized chips used by tech firms, potentially making AI-based tools more powerful and efficient. Tech companies are also interested in using photonics to improve virtual reality displays.
+
+While NIST’s chips aren’t yet ready for mass production, the technique used to create them provides a path forward, Papp and Brodnik say. The NIST scientists collaborated with experts at Octave Photonics, a Louisville, Colorado-based startup company founded by former NIST researchers that’s now working to scale up the technology.
+
+“When you see the chip glowing in the lab, taking in invisible light and making all this visible light in one integrated chip — it’s obvious how many potential applications there could be,” says Papp.
+
+* * *
+
+Paper: Grant M. Brodnik, Grisha Spektor, Lindell M. Williams, Jizhao Zang, Alexa R. Carollo, Atasi Dan, Jennifer A. Black, David R. Carlson and Scott B. Papp. Monolithic 3D integration of tantalum pentoxide nonlinear photonics. *Nature.* Published online April 15, 2026. DOI: [link]
 
 ---
 
@@ -853,7 +923,107 @@ It also puts pressure on the idea that the demise of rail is the inevitable cons
 
 ---
 
-## [HN-TITLE] 10. The world in which IPv6 was a good design
+## [HN-TITLE] 10. Binary Dependencies: Identifying the Hidden Packages We All Depend On
+
+- **Source**: [link]
+- **Site**: Vlad's Website
+- **Submitter**: PaulHoule (Hacker News)
+- **Published**: 2026-01-31
+- **HN activity**: 19 points · [link]
+- **Length**: 1.2K words (~6 min read)
+- **Language**: en
+
+Download the [link].
+
+Or watch on [link]
+
+On 31 Jan 2026, I gave a talk at [link] on *phantom binary dependencies* — packages that we depend on in binary form, even though these dependency relationships are invisible to us. If we cannot reliably identify these phantom dependencies, the sustainability and security of our tech infrastructure will be at risk, which threatens critical services such as hospitals, transportation and the internet.
+
+You can watch my talk on this page, and I’ve included more details below, as well as a list of resources for those who want to learn more about this topic.
+
+## Abstract
+
+When you create a software package, your work might depend on other packages. Usually, you will depend on the *source code* of these other packages. However, sometimes, you will depend on *precompiled binaries* of your dependencies. This frequently happens when calling compiled code, like C code, from other programming languages, such as Python.
+
+In almost all ecosystems, it is difficult to keep track of binary dependencies. When you depend on a package’s source code, this is normally recorded in your manifest file — `pyproject.toml`, `package.json` and so on. However, when you depend on a package’s precompiled binaries, this information is usually not recorded anywhere. This means that the binary dependency relationship between your project and whatever you’re depending on is hidden — so we can say that you have a *phantom binary dependency*.
+
+You can find detailed technical information about how binary dependencies work in my article titled [link].
+
+Why are phantom binary dependencies important? For at least two reasons:
+
+- **Sustainability**. [link] maintainers struggle to get paid because of the [link], which makes them more vulnerable to [link]. Projects like the [link], the [link], and [link] help maintainers get paid. But we have to know which maintainers we depend on to be able to pay them. If we cannot identify our binary dependencies, we cannot identify which maintainers we should support, which puts the sustainability of the Open Source ecosystem at risk, threating our global tech infrastructure.
+- **Security**. If your project depends on a library, any security issues in that library will leave your project vulnerable. If you don’t have a clear picture of which libraries you depend on, you won’t have a clear picture of security vulnerabilities that might affect you, which puts your project at risk. For software that supports critical infrastructure like hospitals, transportation systems, and the internet, this vulnerability puts the public at risk of harm.
+
+There are tools we can build, and systemic changes we can make to our package management ecosystems, that will correct these issues, though this will be a lot of work. In my talk, I sketch the beginnings of a solution.
+
+I believe we should start by creating tools that can identify and record binary dependencies for a wide variety of packages, giving maintainers, security researchers, and other parties the information they need to figure out more robust solutions.
+
+Once we have this information, we can work on other aspects of the problem. How can we made sure that binary dependencies are always sourced from the appropriate package managers, instead of being merely vendored, so that they can be kept up to date with security patches? How can we make sure that language package managers and system package managers interoperate to warn developers of security issues across the entire dependency graph?
+
+I’m actively involved in this work, and there are many conversations happening around these questions. If you’re interested, here are some resources to help you learn more and/or get involved! 
+
+## Other Resources
+
+- The [link] is where I keep my work-in-progress code and notes.
+- The [link] is an initiative aiming to get companies to pay the Open Source maintainers whose work they depend on. Pledge members have paid $6,879,498 to Open Source developers at the time of writing.
+- [link] by Andrew Nesbitt, a great post about the problem of binary dependencies.
+- [link] by Anand Sawant is where the term *phantom dependency* was originally coined.
+- [link], a widely-used Python package that can identify a wheel’s required dynamic libraries, but does not yet have accurate human-readable output, or an API for researchers and developers to use.
+- [link] on [link], where I ask the maintainers whether they are interested in adding APIs that would give users and researchers more visibility into binary dependencies.
+- [link], a lesser-known Python package that can identify a wheel’s required dynamic libraries and *does have* a public API.
+- [link], in which author Seth Larson introduces SBOMs to Python packages. See also his [link] to [link], which enables users to discover binary dependencies, and include them in a package’s SBOM.
+- [link], which specifies a way to record binary dependencies in `pyproject.toml`. This interoperable record of binary dependencies could allow many tools to, for example, flag security issues that were previously invisible.
+- [link], which specifies a system for mapping binary dependency names to packages in non-Python registries.
+- [link] on the [link] *packages* repo collects more information on strategies for tracking binary dependencies across multiple package managers.
+- [link] is a tool developed at Sony that aims to improve supply chain transparency by embedding metadata into binaries.
+- [link] is a tool that aims, among other things, to provide a way for Python packages to be built completely from source, which includes building all their binary dependencies from source. I am not sure whether this is actually implemented yet.
+- [link] provides a section within ELF binaries for recording the provenance of a dynamic library, including the name of the system package it originated from. See also Fedora’s page about [link].
+- [link] provides a section within ELF binaries for recording the names of libraries loaded with `dlopen()`. This would hypothetically allow us to keep track of libraries opened with [link]/[link]. However, I’m not sure how these records would be filled in, since it’s possible for the names of libraries opened with `dlopen()` to not be known until runtime.
+- In a paper titled [link], Xu et al describe a system for identifying when Python code calls into parts of C-based dynamic libraries that are known to have security vulnerabilities. According to their research, 24.0% of PyPI projects “transitively invoke vulnerable APIs from C libraries”. Note, however, that Xu et al analyse Python code that calls into binary dependencies *using `dlopen()`* , which is a notable caveat, since these kinds of FFI calls are not the most common way to call into binary dependencies. See my [link] for more information.
+- The [link] is a registry of packages, mainly C/C++ packages, that do not otherwise have a [link] because they are not clearly identified in package registries. Such a registry could be used for assigning reliable identities to binary dependencies.
+- [link] by Luca Forstner tells us that it’s possible, but tricky, to publish binary packages on *npm*.
+
+---
+
+## [HN-TITLE] 11. Keep Pushing: We Get 10 More Days to Reform Section 702
+
+- **Source**: [link]
+- **Site**: Electronic Frontier Foundation
+- **Author**: Matthew Guariglia
+- **Published**: 2026-04-17
+- **HN activity**: 62 points · [link]
+- **Length**: 472 words (~3 min read)
+- **Language**: en
+
+In a dramatic middle-of-the-night stand off, a bipartisan set of lawmakers pushing for true reform and privacy protections for Americans bought us some more time to fight! They are holding out for, at a minimum, the requirement of an actual probable cause warrant for FBI access to information collected under the mass spying program known as 702.
+
+A reauthorization with virtually no changes was defeated because a core group of lawmakers held strong; they know that people are hungry for real reform that protects the privacy of our communications. **We now have a 10-day extension to continue to push Congress to pass a real reform bill.** 
+
+The Lawmakers rallied late Thursday night to reject a [link] made gestures at privacy protections, but it would not have improved on the status quo and would have reauthorized Section 702 for five more years to boot. 
+
+[link]
+
+TELL congress: 702 Needs Reform
+
+Section 702 is rife with problems, loopholes, and compliance issues that need fixing. The National Security Agency collects full conversations being conducted by and with targets overseas – including by and with Americans in the U.S. –  and stores them in massive databases. The NSA then allows other agencies, including the Federal Bureau of Investigation, to access untold amounts of that information. In turn, the FBI takes a “finders keepers” approach to this data: they reason that since it's already collected under one law, it’s OK for them to see it. 
+
+Under current practice, the [link]. What’s more, victims of this surveillance  won’t even know and have very few ways of finding out that their communications have been surveilled. EFF and other civil liberties advocates have been trying for [link] when data collected through Section 702 is used as evidence against them.  
+
+Reforming Section 702 is even more urgent because of revelations hinted at by Senator Ron Wyden’s public statements concerning a “[link]” of the law that enables surveillance of Americans, and a public  [link] he sent to fellow Senators about FBI abuse of Section 702. 
+
+That’s right—the way the government conducts mass surveillance is so secret and unaccountable even the way they interpret the law is classified. 
+
+ **“In many cases these will be law-abiding Americans having perfectly legitimate, often sensitive, conversations,”** Wyden wrote. **“These Americans could include journalists, foreign aid workers, people with family members overseas - even women trying to get abortion medication from an overseas provider. Congress has an obligation to protect our country from foreign threats and protect the rights of these and other Americans.”** 
+
+We have 10 days to make it clear to Congress: 702 needs real reforms. Not a blanket  reauthorization. Not lip service to change. Real reform.
+
+[link]
+
+TELL congress: 702 Needs Reform
+
+---
+
+## [HN-TITLE] 12. The world in which IPv6 was a good design
 
 - **Source**: [link]
 - **Site**: apenwarr.ca
@@ -1036,106 +1206,6 @@ And then the Internet would be elegant again.
 **3 Edit 2017-10-24:** Besides QUIC, there are several other candidates for such a protocol, including [link]. I didn't mention MinimaLT originally because it wasn't part of my original conversation with the IETF people, but I don't mean to imply that QUIC is the only possible option as a roaming-capable TCP replacement. In fact, MinimaLT is the first protocol I heard of that elegantly solved the roaming problem. Future solutions that might get adopted, including by QUIC, will likely be modeled after MinimaLT's solution.
 
 **Update 2020-07-09:** I've posted [link] on the Tailscale blog.
-
----
-
-## [HN-TITLE] 11. Keep Pushing: We Get 10 More Days to Reform Section 702
-
-- **Source**: [link]
-- **Site**: Electronic Frontier Foundation
-- **Author**: Matthew Guariglia
-- **Published**: 2026-04-17
-- **HN activity**: 61 points · [link]
-- **Length**: 472 words (~3 min read)
-- **Language**: en
-
-In a dramatic middle-of-the-night stand off, a bipartisan set of lawmakers pushing for true reform and privacy protections for Americans bought us some more time to fight! They are holding out for, at a minimum, the requirement of an actual probable cause warrant for FBI access to information collected under the mass spying program known as 702.
-
-A reauthorization with virtually no changes was defeated because a core group of lawmakers held strong; they know that people are hungry for real reform that protects the privacy of our communications. **We now have a 10-day extension to continue to push Congress to pass a real reform bill.** 
-
-The Lawmakers rallied late Thursday night to reject a [link] made gestures at privacy protections, but it would not have improved on the status quo and would have reauthorized Section 702 for five more years to boot. 
-
-[link]
-
-TELL congress: 702 Needs Reform
-
-Section 702 is rife with problems, loopholes, and compliance issues that need fixing. The National Security Agency collects full conversations being conducted by and with targets overseas – including by and with Americans in the U.S. –  and stores them in massive databases. The NSA then allows other agencies, including the Federal Bureau of Investigation, to access untold amounts of that information. In turn, the FBI takes a “finders keepers” approach to this data: they reason that since it's already collected under one law, it’s OK for them to see it. 
-
-Under current practice, the [link]. What’s more, victims of this surveillance  won’t even know and have very few ways of finding out that their communications have been surveilled. EFF and other civil liberties advocates have been trying for [link] when data collected through Section 702 is used as evidence against them.  
-
-Reforming Section 702 is even more urgent because of revelations hinted at by Senator Ron Wyden’s public statements concerning a “[link]” of the law that enables surveillance of Americans, and a public  [link] he sent to fellow Senators about FBI abuse of Section 702. 
-
-That’s right—the way the government conducts mass surveillance is so secret and unaccountable even the way they interpret the law is classified. 
-
- **“In many cases these will be law-abiding Americans having perfectly legitimate, often sensitive, conversations,”** Wyden wrote. **“These Americans could include journalists, foreign aid workers, people with family members overseas - even women trying to get abortion medication from an overseas provider. Congress has an obligation to protect our country from foreign threats and protect the rights of these and other Americans.”** 
-
-We have 10 days to make it clear to Congress: 702 needs real reforms. Not a blanket  reauthorization. Not lip service to change. Real reform.
-
-[link]
-
-TELL congress: 702 Needs Reform
-
----
-
-## [HN-TITLE] 12. Binary Dependencies: Identifying the Hidden Packages We All Depend On
-
-- **Source**: [link]
-- **Site**: Vlad's Website
-- **Submitter**: PaulHoule (Hacker News)
-- **Published**: 2026-01-31
-- **HN activity**: 18 points · [link]
-- **Length**: 1.2K words (~6 min read)
-- **Language**: en
-
-Download the [link].
-
-Or watch on [link]
-
-On 31 Jan 2026, I gave a talk at [link] on *phantom binary dependencies* — packages that we depend on in binary form, even though these dependency relationships are invisible to us. If we cannot reliably identify these phantom dependencies, the sustainability and security of our tech infrastructure will be at risk, which threatens critical services such as hospitals, transportation and the internet.
-
-You can watch my talk on this page, and I’ve included more details below, as well as a list of resources for those who want to learn more about this topic.
-
-## Abstract
-
-When you create a software package, your work might depend on other packages. Usually, you will depend on the *source code* of these other packages. However, sometimes, you will depend on *precompiled binaries* of your dependencies. This frequently happens when calling compiled code, like C code, from other programming languages, such as Python.
-
-In almost all ecosystems, it is difficult to keep track of binary dependencies. When you depend on a package’s source code, this is normally recorded in your manifest file — `pyproject.toml`, `package.json` and so on. However, when you depend on a package’s precompiled binaries, this information is usually not recorded anywhere. This means that the binary dependency relationship between your project and whatever you’re depending on is hidden — so we can say that you have a *phantom binary dependency*.
-
-You can find detailed technical information about how binary dependencies work in my article titled [link].
-
-Why are phantom binary dependencies important? For at least two reasons:
-
-- **Sustainability**. [link] maintainers struggle to get paid because of the [link], which makes them more vulnerable to [link]. Projects like the [link], the [link], and [link] help maintainers get paid. But we have to know which maintainers we depend on to be able to pay them. If we cannot identify our binary dependencies, we cannot identify which maintainers we should support, which puts the sustainability of the Open Source ecosystem at risk, threating our global tech infrastructure.
-- **Security**. If your project depends on a library, any security issues in that library will leave your project vulnerable. If you don’t have a clear picture of which libraries you depend on, you won’t have a clear picture of security vulnerabilities that might affect you, which puts your project at risk. For software that supports critical infrastructure like hospitals, transportation systems, and the internet, this vulnerability puts the public at risk of harm.
-
-There are tools we can build, and systemic changes we can make to our package management ecosystems, that will correct these issues, though this will be a lot of work. In my talk, I sketch the beginnings of a solution.
-
-I believe we should start by creating tools that can identify and record binary dependencies for a wide variety of packages, giving maintainers, security researchers, and other parties the information they need to figure out more robust solutions.
-
-Once we have this information, we can work on other aspects of the problem. How can we made sure that binary dependencies are always sourced from the appropriate package managers, instead of being merely vendored, so that they can be kept up to date with security patches? How can we make sure that language package managers and system package managers interoperate to warn developers of security issues across the entire dependency graph?
-
-I’m actively involved in this work, and there are many conversations happening around these questions. If you’re interested, here are some resources to help you learn more and/or get involved! 
-
-## Other Resources
-
-- The [link] is where I keep my work-in-progress code and notes.
-- The [link] is an initiative aiming to get companies to pay the Open Source maintainers whose work they depend on. Pledge members have paid $6,879,498 to Open Source developers at the time of writing.
-- [link] by Andrew Nesbitt, a great post about the problem of binary dependencies.
-- [link] by Anand Sawant is where the term *phantom dependency* was originally coined.
-- [link], a widely-used Python package that can identify a wheel’s required dynamic libraries, but does not yet have accurate human-readable output, or an API for researchers and developers to use.
-- [link] on [link], where I ask the maintainers whether they are interested in adding APIs that would give users and researchers more visibility into binary dependencies.
-- [link], a lesser-known Python package that can identify a wheel’s required dynamic libraries and *does have* a public API.
-- [link], in which author Seth Larson introduces SBOMs to Python packages. See also his [link] to [link], which enables users to discover binary dependencies, and include them in a package’s SBOM.
-- [link], which specifies a way to record binary dependencies in `pyproject.toml`. This interoperable record of binary dependencies could allow many tools to, for example, flag security issues that were previously invisible.
-- [link], which specifies a system for mapping binary dependency names to packages in non-Python registries.
-- [link] on the [link] *packages* repo collects more information on strategies for tracking binary dependencies across multiple package managers.
-- [link] is a tool developed at Sony that aims to improve supply chain transparency by embedding metadata into binaries.
-- [link] is a tool that aims, among other things, to provide a way for Python packages to be built completely from source, which includes building all their binary dependencies from source. I am not sure whether this is actually implemented yet.
-- [link] provides a section within ELF binaries for recording the provenance of a dynamic library, including the name of the system package it originated from. See also Fedora’s page about [link].
-- [link] provides a section within ELF binaries for recording the names of libraries loaded with `dlopen()`. This would hypothetically allow us to keep track of libraries opened with [link]/[link]. However, I’m not sure how these records would be filled in, since it’s possible for the names of libraries opened with `dlopen()` to not be known until runtime.
-- In a paper titled [link], Xu et al describe a system for identifying when Python code calls into parts of C-based dynamic libraries that are known to have security vulnerabilities. According to their research, 24.0% of PyPI projects “transitively invoke vulnerable APIs from C libraries”. Note, however, that Xu et al analyse Python code that calls into binary dependencies *using `dlopen()`* , which is a notable caveat, since these kinds of FFI calls are not the most common way to call into binary dependencies. See my [link] for more information.
-- The [link] is a registry of packages, mainly C/C++ packages, that do not otherwise have a [link] because they are not clearly identified in package registries. Such a registry could be used for assigning reliable identities to binary dependencies.
-- [link] by Luca Forstner tells us that it’s possible, but tricky, to publish binary packages on *npm*.
 
 ---
 
@@ -1487,7 +1557,7 @@ You may also contribute by getting involved and helping in:
 - **Site**: fset.common-lisp.dev
 - **Submitter**: larve (Hacker News)
 - **Submitted**: 2026-04-15 14:38 UTC (Hacker News)
-- **HN activity**: 155 points · [link]
+- **HN activity**: 156 points · [link]
 - **Length**: 112 words (~1 min read)
 
 * * *
@@ -1962,12 +2032,546 @@ All scripts support a `DRY_RUN = True` mode so you can safely preview changes be
 ## [HN-TITLE] 18. Optimizing Ruby Path Methods
 
 - **Source**: [link]
-- **Site**: byroot.github.io
+- **Site**: byroot’s blog
 - **Submitter**: weaksauce (Hacker News)
-- **Submitted**: 2026-04-18 20:42 UTC (Hacker News)
+- **Published**: 2026-04-18
 - **HN activity**: 101 points · [link]
+- **Length**: 4.0K words (~18 min read)
+- **Language**: en
 
-> scrape failed: fetch: Get "https://byroot.github.io/ruby/performance/2026/04/18/faster-paths.html": dial tcp [2606:50c0:8000::153]:443: connect: network is unreachable
+Back in November last year, I started a new job at Intercom, and one of the first projects I got to work on was improving the Intercom monolith CI with some of my new colleagues.
+
+Interestingly, I never got around to talking about CI on this blog, even though I consider it to be one of my main areas of expertise. That topic is way beyond the subject I’d like to talk about here, but just to give a bit of context, a key driver in CI performance and user experience is how fast you can get a Ruby process ready to run tests.
+
+When working with very large test suites, it becomes essential to run tests in parallel. If you have a test suite that runs in say, 1 hour, on paper, you can run it in 15 minutes on 4 workers, or in 6 minutes on 10 workers, and 1 minute on 60 workers.
+
+But that’s a bit too simplistic, in practice, a CI test runner has two phases.
+
+First, a setup phase that all runners have to go through, which includes fetching the source code, getting backing services like the database ready, and booting the application. Once the setup phase is done, the workers can start doing the actually useful work of running tests.
+
+So using the same 1-hour test suite, but now with a 1-minute setup phase, will now take 16 minutes if you are using 4 workers but 2 minutes if you are using 60 parallel workers. That’s a much worse user experience, but also means half of your compute isn’t spent doing the actual work, likely increasing your costs.
+
+All this to say that parallelizing test suites has diminishing returns that are entirely tied to how costly setting up a worker is. The worker setup time is like a fixed cost toll, hence reducing it both improves user experience and reduces cost.
+
+Given that the Intercom monolith CI runs with 1350 parallel workers by default, one second is optimized out of the setup time has 1350 times more impact than a second optimized out of a particular test, and saves over 20 minutes of compute per build.
+
+Hence, while the team also worked on speeding up various slow tests and factories, I personally was very focused on reducing the setup time, shaving every second or even split seconds I could find.
+
+As part of this effort, I looked into speeding up the application boot time, and if you’re a Rubyist, you probably know about Bootsnap.
+
+## What Does Bootsnap Even Do?
+
+While Bootsnap [link], and is very popular even in non-Rails codebases, based on chats I had with people online or at conferences, I suspect many people don’t quite understand exactly what it is doing. So let me explain just one of the optimizations it performs.
+
+When you require a file (what is internally referred to as a “feature”), Ruby has to perform a very expensive linear search in its load path, something that looks a bit like this:
+
+```
+def search_load_path(feature)
+  if path.end_with?(".rb", ".so")
+    $LOAD_PATH.each do |load_path|
+      absolute_path = File.join(load_path, feature)
+      return absolute_path if File.exist?(absolute_path)
+    end
+    return nil
+  else
+    search_load_path("#{path}.rb", "#{path}.so")
+  end
+end
+
+def require_internal(feature)
+  return false if $LOADED_FEATURES.include?(feature)
+
+  absolute_path = if File.absolute_path?(feature)
+    feature
+  else
+    search_load_path(feature)
+  end
+
+  unless absolute_path
+    raise LoadError, "cannot load such file: #{feature}"
+  end
+
+  load(absolute_path)
+end
+```
+
+The problem with this code loading mechanism is that, while simple, it scales very badly.
+
+A clean Ruby process starts with approximately 8 paths in its load path, so `require` is relatively cheap, worst case scenario, Ruby will query the file system 16 times.
+
+But then, every single gem you add to your gemfile adds one extra entry in `$LOAD_PATH`, and will in turn likely call `require` even more times. Meaning that starting a Ruby program isn’t linear, but much worse. The cost is roughly `O(N*M)` with `N` being `$LOAD_PATH.size` and `M` being `$LOADED_FEATURES.size`.
+
+In other words, an application with 400 gems is likely way more than twice as slow to boot compared to an application with 200 gems.
+
+That’s a problem [link], and that talk in turn inspired me to write [link], which we used with success in the Shopify monolith for a while, but while very effective, it was quite brittle, so it remained mostly confidential.
+
+Later on, my former colleague Burke Libbey, reimplemented the same idea, but in a much more robust and cleaner way, giving birth to `bootsnap`, and facilitating its adoption across the community.
+
+But enough history, let’s dive into what it does.
+
+### Load Path Caching.
+
+While this is not the only thing Bootsnap does, its main feature is load path caching.
+
+The idea is simple, instead of repeatedly testing the existence of files over and over, Bootsnap eagerly scan all directories in `$LOAD_PATH` to build a large map of all potentially requirable files, as to provide a way to look them up with just a `O(1)` hash lookup.
+
+It’s a bit over-simplified, but in essence, Bootsnap’s cache is just a big hash:
+
+```
+@cache = {
+  "active_support/core_ext.rb" => "/gems/activesupport-8.1.2/lib/active_support/core_ext.rb",
+  "active_support/json.rb" => "/gems/activesupport-8.1.2/lib/active_support/json.rb",
+  ...
+}
+```
+
+Which then allows to decorate `Kernel.require`, as to cheaply translate relative paths into absolute ones, hence entirely sidestepping Ruby’s slow search mechanism:
+
+```
+def require(feature)
+  unless File.absolute_path?(feature)
+    if feature.end_with(".rb", ".so")
+      feature = Bootsnap::LoadPathCache.lookup(feature)
+    else
+      feature = Bootsnap::LoadPathCache.lookup("#{feature}.rb") || Bootsnap::LoadPathCache.lookup("#{feature}")
+    end
+  end
+  require_without_bootsnap(feature)
+end
+```
+
+There are, of course, many subtle corner cases Bootsnap has to deal with to reproduce Ruby’s behavior as accurately as possible, but conceptually, Bootsnap is quite simple and reliable.
+
+Thanks to this cache, instead of scanning and checking the existence of up to `2*N` files in every `require` call, we only need to pay a one-time cost, which is quickly amortized.
+
+### Cache Invalidation
+
+Now, the problem with adding a cache is that you need to know when it’s no longer valid, and as the famous maxim says, cache invalidation is one of the hardest problems in programming.
+
+Hence, Bootsnap can’t just persist its cache across CI builds, as any added or removed file in any of the load paths MUST invalidate the cache.
+
+The way Bootsnap does it is that in the cache, it records the `mtime` of the scanned directories. Whenever you add or remove a file in a directory, the directory’s `mtime` is updated. However, its parent directory `mtime` is left unchanged:
+
+```
+require "fileutils"
+
+FileUtils.rm_rf("/tmp/test/")
+FileUtils.mkdir_p("/tmp/test/dir/subdir")
+
+p File.mtime("/tmp/test/dir").to_f        # 1776351416.5027087
+p File.mtime("/tmp/test/dir/subdir").to_f # 1776351416.5027075
+
+File.write("/tmp/test/dir/subdir/file.txt", "1")
+
+p File.mtime("/tmp/test/dir").to_f        # 1776351416.5027087
+p File.mtime("/tmp/test/dir/subdir").to_f # 1776351416.502805
+```
+
+If file and directory `mtime` were updated recursively, that would be extremely powerful for many tools like Bootsnap, however I suspect it wasn’t done this way out of performance concerns.
+
+As such, Bootsnap has to recursively check the `mtime` of all directories in all load paths whenever it needs to revalidate the cache. That’s cheaper than rebuilding the full cache, but still potentially thousands of `stat(2)` syscalls, so quite costly.
+
+More importantly, on CI systems it’s relatively common to check out code using `git`, and `git` doesn’t care about `mtime`[link]. Which means in many cases, this cache won’t be re-usable across builds or machines, hence it will need to be rebuilt every time, making the scanning performance important.
+
+### N+1 Syscalls
+
+On the Intercom monorepo, scanning all load paths was just shy of a second[link], and as I said previously, even a split second was important to me, given it was part of the “setup time”. So I was keen on finding ways to improve it.
+
+To understand the issue, let’s look at a very simplified implementation of Bootsnap’s load path scanner:
+
+```
+def scan(dir_path, requirables = [], directories = [])
+  Dir.foreach(dir_path) do |name|
+    path = "#{absolute_dir_path}/#{name}"
+    if File.directory?(path)
+      directory << path
+      scan(path, requirables, directories)
+    elsif name.end_with?(".rb", ".so")
+      requirables << name
+    end
+  end
+end
+```
+
+Simply put, for each entry of a directory, if it’s also a directory, we record it in the list and recurse, otherwise, if it has an extension we care about (`.rb`, `.so`, `.bundle`, etc) we add it to the list of requirable files.
+
+At that stage, you might wonder why all this code isn’t just `Dir["**/*.{rb,so}"]`, but Bootsnap needs to exactly match Ruby’s behavior otherwise it could change the behavior of programs. So while it is far fetched to imagine a project with directories named `something.rb` or `somethingelse.so`, assuming such directories don’t exist would be a correctness bug.
+
+There’s also some other subtleties, like needing to keep a list of all directories, even the ones not yet containing requirable files, so as to be able to revalidate the cache.
+
+As mentioned, [link], but from a performance standpoint, they’re equivalent.
+
+Anyways, the problem with that path scanner, is that it’s essentially the system programming equivalent to what N+1 queries are to web programming, except with system calls.
+
+While they’re much faster than a database query, syscalls are still something you wish to avoid or minimize when working at this level of abstraction, as they involve a context switch into the kernel.
+
+The actual cost of a syscall depends on which system the program work on. For instance, Linux syscalls are generally much faster than macOS ones, and [link]. On the other side, [link].
+
+In this specific case, for each entry in the directory, we’ll call `File.directory?`, which results in a `stat(2)` syscall. But this `N+1` syscall was a long-known issue even in early UNIX programs written in C, that’s why at least on Linux and BSD, `readdir(3)`, which is the API to read the content of a directory, exposes a `d_type` member, allowing us to know whether that directory entry is a directory, a regular file, or something else without needing to issue a `stat(2)` call.
+
+Unfortunately, while Ruby does use `d_type` internally to speed up methods like `Dir[]`, it doesn’t expose it to the `Dir.foreach` block.
+
+This wasn’t a new issue for me, I knew about that problem back in 2020, as back then, I was already looking at speeding up Bootsnap and Zeitwerk ([link]). That’s why back then, I opened [link], unfortunately that ticket never got any traction.
+
+So I thought it was time to try again.
+
+### Implementing `Dir.scan`
+
+Instead of reviving the old ticket, I decided to try again from scratch, and this time to include a prototype implementation. Instead of adding a new method, I decided extend the existing `Dir` methods like `foreach`, so that they’d yield a second parameter to represent the file type as a symbol.
+
+This initial prototype sped up recursively walking directories by about 2x. Soon after, Nobuyoshi Nakada, AKA [link] noticed my pull request and implemented [link], which I thought was much more elegant, so I opened [link].
+
+But from experience, I knew that even in the best-case scenario, I’d need to wait for the next developer meeting before I’d get an OK from Matz, which means it would only make it into Ruby 4.1.
+
+Waiting a full year to improve Bootsnap wasn’t very satisfactory, but since Bootsnap already ships with a C extension, I thought I could just [link], to get the performance improvement immediately.
+
+Benchmarked on Intercom’s monolith (only the repo, not the dependencies) showed the same 2x improvement:
+
+```
+ruby 3.4.4 (2025-05-14 revision a38531fd3f) +PRISM [arm64-darwin25]
+Warming up --------------------------------------
+                orig     1.000 i/100ms
+                 opt     1.000 i/100ms
+Calculating -------------------------------------
+                orig      1.988 (± 0.0%) i/s  (502.94 ms/i) -     10.000 in   5.031382s
+                 opt      4.297 (± 0.0%) i/s  (232.70 ms/i) -     22.000 in   5.120236s
+
+Comparison:
+                orig:        2.0 i/s
+                 opt:        4.3 i/s - 2.16x  faster
+```
+
+Bootsnap was now able to scan `~32k` files in `~10k` repositories in 230ms, while the previous implementation needed 500ms.
+
+Later on, my Ruby feature request was discussed at the developer meeting, and a few concerns were raised, notably it was considered that changing the signature of existing methods could cause backward compatibility issues.
+
+Instead, after a few rounds of discussion, we settled on a new method: `Dir.scan`:
+
+```
+Dir.scan(path) do |name, type|
+  case type
+  when :directory
+    # ...
+  when :link
+    # ...
+  when :file
+    # ...
+  end
+end
+```
+
+This new feature will be available in Ruby 4.1.0.
+
+## Other Path Methods
+
+While this `N+1` issue was definitely the main hotspot, and this 2x win felt good, I tend to treat performance gains like mushroom hunting. When you find a mushroom, it usually means that it’s an area where they grow well, and that no other mushroom hunter has passed by recently.
+
+Well, in my experience, unoptimized code is the same. If you find a piece of code that is much slower than it could be, it suggests nobody ever needed it to be faster, hence it’s likely the same for other pieces of code in the same area.
+
+In this case, another Ruby method Bootsnap calls a lot was `File.join`, and while it wasn’t a major hotspot, it still was visible on boot profile, so I figured it was worth looking into.
+
+But how are you supposed to tell if some code is slower than it should be?
+
+What commonly slows down a given method is its handling of corner cases, so a good comparison point is a naive implementation that only considers the happy path. In our case, the most common usage of `File.join` by far is basically just a concatenation:
+
+```
+def file_join(parent, child)
+  "#{parent}/#{child}"
+end
+```
+
+So if we benchmark this simplistic implementation against the real `File.join`, we should have a vague idea of how much performance is left on the table:
+
+```
+# frozen_string_literal: true
+require "benchmark/ips"
+
+dir = "/Users/byroot/src/github.com/byroot/ruby/build"
+entry = "path/to/file.txt"
+
+Benchmark.ips do |x|
+  x.report("File.join") { File.join(dir, entry) }
+  x.report("interpolation") { "#{dir}/#{entry}" }
+  x.compare!(order: :baseline)
+end
+```
+
+```
+ruby 4.0.2 (2026-03-17 revision d3da9fec82) +YJIT +PRISM [arm64-darwin25]
+Warming up --------------------------------------
+           File.join   429.375k i/100ms
+       interpolation     1.560M i/100ms
+Calculating -------------------------------------
+           File.join      4.336M (± 0.2%) i/s  (230.65 ns/i) -     21.898M in   5.050870s
+       interpolation     17.501M (± 0.5%) i/s   (57.14 ns/i) -     88.905M in   5.079969s
+
+Comparison:
+           File.join:  4335527.0 i/s
+       interpolation: 17501462.6 i/s - 4.04x  faster
+```
+
+Bingo! A 4x difference really didn’t pass the smell test, so I immediately profiled `File.join` called 10 million times in a loop:
+
+[image]
+
+[link]
+
+What immediately surprised me was that `File.join` was spending over half its time in encoding-related functions (`rb_enc_*`), most notably 33% in `rb_enc_mbclen`:
+
+```
+/**
+ * Queries the number of bytes of the character at the passed pointer.
+ *
+ * @param[in]  p    Pointer to a character's first byte.
+ * @param[in]  e    End of the string that has `p`.
+ * @param[in]  enc  Encoding of the string.
+ * @return     If the character at `p` does  not end until `e`, number of bytes
+ *             between `p`  and `e`.   Otherwise the number  of bytes  that the
+ *             character at `p` is encoded.
+ *
+ * @internal
+ *
+ * Strictly speaking there  are chances when `p`  points to a middle  byte of a
+ * wide character.   This function  returns "the  number of  bytes from  `p` to
+ * nearest of either `e` or the next character boundary", if you go strict.
+ */
+int rb_enc_mbclen(const char *p, const char *e, rb_encoding *enc);
+```
+
+Without even looking at the code, this told me there was a large potential for an easy optimization, because `File.join`, like all other Ruby methods handling paths, rejects paths encoded with non-ASCII compatible encodings:
+
+```
+>> File.join("a".encode(Encoding::UTF_16LE), "b".encode(Encoding::UTF_16LE))
+# => 'File.join': path name must be ASCII-compatible (UTF-16LE): "a" (Encoding::CompatibilityError)
+```
+
+So I thought this could be some leftover from a long time ago that could be pruned, hence I started digging into the git history, and found that this multi-byte encoding support was added by nobu in January 2012 ([link]), whereas the code that rejects non-ASCII compatible encoding was only added in October 2012 ([link]), again by nobu.
+
+Unfortunately, neither commit message was really explicit in its intent, nor linked to a bug ticket or anything like that. Still, it did look like back in 2012, nobu tried to solve some issues with multi-byte paths, but it was ultimately decided to only accept ASCII-compatible encodings and reject the others.
+
+But a few years of working on Ruby taught me never to assume nobu made a mistake, so before jumping to that conclusion, I figured I’d ask him, just in case:
+
+[image]
+
+And after a few hours, he answered me:
+
+[image]
+
+Indeed, it was no mistake, but some sort of corner case I didn’t know about involving the Japanese Shift JIS encoding. This wasn’t the first time it happened to me, and probably won’t be the last.
+
+Anyways, in such cases, there is a Wikipedia page that helped me multiple times: [link][link]. But let me explain the problem here.
+
+### ASCII Compatibility
+
+Ruby supports over a hundred string encodings, and some of them are defined as “ASCII-compatible”, which isn’t a very well-defined concept. According to Ruby, both UTF-8 and Shift JIS are ASCII-compatible:
+
+```
+>> Encoding::UTF_8.ascii_compatible?
+=> true
+>> Encoding::Shift_JIS.ascii_compatible?
+=> true
+```
+
+Which in a way isn’t wrong, because both are ASCII superset, meaning valid ASCII is both valid UTF-8 and valid Shift JIS.
+
+However, UTF-8’s killer feature is that it’s way more ASCII compatible than previous multi-byte encodings. All UTF-8 multibyte characters only use codes outside the ASCII range (so higher than `127`). Thanks to this, simple ASCII operations like searching for a specific character in the ASCII range can remain simple fixed-length operations:
+
+```
+def backslash?(string)
+  string.each_byte do |byte|
+    return true if byte == 0x5c # `\` is 0x5c in ASCII 
+  end
+  
+  false
+end
+```
+
+In other words, with UTF-8, if you see a `0x5c` byte, you know for sure it’s a backslash character, whereas with Shift-JIS, it may be a backslash character, or it may be a continuation byte of a multi-byte character. For example, `構` is encoded as `0x8d 0x5c`. Hence, you can’t efficiently treat Shift-JIS as ASCII, you must use a lookup table to check the width of every character, which is what `rb_enc_mbclen` does (`mbclen` -&gt; multi-byte character length), and it’s a very costly operation compared to just iterating over a stream of bytes.
+
+But ultimately, it’s fair to assume the overwhelming majority of paths passed to `File.join` are encoded in UTF-8 or even pure-ASCII, as such, I could implement a fast path for these encodings and keep the more complex algorithm for the others.
+
+That’s something I already did a few years prior for various string methods, such that Ruby already had a helper to check for such encodings:
+
+```
+static inline bool
+rb_str_encindex_fastpath(int encindex)
+{
+    // The overwhelming majority of strings are in one of these 3 encodings,
+    // which are all either ASCII or perfect ASCII supersets.
+    // Hence you can use fast, single byte algorithms on them, such as `memchr` etc,
+    // without all the overhead of fetching the rb_encoding and using functions such as
+    // rb_enc_mbminlen etc.
+    // Many other encodings could qualify, but they are expected to be rare occurrences,
+    // so it's better to keep that list small.
+    switch (encindex) {
+      case ENCINDEX_ASCII_8BIT:
+      case ENCINDEX_UTF_8:
+      case ENCINDEX_US_ASCII:
+        return true;
+      default:
+        return false;
+    }
+}
+```
+
+Using this helper, [link], using single byte comparisons, and that’s when I realized the multi-byte checks weren’t the only thing slowing down `File.join` and several other path handling methods.
+
+### Reverse Search
+
+After every path segment it concatenates, `File.join` would call `chompdirsep` to find whether the segment had a trailing path separator. That’s necessary because `File.join` avoids duplicate separators:
+
+```
+>> File.join("foo/", "/bar")
+=> "foo/bar"
+```
+
+But there was something very wrong with its implementation:
+
+```
+static char *
+chompdirsep(const char *path, const char *end, rb_encoding *enc)
+{
+    while (path < end) {
+        if (isdirsep(*path)) {
+            const char *last = path++;
+            while (path < end && isdirsep(*path)) path++;
+            if (path >= end) return (char *)last;
+        }
+        else {
+            Inc(path, end, enc);
+        }
+    }
+    return (char *)path;
+}
+```
+
+As you can see, the function receives the start and end pointers of the string, and is supposed to return the position of the last meaningful separator, so that extra trailing separators are eliminated by `File.join`:
+
+```
+>> File.join("foo///", "/bar")
+=> "foo/bar"
+```
+
+The logical way to implement such a function would be to start looking from the back of the string, but here it was scanning the entire string, meaning longer paths were disproportionately slower to join than shorter paths.
+
+I’m not one hundred percent sure why it was implemented that way, probably because the multi-byte aware `Inc` macro was readily available, and implementing a `Dec` macro would have been a bit trickier, but technically it should have been doable.
+
+In my case, I only cared about optimizing the fast path, so I inlined a single-byte version of it, which searches for duplicate separators from the end of the string:
+
+```
+long trailing_seps = 0;
+while (isdirsep(name[len - trailing_seps - 1])) {
+    trailing_seps++;
+}
+rb_str_set_len(result, len - trailing_seps);
+```
+
+And while I was in there, I kept looking for other opportunities.
+
+### C Strings
+
+The profile was showing `6.7%` of time spent in `rb_string_value_cstr`, which, after fixing the multi-byte encoding, was now a much bigger deal.
+
+What that function does is that it ensures that a given Ruby string is also a valid “C string”, which implies two things:
+
+- The string is `NULL` terminated.
+- The string does not contain any `NULL` bytes.
+
+Most Ruby methods dealing with path, do reject strings containing `NULL` bytes because that’s not valid for a file or directory name:
+
+```
+>> File.join("foo\0bar", "baz")
+(irb):1:in 'File.join': string contains null byte (ArgumentError)
+```
+
+However, we actually don’t really care here if the string is NULL-terminated or not, as all we’re doing is concatenating it, we’re not passing it to any C-level API that expects a NULL-terminated string. So `rb_string_value_cstr` wasn’t really the right function to call, hence I could replace it with `rb_str_null_check`, which only checks the content of the string.
+
+### Variadic Arguments
+
+Another hotpot from the profile was the 10% spent in `rb_ary_new_from_values`, which, as its name indicates, creates a new array.
+
+The reason is that `File.join` has some pretty flexible arguments:
+
+```
+>> File.join("a", "b", "c") == File.join("a", ["b", ["c"]])
+=> true
+```
+
+So to simplify the implementation, `File.join` was defined to receive all its arguments in an `args` Array:
+
+```
+static VALUE
+rb_file_s_join(VALUE klass, VALUE args)
+{
+    return rb_file_join(args);
+}
+```
+
+To avoid that extra allocation and copying, I changed it to not create the Array object, and instead receive a pointer into the stack and the number of arguments:
+
+```
+static VALUE
+rb_file_s_join(int argc, VALUE *argv, VALUE klass)
+{
+    return rb_file_join(argc, argv);
+}
+```
+
+Allowing for not allocating that extra array in the simpler cases.
+
+### Result
+
+All this combined made the common usages of `File.join` over 7 times faster:
+
+```
+compare-ruby: ruby 4.1.0dev (2026-01-17T14:40:03Z master 00a3b71eaf) +PRISM [arm64-darwin25]
+built-ruby: ruby 4.1.0dev (2026-01-18T12:55:15Z spedup-file-join 5948e92e03) +PRISM [arm64-darwin25]
+warming up....
+
+|              |compare-ruby|built-ruby|
+|:-------------|-----------:|---------:|
+|two_strings   |      2.477M|   19.317M|
+|              |           -|     7.80x|
+|many_strings  |    547.577k|   10.298M|
+|              |           -|    18.81x|
+|array         |    515.280k|  523.291k|
+|              |           -|     1.02x|
+|mixed         |    621.840k|  635.422k|
+|              |           -|     1.02x|
+```
+
+And now, on Ruby `4.1.0dev`, using `File.join` for two simple paths is faster than using string interpolation:
+
+```
+ruby 4.1.0dev (2026-04-11T18:26:22Z compact-ar-table 06507da144) +YJIT +PRISM [arm64-darwin25]
+Warming up --------------------------------------
+           File.join     1.944M i/100ms
+       interpolation     1.716M i/100ms
+Calculating -------------------------------------
+           File.join     21.750M (± 0.4%) i/s   (45.98 ns/i) -    108.860M in   5.005112s
+       interpolation     19.012M (± 0.6%) i/s   (52.60 ns/i) -     96.111M in   5.055419s
+
+Comparison:
+           File.join: 21750287.3 i/s
+       interpolation: 19012105.0 i/s - 1.14x  slower
+```
+
+If you are curious, you can read [link].
+
+## Other Methods
+
+After finding such low-hanging fruits in `File.join`, I figured other path handling methods likely had similar issues, and I applied similar optimizations to:
+
+- [link]
+- [link]
+- [link]
+- [link]
+
+Not that any of these were massive hotspots to my knowledge, but I saw no reason not to optimize them too.
+
+1. Unless you use plugins such as `git-restore-mtime`, which have their own performance overhead. [link]
+2. If I remember correctly. I’m writing this while traveling and can’t double-check the historical data. [link]
+3. The mere existence of a Wikipedia page with such a title says a lot if you ask me. [link]
 
 ---
 
@@ -2030,77 +2634,7 @@ Now go forth and stop reading confessional essays by sensitive men and going "wo
 
 ---
 
-## [HN-TITLE] 20. It's cool to care (2025)
-
-- **Source**: [link]
-- **Site**: alexwlchan.net
-- **Submitter**: surprisetalk (Hacker News)
-- **Submitted**: 2026-04-15 14:20 UTC (Hacker News)
-- **HN activity**: 8 points · [link]
-- **Length**: 1.2K words (~6 min read)
-- **Language**: en
-
-I’m sitting in a small coffee shop in Brooklyn. I have a warm drink, and it’s just started to snow outside. I’m visiting New York to see [link] – I was at the dress rehearsal yesterday, and I’ll be at the opening preview tonight. I’ve seen this show more times than I care to count, and I hope US theater-goers love it as much as Brits.
-
-The people who make the show will tell you that it’s about a bunch of misfits who thought they could do something ridiculous, who had the audacity to believe in something unlikely.
-
-That’s certainly one way to see it. The musical tells the [link] of a group of British spies who tried to fool Hitler with a dead body, fake papers, and an outrageous plan that could easily have failed. Decades later, the show’s creators would mirror that same spirit of unlikely ambition. [link], armed with their creativity, determination, and a wardrobe full of hats, created a new musical in a small London theatre. And after a series of transfers, they’re about to open the show under the bright lights of Broadway.
-
-But when I watch the show, I see a story about friendship. It’s about how we need our friends to help us, to inspire us, to push us to be the best versions of ourselves.
-
-I see the swaggering leader who needs a team to help him truly achieve. The nervous scientist who stands up for himself with the support of his friends. The enthusiastic secretary who learns wisdom and resilience from her elder.
-
-And so, I suppose, it’s fitting that I’m not in New York on my own. I’m here with friends – dozens of wonderful people who I met through this ridiculous show.
-
-* * *
-
-At first, I was just an audience member. I sat in my seat, I watched the show, and I laughed and cried with equal measure.
-
-After the show, I waited at stage door to thank the cast. Then I came to see the show a second time. And a third. And a fourth. After a few trips, I started to see familiar faces waiting with me at stage door. So before the cast came out, we started chatting.
-
-Those conversations became a Twitter community, then a Discord, then a WhatsApp. We swapped fan art, merch, and stories of our favourite moments. We went to other shows together, and we hung out outside the theatre. I spent New Year’s Eve with a few of these friends, sitting on somebody’s floor and laughing about a bowl of limes like it was the funniest thing in the world.
-
-And now we’re together in New York.
-
-Meeting this kind, funny, and creative group of people might seem as unlikely as the premise of *Mincemeat* itself. But I believed it was possible, and here we are.
-
-I feel so lucky to have met these people, to take this ridiculous trip, to share these precious days with them. I know what a privilege this is – the time, the money, the ability to say *let’s do this* and make it happen. How many people can gather a dozen friends for even a single evening, let alone a trip halfway round the world?
-
-You might think it’s silly to travel this far for a theatre show, especially one we’ve seen plenty of times in London. Some people would never see the same show twice, and most of us are comfortably into double or triple-figures.
-
-Whenever somebody asks *why*, I don’t have a good answer. Because it’s fun? Because it’s moving? Because I enjoy it? I feel the need to justify it, as if there’s some logical reason that will make all of this okay. But maybe I don’t have to. Maybe joy doesn’t need justification.
-
-* * *
-
-A theatre show doesn’t happen without people who care. Neither does a friendship.
-
-So much of our culture tells us that it’s not cool to care. It’s better to be detached, dismissive, disinterested. Enthusiasm is cringe. Sincerity is weakness. I’ve certainly felt that pressure – the urge to play it cool, to pretend I’m above it all. To act as if I only enjoy something a “normal” amount.
-
-Well, fuck that.
-
-I don’t know where the drive to be detached comes from. Maybe it’s to protect ourselves, a way to guard against disappointment. Maybe it’s to seem sophisticated, as if having passions makes us childish or less mature. Or perhaps it’s about control – if we stay detached, we never have to depend on others, we never have to trust in something bigger than ourselves. Being detached means you can’t get hurt – but you’ll also miss out on so much joy.
-
-I’m a big fan of being a big fan of things. So many of the best things in my life have come from caring, from letting myself be involved, from finding people who are a big fan of the same things as me. If I pretended not to care, I wouldn’t have any of that.
-
-Caring – deeply, foolishly, vulnerably – is how I connect with people. My friends and I care about this show, we care about each other, and we care about our joy.
-
-That care and love for each other is what brought us together, and without it we wouldn’t be here in this city. I know this is a once-in-a-lifetime trip. So many stars had to align – for us to meet, for the show we love to be successful, for us to be able to travel together. But if we didn’t care, none of those stars would have aligned.
-
-I know so many other friends who would have loved to be here but can’t be, for all kinds of reasons. Their absence isn’t for lack of caring, and they want the show to do well whether or not they’re here. I know they care, and that’s the important thing. To butcher Tennyson: I think it’s better to care about something you cannot affect, than to care about nothing at all. In a world that’s full of cynicism and spite and hatred, I feel that now more than ever.
-
-I’d recommend you go to the show if you haven’t already, but that’s not really the point of this post. Maybe you’ve already seen *Operation Mincemeat*, and it wasn’t for you. Maybe you’re not a theatre kid. Maybe you aren’t into musicals, or history, or war stories. That’s okay. I don’t mind if you care about different things to me. (Imagine how boring the world would be if we all cared about the same things!)
-
-But I want you to care about *something*. I want you to find it, find people who care about it too, and hold on to them. Because right now, in this city, with these people, at this show? I’m so glad I did. And I hope you find that sort of happiness too.
-
-[image]
-
-Some of the people who made this trip special. Photo by Chloe, and taken from [link].
-
-*Timing note: I wrote this on February 15th, but I delayed posting it because I didn’t want to highlight the fact I was away from home.*
-
----
-
-## [HN-TITLE] 21. Dizzying Spiral Staircase with Single Guardrail Once Led to Top of Eiffel Tower
+## [HN-TITLE] 20. Dizzying Spiral Staircase with Single Guardrail Once Led to Top of Eiffel Tower
 
 - **Source**: [link]
 - **Site**: Smithsonian Magazine
@@ -2188,6 +2722,76 @@ Today, nearly seven million people tour the Eiffel Tower each year. According to
 - [link]
 - [link]
 - [link]
+
+---
+
+## [HN-TITLE] 21. It's cool to care (2025)
+
+- **Source**: [link]
+- **Site**: alexwlchan.net
+- **Submitter**: surprisetalk (Hacker News)
+- **Submitted**: 2026-04-15 14:20 UTC (Hacker News)
+- **HN activity**: 8 points · [link]
+- **Length**: 1.2K words (~6 min read)
+- **Language**: en
+
+I’m sitting in a small coffee shop in Brooklyn. I have a warm drink, and it’s just started to snow outside. I’m visiting New York to see [link] – I was at the dress rehearsal yesterday, and I’ll be at the opening preview tonight. I’ve seen this show more times than I care to count, and I hope US theater-goers love it as much as Brits.
+
+The people who make the show will tell you that it’s about a bunch of misfits who thought they could do something ridiculous, who had the audacity to believe in something unlikely.
+
+That’s certainly one way to see it. The musical tells the [link] of a group of British spies who tried to fool Hitler with a dead body, fake papers, and an outrageous plan that could easily have failed. Decades later, the show’s creators would mirror that same spirit of unlikely ambition. [link], armed with their creativity, determination, and a wardrobe full of hats, created a new musical in a small London theatre. And after a series of transfers, they’re about to open the show under the bright lights of Broadway.
+
+But when I watch the show, I see a story about friendship. It’s about how we need our friends to help us, to inspire us, to push us to be the best versions of ourselves.
+
+I see the swaggering leader who needs a team to help him truly achieve. The nervous scientist who stands up for himself with the support of his friends. The enthusiastic secretary who learns wisdom and resilience from her elder.
+
+And so, I suppose, it’s fitting that I’m not in New York on my own. I’m here with friends – dozens of wonderful people who I met through this ridiculous show.
+
+* * *
+
+At first, I was just an audience member. I sat in my seat, I watched the show, and I laughed and cried with equal measure.
+
+After the show, I waited at stage door to thank the cast. Then I came to see the show a second time. And a third. And a fourth. After a few trips, I started to see familiar faces waiting with me at stage door. So before the cast came out, we started chatting.
+
+Those conversations became a Twitter community, then a Discord, then a WhatsApp. We swapped fan art, merch, and stories of our favourite moments. We went to other shows together, and we hung out outside the theatre. I spent New Year’s Eve with a few of these friends, sitting on somebody’s floor and laughing about a bowl of limes like it was the funniest thing in the world.
+
+And now we’re together in New York.
+
+Meeting this kind, funny, and creative group of people might seem as unlikely as the premise of *Mincemeat* itself. But I believed it was possible, and here we are.
+
+I feel so lucky to have met these people, to take this ridiculous trip, to share these precious days with them. I know what a privilege this is – the time, the money, the ability to say *let’s do this* and make it happen. How many people can gather a dozen friends for even a single evening, let alone a trip halfway round the world?
+
+You might think it’s silly to travel this far for a theatre show, especially one we’ve seen plenty of times in London. Some people would never see the same show twice, and most of us are comfortably into double or triple-figures.
+
+Whenever somebody asks *why*, I don’t have a good answer. Because it’s fun? Because it’s moving? Because I enjoy it? I feel the need to justify it, as if there’s some logical reason that will make all of this okay. But maybe I don’t have to. Maybe joy doesn’t need justification.
+
+* * *
+
+A theatre show doesn’t happen without people who care. Neither does a friendship.
+
+So much of our culture tells us that it’s not cool to care. It’s better to be detached, dismissive, disinterested. Enthusiasm is cringe. Sincerity is weakness. I’ve certainly felt that pressure – the urge to play it cool, to pretend I’m above it all. To act as if I only enjoy something a “normal” amount.
+
+Well, fuck that.
+
+I don’t know where the drive to be detached comes from. Maybe it’s to protect ourselves, a way to guard against disappointment. Maybe it’s to seem sophisticated, as if having passions makes us childish or less mature. Or perhaps it’s about control – if we stay detached, we never have to depend on others, we never have to trust in something bigger than ourselves. Being detached means you can’t get hurt – but you’ll also miss out on so much joy.
+
+I’m a big fan of being a big fan of things. So many of the best things in my life have come from caring, from letting myself be involved, from finding people who are a big fan of the same things as me. If I pretended not to care, I wouldn’t have any of that.
+
+Caring – deeply, foolishly, vulnerably – is how I connect with people. My friends and I care about this show, we care about each other, and we care about our joy.
+
+That care and love for each other is what brought us together, and without it we wouldn’t be here in this city. I know this is a once-in-a-lifetime trip. So many stars had to align – for us to meet, for the show we love to be successful, for us to be able to travel together. But if we didn’t care, none of those stars would have aligned.
+
+I know so many other friends who would have loved to be here but can’t be, for all kinds of reasons. Their absence isn’t for lack of caring, and they want the show to do well whether or not they’re here. I know they care, and that’s the important thing. To butcher Tennyson: I think it’s better to care about something you cannot affect, than to care about nothing at all. In a world that’s full of cynicism and spite and hatred, I feel that now more than ever.
+
+I’d recommend you go to the show if you haven’t already, but that’s not really the point of this post. Maybe you’ve already seen *Operation Mincemeat*, and it wasn’t for you. Maybe you’re not a theatre kid. Maybe you aren’t into musicals, or history, or war stories. That’s okay. I don’t mind if you care about different things to me. (Imagine how boring the world would be if we all cared about the same things!)
+
+But I want you to care about *something*. I want you to find it, find people who care about it too, and hold on to them. Because right now, in this city, with these people, at this show? I’m so glad I did. And I hope you find that sort of happiness too.
+
+[image]
+
+Some of the people who made this trip special. Photo by Chloe, and taken from [link].
+
+*Timing note: I wrote this on February 15th, but I delayed posting it because I didn’t want to highlight the fact I was away from home.*
 
 ---
 
