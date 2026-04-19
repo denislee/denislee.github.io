@@ -1,0 +1,3002 @@
+# Hacker News Top 30 — 2026-04-19
+
+Generated on 2026-04-19 10:01 UTC
+
+## [HN-TITLE] 1. SPEAKE(a)R: Turn Speakers to Microphones for Fun and Profit [pdf] (2017)
+
+- **Source**: [link]
+- **Site**: usenix.org
+- **Submitter**: Eridanus2 (Hacker News)
+- **Submitted**: 2026-04-19 08:45 UTC (Hacker News)
+- **HN activity**: 33 points · [link]
+
+> binary file (.pdf); not scraped
+
+---
+
+## [HN-TITLE] 2. Game Devs Explain the Tricks Involved with Letting You Pause a Game
+
+- **Source**: [link]
+- **Site**: Kotaku
+- **Author**: Zack Zwiezen
+- **Published**: 2026-04-09
+- **HN activity**: 108 points · [link]
+- **Length**: 950 words (~5 min read)
+- **Language**: en-US
+
+Pausing a game is so common that I doubt many of us ever really think about it. Maybe a pause menu has a cool song, or maybe you’re playing an always-online game that features a pause menu that doesn’t actually pause anything. In those cases, you might momentarily contemplate the act of pausing a video game. Those are the rare exceptions. Normally, we all just pause and unpause without a second thought. It’s just expected that most games will let you pause the action.
+
+But how does that actually work? How do developers actually let you pause a game?
+
+I asked developers on social media to tell me how they make a game pause, and the answers I got were all over the place. Many devs said that most modern game engines support pausing, and it shouldn’t cause too many issues as long as you don’t screw anything up while making the game. But, as you might expect, game development is weird and complicated and messy, and that means sometimes pausing a game involves manipulating time.
+
+## Sloooooowing dowwwwwnnn timmmmmeee
+
+“In [link] pausing slows the game speed down to 0.000000001 times normal speed,” [link]. “In other words, it’d take about three years of real-time for one second of game time to pass. I did this because I heard that Unity has special behavior for when gamespeed is 0, which I wanted to avoid.”
+
+“As a hobbyist in Unreal, I do something a little stupid,” [link]. “I set the timescale to .000001 so that I can let the player/tester eject from the pause and fly around (with an appropriately ridiculous speed of like 5000000) in case they want to show me something.”
+
+Many other devs told me that they just set the game’s timescale to 0 when you hit pause and make sure that certain functions, like the menu UI, ignore that command and still work as expected.
+
+## So many flavors
+
+Another aspect of pausing a game that I hadn’t considered was that there are different kinds of pauses. For example, hitting start might pause a game and bring up the pause menu. But what if you disconnect a controller? What if you open the game’s inventory? What if you hit the guide button on an Xbox and pop out to the guide? These are different kinds of pauses, and some games have a whole bunch of them.
+
+“I worked on various games at Frontier, including *Kinectimals* on the Xbox 360,” explained game dev Andrew Gillett via email. “I wasn’t directly involved with this part of the game, but I recall there were something like seven different levels of ‘pause.’ For example, the game should pause if the Kinect camera is disconnected, and this is a different kind of pause than when the user has brought up the Xbox system menu.”
+
+Dreamless on BlueSky explained that these different kinds of pauses could sometimes cause headaches for devs.
+
+“I remember in the Xbox/PS2 era we’d do a pause for normal gameplay,” [link]. “With exceptions like can’t pause during QTEs & etc. Then, when it was time to ship, we’d read the \[Technical Requirements Checklists] and have to go back and add a special pause for when you unplug the controller. The two pauses would conflict and cause bugs.”
+
+## Look at this photograph
+
+Perhaps my favorite pause method involves devs freezing time and then taking a screenshot of the game which the game then uses as the background behind the pause menu UI, letting them get up to all sorts of nasty business behind that image, like not rendering enemies or even moving the player to an empty room.
+
+“Usually, I will…take a screenshot of the gameplay at the point the game is paused and then draw that under whatever pause screen menu while also no longer drawing the actual objects,” [link]. “This is mostly just to free up some memory, but it isn’t really necessary for the style of games I make.”
+
+“In most of the Vlambeer games and *Minit* / *Disc Room,*” [link], “I take a screenshot (with the UI disabled), then either jump to a completely different empty room or deactivate everything…with that screenshot as the background, \[and] on unpause jump back \[to the game]. Sometimes there’s a 1-frame delay because that screenshot needs the UI disabled.”
+
+When someone replied that this trick always felt “hacky” to them, Nijman said that in every game they’ve worked on, you’ll find “a healthy dose of hackyness.”
+
+## Everyone screws it up once
+
+My big takeaway from all of these responses is that, generally speaking, pausing a game isn’t the most complicated feature to get working in a project. However, you still need to be mindful of how you implement it, and do proper amounts of testing if your game has quirks that might cause issues when you start pausing game time.
+
+[link] that a lot of game makers screw up adding a pause function early on in their development career, which can lead to problems, but can also be a very important learning moment.
+
+“The first time I implemented ‘pause’ in a game, I had every single game object checking whether the game was paused in every single frame, which degraded performance across the whole game,” said Darklock. “Now all my objects are arranged in a hierarchy, and only one object at the top checks if the game is paused.”
+
+“Most developers do a horrible, sloppy nightmare job the first time they implement this, and then they know better for the rest of their lives.”
+
+---
+
+## [HN-TITLE] 3. NIST scientists create 'any wavelength' lasers
+
+- **Source**: [link]
+- **Site**: nist.gov
+- **Submitter**: rbanffy (Hacker News)
+- **Submitted**: 2026-04-18 20:54 UTC (Hacker News)
+- **HN activity**: 310 points · [link]
+
+> scrape failed: fetch: Get "https://www.nist.gov/news-events/news/2026/04/any-color-you-nist-scientists-create-any-wavelength-lasers-tiny-circuits": dial tcp [2606:4700:78::90:0:183]:443: connect: network is unreachable
+
+---
+
+## [HN-TITLE] 4. What are skiplists good for?
+
+- **Source**: [link]
+- **Site**: antithesis.com
+- **Author**: Will Wilson CEO
+- **Submitted**: 2026-04-17 13:57 UTC (Hacker News)
+- **HN activity**: 77 points · [link]
+- **Length**: 1.5K words (~7 min read)
+- **Language**: en
+
+[link]
+
+A while back, I joined Phil Eaton’s [link] on *The Art of Multiprocessor Programming*, and the topic of [link] came up.
+
+For most of my career, skiplists had always seemed like a niche data structure, with a rabid cult following but not a whole ton of applicability to my life. Then six or so years ago, we encountered a problem at Antithesis that seemed intractable until it turned out that a generalization of skiplists was exactly what we needed.
+
+Before I tell you about that, though, let me explain what skiplists are (feel free to *skip* ahead if you already know them well).
+
+## [link]
+
+A skiplist is a randomized data structure that’s basically a drop-in replacement for a binary search tree with the same interface and the same asymptotic complexity on each of its operations. Some people like them because you can produce relatively simple and understandable lock-free concurrent implementations, and others like them as a matter of taste, or because they enjoy listening to bands that you’ve *totally never heard of.*
+
+In implementation terms, you can think of them roughly as linked lists plus “express lanes”:
+
+[image]
+
+You start with a basic linked list, and then add a hierarchy of linked lists with progressively fewer nodes in them. In the example above, the nodes in the higher-level lists are chosen probabilistically, with each node having a 50% chance of being promoted to the next level.1
+
+This helps with search, because you can use the higher-level lists to skip more quickly to the node you want:
+
+[image]
+
+Here we’ve found the node with an ID of 38 by starting at the top level and working downwards. At each level we advance until the next node would have an ID that’s too high, then jump down a level.
+
+In a regular linked list of `n` nodes, finding a node would take `O(n)` time, because you’re walking through the nodes one by one. Skiplists let you jump levels, with each level halving the number of nodes you need to check, so you end up finding the node in `O(log n)` time.
+
+This is all very nice, but after reading about this data structure I literally never thought about it again, until one day we encountered the following problem at Antithesis…
+
+## [link]
+
+Antithesis runs customers’ software many times to look for bugs. Each time, our fuzzer injects different [link] and tells your testing code to make different random decisions. Over many runs, these choices create a branching tree of timelines: each path from root to leaf represents one sequence of choices the fuzzer made and what happened as a result.
+
+There were a lot of queries that we wanted to do which basically amounted to fold operations up or down this tree. For example, given a particular log message, what’s the unique history of events that led to it? (Walk up the parent pointers from that node to the root.)
+
+The trouble was that the amount of data output by the software we were testing was so huge, we had to throw it all into an analytic database, and at the time we were using Google BigQuery. Analytic databases are optimized for scanning massive amounts of data in parallel to compute aggregate results. The tradeoff is that they’re slow at point lookups, where you fetch a specific row by its ID.
+
+This matters, because the natural way to represent a tree in a database is with parent pointers — each node is a row in the table, with a `parent_id` column pointing to its parent. To answer a question like “show me the history leading to this log message”, you’d need to walk up the tree one node at a time: look up the node, get its parent ID, look up the parent node, and so on. Each step is a point lookup. In an OLTP database designed for point lookups, that’s fine.2 But in BigQuery, basically every operation results in a full table scan, which means even the most basic queries would end up doing `O(depth)` reads over your entire data set. Yikes!
+
+One alternative would have been to split the data: store just the tree structure (the parent pointers) in a database that’s good at point lookups, and keep the bulk data in BigQuery. But this approach would have created other problems. Every insert would need to write to both systems, and since we want to analyze the data online (while new writes are streaming in) keeping the two databases consistent would require something like two-phase commit (2PC). I prefer not to invent new 2PC problems where I don’t need them. And anyway, at the time BigQuery had very loose consistency semantics, so it’s not even clear that keeping the two systems in sync would have been possible.
+
+Skiplists to the rescue! Or rather, a weird thing we invented called a “skiptree”…
+
+## [link]
+
+Well, it’s like a skiplist, but it’s a tree.
+
+More helpfully, here’s an example:
+
+[image]
+
+You have a level-0 tree, and then a hierarchy of trees above it. Each tree has roughly 50% of the nodes of the level below (the removed nodes are shown with grey dotted lines on the diagram).
+
+If you pick any path from the root to a leaf, the nodes along that path — together with their appearances in the higher-level trees — form a skiplist. So a skiptree is really just a bunch of skiplists sharing structure, one for every root-to-leaf path in the tree.
+
+To store the skiptree, you create a SQL table for each level: `tree0`, `tree1`, and so on. Each table has a row for every node in that tree. Instead of having a single `parent_id` column, it has a column for the closest ancestor node in the tree above (we’ll call that `next_level_ancestor`) and another column (call it `ancestors_between`) with a list of all nodes between the current node and the next-level ancestor.
+
+For the diagram above, `tree0` would look like this:
+
+`id` `next_level_ancestor` `ancestors_between` `A` `null` \[] `B` `A` \[] `C` `A` \[] `D` `A` \[`B`] `E` `A` \[`B`] `F` `C` \[] `G` `C` \[] `H` `A` \[`B`, `D`] `I` `C` \[`G`]
+
+As an example, take the row for node `H`. Node `H`’s parent is `D`, which is not in `tree1`. `D`’s parent `B` is also not in `tree1`, but `B`’s parent `A` is, so `next_level_ancestor` is `A`. Then `ancestors_between` stores `B` and `D`.
+
+The higher-level tables work the same way:
+
+`tree1`:
+
+`id` `next_level_ancestor` `ancestors_between` `A` `null` `[]` `C` `A` `[]` `E` `A` `[B]` `F` `C` `[]` `H` `A` `[B, D]`
+
+`tree2`:
+
+`id` `next_level_ancestor` `ancestors_between` `A` `null` `[]` `E` `A` `[B]` `F` `A` `[C]`
+
+`tree3`:
+
+`id` `next_level_ancestor` `ancestors_between` `A` `null` `[]`
+
+You can use these tables to find the ancestors of a node by chaining together `JOIN`s, working your way up the tables.
+
+For example, to find all ancestors of node `I`, start at `table0`. The `next_level_ancestor` column tells you to `JOIN` on node `C` in `table1`, collecting node `G` from the `ancestors_between` column on the way. Then in `table1` you find that the `next_level_ancestor` is node `A`, with no other nodes to collect on the way. Node `A` is the root of the tree so you’re now done: the total list of ancestors is `[G, C, A]`. In a deeper tree you’d keep going by looking in `tree2`, `tree3` and so on.
+
+Hey! Now we can find ancestors with a single non-recursive SQL query with a fixed number of `JOIN`s. We just had to do… 40 or so `JOIN`s.3
+
+Best of all, at the time BigQuery’s pricing charged you for the amount of data scanned, rather than for compute, and the geometric distribution of table sizes meant that each of these queries only cost twice a normal table scan.4
+
+Of course, there were disadvantages, like the SQL itself. The textual size of these queries was often measured in the kilobytes. But what do I look like, a caveman? We didn’t write the SQL. We wrote a compiler in JavaScript that generated it. And that is how most test properties in Antithesis were evaluated for the first six years of the company, until we finally [link] that could do efficient tree-shaped queries.5
+
+## [link]
+
+Later I discovered that a skiptree is closely related to a real data structure called a [link], a distributed data structure based on skiplists. Which just goes to show that there is nothing new under the sun. Whatever crazy idea you have, there’s a good chance some other crazy person has already done it. Moral of the story: you never know when an exotic data structure will save you a lot of time and money.
+
+Also, while [link] a *well-written* tree will always trounce a skiplist, the great thing about skiplists is that a *totally naive implementation* has adequate performance. That comes in handy when you’re writing them in, say, SQL.
+
+* * *
+
+*Thank you to [link] for suggesting that we write this up.*
+
+---
+
+## [HN-TITLE] 5. Anonymous request-token comparisons from Opus 4.6 and Opus 4.7
+
+- **Source**: [link]
+- **Site**: tokens.billchambers.me
+- **Submitter**: anabranch (Hacker News)
+- **Submitted**: 2026-04-18 16:05 UTC (Hacker News)
+- **HN activity**: 519 points · [link]
+- **Length**: 41 words (~1 min read)
+- **Language**: en
+
+## Community Averages
+
+Anonymous request-token comparisons from the community, showing how Opus 4.6 and Opus 4.7 differ on real inputs
+
+Loading...
+
+[link]
+
+Open source · stored rows contain anonymous submission IDs only  
+Not affiliated with or endorsed by Anthropic.
+
+[link][link]
+
+[link]
+
+---
+
+## [HN-TITLE] 6. College instructor turns to typewriters to curb AI-written work
+
+- **Source**: [link]
+- **Site**: Sentinel Colorado
+- **Author**: JOCELYN GECKER AP Education Writer
+- **Published**: 2026-03-31
+- **HN activity**: 281 points · [link]
+- **Length**: 993 words (~5 min read)
+- **Language**: en-US
+
+- [image]
+  
+  Ratchaphon Lertdamrongwong, a sophomore at Cornell University, laughs with classmates while using a typewriter for a German writing assignment on Friday, March 20, 2026, in Ithaca, N.Y. The professor, Grit Matthias Phelps, brings out the typewriters once a semester for her students to use. (AP Photo/Lauren Petracca)
+- [image]
+  
+  Students use typewriters to complete a writing assignment in German at Cornell University, Friday, March 20, 2026, in Ithaca, N.Y. Their professor, Grit Matthias Phelps, brings out the typewriters once each semester for students to disconnect from technology and connect with the assignment in a different way. (AP Photo/Lauren Petracca)
+- [image]
+  
+  Marcello Popelka makes edits using a pencil after writing an assignment in German on a typewriter at Cornell University, Friday, March 20, 2026, in Ithaca, N.Y. The professor, Grit Matthias Phelps, brings out the typewriters once each semester for students to disconnect from technology and connect with the assignment in a different way. (AP Photo/Lauren Petracca)
+
+The scene is right out of the 1950s with students pecking away at manual typewriters, the machines dinging at the end of each line.
+
+Once each semester, Grit Matthias Phelps, a German language instructor at Cornell University, introduces her students to the raw feeling of typing without online assistance. No screens, online dictionaries, spellcheckers or delete keys.
+
+The exercise started in spring 2023 as Phelps grew frustrated with the reality that students were using generative AI and online translation platforms to churn out grammatically perfect assignments.
+
+“What’s the point of me reading it if it’s already correct anyway, and you didn’t write it yourself? Could you produce it without your computer?” said Phelps.
+
+She wanted students to understand what writing, thinking and classrooms were like before everything turned digital. So, she found a few dozen old manual typewriters in thrift shops and online marketplaces, and created what her syllabus calls an “analog” assignment.
+
+It might be premature to say that typewriters are making a comeback beyond Cornell’s campus. But the revival is part of a national trend toward old-school testing methods like in-class pen-and-paper exams and oral tests to prevent AI use for assignments on laptops.
+
+Typewriters bring ‘old days’ taste of doing one thing at a time
+
+Students arrived for class on a recent analog day to find typewriters at the desks, some with German and some with QWERTY keyboards.
+
+“I was so confused. I had no idea what was happening. I’d seen typewriters in movies, but they don’t tell you how a typewriter works,” said Catherine Mong, 19, a freshman in Phelps’ Intro to German class. “I didn’t know there was a whole science to using a typewriter.”
+
+Like a rotary phone, the manual typewriter appears simple but is not intuitive to the smartphone generation. Phelps demonstrated how to feed the paper manually, striking the keys with force but not so hard the letters would smudge. She explained that the dinging bell signifies the end of a line and the need to manually return the carriage to start the next line. (“Oh,” said one student, “that’s why it’s called ‘return.'”)
+
+“Everything slows down. It’s like back in the old days when you really did one thing at a time. And there was joy in doing it,” said Phelps, who brings in her two children, aged 7 and 9, to serve as “tech support” and ensure no one has their phones out.
+
+Students welcomed having fewer distractions
+
+The assignment carries lessons beyond simply how to use a typewriter, which is the whole point.
+
+“It dawned on me that the difference with typing on a typewriter is not just how you interact with the typewriter, but how you interact with the world around you,” said computer science major Ratchaphon Lertdamrongwong, a sophomore, whose class had to write a critique of a German movie they’d watched.
+
+In the absence of screens, there are no notifications to distract you as you write. Without every answer readily available at his fingertips, he asked his classmates for help, which Phelps heartily encouraged.
+
+“While writing the essay, I had to talk a lot more, socialize a lot more, which I guess was normal back then,” Lertdamrongwong said, referring to the typewriter era. “But it’s drastically different from how we interact within the classroom in modern times. People are always on a laptop, always on the phone.”
+
+Without a delete key and the ability to correct every mistake, he paused to think more intentionally about his writing.
+
+“This might sound bad, but I was forced to actually think about the problem on my own instead of delegating to AI or Google search,” he said.
+
+Manual machines were a workout for pinky fingers
+
+Most students found their pinkies weren’t strong enough to touch-type, so they typed more slowly, pecking at the keyboard with their index fingers.
+
+Mong, the freshman, faced the added challenge of a recently broken wrist, requiring her to use just one hand. The self-described perfectionist was initially frustrated with how messy her page looked with odd spacing between certain letters and misspellings. (Phelps told students to backspace and type ‘X’s over errors.)
+
+“This thing I handed in had pencil marks all over it and definitely did not look clean or finished. But it’s part of the process of learning that you’re going to make mistakes,” said Mong, who found the assignment of typing a poem “fun and challenging.”
+
+She embraced the odd spacing and played with the visual boundaries of the page to indent and fragment lines in the style of poet E.E. Cummings. It took several sheets of paper and many mistakes, all of which Mong saved.
+
+“I’m probably going to hang them on my wall,” Mong said. “I’m kind of fascinated by typewriters. I told all my friends, I did a German test on a typewriter!”
+
+* * *
+
+The Associated Press’ education coverage receives financial support from multiple private foundations. AP is solely responsible for all content. Find AP’s standards for working with philanthropies, a list of supporters and funded coverage areas at AP.org.
+
+---
+
+## [HN-TITLE] 7. The electromechanical angle computer inside the B-52 bomber's star tracker
+
+- **Source**: [link]
+- **Site**: righto.com
+- **Submitter**: NelsonMinar (Hacker News)
+- **Submitted**: 2026-04-18 16:26 UTC (Hacker News)
+- **HN activity**: 335 points · [link]
+- **Length**: 5.3K words (~23 min read)
+
+Before GPS, how did aircraft navigate? One important technique was celestial navigation: navigating from the positions of the stars, planets, or the sun. While celestial navigation is accurate, cannot be jammed, and doesn't require any broadcast infrastructure, it is a difficult and time-consuming process to perform manually. In the early 1960s, an automated system was developed for the B-52 bomber to automatically track stars and compute navigation information. Digital computers weren't suitable at the time, so the star tracking system performed trigonometric calculations with an electromechanical analog computer called the Angle Computer.[link]
+
+[[image] for a larger image.")](https://static.righto.com/images/astro-compass-overview/angle-computer-opened.jpg)
+
+The Angle Computer contains complex electromechanical systems. Click this image (or any other) for a larger image.
+
+The photo above shows the mechanism inside the Angle Computer.[link] Although it may look like a gyroscope or IMU (Inertial Measurement Unit), it is completely different and nothing is spinning. The Angle Computer physically models the "celestial sphere", with a complicated mechanism inside that moves a pointer that represents the position of a star. The corresponding angles (the azimuth and altitude) are read out electrically through devices called synchros, providing information to the navigation system through bundles of wires. In this article, I'll give an overview of how celestial navigation works and explain how the Angle Computer performs its calculations.
+
+## The Astro Compass system
+
+The Angle Computer is one piece of the Astro Compass, a system that locked onto a star and produced a highly accurate heading (i.e., compass direction), accurate to a tenth of a degree. While the heading is the main output from the Astro Compass, the navigator can also use it to determine position, using the "lines of position" technique described later.
+
+[[image]](https://static.righto.com/images/astro-compass-overview/tracker.jpg)
+
+The Astro Tracker was mounted on top of the aircraft with the plastic bubble sticking out.
+
+The Astro Compass navigation system was built around the "Astro Tracker" (above), the optical system that tracks a star. The Astro Tracker was mounted on the aircraft with the 4-inch glass dome protruding from the top of the fuselage. This unit contains a tracking telescope, which used a photomultiplier tube to detect the light from a star. A gyroscope and a complicated system of motors provided a "stable platform", keeping the telescope precisely vertical even as the aircraft tilted and moved. A prism rotated and tilted to aim the telescope at a particular star.[link]
+
+[[image]](https://static.righto.com/images/astro-compass-overview/components.jpg)
+
+Star tracker instruments in the B-52 navigator's instrument panel: Line of Position display, Master Control panel, Heading Display panel, and Indicator Display panel. From [link].
+
+The Astro Compass system is bewilderingly complicated, consisting of 19 components (above) to support the Astro Tracker.[link] On the right are the ten amplifier and computer components that controlled the system; the Angle Computer is in the lower right. On the left are the nine control and indicator panels that were used by the B-52's navigator. The photo below shows four of these panels in use in a B-52 in 1972.
+
+[[image] is now at The Museum of Flight, Seattle, but the Astro Compass is no longer present.")](https://static.righto.com/images/astro-compass-overview/Nav%20Carl-1.jpg)
+
+The navigator's station in a B-52. Some of the Astro Compass controls are indicated with arrows: the Line of Position display and the Master Control on the left, and the Heading display and Indicator display to the right. The navigator in this photo is [link]. From [link]. This specific B-52 (#2584) is now at [link], Seattle, but the Astro Compass is no longer present.
+
+## Controlling the Astro Compass
+
+The Astro Compass has an interesting user interface, letting you input one value at a time by rotating a knob. First, you use the Master Control Panel to select a data value such as the clock time, SHA (Sidereal Hour Angle) for star #1, or Declination for star #3. Then you turn the "Set Control" knob clockwise or counterclockwise to scroll through the data values until the proper value is reached. Each knob on the Master Control Panel has a different geometrical shape, allowing the user to distinguish the knobs by feel. The Master Control Panel is visible in the lower left corner of the photo above, within easy reach of the navigator.
+
+[[image]](https://static.righto.com/images/astro-compass-overview/master-control.jpg)
+
+The Master Control Panel is the main interface to the Astro Compass.
+
+Each data value has a separate electromechanical display. The photo below shows a Star Data display, indicating the sidereal hour angle and the declination for a star. I removed the cover so you can see how the digital display actually consists of analog dials rotated by motors under synchro control. The system has three Star Data displays, so it can hold the positions of three stars at a time. Getting fixes from three different stars is useful when computing lines of position. The system uses one star at a time, but you can quickly change stars by flipping the Star switch on the Master Control Panel.
+
+[[image]](https://static.righto.com/images/astro-compass-overview/star-data.jpg)
+
+A Star Data display with the cover removed.
+
+But how did the navigator obtain the information to put into the Astro Compass, since the sun, moon, stars, and planets are in constant motion?[link] The necessary celestial information is published in a book called the [link]. The US Government started publishing the Air Almanac in 1941, issuing a new volume every four months. The Almanac had a sheet for each day, providing celestial data on 10-minute intervals. The first column has the time (GMT, Greenwich Mean Time)[link] while the other columns give the position of the sun, an important value called the First Point of Aries (symbol ♈︎), the positions of the visible planets, and the position of the moon. A separate table and chart provided the locations of stars; the stars don't have daily updates since they are almost stationary.[link] (The Air Almanac is now online; you can download the 2026 Air Almanac [link].)
+
+[[image]](https://static.righto.com/images/astro-compass-overview/air-almanac.jpg)
+
+An excerpt from the 1960 Air Almanac. Photo used with permission from [link], who is selling the Almanac on [link].
+
+## The navigational triangle: Computing a star's position
+
+The Air Almanac provides star coordinates in a global coordinate system, but the Astro Compass needed to know star coordinates in the aircraft's local coordinate system. Determining the star's position requires changing the coordinate system by using spherical trigonometry and something called the navigational triangle. There's a fair bit of terminology involved, which I'll explain in this section.
+
+The Astro Tracker, like many telescopes, is aimed by using *azimuth* and *altitude*. Suppose you go into your yard, point at the horizon, and turn 360° in a circle; the direction you're pointing is called the azimuth. The point directly overhead is called the *zenith*. Now swing your arm upwards 90° from the horizon to the zenith. That angle is called the altitude. (Confusingly, the term "altitude" is used both for the angle of a star and the height of an aircraft.) Thus, if you point at a particular star, you can describe its position with two angles: your horizontal rotation from north gives the azimuth, and the angle up from the horizon gives the altitude.[link] This system is called the *horizontal coordinate system*, as it is based on the horizon. (The word "horizontal" comes from "horizon", by the way.) This is a local coordinate system since other locations will have a different azimuth and altitude for the star. The azimuth and altitude constantly vary with time because the Earth's rotation makes the star appear to move.
+
+The [link] for the altitude and azimuth are complicated, with sines, cosines, arcsine, and arctangent. To see why the equations are complicated, consider a time-exposure photo of star trails. As the Earth rotates, each star forms a circle around Polaris, the North Star. To trace out this circular path, the altitude and azimuth vary in a trigonometric way. This computation is performed electromechanically by the Angle Computer, as will be explained later.
+
+[[image]](https://static.righto.com/images/astro-compass-overview/Kitt_Peak.jpg)
+
+Now let's switch to how the position of a star is defined in the Air Almanac (for example), independently of your local position. Pretend that the stars are on the surface of a large sphere that surrounds the Earth, called the *celestial sphere*. The stars are stationary on the surface of the celestial sphere, while the Earth rotates once a (sidereal)[link] day in the middle. Thus, as you look up at the celestial sphere, you see the stars moving. You can extend the Earth's equator out to the celestial sphere, defining the *celestial equator*. Likewise, the celestial sphere has *celestial poles*, matching the Earth's poles. On the Earth, you specify a location (such as the airplane's location) with latitude and longitude (red). Latitude is measured from the equator, and longitude is measured from a fixed meridian (orange). The 0° meridian is arbitrarily defined to pass through Greenwich (England, not Connecticut). Similarly, the position of a star is specified by the angle from the celestial equator (called *declination* instead of latitude) and the angle from the meridian (called the *sidereal hour angle* or SHA instead of longitude).[link]
+
+[[image]](https://static.righto.com/images/astro-compass-overview/sphere.jpg)
+
+The celestial sphere, with the Earth at the center. The position of a star is described by Sidereal Hour Angle and declination, analogous to longitude and latitude describing the position of, say, an airplane on the Earth. The diagram is based on [link], "Automatic astrocompass".
+
+But what meridian is the starting point—0°—when measuring a star's Sidereal Hour Angle? The celestial equator matches the Earth's equator, but this won't work for the Greenwich meridian because it is constantly in motion. Instead, the 0° celestial meridian is arbitrarily defined as the position where the sun crosses the equator at the vernal equinox (the start of spring). If you consider the position of the sun on the celestial sphere, the sun will travel around the sphere once a year. Because the Earth's axis is tilted, the sun will be above the equator half the year and below the equator half the year, crossing the equator at the vernal equinox (March) and the autumnal equinox (September).
+
+This reference point on the celestial sphere is called the First Point of Aries, represented by the symbol ♈︎ (horns of a ram); you might remember this symbol from the Air Almanac. At this point, the sun is in the constellation Pisces. So why is this point called the First Point of Aries and not Pisces? Back in 130 BCE, the ancient Greek astronomer Hipparchus defined the First Point of Aries as the starting point for the sun's motion. In that distant era, the sun was in the constellation Aries at the equinox, not in Pisces as it is today. It turns out that the direction of the Earth's axis isn't fixed, but moves in a 26,000-year cycle called the precession of the equinoxes.[link] A 26,000-year cycle may seem irrelevant, but it's fast enough that the sun has moved from Aries to Pisces since Hipparchus's time. (And the equinox has moved 1° more since the B-52 was first produced!)
+
+(All this talk of Aries and Pisces may sound like astrology, and, yes, there is a direct connection. Aries is the first zodiac sign, starting at the vernal equinox, typically March 21. The equinox's precession is "backwards", so the equinox has moved to Pisces, the last zodiac sign. Astronomically, the equinox will move into the constellation Aquarius around 2600 CE, but astrologers disagree on whether the Age of Aquarius has started; perhaps the 1960s was [link].)
+
+How do you convert the star's fixed coordinate to the Earth's rotating coordinate? First, you look up the angle between the Greenwich meridian and the celestial meridian of Aries at a particular time. This angle (purple) is called the Greenwich Hour Angle of Aries (GHA ♈︎). Next, you look up the star's Sidereal Hour Angle (SHA). Adding them gives you the star's Greenwich Hour Angle (red), the angle between the Greenwich meridian and the star. Subtracting the aircraft's longitude gives you the Local Hour Angle (LHA, not shown), the angle between the aircraft's meridian and the star. (Note that these steps are simply addition and subtraction, so a mechanical system can easily do them with differential gears.)
+
+[[image]](https://static.righto.com/images/astro-compass-overview/sphere2.jpg)
+
+Computing the Greenwich Hour Angle of the start on the sphere.
+
+The final step, obtaining the azimuth and altitude, requires tricky spherical trigonometry. The yellow triangle is the navigational triangle, a spherical triangle on the surface of the celestial sphere. The upper vertex is the North Pole, the red vertex is the airplane's zenith (i.e., directly above the airplane), and the final vertex is the star. Two sides of the triangle and an angle (purple) are known, so the remaining angles and sides can be solved with spherical trigonometry. Specifically, the first side (purple) is 90°-declination, the second side is 90°-latitude,[link] and the angle between is the LHA (Local Hour Angle). Solving for the angle at the zenith gives the azimuth (blue), while solving for the third side gives 90°-altitude (green, the angle down from the zenith to the star).
+
+[[image]](https://static.righto.com/images/astro-compass-overview/sphere3.jpg)
+
+By solving the navigational triangle, the altitude and azimuth can be obtained.
+
+Thus, the key problem is solving the navigational triangle. Navigators could solve the navigational triangle by looking up angles in a thick book of [link] and performing some math. But how could the process be automated? That was the purpose of the Angle Computer.
+
+The job of the Angle Computer was to solve the navigational triangle mechanically. Its inputs were the star's declination, altitude, and local hour angle. From these, it computed the star's altitude and azimuth at the aircraft's current position.[link]
+
+The concept behind the Angle Computer is that it physically modeled the celestial sphere with a half-sphere, 2 5/8" in radius. A star pointer was mechanically positioned on the surface of this sphere, using the star's declination and local hour angle, adjusted by the latitude of the viewer. The star pointer moved a readout mechanism that translated the star's position into the azimuth and altitude at the specified location. Thus, the Angle Computer mechanically converted between the coordinate systems by using a physical representation, solving the navigational triangle.
+
+The diagram below shows how the star pointer is positioned on the two-dimensional surface of the sphere, using a complicated mechanism inside the sphere. The U-shaped declination arm swings up and down, corresponding to the star's declination (angle above the celestial equator). Meanwhile, the declination arm constantly rotates around the polar axis, as specified by the LHA (Local Hour Angle). In one (sidereal) day, the mechanism will make a full cycle, corresponding to the Earth's spin. Finally, the latitude arm moves the mechanism up or down, corresponding to the viewer's latitude. On the right, three gears provide the inputs for latitude, LHA, and declination.
+
+[[image]](https://static.righto.com/images/astro-compass-overview/computer-diagram.jpg)
+
+The input mechanism for the Angle Computer. The photo has been rotated 90° to better match the Earth's rotation. Rotation around the polar axis corresponds to the Earth's daily rotation. Note that the star pointer will hit the end of the semicircular azimuth arc at some point; this corresponds to the star moving to the horizon and setting.
+
+A separate mechanism provides the altitude and azimuth outputs, driven by the star pointer. The key is the semicircular azimuth arc, which represents the arc from the viewer's horizon to the zenith, oriented to a particular azimuth. The star pointer is attached to the azimuth arc through a slider, so as the star pointer moves, it moves the slider along the azimuth arc and also rotates the azimuth arc. Specifically, the azimuth arc represents the line from the horizon to the zenith at a particular azimuth. The position of the slider on the azimuth arc corresponds to the altitude, from 0° at the horizon to 90° at the zenith.[link]. The azimuth arc rotates around the zenith point, which is at the back of the azimuth arc; this rotation indicates the azimuth value. As the azimuth arc rotates, it turns a gear at the zenith, providing the azimuth output. The slider arc has teeth on it; as the slider moves, these teeth rotate a second gear, providing the altitude output.
+
+[[image]](https://static.righto.com/images/astro-compass-overview/computer-diagram2.jpg)
+
+The output mechanism for the Angle Computer. The mechanism is in a different position from the previous diagram. In particular, the latitude arm has been raised to a near-polar latitude and the photograph is from the other side of the latitude arm. At this latitude, the polar axis is almost lined up with the zenith. As the LHA changes, the star will move in a circle, rotating the azimuth arc but causing little change in altitude. This corresponds to the real world situation of stars moving in a cirle around the zenith, if you're near the pole.
+
+From the back, the numerous synchro transmitters, synchro control transformers, and motors are visible. Even though the computation itself is mechanical, the Angle Computer has numerous electrical components. In the top half, the synchro transmitters provide electrical outputs of the azimuth and altitude. (A synchro transmitter uses fixed and moving coils to convert a shaft rotation angle into a three-wire electrical signal.) The large gear provides the altitude output. In the lower half, the longer cylinders are motors that move the Angle Computer's mechanisms. The motors are directed to rotate to a particular position through a feedback loop: synchro control transformers provide feedback to the external servo amplifiers that power the motors.
+
+[[image]](https://static.righto.com/images/astro-compass-overview/angle-computer-backside.jpg)
+
+The back of the Angle Computer.
+
+Partially disassembling the Angle Computer shows the complex gear trains inside, linking the synchros, motors, and the physical mechanism. The squat brass-colored units in the lower center are differential assemblies to add or subtract signals.[link] One of the drive motors, a long cylinder, is visible in the lower right.
+
+[[image]](https://static.righto.com/images/astro-compass-overview/gears.jpg)
+
+Gear trains inside the Angle Computer.
+
+## The Line of Position
+
+Although the heading was the primary output from the Astro Compass, the Astro Compass could also help determine the location of the aircraft, using a technique called the celestial line of position. This technique was discovered in 1837 and became heavily used for navigating ships with a sextant. It could also be used onboard an aircraft.
+
+To understand the line of position, suppose you go outside and find a star directly overhead. If you measure the altitude—the angle from the horizon to the star—with a sextant, the angle will be 90°, since it is overhead. Now, suppose you teleport 60 nautical miles away in any direction. The sextant will now show an altitude of 89° to the star, since a nautical mile is conveniently defined to match one minute of angle (one-sixtieth of a degree). Alternatively, if you measure an altitude of 89° to the star, you know you are 60 miles away from the original point under the star (called the sub-stellar point). Likewise, if you measure 88° to the star, you're on a circle with radius of 120 nautical miles around the sub-stellar point. If you measure, say, an altitude of 40°, you know you're on a very large circle with radius of 3000 miles around the sub-stellar point. So how does this help with navigation?
+
+Suppose you're on a boat in the middle of the Pacific and you have a rough idea of where you are, say within 100 miles, but you want to find your exact position. Put a dot on the map where you think you are. Next, pick a star and work out what the angle to the star should be from your position. Measure the altitude with your sextant. Suppose you expected 50° but measured 51°. You now know that you're somewhere on a circle with radius of 2940 miles around the distant sub-stellar point. This doesn't seem very useful. However, since the angle was 1° more than expected, you know that the circle is 60 miles closer to that distant point than your estimated position. Moreover, since you have some idea of where you are, you know that you're on the part of this circle near your estimated location. And since you're looking at a small part of a big circle, you can approximate it by a line. So you can go back to your map, move 60 miles closer to the star from your estimated point, and draw a perpendicular line. This is your line of position, and you know that you're on this line (more or less).
+
+Knowing that you're on a line isn't too useful, but you can repeat the process with a star in a different part of the sky. Maybe this time the angle is 2° smaller than expected, so you can draw a line of position 120 miles further away from your estimated position, in a different direction. The two lines cross, indicating a position where you (probably) are.[link] Normally, you repeat the process with a third star, giving you three lines of position, providing a position and an idea of its accuracy.
+
+[[image]](https://static.righto.com/images/astro-compass-overview/lop.jpg)
+
+The Astro Compass used the display above to show the star's azimuth and the distance in miles from the assumed location to the line of position, called the Altitude Intercept. With this information, the navigator could draw a line of position on the map. The navigator repeated the process with two more stars to get a location fix.[link]
+
+## Conclusion
+
+The Angle Computer is a relic from a time when a mechanical analog computer was the best way to solve a problem, but the computer was also electrical. Although a mechanical apparatus solved the navigational triangle, it was moved into position by motors, and the output was transmitted electrically through wires. Moreover, the Angle Computer was driven by electronic amplifiers and feedback circuits that used both vacuum tubes and transistors.
+
+The designers of the Astro Compass considered multiple approaches to computing the navigational triangle ([link]). The first was to use small electromechanical devices called resolvers that convert a physical rotation into sine and cosine values. By combining six resolvers with amplifiers, the altitude and azimuth could be obtained. The resolver solution was rejected as being too large and requiring a precision power supply. The second approach was to use a digital computer to determine the solution. This solution was rejected because in 1963, a digital computer was expensive, slow, and less reliable. The final approach, which was adopted, was to build a mechanical, physical model of the celestial sphere. Thus, the Angle Computer resided at the uneasy intersection of physical mechanisms, electrical circuits, vacuum tubes, and solid-state electronics, soon to be obsoleted by digital computers.
+
+I plan to write more about the Astro Compass system. For updates, follow me on Bluesky ([link]), Mastodon ([@\[email protected\]](https://oldbytes.space/@kenshirriff)), or [link]. Thanks to Richard for supplying the Astro Compass hardware.
+
+AI statement: I didn't use AI to write this article ([link]).
+
+## Notes and references
+
+01. The Angle computer is labeled "Computer, Altitude-Azimuth, Automatic Astro Compass Type MD-1" and also has an "MD-3" sticker. Presumably, MD-3 is an upgrade of the MD-1. The system is also known as the "Kollsman KS-50-03 Astro Tracking System" (or maybe 50-08).
+    
+    There are a few documents available on the system, including [link], Operating Instructions Pocket Manual, a technical article [link], and a patent [link]. The web page [link] has an extensive collection of links. CuriousMarc has a YouTube series on the Astro Tracker, starting with [link]. If you want to learn more about celestial navigation, this [link] describes the process in detail. [link]
+02. From the outside, the Angle Computer is an uninteresting black cylinder with connectors on the end. The cylinder was sealed with a soldered metal band that we removed with a blowtorch. It was pressurized with dry nitrogen through the fill valve in the center, a Schrader valve just like you'd find on a tire.
+    
+    [[image]](https://static.righto.com/images/astro-compass-overview/angle-compupter-package.jpg)
+    
+    The Angle Computer is packaged in a nondescript black cylinder.
+    
+     [link]
+03. The Astro Compass needed to know approximately where in the sky to find the star, in order to point its sensor in the right direction. The direction didn't need to be exact because the Astro Compass performed a spiral search pattern to find the star. This search pattern covered ±4° in bearing and ±2.5° in altitude. In comparison, the Moon is 0.5° wide, so it's a fairly large target area. [link]
+04. The diagram below shows the physical connections of the components of the Astro Compass.
+    
+    [[image] for a larger version.")](https://static.righto.com/images/astro-compass-overview/block-diagram2.jpg)
+    
+    A physical diagram of the Astro Compass. The Angle Computer is called the Alt Az Computer in this diagram. Click this image (or any other) for a larger version.
+    
+    For a slightly different perspective, the diagram below shows the flow of data in the Astro Compass.
+    
+    [[image]](https://static.righto.com/images/astro-compass-overview/block-diagram.jpg)
+    
+     [link]
+05. The Astro Compass normally gets the latitude and longitude from the bombing computer. It normally gets the approximate heading (called the BATH, Best Available True Heading) from the magnetic compass. These values can all be entered manually if necessary. [link]
+06. Greenwich Mean Time is now mostly obsolete, replaced by UTC (Coordinated Universal Time). Greenwich Mean Time is based on when the sun reaches its highest point over Greenwich, England (longitude 0°). In [link], the sun reaches its highest point at exactly noon. Unfortunately, the Earth's orbit is elliptical, so the length of a solar day [link] throughout the year, by almost a minute. Since it's nice to have a constant 24-hour day, Mean Time was introduced. The idea is to average out the length of the day throughout the year, so each day is exactly 24 hours, even though the sun is no longer overhead exactly at noon. UTC is essentially the same as GMT, but defined by atomic clocks rather than the position of the sun over Greenwich. They can vary by up to 0.9 seconds, with a leap second added to UTC to keep them in sync. [link]
+07. The stars are all moving in different directions, but for most stars, the visible change in position (the *proper motion*) is very small. However, comparing the 1960 Air Almanac with the 2026 Air Almanac shows many of the listed stars have moved a degree or more due to the precession of the equinox. The change varies from star to star, both because the angular change depends on the star's location and because the SHA is exaggerated as you get closer to the poles ([link]). [link]
+08. Note that the azimuth is discontinuous at the zenith. To see this, imagine a star passing directly overhead: point your arm at the horizon and then swing it up until it is pointing straight up. To continue, you need to instantaneously spin around 180° and then lower your arm.
+    
+    The discontinuity in azimuth is important for the Angle Tracker, since it can't instantaneously change the azimuth by 180°. To avoid this problem, the Angle Computer has cams and microswitches to keep the altitude below 85°. (Otherwise, the azimuth arc will jam up instead of rotating smoothly.) The Astro Tracker also has declination limits of +90° and -47° and a lower altitude limit of -6°. The latitude is limited to the range between -2° and +90°; the system automatically switches hemispheres so both the North and South latitudes are usable. [link]
+09. One annoyance is that the length of a day is slightly different if you look at the sun (a *solar* day) versus looking at the stars (a *sidereal* day). A solar day is the standard 24-hour day, where the Earth rotates once and the sun returns to its previous position (approximately). But if you look at the stars, it takes a bit less time (23 hours, 56 minutes, and 4 seconds) for the stars to return to their previous position. The problem is that during one year, the Earth swings from one side of the sun to the other side and then back to the first side. From the perspective of the stars, this is an "extra" revolution, so there are 366.25 sidereal days in a year, compared to 365.25 solar days in a year. (I.e., it's an "off-by-one" error.) This makes each sidereal day slightly shorter. You can also think of this as the sun moving around the celestial sphere once per year, with the sun's position against the stars constantly changing. [link]
+10. Celestial navigation usually uses the sidereal hour angle (SHA) to measure the star's position relative to the meridian. Astronomers often use the *right ascension* instead. The right ascension is measured in the opposite direction and is measured in hours instead of degrees. They are related by the formula `RA = (360° - SHA) / 15°`. [link]
+11. The Earth's axis also wobbles on a cycle of 18.6 years because the Earth isn't exactly spherical. For many purposes, this wobble is averaged out and the "mean equinox" is used. The physical equinox is called the "apparent equinox". Greenwich Mean Sidereal Time (GMST) is measured with respect to the mean equinox, while Greenwich Apparent Sidereal Time (GAST) is measured with respect to the apparent equinox. The difference between the mean equinox and the apparent equinox is called the "equation of the equinoxes". The difference between the two equinoxes is small, less than about 1.1 seconds. [link]
+12. The angle of 90°-declination is sometimes called co-declination, the complement of declination, i.e., the angle down from the pole. Similarly, 90°-latitude is sometimes called co-latitude.
+    
+    The triangle can be solved using the spherical law of sines and the spherical law of cosines. An alternative, which makes more sense to me, is to find the answer by applying rotation matrices to change the coordinate system. Details are [link], and [link] has a convenient summary. [link]
+13. It may seem like there is a chicken-and-egg situation with navigation since you need to know your position in order to compute the star's altitude and azimuth, and you need to know the aircraft's heading to know which direction to point the telescope. In fact, you just need to know the approximate latitude, longitude, and heading (within 4°), and then the system generates a more accurate latitude, longitude, and heading. The process can be repeated until the values converge.
+    
+    Moreover, the Astro Compass is just one of the instruments that the navigator uses. The magnetic compass can provide an approximate heading, and dead reckoning or inertial navigation can provide an approximate location. The Astro Compass can use these to generate more accurate information, which in turn can improve the accuracy of the dead reckoning or inertial navigation. [link]
+14. Since the azimuth arc is a semicircle (180°), it might seem that the star pointer could move 180° in altitude along the azimuth arc. This wouldn't make sense, since the altitude ranges from 0° (horizon) to 90° (zenith). The explanation is that the slider is a quarter-circle (90°). Thus, the star position can only move 90° before the other end of the slider hits the end of the azimuth arc. [link]
+15. The differential gears are necessary because the axes aren't mechanically independent. For instance, as the latitude arm swings up and down, it also moves the declination and LHA drive shafts, causing unwanted rotation along these axes. The differentials subtract out the latitude motion from the declination and LHA inputs, so the resulting movements on each axis are independent. [link]
+16. Technically, two different circles on a sphere can cross at 0, 1, or 2 points. In practice, there will be two intersections, but one intersection is very far away and can be ignored. [link]
+17. Several factors complicated the navigator's job. By the time the navigator completed a measurement, the aircraft could have moved dozens of miles, so the navigator needed to adjust the lines of position based on this movement. But the navigator didn't know exactly how much the aircraft had moved, due to wind and other factors. Thus, even with the Astro Compass, the navigator needed to deal with uncertainty, cross-checking between different measurements to try to get the best results despite constant sources of error. [link]
+
+---
+
+## [HN-TITLE] 8. Updating Gun Rocket through 10 years of Unity Engine
+
+- **Source**: [link]
+- **Site**: Jack Pritz
+- **Author**: Apr 3 Written By Jack Pritz
+- **Published**: 2026-04-03
+- **HN activity**: 82 points · [link]
+- **Length**: 2.3K words (~10 min read)
+- **Language**: en-US
+
+About 10 years ago I made [link].
+
+It was early in my game development journey. I had released 5 prototype games on Game Jolt, and it was time to sit down and make something worth paying for. I started with the idea "What if [link]...but with the Asteroids ship?"
+
+Development took about a month. The result was a game with 100 levels, multiple ships with different stats to pilot, and even a LAN multiplayer combat mode. Gun Rocket also stands out as my most lucrative personal project. After a successful Steam Greenlight process I was approached and licensed the Steam distribution rights for the game for a few years.
+
+Recently I was reflecting on my game development journey. I tried to boot up Gun Rocket to play it. But it refused. No matter how hard I clicked the game would not open. The log is empty. I guess some driver or Windows API just doesn't work anymore.
+
+So it is time to roll up my sleeves and bring Gun Rocket into 2026. Come along won't you? I could use the company.
+
+## Gun Rocket won't launch. What to do?
+
+Let's start by opening the game in Unity Editor. We'll test the game in its current editor version and re-acquaint ourselves here before moving on. The version of a Unity project is stored in /ProjectSettings/ProjectVersion.txt. It's a simple file with a simple purpose. Here's what I see:
+
+m\_EditorVersion: 5.5.0f3
+
+Looking back at the git history of this file, I can see that I actually developed the game in 4.6.0p1 in 2015. The ProjectVersion file was created when migrating from 4.6 to 5.5 in 2018 hoping it would fix a bug (it didn’t). So there's our first interesting factoid about how Unity has changed. Crazy how time flies.
+
+Anyway! Looks like Gun Rocket was most recently developed in Unity 5.5.0f3. The current Unity tech stream is 6.5 beta. That doesn't seem so bad! Just one major version bump, right?
+
+WRONG!
+
+Some time around 2017, Unity decided that its numbering was not corporate-friendly. At that time they were trying to expand from gaming into more verticals. I guess corporations love versioning their software by year, so that's what Unity did. It makes the messaging about long-term support easier. Let's say Unity supports a release for 3 years. When does that end? It's much easier to talk about that for Unity 2017 (2017 + 3 = 2020) than for Unity 5.5 (???).
+
+Nowadays Unity is back to simple numbers. Today’s major version number is 6. At least...that's what the website says. Unity version numbers now look something like 6000.4.1f1. I find this hilarious. It reminds me of Loony Tunes technology naming. Roadrunner Catcher 3000 anyone? Again, there is a good reason for this. 6000 &gt; 2023. 2023 is Unity's last year-named version. So all of the version sorting code will continue to Just Work TM. A Good Reason. But I still find it funny.
+
+So I open Unity Hub and look for 5.5.0f3. It's not one of the readily available options. Unity presents Official Releases (long-term support and the latest supported minor release 6000.4.1f1), Pre-releases (currently just the 6000.5.0b1 beta), and ArChIvE. We'll be spending a lot of time in the archive. I like to think of it as the back room in the basement where folks store things they just can't bear to part with yet. It's super excellent that all of these versions are kept around. It means my ambition to bring Gun Rocket into 2026 has legs - if only barely. The archive only goes back to Unity 5. Good thing I upgraded from 4.6 in 2018!
+
+Wow, all this history and we haven't even opened the editor yet. Let's try that now.
+
+## Uh Oh. Gun Rocket won't open in 5.5.0f3.
+
+It does the same thing as the game build on Steam: just closes with no information in the log. Shoot.
+
+Some Google research tells me this might be related to the license check. Unity 5 pre-dates Unity Hub. So sure, it makes sense that it could be a license check issue. I try to open from the Unity.exe rather than through Hub as suggested. No luck.
+
+Ok then, let's try a newer version. I wanted to verify the game in 5.5, but I guess I am out-of-luck. I nab the most recent Unity 5: version 5.6.7f1. Again, it doesn't launch from Unity Hub, but that's what I expect at this point. What about launching from the Unity.exe?
+
+## 5.6.7f1 → 2017.4.40f1
+
+We get off to a great start. This transition was completely uneventful. I even had 2017.4.40f1 installed already.
+
+Looking at the git commit…really nothing happened. ProjectVersion.txt updated
+
+Oh, and we have a new file called UnityPackageManager/manifest.json. This must be where Unity introduced the package manager. Hilarious: it’s completely empty. I don’t remember ever seeing this before. It’s so beautiful.
+
+```
+{
+	"dependencies": {
+	}
+}
+```
+
+Unity introduced package manager as the engine grew to serve at least these 3 purposes that I can remember off the top of my head:
+
+1. Get C# code out of the engine core to where folks could see it and modify it if they need to.
+2. Allow people to select which Unity packages they wanted…or didn’t! As the engine features grow allow folks to opt in/out so they can be in control of their disk space.
+3. Provide a standard for C# modules to be used by 1st and 3rd party teams.
+
+[link]
+
+I was at Unity during the great packagification. The goals were noble, but it turns out keeping dependencies between all the teams’ various packages became its own daily bother. Maybe I’ll write about that some time, but this isn’t that post.
+
+Anyway, this upgrade was nothing. This is going to be easy.
+
+*Narrator: chuckles*
+
+## 2017.4.40f1 → 2019.3.15f1
+
+I’m feeling pretty full of myself, so I skip Unity 2018. I’ve got Gun Rocket on source control. I can always revert if I need to. I just so happened to have 2019.3.15f1 installed, so let’s skip 2018 and see how it goes.
+
+Oh boy. The upgrade to 2019 was a doozy. There are some major moves here on Unity’s part. They are:
+
+1. Unity removes javascript support.
+2. Unity’s Networking solution, UNet, was deprecated in 2018.4 and is no longer available in 2019.1+.
+3. AssetDatabase v2 happened
+4. Nested Prefabs and Prefab Editing Overhaul
+
+Well, I already clicked the import button. Let’s get after it.
+
+**Regarding javascipt:**
+
+When I first started learning Unity it supported 3 scripting languages: Boo, Javascript, and C#. I started with javascript because it was more familiar to me, but I transitioned to C# because Unity broadcasted it as the future. Circumstance saves me a huge headache here for Gun Rocket. I had written a few scripts in Javascript. 3. I wrote 3 Javascripts.
+
+Rewriting those scripts in C# was easy. Fixing broken references to them was harder. If a reference is broken, Unity Editor doesn’t give me much to go off of.
+
+After trying a few things I landed on a workflow of opening Gun Rocket in editor 2017 and editor 2019 side-by-side. I manually compared every prefab. Again, Gun Rocket isn’t that big a game. So this wasn’t *too* bad. It did take hours. For 3 scripts.
+
+**Regarding Networking:**
+
+In Unity 5, Unity had a networking solution called UNet. From my perspective it was fine. I was able to get it working quickly as a new game developer. Unity hosted servers but I didn’t want to worry about paying, so for Gun Rocket I kept it LAN-only. Remember this is 2015. LAN parties were still happening, or at least they were for me!
+
+Gun Rocket’s LAN mode never felt like it made any waves. It was pretty simple. So the decision to just cut it out was easy.
+
+History has a way of repeating itself. Some time around 2022 Unity introduced the [link] package. But as of 31 March 2026 they are no longer hosting servers. That has transitioned from Unity Multiplay Game Hosting Service to a company called Rocket Science Group. Will the Netcode for Gameobjects package live on much longer as a 1st party solution if Unity isn’t making money from servers?
+
+**Regarding AssetDatabase v2:**
+
+This update looks scary. It changes literally every asset file in my project. Looking back at [link], we can read all the great improvements this brings. Especially relevant to me are faster import times and faster platform switching.
+
+I honestly don’t know much inside baseball about this. What I do know is conversion goes off without a hitch. Cool.
+
+**Regarding Nested Prefabs and Prefab Editing Overhaul:**
+
+Prefabs in Unity used to be serviceable, but not great. Users asked for improvements to basic prefabs for years.
+
+In response Unity invested heavily in prefabs and here we see it pay off. You can now edit prefabs in their own virtual scenes. You can override properties on prefabs and choose later to reflect individual changes back to the prefab asset…or choose not to! You can NEST prefabs. This was all huge. It makes prefabs much more valuable and enables all sorts of new usages and workflows. Another big win.
+
+Again, I could write an entire article about just this change, but it isn’t very relevant to this story. So let’s move on.
+
+**Other Things!**
+
+Unity Editor UI got a facelift. It feels a lot more modern. It is also scaling according to my Windows Display Settings, which is super nice.
+
+I also notice another bug. In this version of Unity the button animations on the main menu get weirdly stuck. When they get stuck the text overlaps and it looks bad. I’ll add that to my bug list. Who knows: maybe it is fixed in a newer editor version? One can hope.
+
+## 2019.3.15f1 -&gt; 2019.4.41f2
+
+The last update spooked me, so I download the last 2019 editor version.
+
+I immediately notice the editor boots into a dark theme. This is another thing users asked for for a long time. It was a big deal.
+
+**Hey nerds: dark theme is dumb.** Just light up your space. Eye strain comes from the contrast between a bright screen and your dark room background. Fix your lighting. Or if you insist on being a cave goblin then lower your screen brightness. Dark theme is overrated. Fight me.
+
+There are a few deprecated APIs that Unity auto-updates. Cool.
+
+It’s somewhere around here that I was working at Unity. I navigate to Help → About Unity and yep! There I am! I always thought it was classy that Unity just puts everyone’s name in alphabetical order. I recognize a few names as I scroll, smile, and then move on.
+
+## 2019 → 2020→2021 → 2022
+
+All I got in this leg was a few warnings about inconsistent line endings. Funny enough one of those issues is even in a Unity-published package. Lol.
+
+## 2022.3.62f3 → 2023.1.22f1
+
+It’s weird to see such a low number as the final build of Unity 2023. This must have been the last build before they switched naming back from the year to Unity 6.
+
+On first attempt, I get package cache errors. No worries, I blow away the Library/PackageCache folder and try again. Often blowing away all or part of the Library folder fixes issues like this.
+
+Huh. That didn’t fix it. Oh well. Let’s go for broke and skip to the latest Version 6 long-term support build instead.
+
+## 2022.3.62f3 → 6000.3.12f1
+
+Unity 6000? Now I’m living in the future!
+
+There are some graphics settings changes. DX12 is now the default. OpenGL ES 2.0 is deprecated. No worries. My game has 5 colors. The only non-standard shader I have is a hole shader. Easy peasy.
+
+Some APIs change. Unity fixes them. It’s just simple renames. When I worked at Unity I attended some sort of education where I wrote an API updater module. Features like these are largely invisible but solve huge pains. I’m glad they exist.
+
+com.unity.ide.vscode is deprecated. Package Manager tells me I can continue to use it if I want. It was probably added as a default package at some point. I've never used it. So I open package manager and remove it. "Oh no! Anyways..."
+
+I play the game again. Test all the flows. It’s working great.
+
+I work through my short bug list without issues. The ship no longer explodes if it isn’t moving. Cool.
+
+## Keeping Score
+
+2022 and 2023 were good years. Looks like they were fighting the good fight. The jump from 2023 to 6000? Woof.
+
+## Wow I am Lucky💋
+
+I’d like to say it was my skill that made this process easy. I’m sure experienced played its part. To be honest it was mostly luck. I am lucky that I chose C# for Gun Rocket. I am lucky that I intentionally chose a very simple art direction. Most of all I am lucky that I was not yet a good enough developer to write complex systems.
+
+**K**eep **I**t **S**imple **S**tupid. Nothing about Gun Rocket is complex. Again: I made this game in a month. That’s perfect for a single-person personal project. As I chose personal projects going forward from Gun Rocket they got more complex and took more and more time. Returning now, Gun Rocket reinforces to me that simple and scrappy has its place.
+
+## What’s Next
+
+Now that we’re on the latest Unity Editor, I have a little list of improvements to make. Then off to Steam goes the new build.
+
+I’ll do my best to keep scope brutally small, but now that I’m back on this project there are a lot of exciting ways I can go.
+
+- 100 new levels?
+- Better out-of-bounds shader?
+- Localization?
+- Mod support for custom levels?
+
+---
+
+## [HN-TITLE] 9. Why Japan has such good railways
+
+- **Source**: [link]
+- **Site**: worksinprogress.co
+- **Author**: Matthew Bornholt, Benedict Springbett
+- **Published**: 2026-04-07
+- **HN activity**: 412 points · [link]
+- **Length**: 4.3K words (~19 min read)
+- **Language**: en-US
+
+Japan is the land of the train. 28 percent of passenger kilometers in Japan are travelled by rail, more than anywhere else in the developed world. France achieves 10 percent, Germany 6.4 percent, and the United States just 0.25 percent. Travel in Japan is over a hundred times more likely to be by rail than travel in the United States. 
+
+Japan’s vast railway network is divided between dozens of companies, nearly all of them private. The largest of these, JR East, carries more passengers than the entire railway system of every country other than China and India. Each year, JR East carries four times as many passengers as the whole British railway system, even though it has fewer kilometers of track, serves about ten million fewer people, and competes with eight other companies. Japan’s railway system turns a large operating profit and receives far less public subsidy than European and American railways.
+
+[[image]  
+\
+Get the print magazine  
+\
+Subscribe for $100 to receive six beautiful issues per year.  
+\
+Subscribe](https://worksinprogress.co/print)
+
+In most developed countries, the railways have struggled since the rise of the automobile in the 1950s. From this point on, North America saw the near-total replacement of passenger trains with cars and planes. In Europe, it meant vast government financial support to keep the lines open.
+
+Japan’s different trajectory is often attributed to culture: the Japanese are conformists who are content to take public transport, unlike freedom-loving Americans who prefer to drive everywhere. Europeans are somewhere in between. Culture is also used to explain the incredible punctuality of Japanese railways.
+
+These cultural explanations are wrong. The Japanese love cars, but they take trains because they have the best railway system in the world. And their system excels because of good public policy: business structure, land use rules, driving rules, superior models for privatization, and sound regulation have given Japan its outstanding railways.
+
+This is good news for friends of rail. Culture is built over centuries, and replicating it is hard. But successful public policies can be emulated by one good government. Much about Japan’s railway system could be replicable around the world.
+
+### Japan’s railway companies
+
+Today, the most striking institutional feature of Japanese rail is that it is privately owned by a throng of competing companies.
+
+The railway arrived in Japan in 1872, during the Meiji Restoration, which opened the country up to foreign trade, ideas, and technologies. Like most Western countries, Japan nationalized its railways in the early twentieth century, creating what became known as Japanese National Railways (JNR). But it did not nationalize all of the lines, focusing only on mainline railways of national importance, and new private railways were still permitted.
+
+Between 1907 and World War II, Japan saw a boom in new private electric railways, coinciding with rapid urbanization. Technologically, most of these private railways were similar to the famous [link] in the United States: they were basically electric trams, but running between cities as well as within them. The American network eventually withered, and almost nothing of it survives today. In Japan, however, the network consolidated, and the light tramlines gradually evolved into heavy-rail intercity connections.
+
+[image]
+
+The Midwest was once criss-crossed by a network of ‘interurbans’, essentially intercity trams. In the United States, these lines have vanished, but in Japan the equivalent lines were gradually upgraded into a private heavy rail system that flourishes to this day.
+
+Image
+
+Electric Railway Journal via Wikimedia Commons.
+
+These companies are today known as ‘legacy private railways’ on account of their having been private since their inception. [link] eight legacy private railways in the Tokyo metropolitan area, five in the Osaka–Kobe–Kyoto megalopolis, two in Nagoya, and one in the fourth city of Fukuoka. There are also [link] elsewhere. In the three largest urban areas, these operators account for nearly half of railway track and stations, as well as a plurality of ridership. The largest, Kintetsu, not only operates urban services, but a whole intercity network stretching from Osaka to Nagoya.
+
+[image]
+
+The railway network of Kintetsu, the largest of Japan’s legacy private railway companies.
+
+Image
+
+These companies often compete head-to-head. At its most extreme, three separate commuter lines compete for the traffic between Osaka and the port city of Kobe, running in parallel, sometimes fewer than 500 meters apart.
+
+Meanwhile, the nationalized railways were managed by JNR. In the postwar era, JNR was responsible for building the famous Shinkansen system, as well as running commuter and long-distance lines throughout Japan. But in 1988, it was largely privatized, broken into six regional monopolies for passenger services together with a single national freight operator. These are collectively known as the Japan Railways Group (JR).
+
+[image]
+
+This means that Japan has ended up with six railway companies that trace their descent to the nationalized railways, the sixteen big legacy companies that have always been private, and a host of minor legacy railways, as well as numerous underground metros (some private, some municipally owned), monorails, and tram systems. This institutional diversity is striking enough. But equally striking is the consistent business model that has evolved amidst this pluralism: the railway that builds a city.
+
+### Railway-led urbanism
+
+If I take a train to go for a solitary walk in the countryside, the railway company can capture some of the value it creates by charging me for the journey, just as other companies capture the value of the goods and services they provide by charging for them. However, if I take a train to visit family, clients, a theater, or a shop, an important difference appears. The railway can capture the value it creates for me by charging me a fare, but it cannot capture the value it creates for those at my destination. As transport infrastructure creates benefits that produce no revenue for providers, free markets rarely build enough of it.
+
+Japan has partly solved this problem by enabling railway companies to do a great deal beside running railways. Take the example of the [link], one of the legacy private railways in southern Tokyo. You can not only travel on its [link], but also ride a Tokyu [link], live in a Tokyu-[link] [link], work in a Tokyu [link] complex, see a doctor in a Tokyu [link], buy groceries in a Tokyu [link], spend an afternoon at a Tokyu [link], take your children to their [link], and even die in a Tokyu [link]. The positive spillover effects of the railway on these things are captured by Tokyu because it owns them. The president of Tokyu [link]:
+
+> *I think that though we are a railway company, we consider ourselves a city-shaping company. In Europe for instance, railway companies simply connect cities through their terminals. That is a pretty normal way of operating in this industry, whereas what we do is completely different: we create cities and then, as a utility facility, we add the stations and the railways to connect them one with another.*
+
+This model was pioneered in the 1950s by what became [link] [link]. Hankyu’s network connects central Osaka to its northern suburbs, as well as Kyoto and Kobe. Its innovative founder [link] first built suburban housing, then a department store at the terminal station; he then created a hot spring resort, a zoo, and his own distinctive brand of all-women musical theater, the Takarazuka [link]. He also began to run bus services to and from his stations. Other companies emulated Hankyu’s example: Tokyo Disneyland is a collaboration between Disney and the Keisei Railway, while Hanshin in Osaka owns the [link] baseball team.
+
+[image]
+
+[image]
+
+A selection of side businesses operated by legacy private railway companies: 1. Seibu Chichibu Station Hot Spring Resort; 2. Hanshin Koshien Stadium Museum; 3. Hotel Hankyu International; 4. Hankyu Takarazuka Revue Theatre; 5. Tokyu Hospital-Okayama Station; 6. Nankai’s Sayama New Town; 7. Keio Store (supermarket); 8. Tobu Edo Wonderland Resort; 9. Abeno Haruka’s Station Terminal Complex.
+
+Image
+
+Author’s collection; Nankai Railway Corporation; Tokyu Corporation.
+
+Core rail operations are profitable for every Japanese private railway company, but they usually only account for a plurality or a small majority of [link]. The rest is contributed by their portfolio of side businesses. There is a natural financial synergy between the reliable but unremarkable cash flow of train fares and the profitable but riskier real estate and commercial side of the business. Railway companies’ side businesses also attract people to live and work on their rail corridor, reinforcing the customer base for the railway services themselves. 
+
+[image]
+
+This virtuous circle is enabled by transit-oriented development. Japan’s liberal land use regulation makes it straightforward to build new neighborhoods next to railway lines, giving commuters easy access to city centers. It also enables the densification of these centers, which means that commuters have more places they want to go.
+
+Railways cost a lot to build, but once they are built, they can move enormous numbers of people, far more than a road of similar size. This means that they work best in cities with a high density of people, jobs, and other activities. In 2019, New York City was the only American city where [link], in part because Manhattan has [link], two million residents, and [link] crammed into 59 square kilometers.
+
+[image]
+
+The view out over the north-south trunk railway from the JR East Museum: densely packed houses gradually give way to apartment blocks, then to high-rises in the distance, clustering around the station city of Omiya at the northern edge of Greater Tokyo.
+
+Image
+
+Author’s collection.
+
+This does not mean that rail-oriented cities must be structured like [link]: islands of high-rise apartments connected by metros and separated by motorways. Japanese cities have the lowest residential density in Asia, and a plurality of the Japanese live in houses, usually detached ones. The urban area of Tokyo, the densest Japanese city, has a [link] less than that of many European cities, including Paris, Madrid, or Athens. Japanese cities have vast low-rise, predominantly residential suburbs, built at densities that might be higher than what is typical in the United States, but that would be quite normal in Northern Europe.
+
+What makes Japan’s cities particularly suited to rail is thus not their residential districts, but their huge and hyperdense centers. These really are special: the cores of Tokyo or Osaka are unlike anything that exists in Europe or North America. Many of their features are famous worldwide: the vertical street [link], [link], [link] [link], covered arcades, elevated station [link], and [link] [link]. Getting millions of commuters and shoppers into these downtowns is where rail excels because its extreme spatial efficiency means that infrastructure with a relatively modest footprint can transport vast numbers of people into a small area. 
+
+None of this emerged from a coherent masterplan of transit-oriented development like Copenhagen’s [link] or Curitiba’s [link] [link]. Postwar Japanese opinion was committed to decentralization both to [link] [link] and [link] [link] [link] through [link], and new towns.
+
+Instead, this variety and adaptability around railways is possible because of the way Japanese urban planning works. Since 1919, Japan has had a standardized national [link] [link], but it is much more liberal than [link]. The Japanese authorities did not intend or even desire dense urban centers, but they did not prevent them, rather like nineteenth-century governments in the West.
+
+This liberal zoning system is reinforced by private access to city planning powers. Thirty percent of Japan’s urban land has been subject to [link], where agreement among two thirds of residents and landowners in an area is enough to allow its replanning, including compulsorily taking and demolishing land for amenities and infrastructure. Initially land readjustment was used only to assemble rural land for [link], but over time it was increasingly used to redevelop already urbanized areas, and new variants were [link] to [link] the [link] that [link] the major stations of central Tokyo.
+
+The history of the private railway companies could be written as a story of land readjustment projects: the initial building of the lines in the interwar years proceeded through one land readjustment project after another. Postwar improvements such as double-tracking, platform lengthening, and constant redevelopment of stations and their immediate thresholds were only possible because the railways could secure land takings cooperatively with local businesses and landowners.
+
+Perhaps the greatest example of this phenomenon involved Tokyu. In 1953 the company decided to build the Den’en Toshi Line, or Garden City Line, to serve a rural area southwest of Tokyo. This would be enabled by a series of land readjustment projects collectively among the largest in Japanese history.
+
+Over 30 years, 3,100 hectares were covered, of which only 36 percent was devoted to residential and commercial development, with 20 percent for forest and parks, 17 percent for roads, and much of the rest for watercourses. The population of the land readjustment zone would rise from 42,000 in 1954 to over 500,000 in 2003. 
+
+By connecting the affluent southwestern suburbs to Tokyu’s main real estate hub next to [link] station, now the second busiest in the world, the Den’en Toshi Line allowed Tokyu to become the largest private railway by [link]. The [link] [link] [link] [link] generally consider the Den’en Toshi Line to be the best [link] of [link]–[link] development in Japan.
+
+But the railway-as-city-builder model is not the only reason Japanese railways have been able to thrive. European countries usually prohibited railways from running real estate side businesses, but in the United States and Canada the practice was extremely widespread in the nineteenth and early twentieth centuries, and many famous railway suburbs were developed this way. Despite this, passenger rail in these countries collapsed in the mid-twentieth century. Part of the difference was that Japan did not extend the same implicit subsidies to cars as Western governments did. 
+
+[image]
+
+### Pricing driving
+
+The land of Toyota, Nissan, and Honda is not an anti-car nirvana. In fact, Japan has excellent motorways, and across the country as a whole a small majority of journeys are made by car. But Japan is a place where cars and car-oriented lifestyles compete on a level playing field.
+
+Japan is one of the only countries to have [link]. In Europe and North America, vast quantities of parking space is socialized: municipalities own the streets and allow people to park on them at low or zero cost. Initially with the intention of encouraging the provision of more parking spaces, Japan made it [link] to [link] on public roads or pavements without special permission. Before someone buys a car, they [link] that they have a reserved night-time space on private land, either owned or leased.
+
+Since parking on public land is banned, municipalities are not worried about overspill parking from developments with inadequate private parking. They therefore have no reason to impose parking minimums on developments: the market is left to decide whether parking is the most valuable use of private land. Where land is abundant, as in rural areas, suburbs, or small towns, private parking is plentiful. But in city centers, it is outcompeted by other land uses. [link] to the [link], central Tokyo has 23 parking spaces per hectare and 0.04 parking spaces per job, compared with 263 and 0.52 for Los Angeles. Even Manhattan, the densest urban area in North America with the lowest levels of car ownership, [link] [link] 60 parking spaces per hectare.
+
+Japanese roads are expected to be self-financing. Motorways are run by self-contained public cooperatives, very similar to [link], and funded by tolls on their users. Vehicle registration taxes, which are allocated to localities for road construction and maintenance, are worth [link] of the Japanese government budget.
+
+These measures, adopted in the 1950s, were [link] to suppress car use – the point was to fund a massive road expansion – but they have forced private vehicles to internalize many of their hidden costs. In the Tokyo urban area, [link] 71,000 yen ($450) each year on public transport fares and 210,000 yen ($1,350) on car purchase and maintenance costs.
+
+But the private car was not the only competitor faced by the private railways. For eight decades in the twentieth century, they also had to face the juggernaut of Japanese National Railways. Its privatization in 1988 removed the final obstacle to creating the world’s best railway system.
+
+### Privatization
+
+Railway privatization in Britain, New Zealand, Argentina, and Sweden has had a mixed reception, and all of those countries, apart from Sweden, have taken steps to reverse it. In Japan, it has been so successful that the government subsequently privatized the metro systems in [link] [link] [link].
+
+In the postwar period, JNR enjoyed real successes. It built the revolutionary Shinkansen, the first high-speed railway in the world. It also aggressively electrified and double-tracked major trunk lines, [link] lines into and out of major cities, and added city-center loops and freight bypasses. But these achievements were overshadowed by two problems.
+
+The first was politics. Many countries adapted to the rise of the car by closing the least profitable parts of their passenger rail network, like the consolidation of American freight rail into the Class I operators or the [link] in Britain. In Japan, however, the ruling [link] drew its support from [link] constituencies, whose support it retained with [link]–[link] [link]. Its ‘rail tribe’ group, led by [link] [link], prevented JNR from adapting itself to mass motorization. 
+
+JNR therefore did not amputate gangrenous rural and freight services that [link]. Worse, it continued to build new loss-making rural railway lines, known in Japanese as *Gaden-intetsu*, or railways pulled into the rice field.
+
+The second problem was organized labor. In general, [link] are known for their moderation and responsibility, a generalisation that also held true for the unions at the legacy private railways. The JNR unions, however, became highly militant, secure in the knowledge that their nationalized employers could never go bankrupt. [link].
+
+The railway unions [link] overstaffing on revenue-generating urban services, at a time when both international and private domestic operators were reducing staffing requirements against a backdrop of higher wages and the growing automation of signaling and ticketing. As a result, [link] of JNR’s costs were related to labor, compared to 40 percent for other Japanese railways. The average worker at a private railway was 121 percent more productive than their JNR counterpart.
+
+By the early 1980s, only seven out of 200 JNR lines made a profit. Successive governments deferred serious reform, running up debt, cutting down investments in new urban lines, raising ticket prices to twice those of comparable private railways, and increasing subsidies – which rose until annual subsidies equaled the total cost of the Shinkansen.
+
+In 1982, Prime Minister Yasuhiro Nakasone started to [link]. Unlike other countries, Japan simply returned to the traditional private railway model of the nineteenth and early twentieth centuries: tracks, trains, stations, and yards were owned by vertically integrated regional conglomerates.
+
+There are substantial advantages to vertical integration. Railways are a closed system that has to be planned as a single unit. Changing the timetable at station A can affect the timetable at station Z; buying new trains that can travel faster might require changes to the infrastructure so they can reach their top speed, which in turn requires rewriting the timetables. This becomes especially complicated if different services [link]. To prevent delays from [link] from one service to another, the timetable needs to be carefully designed to make best use of the available infrastructure.
+
+The starkest effect of privatization was a massive and immediate increase in labor productivity and profitability relative to the legacy private railways. In fact, this began before privatization: its mere threat strengthened the government’s hand when bargaining with the unions and forced JNR to begin closing rural lines.
+
+Privatization saw a general trend of productivity improvements, following a big one-time improvement between 1982 and 1990, when the workforce was cut by more than half, 83 loss-making lines were removed, and JNR’s debts were transferred to a holding company.
+
+The second great advantage of privatization was to allow the JR companies to emulate the railway-as-city-builder model of the legacy private railways: for instance, JR East owns two [link] [link] brands, a [link], a [link] chain, and even a [link]. The JR companies have not ignored their rail business: they have continued to build new high-speed lines and urban tunnels, upgrade stations, and implement a host of other improvements such as the introduction in the 1990s of smart cards that allow passengers to pay their fare with a tap.
+
+### Regulation
+
+This does not mean that the Japanese railway industry is a pure creature of free enterprise. No railway system ever has been. The Japanese system has found an equilibrium that makes rail policy explicit and limited. Leaving aside railway safety and business regulation, there are two main policy levers: fare maximums and capital expansion subsidies. 
+
+Price controls are often cited as a classic example of [link], whether through [link], [link] on the [link], [link], or [link]. Tokyo’s infamously crammed trains are a symptom of underpriced rush hour traffic.
+
+Railways have market power because the substitutes for railway trips – coaches, cars and planes – are quite a different product. This monopolistic position has [link]: monopoly systems, whether private or public, have a tendency to abuse their position to charge higher prices and run bad services. For this reason, the private monopolies that were common in the Western world before World War I often had price controls imposed on them. For example, most of the American streetcar networks were operated as long-term, price-controlled franchises granted by the city.
+
+Price maximums, if set too low, could have ruined Japan’s railways. This is exactly what happened to many Western transit services after the First World War. But the postwar Japanese [link] has capped fares generously. The system is explicitly designed to maintain profitability per rider, which in turn incentivizes the companies to maximize ridership. That buys political legitimacy for the privatized system, which is necessary for the continued provision of capital expansion subsidies. Indeed, during the long deflation era between 1992 and 2022, it was common for operators to charge below the [link], and the real value of railway fares continued to rise. Fare maximums are set on the basis of the average cost structures of all railway operators in a region, so companies with below-average costs like Tokyu would often charge below the cap to maintain a competitive edge, prevent public backlash, and maximize traffic to their side-businesses.
+
+Other than the fare maximums, the railways are free to make their own decisions about timetables, service patterns and day-to-day operations, a highly specialized and technical task which requires deep expertise. This contrasts with the government meddling with, say, Amtrak’s routes.
+
+Carefully designed public subsidies also play a useful role. Although Japanese railways do not receive subsidies for day-to-day operations, they do receive government loans and grants for capital investments. These are typically tied to [link], or to projects that have large spillovers that the railway company would be unable to internalize, like removing level crossings, or elevating at-grade railways or trams in order to reduce road congestion and accident risk. Generally, the local prefectural government will match the contribution of the national government. Larger new build projects are subject to lease back or debt-payment conditions that fare revenue is expected to pay back.
+
+### The recipe for successful railways
+
+Railway companies invested heavily in real estate businesses, often funding lines through selling land for housing around new stations. Liberal spatial policy meant that such development happened easily, even as it enabled dense development in urban cores where radial rail lines converged. Rail companies were generally vertically integrated regional monopolies, owning the land, track, and rolling stock, setting their own timetables, and employing their staff. The state imposed controls to stop them exploiting their monopoly position, but it did so cautiously, allowing them to make sufficient profit that incentives to invest were preserved. Capital subsidies were targeted at providing specific public goods that normal commercial operations overlooked.
+
+The above paragraph could be written by a historian of the future about contemporary Japan. But every word in it could also be written by a historian today about the United States in the nineteenth century – usually seen as the epitome of capitalist individualism. This striking fact contradicts the idea that America’s supposed individualism foreordains it to be the land of the car, or that Japan’s supposed communitarianism foreordained it to be the land of rail.
+
+It also puts pressure on the idea that the demise of rail is the inevitable consequence of cars. All countries saw some shift to cars in the twentieth century, and all rail industries had to respond to that. But public policy had an enormous effect on how successfully they did so. [link], excessive price controls, nationalization, and vertically disintegrated privatization have hampered Western rail in remaining competitive against cars since the 1920s. By maintaining and restoring the institutions that built the first railway systems in the nineteenth century, the Japanese have created the mightiest railway system of the twenty-first.
+
+---
+
+## [HN-TITLE] 10. The world in which IPv6 was a good design
+
+- **Source**: [link]
+- **Site**: apenwarr.ca
+- **Submitter**: signa11 (Hacker News)
+- **Submitted**: 2026-04-19 02:50 UTC (Hacker News)
+- **HN activity**: 53 points · [link]
+- **Length**: 5.7K words (~25 min read)
+
+**The world in which IPv6 was a good design**
+
+Last November I went to an IETF meeting for the first time. The IETF is an interesting place; it seems to be about 1/3 maintenance grunt work, 1/3 extending existing stuff, and 1/3 blue sky insanity. I attended mostly because I wanted to see how people would react to [link]. (Answer: mostly positively, but with suspicion. It kinda seemed too good to be true.)
+
+Anyway, the IETF meetings contain lots and lots of presentations about IPv6, the thing that was supposed to replace IPv4, which is what the Internet runs on. (Some would say IPv4 is already being replaced; some would say it has already happened.) Along with those presentations about IPv6, there were lots of people who think it's great, the greatest thing ever, and they're pretty sure it will finally catch on Any Day Now, and IPv4 is just a giant pile of hacks that really needs to die so that the Internet can be elegant again.
+
+I thought this would be a great chance to really try to figure out what was going on. Why is IPv6 such a complicated mess compared to IPv4? Wouldn't it be better if it had just been [link]? But it's not, oh goodness, is it ever not. So I started asking around. Here's what I found.
+
+**Buses ruined everything**
+
+Once upon a time, there was the telephone network, which used physical circuit switching. Essentially, that meant moving connectors around so that your phone connection was literally just a very long wire ("[link] 1"). A "leased line" was a very long wire that you leased from the phone company. You would put bits in one end of the wire, and they'd come out the other end, a fixed amount of time later. You didn't need addresses because there was exactly one machine at each end.
+
+Eventually the phone company optimized that a bit. Time-division multiplexing (TDM) and "virtual circuit switching" was born. The phone company could transparently take the bits at a slower bit rate from multiple lines, group them together with multiplexers and demultiplexers, and let them pass through the middle of the phone system using fewer wires than before. Making that work was a little complicated, but as far as we modem users were concerned, you still put bits in one end and they came out the other end. No addresses needed.
+
+The Internet (not called the Internet at the time) was built on top of these circuits. You had a bunch of wires that you could put bits into and have them come out the other side. If one computer had two or three interfaces, then it could, if given the right instructions, forward bits from one line to another, and you could do something a lot more efficient than a separate line between each pair of computers. And so IP addresses ("layer 3"), subnets, and routing were born. Even then, with these point-to-point links, you didn't need MAC addresses, because once a packet went into the wire, there was only one place it could come out. You used IP addresses to decide where it should go after that.
+
+Meanwhile, LANs got invented as an alternative. If you wanted to connect computers (or terminals and a mainframe) together at your local site, it was pretty inconvenient to need multiple interfaces, one for each wire to each satellite computer, arranged in a star configuration. To save on electronics, people wanted to have a "bus" network (also known as a "broadcast domain," a name that will be important later) where multiple stations could just be plugged into a single wire, and talk to any other station plugged into the same wire. These were not the same people as the ones building the Internet, so they didn't use IP addresses for this. They all invented their own scheme ("layer 2").
+
+One of the early local bus networks was arcnet, which is dear to my heart (I wrote the first Linux arcnet driver [link] way back in the 1990s, long after arcnet was obsolete). Arcnet layer 2 addresses were very simplistic: just 8 bits, set by jumpers or DIP switches on the back of the network card. As the network owner, it was your job to configure the addresses and make sure you didn't have any duplicates, or all heck would ensue. This was kind of a pain, but arcnet networks were usually pretty small, so it was only *kind* of a pain.
+
+A few years later, ethernet came along and solved that problem once and for all, by using many more bits (48, in fact) in the layer 2 address. That's enough bits that you can assign a different (sharded-sequential) address to every device that has ever been manufactured, and not have any overlaps. And that's exactly what they did! Thus the ethernet MAC address was born.
+
+Various LAN technologies came and went, including one of my favourites, IPX (Internetwork Packet Exchange, though it had nothing to do with the "real" Internet) and Netware, which worked great as long as all the clients and servers were on a single bus network. You never had to configure any addresses, ever. It was beautiful, and reliable, and worked. The golden age of networking, basically.
+
+Of course, someone had to ruin it: big company/university networks. They wanted to have so many computers that sharing 10 Mbps of a single bus network between them all became a huge bottleneck, so they needed a way to have multiple buses, and then interconnect - "internetwork," if you will - those buses together. You're probably thinking, of course! Use the Internet Protocol for that, right? Ha ha, no. The Internet protocol, still not called that, wasn't mature or popular back then, and nobody took it seriously. Netware-over-IPX (and the many other LAN protocols at the time) were serious business, so as serious businesses do, they invented their own thing(s) to extend the already-popular thing, ethernet. Devices on ethernet already had addresses, MAC addresses, which were about the only thing the various LAN protocol people could agree on, so they decided to use ethernet addresses as the keys for their routing mechanisms. (Actually they called it bridging and switching instead of routing.)
+
+The problem with ethernet addresses is they're assigned sequentially at the factory, so they can't be hierarchical. That means the "bridging table" is not as nice as a modern IP routing table, which can talk about the route for a whole subnet at a time. In order to do efficient bridging, you had to remember which network bus each MAC address could be found on. And humans didn't want to configure each of those by hand, so it needed to figure itself out automatically. If you had a complex internetwork of bridges, this could get a little complicated. As I understand it, that's what led to the [link], and I think I'll just leave it at that. Poetry is very important in networking.
+
+Anyway, it mostly worked, but it was a bit of a mess, and you got broadcast floods every now and then, and the routes weren't always optimal, and it was pretty much impossible to debug. (You definitely couldn't write something like traceroute for bridging, because none of the tools you need to make it work - such as the ability for an intermediate bridge to even have an address - exist in plain ethernet.)
+
+On the other hand, all these bridges were hardware-optimized. The whole system was invented by hardware people, basically, as a way of fooling the software, which had no idea about multiple buses and bridging between them, into working better on large networks. Hardware bridging means the bridging could go really really fast - as fast as the ethernet could go. Nowadays that doesn't sound very special, but at the time, it was a big deal. Ethernet was 10 Mbps, because you could maybe saturate it by putting a bunch of computers on the network all at once, not because any one computer could saturate 10 Mbps. That was crazy talk.
+
+Anyway, the point is, bridging was a mess, and impossible to debug, but it was fast.
+
+**Internet over buses**
+
+While all that was happening, those Internet people were getting busy, and were of course not blind to the invention of cool cheap LAN technologies. I think it might have been around this time that the ARPANET got actually renamed to the Internet, but I'm not sure. Let's say it was, because the story is better if I sound confident.
+
+At some point, things progressed from connecting individual Internet computers over point-to-point long distance links, to the desire to connect whole LANs together, over point-to-point links. Basically, you wanted a long-distance bridge.
+
+You might be thinking, hey, no big deal, why not just build a long distance bridge and be done with it? Sounds good, doesn't work. I won't go into the details right now, but basically the problem is [link]. The deep dark secret of ethernet bridging is that it assumes all your links are about the same speed, and/or completely uncongested, because they have no way to slow down. You just blast data as fast as you can, and expect it to arrive. But when your ethernet is 10 Mbps and your point-to-point link is 0.128 Mbps, that's completely hopeless. Separately, the idea of figuring out your routes by flooding all the links to see which one is right - this is the actual way bridging typically works - is hugely wasteful for slow links. And sub-optimal routing, an annoyance on local networks with low latency and high throughput, is nasty on slow, expensive long-distance links. It just doesn't scale.
+
+Luckily, those Internet people (if it was called the Internet yet) had been working on that exact set of problems. If we could just use Internet stuff to connect ethernet buses together, we'd be in great shape.
+
+And so they designed a "frame format" for Internet packets over ethernet (and arcnet, for that matter, and every other kind of LAN).
+
+And that's when everything started to go wrong.
+
+The first problem that needed solving was that now, when you put an Internet packet onto a wire, it was no longer clear which machine was supposed to "hear" it and maybe forward it along. If multiple Internet routers were on the same ethernet segment, you couldn't have them all picking it up and trying to forward it; that way lies packet storms and routing loops. No, you had to choose *which* router on the ethernet bus is supposed to pick it up. We can't just use the IP destination field for that, because we're already using that for the *final* destination, not the router destination. Instead, we identify the desired router using its MAC address in the ethernet frame.
+
+So basically, to set up your local IP routing table, you want to be able to say something like, "send packets to IP address 10.1.1.1 via the router at MAC address 11:22:33:44:55:66." That's the actual thing you want to express. This is important! Your destination is an IP address, but your router is a MAC address. But if you've ever configured a routing table, you might have noticed that nobody writes it like that. Instead, because the writers of your operating system's TCP/IP stack are stubborn, you write something like "send packets to IP address 10.1.1.1 via the router at IP address 192.168.1.1."
+
+In truth, that really is just complicating things. Now your operating system has to first look up the ethernet address of 192.168.1.1, find out it's 11:22:33:44:55:66, and finally generate a packet with destination ethernet address 11:22:33:44:55:66 and destination IP address 10.1.1.1. 192.168.1.1 shows up nowhere in the packet; it's just an abstraction at the human level.
+
+To do that pointless intermediate step, you need to add ARP (address resolution protocol), a simple non-IP protocol whose job it is to convert IP addresses to ethernet addresses. It does this by broadcasting to everyone on the local ethernet bus, asking them all to answer if they own that particular IP address. If you have bridges, they all have to forward all the ARP packets to all their interfaces, because they're ethernet broadcast packets, and that's what broadcasting means. On a big, busy ethernet with lots of interconnected LANs, excessive broadcasts start becoming one of your biggest nightmares. It's especially bad on wifi. As time went on, people started making bridges/switches with special hacks to avoid forwarding ARP as far as it's technically supposed to go, to try to cut down on this problem. Some devices (especially wifi access points) just make fake ARP answers to try to help. But doing any of that is a hack, albeit sometimes a necessary hack.
+
+**Death by legacy**
+
+Time passed. Eventually (and this actually took quite a while), people pretty much stopped using non-IP protocols on ethernet at all. So basically all networks became a physical wire (layer 1), with multiple stations on a bus (layer 2), with multiple buses connected over bridges (gotcha! still layer 2!), and those inter-buses connected over IP routers (layer 3).
+
+After a while, people got tired of manually configuring IP addresses, arcnet style, and wanted them to auto-configure, ethernet style, except it was too late to literally do it ethernet style, because a) the devices had already been manufactured with ethernet addresses, not IP addresses, and b) IP addresses were only 32 bits, which is not enough to just manufacture them forever with no overlaps, and c) just assigning IP addresses sequentially instead of using subnets would bring us back to square one: it would just be ethernet over again, and we already have ethernet.
+
+So that's where bootp and DHCP came from. Those protocols, by the way, are special kinda like ARP is special (except they pretend not to be special, by technically being IP packets). They have to be special, because an IP node has to be able to transmit them before it has an IP address, which is of course impossible, so it just fills the IP headers with essentially nonsense (albeit nonsense specified by an RFC), so the headers might as well have been left out. (You know these "IP" headers are nonsense because the DHCP server has to open a raw socket and fill them in by hand; the kernel IP layer can't do it.) But nobody would feel nice if they were inventing a whole new protocol that wasn't IP, so they pretended it was IP, and then they felt nice. Well, as nice as one can feel when one is inventing DHCP.
+
+Anyway, I digress. The salient detail here is that unlike real IP services, bootp and DHCP need to know about ethernet addresses, because after all, it's their job to hear your ethernet address and assign you an IP address to go with it. They're basically the reverse of ARP, except we can't say that, because there's a protocol called RARP that is literally the reverse of ARP. Actually, RARP worked quite fine and did the same thing as bootp and DHCP while being much simpler, but we don't talk about that.
+
+The point of all this is that ethernet and IP were getting further and further intertwined. They're nowadays almost inseparable. It's hard to imagine a network interface (except ppp0) without a 48-bit MAC address, and it's hard to imagine that network interface working without an IP address. You write your IP routing table using IP addresses, but of course you know you're lying when you name the router by IP address; you're just indirectly saying that you want to route via a MAC address. And you have ARP, which gets bridged but not really, and DHCP, which is an IP packet but is really an ethernet protocol, and so on.
+
+Moreover, we still have both bridging and routing, and they both get more and more complicated as the LANs and the Internet get more and more complicated, respectively. Bridging is still, mostly, hardware based and defined by IEEE, the people who control the ethernet standards. Routing is still, mostly, software based and defined by the IETF, the people who control the Internet standards. Both groups still try to pretend the other group doesn't exist. Network operators basically choose bridging vs routing based on how fast they want it to go and how much they hate configuring DHCP servers, which they really hate very much, which means they use bridging as much as possible and routing when they have to.
+
+In fact, bridging has gotten so completely out of control that people decided to extract the layer 2 bridging decisions out completely to a higher level (with configuration exchanged between bridges using a protocol layered over IP, of course!) so it can be centrally managed. That's called software-defined networking (SDN). It helps a lot, compared to letting your switches and bridges just do whatever they want, but it's also fundamentally silly, because you know what's software defined networking? IP. It is literally and has always been the software-defined network you use for interconnecting networks that have gotten too big. But the problem is, IPv4 was initially too hard to hardware accelerate, and anyway, it didn't get hardware accelerated, and configuring DHCP really is a huge pain, so network operators just learned how to bridge bigger and bigger things. And nowadays big data centers are basically just SDNed, and you might as well not be using IP in the data center at all, because nobody's routing the packets. It's all just one big virtual bus network.
+
+It is, in short, a mess.
+
+**Now forget I said all that...**
+
+Great story, right? Right. Now pretend none of that happened, and we're back in the early 1990s, when most of that had in fact already happened, but people at the IETF were anyway pretending that it hadn't happened and that the "upcoming" disaster could all be avoided. This is the good part!
+
+There's one thing I forgot to mention in that big long story above: somewhere in that whole chain of events, **we completely stopped using bus networks**. Ethernet is not actually a bus anymore. It just *pretends* to be a bus. Basically, we couldn't get ethernet's famous [link] to keep working as speeds increased, so we went back to the good old star topology. We run bundles of cables from the switch, so that we can run one cable from each station all the way back to the center point. Walls and ceilings and floors are filled with big, thick, expensive bundles of ethernet, because we couldn't figure out how to make buses work well... at layer 1. It's kinda funny actually when you think about it. If you find sad things funny.
+
+In fact, in a bonus fit of insanity, even wifi - the ultimate bus network, right, where literally everybody is sharing the same open-air "bus" - we almost universally use wifi in a mode, called "infrastructure mode," which simulates a giant star topology. If you have two wifi stations connected to the same access point, they don't talk to each other directly, even when they can hear each other just fine. They send a packet to the access point, but addressed to the MAC address of the other node. The access point then bounces it back out to the destination node.
+
+HOLD THE HORSES LET ME JUST REVIEW THAT FOR YOU. There's a little catch there. When node X wants to send to Internet node Z, via IP router Y, via wifi access point A, what does the packet look like? Just to draw a picture, here's what we want to happen:
+
+```
+X -> [wifi] -> A -> [wifi] -> Y -> [internet] -> Z
+```
+
+Z is the IP destination, so obviously the IP destination field has to be Z. Y is the router, which we learned above that we specify by using its ethernet MAC address in the ethernet destination field. But in wifi, X can't just send out a packet to Y, for various reasons (including that they don't know each other's WPA2 encryption keys). We have to send to A. Where do we put A's address, you might ask?
+
+No problem! 802.11 has a thing called 3-address mode. They add a *third* ethernet MAC address to every frame, so they can talk about the real ethernet destination, and the intermediate ethernet destination. On top of that, there are bit fields called "to-AP" and "from-AP," which tell you if the packet is going from a station to an AP, or from an AP to a station, respectively. But actually they can both be true at the same time, because that's how you make wifi repeaters (APs send packets to APs).
+
+Speaking of wifi repeaters! If A is a repeater, it has to send back to the base station, B, along the way, which looks like this:
+
+```
+X -> [wifi] -> A -> [wifi-repeater] -> B -> [wifi] -> Y -> [internet] -> Z
+```
+
+X-&gt;A uses three-address mode, but A-&gt;B has a problem: the ethernet source address is X, and the ethernet destination address is Y, but the packet on the air is actually being sent from A to B; X and Y aren't involved at all. Suffice it to say that there's a thing called 4-address mode, and it works pretty much like you think.
+
+(In 802.11s mesh networks, there's a 6-address mode, and that's about where I gave up trying to understand.)
+
+**Avery, I was promised IPv6, and you haven't even mentioned IPv6**
+
+Oh, oops. This post went a bit off the rails, didn't it?
+
+Here's the point of the whole thing. The IETF people, when they were thinking about IPv6, saw this mess getting made - and maybe predicted some of the additional mess that would happen, though I doubt they could have predicted SDN and wifi repeater modes - and they said, hey wait a minute, stop right there. We don't need any of this crap! What if instead the world worked like this?
+
+- No more physical bus networks (already done!)
+- No more layer 2 internetworks (that's what layer 3 is for)
+- No more broadcasts (layer 2 is always point-to-point, so where would you send the broadcast to? replace it with multicast instead)
+- No more MAC addresses (on a point-to-point network, it's obvious who the sender and receiver are, and you can do multicast using IP addresses)
+- No more ARP and DHCP (no MAC addresses, no so mapping IP addresses to MAC addresses)
+- No more complexity in IP headers (so you can hardware accelerate IP routing)
+- No more IP address shortages (so we can go back to routing big subnets again)
+- No more manual IP address configuration except at the core (and there are so many IP addresses that we can recursively hand out subnets down the tree from there)
+
+Imagine that we lived in such a world: wifi repeaters would just be IPv6 routers. So would wifi access points. So would ethernet switches. So would SDN. ARP storms would be gone. "IGMP snooping bridges" would be gone. Bridging loops would be gone. Every routing problem would be traceroute-able. And best of all, we could drop 12 bytes (source/dest ethernet addresses) from every ethernet packet, and 18 bytes (source/dest/AP addresses) from every wifi packet. Sure, IPv6 adds an extra 24 bytes of address (vs IPv4), but you're dropping 12 bytes of ethernet, so the added overhead is only 12 bytes - pretty comparable to using two 64-bit IP addresses but having to keep the ethernet header. The idea that we could someday drop ethernet addresses helped to justify the oversized IPv6 addresses.
+
+It would have been beautiful. Except for one problem: it never happened.
+
+**Requiem for a dream**
+
+One person at work put it best: "layers are only ever added, never removed."
+
+All this wonderfulness depended on the ability to start over and throw away the legacy cruft we had built up. And that is, unfortunately, pretty much impossible. Even if IPv6 hits 99% penetration, that doesn't mean we'll be rid of IPv4. And if we're not rid of IPv4, we won't be rid of ethernet addresses, or wifi addresses. And if we have to keep the IEEE 802.3 and 802.11 framing standards, we're never going to save those bytes. So we will always need the "IPv6 neighbour discovery" protocol, which is just a more complicated ARP. Even though we no longer have bus networks, we'll always need some kind of simulator for broadcasts, because that's how ARP works. We'll need to keep running a local DHCP server at home so that our obsolete IPv4 light bulbs keep working. We'll keep needing NAT so that our obsolete IPv4 light bulbs can keep reaching the Internet.
+
+And that's not the worst of it. The worst of it is we still need the infinite abomination that is layer 2 bridging, because of one more mistake the IPv6 team *forgot to fix*. Unfortunately, while they were blue-skying IPv6 back in the 1990s, they neglected to solve the "mobile IP" problem. As I understand it, the idea was to get IPv6 deployed first - it should only take a few years - and then work on it after IPv4 and MAC addresses had been eliminated, at which time it should be much easier to solve, and meanwhile, nobody really has a "mobile IP" device yet anyway. I mean, what would that even mean, like carrying your laptop around and plugging into a series of one ethernet port after another while you ftp a file? Sounds dumb.
+
+**The killer app: mobile IP**
+
+Of course, with a couple more decades of history behind us, now we know a few use cases for carrying around a computer - your phone - and letting it plug into one ethernet port wireless access point after another. We do it all the time. And with LTE, it even mostly works! With wifi, it works sometimes. Good, right?
+
+Not really, because of the Internet's secret shame: all that stuff only works because of layer 2 bridging. Internet routing can't handle mobility - at all. If you move around on an IP network, your IP address changes, and that breaks any connections you have open.
+
+Corporate wifi networks fake it for you, bridging their whole LAN together at layer 2, so that the giant central DHCP server always hands you the same IP address no matter which corporate wifi access point you join, and then gets your packets to you, with at most a few seconds of confusion while the bridge reconfigures. Those newfangled home wifi systems with multiple extenders/repeaters do the same trick. But if you switch from one wifi network to another as you walk down the street - like if there's a "Public Wifi" service in a series of stores - well, too bad. Each of those gives you a new IP address, and each time your IP address changes, you kill all your connections.
+
+LTE tries even harder. You keep your IP address (usually an IPv6 address in the case of mobile networks), even if you travel miles and miles and hop between numerous cell towers. How? Well... they typically just tunnel all your traffic back to a central location, where it all gets bridged together (albeit with lots of firewalling) into one super-gigantic virtual layer 2 LAN. And your connections keep going. At the expense of a ton of complexity, and a truly embarrassing amount of extra latency, which they would really like to fix, but it's almost impossible.
+
+**Making mobile IP actually work1**
+
+So okay, this has been a long story, but I managed to extract it from those IETF people eventually. When we got to this point - the problem of mobile IP - I couldn't help but ask. What went wrong? Why can't we make it work?
+
+The answer, it turns out, is surprisingly simple. The great design flaw was in how the famous "4-tuple" (source ip, source port, destination ip, destination port) was defined. We use the 4-tuple to identify a given TCP or UDP session; if a packet has those four fields the same, then it belongs to a given session, and we can deliver it to whatever socket is handling that session. But the 4-tuple crosses two layers: internetwork (layer 3) and transport (layer 4). If, instead, we had identified sessions using *only* layer 4 data, then mobile IP would have worked perfectly.
+
+Let's do a quick example. X port 1111 is talking to Y port 80, so it sends a packet with 4-tuple (X,1111,Y,80). The response comes back with (Y,80,X,1111), and the kernel delivers it to the socket that generated the original packet. When X sends more packets tagged (X,1111,Y,80), then Y delivers them all to the same server socket, and so on.
+
+Then, if X hops IP addresses, it gets a new name, say Q. Now it'll start sending packets with (Q,1111,Y,80). Y has no idea what that means, and throws it away. Meanwhile, if Y sends packets tagged (Y,80,X,1111), they get lost, because there is no longer an X to receive them.
+
+Imagine now that we tagged sockets without reference to their IP address. For that to work, we'd need much bigger port numbers (which are currently 16 bits). Let's make them, say, 128 or 256 bits, some kind of unique hash.
+
+Now X sends out packets to Y with tag (uuid,80). Note, the packets themselves still contain the (X,Y) addressing information, down at layer 3 - that's how they get routed to the right machine in the first place. But the kernel doesn't *use* the layer 3 information to decide which socket to deliver to; it just uses the uuid. The destination port (80 in this case) is only needed to initiate a new session, to identify what service you want to connect to, and can be ignored or left out after that.
+
+For the return direction, Y's kernel caches the fact that packets for (uuid) go to IP address X, which is the address it most recently received (uuid) packets from.
+
+Now imagine that X changes addresses to Q. It still sends out packets tagged with (uuid,80), to IP address Y, but now those packets come from address Q. On machine Y, it receives the packet and matches it to the socket associated with (uuid), notes that the packets for that socket are now coming from address Q, and updates its cache. Its return packets can now be sent, tagged as (uuid), back to Q instead of X. Everything works! (Modulo some care to prevent connection hijacking by impostors.2)
+
+There's only one catch: that's not how UDP and TCP work, and it's too late to update them. Updating UDP and TCP would be like updating IPv4 to IPv6; a project that sounded simple, back in the 1990s, but decades later, is less than half accomplished (and the first half was the easy part; the long tail is much harder).
+
+The positive news is we may be able to hack around it with yet another layering violation. If we throw away TCP - it's getting rather old anyway - and instead use QUIC over UDP, then we can just stop using the UDP 4-tuple as a connection identifier at all. Instead, if the UDP port number is the "special mobility layer" port, we unwrap the content, which can be another packet with a proper uuid tag, match it to the right session, and deliver those packets to the right socket.
+
+There's even more good news: the experimental QUIC protocol already, at least in theory, has the right packet structure to work like this. It turns out you need unique session identifiers (keys) anyhow if you want to use stateless packet encryption and authentication, which QUIC does. So, perhaps with not much work, QUIC could support transparent roaming. What a world that would be!
+
+At that point, all we'd have to do is eliminate all remaining UDP and TCP from the Internet, and then we would definitely not need layer 2 bridging anymore, for real this time, and then we could get rid of broadcasts and MAC addresses and SDN and DHCP and all that stuff.
+
+And then the Internet would be elegant again.
+
+**1 Edit 2017-08-16:** It turns out that nothing in this section requires IPv6. It would work fine with IPv4 and NAT, even roaming across multiple NATs.
+
+**2 Edit 2017-08-15:** Some people asked what "some care to prevent connection hijacking" might look like. There are various ways to do it, but the simplest would be to do something like the SYN-ACK-SYNACK exchange TCP does at connection startup. If Y just trusts the first packet from the new host Q, then it's too easy for any attacker to take over the X-&gt;Y connection by simply sending a packet to Y from anywhere on the Internet. (Although it's a bit hard to guess which 256-bit uuid to fill in.) But if Y sends back a cookie that Q must receive and process and send back to Y, that ensures that Q is at least a man-in-the-middle and not just an outside attacker (which is all TCP would guarantee anyway). If you're using an encrypted protocol (like QUIC3), the handshake can also be protected by your session key.
+
+**3 Edit 2017-10-24:** Besides QUIC, there are several other candidates for such a protocol, including [link]. I didn't mention MinimaLT originally because it wasn't part of my original conversation with the IETF people, but I don't mean to imply that QUIC is the only possible option as a roaming-capable TCP replacement. In fact, MinimaLT is the first protocol I heard of that elegantly solved the roaming problem. Future solutions that might get adopted, including by QUIC, will likely be modeled after MinimaLT's solution.
+
+**Update 2020-07-09:** I've posted [link] on the Tailscale blog.
+
+---
+
+## [HN-TITLE] 11. Keep Pushing: We Get 10 More Days to Reform Section 702
+
+- **Source**: [link]
+- **Site**: Electronic Frontier Foundation
+- **Author**: Matthew Guariglia
+- **Published**: 2026-04-17
+- **HN activity**: 61 points · [link]
+- **Length**: 472 words (~3 min read)
+- **Language**: en
+
+In a dramatic middle-of-the-night stand off, a bipartisan set of lawmakers pushing for true reform and privacy protections for Americans bought us some more time to fight! They are holding out for, at a minimum, the requirement of an actual probable cause warrant for FBI access to information collected under the mass spying program known as 702.
+
+A reauthorization with virtually no changes was defeated because a core group of lawmakers held strong; they know that people are hungry for real reform that protects the privacy of our communications. **We now have a 10-day extension to continue to push Congress to pass a real reform bill.** 
+
+The Lawmakers rallied late Thursday night to reject a [link] made gestures at privacy protections, but it would not have improved on the status quo and would have reauthorized Section 702 for five more years to boot. 
+
+[link]
+
+TELL congress: 702 Needs Reform
+
+Section 702 is rife with problems, loopholes, and compliance issues that need fixing. The National Security Agency collects full conversations being conducted by and with targets overseas – including by and with Americans in the U.S. –  and stores them in massive databases. The NSA then allows other agencies, including the Federal Bureau of Investigation, to access untold amounts of that information. In turn, the FBI takes a “finders keepers” approach to this data: they reason that since it's already collected under one law, it’s OK for them to see it. 
+
+Under current practice, the [link]. What’s more, victims of this surveillance  won’t even know and have very few ways of finding out that their communications have been surveilled. EFF and other civil liberties advocates have been trying for [link] when data collected through Section 702 is used as evidence against them.  
+
+Reforming Section 702 is even more urgent because of revelations hinted at by Senator Ron Wyden’s public statements concerning a “[link]” of the law that enables surveillance of Americans, and a public  [link] he sent to fellow Senators about FBI abuse of Section 702. 
+
+That’s right—the way the government conducts mass surveillance is so secret and unaccountable even the way they interpret the law is classified. 
+
+ **“In many cases these will be law-abiding Americans having perfectly legitimate, often sensitive, conversations,”** Wyden wrote. **“These Americans could include journalists, foreign aid workers, people with family members overseas - even women trying to get abortion medication from an overseas provider. Congress has an obligation to protect our country from foreign threats and protect the rights of these and other Americans.”** 
+
+We have 10 days to make it clear to Congress: 702 needs real reforms. Not a blanket  reauthorization. Not lip service to change. Real reform.
+
+[link]
+
+TELL congress: 702 Needs Reform
+
+---
+
+## [HN-TITLE] 12. Binary Dependencies: Identifying the Hidden Packages We All Depend On
+
+- **Source**: [link]
+- **Site**: Vlad's Website
+- **Submitter**: PaulHoule (Hacker News)
+- **Published**: 2026-01-31
+- **HN activity**: 18 points · [link]
+- **Length**: 1.2K words (~6 min read)
+- **Language**: en
+
+Download the [link].
+
+Or watch on [link]
+
+On 31 Jan 2026, I gave a talk at [link] on *phantom binary dependencies* — packages that we depend on in binary form, even though these dependency relationships are invisible to us. If we cannot reliably identify these phantom dependencies, the sustainability and security of our tech infrastructure will be at risk, which threatens critical services such as hospitals, transportation and the internet.
+
+You can watch my talk on this page, and I’ve included more details below, as well as a list of resources for those who want to learn more about this topic.
+
+## Abstract
+
+When you create a software package, your work might depend on other packages. Usually, you will depend on the *source code* of these other packages. However, sometimes, you will depend on *precompiled binaries* of your dependencies. This frequently happens when calling compiled code, like C code, from other programming languages, such as Python.
+
+In almost all ecosystems, it is difficult to keep track of binary dependencies. When you depend on a package’s source code, this is normally recorded in your manifest file — `pyproject.toml`, `package.json` and so on. However, when you depend on a package’s precompiled binaries, this information is usually not recorded anywhere. This means that the binary dependency relationship between your project and whatever you’re depending on is hidden — so we can say that you have a *phantom binary dependency*.
+
+You can find detailed technical information about how binary dependencies work in my article titled [link].
+
+Why are phantom binary dependencies important? For at least two reasons:
+
+- **Sustainability**. [link] maintainers struggle to get paid because of the [link], which makes them more vulnerable to [link]. Projects like the [link], the [link], and [link] help maintainers get paid. But we have to know which maintainers we depend on to be able to pay them. If we cannot identify our binary dependencies, we cannot identify which maintainers we should support, which puts the sustainability of the Open Source ecosystem at risk, threating our global tech infrastructure.
+- **Security**. If your project depends on a library, any security issues in that library will leave your project vulnerable. If you don’t have a clear picture of which libraries you depend on, you won’t have a clear picture of security vulnerabilities that might affect you, which puts your project at risk. For software that supports critical infrastructure like hospitals, transportation systems, and the internet, this vulnerability puts the public at risk of harm.
+
+There are tools we can build, and systemic changes we can make to our package management ecosystems, that will correct these issues, though this will be a lot of work. In my talk, I sketch the beginnings of a solution.
+
+I believe we should start by creating tools that can identify and record binary dependencies for a wide variety of packages, giving maintainers, security researchers, and other parties the information they need to figure out more robust solutions.
+
+Once we have this information, we can work on other aspects of the problem. How can we made sure that binary dependencies are always sourced from the appropriate package managers, instead of being merely vendored, so that they can be kept up to date with security patches? How can we make sure that language package managers and system package managers interoperate to warn developers of security issues across the entire dependency graph?
+
+I’m actively involved in this work, and there are many conversations happening around these questions. If you’re interested, here are some resources to help you learn more and/or get involved! 
+
+## Other Resources
+
+- The [link] is where I keep my work-in-progress code and notes.
+- The [link] is an initiative aiming to get companies to pay the Open Source maintainers whose work they depend on. Pledge members have paid $6,879,498 to Open Source developers at the time of writing.
+- [link] by Andrew Nesbitt, a great post about the problem of binary dependencies.
+- [link] by Anand Sawant is where the term *phantom dependency* was originally coined.
+- [link], a widely-used Python package that can identify a wheel’s required dynamic libraries, but does not yet have accurate human-readable output, or an API for researchers and developers to use.
+- [link] on [link], where I ask the maintainers whether they are interested in adding APIs that would give users and researchers more visibility into binary dependencies.
+- [link], a lesser-known Python package that can identify a wheel’s required dynamic libraries and *does have* a public API.
+- [link], in which author Seth Larson introduces SBOMs to Python packages. See also his [link] to [link], which enables users to discover binary dependencies, and include them in a package’s SBOM.
+- [link], which specifies a way to record binary dependencies in `pyproject.toml`. This interoperable record of binary dependencies could allow many tools to, for example, flag security issues that were previously invisible.
+- [link], which specifies a system for mapping binary dependency names to packages in non-Python registries.
+- [link] on the [link] *packages* repo collects more information on strategies for tracking binary dependencies across multiple package managers.
+- [link] is a tool developed at Sony that aims to improve supply chain transparency by embedding metadata into binaries.
+- [link] is a tool that aims, among other things, to provide a way for Python packages to be built completely from source, which includes building all their binary dependencies from source. I am not sure whether this is actually implemented yet.
+- [link] provides a section within ELF binaries for recording the provenance of a dynamic library, including the name of the system package it originated from. See also Fedora’s page about [link].
+- [link] provides a section within ELF binaries for recording the names of libraries loaded with `dlopen()`. This would hypothetically allow us to keep track of libraries opened with [link]/[link]. However, I’m not sure how these records would be filled in, since it’s possible for the names of libraries opened with `dlopen()` to not be known until runtime.
+- In a paper titled [link], Xu et al describe a system for identifying when Python code calls into parts of C-based dynamic libraries that are known to have security vulnerabilities. According to their research, 24.0% of PyPI projects “transitively invoke vulnerable APIs from C libraries”. Note, however, that Xu et al analyse Python code that calls into binary dependencies *using `dlopen()`* , which is a notable caveat, since these kinds of FFI calls are not the most common way to call into binary dependencies. See my [link] for more information.
+- The [link] is a registry of packages, mainly C/C++ packages, that do not otherwise have a [link] because they are not clearly identified in package registries. Such a registry could be used for assigning reliable identities to binary dependencies.
+- [link] by Luca Forstner tells us that it’s possible, but tricky, to publish binary packages on *npm*.
+
+---
+
+## [HN-TITLE] 13. SI Units for Request Rate (2024)
+
+- **Source**: [link]
+- **Site**: entropicthoughts.com
+- **Author**: kqr
+- **Submitted**: 2026-04-16 08:42 UTC (Hacker News)
+- **HN activity**: 70 points · [link]
+- **Length**: 544 words (~3 min read)
+
+*Request rate* is the number of requests that arrive, or are serviced, or leave, during some period.
+
+It’s surprisingly common for people to speak of a request rate without specifying what the length of the period is. I have even seen dashboards that don’t have a fixed period for the metrics query – the request rate becomes measured per whatever aggregation interval the dashboard deems appropriate for the window size at the time. If you zoom out, you get a higher request rate. If you move the window to a high-resolution screen, you get a lower request rate.
+
+We should specify the period length in the query to the metrics database, so everyone sees the same request rate regardless of how many pixels their dashboard occupies at the time.
+
+The good period length to use is the second. Request rates should be measured as the number of requests per second.11 I have met some people who measure requests per minute. Don’t be those people. This sounds like it would have an si unit, i.e. we should be able to say something like “our request rate is 57 watts.” Except obviously not watts.
+
+* * *
+
+Turns out there are two si units that both could fit:
+
+- The hertz, or Hz, is the si unit of frequency. It is defined as one event per second.
+- The becquerel, or Bq, is the si unit of (radio)activity. It is also defined as one event per second.
+
+Why are there two units for the same thing? A physicist that hears that an event occurs at 4 Hz will assume that there is one event exactly every 250 milliseconds. The hertz unit is strongly associated with periodic behaviour. Radioactive decay is not that well behaved, and will happen only on average with the given frequency. A sample that decays at 4 Bq may decay zero times one second, and then 9 times the next.22 Assuming a Poisson distribution, these will be rare events, but if you look at the sample for an hour, you have a better than 50 % chance of observing that exact sequence of decays.
+
+It makes sense then that we would say the request rate is 500 Hz when we talk about highly regular load testing, where one request is issued consistently every 2 ms. But if it’s about organic traffic that happens to arrive at an average of 500 times per second, then maybe saying 500 Bq is more appropriate.
+
+This is also convenient when we are nearing request rates static web servers or caches handle. Saying “ninety kilobecquerel” and writing “90 kBq” is a lot more convenient than “ninety thousand requests per second” and “90,000 requests/s”.33 A reader suggested inventing the unit “rips” instead, which I like both the idea and sound of, but I’m a sucker for bending standards to my will.
+
+* * *
+
+*Except*! It seems that – in contrast to the hertz which is a general unit – the becquerel is meant to be specifically about radioactive decay. There’s no si unit for arbitrary events that happen on average with a certain frequency. I will keep using the becquerel for request rates, and I hope that 50 years from now, we will have forgotten the silly mistake of thinking it was only about nuclear decay.
+
+---
+
+## [HN-TITLE] 14. State of Kdenlive
+
+- **Source**: [link]
+- **Site**: Kdenlive
+- **Submitter**: f\_r\_d (Hacker News)
+- **Published**: 2026-04-18
+- **HN activity**: 401 points · [link]
+- **Length**: 1.9K words (~9 min read)
+- **Language**: en
+
+In 2025, the Kdenlive team continued grinding to push the project forward through steady development, collaboration, and community support. Over the past year we’ve found a nice balance between adding new features, bug fixing, polishing the user interface, and improving performance and workflow, with stability taking priority over feature creep.
+
+We relaunched the website with a new content management system, refreshed some content and the design, and restored historic content dating back to 2002. We also strengthened upstream collaboration with the MLT developers and contributed several improvements to OpenTimelineIO.
+
+Here’s a look at what we've been up to and what is ahead.
+
+## RELEASE HIGHLIGHTS
+
+As part of [link], we follow the KDE Gear [link], with three major releases each year—in April, August, and December—each followed by three point maintenance releases.
+
+### 25.04.0
+
+This release added a powerful automatic masking tool and brought the last batch of features from our last fundraiser.
+
+[link]
+
+### Background Removal
+
+The new Object Segmentation plugin based on the \[SAM2]\[4] model allows to remove any selected object from the background.
+
+### OpenTimelineIO
+
+[image]
+
+We rewrote our OpenTimelineIO import and export function using the C++ library. Now you can exchange projects with other editing applications that support this open source file format.
+
+### Waveform improvements
+
+[image]
+
+Audio waveform generation got a 300% performance boost, along with a refactored sampling method that accurately renders the audio signal and higher-resolution waveforms for greater precision.
+
+### 25.08.0
+
+This release focused heavily on stabilization, bringing over 300 commits and fixing more than 15 crashes. Instead of major new features, the effort went into polishing and bug fixing.
+
+[link]
+
+### Audio Mixer
+
+[image]
+
+We redesigned the audio mixer bringing levels with clearer visuals and thresholds. We also did some code refactoring and cleanup. This change fixes issues with HiDPI displays with fractional scaling.
+
+### Markers and Guides
+
+Guides and Markers got a major overhaul this release to improve the project organization.
+
+### Titler improvements
+
+This release the titler received some much needed love like improved SVG and image support with ability to move and resize items, added center resize with Shift + Drag, and renamed the Pattern tab to Templates and moved the templates dropdown to it
+
+### 25.12.0
+
+The focus of this release cycle was on improving the user experience and polishing the user interface.
+
+[link]
+
+### Welcome Screen
+
+[image]
+
+We added a new first-run launch screen for first time users as well as added a Welcome Screen allowing to easily launch recent projects.
+
+### Docking System
+
+We added a new, more flexible docking system that lets you group widgets, show or hide them on demand, and save layouts as separate files that can be shared or stored within projects.
+
+### Redesigned monitor
+
+The audio waveform in the Project Monitor got a revamped interface with an added minimap.
+
+## THE ROAD AHEAD
+
+### 26.04
+
+This next release is just around the corner and brings a nice batch of nifty new features like monitor mirroring and animated transition previews, making it much easier to visualize how they will look before applying them. Additionally, dropping a transition onto the timeline can now automatically adjust its duration to match the clips above and below, saving time and reducing manual tweaking.
+
+This feature allows you to mirror any monitor while working in fullscreen mode. It’s especially useful when working with multiple displays or collaborating with others in the editing room.
+
+#### OTHER NOTEWORTHY FEATURES
+
+- Change the playback speed of multiple clips at once
+- Import a clip directly from the timeline context menu and insert it at the click position
+- Option to always zoom toward the mouse position instead of the timeline playhead
+- Generate audio thumbnails for sequences
+
+### ROADMAP
+
+Our [link] is constantly being reviewed and updated, and some of the upcoming highlights include implementing the new features in MLT, the multimedia framework which powers Kdenlive. Some exciting upcoming features include 10/12 bit color support, [link], and [link] support. *(Shoutout to a Kdenlive community member for leading this effort)*. Also expected is a refactoring of the subtitle system as well as continuing to develop the *Advanced Trimming Tools*.
+
+#### DOPESHEET
+
+We are currently working on refactoring the keyframing system and implementing a Dopesheet, basically it is a dedicated timeline for managing and viewing keyframes from multiple effects simultaneously. This work will also introduce per-parameter keyframing (currently, once you add a keyframe to an effect, it is applied to all parameters by default). More info can be found in the last [link]. This work is made possible through an [link].
+
+[image]
+
+#### MICROSOFT STORE
+
+We have been working on [link] multiple modules in MLT to compile with MSVC allowing us to ship Kdenlive in the Microsoft Store soon. Another advantage is that it will allow to run unit tests on our [link]
+
+[image]
+
+### NEW CONTRIBUTORS
+
+Currently, the Kdenlive core team is made up of 8 active members, including 2 developers.
+
+In 2025, 38 people contributed code to Kdenlive (including the core dev team and other KDE devs), a truly impressive number! Even more exciting, about half of them were first-time contributors, which is always great. We hope to see many of them continue contributing in the future. On behalf of the Kdenlive team, we salute you all!
+
+List of contributors and commits
+
+*Note that these numbers refer specifically to contributions to the Kdenlive application. Other projects such as the test suite and website are hosted in separate repositories and are not included in these figures.*
+
+- 878 — Jean-Baptiste Mardelle *(core team)*
+- 126 — balooii balooii
+- 109 — Julius Künzel *(core team)*
+- 60 — Darby Johnston *(fundraiser)*
+- 26 — Bernd Jordan *(core team)*
+- 24 — Ajay Chauhan
+- 11 — Eugen Mohr *(core team)*
+- 9 — Scarlett Moore *(KDE)*
+- 8 — Yuri Chornoivan *(KDE)*
+- 7 — Justin Zobel *(KDE)*
+- 7 — Ron Lee *(core team)*
+- 6 — Farid Abdelnour *(core team)*
+- 5 — Josep M. Ferrer
+- 5 — Étienne André *(fundraiser)*
+- 4 — Kunda Ki
+- 4 — Swastik Patel
+- 3 — Camille Moulin *(core team)*
+- 3 — Carlos De Maine
+- 2 — Johnny Jazeix *(KDE)*
+- 2 — Luigi Toscano *(KDE)*
+- 2 — Nicolas Fella *(KDE)*
+- 2 — Richard Ash
+- 2 — Side Projects Lab
+- 2 — Xander Bailey
+- 2 — chocolate image
+- 1 — Adam Fidel
+- 1 — Alex Efimov
+- 1 — Edward McVern
+- 1 — Eli George
+- 1 — Helga K
+- 1 — Jack Bruienne
+- 1 — Jonas Endter
+- 1 — Oliver Kellogg
+- 1 — Rafael Sadowski
+- 1 — Steve Cossette
+
+### SPRINTS AND EVENTS
+
+#### AMSTERDAM SPRINT
+
+[image]
+
+In February, part of the Kdenlive core team met in [link], highlighted by a visit to the Blender Foundation, where we met with Francesco Siddi and he shared valuable insights into Blender’s history and offered advice on product management for Kdenlive. We also attended their weekly open session, where artists and developers present progress on ongoing projects. During the sprint, we discussed and advanced several technical topics, some highlights include:
+
+- Refining the audio workflow task
+- Developing a proof of concept to improve clip timecode handling
+- Finishing an MLT Framework patch to enable rendering without a display server (needed for Flatpak testing)
+
+#### BERLIN SPRINT
+
+[image]
+
+The [link] was one of our most productive gatherings to date. Most of the team was there in person, and we also connected online with those who couldn’t make it. We discussed just about every aspect of the project, from roadmap planning to upcoming features and workflow improvements. Some of the highlights include:
+
+- Evaluated the current state of the Titler and discussed possible integration with Glaxnimate
+- Reorganized the Menu structure
+- Developed a proof of concept for using KDDockWidgets
+- Redesigned and started development of the audio clip view in the Clip Monitor
+
+Thanks to the nice folks at [link] who kindly hosted us.
+
+#### AKADEMY 2025
+
+[image]
+
+Akademy is always a great opportunity to exchange ideas with the broader KDE and Qt communities. One of the highlights was meeting the maintainer of Glaxnimate, where we discussed common goals and ways to collaborate. This year, [link] on the 19-24 of September, and we hope to see you there.
+
+### SHOWCASE
+
+We’re very happy to see more YouTube channels talking about Kdenlive. Here are some examples of what the community has been creating.
+
+We'd love to see what you've been working on in the past year. Share your videos productions in the comments!
+
+### SPREAD THE WORD
+
+Help us grow the community by organizing meetups, talks, or workshops in your local area. Don’t hesitate to contact us if you need guidance, materials, or support to get started.
+
+Below are photos from a workshop with indigenous communities in Paraguay.
+
+[image]
+
+[image]
+
+[image]
+
+### STATS
+
+#### DOWNLOADS
+
+- Kdenlive was downloaded 11,500,714 times from our download page in 2025. Do note that many additional installs happen through Linux distribution package managers, the Snap Store, Flathub, and other third-party servers, where statistics are not always available or reliably measurable.
+- The Flatpak package from [link] gets 41,499 downloads per month.
+- 25.04.2 got the most number of downloads.
+- 17.08.2 was downloaded 1 time!
+
+**Downloads per release cycle**
+
+Windows Linux Mac
+
+#### CODE COMMITS
+
+**Per Release Cycle**
+
+- 25.04 cycle: 403 commits
+- 25.08 cycle: 368 commits
+- 25.12 cycle: 405 commits
+
+**Files With Most Code Changes**
+
+- src/mainwindow.cpp: 102 commits
+- src/bin/bin.cpp: 70 commits
+- src/timeline2/view/timelinecontroller.cpp: 67 commits
+- src/monitor/monitor.cpp: 60 commits
+- data/org.kde.kdenlive.appdata.xml: 57 commits
+
+**Files With Most Bug Fixes**
+
+- src/mainwindow.cpp: 1021 commits
+- src/timeline2/model/timelinemodel.cpp: 600 commits
+- src/bin/bin.cpp: 593 commits
+- src/timeline2/view/timelinecontroller.cpp: 506 commits
+- src/renderer.cpp: 501 commits
+
+#### USERBASE
+
+**Continent**
+
+- 🌍 Europe — 949,077
+- 🌎 Americas — 781,131
+- 🌏 Asia — 750,406
+- 🌍 Africa — 127,948
+- 🌏 Oceania — 53,397
+- 🧊 Antarctica — 5
+
+*To the 5 of you in Antarctica, let us know what you are editing. ;)*
+
+**Country**
+
+- 🇺🇸 United States — 392,967
+- 🇮🇳 India — 267,449
+- 🇧🇷 Brazil — 153,319
+- 🇩🇪 Germany — 118,115
+- 🇫🇷 France — 111,071
+- 🇨🇳 China — 104,692
+- 🇷🇺 Russia — 96,051
+- 🇪🇸 Spain — 91,052
+- 🇬🇧 United Kingdom — 86,165
+- 🇮🇹 Italy — 61,814
+
+**Region**
+
+- 🇺🇸 California, United States — 42,769
+- 🇧🇷 São Paulo, Brazil — 37,452
+- 🇮🇳 Tamil Nādu, India — 27,313
+- 🇫🇷 Île-de-France, France — 26,755
+- 🇮🇳 Mahārāshtra, India — 25,246
+- 🇺🇸 Texas, United States — 22,470
+- 🇨🇦 Ontario, Canada — 20,016
+- 🇳🇱 Noord-Holland, Netherlands — 19,826
+- 🇺🇸 Florida, United States — 18,997
+- 🇨🇳 Shanghai Shi, China — 18,991
+
+#### FUNDING
+
+Ever since our last, and [link], fundraiser in 2022, we haven’t actively asked for donations, yet the community has continued to support us. We are very grateful for that.
+
+In 2025, we received a total of €9,344.80 from donations (down from €11,526.61 in 2024). Around 30% of the amount was given by donors who kindly set up a recurring plan. The average donation was about €25, with the lowest amount being €10 and the highest €500.
+
+We allocate 20% of our budget to [link] to support infrastructure costs (servers and related expenses), as well as administration, legal support, and travel. As in previous years, your contributions enable us to continue supporting Jean-Baptiste (Kdenlive's maintainer), allowing him to dedicate several days each month to Kdenlive in addition to his volunteer work.
+
+## WE **NEED** YOUR SUPPORT
+
+Kdenlive needs your support to keep growing and improving. If just a quarter of the people who downloaded Kdenlive in 2025 contributed €5, our maintainers would be able to dedicate more time to the project, and it would even allow us to hire more develpers to speed up development and improve stability. Small amounts can make a big difference, please consider making a donation.
+
+[link]
+
+You may also contribute by getting involved and helping in:
+
+- [link], debugging, and [link]
+- [link] Kdenlive in your language
+- Promote Kdenlive in your local community
+
+---
+
+## [HN-TITLE] 15. Modern Common Lisp with FSet
+
+- **Source**: [link]
+- **Site**: fset.common-lisp.dev
+- **Submitter**: larve (Hacker News)
+- **Submitted**: 2026-04-15 14:38 UTC (Hacker News)
+- **HN activity**: 155 points · [link]
+- **Length**: 112 words (~1 min read)
+
+* * *
+
+Version 1.0 (for FSet v2.4.2)
+
+© 2026 Scott L. Burson
+
+This document is published under the Creative Commons [link] license. This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format for noncommercial purposes only, and only so long as attribution is given to the creator. If you remix, adapt, or build upon the material, you must license the modified material under identical terms.
+
+This document contains no LLM-generated text — zero, zip, nada. (Yes, I do use em-dashes and semicolons; yes, I have written every one myself.)
+
+For errors noticed or other suggestions, please file issues on [link] or [link].
+
+---
+
+## [HN-TITLE] 16. Zero-Copy GPU Inference from WebAssembly on Apple Silicon
+
+- **Source**: [link]
+- **Site**: Abacus Noir
+- **Author**: Agam Brahma
+- **Published**: 2026-04-18
+- **HN activity**: 82 points · [link]
+- **Length**: 1.5K words (~7 min read)
+- **Language**: en
+
+**tl;dr:** on Apple Silicon, a WebAssembly module's linear memory can be shared directly with the GPU: *no copies, no serialization, no intermediate buffers*. The CPU and GPU read and write the same physical bytes. End-to-end, it works: a Wasm guest fills a matrix in its linear memory, the GPU reads it, computes, writes back, and the guest sees the result through the same pointer, same memory, zero copies.
+
+Normally Wasm and GPUs are separated by an expensive serialization boundary: on most hardware, getting data from a VM sandbox to an accelerator means copying across a bus. Apple Silicon's Unified Memory Architecture erases that boundary (no bus, same physical memory), and what falls out is a runtime where *Wasm is the control plane* and the *GPU is the compute plane*, with **near-zero overhead** between them.
+
+I'm building something called *Driftwood* that exploits this for stateful AI inference ... and this post is about the foundation (how the zero-copy chain works, what I measured, what it opens up). Still early, still poking at it.
+
+* * *
+
+## Why this is normally hard
+
+Quick background, for anyone who doesn't live in this stack: WebAssembly gives you a sandbox. Your module gets a flat byte array (linear memory) and that's the universe ... everything outside is mediated by "host" function calls. The whole point is isolation, portability, determinism.
+
+GPUs *also* want a flat byte array, but a specific kind: page-aligned, pinned, accessible to the DMA engine. On a discrete GPU (think NVIDIA, or AMD), that memory sits across a PCIe bus from the CPU, so getting data from a Wasm module's linear memory to the GPU means: copy out of the sandbox into host memory, then copy across the bus into GPU memory. Two copies, two latency hits, and an awkward impedance mismatch between "isolated VM" and "hardware accelerator."
+
+Apple Silicon changes the physics. The CPU and GPU share the same physical memory (Apple's Unified Memory Architecture) ... *no bus!* A pointer the CPU can read, the GPU can also read, from the same DRAM. The real question: can you thread that pointer through the layers of abstraction (the Wasm runtime, the GPU API) without anyone making a defensive copy along the way?
+
+*Turns out ... you can!*
+
+## The three-link chain
+
+Three links. I validated each one on its own before trying to compose them: it's the kind of thing where if you skip the isolation step and the whole pipeline breaks, you have no idea "which joint is leaking".
+
+[image]
+
+**Link 1: mmap gives you page-aligned memory.** On ARM64 macOS, [link] returns 16 KB-aligned addresses. This isn't a lucky accident, *it happens to be the ARM64 page size*, and `mmap` aligns by contract. The alignment matters because Metal *requires* it.
+
+**Link 2: Metal accepts that pointer without copying.** [link] wraps an existing pointer as a Metal buffer. On Apple Silicon, this is the *zero-copy path*, i.e. the GPU accesses the *same* physical memory the CPU does. I verified pointer identity: the `MTLBuffer.contents()` pointer equals the original `mmap` pointer. I verified *no hidden copies*: RSS delta was 0.03 MB (measurement noise), compared to 16.78 MB for the explicit-copy path. And, same compute latency either way.
+
+**Link 3: Wasmtime lets you bring your own allocator.** Wasmtime's `MemoryCreator` trait lets you control how linear memory is allocated. Instead of letting Wasmtime call `mmap` internally, you provide the backing memory yourself. I implement `MemoryCreator` to return our *own* `mmap` region, and Wasmtime's `memory.data_ptr()` returns exactly the pointer I handed it. The Wasm module reads and writes through Wasmtime's memory API; the GPU reads and writes through the Metal buffer; both are operating on the same bytes.
+
+The composition: allocate an `mmap` region, hand it to *both* Wasmtime (as the actor's linear memory) *and* Metal (as a GPU buffer). The Wasm module writes data at known offsets, the GPU computes on it in place, and the results appear in the module's linear memory with *no* copies and *no* explicit data transfer.
+
+I tested the full chain with a 128×128 matrix multiply: the Wasm module fills matrices A and B, the GPU runs a [link], the module reads result C back. Zero errors across 16,384 elements. Small test, but it's the kind of thing where *either it all lines up or you get garbage*, so zero errors is the signal I wanted.
+
+## What I measured
+
+Three things I cared about: **pointer identity** (is it actually zero-copy?), **memory overhead** (any hidden copies sneaking in?), and **correctness** (does the GPU see what Wasm wrote?).
+
+```
+  Measurement                     Zero-copy path     Copy path
+  ─────────────────────────────────────────────────────────────
+  Pointer identity                mmap == MTLBuffer   different addrs
+  RSS delta (16 MB region)        0.03 MB             16.78 MB
+  GEMM latency (128×128)          ~6.75 ms            ~6.75 ms
+  Correctness (16K elements)      0 errors            0 errors
+```
+
+The latency equivalence makes sense: on UMA, the compute itself is identical either way. The memory picture is where it shows up: the zero-copy path has essentially no overhead for making data GPU-accessible, and the copy path doubles your memory footprint.
+
+At small tensor sizes, nobody cares. At the scale of KV caches in transformer inference (hundreds of megabytes per conversation) it's the difference between fitting four actors in memory or two. That's the regime I actually want to operate in, so *the memory part matters*.
+
+So now I've got a primitive: Wasm and the GPU share memory with no overhead. *What do you do with it?*
+
+I plugged the chain into Apple's MLX framework and ran Llama 3.2 1B Instruct from a Wasm actor: a full transformer decoder written in Rust, compiled to a native host runtime, driving inference on the Apple Silicon GPU through host function calls. (I was too lazy to wire up a custom kernel path from scratch, and ... MLX was there)
+
+[image]
+
+Measured latencies, running Llama 3.2 1B (4-bit quantized, 695 MB) on a 2021 M1 Macbook Pro (*old personal laptop, I'll re-evaluate on a proper Mac Studio someday when I can get my hands on it 😄*):
+
+```
+  Operation                    Latency
+  ──────────────────────────────────────
+  Model load (safetensors)     229 ms      (one-time)
+  Prefill (5 tokens)           106 ms
+  Per-token generation          ~9 ms
+  Host function boundary        negligible
+```
+
+The host function boundary (the Wasm-to-GPU dispatch) isn't measurable against the inference cost. Anyone who's worked with sandboxed runtimes has probably winced at the thought of crossing that boundary per dispatch. On this hardware, it's not a thing.
+
+## KV cache portability
+
+Transformers maintain a key-value cache that accumulates context across conversation turns, which is normally *ephemeral* (kill the process, lose the cache, start over). If you've tried running local inference, you know the feeling.
+
+Because the cache lives in GPU-accessible memory *that I control*, I can serialize it. So, I dump the KV cache to [link] (standard ML tensor serialization, nothing exotic) and restore it later, on the same machine, or a different machine, *or potentially against a different model on a different machine!* That last one I haven't tested across meaningfully different architectures yet ... we'll see.
+
+```
+  Operation                    Latency      Size
+  ───────────────────────────────────────────────────
+  Serialize (24 tokens)        1.1 ms       1.58 MB (~66 KB/token)
+  Restore from disk            1.4 ms
+  Re-prefill from scratch      67.7 ms      (the alternative)
+  ───────────────────────────────────────────────────
+  Speedup from restore:        5.45×
+  Round-trip fidelity:         bit-identical (10/10 tokens match)
+```
+
+**5.45×** at 24 tokens, and the ratio improves with context length: restore time is nearly constant, re-prefill scales linearly. At 4,096 tokens, restore would be around 100× faster than recomputation (I haven't *actually* pushed it to 4,096 yet; that's napkin math extrapolating from the constant-vs-linear shape).
+
+This is the basis for **stateful actor mobility**: freezing a conversation mid-exchange, moving it somewhere else, thawing it with full context intact. The Wasm module's linear memory captures the actor's logical state; the KV cache captures the inference engine's accumulated context. Together: **a portable snapshot of a running AI conversation** (or, at least, that's the plan 😅).
+
+## What's being built
+
+Driftwood is a runtime for stateful Wasm actors with GPU inference. The *zero-copy chain is the foundation*: on top of it I'm going to add on **actor snapshots** (freeze and resume any conversation), **checkpoint portability** (move inference state across machines), and **multi-model support** (the snapshot format is model-agnostic, so in theory the *actor's identity survives model swaps* ... which *might* work, will revisit once I test it).
+
+This is all early, still stitching things together. But the "physics" works: Wasm and the GPU can share memory on Apple Silicon with zero overhead, the KV cache is portable, and a full transformer runs from a sandboxed actor at native speed. The next things I want to poke at: whether the snapshot really survives a model swap, whether the chain holds up on larger models, and whether I'm missing some obvious reason this will fall over at scale. Slow and steady ...
+
+* * *
+
+More on the actor model and snapshot architecture in a future post, once I've actually shipped something past the "physics works" stage.
+
+---
+
+## [HN-TITLE] 17. Migrating from DigitalOcean to Hetzner
+
+- **Source**: [link]
+- **Site**: Isa Yeter
+- **Submitter**: yusufusta (Hacker News)
+- **Published**: 2026-03-17
+- **HN activity**: 781 points · [link]
+- **Length**: 2.2K words (~10 min read)
+- **Language**: en
+
+*A real-world production migration from DigitalOcean to Hetzner dedicated, handling 248 GB of MySQL data across 30 databases, 34 Nginx sites, GitLab EE, Neo4j, and live mobile app traffic — with zero downtime.*
+
+* * *
+
+## Why We Migrated[link]
+
+Running a software company in Turkey has become increasingly expensive over the last few years. Skyrocketing inflation and a dramatically weakening Turkish Lira against the US dollar have turned dollar-denominated infrastructure costs into a serious burden. A bill that felt manageable two years ago now hits very differently when the exchange rate has multiplied several times over.
+
+Every month, we were paying **$1,432 to DigitalOcean** for a droplet with 192GB RAM, 32 vCPUs, 600GB SSD, two block volumes (1TB each), and backups enabled. The server was fine — but the price-to-performance ratio had stopped making sense.
+
+Then we discovered the Hetzner AX162-R.
+
+DigitalOcean Hetzner AX162-R CPU 32 vCPU AMD EPYC 9454P (48 cores / 96 threads) RAM 192 GB 256 GB DDR5 Disk 600 GB SSD + 2x1 TB volumes 1.92 TB NVMe Gen4 RAID1 Monthly Cost **$1,432** **$233** **Savings** — **$1,199/month**
+
+That’s **$14,388 saved per year** — for a server that’s objectively more powerful in every dimension. The decision was easy.
+
+[image]
+
+I’ve been a DigitalOcean customer for nearly 8 years. They have a great product and I have no complaints about reliability or developer experience. But looking at those numbers now, I cannot help feeling a bit sad about all the extra money I left on the table over the years. If you are running steady-state workloads and not actively using DO’s ecosystem features, do yourself a favor and check dedicated server pricing before your next renewal.
+
+* * *
+
+## What We Were Running[link]
+
+This wasn’t a toy project. The stack included:
+
+- **30 MySQL databases** (248 GB of data)
+- **34 Nginx virtual hosts** across multiple domains
+- **GitLab EE** (42 GB backup)
+- **Neo4J Graph DB** (30 GB graph database)
+- **Supervisor** managing dozens of background workers
+- **Gearman** job queue
+- Several live mobile apps serving hundreds of thousands of users
+
+Old server: CentOS 7 — long past its end-of-life, but still running in production. New server: AlmaLinux 9.7 — a RHEL 9 compatible distribution and the natural successor to CentOS. This migration was also an opportunity to finally escape an OS that hadn’t received security updates in years.
+
+* * *
+
+## The Strategy: Zero Downtime[link]
+
+The naive approach — change DNS, restart everything, hope for the best — wasn’t acceptable. Instead, we designed a proper migration path with six phases:
+
+**Phase 1 — Full stack installation on the new server** Nginx (compiled from source with identical flags), PHP (via Remi repo, with the same `.ini` config files from the old server), MySQL 8.0, Neo4J Graph DB, GitLab EE, Node.js, Supervisor, and Gearman. Every service had to be configured to match the old server’s behavior before we touched a single DNS record.
+
+SSL certificates were handled by rsyncing the entire `/etc/letsencrypt/` directory from the old server to the new one. After the migration was complete and all traffic was flowing through the new server, we force-renewed all certificates in one shot:
+
+```
+certbot renew --force-renewal
+```
+
+**Phase 2 — Web files cloned with rsync** The entire `/var/www/html` directory (~65 GB, 1.5 million files) was cloned to the new server using `rsync` over SSH with the `--checksum` flag for integrity verification. We ran a final incremental sync right before cutover to catch any files changed after the initial clone.
+
+**Phase 3 — MySQL master to slave replication** Rather than taking the database offline for a dump-and-restore, we set up live replication. The old server became master, the new server a read-only slave. We used `mydumper` for the initial bulk load, then started replication from the exact binlog position recorded in the dump metadata. This kept both databases in real-time sync until the moment of cutover.
+
+**Phase 4 — DNS TTL reduction** We scripted the DigitalOcean DNS API to lower all A and AAAA record TTLs from 3600 to 300 seconds — without touching MX or TXT records (changing mail record TTLs can cause deliverability issues). After waiting one hour for old TTLs to expire globally, we were ready to cut over in under 5 minutes.
+
+**Phase 5 — Old server nginx converted to reverse proxy** We wrote a Python script that parsed every `server {}` block across all 34 Nginx site configs, backed up the originals, and replaced them with proxy configurations pointing to the new server. This meant that during DNS propagation, any request still hitting the old IP was silently forwarded. No user would see a disruption.
+
+**Phase 6 — DNS cutover and decommission** A single Python script hit the DigitalOcean API and flipped all A records to the new server IP in seconds. The old server remained as a cold standby for one week, then was shut down.
+
+The key insight: at no point did we have a window where the service was unavailable. Traffic was always being served — either directly or through the proxy.
+
+* * *
+
+[image]
+
+## The MySQL Migration[link]
+
+This was the most complex part of the entire operation.
+
+### Dumping the Data[link]
+
+We used `mydumper` instead of the standard `mysqldump` — and it made an enormous difference. By leveraging the new server’s 48 CPU cores for parallel export and import, what would have taken **days** with a traditional single-threaded `mysqldump` was completed in **hours**. If you’re migrating a large MySQL database and you’re not using `mydumper`/`myloader`, you’re doing it the hard way.
+
+```
+mydumper \
+  --threads 32 \
+  --compress \
+  --trx-consistency-only \
+  --skip-definer \
+  --chunk-filesize 256 \
+  -v 3 \
+  --outputdir /root/mydumper_backup/
+```
+
+The main dump’s `metadata` file recorded the binlog position at the time of the snapshot:
+
+```
+File: mysql-bin.000004
+Position: 21834307
+```
+
+This would be our replication starting point.
+
+### Transferring the Dump to the New Server[link]
+
+Once the dump was complete, we transferred it to the new server using `rsync` over SSH. With 248 GB of compressed chunks, this was significantly faster than any other transfer method:
+
+```
+rsync -avz --progress /root/mydumper_backup/ root@NEW_SERVER:/root/mydumper_backup/
+```
+
+The `--compress` flag in `mydumper` paid off here — compressed chunks transferred much faster over the wire.
+
+### Loading the Data[link]
+
+```
+myloader \
+  --threads 32 \
+  --overwrite-tables \
+  --ignore-errors 1062 \
+  --skip-definer \
+  -v 3 \
+  --directory /root/mydumper_backup/
+```
+
+### The MySQL 5.7 to 8.0 Problem[link]
+
+Being stuck on CentOS 7 meant we were also stuck on MySQL 5.7 — an outdated version that had been running in production for years. Before the migration, we ran `mysqlcheck --check-upgrade` to verify that our data was compatible with MySQL 8.0. It came back clean, so we installed the latest MySQL 8.0 Community on the new server. The performance improvement across all our projects was immediately noticeable — query execution times dropped significantly thanks to MySQL 8.0’s improved optimizer and InnoDB enhancements.
+
+That said, the version jump did introduce one tricky problem.
+
+After import, the `mysql.user` table had the wrong column structure — 45 columns instead of the expected 51. This caused `mysql.infoschema` to be missing, breaking user authentication.
+
+Fix:
+
+```
+systemctl stop mysqld
+mysqld --upgrade=FORCE --user=mysql &
+```
+
+But this failed the first time with:
+
+```
+ERROR: 'sys.innodb_buffer_stats_by_schema' is not VIEW
+```
+
+The `sys` schema had been imported as regular tables instead of views. Solution:
+
+```
+DROP DATABASE sys;
+```
+
+Then rerun the upgrade. Success.
+
+* * *
+
+## Setting Up MySQL Replication[link]
+
+With both dumps imported, we configured the new server as a replica of the old one:
+
+```
+CHANGE MASTER TO
+  MASTER_HOST='OLD_SERVER_IP',
+  MASTER_USER='replicator',
+  MASTER_PASSWORD='...',
+  MASTER_PORT=3306,
+  MASTER_LOG_FILE='mysql-bin.000004',
+  MASTER_LOG_POS=21834307;
+
+START SLAVE;
+```
+
+Almost immediately, replication stopped with error 1062 (Duplicate Key). This happened because our dump was taken in two passes — during the gap between them, rows were written to certain tables, and now both the imported dump and the binlog replay were trying to insert the same rows.
+
+The fix:
+
+```
+SET GLOBAL slave_exec_mode = 'IDEMPOTENT';
+START SLAVE;
+```
+
+`IDEMPOTENT` mode silently skips duplicate key and missing row errors. All critical databases synced without a single error. Within a few minutes, `Seconds_Behind_Master` dropped to 0.
+
+* * *
+
+## Testing Before Cutting Over[link]
+
+Before touching a single DNS record, we needed to verify that all services were working correctly on the new server. The trick: we temporarily edited the `/etc/hosts` file on our local machine to point our domain names to the new server’s IP.
+
+```
+# /etc/hosts (local machine)
+NEW_SERVER_IP  yourdomain1.com
+NEW_SERVER_IP  yourdomain2.com
+# ... and so on for all your domains
+```
+
+With this in place, our browsers and Postman would hit the new server while the rest of the world was still going to the old one. We ran through our API endpoints, checked admin panels, and verified that every service was responding correctly. Only after this confirmation did we proceed with the cutover.
+
+* * *
+
+## A Sneaky SUPER Privilege Problem[link]
+
+Once master-slave replication was fully synchronized, we noticed that INSERT statements were succeeding on the new server when they shouldn’t have been — `read_only = 1` was set, but writes were going through.
+
+The reason: all PHP application users had been granted `SUPER` privilege. In MySQL, `SUPER` bypasses `read_only`.
+
+```
+SHOW GRANTS FOR 'some_db_user'@'localhost';
+-- Result: GRANT SELECT, INSERT, UPDATE, DELETE, ..., SUPER, ... ON *.*
+```
+
+We revoked it from all 24 application users:
+
+```
+REVOKE SUPER ON *.* FROM 'some_db_user'@'localhost';
+-- repeated for all 24 users
+FLUSH PRIVILEGES;
+```
+
+After this, `read_only = 1` correctly blocked all writes from application users while allowing replication to continue.
+
+* * *
+
+[image]
+
+## DNS Preparation[link]
+
+All domains were managed through DigitalOcean DNS (with nameservers pointed from GoDaddy). We scripted the TTL reduction against the DigitalOcean API, only touching A and AAAA records — not MX or TXT records, since changing mail record TTLs can cause deliverability issues with Google Workspace.
+
+```
+# Only A and AAAA records
+if record["type"] in ("A", "AAAA"):
+    update_record_ttl(domain, record["id"], 300)
+```
+
+After waiting one hour for old TTLs to expire, we were ready.
+
+* * *
+
+## Converting Old Server Nginx to Reverse Proxy[link]
+
+Rather than editing 34 config files by hand, we wrote a Python script that parsed every `server {}` block in every config file, identified the main content blocks, replaced them with proxy configs, and backed up originals as `.backup` files.
+
+```
+server {
+    listen 443 ssl;
+    server_name yourdomain.com;
+
+    ssl_certificate /etc/letsencrypt/live/yourdomain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/yourdomain.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+
+    location / {
+        proxy_pass https://NEW_SERVER_IP;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_ssl_verify off;
+        proxy_read_timeout 150;
+    }
+}
+```
+
+The key: `proxy_ssl_verify off` — the new server’s SSL cert is valid for the domain, not for the IP address. Disabling verification here is fine because we control both ends.
+
+* * *
+
+## Cutover[link]
+
+With replication at `Seconds_Behind_Master: 0` and the reverse proxy ready, we executed the cutover in order:
+
+```
+1. New server:  STOP SLAVE;
+2. New server:  SET GLOBAL read_only = 0;
+3. New server:  RESET SLAVE ALL;
+4. New server:  supervisorctl start all
+5. Old server:  nginx -t && systemctl reload nginx  (proxy goes live)
+6. Old server:  supervisorctl stop all
+7. Mac:         python3 do_cutover.py  (DNS: all A records to new server IP)
+8. Wait:        ~5 minutes for propagation
+9. Old server:  comment out all crontab entries
+```
+
+The DNS cutover script hit the DigitalOcean API and changed every A record to the new server IP — in about 10 seconds.
+
+* * *
+
+## One Last Thing After Cutover[link]
+
+After migration, we discovered many GitLab project webhooks were still pointing to the old server IP. We wrote a script to scan all projects via the GitLab API and update them in bulk.
+
+* * *
+
+## Final Numbers[link]
+
+We went from **$1,432/month** down to **$233/month** — saving **$14,388 per year**. And we ended up with a more powerful machine:
+
+**CPU:** 32 vCPU to 96 logical CPUs (AMD EPYC 9454P, 48 cores x 2 threads)
+
+**RAM:** 192 GB to 256 GB DDR5
+
+**Storage:** ~2.6 TB mixed to 2 TB NVMe RAID1
+
+**Downtime:** 0 minutes
+
+The entire migration took roughly 24 hours. No users were affected.
+
+* * *
+
+## Key Takeaways[link]
+
+**MySQL replication is your best friend for zero-downtime migrations.** Set it up early, let it catch up, then cut over with confidence.
+
+**Check your MySQL user privileges before migration.** `SUPER` privilege bypasses `read_only` — if your app users have it, your slave environment isn’t actually read-only.
+
+**Script everything.** DNS updates, nginx config rewrites, webhook updates — doing these by hand across 34+ sites would have taken hours and introduced errors.
+
+**mydumper + myloader dramatically outperforms mysqldump** for large datasets. Parallel dump/restore with 32 threads cut what would have been days of work down to hours.
+
+**Cloud providers are expensive for steady-state workloads.** If you’re not using autoscaling or ephemeral infrastructure, a dedicated server often delivers better performance at a fraction of the cost.
+
+* * *
+
+## All Scripts on GitHub[link]
+
+All Python scripts used in this migration are open-sourced and available on GitHub:
+
+[link]
+
+- [link] — List all DigitalOcean domains with their A records, IPs, and TTLs
+- [link] — Bulk-reduce all A/AAAA record TTLs to 300 seconds
+- [link] — Migrate all DNS zones from DigitalOcean to Hetzner DNS
+- [link] — Flip all A records from old server IP to new server IP
+- [link] — Convert all nginx site configs to reverse proxy configs
+- [link] — Compare row counts across all tables on two MySQL servers
+- [link] — Update all GitLab project webhooks to the new server IP
+- [link] — mydumper lib
+
+All scripts support a `DRY_RUN = True` mode so you can safely preview changes before applying them.
+
+---
+
+## [HN-TITLE] 18. Optimizing Ruby Path Methods
+
+- **Source**: [link]
+- **Site**: byroot.github.io
+- **Submitter**: weaksauce (Hacker News)
+- **Submitted**: 2026-04-18 20:42 UTC (Hacker News)
+- **HN activity**: 101 points · [link]
+
+> scrape failed: fetch: Get "https://byroot.github.io/ruby/performance/2026/04/18/faster-paths.html": dial tcp [2606:50c0:8000::153]:443: connect: network is unreachable
+
+---
+
+## [HN-TITLE] 19. Metatextual Literacy
+
+- **Source**: [link]
+- **Site**: Jenneral HQ 🌠
+- **Submitter**: dado3212 (Hacker News)
+- **Submitted**: 2026-04-15 19:18 UTC (Hacker News)
+- **HN activity**: 30 points · [link]
+- **Length**: 848 words (~4 min read)
+- **Language**: en
+
+*14 Apr, 2026*
+
+Okay, I want to bitch about a small thing that bugs me a little. To begin, let's do a close reading of Jeff Kinney's *Diary of a Wimpy Kid*[link] that it realistically can't withstand.
+
+A lot of the humour in this series comes from the disconnect between claims made in the diary and the ground truth. But how do you access the ground truth to make the comparison, when you are supposedly reading a diary? Well, the [link] explanation is that Kinney cheats, and makes the doodles much more reflective of ground truth than the diary entries themself are.
+
+[image] *The Last Straw, page 1*
+
+Reading this series as a kid, I saw nothing weird with this and took the disconnect at face value. I'd read the above page, and at ten years old what I'd get from it is that Greg thinks he's a good person, but in reality he's a twat. Actually, I'd sometimes get genuinely so steaming mad at Greg for his obliviousness and ragequit reading the book at hand because he pissed me off so bad.
+
+But like, if you actually take the premise of the books (too) seriously, what Greg did was write down the words "it's not easy for me to think of ways to improve myself, because I'm already pretty much one of the best people I know." Then, after he wrote those words, he then drew a doodle of himself saying the words "I think you should work on chewing your potato chips more quietly" to his mom, who is clearly just chilling on the couch not bothering anyone.
+
+So Greg might still be a twat, but the one thing that you actually can't accuse him of is obliviousness towards his own behaviour.
+
+[image] *The Last Straw, page 40*
+
+Here's another example. Greg writes one thing (he's helping Rowley feel like he's contributing to the project) and means a shittier thing that you only get to understand via the illustration (he gets to be warm and toasty indoors while Rowley's tricked into staying outside in the freezing cold).
+
+The text actively denies the interpretation that Greg is oblivious to his shittiness. He's chosen to draw certain drawings portraying himself being an ass to his family and friends! Taking the text at face value, Greg Heffley has an irony-tinged self awareness of his own shittiness.
+
+Okay, so why did I subject you to this, especially since Jeff Kinney clearly did not write the *Diary of a Wimpy Kid* series intending for anyone to think this hard about Greg Heffley's characterization?
+
+Well, in real life, every so often someone is made a main character of the internet against their will. In certain cases of this, in the backlash I'll see claims about said main character that are theoretically compatible with the text but quite incompatible with the metatext: with the accurate model of a person that would publish the text that contains the claims on the internet for the world to see.
+
+As a concrete example, I remember Daniel Oppenheimer getting a lot of shit for his NYT article, "[link]". There were lots of dunkings along the lines of "yikes, he comes off so badly here". Well, yes! He deliberately wrote the piece such that he would come off badly:
+
+> The diagnosis comes after I relate the story of a tantrum I threw at my 48th birthday dinner. It involved me storming out of a restaurant, in front of our kids and friends, and coming back only after a solid 15-minute sulk.
+
+I really don't think he's asking for the reader's sympathy or understanding here, you know?
+
+I want to be precise here: I am not saying that people who write unflattering confessional posts on the internet actually all have perfect self awareness all the time or that it's unsophisticated to dunk on them.[link]
+
+Without commenting on whether or not I agree, I think it's perfectly fine to make claims that this is abuse apologism with DARVO characteristics, or aura farming, or that the marriage is NGMI. These are all very reasonable claims, in that both the text and the metatext can support such readings.
+
+The text supports that Greg is an ass, the metatext does not support that Greg is oblivious about it. If you *must* dunk, please only make the first claim.
+
+Anyways, this is one of those dynamics that I've noticed frequently enough that it's slightly annoying to not have a word or concept for it, so here you go.
+
+Now go forth and stop reading confessional essays by sensitive men and going "wow this guy has no self-awareness" about them. I understand that the metatextually literate term these days is "performative male".
+
+* * *
+
+1. I went back and read a few books bc earlier this year tiktok decided to give me many vids shipping Rodrick from the movie adaptation and Regina George from Mean Girls. They were uh surprisingly well done?[link]
+2. I do believe that it is unsophisticated, I'm just not saying it in this essay 😘[link]
+
+[link] [link]
+
+---
+
+## [HN-TITLE] 20. It's cool to care (2025)
+
+- **Source**: [link]
+- **Site**: alexwlchan.net
+- **Submitter**: surprisetalk (Hacker News)
+- **Submitted**: 2026-04-15 14:20 UTC (Hacker News)
+- **HN activity**: 8 points · [link]
+- **Length**: 1.2K words (~6 min read)
+- **Language**: en
+
+I’m sitting in a small coffee shop in Brooklyn. I have a warm drink, and it’s just started to snow outside. I’m visiting New York to see [link] – I was at the dress rehearsal yesterday, and I’ll be at the opening preview tonight. I’ve seen this show more times than I care to count, and I hope US theater-goers love it as much as Brits.
+
+The people who make the show will tell you that it’s about a bunch of misfits who thought they could do something ridiculous, who had the audacity to believe in something unlikely.
+
+That’s certainly one way to see it. The musical tells the [link] of a group of British spies who tried to fool Hitler with a dead body, fake papers, and an outrageous plan that could easily have failed. Decades later, the show’s creators would mirror that same spirit of unlikely ambition. [link], armed with their creativity, determination, and a wardrobe full of hats, created a new musical in a small London theatre. And after a series of transfers, they’re about to open the show under the bright lights of Broadway.
+
+But when I watch the show, I see a story about friendship. It’s about how we need our friends to help us, to inspire us, to push us to be the best versions of ourselves.
+
+I see the swaggering leader who needs a team to help him truly achieve. The nervous scientist who stands up for himself with the support of his friends. The enthusiastic secretary who learns wisdom and resilience from her elder.
+
+And so, I suppose, it’s fitting that I’m not in New York on my own. I’m here with friends – dozens of wonderful people who I met through this ridiculous show.
+
+* * *
+
+At first, I was just an audience member. I sat in my seat, I watched the show, and I laughed and cried with equal measure.
+
+After the show, I waited at stage door to thank the cast. Then I came to see the show a second time. And a third. And a fourth. After a few trips, I started to see familiar faces waiting with me at stage door. So before the cast came out, we started chatting.
+
+Those conversations became a Twitter community, then a Discord, then a WhatsApp. We swapped fan art, merch, and stories of our favourite moments. We went to other shows together, and we hung out outside the theatre. I spent New Year’s Eve with a few of these friends, sitting on somebody’s floor and laughing about a bowl of limes like it was the funniest thing in the world.
+
+And now we’re together in New York.
+
+Meeting this kind, funny, and creative group of people might seem as unlikely as the premise of *Mincemeat* itself. But I believed it was possible, and here we are.
+
+I feel so lucky to have met these people, to take this ridiculous trip, to share these precious days with them. I know what a privilege this is – the time, the money, the ability to say *let’s do this* and make it happen. How many people can gather a dozen friends for even a single evening, let alone a trip halfway round the world?
+
+You might think it’s silly to travel this far for a theatre show, especially one we’ve seen plenty of times in London. Some people would never see the same show twice, and most of us are comfortably into double or triple-figures.
+
+Whenever somebody asks *why*, I don’t have a good answer. Because it’s fun? Because it’s moving? Because I enjoy it? I feel the need to justify it, as if there’s some logical reason that will make all of this okay. But maybe I don’t have to. Maybe joy doesn’t need justification.
+
+* * *
+
+A theatre show doesn’t happen without people who care. Neither does a friendship.
+
+So much of our culture tells us that it’s not cool to care. It’s better to be detached, dismissive, disinterested. Enthusiasm is cringe. Sincerity is weakness. I’ve certainly felt that pressure – the urge to play it cool, to pretend I’m above it all. To act as if I only enjoy something a “normal” amount.
+
+Well, fuck that.
+
+I don’t know where the drive to be detached comes from. Maybe it’s to protect ourselves, a way to guard against disappointment. Maybe it’s to seem sophisticated, as if having passions makes us childish or less mature. Or perhaps it’s about control – if we stay detached, we never have to depend on others, we never have to trust in something bigger than ourselves. Being detached means you can’t get hurt – but you’ll also miss out on so much joy.
+
+I’m a big fan of being a big fan of things. So many of the best things in my life have come from caring, from letting myself be involved, from finding people who are a big fan of the same things as me. If I pretended not to care, I wouldn’t have any of that.
+
+Caring – deeply, foolishly, vulnerably – is how I connect with people. My friends and I care about this show, we care about each other, and we care about our joy.
+
+That care and love for each other is what brought us together, and without it we wouldn’t be here in this city. I know this is a once-in-a-lifetime trip. So many stars had to align – for us to meet, for the show we love to be successful, for us to be able to travel together. But if we didn’t care, none of those stars would have aligned.
+
+I know so many other friends who would have loved to be here but can’t be, for all kinds of reasons. Their absence isn’t for lack of caring, and they want the show to do well whether or not they’re here. I know they care, and that’s the important thing. To butcher Tennyson: I think it’s better to care about something you cannot affect, than to care about nothing at all. In a world that’s full of cynicism and spite and hatred, I feel that now more than ever.
+
+I’d recommend you go to the show if you haven’t already, but that’s not really the point of this post. Maybe you’ve already seen *Operation Mincemeat*, and it wasn’t for you. Maybe you’re not a theatre kid. Maybe you aren’t into musicals, or history, or war stories. That’s okay. I don’t mind if you care about different things to me. (Imagine how boring the world would be if we all cared about the same things!)
+
+But I want you to care about *something*. I want you to find it, find people who care about it too, and hold on to them. Because right now, in this city, with these people, at this show? I’m so glad I did. And I hope you find that sort of happiness too.
+
+[image]
+
+Some of the people who made this trip special. Photo by Chloe, and taken from [link].
+
+*Timing note: I wrote this on February 15th, but I delayed posting it because I didn’t want to highlight the fact I was away from home.*
+
+---
+
+## [HN-TITLE] 21. Dizzying Spiral Staircase with Single Guardrail Once Led to Top of Eiffel Tower
+
+- **Source**: [link]
+- **Site**: Smithsonian Magazine
+- **Author**: Ellen Wexler
+- **Published**: 2026-04-13
+- **HN activity**: 26 points · [link]
+- **Length**: 936 words (~5 min read)
+- **Language**: en
+
+## The 1,062 steps connecting the tower’s second and third levels were installed in 1889. Fragments from the 137-year-old staircase can be found at several French museums
+
+[image]
+
+[link] - Assistant Editor, Humanities
+
+April 13, 2026
+
+[image]
+
+Gustave Eiffel at the Eiffel Tower in 1889 Bettmann via Getty Images
+
+When [link], the famous French engineer, designed the [link] in the late 19th century, he added a 1,076-square-foot [link] just above the top floor. It featured a couch, a table, three desks, a kitchen and a bathroom. Eiffel climbed a narrow spiral staircase to [link], where he enjoyed unparalleled views of the city as he worked.
+
+Now, a [link] is heading to auction. The French auction house Artcurial will sell the fragment on May 21, and officials expect it to fetch between $141,000 and $176,000.
+
+“Imagine yourself in 1889 on this staircase, perched between \[371 and 906 feet] high, with no safety barriers, but with a 360-degree view of Paris,” Sabrina Dolla, an associate director at Artcurial, tells [link]’s Lianne Kolirin.
+
+The Eiffel Tower was built for the 1889 Paris [link], held on the 100th anniversary of the French Revolution. At first, the design was controversial, with [link] condemning it as a “truly tragic street lamp.” [link] about a series of unlikely outcomes, including the possibility that electricity from the tower might electrocute the fish in the [link].
+
+[image]
+
+Construction of the Eiffel Tower's first platform Bettmann via Getty Images
+
+At 1,024 feet, the tower was then the [link]—a record it would retain until the [link] overtook it in 1929. [link] dictated that the structure would stay up for only 20 years. When the end of that period drew near, the engineer pushed to extend it, arguing that the tower could be used for scientific experiments.
+
+“It gradually became more and more part of the landscape, and it became very hard to imagine Paris without the Eiffel Tower,” Savin Yeatman-Eiffel, Eiffel’s great-great-great-grandson, told [link]’s Morgan Goldberg in 2024. “It’s become the symbol of Paris, and of France as well.”
+
+#### Quick facts: The Eiffel Tower at the Olympics
+
+- During the 2024 Olympic and Paralympic Games in Paris, athletes received gold, silver and bronze medals that included pieces of [link].
+- The fragments, once part of the tower’s original iron, were removed during later renovations.
+
+The structure features three main floors. The [link] and [link] include several popular dining spots. On the [link], visitors can enjoy sweeping views of Paris. They can also see a reconstruction of Eiffel’s office, featuring wax models of the engineer; his eldest daughter, [link]; and the American inventor [link], who once presented Eiffel with a gramophone.
+
+Elevators have operated at the Eiffel Tower since May 26, 1889. Visitors also had the option to take the stairs between the ground level and first floor (360 steps) and between the first and second floors (380 steps). A narrow spiral staircase (1,062 steps) featuring a single guardrail connected the second and third floors. Although Artcurial says this staircase was open to visitors, [link] [link] suggest it was off limits to the public.
+
+Eiffel used his office on the third floor to work and entertain renowned guests. He asked visitors to sign his [link], collecting signatures from the likes of [link], [link] of Greece and [link] of Belgium.
+
+[image]
+
+The fragment of the staircase heading to auction Artcurial
+
+Later, the staircases between the ground level and second floor were modified to make the climb more comfortable. Visitors can still walk on them today. But the spiral staircase between the second and third floors was dismantled in 1983, when new elevators were installed, and divided into 24 sections. One of those pieces is on display on the tower’s first floor, while several others can be seen at French museums such as the Musée d’Orsay. Still others, including one at the Statue of Liberty, are on display outside France.
+
+But many, including the fragment coming to auction in May, are still in private hands. Made of steel and riveted sheet metal, this section is roughly nine feet tall and features 14 steps. Recently restored by Eiffel Tower maintenance workers, it’s currently owned by a French businessman who purchased it at the original sale in 1983.
+
+“He’s enjoyed it long enough, and now his circumstances are taking him elsewhere,” Dolla tells [link]’s Vittoria Benzine.
+
+Over the years, Artcurial has sold several other sections of the staircase. The most expensive fragment fetched €523,800 ([link]) in 2016.
+
+“The battle over the phone and in the auction room for the stairs showed the profound attachment there is for a monument that is so emblematic of French culture,” auctioneer François Tajan [link] at the time. Tajan’s father, Jacques Tajan, [link] the 1983 sale.
+
+The fragment going to auction in May isn’t expected to beat that price, though Dolla is hopeful about its prospects. She tells the [link]’ Ana Castelain that officials have “every reason to be ambitious,” noting the fragment’s rich history and the interest that previous sales have generated.
+
+Today, nearly seven million people tour the Eiffel Tower each year. According to the tower’s [link], it’s the world’s most visited monument that charges an entrance fee. Since the structure opened in 1889, nearly 300 million people have ventured inside.
+
+### You Might Also Like
+
+- September 5, 2024
+- September 20, 2022
+- February 12, 2024
+- April 29, 2024
+- May 30, 2023
+
+<!--THE END-->
+
+- More about:
+- [link]
+- [link]
+- [link]
+- [link]
+- [link]
+- [link]
+- [link]
+- [link]
+- [link]
+- [link]
+
+---
+
+## [HN-TITLE] 22. William Cecil's Succession Plan
+
+- **Source**: [link]
+- **Site**: historytoday.com
+- **Submitter**: Petiver (Hacker News)
+- **Submitted**: 2026-04-14 16:42 UTC (Hacker News)
+- **HN activity**: 6 points · [link]
+- **Length**: 174 words (~1 min read)
+- **Language**: en
+
+Elizabeth I’s brief illness made the question of the succession top priority for William Cecil and the Privy Council.
+
+[image]
+
+In October 1562 Queen Elizabeth I lay unconscious in her chambers, and many feared that she would not survive. She had smallpox, a disease which could either disfigure or kill depending upon its severity. As the queen’s life hung in the balance, William Cecil (1520-98), her principal secretary, gathered the Privy Council to Hampton Court to discuss the suddenly vital question of who should succeed their childless queen.
+
+The Privy Councillors debated the topic but could not reach any firm conclusion as to what should be done. Álvaro de la Quadra, the Spanish ambassador who was in London at the time, reported that ‘out of the 15 or 16 of them that there are there were nearly as many different opinions about the succession to the Crown’. On 23 October word emerged from the queen’s privy chamber that she would survive. However, in more ways than one, her brush with death would leave its scars.
+
+---
+
+## [HN-TITLE] 23. Thoughts and feelings around Claude Design
+
+- **Source**: [link]
+- **Site**: samhenri.gold
+- **Submitter**: cdrnsf (Hacker News)
+- **Submitted**: 2026-04-18 19:19 UTC (Hacker News)
+- **HN activity**: 307 points · [link]
+- **Length**: 1.2K words (~6 min read)
+- **Language**: en
+
+I tried [link] yesterday and I have a theory for how this whole thing shakes out.
+
+As product teams scaled and design needed to justify itself inside engineering orgs, it was pushed toward systematization — and Figma invented its own primitives to make that work: components, styles, variables, props, and so on. Some concepts are borrowed from programming, some aren’t, and the whole thing doesn’t neatly map onto anything. Guidance evolves, migrations pile up, and if you want to automate any of it you’re stuck with a handful of shoddy plugins. The beast is hairy enough that entire design roles now specialize in wrangling the system itself.
+
+There’s always been a tense push-pull between Figma and code over what the source of truth should be. Figma won over Sketch partially by staking its claim there — their tooling would be canonical.
+
+That victory had a hidden cost. By nature of having a locked-down, largely-undocumented format that’s painful to work with programmatically, Figma accidentally excluded themselves from the training data that would have made them relevant in the agentic era. LLMs were trained on code, not Figma primitives, so models never learned them. As code becomes easier for designers to write and agents keep improving, the source of truth will naturally migrate back to code. And all the baroque infrastructure Figma had to introduce over the past decade will look nuts by comparison. Why fuss around in a lossy approximation of the thing when you can work directly in the medium where it will actually live? If we want to make pottery, why are we painting watercolors of the pot instead of just throwing the clay?
+
+At work, we’ve spent quite a bit of time back-porting design changes made directly in code back to Figma and it is not fun. I can’t share that file, but for a fair comparison, this is Figma’s own design system file for their product. I have to assume it was built by the most competent design system team you can find. And yet…
+
+[image]
+
+The Figma variables panel showing 946 color variables organized into nested groups like "bg/desktopBackgrounded," with a single selected variable revealing eight mode-specific values: Light, Dark, FigJam-Light, FigJam-Dark, DevMode-Light, DevMode-Dark, Slides-Light, and Slides-Dark.
+
+[image]
+
+A modal footer component open to its variant property editor, showing 12 variants with a dropdown full of values like "DS Library Swap," "QA Plugin," "Growth Stepper," and "Sharing Actions." The right panel lists eight props like "Border," "Second CTA," and "Helper Text"
+
+[image]
+
+The effect styles panel for a slider component, showing a style named "light/elevation-300-tooltip." Expanding it reveals its entire definition: a 0.5px drop shadow at 30% black. It has its own named style because that’s the only way to document what CSS variable it corresponds to.
+
+[image]
+
+A combo input component with 16 variants. Its children in the layers panel are named things like "Default, Default, Close Button=False" and "Default, Focused, Close Button=True"
+
+These are Figma’s own files. Built by their own team. This is the gold standard.
+
+Imagine debugging a color that looks wrong. You check the component. The component uses a variable. The variable is aliased to another variable. That variable references a mode. The mode is overridden at the instance level. The instance lives inside a nested component with a library swap applied. At this point, you’re either considering picking up code or moving to the countryside and becoming a sheep farmer because one more minute of this will make you lose your goddamn mind.
+
+So as the source of truth shifts back to code, Figma is left in an odd spot: holding a largely manual, pre-agentic system that nobody in their right mind would design from scratch today.
+
+I think design tooling forks into two distinct shapes from here — and there’s almost a clock resetting between Figma and every other tool competing to answer the same question they answered in 2016: who can help me, a designer, get my ideas out fastest?
+
+Spoiler: it’s not Figma Make. Figma Make feels like it primarily benefits people who have already drunk the Kool-Aid — it reads from Figma styles, component libraries, and proprietary props (or, as I like to call them, Prop Props), and it’s the only tool in this new landscape still pretending the design file is canonical. It’s the tool for people who want to (or have no choice but to) stay inside the system.
+
+Claude Design is the first of those two tools, and takes the opposite bet. There’s an Arts and Crafts principle called [link] — the idea that a thing should be honest about what it is and how it’s made, rather than masquerading as something else. Figma ended up being the opposite of this: a set of extremely rigid schemas with a free-form “just vibes, man” costume over the top. Like a Type-A personality physically incapable of relaxing, forced to perform chill while internally screaming that your frames aren’t nested and your tokens are detached and nothing is on the grid. Claude Design, for all its roughness, is at least honest about what it is: HTML and JS all the way down.
+
+[image]
+
+A Gustav Stickley lamp table, circa 1902. The joinery is exposed, not hidden. The wood is the wood.
+
+And it has a massive structural advantage: its sibling is Claude Code. Eventually, I can see Claude Design just dumping things directly into Claude Code and vice versa. Claude Design’s onboarding already lets you import your repos. The feedback loop between design and implementation — which has been a source of friction since the beginning of time — becomes a single conversation.
+
+The other tool that emerges from this moment will have no expectation of code at all. It’ll be a pure exploration environment — somewhere to drop rectangles, stack layer styles, fuss with blend modes and gradients, and go completely nuts, unconstrained by systems or prompting conventions. Maybe it’s an iPad app with Pencil support where you just quickly sketch a bunch of rectangles. [link]. Or maybe it goes in the opposite direction — something more like Photoshop that goes all-in on high-fidelity compositing and lets our imaginations run wild, now that we’re no longer beholden to the ceiling of what you can do with CSS effects. Doesn’t it seem *kinda weird* how for 90% of its life, Figma’s only layer effect was a drop shadow or a blur?
+
+Figma’s Sketch moment is rapidly approaching. And if you said that sentence to a Victorian child, they would probably have a stroke.
+
+### Post Script
+
+The following are messages meant only for the teams behind Sketch and Figma. If neither apply to you, you can skedaddle.
+
+**To Figma:** I can see a world where this post does numbers in the Figma internal Slack. If that’s the case and you’re reading this from Figma: this wouldn’t have happened if you hired me last year when I was interviewing. Your loss, big dawg.
+
+**To Sketch:** GET YOUR HEADS OUTTA YOUR ASSES AND GIVE EM HELL. ADD PARTICLE EFFECTS. ADD DEBOSSING EFFECTS. MESH TRANSFORMS. FUCK IT, ADD METAL SHADERS. GO NUTS. STOP [link]. QUIT DRINKING COCOA AND GET THIRSTY FOR BLOOD.
+
+**To mom:** Sorry for cursing.
+
+### Post-Post Script
+
+[link] shared a link to [link]") with similar thoughts, it’s quite good if you wanna go deeper.
+
+---
+
+## [HN-TITLE] 24. Sumida Aquarium Posts 2026 Penguin Relationship Chart, with Drama and Breakups
+
+- **Source**: [link]
+- **Site**: Sumida Aquarium
+- **Submitter**: Lwrless (Hacker News)
+- **Submitted**: 2026-04-15 19:56 UTC (Hacker News)
+- **HN activity**: 215 points · [link]
+- **Language**: en
+
+> no extractable content
+
+---
+
+## [HN-TITLE] 25. Bypassing the kernel for 56ns cross-language IPC
+
+- **Source**: [link]
+- **Site**: GitHub
+- **Submitter**: riyaneel (Hacker News)
+- **Submitted**: 2026-04-16 17:13 UTC (Hacker News)
+- **HN activity**: 43 points · [link]
+- **Length**: 202 words (~1 min read)
+- **Language**: en
+
+## Architecture Decision Records
+
+[link]
+
+This directory contains Architecture Decision Records (ADRs) for Tachyon. Each ADR documents a significant design choice, the context that motivated it, and its consequences.
+
+New ADRs use the template at the bottom of this file. Once accepted, an ADR is never deleted, superseded decisions are marked **Superseded** and linked to the replacement.
+
+* * *
+
+## Index
+
+[link]
+
+ADR Title Status Date [link] `memfd_create` vs `shm_open` Accepted 2026-03-30 [link] SPSC strict vs MPSC Accepted 2026-03-30 [link] Futex vs eventfd for consumer sleep Accepted 2026-03-30 [link] `TACHYON_MSG_ALIGNMENT = 64` Accepted 2026-03-30 [link] SCM\_RIGHTS vs named shared memory Accepted 2026-03-30 [link] No-serialization contract Accepted 2026-03-30
+
+* * *
+
+## Statuses
+
+[link]
+
+- **Accepted**: in effect, implemented in the codebase.
+- **Superseded**: replaced by a later ADR; kept for history.
+- **Deprecated**: no longer recommended; will be removed in a future major version.
+- **Proposed**: under discussion, not yet merged.
+
+* * *
+
+## Template
+
+[link]
+
+```
+# ADR-NNN: Title
+
+---
+
+**Status:** Proposed | Accepted | Superseded by ADR-NNN | Deprecated  
+**Date:** YYYY-MM-DD
+
+---
+
+## Context
+
+What is the problem? What forces are at play? What constraints exist?
+Be concrete: include benchmarks, kernel versions, and API limitations where relevant.
+
+## Decision
+
+What did we decide? One clear sentence, then the reasoning.
+
+## Consequences
+
+**Positive**
+
+- …
+
+**Negative**
+
+- …
+
+**Neutral**
+
+- …
+```
+
+---
+
+## [HN-TITLE] 26. Show HN: MDV – a Markdown superset for docs, dashboards, and slides with data
+
+- **Source**: [link]
+- **Site**: GitHub
+- **Submitter**: drasim (Hacker News)
+- **Submitted**: 2026-04-18 15:24 UTC (Hacker News)
+- **HN activity**: 115 points · [link]
+- **Length**: 299 words (~2 min read)
+- **Language**: en
+
+## MDV — Markdown Data & Visualization
+
+[link]
+
+> Write documents, dashboards, and slides in a Markdown superset. Add charts, KPI cards, tables, and styled regions with nothing more complicated than fenced code blocks and named styles.
+
+`.mdv` is **strict CommonMark plus four additions**:
+
+1. **YAML front-matter** for title, theme, named styles, and dataset references.
+2. **Fenced blocks** for data/visuals: ```` ```chart type=bar x=region y=sales````.
+3. **`:::` containers** for styled regions and layout: `::: callout` / `::: columns`.
+4. **`:::` `toc`** for an auto-generated table of contents.
+
+No selectors, no classes, no expressions, no code. Themes provide defaults, named styles give reusable looks, the renderer does the rest.
+
+## Quick look
+
+[link]
+
+````
+---
+title: Q1 Report
+theme: report
+data:
+  sales: ./data/sales.csv
+---
+
+::: toc
+:::
+
+# Q1 Results
+
+```stat
+label, value, delta
+Total revenue, $2.06M, +14%
+New customers, 1238, +8%
+```
+
+```chart type=line data=sales x=month y=revenue series=region yFormat=currency title="Monthly revenue"
+```
+````
+
+Renders to self-contained HTML (charts are inline SVG, no JS runtime) and PDF. Lives inside VS Code via a side-by-side preview.
+
+## Getting started
+
+[link]
+
+```
+git clone <repo> mdv
+cd mdv
+npm install
+npm run build
+
+# Render an example
+node packages/mdv-cli/dist/index.js render examples/09-full-report.mdv
+
+# Or: live preview with auto-reload
+node packages/mdv-cli/dist/index.js preview examples/09-full-report.mdv
+```
+
+See [link] for a walkthrough.
+
+## Documentation
+
+[link]
+
+- [link] — install, author your first file, see it rendered.
+- [link] — front-matter, fenced blocks, `:::` containers.
+- [link] — every visualization type with all options.
+- [link] — inline CSV / JSON / file-referenced datasets.
+- [link] — built-in themes and how to define named styles.
+- [link] — `render`, `preview`, `export --pdf`.
+- [link] — side-by-side live preview.
+- [link] — Marketplace workflow.
+
+## Examples
+
+[link]
+
+[link] contains 10 sample files covering every feature. Rendered HTML is in [link].
+
+## Status
+
+[link]
+
+v1, pre-release. Runs on Node ≥ 20. See [link] for scope, non-goals, and roadmap.
+
+---
+
+## [HN-TITLE] 27. My first impressions on ROCm and Strix Halo
+
+- **Source**: [link]
+- **Site**: My first impressions on ROCm and Strix Halo
+- **Author**: Marco Inacio
+- **Published**: 2026-04-18
+- **HN activity**: 44 points · [link]
+- **Length**: 612 words (~3 min read)
+- **Language**: en-US
+
+Here I'll share my first impressions with ROCm and Strix Halo and how I've set up everything.
+
+[image] *128GB efficiently shared between the CPU and GPU.*
+
+## [link]
+
+I'm used to working with Ubuntu, so I stuck with it in the supported 24.04 LTS version, and just followed the [link].
+
+## [link]
+
+It seems that things wouldn't work without a BIOS update: PyTorch was unable to find the GPU. This was easily done on the BIOS settings: it was able to connect to my Wifi network and download it automatically.
+
+## [link]
+
+Also on the BIOS settings, you might need to make sure you set the reserved video memory to a low value and let the memory be shared between the CPU and GPU using the [link]. The reserved memory can be as low as 512MB.
+
+Implications:
+
+- The CPU is not able to use the GPU reserved memory.
+- The GPU can use the total of Reserved + GTT, but utilizing both simultaneously can be less efficient than a single large GTT pool due to fragmentation and addressing overhead.
+- Some legacy games or software sadly might see the GPU memory as 512 MB and refuse to work, this has not happened to me so far though.
+
+Then on `/etc/default/grub`, I've made this change:
+
+```
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash ttm.pages_limit=32768000 amdgpu.gttsize=114688"
+```
+
+and then ran `sudo update-grub`.
+
+Note that `amdgpu.gttsize` shouldn't include the whole system memory, you should leave some memory (I read from 4GB to 12GB) reserved to the CPU (Total memory minus reserved GPU minus GTT) for the sake of the stability of the Linux kernel.
+
+## [link]
+
+This was somewhat tricky because of the weird dependency graph of PyTorch, but eventually I've got it working with:
+
+```
+[project]
+name = "myproject"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "torch==2.11.0+rocm7.2",
+    "triton-rocm",
+]
+
+[tool.uv]
+environments = ["sys_platform == 'linux'"]
+
+[[tool.uv.index]]
+name = "pytorch-rocm"
+url = "https://download.pytorch.org/whl/rocm7.2"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-rocm" }
+torchvision = { index = "pytorch-rocm" }
+triton-rocm = { index = "pytorch-rocm" }
+```
+
+and you can even add it this your `.bashrc`:
+
+```
+alias pytorch='''uvx --extra-index-url https://download.pytorch.org/whl/rocm7.2 \
+    --index-strategy unsafe-best-match \
+    --with torch==2.11.0+rocm7.2,triton-rocm \
+    ipython -c "import torch; print(f\"ROCM: {torch.version.hip}\"); \
+    print(f\"GPU available: {torch.cuda.is_available()}\"); import torch.nn as nn" -i
+'''
+```
+
+## [link]
+
+```
+podman run --rm -it --name qwen-coder --device /dev/kfd --device /dev/dri \
+--security-opt label=disable --group-add keep-groups -e HSA_OVERRIDE_GFX_VERSION=11.5.0 \
+-p 8080:8080 -v /some_path/models:/models:z  ghcr.io/ggml-org/llama.cpp:server-rocm \
+-m /models/qwen3.6/model.gguf -ngl 99 -c 327680 --host 0.0.0.0 --port 8080 \
+--flash-attn on --no-mmap
+```
+
+Note that you can easily download the model with:
+
+```
+uvx hf download Qwen/Qwen3.6-35B-A3B --local-dir /some_path/models/qwen3.6
+```
+
+And convert to gguf with the `convert_hf_to_gguf.py` script from the llama.cpp repo:
+
+```
+git clone https://github.com/ggerganov/llama.cpp.git /some_path/llama.cpp
+```
+
+```
+cd /some_path/models/qwen3.6 &&
+uvx --extra-index-url https://download.pytorch.org/whl/rocm7.2 \
+    --index-strategy unsafe-best-match \
+    --with torch==2.11.0+rocm7.2,triton-rocm,transformers \
+    ipython /some_path/llama.cpp/convert_hf_to_gguf.py \
+    -- . --outfile model.gguf
+```
+
+## [link]
+
+I'm using a Podman to run Opencode, [link] on how set it up.
+
+And this is my config to have it work with Llama.cpp:
+
+```
+{
+    "$schema": "https://opencode.ai/config.json",
+    "provider": {
+        "local": {
+            "options": {
+                "baseURL": "http://localhost:8080/v1",
+                "apiKey": "any-string",
+                "reasoningEffort": "auto",
+                "textVerbosity": "high",
+                "supportsToolCalls": true
+            },
+            "models": {
+                "qwen-coder-local": {}
+            }
+        }
+    },
+    "model": "local/qwen-coder-local",
+    "permission": {
+        "*": "ask",
+        "read": {
+            "*": "allow",
+            "*.env": "deny",
+            "**/secrets/**": "deny"
+        },
+        "bash": "allow",
+        "edit": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "websearch": "allow",
+        "codesearch": "allow",
+        "webfetch": "allow"
+    },
+    "disabled_providers": [
+        "opencode"
+    ]
+}
+```
+
+## [link]
+
+So as I promised, my first impressions are: so far, so good, I was able to play with PyTorch and run Qwen3.6 on llama.cpp with a large context window. There were some rough edges, but I think it was quite worth it.
+
+---
+
+## [HN-TITLE] 28. Scientists discover “cleaner ants” that groom giant ants in Arizona desert
+
+- **Source**: [link]
+- **Site**: ScienceDaily
+- **Submitter**: t-3 (Hacker News)
+- **Submitted**: 2026-04-15 19:46 UTC (Hacker News)
+- **HN activity**: 105 points · [link]
+- **Length**: 684 words (~3 min read)
+- **Language**: en
+
+In the deserts of southeastern Arizona, a surprising scene unfolds outside the nests of small cone ants. Much larger harvester ants stand nearby with their serrated jaws open, appearing vulnerable. But instead of attacking, the smaller ants climb onto the bigger ones and begin licking and nibbling across their bodies. Scientists say this is the first known example of one ant species cleaning a much larger ant.
+
+The behavior was reported this week in the journal *Ecology and Evolution* and was observed by entomologist Mark Moffett, a research associate at the Smithsonian's National Museum of Natural History. He compares the interaction to cleaner fish in the ocean that remove parasites and dead skin from larger fish, sometimes even from predators.
+
+"This new ant species is the insect equivalent of cleaner fish in the ocean," Moffett said. "The potentially dangerous harvester ants even permit the visitors to groom between their open jaws."
+
+**A Chance Observation Leads to a Discovery**
+
+Moffett, who studies the social behavior of ants and other animals, noticed the interaction while visiting a research station in Arizona's Chiricahua Mountains. One morning, as he drank coffee, he watched worker harvester ants (*Pogonomyrmex barbatus*) leaving their nests to gather seeds. A few of the ants caught his attention because they appeared unusually still, which is rare for these constantly moving insects.
+
+When he zoomed in with his camera, he realized the motionless ants were covered with tiny cone ants.
+
+"Given the usual tendencies of ants, I first assumed that I was observing aggression," Moffett said. "But the larger ants seemed to seek the attention of the smaller ants by first visiting their nests and then allowing the small ants to lick and nibble all over them."
+
+**How the Cleaning Behavior Works**
+
+Over several days, Moffett observed at least 90 harvester ants interacting with the smaller cone ants, which belong to an undescribed species in the genus *Dorymyrmex*. He carefully documented the encounters with photographs.
+
+The process followed a consistent pattern. A harvester ant would approach a cone ant nest and stand tall with her mandibles open (all worker ants are female). Within about a minute, a cone ant would emerge and climb onto the larger ant. In some cases, up to five cone ants would gather and begin grooming.
+
+These sessions varied in length, lasting from under 15 seconds to more than five minutes. The cone ants used their tongue-like mouthparts to lick the harvester ants' bodies, even reaching inside their open jaws. The larger ants remained still and did not attack. When finished, the harvester ant would shake the smaller ants off, sometimes so forcefully that she flipped onto her back before quickly moving away.
+
+**A Rare and Unusual Interaction**
+
+Moffett says he has never seen or heard of this kind of behavior in ants or other insects. The closest comparison comes from marine ecosystems, where fish visit "cleaning stations" to have parasites removed by smaller species. Similar to the cone ants, some of those marine cleaners even work inside the mouths of larger animals.
+
+**Possible Benefits for Both Species**
+
+Researchers are still trying to understand what each species gains from the interaction. Moffett suggests the cone ants may be feeding on tiny, energy-rich particles they remove from the harvester ants' bodies, possibly fragments from the seeds the larger ants collect. Interestingly, the cone ants only showed interest in living ants and ignored dead specimens placed near their nests.
+
+There may also be advantages for the harvester ants. While they already groom each other to remove debris, spores, and parasites, the smaller cone ants might be able to reach areas that are otherwise difficult to clean. Future studies will explore whether this behavior reduces infections or affects the microbiome of either species.
+
+**A Reminder of Nature's Hidden Surprises**
+
+Moffett believes this discovery highlights how much remains unknown about animal behavior, especially in natural environments.
+
+"All kinds of amazing discoveries are still there to be made outside of the lab," Moffett said. "Finding new species and behaviors in nature often requires us to pay close attention to the small things -- including the ants."
+
+---
+
+## [HN-TITLE] 29. NASA Shuts Off Instrument on Voyager 1 to Keep Spacecraft Operating
+
+- **Source**: [link]
+- **Site**: NASA Science
+- **Author**: Abbey Interrante
+- **Published**: 2026-04-17
+- **HN activity**: 175 points · [link]
+- **Length**: 765 words (~4 min read)
+- **Language**: en-US
+
+## NASA Shuts Off Instrument on Voyager 1 to Keep Spacecraft Operating
+
+On April 17, engineers at NASA’s Jet Propulsion Laboratory (JPL) in Southern California sent commands to shut down an instrument aboard Voyager 1 called the Low-energy Charged Particles experiment, or LECP. The nuclear-powered spacecraft is running low on power, and turning off the LECP is considered the best way to keep humanity’s first interstellar explorer going.
+
+[[image]](https://assets.science.nasa.gov/dynamicimage/assets/science/missions/voyager/images/1_Voyager_artist_concept.jpg?w=8000&h=4500&fit=clip&crop=faces%2Cfocalpoint)
+
+Mission engineers at NASA’s Jet Propulsion Laboratory in Southern California turned off the Low-energy Charged Particles experiment aboard Voyager 1 on April 17, 2026.
+
+NASA/JPL-Caltech
+
+The LECP has been operating almost without interruption since [link] launched in 1977 — almost 49 years. It measures low-energy charged particles, including ions, electrons, and cosmic rays originating from our solar system and galaxy. The instrument has provided critical data about the structure of the interstellar medium, detecting pressure fronts and regions of varying particle density in the space beyond our heliosphere. The twin Voyagers are the only spacecraft that are far enough from Earth to provide this information.
+
+Like Voyager 2, Voyager 1 relies on a [link], a device that converts heat from decaying plutonium into electricity. Both probes lose about 4 watts of power each year. After almost a half-century in space, power margins have grown razor thin, requiring the team to conserve energy by shutting off heaters and instruments while making sure the spacecraft don’t get so cold that their fuel lines freeze.
+
+During a routine, planned roll maneuver on Feb. 27, Voyager 1’s power levels fell unexpectedly. Mission engineers knew any additional drop in power could trigger the spacecraft’s undervoltage fault protection system, which would shut down components on its own to safeguard the probe, requiring recovery by the flight team — a lengthy process that carries its own risks.
+
+The Voyager team needed to act first.
+
+“While shutting down a science instrument is not anybody’s preference, it is the best option available,” said Kareem Badaruddin, Voyager mission manager at JPL. “Voyager 1 still has two remaining operating science instruments — one that listens to plasma waves and one that measures magnetic fields. They are still working great, sending back data from a region of space no other human-made craft has ever explored. The team remains focused on keeping both Voyagers going for as long as possible.”
+
+### Far-out plan
+
+The choice of which instrument to turn off next wasn’t made in the heat of the moment. Years ago, the Voyager science and engineering teams sat down together and agreed on the order in which they would shut off parts of the spacecraft while ensuring the mission can continue to conduct its unique science. Of the 10 identical sets of instruments that each spacecraft carries, [link] have been shut off so far. For Voyager 1, the LECP was next on that list. The team shut off the LECP on Voyager 2 in March 2025.
+
+Because Voyager 1 is more than 15 billion miles (25 billion kilometers) from Earth, the sequence of commands to shut down the instrument will take 23 or so hours to reach the spacecraft, and the shutdown process itself will take about three hours and 15 minutes to complete. One part of the LECP — a small motor that spins the sensor in a circle to scan in all directions — will remain on. It uses little power (0.5 watts), and keeping it running gives the team the best chance of being able to turn the instrument back on someday if they find extra power.
+
+### What comes next
+
+Engineers are confident that shutting down the LECP will give Voyager 1 about a year of breathing room. They are using the time to finalize a more ambitious energy-saving fix for both Voyagers they call “the Big Bang,” which is designed to further extend Voyager operations. The idea is to swap out a group of powered devices all at once — hence the nickname — turning some things off and replacing them with lower-power alternatives to keep the spacecraft warm enough to continue gathering science data.
+
+The team will implement the Big Bang on Voyager 2 first, which has a little more power to spare and is closer to Earth, making it the safer test subject. Tests are planned for May and June 2026. If they go well, the team will attempt the same fix on Voyager 1 no sooner than July. If it works, there is even a chance that Voyager 1’s LECP could be switched back on.
+
+DC Agle / Calla Cofield  
+Jet Propulsion Laboratory, Pasadena, Calif.  
+818-354-5011 / 626-808-2469  
+[link] / [link]
+
+---
+
+## [HN-TITLE] 30. Understanding the FFT Algorithm (2013)
+
+- **Source**: [link]
+- **Site**: jakevdp.github.io
+- **Author**: Jake VanderPlas
+- **Submitted**: 2026-04-15 02:29 UTC (Hacker News)
+- **HN activity**: 93 points · [link]
+- **Length**: 2.0K words (~9 min read)
+- **Language**: en
+
+Wed 28 August 2013
+
+The Fast Fourier Transform (FFT) is one of the most important algorithms in signal processing and data analysis. I've used it for years, but having no formal computer science background, It occurred to me this week that I've never thought to ask *how* the FFT computes the discrete Fourier transform so quickly. I dusted off an old algorithms book and looked into it, and enjoyed reading about the deceptively simple computational trick that JW Cooley and John Tukey outlined in their classic [link] introducing the subject.
+
+The goal of this post is to dive into the Cooley-Tukey FFT algorithm, explaining the symmetries that lead to it, and to show some straightforward Python implementations putting the theory into practice. My hope is that this exploration will give data scientists like myself a more complete picture of what's going on in the background of the algorithms we use.
+
+## The Discrete Fourier Transform[link]
+
+The FFT is a fast, $\\mathcal{O}\[N\\log N]$ algorithm to compute the Discrete Fourier Transform (DFT), which naively is an $\\mathcal{O}\[N^2]$ computation. The DFT, like the more familiar continuous version of the Fourier transform, has a forward and inverse form which are defined as follows:
+
+**Forward Discrete Fourier Transform (DFT):** $$X\_k = \\sum\_{n=0}^{N-1} x\_n \\cdot e^{-i~2\\pi~k~n~/~N}$$
+
+**Inverse Discrete Fourier Transform (IDFT):** $$x\_n = \\frac{1}{N}\\sum\_{k=0}^{N-1} X\_k e^{i~2\\pi~k~n~/~N}$$
+
+The transformation from $x\_n \\to X\_k$ is a translation from configuration space to frequency space, and can be very useful in both exploring the power spectrum of a signal, and also for transforming certain problems for more efficient computation. For some examples of this in action, you can check out Chapter 10 of our upcoming Astronomy/Statistics book, with figures and Python source code available [link]. For an example of the FFT being used to simplify an otherwise difficult differential equation integration, see my post on [link].
+
+Because of the importance of the FFT in so many fields, Python contains many standard tools and wrappers to compute this. Both NumPy and SciPy have wrappers of the extremely well-tested FFTPACK library, found in the submodules `numpy.fft` and `scipy.fftpack` respectively. The fastest FFT I am aware of is in the [link] package, which is also available in Python via the [link] package.
+
+For the moment, though, let's leave these implementations aside and ask how we might compute the FFT in Python from scratch.
+
+## Computing the Discrete Fourier Transform[link]
+
+For simplicity, we'll concern ourself only with the forward transform, as the inverse transform can be implemented in a very similar manner. Taking a look at the DFT expression above, we see that it is nothing more than a straightforward linear operation: a matrix-vector multiplication of $\\vec{x}$,
+
+$$\\vec{X} = M \\cdot \\vec{x}$$
+
+with the matrix $M$ given by
+
+$$M\_{kn} = e^{-i~2\\pi~k~n~/~N}.$$
+
+With this in mind, we can compute the DFT using simple matrix multiplication as follows:
+
+In \[1]:
+
+```
+import numpy as np
+def DFT_slow(x):
+    """Compute the discrete Fourier Transform of the 1D array x"""
+    x = np.asarray(x, dtype=float)
+    N = x.shape[0]
+    n = np.arange(N)
+    k = n.reshape((N, 1))
+    M = np.exp(-2j * np.pi * k * n / N)
+    return np.dot(M, x)
+```
+
+We can double-check the result by comparing to numpy's built-in FFT function:
+
+In \[2]:
+
+```
+x = np.random.random(1024)
+np.allclose(DFT_slow(x), np.fft.fft(x))
+```
+
+Out\[2]:
+
+```
+True
+```
+
+Just to confirm the sluggishness of our algorithm, we can compare the execution times of these two approaches:
+
+In \[3]:
+
+```
+%timeit DFT_slow(x)
+%timeit np.fft.fft(x)
+```
+
+```
+10 loops, best of 3: 75.4 ms per loop
+10000 loops, best of 3: 25.5 µs per loop
+```
+
+We are over 1000 times slower, which is to be expected for such a simplistic implementation. But that's not the worst of it. For an input vector of length $N$, the FFT algorithm scales as $\\mathcal{O}\[N\\log N]$, while our slow algorithm scales as $\\mathcal{O}\[N^2]$. That means that for $N=10^6$ elements, we'd expect the FFT to complete in somewhere around 50 ms, while our slow algorithm would take nearly 20 hours!
+
+So how does the FFT accomplish this speedup? The answer lies in exploiting symmetry.
+
+## Symmetries in the Discrete Fourier Transform[link]
+
+One of the most important tools in the belt of an algorithm-builder is to exploit symmetries of a problem. If you can show analytically that one piece of a problem is simply related to another, you can compute the subresult only once and save that computational cost. Cooley and Tukey used exactly this approach in deriving the FFT.
+
+We'll start by asking what the value of $X\_{N+k}$ is. From our above expression:
+
+$$ \\begin{align\*} X\_{N + k} &= \\sum\_{n=0}^{N-1} x\_n \\cdot e^{-i~2\\pi~(N + k)~n~/~N}\\\\ &= \\sum\_{n=0}^{N-1} x\_n \\cdot e^{- i~2\\pi~n} \\cdot e^{-i~2\\pi~k~n~/~N}\\\\ &= \\sum\_{n=0}^{N-1} x\_n \\cdot e^{-i~2\\pi~k~n~/~N} \\end{align\*} $$
+
+where we've used the identity $\\exp\[2\\pi~i~n] = 1$ which holds for any integer $n$.
+
+The last line shows a nice symmetry property of the DFT:
+
+$$X\_{N+k} = X\_k.$$
+
+By a simple extension,
+
+$$X\_{k + i \\cdot N} = X\_k$$
+
+for any integer $i$. As we'll see below, this symmetry can be exploited to compute the DFT much more quickly.
+
+## DFT to FFT: Exploiting Symmetry[link]
+
+Cooley and Tukey showed that it's possible to divide the DFT computation into two smaller parts. From the definition of the DFT we have:
+
+$$ \\begin{align} X\_k &= \\sum\_{n=0}^{N-1} x\_n \\cdot e^{-i~2\\pi~k~n~/~N} \\\\ &= \\sum\_{m=0}^{N/2 - 1} x\_{2m} \\cdot e^{-i~2\\pi~k~(2m)~/~N} + \\sum\_{m=0}^{N/2 - 1} x\_{2m + 1} \\cdot e^{-i~2\\pi~k~(2m + 1)~/~N} \\\\ &= \\sum\_{m=0}^{N/2 - 1} x\_{2m} \\cdot e^{-i~2\\pi~k~m~/~(N/2)} + e^{-i~2\\pi~k~/~N} \\sum\_{m=0}^{N/2 - 1} x\_{2m + 1} \\cdot e^{-i~2\\pi~k~m~/~(N/2)} \\end{align} $$
+
+We've split the single Discrete Fourier transform into two terms which themselves look very similar to smaller Discrete Fourier Transforms, one on the odd-numbered values, and one on the even-numbered values. So far, however, we haven't saved any computational cycles. Each term consists of $(N/2)\*N$ computations, for a total of $N^2$.
+
+The trick comes in making use of symmetries in each of these terms. Because the range of $k$ is $0 \\le k &lt; N$, while the range of $n$ is $0 \\le n &lt; M \\equiv N/2$, we see from the symmetry properties above that we need only perform half the computations for each sub-problem. Our $\\mathcal{O}\[N^2]$ computation has become $\\mathcal{O}\[M^2]$, with $M$ half the size of $N$.
+
+But there's no reason to stop there: as long as our smaller Fourier transforms have an even-valued $M$, we can reapply this divide-and-conquer approach, halving the computational cost each time, until our arrays are small enough that the strategy is no longer beneficial. In the asymptotic limit, this recursive approach scales as $\\mathcal{O}\[N\\log N]$.
+
+This recursive algorithm can be implemented very quickly in Python, falling-back on our slow DFT code when the size of the sub-problem becomes suitably small:
+
+In \[4]:
+
+```
+def FFT(x):
+    """A recursive implementation of the 1D Cooley-Tukey FFT"""
+    x = np.asarray(x, dtype=float)
+    N = x.shape[0]
+    
+    if N % 2 > 0:
+        raise ValueError("size of x must be a power of 2")
+    elif N <= 32:  # this cutoff should be optimized
+        return DFT_slow(x)
+    else:
+        X_even = FFT(x[::2])
+        X_odd = FFT(x[1::2])
+        factor = np.exp(-2j * np.pi * np.arange(N) / N)
+        return np.concatenate([X_even + factor[:N / 2] * X_odd,
+                               X_even + factor[N / 2:] * X_odd])
+```
+
+Here we'll do a quick check that our algorithm produces the correct result:
+
+In \[5]:
+
+```
+x = np.random.random(1024)
+np.allclose(FFT(x), np.fft.fft(x))
+```
+
+Out\[5]:
+
+```
+True
+```
+
+And we'll time this algorithm against our slow version:
+
+In \[6]:
+
+```
+%timeit DFT_slow(x)
+%timeit FFT(x)
+%timeit np.fft.fft(x)
+```
+
+```
+10 loops, best of 3: 77.6 ms per loop
+100 loops, best of 3: 4.07 ms per loop
+10000 loops, best of 3: 24.7 µs per loop
+```
+
+Our calculation is faster than the naive version by over an order of magnitude! What's more, our recursive algorithm is asymptotically $\\mathcal{O}\[N\\log N]$: we've implemented the Fast Fourier Transform.
+
+Note that we still haven't come close to the speed of the built-in FFT algorithm in numpy, and this is to be expected. The FFTPACK algorithm behind numpy's `fft` is a Fortran implementation which has received years of tweaks and optimizations. Furthermore, our NumPy solution involves both Python-stack recursions and the allocation of many temporary arrays, which adds significant computation time.
+
+A good strategy to speed up code when working with Python/NumPy is to vectorize repeated computations where possible. We can do this, and in the process remove our recursive function calls, and make our Python FFT even more efficient.
+
+## Vectorized Numpy Version[link]
+
+Notice that in the above recursive FFT implementation, at the lowest recursion level we perform $N~/~32$ identical matrix-vector products. The efficiency of our algorithm would benefit by computing these matrix-vector products all at once as a single matrix-matrix product. At each subsequent level of recursion, we also perform duplicate operations which can be vectorized. NumPy excels at this sort of operation, and we can make use of that fact to create this vectorized version of the Fast Fourier Transform:
+
+In \[7]:
+
+```
+def FFT_vectorized(x):
+    """A vectorized, non-recursive version of the Cooley-Tukey FFT"""
+    x = np.asarray(x, dtype=float)
+    N = x.shape[0]
+
+    if np.log2(N) % 1 > 0:
+        raise ValueError("size of x must be a power of 2")
+
+    # N_min here is equivalent to the stopping condition above,
+    # and should be a power of 2
+    N_min = min(N, 32)
+    
+    # Perform an O[N^2] DFT on all length-N_min sub-problems at once
+    n = np.arange(N_min)
+    k = n[:, None]
+    M = np.exp(-2j * np.pi * n * k / N_min)
+    X = np.dot(M, x.reshape((N_min, -1)))
+
+    # build-up each level of the recursive calculation all at once
+    while X.shape[0] < N:
+        X_even = X[:, :X.shape[1] / 2]
+        X_odd = X[:, X.shape[1] / 2:]
+        factor = np.exp(-1j * np.pi * np.arange(X.shape[0])
+                        / X.shape[0])[:, None]
+        X = np.vstack([X_even + factor * X_odd,
+                       X_even - factor * X_odd])
+
+    return X.ravel()
+```
+
+Though the algorithm is a bit more opaque, it is simply a rearrangement of the operations used in the recursive version with one exception: we exploit a symmetry in the `factor` computation and construct only half of the array. Again, we'll confirm that our function yields the correct result:
+
+In \[8]:
+
+```
+x = np.random.random(1024)
+np.allclose(FFT_vectorized(x), np.fft.fft(x))
+```
+
+Out\[8]:
+
+```
+True
+```
+
+Because our algorithms are becoming much more efficient, we can use a larger array to compare the timings, leaving out `DFT_slow`:
+
+In \[9]:
+
+```
+x = np.random.random(1024 * 16)
+%timeit FFT(x)
+%timeit FFT_vectorized(x)
+%timeit np.fft.fft(x)
+```
+
+```
+10 loops, best of 3: 72.8 ms per loop
+100 loops, best of 3: 4.11 ms per loop
+1000 loops, best of 3: 505 µs per loop
+```
+
+We've improved our implementation by another order of magnitude! We're now within about a factor of 10 of the FFTPACK benchmark, using only a couple dozen lines of pure Python + NumPy. Though it's still no match computationally speaking, readibility-wise the Python version is far superior to the FFTPACK source, which you can browse [link].
+
+So how does FFTPACK attain this last bit of speedup? Well, mainly it's just a matter of detailed bookkeeping. FFTPACK spends a lot of time making sure to reuse any sub-computation that can be reused. Our numpy version still involves an excess of memory allocation and copying; in a low-level language like Fortran it's easier to control and minimize memory use. In addition, the Cooley-Tukey algorithm can be extended to use splits of size other than 2 (what we've implemented here is known as the *radix-2* Cooley-Tukey FFT). Also, other more sophisticated FFT algorithms may be used, including fundamentally distinct approaches based on convolutions (see, e.g. Bluestein's algorithm and Rader's algorithm). The combination of the above extensions and techniques can lead to very fast FFTs even on arrays whose size is not a power of two.
+
+Though the pure-Python functions are probably not useful in practice, I hope they've provided a bit of an intuition into what's going on in the background of FFT-based data analysis. As data scientists, we can make-do with black-box implementations of fundamental tools constructed by our more algorithmically-minded colleagues, but I am a firm believer that the more understanding we have about the low-level algorithms we're applying to our data, the better practitioners we'll be.
+
+*This blog post was written entirely in the IPython Notebook. The full notebook can be downloaded [link], or viewed statically [link].*
+
+## Comments
+
