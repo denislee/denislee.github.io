@@ -1,10 +1,14 @@
-const CACHE_NAME = 'hn-digests-d18b287e';
+const CACHE_NAME = 'hn-digests-7e7f8e88';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './favicon.ico',
   './sw.js',
+  './2026-05-15.html',
+  './2026-05-15.epub',
+  './2026-05-15.md',
+  './2026-05-15.txt',
   './2026-05-14.html',
   './2026-05-14.epub',
   './2026-05-14.md',
