@@ -1,10 +1,14 @@
-const CACHE_NAME = 'hn-digests-01912a52';
+const CACHE_NAME = 'hn-digests-5323c4fd';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './favicon.ico',
   './sw.js',
+  './2026-06-09.html',
+  './2026-06-09.epub',
+  './2026-06-09.md',
+  './2026-06-09.txt',
   './2026-06-08.html',
   './2026-06-08.epub',
   './2026-06-08.md',
@@ -24,11 +28,7 @@ const ASSETS = [
   './2026-06-02.html',
   './2026-06-02.epub',
   './2026-06-02.md',
-  './2026-06-02.txt',
-  './2026-06-01.html',
-  './2026-06-01.epub',
-  './2026-06-01.md',
-  './2026-06-01.txt'
+  './2026-06-02.txt'
 ];
 
 self.addEventListener('install', (event) => {
