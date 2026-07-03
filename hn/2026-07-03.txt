@@ -1,0 +1,2518 @@
+Hacker News Top 30 — 2026-07-03
+
+Generated on 2026-07-03 03:12 UTC
+
+1. Virginia bans sale of geolocation data
+
+Source: https://www.hunton.com/privacy-and-cybersecurity-law-blog/virginia-bans-sale-of-geolocation-data
+Site: hunton.com
+Submitter: toomuchtodo (Hacker News)
+Submitted: 2026-07-02 21:03 UTC (Hacker News)
+HN activity: 558 points · 97 comments
+Length: 165 words (~1 min read)
+Language: en
+
+On April 13, 2026, Virginia Governor Abigail Spanberger signed into law S.B. 388, which amends the Virginia Consumer Data Protection Act (“VCDPA”) to prohibit the sale of geolocation data. Notably, the VCDPA defines “sale” more narrowly than other state comprehensive privacy laws, as “the exchange of personal data for monetary consideration by the controller to a third party.”
+
+The ban on the sale of geolocation data goes into effect on July 1, 2026.
+
+Virginia follows Maryland and Oregon in banning the sale of geolocation data. Both Maryland and Oregon more broadly define “sale” to mean the exchange of personal data “for monetary or other valuable consideration.” Virginia joins several other states that have recently proposed legislation with similar bans, including California, Massachusetts, Vermont and Washington State. The legislative activity follows regulatory scrutiny on the sale of geolocation data, including the California Attorney General’s investigation into the location data industry in March 2025, and a 2024 FTC settlement banning a data broker from selling geolocation data.
+
+--------------------------------------------------------------------------------
+
+2. crustc: entirety of `rustc`, translated to C
+
+Source: https://github.com/FractalFir/crustc
+Site: GitHub
+Submitter: Philpax (Hacker News)
+Submitted: 2026-07-02 22:57 UTC (Hacker News)
+HN activity: 161 points · 31 comments
+Length: 1.4K words (~6 min read)
+Language: en
+
+crustc - rustc 1.98.0-nightly (c712ea946 2026-06-16), converted to 46 million lines of C.
+
+This is a functional Rust compiler you can build with GCC & make.
+
+# We need to provide a path to LLVM(`libLLVM.so.22.1-rust-1.98.0-nightly`)
+# I *could* include pre-built LLVM in the project, but I'd rather not embed random binaries in the project.
+make -j20 LLVM_LIB_DIR=~/.rustup/toolchains/nightly-2026-06-16-aarch64-unknown-linux-gnu/lib
+
+It is just C code [1], which, when compiled, gives you a functional Rust compiler.
+
+# It works - (library path to point to libLLVM.so.22.1-rust-1.98.0-nightly - rustc uses llvm)
+LD_LIBRARY_PATH=~/.rustup/toolchains/nightly-2026-06-16-aarch64-unknown-linux-gnu/lib:./rustc_driver ./rustc/rustc --version
+rustc 1.98.0-nightly (c712ea946 2026-06-16)
+
+That Rust compiler can compile code - build core, alloc, std - you name it!
+
+What is this?
+
+This is a demo/teaser for my new Rust to C compiler toolchain. The full cilly toolchain compiles your own Rust to C for arbitrary targets. This repo just shows the compiler compiling itself, as I believe this is the flashiest showcase I could do.
+
+How was this done?
+
+For the past 3 years, I have been working on compiling Rust to C. I made a few public attempts, like rustc_codegen_clr, and a lot of private ones.
+
+This is, by my count, the 14th attempt: cilly. It is a Rust library for generating C code and a Rust compiler backend (read: plugin) that allows you to compile Rust to C.
+
+The main innovation behind cilly is that it adapts to C compilers.
+
+It can generate "witness" programs, which check what a given compiler and platform support:
+
+/* This compiles if and only if our C compiler supports _Thread_local. */
+_Thread_local int KEYWORD_TLS_SUPPORTED;
+
+This means Cilly will generate C code, which will make your specific, weird "Shminky C compiler for Blorbo OS" happy.
+
+/* This will pass in some C compilers. */ 
+assert(sizeof(float) == sizeof(double));
+
+All type layouts, sizes, alignments, character encodings (ASCII), and integer formats (two's complement) are queried for.
+
+With fallbacks, where possible.
+
+I try my very best not to assume anything outside of ANSI C[2] - including workarounds for things in "modern" C standards, like strict aliasing.
+
+Sadly, this means the output of cilly is compiler-specific (i.e., you can't take the cilly C generated for Arm64 and run it on riscv32, but you can generate cilly C specifically for riscv32).
+
+This build of rustc (the generated C) is "targeting" ARM64 Linux because that is the ISA of my workstation.
+
+Why was this done?
+
+The primary goal of this is support for old/obscure hardware with no LLVM/GCC support. There are still some systems out there that don't support Rust but support C.
+
+Whenever some project moves from Rust to C, or a Rust alternative of a C project is made, support for those targets is validly raised as a downside of Rust [3].
+
+The goal of this project is to remove that problem.
+
+cilly wraps rustc and a C compiler and translates the Rust code to C on the fly. From the user perspective, this is as simple as defining what C compiler to use for a given target.
+
+  "triple": [
+    "sdcc_z180-unknown-none"
+  ],
+  "tool_def": {
+    "kind": "local",
+    "compile": {
+      "base": {
+        "executable": "/usr/bin/sdcc",
+        "base_args": [
+          "-mz180",
+          "--std-c89",
+          "-c"
+        ],
+        "input_arg_template": [
+          "{input}"
+        ],
+        // JSON cut off for brevity. 
+        }
+     }
+  }
+
+Network transparency.
+
+cilly is network transparent, and can talk to C compilers over TCP (may be extended to weird things like UART if need be).
+
+This is a solution to the bootstrap paradox / platforms without C cross compilers.
+
+You build a small C server on your Blorbo OS, run rustc on some normal platform like Linux, and let cilly talk over the wire.
+
+I have successfully used this to compile small Rust programs for x86 Plan9 VMs, while running rustc on Arm64 linux.
+
+term% echo `{cat /dev/sysname} osversion `{cat /dev/osversion} cputype $cputype
+gnot osversion 2000 cputype 386
+term% /tmp/hello_plan9
+Hello, world!
+term% nm /tmp/hello_plan9 | grep rust_begin_unwind
+    1020 T _RNvCshfEkAwg4zv6_7___rustc17rust_begin_unwind
+
+Generating makefiles.
+
+cilly can optionally embed markers within its object files, and save its IR to a cache directory. It can then read those markers, split functions / globals by their definition location, and generate a directory with makefiles - to allow you to build Rust with a C compiler and make.
+
+ABI compatibility
+
+cilly generated code is mostly ABI compatible with normal rustc compiled code. I say mostly, because on some platforms(... like arm64) rustc choose an ABI not representable from C[4].
+
+Reproduction
+
+Prerequisites
+
+This rust compiler was built on:
+
+uname -a
+Linux spark-2773 6.17.0-1021-nvidia #21-Ubuntu SMP PREEMPT_DYNAMIC Wed May 27 19:14:05 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
+
+This is the C compiler I used:
+
+readelf -p .comment ./rustc/rustc                                                           
+String dump of section '.comment':
+  [     1]  GCC: (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+  [    2e]  Linker: Ubuntu LLD 18.1.3
+
+In order to build the demo, you will need to provide it with the right LLVM libs. The easies way to do so is to just use the LLVM rustc ships:
+
+rustup install nightly-2026-06-16
+
+Build
+
+With the right GCC(more modern GCC versions should work too, untested), right LLVM version, and GNU make installed, run:
+
+# We need to provide a path to LLVM(`libLLVM.so.22.1-rust-1.98.0-nightly`)
+# I *could* include pre-built LLVM in the project, but I'd rather not embed random binaries in the project.
+make -j20 LLVM_LIB_DIR=~/.rustup/toolchains/nightly-2026-06-16-aarch64-unknown-linux-gnu/lib
+# CFLAGS work(CAVEAT: some flags will slow compilation down)
+make -j20 CFLAGS=-g
+
+And... voilà!
+
+Compilation speed
+
+I strongly recommend not enabling optimizations: both because the may break stuff(this is just a demo, and it's... ee... rough around the edges[5]) AND because optimizations take time at this scale.
+
+Without opts, my machine builds the project in a few minutes:
+
+make -j20   937.98s user 123.77s system 1352% cpu 1:18.48 total
+
+
+With opts, expect to choke on some specific larger rust files. You will blitz through most code, and then get stuck on those behemoths.
+
+Testing the build
+
+Run:
+
+LD_LIBRARY_PATH=~/.rustup/toolchains/nightly-2026-06-16-aarch64-unknown-linux-gnu/lib:./rustc_driver ./rustc/rustc --version
+
+You should see the rustc version printed.
+
+For building programs, you will need to build std.
+
+LD_LIBRARY_PATH=~/.rustup/toolchains/nightly-2026-06-16-aarch64-unknown-linux-gnu/lib:./rustc_driver ./rustc/rustc main.rs
+error[E0463]: can't find crate for `std`
+  |
+  = note: the `aarch64-unknown-linux-gnu` target may not be installed
+  = help: consider downloading the target with `rustup target add aarch64-unknown-linux-gnu`
+  = help: consider building the standard library from source with `cargo build -Zbuild-std`
+
+error: aborting due to 1 previous error
+
+For more information about this error, try `rustc --explain E0463`.
+
+Read BUILDING_STD.md for that.
+
+Known bugs
+
+For some weird path-canonicalization-reasons, crustc can crash when run in the directory it was built in(repo root, crustc). Works fine in other places.
+
+...
+
+I am confused too.
+
+Can I try cilly out?
+
+Nah, not yet. It is not ready for public consumption. I will release it as soon as possible - but
+
+I got a job(which means I no longer write code on a laptop with it's G & C keys broken, yay!)
+I got uni(well I am on summer break, but thesis-s don't tend to write themselves).
+I put my left hand in a blender. The blender won. (Still have all my fingers, just some stitches). I will not elaborate further.
+
+Notes
+
+1 - well, C code + some C++ LLVM wrappers. Rust uses a bit of C++ to expose some more LLVM knobs. They are shipped pre-compiled because they are LLVM-version-specific and a pain to build standalone.
+
+2 - rarely, I have to make "reasonable assumptions" which would be goal stoppers. E.g. (void*)(uintptr_t)(ptr) roundtrips. I document those AND add asserts for them (CHAR_BIT = 8) if possible.
+
+3 - the weight of "Rust does not support Plan 9" as an argument against Rust depends on personal preferences, and evaluating that argument is left as an exercise to the reader.
+
+4 - The issue is the struct return pointer(sret). On most platforms, it is passed in the same reg as the first arg, so we can always force to return-by-sret(out pointer) by just having the first arg be the out pointer. Not on Arm64. There, sret pointer is passed in a different register, meaning the native C compiler has to chose to do a return-by-sret for us. Which it does not do for small structs(<16 bytes afaik). Annoying.
+
+5 - I am chasing some optimization related bugs - part of the reason full cilly toolchain is not out.
+
+--------------------------------------------------------------------------------
+
+3. GitHub is proud to announce that you can now obtain your public repo on CD-ROM
+
+Source: https://forms.cloud.microsoft/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR6G-c11n8yFDlQmk4B-QjDxUQkdTTjZLU0EyTFFRV1E3NVRTVTRTWjRHMy4u&route=shorturl
+Site: forms.cloud.microsoft
+Submitter: throwaway2027 (Hacker News)
+Submitted: 2026-07-03 00:01 UTC (Hacker News)
+HN activity: 101 points · 73 comments
+Length: 1 word (~1 min read)
+Language: en-us
+
+Loading…
+
+--------------------------------------------------------------------------------
+
+4. Right to Local Intelligence
+
+Source: https://righttointelligence.org/
+Site: Right to Intelligence
+Submitter: thoughtpeddler (Hacker News)
+Submitted: 2026-07-02 23:54 UTC (Hacker News)
+HN activity: 56 points · 19 comments
+Language: en
+
+No extractable content.
+
+--------------------------------------------------------------------------------
+
+5. Since Linux 6.9, LUKS suspend stopped wiping disk-encryption keys from memory
+
+Source: https://mathstodon.xyz/@iblech/116769502749142438
+Site: Mathstodon
+Author: Ingo Blechschmidt
+Published: 2026-06-18
+HN activity: 416 points · 190 comments
+Language: en
+
+No extractable content.
+
+--------------------------------------------------------------------------------
+
+6. Reality has a surprising amount of detail (2017)
+
+Source: https://johnsalvatier.org/blog/2017/reality-has-a-surprising-amount-of-detail
+Site: johnsalvatier.org
+Submitter: vinhnx (Hacker News)
+Submitted: 2026-06-27 23:36 UTC (Hacker News)
+HN activity: 157 points · 59 comments
+Length: 2.4K words (~11 min read)
+
+I.
+
+My dad emigrated from Colombia to North America when he was 18 looking looking for a better life. For my brother and I that meant a lot of standing outside in the cold. My dad’s preferred method of improving his lot was improving lots, and my brother and I were “voluntarily” recruited to help working on the buildings we owned.
+
+That’s how I came to spend a substantial part of my teenage years replacing fences, digging trenches, and building flooring and sheds. And if there’s one thing I’ve learned from all this building, it’s that reality has a surprising amount of detail.
+
+This turns out to explain why its so easy for people to end up intellectually stuck. Even when they’re literally the best in the world in their field.
+
+Consider building some basement stairs for a moment. Stairs seem pretty simple at first, and at a high level they are simple, just two long, wide parallel boards (2” x 12” x 16’), some boards for the stairs and an angle bracket on each side to hold up each stair. But as you actually start building you’ll find there’s a surprising amount of nuance.
+
+The first thing you’ll notice is that there are actually quite a few subtasks. Even at a high level, you have to cut both ends of the 2x12s at the correct angles; then screw in some u-brackets to the main floor to hold the stairs in place; then screw in the 2x12s into the u-brackets; then attach the angle brackets for the stairs; then screw in the stairs.
+
+Those goddamn stairs.
+
+Next you’ll notice that each of those steps above decomposes into several steps, some of which have some tricky details to them due to the properties of the materials and task and the limitations of yourself and your tools.
+
+The first problem you’ll encounter is that cutting your 2x12s to the right angle is a bit complicated because there’s no obvious way to trace the correct angles. You can either get creative (there is a way to trace it), or you can bust out your trig book and figure out how to calculate the angle and position of the cuts.
+
+You’ll probably also want to look up what are reasonable angles for stairs. What looks reasonable when you’re cutting and what feels safe can be different. Also, you’re probably going to want to attach a guide for your circular saw when cutting the angle on the 2x12s because the cut has to be pretty straight.
+
+When you’re ready to you will quickly find that getting the stair boards at all the same angle is non-trivial. You’re going to need something that can give you an angle to the main board very consistently. Once you have that, and you’ve drawn your lines, you may be dismayed to discover that your straight looking board is not that straight. Lumber warps after it’s made because it was cut when it was new and wet and now it’s dryer, so no lumber is perfectly straight.
+
+Once you’ve gone back to the lumber store and gotten some straighter 2x12s and redrawn your lines, you can start screwing in your brackets. Now you’ll learn that despite starting aligned with the lines you drew, after screwing them in, your angle brackets are no longer quite straight because the screws didn’t go in quite straight and now they tightly secure the bracket at the wrong angle. You can fix that by drilling guide holes first. Also you’ll have to move them an inch or so because it’s more or less impossible to get a screw to go in differently than it did the first time in the same hole.
+
+Now you’re finally ready to screw in the stair boards. If your screws are longer than 2”, you’ll need different ones, otherwise they will poke out the top of the board and stab you in the foot.
+
+At every step and every level there’s an abundance of detail with material consequences.
+
+It’s tempting to think ‘So what?’ and dismiss these details as incidental or specific to stair carpentry. And they are specific to stair carpentry; that’s what makes them details. But the existence of a surprising number of meaningful details is not specific to stairs. Surprising detail is a near universal property of getting up close and personal with reality.
+
+You can see this everywhere if you look. For example, you’ve probably had the experience of doing something for the first time, maybe growing vegetables or using a Haskell package for the first time, and being frustrated by how many annoying snags there were. Then you got more practice and then you told yourself ‘man, it was so simple all along, I don’t know why I had so much trouble’. We run into a fundamental property of the universe and mistake it for a personal failing.
+
+If you’re a programmer, you might think that the fiddliness of programming is a special feature of programming, but really it’s that everything is fiddly, but you only notice the fiddliness when you’re new, and in programming you do new things more often.
+
+You might think the fiddly detailiness of things is limited to human centric domains, and that physics itself is simple and elegant. That’s true in some sense – the physical laws themselves tend to be quite simple – but the manifestation of those laws is often complex and counterintuitive.
+
+II. Boiling A Watched Pot
+
+Consider the boiling of water. That’s straightforward, water boils at 100 °C, right?
+
+Well the stairs seemed simple too, so let’s double check.
+
+Put yourself in the shoes of someone at the start of the 1800’s, with only a crude, unmarked mercury thermometer, trying to figure the physics of temperature.
+
+Go to your stove, put some water in a pot, start heating some water, and pay attention as it heats.
+
+(I suggest actually doing this)
+
+The first thing you’ll probably notice is a lot of small bubbles gathering on the surface of the pot. Is that boiling? The water’s not that hot yet; you can still even stick your finger in. Then the bubbles will appear faster and start rising, but they somehow seem ‘unboiling’. Then you’ll start to see little bubble storms in patches, and you start to hear a hissing noise. Is that Boiling? Sort of? It doesn’t really look like boiling. The bubble storms grow larger and start releasing bigger bubbles. Eventually the bubbles get big and the surface of the water grows turbulent as the bubbles begin to make it to the surface. Finally we seem to have reached real boiling. I guess this is the boiling point? That seems kind of weird, what were the things that happened earlier if not boiling.
+
+To make matters worse, if you’d used a glass pot instead of a metal one, the water would boil at a higher temperature. If you cleaned the glass vessel with sulfuric acid, to remove any residue, you’d find that you can heat water substantially more before it boils and when it does boil it boils in little explosions of boiling and the temperature fluctuates unstably.
+
+Worse still, if you trap a drop of water between two other liquids and heat it, you can raise the temperature to at least 300 °C with nothing happening. That kind of makes a mockery of the statement ‘water boils at 100 °C’.
+
+It turns out that ‘boiling’ is a lot more complicated than you thought.
+
+This surprising amount of detail is is not limited to “human” or “complicated” domains, it is a near universal property of everything from space travel to sewing, to your internal experience of your own mind.
+
+III. Invisible vs. Transparent Detail And Getting Intellectually Stuck
+
+Again, you might think ‘So what? I guess things are complicated but I can just notice the details as I run into them; no need to think specifically about this’. And if you are doing things that are relatively simple, things that humanity has been doing for a long time, this is often true. But if you’re trying to do difficult things, things which are not known to be possible, it is not true.
+
+The more difficult your mission, the more details there will be that are critical to understand for success.
+
+You might hope that these surprising details are irrelevant to your mission, but not so. Some of them will end up being key. Wood’s tendency to warp means it’s more accurate to trace a cut than to calculate its length and angle. The possibility of superheating liquids means it’s important to use a packed bed when boiling liquids in industrial processes lest your process be highly inefficient and unpredictable. The massive difference in weight between a rocket full of fuel and an empty one means that a reusable rocket can’t hover if it can’t throttle down to a very small fraction of its original thrust, which in turn means it must plan its trajectory very precisely to achieve 0 velocity at exactly the moment it reaches the ground.
+
+Some important details for colonizing the universe.
+
+You might also hope that the important details will be obvious when you run into them, but not so. Such details aren’t automatically visible, even when you’re directly running up against them. Things can just seem messy and noisy instead. ‘Spirit’ thermometers, made using brandy and other liquors, were in common use in the early days of thermometry. They were even considered as a potential standard fluid for thermometers. It wasn’t until the careful work of Swiss physicist Jean-André De Luc in the 18th century that physicists realized that alcohol thermometers are highly nonlinear and highly variable depending on concentration, which is in turn hard to measure.
+
+You’ve probably also had experiences where you were trying to do something and growing increasingly frustrated because it wasn’t working, and then finally, after some time you realize that your solution method can’t possibly work.
+
+Another way to see that noticing the right details is hard, is that different people end up noticing different details. My brother and I once built a set of stairs for the garage with my dad, and we ran into the problem of determining where to cut the long boards so they lie at the correct angle. After struggling with the problem for a while (and I do mean struggling, a 16’ long board is heavy), we got to arguing. I remembered from trig that we could figure out angle so I wanted to go dig up my textbook and think about it. My dad said, ‘no, no, no, let’s just trace it’, insisting that we could figure out how to do it.
+
+I kept arguing because I thought I was right. I felt really annoyed with him and he was annoyed with me. In retrospect, I think I saw the fundamental difficulty in what we were doing and I don’t think he appreciated it (look at the stairs picture and see if you can figure it out), he just heard ‘let’s draw some diagrams and compute the angle’ and didn’t think that was the solution, and if he had appreciated the thing that I saw I think he would have been more open to drawing some diagrams. But at the same time, he also understood that diagrams and math don’t account for the shape of the wood, which I did not appreciate. If we had been able to get these points across, we could have come to consensus. Drawing a diagram was probably a good idea, but computing the angle was probably not. Instead we stayed annoyed at each other for the next 3 hours.
+
+Before you’ve noticed important details they are, of course, basically invisible. It’s hard to put your attention on them because you don’t even know what you’re looking for. But after you see them they quickly become so integrated into your intuitive models of the world that they become essentially transparent. Do you remember the insights that were crucial in learning to ride a bike or drive? How about the details and insights you have that led you to be good at the things you’re good at?
+
+This means it’s really easy to get stuck. Stuck in your current way of seeing and thinking about things. Frames are made out of the details that seem important to you. The important details you haven’t noticed are invisible to you, and the details you have noticed seem completely obvious and you see right through them. This all makes makes it difficult to imagine how you could be missing something important.
+
+That’s why if you ask an anti-climate change person (or a climate scientist) “what could convince you you were wrong?” you’ll likely get back an answer like “if it turned out all the data on my side was faked” or some other extremely strong requirement for evidence rather than “I would start doubting if I noticed numerous important mistakes in the details my side’s data and my colleagues didn’t want to talk about it”. The second case is much more likely than the first, but you’ll never see it if you’re not paying close attention.
+
+If you’re trying to do impossible things, this effect should chill you to your bones. It means you could be intellectually stuck right at this very moment, with the evidence right in front of your face and you just can’t see it.
+
+This problem is not easy to fix, but it’s not impossible either. I’ve mostly fixed it for myself. The direction for improvement is clear: seek detail you would not normally notice about the world. When you go for a walk, notice the unexpected detail in a flower or what the seams in the road imply about how the road was built. When you talk to someone who is smart but just seems so wrong, figure out what details seem important to them and why. In your work, notice how that meeting actually wouldn’t have accomplished much if Sarah hadn’t pointed out that one thing. As you learn, notice which details actually change how you think.
+
+If you wish to not get stuck, seek to perceive what you have not yet perceived.
+
+Comments
+
+--------------------------------------------------------------------------------
+
+7. Exapunks (2018)
+
+Source: https://www.zachtronics.com/exapunks/
+Site: zachtronics.com
+Submitter: yu3zhou4 (Hacker News)
+Submitted: 2026-07-02 18:41 UTC (Hacker News)
+HN activity: 228 points · 82 comments
+Length: 292 words (~2 min read)
+Language: en-US
+
+About EXAPUNKS
+
+READ ZINES - Learn to hack from TRASH WORLD NEWS, the underground computer magazine. Tutorials, hacking tips, secret information, searing commentary— TRASH WORLD NEWS has you covered.
+WRITE VIRUSES - Program your EXAs (EXecution Agents) to tear through networks, replicate themselves, trash files, terminate other EXAs— and leave without a trace.
+HACK EVERYTHING - Hack banks, universities, factories, TV stations, highway signs, game consoles, the government... oh yeah, and your own body.
+SLACK OFF - Play ПАСЬЯНС, if you hack the server where it’s stored. Or play HACK*MATCH, if you hack the region lock on your Sawayama WonderDisc. Or create your own homebrew games for the TEC Redshift… if you hack the development kit.
+
+Order a physical EXAPUNKS zine set (1/2)
+
+April 22, 2020
+
+It's been ages since we sold out of the physical deluxe edition for EXAPUNKS, but thanks to the magic of print-on-demand you can order a printed zine set from Lulu and have it shipped to your door. Only $7 plus shipping! (This link is for the first issue. You will need to order both.)
+
+READ MORE
+
+Order a physical EXAPUNKS zine set (2/2)
+
+April 22, 2020
+
+It's been ages since we sold out of the physical deluxe edition for EXAPUNKS, but thanks to the magic of print-on-demand you can order a printed zine set from Lulu and have it shipped to your door. Only $7 plus shipping! (This link is for the second issue. You will need to order both.)
+
+READ MORE
+
+Axiom VirtualNetwork+ scripting reference
+
+July 16, 2018
+
+Axiom VirtualNetwork+ is the EXAPUNKS custom puzzle creation tool. Custom puzzles (or "virtual networks") are written in JavaScript and use these API functions to create hosts, files, and registers and specify goals and puzzle logic.
+
+READ MORE
+
+--------------------------------------------------------------------------------
+
+8. An American Privacy Emergency
+
+Source: https://scottaaronson.blog/?p=9902
+Site: Shtetl-Optimized
+Submitter: flowercalled (Hacker News)
+Published: 2026-07-02
+HN activity: 190 points · 60 comments
+Length: 2.1K words (~10 min read)
+Language: en-US
+
+Scott’s foreword: Cynthia Dwork is Gordon McKay Professor of Computer Science at Harvard, and a pioneer in the fields of differential privacy and algorithmic fairness. On my recent travels to the SigmaWest science camp and then STOC, there was much talk about a recent Trump administration action that would ban not only differential privacy, but essentially all modern techniques for preserving privacy in large datasets, for example in the 2030 US Census. I realize that many of us have “outrage fatigue,” but this particular outrage hits extremely close to home for the CS theory community. So when Cynthia approached me at STOC to propose a guest post on the issue, of course I said yes. The post that she sent me, below, is cosigned by many other leaders in the field.
+
+On June 4, 2026, the U.S. Secretary of Commerce issued a directive (DAO 216-26) relegating confidentiality protection in all Bureau of Economic Analysis (BEA) and U.S. Census Bureau publications to techniques dating back to the early 1970s, turning its back on over half a century of progress and protections for data subjects. Advances in confidentiality provision had enabled the Census Bureau to share increasing quantities of data at more granular detail. The order will result in less useful (or fewer available) statistics, weaker protection, or both. We write to illustrate the danger posed by the order and to mobilize the scientific community to speak out against it.
+
+The acting force behind this order is political interest, not scientific merit. DAO 216-26 bypassed legally required administrative procedures. It fulfills a promise made by the architects of the Heritage Foundation’s Project 2025, and reflects both the rhetoric and misunderstandings of representatives of the Center for Renewing America (CRA), an organization founded by OMB Director Russell Vought. CRA’s explainer on the use of differential privacy in the 2020 Census is up-front about the stakes: “Even if the citizenship question is added to the Census, it will be impossible to ascertain the status of individuals so long as differential privacy is used.” But masking this sort of personal characteristics data is legally required by the Census Act (13 U.S. Code Section 9), which makes it a crime to “make any publication whereby the data furnished by any particular [individual] can be identified.” Confidentiality is also widely understood as critical to ensuring that people respond to the census.
+
+DAO-216-26 bans differential privacy and other modern (and not so modern) techniques. It restricts disclosure avoidance techniques to “coarsening,” which it describes as “reducing the level of detail or specificity of published statistics, such as through rounding, aggregating (grouping), and/or the use of ranges.” “Suppression” (“expressly redacting certain values”) may also be used, but only as a “last resort.” DAO-216-26 forbids “noise infusion”, described as “methods that involve modifying a dataset by adding random values, or noise.”
+
+Noise infusion was invented precisely to address the increasing demand for granular data in the face of confidentiality laws that forbid publishing reidentifiable data. Coarsening and suppression were satisfactory for most national, aggregate statistical series, like the Principal Federal Economic Indicators. However, these techniques failed when applied to business and demographic data at fine geographic or industrial detail. By forbidding noise infusion, the directive bans the disclosure avoidance techniques at the core of dozens of data releases over the last three decades. It bans input noise infusion, used in the Quarterly Workforce Indicators since 2002 and, until now, planned for the Bureau of Economic Analysis statistics [1]. It bans swapping, used for decennial census publications since 1990. It also bans differential privacy, the best currently known approach for obtaining the most data utility for any given level of privacy. Differential privacy was used for sharing data on commuting patterns (OnTheMap) since 2008 and for publications based on the 2020 Census. Until the recent directive, differential privacy was planned for the 2030 Census too. Many other products and procedures are implicated as well.
+
+1. Illustrations
+
+DAO-216-26 is incompatible with the Census Bureau’s dual mandate to provide confidentiality and fitness for use. To illustrate this, we recall and expand on an example due to Nathan Goldschlag, inspired by the County Business Patterns (CBP) data, which provides statistics on business activity broken down by industry and geography. Goldschlag describes three scenarios, illustrating the tension between providing useful information and maintaining confidentiality of responses as required by the Census Act.
+
+· “There is only one brewery in a small county. If the CBP published the exact count of brewery employees in that county, it would be disclosing the information of one business (how many workers it employs), a clear violation of the law.2
+
+· “There are two breweries in a small county, and the CBP again publishes the exact count of brewery employees. If I own one of those breweries, I could learn how many employees my competitor has, again violating the law.
+
+· “There are more than two breweries in a small county, but the CBP chooses not to publish the total number of brewery employees out of concern that it might compromise the privacy of the businesses. If I’m a prospective brewery owner, I may deem the project too risky to pursue without information about the market I’m entering.”
+
+In Goldschlag’s example, coarsening makes the published statistics useless. We now add a fourth scenario, showing that it also fails to maintain confidentiality. To keep things simple, assume none of us owns any of the businesses in the new example. The County has two towns with one brewery each, North Bend and South Bend. Furthermore, North Bend has a mobile bottling company and South Bend has a stationary bottling company. That’s a total of four beer-related business entities in the County. Two of these businesses, the North-Bend brewery and the South Bend bottling company, are publicly-owned.
+
+The CBP publishes five statistics:
+
+(A) The total number of employees in beer-related businesses in North Bend: Because there is only one brewing company in North Bend and only one bottling company in North Bend, the category is coarsened to “beer-related”.
+(B) The total number of employees in beer-related businesses in South Bend: Because there is only one brewing company in South Bend and only one bottling company in South Bend, the category is coarsened to “beer-related”.
+(C) The total number of employees in brewing only: Because there is only one brewing company in each of North Bend and South Bend, the statistic is coarsened to the total number of employees in brewing only in the County.
+(D) The total number of employees in bottling only: Because there is only one bottling company in each of North Bend and South Bend, the statistic is coarsened to the total number of employees in bottling only in the County.
+(E) The total number of employees at publicly owned companies: Because there is only one publicly owned company in each of North Bend and South Bend, the statistic is coarsened to the total number of employees in publicly owned companies in the County.
+
+We now have 5 equations in 4 unknowns. Using only 4 of these (A, B, C, and E), we can solve for the exact number of employees at each of the four companies with high school algebra.
+
+In the above (fictional but realistic) scenario, the County Business Patterns were released with good-faith coarsenings for the geographical, business, and ownership categories. Nonetheless, even without inside knowledge of one of the companies’ number of employees, we can completely reconstruct all four numbers. What happened? The coarsenings interacted poorly. Noise infusion perturbs that set of equations, preventing exact reconstruction.
+
+2. Impediments to Implementation
+
+The Commerce Department now claims the directive’s return to the outdated “tradstat” traditional statistical techniques of the 70s is good for data consumers: “This update to our disclosure limitation method protects respondents and provides the public with more essential economic information.” (Emphasis added.) As we saw from Goldschlag’s example, coarsening does just the opposite.
+
+And it can’t be fixed. Coarsening by definition reduces access to fine-grained information. Our example of three poorly interacting coarsenings shows that this sacrifice is for naught: without noise infusion, confidentiality is destroyed by elementary calculations. For population surveys, this is precisely what formal noise infusion methods, like differential privacy, protect against; this is the “fancy math” that Goldschlag mentions in his post and that holds personal characteristics, like citizenship status, in confidence.
+
+3. Confidentiality is Critical for Federal Statistics
+
+The scientific community continues to debate the best techniques for protecting the confidentiality of respondents’ data, but DAO-216-26 is not driven by science. It is driven by political interests. Those issuing this order are willing to risk the public’s trust in the process. We think that this is wrong-headed and dangerous.
+
+Civil servants will do their best to comply with this order while still following the laws that require them to protect the confidentiality of respondents’ data. To balance these competing mandates, they may seek to produce less data or coarsen data so much that it is unusable. Or they might be pushed by political actors to publish data that can be easily unmasked, like in the brewery examples above. Regardless of their choices, they will be hard-pressed to guarantee respondents’ confidentiality, which will prompt many businesses and individuals to simply not answer. This is devastating for an agency that delivers democracy’s data.
+
+Conclusion
+
+Rather than political actors overruling the government’s own statisticians, we need deep investment in our nation’s statistical agencies, ensuring that agencies have the staff and support to improve their methods using the best available tools. Regardless of how the scientific community feels about any specific privacy-enhancing technique, we must collectively reject this anti-scientific approach to governing federal statistics. Too much is at stake.
+
+How to Take Action
+
+Share this post with others in your professional network and community.
+
+Contact your Congressional representative and voice your concerns. Calling or writing to your representative is one of the most effective and easiest things a constituent can do that should only take a couple minutes of your time.
+
+Find your representative contact information here.
+State your concern. Here is a sample script: “My name is [Name], and I am a constituent from [City] in your district [ZIP CODE]. I am calling because I am concerned about the the U.S. Secretary of Commerce issued a directive (DAO 216-26) that wants to relegate confidentiality protection in all Bureau of Economic Analysis and U.S. Census Bureau data products and statistics to outdated and ineffective statistical techniques. If followed, this order will destroy the Commerce public data our nation relies on for important decisions, such as where to build necessary services for our community’s well-being. I want the DAO to be rescinded. I want proper administrative procedure to be followed. I want technical decisions such as the choice of method used to balance utility and confidentiality to be informed by professionals in the federal statistical agencies, not made unilaterally by political operatives.”
+
+Optional is stating what kind of constituent, such as a retired teacher or a working professional.
+
+Volunteer to help preserve Census working papers and documentation. Pages explaining “noise infusion” and “differential privacy” are already going offline. Archive relevant methodology pages and technical documentation. You can also do this via the Internet Archive’s Wayback Machine (“Save Page Now”).
+
+John Abowd
+Aloni Cohen
+Cynthia Dwork
+Jae June Lee
+Jayshree Sarathy
+Adam Smith
+Salil Vadhan
+
+[1] BEA Working Paper WP2026-9, now purged by the Department of Commerce. As of 6/22 Google returns:
+
+Bureau of Economic Analysis (BEA) (.gov)
+https://bea.gov › files › papers › BEA-WP2026-9
+
+This entry was posted on Thursday, July 2nd, 2026 at 3:26 pm and is filed under Announcements, Nerd Interest. You can follow any responses to this entry through the RSS 2.0 feed. You can leave a response, or trackback from your own site.
+
+You can use rich HTML in comments! You can also use basic TeX, by enclosing it within $$ $$ for displayed equations or \( \) for inline equations.
+
+After two decades of mostly-open comments, in July 2024 Shtetl-Optimized transitioned to the following policy:
+
+All comments are treated, by default, as personal missives to me, Scott Aaronson---with no expectation either that they'll appear on the blog or that I'll reply to them.
+
+At my leisure and discretion, and in consultation with the Shtetl-Optimized Committee of Guardians, I'll put on the blog a curated selection of comments that I judge to be particularly interesting or to move the topic forward, and I'll do my best to answer those. But it will be more like Letters to the Editor. Anyone who feels unjustly censored is welcome to the rest of the Internet.
+
+--------------------------------------------------------------------------------
+
+9. Mystery identity of 'Green Boots' climber is finally solved after DNA test
+
+Source: https://www.dailymail.com/news/article-15943905/Mystery-identity-Green-Boots-climber-macabre-landmark-frozen-ice-dying-Everest-finally-solved-DNA-test.html
+Site: Daily Mail
+Author: Olivia Allhusen
+Published: 2026-07-01
+HN activity: 62 points · 27 comments
+Length: 647 words (~3 min read)
+
+The mystery surrounding the identity of Everest's infamous 'Green Boots' climber has finally been solved after a DNA test.
+
+For almost 30 years, the body of the climber – preserved in snow and ice high on the world's tallest mountain – became a macabre landmark for thousands attempting to reach the summit.
+
+Known simply as 'Green Boots' because of his distinctive bright green mountaineering footwear still protruding from the snow and ice, the remains have now been identified as Indian climber Dorje Morup, 47.
+
+For decades, many mountaineers believed the body belonged to fellow Indian climber Tsewang Paljor, 28. The DNA comparison has now ended that long-running mystery.
+
+The identification was confirmed by the Indo-Tibetan Border Police (ITBP) ahead of a bid to recover the body from Everest's notorious 'death zone' at an altitude of more than 8,000 metres.
+
+Officials are seeking a specialist high-altitude rescue team to carry out the dangerous recovery operation from the mountain's Tibetan side later this summer.
+
+Morup was part of a six-member ITBP expedition attempting to climb Everest via its north face on May 10, 1996.
+
+When the team was caught in a ferocious blizzard near the summit, three climbers turned back.
+
+The mystery surrounding the identity of Everest's infamous 'Green Boots' climber has finally been solved
+
+The frozen remains have now been identified as Indian climber Dorje Morup
+
+Morup continued alongside fellow mountaineers Tsewang Paljor, 28, and Tsewang Samanla.
+
+All three died on the mountain, while eight climbers in total lost their lives in the 1996 Everest disaster.
+
+According to expedition records, the three climbers radioed their team leader at around 3.45pm Nepal time to report that they had reached the summit.
+
+However, later accounts suggested poor visibility may have made it difficult to determine their exact position, raising the possibility that they remained some 430ft below the top.
+
+Soon afterwards, conditions deteriorated dramatically. Ferocious winds battered the mountain, temperatures plunged and visibility shrank to almost nothing.
+
+From below, members of the expedition reportedly spotted two headlamps moving above the Second Step at an altitude of around 28,000ft above sea level.
+
+It would be the last sign of the climbers being alive, as the three would never return to High Camp.
+
+Because recovering bodies from such extreme altitudes is considered exceptionally dangerous, Morup's remains were left where he died, with snow and ice preserving them for decades.
+
+Sheltered within a small cave-like recess, his body is curled on its side, apparently after seeking refuge from the mountain's relentless conditions in his final moments.
+
+The location sat deep within Everest's so-called 'death zone' – the area above 26,000ft where the lack of oxygen places immense strain on the human body and survival can become a minute-by-minute battle.
+
+The identification was confirmed by the Indo-Tibetan Border Police (ITBP) following a DNA comparison ahead of plans to recover the body from Everest's notorious 'death zone' at an altitude of more than 8,000 metres (stock image)
+
+The corpse remained where it lay, and over time, passing expeditions began referring to the site as Green Boots Cave.
+
+His distinctive green boots made the body instantly recognisable and turned it into one of Everest's most haunting landmarks, passed by countless climbers on the mountain's north-east route to the summit.
+
+As Everest expeditions increased during the years that followed, Green Boots became an unsettling but practical point of reference.
+
+Climbers ascending the North-east Ridge knew that reaching the cave meant they had arrived at around 27,890 feet and were approaching the mountain's final challenges.
+
+Many paused there briefly to rest or check oxygen supplies, and discarded oxygen cylinders accumulated around the site.
+
+Veteran climber Noel Hanna later said: 'It's hard to miss the person lying there.'
+
+For some, encountering Green Boots became one of the most disturbing aspects of climbing Everest. For others, the sight reinforced the brutal reality of the challenge they had chosen to undertake.
+
+--------------------------------------------------------------------------------
+
+10. PeerTube is a free, decentralized and federated video platform
+
+Source: https://github.com/Chocobozzz/PeerTube
+Site: GitHub
+Submitter: doener (Hacker News)
+Submitted: 2026-07-02 11:17 UTC (Hacker News)
+HN activity: 535 points · 243 comments
+Length: 768 words (~4 min read)
+Language: en
+
+Website | Join an instance | Create an instance | Chat with us | Donate
+
+Be part of a network of multiple small federated, interoperable video hosting providers. Follow video creators and create videos. No vendor lock-in. All on a platform that is community-owned and ad-free.
+
+Developed with ❤ by Framasoft
+
+Introduction
+
+PeerTube is a free, decentralized and federated video platform developed as an alternative to other platforms that centralize our data and attention, such as YouTube, Dailymotion or Vimeo. 🎬
+
+To learn more:
+
+This two-minute video (hosted on PeerTube) explaining what PeerTube is and how it works
+PeerTube's project homepage, joinpeertube.org
+Demonstration instances:
+
+peertube.cpy.re (stable)
+peertube2.cpy.re (Nightly)
+peertube3.cpy.re (RC)
+This video demonstrating the communication between PeerTube and Mastodon (a decentralized Twitter alternative)
+
+✨ Features
+
+All features for viewers | All features for content creators | All features for administrators
+
+Video streaming, even in live!
+
+Just upload your videos, and be sure they will stream anywhere. Add a description, some tags and your video will be discoverable by the entire video fediverse, not just your instance. You can even embed a player on your favorite website!
+
+You are used to hosting live events? We got you covered too! Start livestreaming from your favorite client, and even host permanent streams!
+
+Keep in touch with video creators
+
+Follow your favorite channels from PeerTube or really any other place. No need to have an account on the instance you watched a video to follow its author, you can do all of that from the Fediverse (Mastodon, Pleroma, and plenty others), or just with good ol' RSS.
+
+An interface to call home
+
+Be it as a user or an instance administrator, you can decide what your experience will be like. Don't like the colors? They are easy to change. Don't want to list videos of an instance but let your users subscribe to them? Don't like the regular web client? All of that can be changed, and much more. No UX dark pattern, no mining your data, no video recommendation bullshit™.
+
+Communities that help each other
+
+In addition to visitors using P2P with WebRTC to share the load among them, instances can help each other by caching one another's videos. This way even small instances have a way to show content to a wider audience, as they will be shouldered by friend instances (more about that in our redundancy guide).
+
+Content creators can get help from their viewers in the simplest way possible: a support button showing a message linking to their donation accounts or really anything else. No more pay-per-view and advertisements that hurt visitors and alter creativity (more about that in our FAQ).
+
+🙌 Contributing
+
+You don't need to be a programmer to help!
+
+You can give us your feedback, report bugs, help us translate PeerTube, write documentation, and more. Check out the contributing guide to know how, it takes less than 2 minutes to get started. 😉
+
+You can also join the cheerful bunch that makes our community:
+
+Matrix (bridged on Discord): #peertube:matrix.org
+Forum: https://framacolibri.org/c/peertube
+
+Feel free to reach out if you have any questions or ideas! 💬
+
+📦 Create your own instance
+
+See the production guide, which is the recommended way to install or upgrade PeerTube. For hardware requirements, see Should I have a big server to run PeerTube? in the FAQ.
+
+See the community packages, which cover various platforms (including YunoHost and Docker).
+
+📖 Documentation
+
+If you have a question, please try to find the answer in the FAQ first.
+
+User documentation
+
+See the user documentation.
+
+Admin documentation
+
+See how to create your own instance.
+
+See the more general admin documentation.
+
+Tools documentation
+
+Learn how to import/upload videos from CLI or admin your PeerTube instance with the tools documentation.
+
+Technical documentation
+
+See the architecture blueprint for a more detailed explanation of the architectural choices.
+
+See our REST API documentation:
+
+OpenAPI 3.0.0 schema: /support/doc/api/openapi.yaml
+Spec explorer: docs.joinpeertube.org/api-rest-reference.html
+
+See our ActivityPub documentation.
+
+License
+
+Logo
+
+CC BY-SA 4.0, by Framasoft
+
+Code
+
+Copyright (C) 2015-2025 PeerTube Contributors (see CREDITS.md)
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see https://www.gnu.org/licenses/.
+
+--------------------------------------------------------------------------------
+
+11. Podman v6.0.0
+
+Source: https://blog.podman.io/2026/07/introducing-podman-v6-0-0/
+Site: blog.podman.io
+Author: Mohan Boddu
+Published: 2026-07-02
+HN activity: 410 points · 164 comments
+Length: 384 words (~2 min read)
+Language: en-US
+
+We’re thrilled to announce that Podman v6.0.0 is now available! This major release brings a host of significant improvements and new features designed to enhance your container management experience. You can find the latest release on our GitHub, and it will be rolling out to your favorite package managers very soon.
+
+Many thanks to all our contributors who helped make this release possible, especially new contributors!
+
+Podman v6.0.0 is the result of months of work to modernize the project’s core infrastructure, enhance security, and improve user experience. Here are some of the key highlights:
+
+Modernized Networking: We’ve made significant strides in modernizing Podman’s network infrastructure. This release transitions slirp4netns, and iptables towards Netavark, Pasta, and nftables, streamlining our networking stack to simplify maintenance and enable future features. Experimental support has been added for Pesto rootless port forwarding, which does support preserving the correct source ip for rootless containers on custom networks.
+Enhanced podman machine Capabilities: Podman Machine now offers a more seamless multi-provider experience, making it easier to work across different VM providers. It also introduces the new podman machine os update command, which helps keep your VM environments up to date. There are many more improvements than we can cover here, and we’ll take a closer look at some of them in future posts.
+Quadlet Evolution: Quadlets have received a major overhaul, including REST API support, improved tracking of associated files for easier management, expanded features for .volume units, and additional search paths for easier distribution packaging.
+Podman Config Files Changes: Podman’s updated configuration file handling provides a smoother, more reliable experience for administrators managing multi-user environments.Please see this blog for exact details.
+Compatibility Improvements: Podman continues to improve Docker compatibility by updating its Docker API support and refining its command output. Together, these make transitioning from Docker easier than ever.
+For a full list of changes, please see the release notes.
+
+Try it out!
+
+We’re excited to share Podman v6.0.0 with everyone! We encourage you to try the new release, explore its features, and provide feedback. Your contributions and insights are invaluable to the continued growth and success of the Podman project.
+
+This release wouldn’t be possible without our amazing community. We’re incredibly grateful to everyone who contributed to this cycle and thank you for being a part of the Podman community.
+
+--------------------------------------------------------------------------------
+
+12. Ask HN: Looking for work, donations, friendship, or advisors
+
+Source: https://cjohnson.io/history
+Site: Chris Johnson
+Submitter: thebuilderbob2 (Hacker News)
+Submitted: 2026-07-03 03:04 UTC (Hacker News)
+HN activity: 3 points · 1 comments
+Length: 1.4K words (~6 min read)
+
+Home History Work & Services Manifest Subdomains
+
+15+ years building web platforms — from Nebraska startups to San Francisco scale-ups to independent consulting. Every project taught something new.
+
+20+ Companies
+
+15+ Years
+
+10 Full-time roles
+
+2025 – 2026
+
+AI-powered end-to-end testing platform for web and mobile applications. Momentic uses AI to automatically discover, generate, and maintain test suites — replacing brittle manual test scripts with intelligent, self-healing test automation.
+
+Frontend engineering for AI-powered test automation platform
+Building interfaces for AI-driven test generation and execution workflows
+Web and mobile testing infrastructure at the intersection of AI and developer tooling
+
+TypeScript React AI/ML Test Automation Playwright
+
+Collaborative writing and document platform. Canvas builds tools for real-time collaborative authoring with a focus on elegant, distraction-free interfaces and powerful editing capabilities.
+
+Frontend engineering for real-time collaborative document editor
+Complex state management for multi-user concurrent editing
+Rich text editing interfaces with performance-critical rendering
+
+TypeScript React WebSockets CRDTs Rich Text
+
+2022 – 2023
+
+Top software development company in Kansas City. PayIt builds world-class digital government services — DMV, property tax, vehicle registration — for millions of citizens across North America, including the State of North Carolina and the City of Toronto.
+
+Architected frontend systems powering 50+ white-label government applications serving millions of constituents
+Drove UI standards for performance, testing, and maintainability across multiple product teams
+Led Pendo analytics implementation — defined and instrumented key product metrics enabling data-driven design decisions
+Architected document management sub-system handling multiple file formats with authenticated third-party integrations
+Championed accessibility (WCAG) and internationalization across all client applications
+
+React TypeScript Redux Node.js Java Kubernetes MongoDB Pendo GitHub Actions
+
+The North American Computational Linguistics Open competition (NACLO) runs an international student competition to get high schoolers a head start in computational linguistics. Built a greenfield competition management platform replacing a legacy Perl system that had served the organization for over a decade.
+
+Designed and built a full competition management platform from scratch — student registration, results tallying, site administration
+Replaced legacy Perl system with modern Python/Flask application
+Full project lifecycle: requirements gathering, architecture, implementation, testing, deployment
+Volunteer-driven organization affiliated with Carnegie Mellon University's computational linguistics program
+
+Python Flask PostgreSQL HTML/CSS JavaScript
+
+Insurance services company in Kansas City running a decade-old .NET 4 application for processing client insurance claims, generating forms, and administering responses from state offices. A masterclass in maintaining legacy systems that Just Work.
+
+Reconstructed CI/CD pipeline for a 10+ year-old .NET application on Azure (Kudu)
+Upgraded third-party dependencies to latest secure patches
+Performed security audit and automated email integration
+Set up codebase for continued development by future maintainers
+
+C# / .NET 4 Azure Kudu CI/CD Security Audit
+
+2020 – 2025
+
+Privacy-focused technology organization building open-source alternatives to big tech platforms. Mission-driven work defending user privacy and data sovereignty.
+
+Built frontend systems for privacy-focused open-source applications
+Contributed to the organization's mission of creating sustainable open-source software
+
+JavaScript React Open Source
+
+Data and spreadsheet tooling startup. Built interactive web interfaces for data manipulation and visualization.
+
+Frontend development for interactive data application
+Complex UI state management for spreadsheet-like interactions
+
+JavaScript React TypeScript
+
+Property management automation platform. Built web interfaces for property managers to streamline tenant communications and maintenance workflows.
+
+Developed interactive web application for property management workflows
+Frontend and full-stack feature development
+
+JavaScript React Node.js
+
+2017 – 2019
+
+Tlon builds Urbit — a clean-slate, decentralized personal computing platform backed by Andreessen Horowitz (a16z). As Engineering Manager of Interface, I set the technical direction for all frontend development on the platform and built the foundational systems that every Urbit app developer uses.
+
+Architected the first scalable UI framework for the Urbit platform — setting technical direction for all frontend development across the organization
+Built a greenfield JavaScript build pipeline (Rollup, Gulp), state management framework, and bespoke CQRS API integration layer powering the flagship product
+Created a component styleguide and codified build, release, and style standards adopted by all platform developers
+Managed and mentored a team of 4 engineers; partnered with CEO and CTO on product roadmap and quarterly OKRs
+Led cross-team initiatives to improve developer workflows, tooling, and platform reliability
+
+JavaScript React Rollup Gulp WebSockets CQRS Hoon (Urbit) Team Leadership
+
+2015 – 2017
+
+Twitch is the world's largest live-streaming platform (acquired by Amazon). As a Senior Front-End Engineer, I led the redesign of Twitch's highest-trafficked page — the channel view — serving 15 million daily active users with real-time, latency-sensitive video streaming.
+
+Led redesign of Twitch's channel page (15M DAU), coordinating an 8-person cross-functional team through end-to-end delivery
+Owned the video player UI: ads, controls, and playback — deeply integrated with Twitch's real-time video ingest and ad streaming architecture
+Drove Ember.js → React migration across multiple departments, establishing adoption patterns for the new framework
+Mentored an intern who shipped a high-impact feature (mini video overlay) that significantly increased Twitch's core metric: Minutes Watched
+Performance optimization for a latency-sensitive, real-time streaming interface at massive scale
+
+React Ember.js JavaScript Webpack CSS Real-time Streaming WebSockets
+
+Metromile was a pay-per-mile car insurance company (later acquired by Lemonade). I led the full redesign of the primary customer enrollment flow and managed six frontend applications powering the customer-facing web experience.
+
+Led full application redesign of the quote & enrollment flow — delivered on schedule (~2 months), revamping the primary customer acquisition funnel
+Developed and maintained 6 frontend applications; managed deploys, enforced code standards, drafted architectural improvements
+Established comprehensive testing program: unit, integration, E2E (Selenium, BrowserStack), and hallway usability testing
+
+JavaScript React CSS Selenium BrowserStack CI/CD
+
+2013 – 2014
+
+San Francisco startup building local marketing and customer engagement tools for small businesses. Early-stage startup environment — wore many hats across the full stack.
+
+Full-stack web development for local business marketing platform
+Early-stage startup: rapid iteration, direct customer feedback, shipping fast
+
+JavaScript Ruby on Rails HTML/CSS
+
+Fitness technology company building personalized workout planning tools. Contract frontend development work in the San Francisco fitness-tech ecosystem.
+
+Frontend development for fitness/wellness web application
+Interactive UI for workout planning and tracking
+
+JavaScript HTML/CSS
+
+2010 – 2012 · Nebraska
+
+Parking services company. Built web presence and management tools.
+
+Web development for parking services business
+
+HTML/CSS JavaScript
+
+Metal fabrication/manufacturing company. Built web presence and business tools.
+
+Web development and digital presence for manufacturing company
+
+HTML/CSS JavaScript
+
+Enterprise virtualization and cloud computing giant. Internship at one of Silicon Valley's most important infrastructure companies.
+
+Software engineering internship at major enterprise technology company
+Exposure to large-scale infrastructure and enterprise software practices
+
+Java Enterprise Software
+
+Lincoln, Nebraska software consultancy specializing in rapid application development. Known for building MVPs and production systems for startups and enterprises alike.
+
+Rapid application development in a professional consultancy environment
+Exposure to multiple client projects and technology stacks
+Learned professional software development practices and client communication
+
+C# / .NET JavaScript Agile
+
+Creative digital agency in Lincoln, Nebraska. Built websites and interactive experiences for regional clients.
+
+Web development for agency clients
+Learned professional web development workflow and client delivery
+
+HTML/CSS JavaScript PHP
+
+Major student loan servicer and financial services company headquartered in Lincoln, Nebraska. One of the largest employers in the state and a Fortune 1000 company.
+
+Software engineering internship at major financial services company
+Exposure to large-scale financial systems and enterprise development
+
+Java Enterprise Software
+
+Digital signage and interactive kiosk company in Lincoln, Nebraska. Built software for touchscreen kiosks deployed in retail environments, airports, and public spaces.
+
+Developed interactive touchscreen applications for digital signage
+Worked on kiosk software deployed to physical hardware in public spaces
+Early exposure to building polished, user-facing interactive software
+
+C# / .NET JavaScript Interactive Displays
+
+Built software tools for the University of Nebraska–Lincoln Economics department. Research-oriented development work at the intersection of economics and technology.
+
+Developed research tools for economics faculty
+Built data visualization and analysis interfaces
+
+Python JavaScript Data Visualization
+
+Competitive API challenge building trading/financial applications using the TradeKing (now Ally Invest) brokerage API. Applied economic theory to real-time market data.
+
+Built application integrating with TradeKing brokerage API for real-time market data
+Applied academic economics knowledge to practical financial software
+Competitive development challenge — delivered working product under time constraints
+
+REST APIs JavaScript Financial Data OAuth
+
+Energy sector web project. Built web presence and interactive features for an energy-focused organization.
+
+Full website development — design, build, and deployment
+Interactive JavaScript features and content management
+
+JavaScript HTML/CSS jQuery Galleria.js
+
+--------------------------------------------------------------------------------
+
+13. How to ask for help from people who don't know you
+
+Source: https://pradyuprasad.com/writings/how-to-ask-for-help/
+Site: pradyuprasad.com
+Submitter: FigurativeVoid (Hacker News)
+Submitted: 2026-07-02 13:19 UTC (Hacker News)
+HN activity: 422 points · 65 comments
+Length: 942 words (~5 min read)
+Language: en
+
+30 June 2026
+
+No matter what you’re doing, from building a civilization on Mars to getting a summer internship, you will have to ask people for help. Yet, most people get this crucial skill wrong. They put themselves at the front of their request, when they should be putting the other person there. But isn’t getting help just charisma and luck? No, asking for help is a skill, not an attribute you are assigned at birth like green eyes.
+
+How do you ask for help from people? There is only one principle. Put yourself in their mind. All good communication is grounded in an understanding of the reader’s mind. And so, I have some heuristics I would recommend when you ask for help from people you don’t know.
+
+One heuristic to remember is that help is about people before it is about projects. When you ask for help from someone, their helping your project is predicated on them wanting to help you. So, you should make it clear that you are someone worth helping. One of the strongest ways to show that you’re worth helping is to demonstrate that you are a serious person. You might claim that you want to enter machine learning or learn to lift weights. Lots of people say that though, and the way you show that you’re serious is by showing proof of work. A trained model, a blog post that shows depth and thought and a vlog of your training are all ways to show that you are serious.
+
+Another way is personal connection: you could say “Steve suggested I reach out” which situates you more warmly in their mind. But be careful here, because you’re borrowing against someone else’s credibility. If this person doesn’t like Steve, then this might hurt your credibility. Or, if you aren’t as good as Steve says, his credibility is hurt.
+
+And finally, we get to institutional credibility. You could mention that you’re a student at some famous university, or work at a large corporation. This is the weakest because at best it proves you cleared a filter once, and nothing more. It also doesn’t situate you to them specifically and can feel like you’re signalling status. So use it sparingly and avoid making it your only source of credibility.
+
+Once you have situated yourself (or not), the next step is to explain context. Before you ask them for help, you have to answer the question: what is going on here? If you have done the previous step well, you have borrowed their attention and you must spend it judiciously. Here, your description must be so short as to be unsummarizable. You are spending lent attention which is the most precious currency. To do this, think of what makes your context connect to things that they would already know. Do not explain to your elected representative the factionalism of your university club, but do explain how the club connects to their legislative priorities. Or when asking a scientist for an internship, don’t talk about how you’ve loved science since you were a child, but do talk about how you’ve implemented and extended their paper from 2023.
+
+The next heuristic is to make your request easy to accept. Making something easy to accept largely is about reducing the cost of acceptance. One clear kind of cost is the magnitude. Do ask someone for twenty minutes of their time, but don’t ask them to read your five-hundred-page manuscript in a week. Another is to make it specific: asking for a resource to start with is better than “can I pick your brain?”. When you’ve made your request, make it low friction for them. If you’re asking for an introduction, write a blurb about yourself which they can forward. If you have a question, ask it in writing rather than over a call. And last on cost, make your ask bounded. Don’t ask for recurring obligations like being your mentor for your whole life, but do keep it limited to asking them to read a blog post. If that instance goes well, they’ll gladly read more.
+
+My last heuristic is stranger: make it easy to say no. You might think that the worst outcome is a no, but the worst outcome is a pressured, begrudging yes. If you get a no, a good response is for you to thank them for their time and move on. Making your message carry emotional guilt or pestering them over time will not have the effect you intend. Your coercion will have poisoned your relationship with this person while you feel the false glow of a hard-won victory. A person who helps you with gritted teeth is one who will never help you again. And even then, the help will be a half-hearted effort to get rid of the obligation you manufactured. By contrast, help freely given is effortless, the way you’d hold the door open for someone. Help willingly given keeps your conscience clear, free from the burden of having pressured someone. And help, when given from the heart, is the foundation of a relationship where both of you contribute to what you’re building.
+
+These are only heuristics. You can, when following the principle, reorder or drop them altogether. What matters is whether you’re thinking from the perspective of your reader. Except. Never lie. All your asks for help come from the person attached to them – you. And if your reader gets even a whiff of something off, then no request, no matter how small, specific, low-friction, and bounded, can get a yes.
+
+Edit: added a line on how to respond when you get a no.
+
+--------------------------------------------------------------------------------
+
+14. Show HN: zkGolf – Competitive optimization of formally verified circuits
+
+Source: https://zk.golf/
+Site: zkGolf
+Submitter: rot256 (Hacker News)
+Submitted: 2026-07-02 15:40 UTC (Hacker News)
+HN activity: 49 points · 5 comments
+Language: en
+
+Zero-Knowledge Proofs (ZKPs) let an untrusted proved show that computation was executed correctly without revealing the inputs to the verifier.
+However to prove anything, the computation first has to be expressed as a circuit: a system of polynomial equations (constraints) over a finite field. 
+Circuits are the assembly language of zk and every constraint costs prover (and sometimes verifier) time, so production circuits are aggressively hand-optimized.
+
+Over the last months, we have been experimenting with writing formal specifications instead and letting LLMs produce the circuits: as long as they could prove that their implementation was correct. 
+It started with SHA-256: we hand wrote a specification in Lean for SHA-256 compression, and then we asked LLMs to write the circuit, targeting R1CS arithmetization and large fields.
+
+It took a few hours of work for Opus 4.7, and some light steering into the right direction, but in the end the model came up with a reasonable implementation. We then asked the LLM to aggressively optimize the circuits, by driving down a cost metric of the circuit (number of constraints). We immediately got very promising results, just by asking to come up with optimization ideas, implement them and prove that the new circuit still satisfies soundness and completeness. Sometimes, it came up with unsound optimizations, however, since it could not prove them, it backtracked and got itself back on to the right approach.
+
+The result was a (non-deterministic) circuit beating the current, human optimized, state of the art for SHA256 compression. This experience lead us to create "zk.golf" which is an open competition to produce optimized, formally verified circuits to lower the bar for the use of ZKPs and make their application more efficient.
+
+Come play (https://zk.golf/llms.txt) and learn about formal verification.
+
+--------------------------------------------------------------------------------
+
+15. EFF letter to FTC on X consent order (2 July 2026) [pdf]
+
+Source: https://cdn.arstechnica.net/wp-content/uploads/2026/07/EFF-letter-to-FTC-on-X-consent-order-7-2-26.pdf
+Site: cdn.arstechnica.net
+Submitter: Terretta (Hacker News)
+Submitted: 2026-07-02 19:27 UTC (Hacker News)
+HN activity: 113 points · 40 comments
+
+binary file (.pdf); not scraped
+
+--------------------------------------------------------------------------------
+
+16. Postgres transactions are a distributed systems superpower
+
+Source: https://www.dbos.dev/blog/co-locating-workflow-state-with-your-data
+Site: dbos.dev
+Submitter: KraftyOne (Hacker News)
+Submitted: 2026-07-02 18:38 UTC (Hacker News)
+HN activity: 125 points · 58 comments
+Length: 1.0K words (~5 min read)
+Language: en
+
+A few weeks ago, we wrote that you should “just use Postgres” for durable workflows.
+
+That post generated a lot of discussion, but also a misunderstanding. We didn't just mean you should use a workflow engine that stores state in Postgres. We meant your workflow system can, and often should, live inside the same Postgres database as your application.
+
+At first glance, this doesn’t sound like a good idea. Shouldn’t those concerns be separated? Shouldn’t workflow state live in one database and application data in another?
+
+Maybe not.
+
+In distributed systems, co-location is a superpower. When workflow metadata and application data live in the same Postgres database, they can be updated in the same database transaction. That means partial failures are no longer possible, making it far easier to build workflows that correctly handle all edge cases.
+
+In this post, we'll explain why that's possible, and how transactions can simplify tough problems like idempotency and atomicity.
+
+Idempotency with Transactional Steps
+
+One fundamental challenge in distributed systems is idempotency, especially for operations that modify database state.
+
+Durable workflows achieve fault tolerance by checkpointing the result of each step after it completes. If a workflow is interrupted, it resumes from its last checkpointed step instead of starting from the beginning. However, a workflow may be interrupted after completing a step but before recording its checkpoint. When it recovers, it has no record that the step already ran and will execute it again.
+
+As a result, durable workflows alone do not solve the idempotency problem. Workflow engines typically require steps to be idempotent so they can safely be retried without duplicate side effects. For example, consider a step that credits (add money to) a bank account. This is not an idempotent operation: if a step adds $100 to an account, fails, reruns, and adds $100 again, then a total of $200 is added to the account, which is not correct.
+
+The most common solution is to add application-level bookkeeping to guard against this. For example, you can add an additional applied_payments table to keep track of which payments have been applied, update it transactionally, and check against it to make sure you never credit an account twice:
+
+When workflow state and application data are co-located in the same Postgres database, we can eliminate much of this complexity. Instead of checkpointing a step after its database transaction commits, a co-located workflow engine can write the step checkpoint and perform the database update in the same transaction.
+
+To do this, the workflow executes the step using a database transaction provided by the workflow engine. The step performs its database updates, the workflow engine records the checkpoint, and the whole transaction commits atomically:
+
+By making the database update and checkpoint write part of the same transaction, the workflow engine can provide exactly-once execution semantics for transactional steps:
+
+If the transaction commits, both the database update and the checkpoint are durably recorded, guaranteeing the step will never run again.
+If any failure occurs before commit, the entire transaction is rolled back, including both the database update and the checkpoint. When the workflow recovers, it safely re-executes the step from the beginning.
+
+This eliminates the window in which a database update can succeed without a corresponding checkpoint. As a result, transactional steps no longer need application-level idempotency logic or bookkeeping tables. The database operation either happens exactly once and is checkpointed, or it does not happen at all.
+
+Atomicity with a Transactional Workflow Outbox
+
+Another classic challenge in distributed systems is reliably performing updates in multiple systems, for example, updating a database record and sending a notification to another system. This is trickier than it sounds because the operations need to be atomic: they either both happen or neither do, even if there are failures (such as process crashes or network glitches) while performing them.
+
+For example, whenever a customer submits a new order, we may also want to start a workflow that sends the order to a warehouse for fulfillment. Without atomicity, the database and the downstream system may become inconsistent. The order might be submitted without a warehouse being notified, or a warehouse might be notified about an order that was never committed.
+
+The most common solution to this problem is the transactional outbox. The idea is to maintain a new “outbox” table to the database. When we need to perform an atomic update, we run a single database transaction that both:
+
+Updates the database record
+Writes a message to the “outbox” table
+
+A separate background process then polls the outbox table and delivers those messages there to the target system.
+
+Here’s an example of what that might look like:
+
+Performing the database record update and writing the message to the “outbox” table in one transaction guarantees atomicity: either both records are updated or neither are. Once a message is written to the outbox, it can be delivered asynchronously, even if failures occur after the transaction commits.
+
+The transactional outbox is widely used, but it introduces additional operational complexity. You need infrastructure to poll the outbox, deliver messages, handle retries, and monitor failures. If the workflow engine is a separate system, it can drift out of sync with the database. In practice, resolving discrepancies requires additional infrastructure such as reconciliation jobs to detect database records that were updated without sending notifications to downstream systems.
+
+By leveraging database-backed workflows and co-locating workflow state with application data, we can simplify this pattern. Instead of manually maintaining an outbox table and a separate polling process, we use a Postgres user-defined function (UDF) to enqueue a workflow in the same database transaction as the application update:
+
+This works following the same principles as the transactional outbox. The workflow is represented by a database row containing its name, queue, and input. The enqueue_workflow UDF creates this row in the same transaction as the user database update, guaranteeing atomicity: either the update completes and the workflow is enqueued, or neither happens. Then, a worker dequeues and executes the workflow asynchronously, reliably performing the required operations.
+
+Learn More
+
+If you like building scalable, reliable systems, we’d love to hear from you. At DBOS, our goal is to make Postgres-backed durable execution as simple and performant as possible. Check it out:
+
+Quickstart: https://docs.dbos.dev/quickstart
+GitHub: https://github.com/dbos-inc
+Discord community: https://discord.gg/eMUHrvbu67
+
+--------------------------------------------------------------------------------
+
+17. FoundationDB's Flow – Bringing Actor-Based Concurrency to C++11
+
+Source: https://apple.github.io/foundationdb/flow.html
+Site: apple.github.io
+Submitter: sourdecor (Hacker News)
+Submitted: 2026-07-02 14:41 UTC (Hacker News)
+HN activity: 40 points · 6 comments
+Length: 1.4K words (~7 min read)
+Language: en
+
+Engineering challenges
+
+FoundationDB began with ambitious goals for both high performance per node and scalability. We knew that to achieve these goals we would face serious engineering challenges while developing the FoundationDB core. We’d need to implement efficient asynchronous communicating processes of the sort supported by Erlang or the Async library in .NET, but we’d also need the raw speed and I/O efficiency of C++. Finally, we’d need to perform extensive simulation to engineer for reliability and fault tolerance on large clusters.
+
+To meet these challenges, we developed several new tools, the first of which is Flow, a new programming language that brings actor-based concurrency to C++11. To add this capability, Flow introduces a number of new keywords and control-flow primitives for managing concurrency. Flow is implemented as a compiler which analyzes an asynchronous function (actor) and rewrites it as an object with many different sub-functions that use callbacks to avoid blocking (see streamlinejs for a similar concept using JavaScript). The Flow compiler’s output is normal C++11 code, which is then compiled to a binary using traditional tools. Flow also provides input to our simulation tool, which conducts deterministic simulations of the entire system, including its physical interfaces and failure modes. In short, Flow allows efficient concurrency within C++ in a maintainable and extensible manner, achieving all three major engineering goals:
+
+high performance (by compiling to native code),
+
+actor-based concurrency (for high productivity development),
+
+simulation support (for testing).
+
+A first look
+
+Actors in Flow receive asynchronous messages from each other using a data type called a future. When an actor requires a data value to continue computation, it waits for it without blocking other actors. The following simple actor performs asynchronous addition. It takes a future integer and a normal integer as an offset, waits on the future integer, and returns the sum of the value and the offset:
+
+ACTOR Future<int> asyncAdd(Future<int> f, int offset) {
+  int value = wait( f );
+  return value + offset;
+}
+
+
+Flow features
+
+Flow’s new keywords and control-flow primitives support the capability to pass messages asynchronously between components. Here’s a brief overview.
+
+Promise<T> and Future<T>
+
+The data types that connect asynchronous senders and receivers are Promise<T> and Future<T> for some C++ type T. When a sender holds a Promise<T>, it represents a promise to deliver a value of type T at some point in the future to the holder of the Future<T>. Conversely, a receiver holding a Future<T> can asynchronously continue computation until the point at which it actually needs the T.
+
+Promises and futures can be used within a single process, but their real strength in a distributed system is that they can traverse the network. For example, one computer could create a promise/future pair, then send the promise to another computer over the network. The promise and future will still be connected, and when the promise is fulfilled by the remote computer, the original holder of the future will see the value appear.
+
+wait()
+
+At the point when a receiver holding a Future<T> needs the T to continue computation, it invokes the wait() statement with the Future<T> as its parameter. The wait() statement allows the calling actor to pause execution until the value of the future is set, returning a value of type T. During the wait, other actors can continue execution, providing asynchronous concurrency within a single process.
+
+ACTOR
+
+Only functions labeled with the ACTOR tag can call wait(). Actors are the essential unit of asynchronous work and can be composed to create complex message-passing systems. By composing actors, futures can be chained together so that the result of one depends on the output of another.
+
+An actor is declared as returning a Future<T> where T may be Void if the actor’s return value is used only for signaling. Each actor is preprocessed into a C++11 class with internal callbacks and supporting functions.
+
+State
+
+The state keyword is used to scope a variable so that it is visible across multiple wait() statements within an actor. The use of a state variable is illustrated in the example actor below.
+
+PromiseStream<T>, FutureStream<T>
+
+When a component wants to work with a stream of asynchronous messages rather than a single message, it can use PromiseStream<T> and FutureStream<T>. These constructs allow for two important features: multiplexing and reliable delivery of messages. They also play an important role in Flow design patterns. For example, many of the servers in FoundationDB expose their interfaces as a struct of promise streams—one for each request type.
+
+waitNext()
+
+waitNext() is the counterpart of wait() for streams. It pauses program execution and waits for the next value in a FutureStream. If there is a value ready in the stream, execution continues without delay.
+
+choose … when
+
+The choose and when constructs allow an actor to wait for multiple futures at once in a ordered and predictable way.
+
+Example: A Server Interface
+
+Below is a actor that runs on single server communicating over the network. Its functionality is to maintain a count in response to asynchronous messages from other actors. It supports an interface implemented with a loop containing a choose statement with a when for each request type. Each when uses waitNext() to asynchronously wait for the next request in the stream. The add and subtract interfaces modify the count itself, stored with a state variable. The get interface takes a Promise<int> instead of just an int to facilitate sending back the return message.
+
+To write the equivalent code directly in C++, a developer would have to implement a complex set of callbacks with exception-handling, requiring far more engineering effort. Flow makes it much easier to implement this sort of asynchronous coordination, with no loss of performance:
+
+ACTOR void serveCountingServerInterface(
+           CountingServerInterface csi) {
+    state int count = 0;
+    while (1) {
+        choose {
+            when (int x = waitNext(csi.addCount.getFuture())){
+                count += x;
+            }
+            when (int x = waitNext(csi.subtractCount.getFuture())){
+                count -= x;
+            }
+            when (Promise<int> r = waitNext(csi.getCount.getFuture())){
+                r.send( count ); // goes to client
+            }
+        }
+    }
+}
+
+
+Caveats
+
+Even though Flow code looks a lot like C++, it is not. It has different rules and the files are preprocessed. It is always important to keep this in mind when programming flow.
+
+We still want to be able to use IDEs and modern editors (with language servers like cquery or clang-based completion engines like ycm). Because of this there is a header-file actorcompiler.h in flow which defines preprocessor definitions to make flow compile as normal C++ code. CMake even supports a special mode so that it doesn’t preprocess flow files. This mode can be used by passing -DOPEN_FOR_IDE=ON to cmake. Additionally we generate a special compile_commands.json into the source-directory which will support opening the project in IDEs and editors that look for a compilation database.
+
+Some preprocessor definitions will not fix all issues though. When programming Flow the following things have to be taken care of by the programmer:
+
+Local variables don’t survive a call to wait. So this would be legal Flow code, but NOT legal C++ code:
+
+ACTOR void foo {
+    int i = 0;
+    wait(someFuture);
+    int i = 2;
+    wait(someOtherFuture)
+}
+
+
+In order to make this not break IDE-support one can either rename the second occurrence of this variable or, if this is not desired as it might make the code unreadable, one can use scoping:
+
+ACTOR void foo {
+    {
+        int i = 0;
+        wait(someFuture);
+    }
+    {
+        int i = 2;
+        wait(someOtherFuture)
+    }
+}
+
+
+An ACTOR is compiled into a class internally. Which means that within an actor-function, this is a valid pointer to this class. But using them explicitly (or as described later implicitly) will break IDE support. One can use THIS and THIS_ADDR instead. But be careful as THIS will be of type nullptr_t in IDE-mode and of the actor-type in normal compilation mode.
+
+Lambdas and state variables are weird in a sense. After actor compilation, a state variable is a member of the compiled actor class. In IDE mode it is considered a normal local variable. This can result in some surprising side-effects. So the following code will only compile if the method Foo::bar is defined as const:
+
+ACTOR foo() {
+    state Foo f;
+    foo([=]() { f.bar(); })
+}
+
+
+If it is not, one has to pass the member explicitly as a reference:
+
+ACTOR foo() {
+    state Foo f;
+    auto x = &f;
+    foo([x]() { x->bar(); })
+}
+
+
+state variables in Flow don’t follow the normal scoping rules. So in Flow a state variable can be defined in an inner scope and later it can be used in the outer scope. In order to not break compilation in IDE-mode, always define state variables in the outermost scope they will be used.
+
+--------------------------------------------------------------------------------
+
+18. Immich 3.0
+
+Source: https://github.com/immich-app/immich/discussions/29439
+Site: GitHub
+Author: immich-app
+Submitted: 2026-07-02 14:13 UTC (Hacker News)
+HN activity: 221 points · 105 comments
+Length: 7.3K words (~32 min read)
+Language: en
+
+v3.0.0
+
+Welcome to Immich v3.0.0!
+
+After months of hard work from the team and our amazing contributors, we're thrilled to announce the next major version of Immich: v3.0.0! 🎉
+
+Breaking changes
+
+This release includes several breaking changes; read the full migration guide here. It's worth mentioning that many of the breaking changes are updates to API endpoints and affect only third-party tools that integrate with Immich's API. For the vast majority of users, updating works exactly as it always has.
+
+How to update
+
+First, update the IMMICH_VERSION in your .env file to v3:
+
+- IMMICH_VERSION=v2
++ IMMICH_VERSION=v3
+
+Then run the usual update commands:
+
+docker compose pull && docker compose up -d
+
+Release candidates
+
+If you missed it, v3.0.0 was the first time we used release candidates, also known as prereleases. Release candidates are tested but not yet official releases of Immich, and they allow us to find and fix any outstanding bugs before a final release. If you would like to be notified about release candidates directly through Immich, you can change the release channel from "Stable" to "Release candidate" in the Admin settings > Version check options (here).
+
+New Merch
+
+As part of this release, we're happy to announce we also have some new swag for you!
+
+Kids clothing: For those who are likely the reason for your Immich library's size
+Colored embroidery: We now have clothes with a full color embroidered Immich logo
+
+Check it out now at https://immich.store!
+
+Highlights
+
+Now, let's get right into all the new features in this release:
+
+Mobile non-destructive editing
+Workflows (preview)
+Background backup improvement
+Recently added page
+Integrity checks
+Slideshow on mobile app
+HLS and real-time video transcoding (preview)
+New video player for web
+Open photo in Immich as gallery on Android
+OCR on mobile app
+Upload asset directly to album on the mobile app
+Option to select image size when sharing on the mobile app
+Timeline performance improvement for browsing a large amount of assets in a single month
+
+Mobile non-destructive editing
+
+This is a follow-up to Image Editing on the web, which was released in v2.5.0. This feature allows you to make non-destructive edits to your photos inside of Immich. Until now, the mobile editor used a completely different system that created new assets instead of editing the photo in place.
+
+With this update, we bring a new, easier-to-use editor to mobile devices that has the same features as the web version. You can now edit photos directly in the mobile app, including cropping, rotating, and adjusting your images without ever touching the original file. Similar to the web, edits are non-destructive, so you can revisit or revert them at any time. You can even make edits on mobile and then adjust them on the web later!
+
+Some features from the previous mobile editing implementation have been removed including:
+
+Recoloring photos
+Editing live photos
+Editing local assets
+
+We have plans to bring some of these capabilities back in future releases.
+
+Workflows (preview)
+
+The first preview of Workflows is here! Workflows let you automate actions in your library by chaining triggers, filters, and actions together with a drag-and-drop builder. This is the foundation for many exciting automations to come, and we'd love your feedback as we continue building on it.
+
+You can access the feature from Utilities > Workflows on the web.
+
+From there, you can either create a new blank workflow or browse the premade templates to get a basic understanding of how workflows can be used.
+
+Workflows editor
+
+In the workflows editor, you can switch between the Visual or JSON editor. The visual editor is nice for building out the workflow; the JSON editor is nice for sharing and receiving workflow content from others.
+
+In each workflow, there is a trigger and a sequence of steps.
+
+Trigger: this is the entry point of each workflow; when the trigger occurs, the steps are evaluated.
+Steps: they include Filters (conditions) and Actions (effects); they can be combined to produce the desired effect of the use case you aim for.
+
+Sharing a workflow
+
+You can share the workflow you made with others in two ways: text and JSON. Text is nice for sharing on a forum or for show-and-tell content. JSON is nice for others to make an exact copy of your workflow's configuration.
+
+You can copy the text in the workflows summary panel on the lower right of the screen
+
+You can share the JSON content from the copy workflows button in the app bar, switch to the JSON editor, or use the Show schema button in the context menu in the workflows list
+
+Note
+
+Please use this discussion thread to propose new ideas of triggers and actions. We are looking for extensive feedback and suggestions from you all.
+
+Background backup improvements
+
+Background backup on Android is now significantly more reliable. Previously, the background backup on Android was limited to newly taken photos. Now, the app uses a new periodic task scheduler, which allows you to upload your entire library in the background, and it plays nicer with Android's background execution limits, properly cleans up tasks, and warns you when battery optimization and notification settings might interfere with backups.
+
+On iOS, the background refresh task now runs its sync and upload work in parallel, so uploads actually start within the short time window iOS allows.
+
+Recently added page
+
+A new "Recently Added" page on the web and mobile lets you browse your library sorted by when assets were added to Immich, rather than when they were taken. This makes it easier to find what's new when browsing a new batch of imports. You can find the new page in the "Explore" tab on the web and in the "Search" tab on mobile.
+
+Integrity checks
+
+The maintenance page has gotten a new addition: integrity reports! Immich will scan its directories on your file system, and compare it to what it has stored in its database. If there are deviations, they will be surfaced as
+
+untracked, if there is a file in Immich's directories that Immich does not know of
+missing, if Immich references a file in its database that does not exist in that place (anymore)
+a checksum mismatch, if the checksum of the file on disk does not match the checksum Immich has stored for that file. Typically, this would happen through file corruption but could also be the result of a bad rename.
+
+You can configure when and how long the job runs each night.
+
+Slideshow (mobile)
+
+The slideshow experience comes to mobile! You can now sit back and let your photos and videos play across the screen, just like on the web.
+
+HLS and Real-Time Video transcoding (preview)
+
+Immich can now transcode videos on-the-fly without needing to generate offline transcodes. This has been a long-requested feature with many benefits:
+
+Quality switching (both manual and automatic)
+Transcoding to the best codecs supported by the client
+Lower storage overhead when offline transcoding is disabled
+HDR for compatible clients (not implemented yet)
+Remuxing rather than transcoding the original when bandwidth allows it (not implemented yet)
+
+Please note that this feature is still experimental and can change behavior from version to version. It's currently only implemented in the web app, with the mobile app implementation in progress.
+
+To enable real-time transcoding, go to the video transcoding settings (scroll down). Offline transcoding isn't directly affected by enabling it, so if you'd like to disable offline transcoding, you should also adjust the transcode policy.
+
+Note
+
+For assets imported prior to v3, you will also need to re-run Metadata Extraction in the job panel for them to be re-processed.
+
+Keep in mind that your server needs to be powerful enough to transcode in real-time for this feature to work well. Hardware acceleration is recommended, but not required, when using this feature.
+
+New video player for web
+
+A new custom video player on the web app ensures all your devices share the same controls and layout, matching the Immich design. Some basic functions, like changing the playback rate, are available. This should also fix a lot of the problems on iOS, where the OS's controls are hidden behind the Immich navbar.
+
+Open photos in Immich as a gallery on Android
+
+Immich can now act as a gallery/image viewer app on Android. Tap a photo or video in another app, choose Immich, and it opens directly in the asset viewer with options to share the file or upload it to your library.
+
+This is the first iteration of the feature, and refinements to how Immich recognizes files that are already in your library are on the way
+
+OCR on the mobile app
+
+The asset viewer now has a toggle that highlights recognized text in a photo, and you can select and copy it directly from the image.
+
+Upload assets directly to an album on mobile
+
+You can now upload local photos directly to an album in the mobile app, including from the asset bottom sheet, instead of uploading first and organizing later. A small change that removes a lot of friction from the backup-and-organize flow.
+
+Select image size when sharing on mobile
+
+When sharing photos from the mobile app, you can now choose the image size before sending; it is handy for keeping shared files small for messaging apps while preserving the option to share at full quality when needed.
+
+You can change the default behavior in the App Settings > Preferences
+
+You can also pick the option when sharing on-the-fly by long pressing the Share button
+
+Timeline performance Improvements
+
+Browsing months with a large number of assets is now dramatically smoother and prevents the browser tab from locking up when your instance encounters that scenario.
+
+Support Immich
+
+If you find the project helpful, you can support Immich by purchasing a product key at https://buy.immich.app or our merchandise at https://immich.store
+
+What's Changed
+
+🚨 Breaking Changes
+
+refactor!: migrate class-validator to zod by @timonrieger in refactor!: migrate class-validator to zod #26597
+refactor!: remove replace asset by @jrasm91 in refactor!: remove replace asset #27022
+refactor!: remove my shared link dto by @jrasm91 in refactor!: remove my shared link dto #27023
+chore!: remove deprecated env variables by @jrasm91 in chore!: remove deprecated env variables #27802
+chore!: remove getRandom api endpoint by @bwees in chore!: remove getRandom api endpoint #27780
+chore!: remove unused token response param by @jrasm91 in chore!: remove unused token response param #27805
+refactor: yeet old timeline by @shenlong-tanwen in refactor: yeet old timeline #27666
+chore!: remove old timeline sync endpoints by @jrasm91 in chore!: remove old timeline sync endpoints #27804
+chore!: remove deviceId and deviceAssetId by @danieldietzler in chore!: remove deviceId and deviceAssetId #27818
+chore!: rename API key schemas by @jrasm91 in chore!: rename API key schemas #27828
+chore!: remove without assets by @jrasm91 in chore!: remove without assets #27835
+fix: oauth issuerUrl validation by @bo0tzz in fix: oauth issuerUrl validation #27848
+fix!: do not allow insecure oauth requests by default by @bo0tzz in fix!: do not allow insecure oauth requests by default #27844
+fix!: set duration to null when not present by @meesfrensel in fix!: set duration to null when not present #26982
+chore!: remove /api/server/theme endpoint by @jrasm91 in chore!: remove /api/server/theme endpoint #27880
+chore!: migrate album owner to album_user by @danieldietzler in chore!: migrate album owner to album_user #27467
+refactor!: change number to integer types by @timonrieger in refactor!: change number to integer types #27912
+refactor(server)!: move correlationId to X-Correlation-ID response header by @timonrieger in refactor(server)!: move correlationId to X-Correlation-ID response header #28139
+refactor(server)!: remove redundant error and statusCode fields from error responses by @timonrieger in refactor(server)!: remove redundant error and statusCode fields from error responses #28140
+chore(server)!: drop pgvecto.rs support by @mertalev in chore(server)!: drop pgvecto.rs support #28159
+chore!: duration in milliseconds by @mertalev in chore!: duration in milliseconds #28003
+refactor(server)!: sanitize error messages to avoid leaking resource details by @timonrieger in refactor(server)!: sanitize error messages to avoid leaking resource details #28154
+refactor(server)!: structured validation error responses by @timonrieger in refactor(server)!: structured validation error responses #28204
+feat(server)!: add isOwned filter to albums API by @timonrieger in feat(server)!: add isOwned filter to albums API #28213
+chore(ml)!: require numpy 2.4 by @mertalev in chore(ml)!: require numpy 2.4 #28158
+fix(deps): update dependency nestjs-otel to v8 by @renovate[bot] in fix(deps): update dependency nestjs-otel to v8 #27863
+chore(ml)!: remove deprecated envs by @mertalev in chore(ml)!: remove deprecated envs #28326
+chore(server)!: remove libopus enum by @mertalev in chore(server)!: remove libopus enum #28325
+refactor!: remove asset faces from AssetResponseDto by @bwees in refactor!: remove asset faces from AssetResponseDto #27779
+refactor(server)!: drop empty string to null conversion by @timonrieger in refactor(server)!: drop empty string to null conversion #28808
+refactor(server)!: remove changeExpiryTime by @timonrieger in refactor(server)!: remove changeExpiryTime #28816
+refactor!: disallow star rating < 1 by @meesfrensel in refactor!: disallow star rating < 1 #27896
+fix!: search endpoints visibility can be omitted by @danieldietzler in fix!: search endpoints visibility can be omitted #29385
+
+🫥 Deprecated Changes
+
+refactor(server): deprecate PUT routes in favor of PATCH by @timonrieger in refactor(server): deprecate PUT routes in favor of PATCH #28859
+
+🔒 Security
+
+fix: run profile picture through thumbnail pipeline by @bo0tzz in fix: run profile picture through thumbnail pipeline #27890
+
+🚀 Features
+
+feat: mobile editing by @bwees in feat: mobile editing #25397
+feat: album map markers endpoint by @jrasm91 in feat: album map markers endpoint #27830
+feat(server): added backchannel logout api endpoint by @santanoce in feat(server): added backchannel logout api endpoint #26235
+feat(server): add OIDC logout URL override option by @LJspice in feat(server): add OIDC logout URL override option #27389
+feat: android periodic work manager task by @shenlong-tanwen in feat: android periodic work manager task #23563
+feat(web): custom video player controls by @meesfrensel in feat(web): custom video player controls #26183
+feat(web): add full-path search mode to UI by @mws-weekend-projects in feat(web): add full-path search mode to UI #26758
+feat: recently added assets page by @benbeckford in feat: recently added assets page #28272
+feat(mobile): slideshow view by @benbeckford in feat(mobile): slideshow view #28421
+feat(mobile): "Add Tags" asset multiselect option by @benjamonnguyen in feat(mobile): "Add Tags" asset multiselect option #26269
+feat: workflows & plugins by @jrasm91 in feat: workflows & plugins #26727
+feat(server): hls with real-time transcoding by @mertalev in feat(server): hls with real-time transcoding #28230
+feat(web): hls player by @mertalev in feat(web): hls player #28312
+feat(mobile): Android. Immich as a gallery / image viewer app by @PeterOmbodi in feat(mobile): Android. Immich as a gallery / image viewer app #26109
+feat: user upload heatmap by @bondeabhijeet in feat: user upload heatmap #28593
+feat(mobile): ocr support by @YarosMallorca in feat(mobile): ocr support #26523
+feat: geolocation workflow filter by @benbeckford in feat: geolocation workflow filter #28961
+feat: image quality option in sharing by @alextran1502 in feat: image quality option in sharing #28918
+feat: integrity check jobs (missing files, untracked files, checksums) by @insertish in feat: integrity check jobs (missing files, untracked files, checksums) #24205
+feat: new feature message by @alextran1502 in feat: new feature message #29388
+
+🌟 Enhancements
+
+feat(web): persist state of file path information in details panel by @cratoo in feat(web): persist state of file path information in details panel #27770
+feat: commands by @jrasm91 in feat: commands #27546
+feat: upgrade immich/ui by @jrasm91 in feat: upgrade immich/ui #27792
+feat: filter users on share by @OdinOxin in feat: filter users on share #27732
+fix(server): render storage template date/time tokens in UTC (Storage Template dates/times not adjusted for timezone #24350) by @migpovrap in fix(server): render storage template date/time tokens in UTC (#24350) #26917
+feat(web): lazy load library and server statistics by @etnoy in feat(web): lazy load library and server statistics #26406
+feat: sort users alphabetically when adding to album by @OdinOxin in feat: sort users alphabetically when adding to album #27731
+feat: auth logout page by @jrasm91 in feat: auth logout page #27831
+chore: improve randomness of /search/random endpoint by @StevenMassaro in chore: improve randomness of /search/random endpoint #27531
+feat: dynamic languages by @jrasm91 in feat: dynamic languages #27869
+feat: cache shared link by @danieldietzler in feat: cache shared link #27889
+feat(server): add configurable OAuth prompt parameter by @sparsh985 in feat(server): add configurable OAuth prompt parameter #26755
+feat(server): add MPO file type support by @git-akihakune in feat(server): add MPO file type support #27963
+feat(mobile): action bottom sheet on map timeline by @YarosMallorca in feat(mobile): action bottom sheet on map timeline #27515
+feat(server): track video metadata by @mertalev in feat(server): track video metadata #28023
+feat(enhancement): Navigate stack with up and down arrow keys by @cratoo in feat(enhancement): Navigate stack with up and down arrow keys #27854
+fix(web): migrate people management component to page, enabling tooltips by @SkyDev125 in fix(web): migrate people management component to page, enabling tooltips #26971
+chore(mobile): add box shadow to asset details by @uhthomas in chore(mobile): add box shadow to asset details #27510
+feat: hide hidden person from memories by @sakshamchawla in feat: hide hidden person from memories #20877
+feat(mobile): increased tap area on video player overlay by @YarosMallorca in feat(mobile): increased tap area on video player overlay #27269
+feat(web): Add metadata overlay to slideshow by @timonrieger in feat(web): Add metadata overlay to slideshow #24627
+feat(web): add individual filter removal from search result chips by @timonrieger in feat(web): add individual filter removal from search result chips #28166
+feat(mobile): trash/restore all by @YarosMallorca in feat(mobile): trash/restore all #28116
+feat: display more info in asset viewer by @alextran1502 in feat: display more info in asset viewer #24630
+feat(server): allow subpaths for machine learning URL by @gnojus in feat(server): allow subpaths for machine learning URL #28427
+feat(ui): Shared URL input configuration by @Lauritz-Tieste in feat(ui): Shared URL input configuration #27105
+refactor: enhance shared link UI and functionality by @Lauritz-Tieste in refactor: enhance shared link UI and functionality #26464
+feat: upload and add local asset directly to album by @alextran1502 in feat: upload and add local asset directly to album #28123
+feat: Selectable metadata in duplicates utility with diffing by @ollioddi in feat: Selectable metadata in duplicates utility with diffing #26328
+fix: improve form control focus visibility by @Caltsic in fix: improve form control focus visibility #28512
+feat: command for user pages by @alextran1502 in feat: command for user pages #28554
+refactor: use ControlBar UI Library component by @bwees in refactor: use ControlBar UI Library component #28567
+feat: workflow template by @alextran1502 in feat: workflow template #28553
+feat(mobile): improve downloading algorithm for sharing by @YarosMallorca in feat(mobile): improve downloading algorithm for sharing #27312
+feat: search by album name and id by @jrasm91 in feat: search by album name and id #28672
+feat: upload local assets to album from bottom sheet by @alextran1502 in feat: upload local assets to album from bottom sheet #28531
+feat: places in context search by @timonrieger in feat: places in context search #28768
+feat: minimum face count per user by @timjonez in feat: minimum face count per user #27452
+feat: show notification and battery optimization warning by @shenlong-tanwen in feat: show notification and battery optimization warning #26610
+feat: workflows drag and drop enhancements by @danieldietzler in feat: workflows drag and drop enhancements #28764
+feat(mobile): min face count per-user by @YarosMallorca in feat(mobile): min face count per-user #28805
+refactor(server): allow -1 rating again by @timonrieger in refactor(server): allow -1 rating again #28886
+feat(web): warn before overwriting existing locations in geolocation utility by @yoshovski in feat(web): warn before overwriting existing locations in geolocation utility #28840
+feat: warn if microservices worker is missing by @bo0tzz in feat: warn if microservices worker is missing #28869
+fix(web): show album names in duplicate review by @meesfrensel in fix(web): show album names in duplicate review #29080
+feat: keyboard seeking for new video player by @danieldietzler in feat: keyboard seeking for new video player #29208
+feat(web): Add text-white-shadow to elements and increase the shadows effect by @Vogeluff in feat(web): Add text-white-shadow to elements and increase the shadows effect #29165
+feat: webhook workflow action by @benbeckford in feat: webhook workflow action #29258
+feat: integrity checks admin settings by @danieldietzler in feat: integrity checks admin settings #29406
+
+🐛 Bug fixes
+
+fix(web): center images in RTL layouts (Bug: Image not centered in RTL layout (Hebrew) #27678) by @Nicolas-micuda-becker in fix(web): center images in RTL layouts (#27678) #27753
+fix(mobile): add keys for person tiles in search by @YarosMallorca in fix(mobile): add keys for person tiles in search #27689
+fix(web): selection clearing on preview by @YarosMallorca in fix(web): selection clearing on preview #27702
+fix: asset multi select download shortcut by @danieldietzler in fix: asset multi select download shortcut #27784
+fix(web): add partner photo to album from multiselect by @YarosMallorca in fix(web): add partner photo to album from multiselect #27767
+fix: redirect original by @danieldietzler in fix: redirect original #27759
+fix: make web build stage deterministic by @bo0tzz in fix: make web build stage deterministic #27823
+fix(web): svelte regression - cancel video preview fetch when bind:this is cleared early by @midzelis in fix(web): svelte regression - cancel video preview fetch when bind:this is cleared early #27713
+fix(web): stale adaptive image when original overlays preview by @midzelis in fix(web): stale adaptive image when original overlays preview #27621
+fix(mobile): readonly redirect when not logged in by @YarosMallorca in fix(mobile): readonly redirect when not logged in #27728
+fix(web): close edit faces panel on Escape key press by @midzelis in fix(web): close edit faces panel on Escape key press #27519
+fix(oauth): normalize email claim to lowercase and trim before account lookup and registration by @timdobras in fix(oauth): normalize email claim to lowercase and trim before account lookup and registration #26841
+fix(web): use event for zooming out after opening face editor by @meesfrensel in fix(web): use event for zooming out after opening face editor #27789
+fix: sanitize filenames before adding to zip by @bo0tzz in fix: sanitize filenames before adding to zip #27893
+fix(server): require at least one field to be set when updating memory by @fredfloydd in fix(server): require at least one field to be set when updating memory #27842
+fix(web): compute hashes for uploads in chunks by @fredfloydd in fix(web): compute hashes for uploads in chunks #27878
+fix(web): fix stale album page load by @fredfloydd in fix(web): fix stale album page load #27825
+fix(web): prevent interaction with detail panel behind person side panel by @midzelis in fix(web): prevent interaction with detail panel behind person side panel #27309
+fix: show neon light by @alextran1502 in fix: show neon light #27994
+fix(mobile): zero exposure by @YarosMallorca in fix(mobile): zero exposure #28017
+fix(mobile): clear local data on forced logout by @LeLunZ in fix(mobile): clear local data on forced logout #27957
+fix(mobile): enable autoplay for motion photos in video viewer by @LeLunZ in fix(mobile): enable autoplay for motion photos in video viewer #27961
+fix(mobile): thumbnail transition to asset viewer by @LeLunZ in fix(mobile): thumbnail transition to asset viewer #27850
+fix: jump to timeline on new auto_router update by @alextran1502 in fix: jump to timeline on new auto_router update #28022
+fix(mobile): delete assets on trash empty, Android by @PeterOmbodi in fix(mobile): delete assets on trash empty, Android #26070
+fix(ml): handle empty/corrupt images in face detection by @yosit in fix(ml): handle empty/corrupt images in face detection #27391
+fix(web): refresh memories hourly by @meesfrensel in fix(web): refresh memories hourly #28114
+fix(web): large files: better handling of asset deletions by @meesfrensel in fix(web): large files: better handling of asset deletions #28117
+fix(web): double video playback on map timeline by @YarosMallorca in fix(web): double video playback on map timeline #28090
+fix(mobile): suppress asset stack UI in trash timeline by @PeterOmbodi in fix(mobile): suppress asset stack UI in trash timeline #26536
+fix(web): timeline scroll when pressing back from stacked asset by @Snowknight26 in fix(web): timeline scroll when pressing back from stacked asset #28163
+fix(server): selectively apply metadata bitstream filter for video thumbnails by @pinhao in fix(server): selectively apply metadata bitstream filter for video thumbnails #28162
+fix(web): fix shared link /s/photos.* navigation after password login by @meesfrensel in fix(web): fix shared link /s/photos.* navigation after password login #27788
+fix(ml): respect time zone for logs in cuda container by @AyaanMAG in fix(ml): respect time zone for logs in cuda container #28155
+fix: librknnrt permissions in machine-learning by @DavidTheFighter in fix: librknnrt permissions in machine-learning #28216
+fix(server): validate duplicate group ownership before dismissal by @timonrieger in fix(server): validate duplicate group ownership before dismissal #28221
+fix(web): correct timeline yesterday label across month boundaries by @michelheusschen in fix(web): correct timeline yesterday label across month boundaries #28183
+fix(mobile): show lens info without lens name by @benbeckford in fix(mobile): show lens info without lens name #28234
+fix: stale person name after merge by @danieldietzler in fix: stale person name after merge #28222
+fix(web): shared album avatars opening modal by @meesfrensel in fix(web): shared album avatars opening modal #26719
+fix(mobile): prevent asset loading issues when changing page or when closing memories by @LeLunZ in fix(mobile): prevent asset loading issues when changing page or when closing memories #27596
+fix(mobile): correct filter default and UI desync in similar photos search by @TheBestX11 in fix(mobile): correct filter default and UI desync in similar photos search #27516
+fix(server): hide isFavorite from partner asset sync stream by @timonrieger in fix(server): hide isFavorite from partner asset sync stream #28035
+fix(mobile): restore notification plugin init by @santoshakil in fix(mobile): restore notification plugin init #28284
+fix(mobile): mounted check before setState in album sync action by @santoshakil in fix(mobile): mounted check before setState in album sync action #28300
+fix(mobile): avoid duplicate assets in album view by @stfn42 in fix(mobile): avoid duplicate assets in album view #28152
+fix(mobile): Deduplicate assets in person view timeline by @thowdev in fix(mobile): Deduplicate assets in person view timeline #26723
+fix(deployment): remove unneeded volume by @mmomjian in fix(deployment): remove unneeded volume #28307
+fix: mobile upload duration type by @alextran1502 in fix: mobile upload duration type #28362
+fix: deep link for assets when asset viewer already open by @bwees in fix: deep link for assets when asset viewer already open #27971
+fix: kekab icon colors in light mode by @shenlong-tanwen in fix: kekab icon colors in light mode #28366
+fix: indexes on remote_asset_entity by @shenlong-tanwen in fix: indexes on remote_asset_entity #28264
+fix(mobile): clear linkedRemoteAlbumId in reset() so FK refs dont dangle by @santoshakil in fix(mobile): clear linkedRemoteAlbumId in reset() so FK refs dont dangle #28382
+fix: ignore icc profile make and model by @jrasm91 in fix: ignore icc profile make and model #28412
+fix(mobile): don't block app open on slow validateAccessToken by @santoshakil in fix(mobile): don't block app open on slow validateAccessToken #28405
+fix(mobile): add restore option to trashed assets by @inesiscosta in fix(mobile): add restore option to trashed assets #27442
+fix(mobile): use correct delete action by @ByteSizedMarius in fix(mobile): use correct delete action #26575
+fix(server): dedupe database backup jobs by @rdeaton in fix(server): dedupe database backup jobs #28341
+fix(mobile): cronet buffer overflow on compressed thumbnails by @santoshakil in fix(mobile): cronet buffer overflow on compressed thumbnails #28439
+fix(mobile): cronet thumbnail buffer overflow regression from fix(mobile): cronet buffer overflow on compressed thumbnails #28439 by @santoshakil in fix(mobile): cronet thumbnail buffer overflow regression from #28439 #28450
+fix(mobile): mounted check in ThumbnailTile hero flight listener by @santoshakil in fix(mobile): mounted check in ThumbnailTile hero flight listener #28451
+fix(mobile): don't force-unwrap nil localizedTitle in ios getAlbums by @santoshakil in fix(mobile): don't force-unwrap nil localizedTitle in ios getAlbums #28452
+fix(web): work around Chrome HDR image seam lines during zoom by @midzelis in fix(web): work around Chrome HDR image seam lines during zoom #27715
+fix(ios): respect status bar scroll to top in timeline views by @agg23 in fix(ios): respect status bar scroll to top in timeline views #28469
+fix(mobile): asset viewer stuck on spinner after rotation by @LeLunZ in fix(mobile): asset viewer stuck on spinner after rotation #28019
+fix(web): timeline stuttering with many assets in 1 day by @benbeckford in fix(web): timeline stuttering with many assets in 1 day #28509
+fix(mobile): preserve zoom level during image loading and live photo playback by @LeLunZ in fix(mobile): preserve zoom level during image loading and live photo playback #27960
+fix(ml): stabilize MIGraphX inference by @fabianwimberger in fix(ml): stabilize MIGraphX inference #28444
+fix: await sync asset v2 by @bwees in fix: await sync asset v2 #28569
+fix: strip metadata from timeline responses for shared links without exif sharing by @danieldietzler in fix: strip metadata from timeline responses for shared links without exif sharing #28644
+fix: Refresh local album overview page after asset deletion by @Lauritz-Tieste in fix: Refresh local album overview page after asset deletion #28586
+fix(server): prevent locked assets from leaking to partners by @timonrieger in fix(server): prevent locked assets from leaking to partners #28652
+refactor(web): replace per-asset viewport proximity with day-tier active indices by @midzelis in refactor(web): replace per-asset viewport proximity with day-tier active indices #28597
+fix: timeline scroll flicker by @alextran1502 in fix: timeline scroll flicker #28653
+fix: api repositories using stale endpoint by @shenlong-tanwen in fix: api repositories using stale endpoint #28667
+fix: disallow cross origin/non http protocols for continueUrl on login by @bwees in fix: disallow cross origin/non http protocols for continueUrl on login #28706
+fix(web): skip thumbhash fade for offscreen thumbnails by @midzelis in fix(web): skip thumbhash fade for offscreen thumbnails #27335
+fix(web): prevent partner assets from being selected in geolocation utility by @okxint in fix(web): prevent partner assets from being selected in geolocation utility #28737
+fix(mobile): invisible ink splashes in asset sheet by @timonrieger in fix(mobile): invisible ink splashes in asset sheet #28756
+fix!: unauthorized face creation by @shenlong-tanwen in fix!: unauthorized face creation #28561
+fix(mobile): proper background task cleanup by @mertalev in fix(mobile): proper background task cleanup #28694
+fix(cli): prevent out-of-memory on file upload due to undici storing the request body by @moversity in fix(cli): prevent out-of-memory on file upload due to undici storing the request body #28723
+fix: error log on aborted uploads by @jrasm91 in fix: error log on aborted uploads #28806
+fix(server): respect timezone in iso date string encoding by @timonrieger in fix(server): respect timezone in iso date string encoding #28810
+test: fix tests when OpenVINO provider is available by @nekowinston in test: fix tests when OpenVINO provider is available #28802
+fix(mobile): run iOS bg task phases in parallel by @santoshakil in fix(mobile): run iOS bg task phases in parallel #28293
+fix: error handling by @jrasm91 in fix: error handling #28843
+fix: cross isolate drift watchers by @shenlong-tanwen in fix: cross isolate drift watchers #28862
+fix: reload timeline on group by setting change by @shenlong-tanwen in fix: reload timeline on group by setting change #28864
+fix(web): use irot/imir tags for HEIF Orientation by @joojoooo in fix(web): use irot/imir tags for HEIF Orientation #27820
+fix: detail panel faces reactivity issues by @danieldietzler in fix: detail panel faces reactivity issues #28910
+fix(server): hide isFavorite from album asset sync stream by @timonrieger in fix(server): hide isFavorite from album asset sync stream #28923
+fix(mobile): show memory and folder dates in local time by @santoshakil in fix(mobile): show memory and folder dates in local time #28941
+fix(mobile): show error when creating an album fails by @santoshakil in fix(mobile): show error when creating an album fails #28942
+fix(mobile): add album picker to archive bottom sheet by @santoshakil in fix(mobile): add album picker to archive bottom sheet #28953
+fix: normalize diacritics in person name search in Web & Mobile by @pedrovieira in fix: normalize diacritics in person name search in Web & Mobile #28887
+fix(web): Prevent face editor from closing when dismissing tag confirmation by @pedrovieira in fix(web): Prevent face editor from closing when dismissing tag confirmation #28900
+fix(mobile): map timeline layout crash by @YarosMallorca in fix(mobile): map timeline layout crash #28878
+fix(mobile): deduplicate people in asset details panel by @santoshakil in fix(mobile): deduplicate people in asset details panel #28972
+fix(mobile): keep timezone when editing asset date time by @santoshakil in fix(mobile): keep timezone when editing asset date time #28978
+fix(mobile): stale details after editing asset date by @santoshakil in fix(mobile): stale details after editing asset date #28977
+fix(mobile): show albums whose assets are all trashed by @santoshakil in fix(mobile): show albums whose assets are all trashed #28985
+fix(mobile): give android notification channels proper names by @santoshakil in fix(mobile): give android notification channels proper names #28986
+fix: Improving scroll behavior on image stacks that overflow the screen by @BlankCanvasStudio in fix: Improving scroll behavior on image stacks that overflow the screen #28885
+fix(web): focus on scrollable element on load by @timonrieger in fix(web): focus on scrollable element on load #29004
+fix(mobile): show like and comment options on album photo deep links by @santoshakil in fix(mobile): show like and comment options on album photo deep links #29020
+fix(web): correctly handle person search with more than 100 results by @maxinegardenas in fix(web): correctly handle person search with more than 100 results #29002
+fix(web): prevent upload status panel from overlapping album action bar by @okxint in fix(web): prevent upload status panel from overlapping album action bar #29044
+fix(web): error loading image state by @bwees in fix(web): error loading image state #29058
+fix(web): show asset arrows by @timonrieger in fix(web): show asset arrows #29010
+fix(server): hide partner archived asset locations from map by @timonrieger in fix(server): hide partner archived asset locations from map #29028
+fix: lock transcoding options by @timonrieger in fix: lock transcoding options #29076
+fix(server): do not merge metadata when multiple duplicates are kept by @timonrieger in fix(server): do not merge metadata when multiple duplicates are kept #29035
+fix: integrity report checksum query by @danieldietzler in fix: integrity report checksum query #29136
+fix: map settings by @danieldietzler in fix: map settings #29134
+fix: too strict cron expression validation by @danieldietzler in fix: too strict cron expression validation #29138
+fix(web): respect local timezone when building date range for search by @okxint in fix(web): respect local timezone when building date range for search #29128
+fix(web): language selector by @meesfrensel in fix(web): language selector #29065
+fix: update datetimeRelative description to minutes instead of seconds by @meesfrensel in fix: update datetimeRelative description to minutes instead of seconds #29137
+fix: video thumbnail quality sharing by @bwees in fix: video thumbnail quality sharing #29104
+fix(mobile): stop sync albums crashing on the main isolate by @santoshakil in fix(mobile): stop sync albums crashing on the main isolate #29133
+fix(mobile): show memories with no showAt/hideAt in the timeline lane by @santoshakil in fix(mobile): show memories with no showAt/hideAt in the timeline lane #29158
+fix(mobile): keep toasts off the dynamic island when keyboard is open by @santoshakil in fix(mobile): keep toasts off the dynamic island when keyboard is open #29159
+fix(server): skip existing users when sharing albums by @jeevan6996 in fix(server): skip existing users when sharing albums #28884
+fix: web i18n by @danieldietzler in fix: web i18n #29175
+fix(web): shift+click on GPS asset extends range selection in geolocation utility by @timonrieger in fix(web): shift+click on GPS asset extends range selection in geolocation utility #29022
+fix(server): allow non-utc datetime offsets by @timonrieger in fix(server): allow non-utc datetime offsets #29186
+fix: remove local-only step ids from workflow json by @danieldietzler in fix: remove local-only step ids from workflow json #29188
+fix: asset type filter by @danieldietzler in fix: asset type filter #29190
+fix(mobile): prevent duplicate login pages for unauthenticated share intent warm start by @olildu in fix(mobile): prevent duplicate login pages for unauthenticated share intent warm start #29054
+fix(mobile): refresh memories on resume and day change by @santoshakil in fix(mobile): refresh memories on resume and day change #28983
+fix(mobile): re-lock locked folder when the app is backgrounded by @santoshakil in fix(mobile): re-lock locked folder when the app is backgrounded #29089
+fix(mobile): endless spinner on album selection when device has no albums by @santoshakil in fix(mobile): endless spinner on album selection when device has no albums #28994
+fix: rc version check by @danieldietzler in fix: rc version check #29194
+fix: detail panel people reactivity and iterator consumption by @danieldietzler in fix: detail panel people reactivity and iterator consumption #29250
+fix(server): use VBR for QSV so the max bitrate is respected by @aclerici38 in fix(server): use VBR for QSV so the max bitrate is respected #29240
+fix: ignore external libraries for integrity report checksum check by @danieldietzler in fix: ignore external libraries for integrity report checksum check #29248
+fix(web): remove map's fullscreen button by @meesfrensel in fix(web): remove map's fullscreen button #29192
+refactor: use SemVer classes for version compatability message by @bwees in refactor: use SemVer classes for version compatability message #29056
+fix: sync backfill by @jrasm91 in fix: sync backfill #29267
+fix(mobile): force AssetViewerPage recreation on repeated view intents by @okxint in fix(mobile): force AssetViewerPage recreation on repeated view intents #29235
+fix(mobile): blank notifications page after enabling notifications by @santoshakil in fix(mobile): blank notifications page after enabling notifications #29232
+fix(mobile): app doesn't exit full-screen mode by @YarosMallorca in fix(mobile): app doesn't exit full-screen mode #29301
+fix(mobile): only toggle backup from the switch, not the whole row by @santoshakil in fix(mobile): only toggle backup from the switch, not the whole row #29236
+fix(mobile): hide video thumbnail when video is ready by @santoshakil in fix(mobile): hide video thumbnail when video is ready #29012
+fix(mobile): apply exif orientation to android raw photos by @santoshakil in fix(mobile): apply exif orientation to android raw photos #29337
+fix(server): face region coordinates parsing by @djbravo06 in fix(server): face region coordinates parsing #29333
+feat: honor album access permissions in search endpoints by @danieldietzler in feat: honor album access permissions in search endpoints #29352
+fix: version compatability check by @bwees in fix: version compatability check #29405
+
+📚 Documentation
+
+fix(docs): instructions on how to use local immich ui by @YarosMallorca in fix(docs): instructions on how to use local immich ui #27813
+fix(docs): helmet file affected containers by @mmomjian in fix(docs): helmet file affected containers #27939
+fix(docs): Update Tailscale free tier user and device limits by @Hakuin123 in fix(docs): Update Tailscale free tier user and device limits #28151
+docs: update rocm installation instructions by @aigarius in docs: update rocm installation instructions #25434
+fix(docs): document upgrade-insecure-requests default by @meesfrensel in fix(docs): document upgrade-insecure-requests default #28279
+fix(docs): missing colon in config file doc by @SuperSandro2000 in fix(docs): missing colon in config file doc #28313
+fix: update server-commands subcommand list by @bo0tzz in fix: update server-commands subcommand list #28402
+feat(docs): add fixed subnet guide for Synology to prevent firewall issues by @racehd in feat(docs): add fixed subnet guide for Synology to prevent firewall issues #26554
+chore(docs): update FAQ with profile picture change instructions by @tvangemert in chore(docs): update FAQ with profile picture change instructions #28634
+chore: update documentation to use mise commands by @timonrieger in chore: update documentation to use mise commands #28515
+fix(docs): v3 bumps by @mmomjian in fix(docs): v3 bumps #29007
+docs(server): clarify AssetBulkUploadCheckItem.id is a correlation token by @timonrieger in docs(server): clarify AssetBulkUploadCheckItem.id is a correlation token #29141
+docs(mobile-app): add Play App Signing certificate hash by @tlvince in docs(mobile-app): add Play App Signing certificate hash #29168
+docs(mobile): point users towards shared setup docs by @agg23 in docs(mobile): point users towards shared setup docs #29078
+docs: clarify duplicate exif merging intent by @timonrieger in docs: clarify duplicate exif merging intent #29203
+fix(docsc): v3 bump by @mmomjian in fix(docsc): v3 bump #29246
+docs: MS smtp guide by @jameskimmel in docs: MS smtp guide #29289
+
+🌐 Translations
+
+feat: latest language requests by @danieldietzler in feat: latest language requests #28858
+chore: update translations by @weblate in chore: update translations #27764
+feat: languages by @danieldietzler in feat: languages #29088
+chore(web): update translations by @weblate in chore(web): update translations #29036
+chore(web): update translations by @weblate in chore(web): update translations #29162
+fix: turkish readme translation by @MuySup in fix: turkish readme translation #29234
+chore(web): update translations by @weblate in chore(web): update translations #29204
+chore(web): update translations by @weblate in chore(web): update translations #29290
+chore(web): update translations by @weblate in chore(web): update translations #29347
+
+New Contributors
+
+@OdinOxin made their first contribution in feat: filter users on share #27732
+@migpovrap made their first contribution in fix(server): render storage template date/time tokens in UTC (#24350) #26917
+@StevenMassaro made their first contribution in chore: improve randomness of /search/random endpoint #27531
+@timdobras made their first contribution in fix(oauth): normalize email claim to lowercase and trim before account lookup and registration #26841
+@santanoce made their first contribution in feat(server): added backchannel logout api endpoint #26235
+@fredfloydd made their first contribution in fix(server): require at least one field to be set when updating memory #27842
+@sparsh985 made their first contribution in feat(server): add configurable OAuth prompt parameter #26755
+@LJspice made their first contribution in feat(server): add OIDC logout URL override option #27389
+@git-akihakune made their first contribution in feat(server): add MPO file type support #27963
+@shaun0927 made their first contribution in fix(web): normalize underscore locale codes in dynamic language selection #27900
+@yosit made their first contribution in fix(ml): handle empty/corrupt images in face detection #27391
+@Hakuin123 made their first contribution in fix(docs): Update Tailscale free tier user and device limits #28151
+@pinhao made their first contribution in fix(server): selectively apply metadata bitstream filter for video thumbnails #28162
+@AyaanMAG made their first contribution in fix(ml): respect time zone for logs in cuda container #28155
+@DavidTheFighter made their first contribution in fix: librknnrt permissions in machine-learning #28216
+@benbeckford made their first contribution in fix(mobile): show lens info without lens name #28234
+@bhugh made their first contribution in chore: enhance documentation on wildcard and exclusion patterns #27884
+@SkyDev125 made their first contribution in fix(web): migrate people management component to page, enabling tooltips #26971
+@aigarius made their first contribution in docs: update rocm installation instructions #25434
+@mws-weekend-projects made their first contribution in feat(web): add full-path search mode to UI #26758
+@TheBestX11 made their first contribution in fix(mobile): correct filter default and UI desync in similar photos search #27516
+@sakshamchawla made their first contribution in feat: hide hidden person from memories #20877
+@santoshakil made their first contribution in fix(mobile): restore notification plugin init #28284
+@stfn42 made their first contribution in fix(mobile): avoid duplicate assets in album view #28152
+@thowdev made their first contribution in fix(mobile): Deduplicate assets in person view timeline #26723
+@SuperSandro2000 made their first contribution in fix(docs): missing colon in config file doc #28313
+@racehd made their first contribution in feat(docs): add fixed subnet guide for Synology to prevent firewall issues #26554
+@inesiscosta made their first contribution in fix(mobile): add restore option to trashed assets #27442
+@gnojus made their first contribution in feat(server): allow subpaths for machine learning URL #28427
+@rdeaton made their first contribution in fix(server): dedupe database backup jobs #28341
+@agg23 made their first contribution in fix(ios): respect status bar scroll to top in timeline views #28469
+@ollioddi made their first contribution in feat: Selectable metadata in duplicates utility with diffing #26328
+@Caltsic made their first contribution in fix: improve form control focus visibility #28512
+@fabianwimberger made their first contribution in fix(ml): stabilize MIGraphX inference #28444
+@tvangemert made their first contribution in chore(docs): update FAQ with profile picture change instructions #28634
+@BlankCanvasStudio made their first contribution in fix: dev container properly builds @immich/plugin-sdk for import #28620
+@pneuly made their first contribution in fix(ml): pass model_root_dir to OcrOptions for RapidOCR compatibility #28610
+@timjonez made their first contribution in feat: minimum face count per user #27452
+@moversity made their first contribution in fix(cli): prevent out-of-memory on file upload due to undici storing the request body #28723
+@nekowinston made their first contribution in test: fix tests when OpenVINO provider is available #28802
+@bondeabhijeet made their first contribution in feat: user upload heatmap #28593
+@joojoooo made their first contribution in fix(web): use irot/imir tags for HEIF Orientation #27820
+@pedrovieira made their first contribution in fix: normalize diacritics in person name search in Web & Mobile #28887
+@yoshovski made their first contribution in feat(web): warn before overwriting existing locations in geolocation utility #28840
+@maxinegardenas made their first contribution in fix(web): correctly handle person search with more than 100 results #29002
+@jeevan6996 made their first contribution in fix(server): skip existing users when sharing albums #28884
+@rizwanpatel-gif made their first contribution in fix(web): use deterministic version name in svelte config #29172
+@olildu made their first contribution in fix(mobile): prevent duplicate login pages for unauthenticated share intent warm start #29054
+@MuySup made their first contribution in fix: turkish readme translation #29234
+@aclerici38 made their first contribution in fix(server): use VBR for QSV so the max bitrate is respected #29240
+@jullanggit made their first contribution in fix: small typo in openapi-spec #29308
+@jameskimmel made their first contribution in docs: MS smtp guide #29289
+@djbravo06 made their first contribution in fix(server): face region coordinates parsing #29333
+
+Full Changelog: v2.7.5...v3.0.0
+
+This discussion was created from the release v3.0.0.
+
+--------------------------------------------------------------------------------
+
+19. This is my attempt to get Vulkan going on NetBSD
+
+Source: https://github.com/segaboy/vulkan-netbsd
+Site: GitHub
+Submitter: segaboy81 (Hacker News)
+Submitted: 2026-07-02 18:36 UTC (Hacker News)
+HN activity: 87 points · 18 comments
+Length: 779 words (~4 min read)
+Language: en
+
+An effort to bring the Vulkan software stack (Mesa / Lavapipe) to NetBSD, and to document and automate the process so it can be reproduced and maintained.
+
+Status: beta — Lavapipe Vulkan driver builds, installs, and registers on NetBSD
+
+Milestone reached: Mesa configures, compiles, links, installs, and registers the Lavapipe software Vulkan driver on NetBSD 10.1 amd64, against LLVM 19.1.7. The driver (libvulkan_lvp.so, ~17 MB) installs into /usr/pkg/lib, and its ICD manifest (advertising Vulkan API 1.4) installs into /usr/pkg/share/vulkan/icd.d/, so a Vulkan loader on the system can discover it. ldd resolves every dependency cleanly. The entire process — environment setup, dependency builds, the Mesa build, and installation — is automated end to end and reproducible on a fresh install.
+
+Prebuilt binaries are coming. The tooling to build, fingerprint, and publish prebuilt artifacts is in place, and the build scripts already know how to fetch and install a matching prebuilt instead of building from source. Once a build machine is publishing releases, installing the driver will be a download rather than a multi-hour build. That's the near-term direction.
+
+What this is NOT (yet):
+
+Running Vulkan programs needs the loader. This project builds and installs the Vulkan driver (the Lavapipe ICD). Actually executing a Vulkan application also requires the Vulkan loader (libvulkan.so.1), which is the next component to bring up. Runtime execution is therefore not yet verified.
+One workaround is still in place. The build applies -Wno-error=format to sidestep GCC rejecting Mesa's %m format specifier on NetBSD. A proper upstreamable fix (using strerror(errno)) is pending.
+
+Steps, scripts, and documents will continue to change as the loader and the release pipeline come together.
+
+Goal
+
+NetBSD is currently the only major BSD without Vulkan support. The aim of this project is to:
+
+Build the Vulkan software stack (Mesa's Lavapipe driver, which runs on the CPU via LLVM and needs no GPU) on NetBSD.
+Document every step, including the dead ends, so the process is reproducible.
+Automate the setup so a fresh machine can be brought to a build-ready state with a couple of scripts.
+Eventually feed the necessary fixes upstream (to Mesa and to pkgsrc) and provide prebuilt binaries or a pkgsrc package, so that Vulkan on NetBSD becomes something you can simply install rather than build from source.
+
+Scope and environment
+
+Target OS: NetBSD 10.1 (amd64), minimal ISO install.
+Host: VirtualBox VM.
+Build goal only: This targets compilation and linkage of the Vulkan stack. Runtime GPU acceleration is not available under VirtualBox; the software driver (Lavapipe) is the target.
+
+Repository layout
+
+vulkan-netbsd/
+├── docs/
+│   ├── 01-environment-setup.md    Base system + pkgsrc + build deps
+│   ├── 02-source-dependencies.md  Dependencies not in pkgsrc (built from source)
+│   ├── 03-mesa-build.md           Configure + compile Mesa (Lavapipe); port notes
+│   └── 04-prebuilt-artifacts.md   Build-once / reuse prebuilt binaries
+└── scripts/
+    ├── setup-env.sh               Automates the environment setup
+    ├── build-glslang.sh           Builds glslang (required by Mesa; not in pkgsrc)
+    ├── build-mesa.sh              Clones + configures + compiles Mesa (Lavapipe)
+    ├── install-mesa.sh            Installs the built driver + ICD manifest
+    ├── lib-artifacts.sh           Shared: fingerprint + prebuilt fetch helpers
+    └── package-artifacts.sh       Packages built binaries into release tarballs
+
+
+Getting started
+
+On a fresh, minimal NetBSD 10.1 (amd64) install, as root:
+
+cd /root
+ftp https://raw.githubusercontent.com/segaboy/vulkan-netbsd/main/scripts/setup-env.sh
+sh setup-env.sh
+. /root/.profile
+
+ftp https://raw.githubusercontent.com/segaboy/vulkan-netbsd/main/scripts/build-glslang.sh
+sh build-glslang.sh
+
+ftp https://raw.githubusercontent.com/segaboy/vulkan-netbsd/main/scripts/build-mesa.sh
+sh build-mesa.sh --build
+
+ftp https://raw.githubusercontent.com/segaboy/vulkan-netbsd/main/scripts/install-mesa.sh
+sh install-mesa.sh
+
+build-mesa.sh --build clones, configures, and compiles Mesa, producing the Lavapipe Vulkan driver (libvulkan_lvp.so). install-mesa.sh then installs that driver and its ICD manifest into /usr/pkg and verifies the registration.
+
+If a build is interrupted or the machine crashes, re-run the same command — the build scripts detect the existing build and resume automatically.
+
+Together, these scripts take a fresh minimal install all the way to an installed, registered Vulkan software driver.
+
+See docs/01-environment-setup.md for the full, commented walkthrough and notes on running over SSH.
+
+Contributing / following along
+
+This is a personal work-in-progress. Expect churn. The documentation is written as a running record of what actually worked (and what didn't), so it doubles as field notes for anyone attempting the same port.
+
+License
+
+The original work in this repository — the scripts, documentation, and any patches authored here — is released under the MIT License (see LICENSE).
+
+This project builds, installs, and (optionally) redistributes third-party software that is not covered by that license and retains its own:
+
+Mesa — primarily MIT-licensed (some components under other permissive licenses).
+glslang — permissive licenses (BSD-style, Apache 2.0, and Khronos terms).
+LLVM — Apache 2.0 with LLVM Exceptions. LLVM is installed separately via pkgsrc and is not redistributed by this project.
+
+Prebuilt artifacts produced by scripts/package-artifacts.sh bundle the relevant upstream license texts (under share/licenses/) so that binary redistribution preserves each project's attribution. If you publish artifacts, keep those files intact.
+
+--------------------------------------------------------------------------------
+
+20. Superpowers 6
+
+Source: https://blog.fsck.com/2026/06/15/Superpowers-6/
+Site: Massively Parallel Procrastination
+Submitter: seahorseemoji (Hacker News)
+Submitted: 2026-06-30 21:28 UTC (Hacker News)
+HN activity: 82 points · 39 comments
+Length: 1.3K words (~6 min read)
+Language: en
+
+You can also read this post on our corporate blog at https://primeradiant.com/blog
+
+TL;DR: Superpowers 6 is much, much faster and burns many fewer tokens to get the same high-quality outcomes. If you're tokenmaxxing, maybe skip this release, but if you care about your builds being up to 50% faster and up to 60% cheaper, you're going to love Superpowers 6.
+
+A week ago, we were gearing up to release Superpowers 5.2. We'd slipped the release a couple of times already to add "just one more improvement."
+
+We added support for Pi, Antigravity and Kimi Code.
+
+We made Superpowers work better on Codex and OpenCode, and Cursor.
+
+We rewrote a bunch of the Superpowers skills to be model and harness agnostic, which helps them be more reliable everywhere. We also wrote a new contribution guide for how to add support for a new coding agent harness for Superpowers.
+
+We did a bunch of work to make Visual Brainstorming easier to use, safer, and more reliable.
+
+And we fixed a whole slew of bugs, including a particularly nasty one that led to code review subagents sometimes reviewing the whole branch, rather than a single task.
+
+It was going to be a great release.
+
+And then Anthropic shipped (and unshipped) Fable. In the few days that I had access to Fable, I put it to the best use that I could.
+
+It's no secret that the most common lament we hear from Superpowers users is that tokens are expensive and Superpowers uses a ton of them. Building software with Superpowers is slower than building without it, too. The "slow" part shouldn't matter - it happens during the autonomous subagent driven development orchestration of the build process.
+
+But it does matter. Slow isn't fun. And expensive isn't fun either.
+
+A bunch of the reasons that Superpowers builds have taken longer and cost more are the same reasons that it delivers good outcomes for so many users. It does a ton of up-front planning work to make sure your implementations can be hands-off, forces strict red-green TDD while implementing, and then the orchestrator inside Superpowers reviews every single change on two axes:
+
+did the agent implement exactly what was asked, no more and no less.
+is the quality of the work up to snuff.
+
+Just by the nature of what it's doing, it's going to be slower than yoloing an untested implementation and calling it a day.
+
+But it's never made me happy that it's slow and expensive.
+
+When Fable came out, I decided to see how well it could optimize Subagent Driven Development.
+
+I think I was hoping for something like a 15% reduction in token spend.
+
+I got that. And a whole lot more.
+
+Our first angle of attack was looking at the coordinator to reviewer handoff. Fable analyzed thousands of Subagent Driven Development sessions and found that code and spec-compliance review subagents sometimes ran a lot of git commands while doing their reviews. Simply switching the written instructions for how to find the commits to review to a shell script that pre-generates a review package containing well-formatted diff and some other metadata decreased token spend and wall-clock time by about 10%.
+
+As I was going to bed that evening, I told Fable to see about shaving another 15% off wall clock time and token cost for our evals while I slept.
+
+As I was going to bed, I posted a note on our internal Slack that we should look at evaluating what happens if you combine the code reviewer and the spec compliance reviewer.
+
+I don't really know what I expected to happen overnight, but I don't think it was waking up to find that Fable had independently come to the same conclusion, tested it, and found that across our eval suite, it saved that additional 15% I'd asked for.
+
+The next night, I got a little more ambitious.
+
+/goal once this is done, run an autoresearch loop to improve cost-efficiency of the superpowers build loop. test with opus as the coordinator. make an hypothesis log. run experiments. run at least 25 experiments.
+
+
+
+Fable built out a full autoresearch harness and ran overnight. You can check out what it built on GitHub.
+
+**The ==autoresearch== loop is complete: 25 experiments closed** (plus 4 logged as backlog), opus as coordinator throughout, every hypothesis pre-registered with a prediction in the log, now durable at evals `docs/experiments/2026-06-11-build-loop-==autoresearch==.md` (a76ddc9). Loop spend ≈ $165.
+
+ What the loop found
+
+**The ship candidate (E27):** opus controller + elicited plan + conditional haiku implementers + terse reviewer contract + narration recipe + final-review tier pin → **fractals $6.24/$6.60** (the combo config on hand plans was $11.67–14.84). Planted-defect gates 2/3, with the one fail forensically attributed to reviewer variance plus judge strictness — the terse contract was explicitly exonerated by reading the reviewer's reports. The N=5 gate battery is still owed before any of it ships as skill text.
+
+**Wins with numbers:** terse reviewer contract (−41% reviewer output, verdicts intact), narration recipe (−54%, zero variance), conditional implementer tiering (~$0.5–1/run, and E22 proved it correctly _refuses_ haiku on prose plans), fixture-realism replicated on svelte (−24% scope-matched).
+
+**Things now provably dead:** capping controller thinking **backfires** — turns rose 92→138 and output doubled; thinking buys turn efficiency. Plan word budgets slash test content −62% even when code is exempted. Sonnet plan generation keeps fidelity but collapses task structure. Implementation bodies in plans are marginal — tests + interfaces + structure carry the whole load (E28).
+
+**Risk finding worth remembering:** reviewers given only the diff package produce _confident_ spec verdicts that silently redefine "spec" as the global constraints — 0/5 flagged the missing brief. Same failure family as the haiku-reviewer advocacy.
+
+**Six leads closed as already-optimal** (report reads, cache health, reviewer floor, haiku fixers, todo bookkeeping, dispatch re-derivation) — recorded so nobody re-buys them.
+
+Three of my own measurement bugs were caught and corrected mid-loop by the manual-inspection discipline (a grep counting template echoes as self-review catches, a harness that never inlined the diff, a scorer regex missing newlines) — one retracted verdict was re-measured clean (−74% became the honest −41%).
+
+
+The long and the short of it it is that across about 36 hours of work and what would have been $650 of unsubsidized token spend, our Anthropic eval benchmarks were looking like we'd reduced wall-clock runtime for Superpowers builds by 50% and token spend by 60%.
+
+And then we ran our evals against Codex. The results were not good. I'd worried that they might not show the same level of improvement, but they showed no improvement.
+
+A few minutes of digging and we found the culprit. On Codex, the evals weren't yet sufficiently isolated from the host OS....so we were always benchmarking Superpowers 5.1.0.
+
+A little bit of fiddling later....yup. Everything held up.
+
+The biggest improvements came from combining the spec compliance and code quality review agents, pre-baking the review "packet" handed to the reviewers so they rarely need to run git, and changing the guidance we give to the orchestrator about what kind of agent you need for a given task.
+
+We've been working hard on our evals suite for Superpowers and without it, it would have been impossible to measure and test the changes we made. The suite is still relatively young, but it has meant that we're able to make and test changes to Superpowers across a variety of supported harnesses and to quantify what those changes do across a growing set of coding agents. You can find it at https://github.com/prime-radiant-inc/superpowers-evals
+
+We're very proud of the improvements that we (and our robot buddies) have made in Superpowers 6. We think you're going to love the new version.
+
+You can install it right now from https://github.com/obra/superpowers. It'll start to percolate into the first party plugin marketplaces over the next couple of days.
+
+PS: We're hiring! If you know someone who should be working on Superpowers full time, please share the posting with them: https://primeradiant.com/jobs/superpowers-community-engineer/
+
+--------------------------------------------------------------------------------
+
+21. Lightning Memory-Mapped Database Manager (LMDB) 1.0
+
+Source: http://www.lmdb.tech/doc/
+Site: lmdb.tech
+Author: AuthorHoward Chu, Symas Corporation.
+Submitted: 2026-07-02 20:01 UTC (Hacker News)
+HN activity: 65 points · 38 comments
+Length: 1.2K words (~6 min read)
+
+Introduction
+
+LMDB is a Btree-based database management library modeled loosely on the BerkeleyDB API, but much simplified. The entire database is exposed in a memory map, and all data fetches return data directly from the mapped memory, so no malloc's or memcpy's occur during data fetches. As such, the library is extremely simple because it requires no page caching layer of its own, and it is extremely high performance and memory-efficient. It is also fully transactional with full ACID semantics, and when the memory map is read-only, the database integrity cannot be corrupted by stray pointer writes from application code.
+
+Note: This is the documentation for LMDB 1.0. The docs for LMDB 0.9 are archived here.
+
+See Upgrading From Release 0.9 if you used LMDB 0.9 previously.
+
+The library is fully thread-aware and supports concurrent read/write access from multiple processes and threads. Data pages use a copy-on- write strategy so no active data pages are ever overwritten, which also provides resistance to corruption and eliminates the need of any special recovery procedures after a system crash. Writes are fully serialized; only one write transaction may be active at a time, which guarantees that writers can never deadlock. The database structure is multi-versioned so readers run with no locks; writers cannot block readers, and readers don't block writers.
+
+Unlike other well-known database mechanisms which use either write-ahead transaction logs or append-only data writes, LMDB requires no maintenance during operation. Both write-ahead loggers and append-only databases require periodic checkpointing and/or compaction of their log or database files otherwise they grow without bound. LMDB tracks free pages within the database and re-uses them for new write operations, so the database size does not grow without bound in normal use.
+
+The memory map can be used as a read-only or read-write map. It is read-only by default as this provides total immunity to corruption. Using read-write mode offers much higher write performance, but adds the possibility for stray application writes thru pointers to silently corrupt the database. Of course if your application code is known to be bug-free (...) then this is not an issue.
+
+If this is your first time using a transactional embedded key/value store, you may find the Getting Started page to be helpful.
+
+Caveats
+
+Troubleshooting the lock file, plus semaphores on BSD systems:
+
+A broken lockfile can cause sync issues. Stale reader transactions left behind by an aborted program cause further writes to grow the database quickly, and stale locks can block further operation.
+
+Fix: Check for stale readers periodically, using the mdb_reader_check function or the mdb_stat tool. Stale writers will be cleared automatically on most systems:
+
+Windows - automatic
+BSD, systems using SysV semaphores - automatic
+Linux, systems using POSIX mutexes with Robust option - automatic Otherwise just make all programs using the database close it; the lockfile is always reset on first open of the environment.
+
+On BSD systems or others configured with MDB_USE_SYSV_SEM or MDB_USE_POSIX_SEM, startup can fail due to semaphores owned by another userid.
+
+Fix: Open and close the database as the user which owns the semaphores (likely last user) or as root, while no other process is using the database.
+
+Restrictions/caveats (in addition to those listed for some functions):
+
+Only the database owner should normally use the database on BSD systems or when otherwise configured with MDB_USE_POSIX_SEM. Multiple users can cause startup to fail later, as noted above.
+
+There is normally no pure read-only mode, since readers need write access to locks and lock file. Exceptions: On read-only filesystems or with the MDB_NOLOCK flag described under mdb_env_open().
+
+An LMDB configuration will often reserve considerable unused memory address space and maybe file size for future growth. This does not use actual memory or disk space, but users may need to understand the difference so they won't be scared off.
+
+By default, in versions before 0.9.10, unused portions of the data file might receive garbage data from memory freed by other code. (This does not happen when using the MDB_WRITEMAP flag.) As of 0.9.10 the default behavior is to initialize such memory before writing to the data file. Since there may be a slight performance cost due to this initialization, applications may disable it using the MDB_NOMEMINIT flag. Applications handling sensitive data which must not be written should not use this flag. This flag is irrelevant when using MDB_WRITEMAP.
+
+A thread can only use one transaction at a time, plus any child transactions. Each transaction belongs to one thread. See below. The MDB_NOTLS flag changes this for read-only transactions.
+
+Use an MDB_env* in the process which opened it, not after fork().
+
+Do not have open an LMDB database twice in the same process at the same time. Not even from a plain open() call - close()ing it breaks fcntl() advisory locking. (It is OK to reopen it after fork() - exec*(), since the lockfile has FD_CLOEXEC set.)
+
+Avoid long-lived transactions. Read transactions prevent reuse of pages freed by newer write transactions, thus the database can grow quickly. Write transactions prevent other write transactions, since writes are serialized.
+
+Avoid suspending a process with active transactions. These would then be "long-lived" as above. Also read transactions suspended when writers commit could sometimes see wrong data.
+
+...when several processes can use a database concurrently:
+
+Avoid aborting a process with an active transaction. The transaction becomes "long-lived" as above until a check for stale readers is performed or the lockfile is reset, since the process may not remove it from the lockfile.
+
+This does not apply to write transactions if the system clears stale writers, see above.
+
+If you do that anyway, do a periodic check for stale readers. Or close the environment once in a while, so the lockfile can get reset.
+
+Do not use LMDB databases on remote filesystems, even between processes on the same host. This breaks flock() on some OSes, possibly memory map sync, and certainly sync between programs on different hosts.
+
+Opening a database can fail if another process is opening or closing it at exactly the same time.
+
+Copyright
+Copyright 2011-2026 Howard Chu, Symas Corp. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted only as authorized by the OpenLDAP Public License.
+
+A copy of this license is available in the file LICENSE in the top-level directory of the distribution or, alternatively, at http://www.OpenLDAP.org/license.html.
+
+Derived From:
+This code is derived from btree.c written by Martin Hedenfalk.
+
+Copyright (c) 2009, 2010 Martin Hedenfalk martin@bzero.se
+
+Permission to use, copy, modify, and distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+--------------------------------------------------------------------------------
+
+22. Claude-real-video － any LLM can watch a video
+
+Source: https://github.com/HUANGCHIHHUNGLeo/claude-real-video
+Site: GitHub
+Submitter: cortexosmain (Hacker News)
+Submitted: 2026-07-02 19:10 UTC (Hacker News)
+HN activity: 89 points · 28 comments
+Length: 886 words (~4 min read)
+Language: en
+
+Let Claude — or any LLM — actually watch a video.
+
+Most AI tools don't really see a video. Paste a YouTube link into ChatGPT and it reads the transcript, not the picture. Claude won't take a video file at all. Even Gemini, which can read video natively, has to send it up to Google and samples frames at a fixed interval (1 fps by default), so fast cuts slip past.
+
+claude-real-video does it differently, and locally: point it at a URL or a file, and it pulls the frames that actually matter (every scene change, not a fixed quota), throws away the near-duplicates, transcribes the audio, and hands you a clean folder any LLM can read — on your own machine, nothing uploaded.
+
+crv "https://www.youtube.com/watch?v=..."
+# → crv-out/frames/*.jpg  +  crv-out/transcript.txt  +  crv-out/MANIFEST.txt
+
+Then drop the frames + MANIFEST.txt into Claude / ChatGPT / Gemini and ask away.
+
+Why not just sample frames?
+
+Most "let an LLM watch a video" scripts (and Gemini's own pipeline) grab frames at a fixed interval — e.g. one per second. That over-samples a static screencast and under-samples a fast-cut reel. claude-real-video is smarter:
+
+fixed-interval sampling claude-real-video
+Frame selection every N seconds scene-change detection + density floor
+Repeated shots (A-B-A cuts) sent again every time sliding-window dedup sends each shot once
+Static slide (10 min) ~600 near-identical frames collapses to 1 (dedup)
+Fast-cut reel misses frames between samples catches each visual change
+Audio often ignored Whisper transcript w/ language detect
+Where the video goes often uploaded to a cloud stays on your machine
+Input usually local file only URL (yt-dlp) or local file
+
+You feed the model fewer, more meaningful frames — cheaper context, better understanding.
+
+Install
+
+pip install claude-real-video              # core (frames + dedup)
+pip install "claude-real-video[whisper]"   # + audio transcription
+
+System requirement: ffmpeg
+
+ffmpeg / ffprobe are used for frame extraction and audio, and aren't pip-installable. Install them once:
+
+OS command
+macOS brew install ffmpeg
+Linux sudo apt install ffmpeg (or your distro's package manager)
+Windows winget install Gyan.FFmpeg — or choco install ffmpeg — or download a build and add its bin\ folder to your PATH
+
+Verify it's on your PATH:
+
+ffmpeg -version
+
+Transcription uses the whisper CLI (installed by the [whisper] extra, or pip install openai-whisper). Whisper also relies on ffmpeg.
+
+Works on macOS, Windows, and Linux — Python 3.10+.
+
+Usage
+
+# A YouTube / Instagram / TikTok / ... link
+crv "https://www.instagram.com/reel/XXXX/"
+
+# A local file, English transcript, output to ./out
+crv lecture.mp4 -o out --lang en
+
+# Frames only, no transcription
+crv clip.mp4 --no-transcribe
+
+# A login-gated video (your own / authorised use): pass a Netscape cookie file
+crv "https://..." --cookies cookies.txt
+
+python -m claude_real_video ... works as an alias for crv too.
+
+Options
+
+flag default meaning
+-o, --out crv-out output directory
+--scene 0.30 scene-change sensitivity (lower = more frames)
+--fps-floor 1.0 at least one frame every N seconds
+--max-frames 150 hard cap on total frames
+--lang auto Whisper language (en, zh, auto, ...)
+--dedup-threshold 8 % of pixels that must change for a frame to count as new; higher = fewer frames
+--dedup-window 4 compare against the last N kept frames — a shot the model already saw doesn't come back after a cutaway (1 = consecutive-only)
+--report off keep dropped frames in ./dropped + write report.html visualising every keep/drop decision
+--no-transcribe off skip audio
+--keep-audio off also save the full soundtrack (audio.m4a) so audio models can hear it
+--cookies – Netscape cookie file for login-gated sources
+
+Use it from Python
+
+from claude_real_video import process
+
+r = process("https://youtu.be/...", "out", lang="en")
+print(r.frame_count, r.transcript_path)
+
+How it works
+
+Fetch — yt-dlp for URLs (optional cookies), or copy a local file.
+Extract — one chronological ffmpeg select pass grabs every scene change plus a density floor (at least one frame every --fps-floor seconds), so fast cuts and slow screencasts are both covered.
+Dedup — real pixel difference (downscaled RGB, not a perceptual hash — hashes go blind on flat colours and equal-luma hue changes) against a sliding window of the last --dedup-window kept frames, so an A-B-A cutaway doesn't re-send a shot the model has already seen. --report writes report.html showing every keep/drop decision with its diff %, for tuning.
+Text — if the video already has subtitles (a sidecar .srt/.vtt next to a local file, or an embedded subtitle track), those are used as the transcript — faster and more accurate than re-transcribing. Only when there are no subtitles does it fall back to Whisper on the audio (skipped cleanly if there's no audio).
+Audio (optional, --keep-audio) — save the full original soundtrack (audio.m4a: music + speech + effects, copied losslessly when possible). The transcript only has the words; the audio file lets a model that can listen (Gemini, GPT-4o, …) actually hear the music and tone.
+Manifest — MANIFEST.txt summarises everything for the model.
+
+So the model can see (key frames), read (transcript) and — with --keep-audio — hear (full soundtrack) the video. The transcript is plain text any model can read; the tool doesn't burn subtitles into the video — burning is a presentation choice, not something needed to make a video AI-readable.
+
+Notes
+
+Only download content you have the right to. The --cookies option is for your own, authorised access — don't ship credentials in a repo.
+Re-running overwrites the output directory.
+
+License
+
+MIT
+
+--------------------------------------------------------------------------------
+
+23. Great Salt Lake Tracker – Grow the Flow
+
+Source: https://growtheflowutah.org/laketracker/
+Site: growtheflowutah.org
+Submitter: cfowles (Hacker News)
+Submitted: 2026-07-02 19:33 UTC (Hacker News)
+HN activity: 67 points · 28 comments
+
+Scrape failed: http 403
+
+--------------------------------------------------------------------------------
+
+24. Show HN: Gitstock–Transform you GitHub commit history into K-line and animations
+
+Source: https://gitstock.org/
+Site: gitstock.org
+Submitter: dares2573 (Hacker News)
+Submitted: 2026-06-30 07:00 UTC (Hacker News)
+HN activity: 12 points · 2 comments
+Length: 41 words (~1 min read)
+Language: zh-CN
+
+GitHub commits rendered like a market chart.
+
+github.com/
+
+Enter a public repository. GitStock turns recent commits and code changes into a shareable SVG candlestick chart, helping you evaluate repository activity and health trends at a glance.
+
+torvalds/linux openclaw/openclaw tailwindlabs/tailwindcss codecrafters-io/build-your-own-x freeCodeCamp/freeCodeCamp
+
+--------------------------------------------------------------------------------
+
+25. The short leash AI coding method for beating Fable
+
+Source: https://blog.okturtles.org/2026/07/short-leash-ai-method/
+Site: blog.okturtles.org
+Author: Posted by Greg Slepak on July 2, 2026
+Submitted: 2026-07-02 19:11 UTC (Hacker News)
+HN activity: 71 points · 74 comments
+Length: 1.1K words (~5 min read)
+
+This post is the culmination of over a year of research into how to properly use AI agents to write high-quality software in security-critical systems.
+
+I will be writing this post primarily from my perspective as a software developer, protocol developer, and maintainer of security-critical software.
+
+Over the past year I dove deep into AI agents. I have explored their limits, what they can and cannot be relied upon to do. I’ve created our own AI review tools that perform just as well as multi-billion dollar AI-review systems. I’ve maintained my own custom fork of an AI coding agent called Crush. And this post is my distillation of what I’ve learned to be the best approach if you want to create high-quality software using AI tools.
+
+There are some people who hate AI. Indeed, many developers should hate AI, because it is an enemy to their own learning of software development. This post is not for them. This post is for the few expert developers whose skills have reached the point where they outclass any and all “frontier AI models” in their area of expertise. It is for these expert developers, who want to use AI as a method of increasing their performance without sacrificing any quality that I write this post.
+
+Problems With Current Approaches
+
+If you’ve used AI agents much, you know that during the course of a session the following can happen:
+
+You can discover that your initial idea was dumb and a better one exists
+Your agent might go “off the rails” and start doing something you don’t want it to do
+
+I’ve watched videos with hundreds of thousands of views where YouTubers explain how they invented complicated systems of 12 parallel agents managed by an orchestrator, doing a billion things simultaneously. How they no longer have to involve themselves in the coding process. It’s just slop writing and reviewing slop while the YouTuber sits on a beach, goes to the bathroom, or sips coffee for no reason.
+
+It is humanly impossible to build your own understanding of a codebase if you use such a “Vibe” approach. The AI will have gone off the rails multiple times and you will only notice it later when you actually try to use the software. This method may be perfectly OK in situations where you do not care about quality, but if you do care, a different approach is needed.
+
+The problem is that even code written and/or reviewed by Fable 5, will stink:
+
+The code works, but it is horribly inefficient and ugly. And this will definitely happen more often if you are working in some kind of a niche area that doesn’t have much training data for the model to fall back on. Contrary to marketing statements made by certain CEOs, these models are not able to think beyond their training data.
+
+AI Code Generation — The “Short Leash” Method
+
+That brings us to the “short leash method” for using AI coding agents.
+
+This method cannot be employed by just anyone. Only professional software developers can use this method. But what’s great about it is that it will lead to Fable-beating results even if you aren’t using a frontier model.
+
+In the Short Leash method:
+
+You use a planning phase to research the task and formulate a plan, along with something like my tasks skill to track progress and break large tasks into steps (this is one point of commonality with many “vibe engineering” methods; the approach diverges in the following bullet points.)
+You never use “YOLO” mode (aka “dangerously skip permissions”)
+The AI never works “while you play video games”
+You use a coding agent that displays a diff of the changes that are about to be made via the permissions prompt
+You sit there like some crazed person from the 20th century, and actually analyze the changes the AI is proposing to make
+You keep yourself in the loop at all times instead of removing yourself (the trend promoted by YouTubers)
+You use the diffs in the permissions prompts as a way to keep your understanding of the codebase up-to-date and the AI on a “short leash”
+You DENY permissions any time you see that the AI is about to do something you don’t want it to do
+You intervene frequently and as needed to prevent the AI from “going off the rails”
+At all times, the AI is “kept on a short leash”
+Commits are made at the end of every subtask to protect you from the AI screwing up and deleting previously done work (this can happen, I’ve seen Opus do it)
+Finally, we do a review
+
+How to do AI Reviews
+
+A PR reviewed by just a human or just an AI will have more mistakes in it than a PR that’s reviewed by both a human and an AI.
+
+The AI can be treated as a linter. It will quickly catch common mistakes, while the human will catch higher-level issues and directional changes that need to be made.
+
+So when it comes to reviews:
+
+You should be using AI to review every single PR.
+The AI must have access to sufficient context (the issue, the PR description, the codebase, and the changes).
+You should use the latest and greatest models available to review.
+The PR description must disclose the precise models used (if any) in assisting with the creation of the PR under an “AI Disclosure” heading. This serves multiple purposes:
+
+It informs the maintainer that AI was used.
+It lets them suggest better models if weak ones were used.
+It signals that you’re a “good guy” developer and aren’t trying to “sneak AI in”.
+Finally, and most importantly, the PR must be reviewed by the PR ‘author’ if it used AI.
+
+That last point is worth expounding upon a bit.
+
+AI-assisted PRs are really PRs from an AI with human assistance. Therefore, the human submitting the PR is expected to understand what they are submitting, and they cannot do that if they haven’t reviewed the code the AI wrote.
+
+So they must treat their own PR as if they’re reviewing someone else’s PR, and review it themselves, line-by-line. Once finished, they can confirm their own approval of the PR, and request attention from the maintainer. This builds and demonstrates their understanding of the codebase.
+
+Fin
+
+And that’s how we use AI at okTurtles. You can read our official AI Usage Policy.
+
+We hope this post has been helpful.
+
+AI Disclosure: this post was entirely written by human fingers connected to a human brain. A final AI-style “spell check” was performed before publishing.
+
+Donating = Loving!
+Without our supporters, we can't do what we do.
+Please take this moment to support our work.
+
+--------------------------------------------------------------------------------
+
+26. Crossword Heatmap
+
+Source: https://arbourtrary.com/sketches/crossword-heatmap
+Site: arbourtrary
+Submitter: surprisetalk (Hacker News)
+Submitted: 2026-06-30 12:15 UTC (Hacker News)
+HN activity: 4 points · 0 comments
+Length: 199 words (~1 min read)
+Language: en
+
+Inspiration: Curiosity initially around what the most common crossword layout is. Kinda morphed into wondering about distributions of empty spaces and letters.
+
+Description: I downloaded some crossword data from Saul Pwanson. I focused on the NYT crossword which has had two variations for its history, the 15x15 daily and the 21x21 Sunday version. For each version, I tallied up counts of characters per cell.
+
+What's visualized above are frequencies that answer the question “When character X shows up, where is it most likely to show up on the board?" The shading is scaled to the max per-cell-frequency of that particular character. So it's really highlighting distribution, not overall frequency.
+
+For example, the character A is far more common than G, but G appears darker because it's very evenly distributed whereas A has a couple of extreme outliers in the top left. It's fun clicking through as some patterns emerge.
+
+Quasi-Groupings
+
+Anywhere works
+
+A G K L O R T W
+
+Great starters
+
+B C F M P
+
+Great enders
+
+D E S Y
+
+Anywhere but the start
+
+N
+
+Anywhere but the end
+
+H I U
+
+Just the middle
+
+V
+
+Rarities
+
+J Q X Z
+
+Sources
+
+NYT Crossword Data (2024)
+
+--------------------------------------------------------------------------------
+
+27. Show HN: Inkwell – An RSS reader for e-ink devices
+
+Source: https://kendal.codeberg.page/inkwell/
+Site: kendal.codeberg.page
+Submitter: imkendal (Hacker News)
+Submitted: 2026-07-02 15:38 UTC (Hacker News)
+HN activity: 31 points · 4 comments
+Length: 148 words (~1 min read)
+Language: en
+
+Keyboard shortcuts
+
+Press ← or → to navigate between chapters
+
+Press S or / to search in the book
+
+Press ? to show this help
+
+Press Esc to hide this help
+
+inkwell
+
+inkwell is a self-hosted RSS/Atom reader that serves articles as static HTML tuned for the built-in browser on a Kindle. Background jobs pre-extract every article and transcode every embedded image, so a tap on the device fetches ready-to-render bytes from local disk.
+
+Documentation
+
+Installation — build from source, run under Docker, first configuration.
+Self-hosting — docker-compose, reverse proxy, admin access control, backups, upgrades.
+Reading — the listing, article, and read-later views, and their behaviour on a Kindle.
+Admin — add and remove feeds and groups, import OPML.
+Authenticating your e-reader — sign a new Kindle in through the auth gateway without typing on the device.
+Configuration reference — every YAML field and environment variable, with defaults.
+
+--------------------------------------------------------------------------------
+
+28. Apricot Computers: An underrated British brand
+
+Source: https://dfarq.homeip.net/apricot-computers-an-underrated-british-brand/
+Site: The Silicon Underground
+Author: Dave Farquhar
+Published: 2026-06-30
+HN activity: 26 points · 8 comments
+Length: 1.2K words (~6 min read)
+Language: en-US
+
+You hear a lot about Sinclair and Amstrad and Acorn computers. But when it comes to British brands, it seems like we don’t hear a lot about Apricot. But thanks to a television program that aired in early 1990, we know a fair bit about Apricot’s triumphs and struggles in the highly competitive PC market of the 1980s and 90s. It was on June 30, 1999 that Apricot closed its factory in Scotland and wound down its brand.
+Apricot had an extensive line of computers in 1989. Each machine came in either AT architecture or Microchannel.
+
+I have to give credit to longtime reader Gary Osborne for alerting me to the existence of this TV show. In the early 1990s, the BBC had a TV series called Trouble Shooter. In it, Sir John Harvey-Jones visits troubled manufacturing businesses and helps uncover and solve their problems. It reminds me in some ways of the modern TV series Kitchen Nightmares, where Gordon Ramsay visits restaurants and tries to turn them around in a week, except these weren’t restaurants. In episode 3 of Trouble Shooter, Harvey-Jones visited Apricot Computers in mid-1989. The episode aired in 1990. Thanks to that TV episode, we know more about Apricot’s inner workings than we do about the typical 1980s and 90s PC clone manufacturer.
+
+What was Apricot Computers?
+
+Apricot was an interesting computer company. They were the first company to ship a 486-based PC in 1989. Arguably that’s not quite as noteworthy as being the first to ship a 386-based PC, but they still beat all the big names in shipping a 486, including Compaq and IBM. Apricot was also noteworthy in licensing Microchannel from IBM. While Tandy and Dell announced Microchannel PCs, Apricot actually shipped them in quantity and stuck with the architecture for several years, selling them alongside conventional AT designs rather than choosing one or the other. And Apricot was interesting in that they bucked outsourcing design and manufacturing to Asia longer than many PC makers did. They designed their PCs in Birmingham, England, and manufactured them in Glenrothes, Scotland.
+
+The challenges Apricot faced were not at all unlike the challenges companies attempting to design and build computers in the United States circa 1989 faced. It was much cheaper to build computers in Asia. And it was increasingly cheaper to outsource the design too. In that sense, Apricot’s struggles designing and building computers in the UK didn’t seem at all unfamiliar to me.
+
+Apricot on Trouble Shooter
+
+Harvey-Jones described Apricot’s problem as a minnow trying to swim with large multinational whales and sharks.
+
+Apricot’s founder, Roger Foster, said the maintenance was the most profitable side of the business, but that it existed because Apricot sold hardware. The hardware side was not profitable. Harvey-Jones then turned to see if the software side of Apricot’s business, which was also profitable, relied on the hardware manufacturing. Of course, he found it didn’t. Apricot’s software ran on other IBM PC-compatible systems too.
+
+The problems with UK-based design and manufacturing
+
+What Harvey-Jones found was that research and development was expensive, and it fed into the hardware manufacturing, but not into the software or maintenance sides of the business. Harvey-Jones’s idea was to raise prices to cover the overhead and raise profits. When that proved a nonstarter, he visited the factory to see if cost reduction might be possible.
+
+As he entered the factory, Harvey-Jones encountered a display of Apricot computers. He asked if that was the historical progression of the product line. An unnamed Apricot employee said no, it was the current product line.
+
+He was audibly taken aback at the large number of models they produced. There were seven machines visible in the camera frame and the framing implied there were more machines out of frame. The employee said they produced both MCA and AT lines of computers. That subtle point is easy to miss. Apricot was making both Microchannel PCs, like IBM, and ISA-based AT machines like Compaq and everyone else.
+
+Letting go
+
+Harvey-Jones visited trade shows and talked to experts outside the company to try to get an understanding of the industry. Guy Kewney, a computer journalist, said you can’t compete with IBM by offering more at the same price. You have to offer more at a lower price, because of compatibility. He said he’d been talking to five different users of clone machines who were running into compatibility issues, so you have to save a significant amount of money to be willing to go through that.
+
+The show ended with Foster concluding that Apricot needed to shift its emphasis to software and maintenance, and making an acquisition to shore up that side of the business and setting up a new company, ACT, toward that end. And he also said Apricot needed to find a strategic partner for the manufacturing side of the business. The episode closed by saying Apricot was close to selling its hardware division, most likely to Mitsubishi.
+
+In April 1990, Apricot did indeed sell its hardware business to Mitsubishi Electric, giving them access to overseas design and manufacturing.
+
+The rest of the company, known as ACT Group Plc, was acquired by Misys Plc in July 1995 at a cost of 212 million British Pounds, forming the largest all-British software and services company.
+
+Even hindsight doesn’t make it analyzing Apricot all that easy
+
+It’s easy to say today that Apricot could have reduced costs by jettisoning Microchannel. But in 1990, it wasn’t exactly clear Microchannel was going to lose. I knew someone in 1990 who owned an IBM PS/2 Model 30-286 and he said it was a compromise. Microchannel was faster, but some expansion cards weren’t available as Microchannel, so he went with the ISA-based Model 30-286 instead of a Model 50 or Model 50Z and he felt like he’d made the right decision about half the time.
+
+One of the changes Steve Jobs made when he took over at Apple was reducing the number of models Apple sold, so a reduction in models seems obvious in hindsight. But there is an argument for the large number of models that made Harvey-Jones cringe on sight. Most likely Apricot had a 286, 386, and 486 in both ISA/AT and Microchannel architecture. That’s six models right there. They needed a base model, a midrange model, and a high-end model to compete. If they were going to offer two architectures, they needed six models. I couldn’t tell from the video if there were eight machines in the montage at the front of the factory or 12 or more. Offering multiple high-end machines, where the profits were higher, wasn’t terribly unusual either then or now.
+
+There was no easy or obvious solution for Apricot in 1989. Their management said near the start of the episode they hoped an outsider could find something obvious they were overlooking. If there was, I can’t see it either, even with 35 years of hindsight.
+
+David Farquhar is a computer security professional, entrepreneur, and author. He has written professionally about computers since 1991, so he was writing about retro computers when they were still new. He has been working in IT professionally since 1994 and has specialized in vulnerability management since 2013. He holds Security+ and CISSP certifications. Today he blogs five times a week, mostly about retro computers and retro gaming covering the time period from 1975 to 2000.
+
+--------------------------------------------------------------------------------
+
+29. A Special Wireless-Free Nikon Camera Is Publicly Available for the First Time
+
+Source: https://petapixel.com/2026/06/24/a-special-wireless-free-nikon-camera-is-publicly-available-for-the-first-time/
+Site: PetaPixel
+Author: Jeremy Gray
+Published: 2026-06-24
+HN activity: 28 points · 13 comments
+Length: 475 words (~3 min read)
+Language: en
+
+When researching the best deals on cameras, PetaPixel noticed an unusual “New Arrival” Nikon camera on B&H’s site: the Nikon Z6 III (No Wireless Connectivity).
+
+Like the standard Nikon Z6 III that arrived in June 2024, the “new” Z6 III without wireless connectivity is currently discounted by $700. However, instead of an MSRP of $2,696.95, the new Z6 III variant is regularly $3,079.95 — that is nearly $400 more expensive.
+
+This connectivity-less Z6 III is certainly unusual, so much so that PetaPixel reached out to Nikon USA to learn more. What is this camera?
+
+As it turns out, Nikon routinely works directly with various government and industrial partners who require that a camera lack wireless connectivity hardware, like WiFi and Bluetooth chips, typically for security reasons. These cameras are generally produced in limited quantities, Nikon says, and have long lead times.
+
+While Nikon would usually work directly with customers who require a specialized camera like this, the company has heard from its retail partners that they, too, have customers with these specific needs, so Nikon elected to make a small number of the Z6 III (No Wireless Connectivity) available in the public marketplace through its retailer network. Nikon tells PetaPixel that this is to evaluate potential market demand for similar products moving forward.
+
+This is the first time Nikon has made these special cameras available to retailers, which explains why PetaPixel had never seen them listed for sale before.
+
+It may seem odd at first glance that a camera with fewer features can cost considerably more than the default camera, but it’s important to consider the impact of specialized, limited manufacturing on production costs. While yes, the Z6 III (No Wireless Connectivity) has fewer parts than its normal counterpart, making it requires more work. Nikon has to actually change how it makes cameras, remove all wireless connection hardware components from the normal assembly process, and disable all related features at the software level. Counterintuitively, it can cost more to offer less.
+
+The Z6 III (No Wireless Connectivity) camera is identical to the standard Z6 III, except it lacks a Wi-Fi and Bluetooth chips and is completely incapable of wireless communication with any device, including a smartphone. That means no Nikon SnapBridge, GPS metadata tagging, or wireless image sharing.
+
+“This is a modified version of the standard Z6 III and has no wireless connectivity available — both Wi-Fi and Bluetooth have been fully deactivated. The camera does still have a series of ports for physical, wired connections for data transfer and power supply,” B&H explains.
+
+For nearly all photographers, a Nikon Z6 III that costs more and does less is not ideal, but for those who need a high-end camera for use in very specific, security-strict environments, there is now a more accessible option.
+
+Image credits: Nikon. Header photo created using an asset licensed via Depositphotos.com.
+
+--------------------------------------------------------------------------------
+
+30. Show HN: Pieces – Social network for people
+
+Source: https://try.piecesof.me/
+Site: PIECES
+Submitter: domo__knows (Hacker News)
+Submitted: 2026-07-01 17:30 UTC (Hacker News)
+HN activity: 33 points · 22 comments
+Language: en
+
+Hey HN, long time lurker first time poster. I built a social network called PIECES. After building a private blog last year after I had to get off IG and Substack, I decided to productize it. It's here now. It has a dedicated web experience + iOS/Android.
+
+Would love if you tried it out!
+
