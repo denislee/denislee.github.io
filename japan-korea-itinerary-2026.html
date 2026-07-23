@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan &#215; Korea &#183; Nov 10 &#8211; Dec 4, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f2ece0; --paper-2:#e9e1d2; --surface:#fbf8f1; --surface-2:#f6f1e6;
+  --ink:#201c16; --ink-soft:#514a3e; --muted:#847a68; --hair:#ddd3c0; --hair-2:#e7dece;
+  --gold:#b08033; --shadow:24px 24px 60px rgba(60,48,28,.12);
+  --l-tokyo:#3f63b0; --l-disney:#c8446a; --l-hokkaido:#1f8fa6; --l-seoul:#d76a35; --l-final:#8a5497;
+  --line:var(--l-tokyo); --grain:.035;
+}
+:root[data-theme="dark"]{
+  --paper:#12100c; --paper-2:#181510; --surface:#1d1a13; --surface-2:#242017;
+  --ink:#f0e9da; --ink-soft:#c8bfab; --muted:#9a8f79; --hair:#332d22; --hair-2:#2a251c;
+  --gold:#d7a24e; --shadow:24px 24px 70px rgba(0,0,0,.5);
+  --l-tokyo:#6f92dd; --l-disney:#ec6f92; --l-hokkaido:#43bcd4; --l-seoul:#f0925b; --l-final:#b57ec4;
+  --grain:.06;
+}
+@media (prefers-color-scheme:dark){
+  :root[data-theme="auto"]{
+    --paper:#12100c; --paper-2:#181510; --surface:#1d1a13; --surface-2:#242017;
+    --ink:#f0e9da; --ink-soft:#c8bfab; --muted:#9a8f79; --hair:#332d22; --hair-2:#2a251c;
+    --gold:#d7a24e; --shadow:24px 24px 70px rgba(0,0,0,.5);
+    --l-tokyo:#6f92dd; --l-disney:#ec6f92; --l-hokkaido:#43bcd4; --l-seoul:#f0925b; --l-final:#b57ec4;
+    --grain:.06;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:120px;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:"Zen Kaku Gothic New",system-ui,sans-serif;font-weight:400;
+  line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg,table{max-width:100%}
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tscroll .btable{min-width:540px}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:var(--grain);mix-blend-mode:multiply}
+:root[data-theme="dark"] body::before{mix-blend-mode:screen}
+.wrap{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+h1,h2,h3,.disp{font-family:"Shippori Mincho",serif}
+.mono{font-family:"DM Mono",ui-monospace,monospace}
+a{color:inherit}
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px) saturate(1.3);
+  background:color-mix(in srgb,var(--paper) 82%,transparent);border-bottom:1px solid var(--hair)}
+.topbar-in{max-width:1120px;margin:0 auto;padding:10px clamp(16px,4vw,40px);display:flex;align-items:center;gap:14px}
+.brand{font-family:"Shippori Mincho",serif;font-weight:700;letter-spacing:.02em;font-size:15px;white-space:nowrap}
+.brand small{color:var(--muted);font-weight:400;font-family:"DM Mono",monospace;font-size:11px;display:block;letter-spacing:.05em}
+.topnav{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.topnav::-webkit-scrollbar{display:none}
+.topnav a{font-size:12px;text-decoration:none;color:var(--ink-soft);padding:6px 11px;border-radius:99px;white-space:nowrap;
+  border:1px solid transparent;transition:.2s;font-family:"DM Mono",monospace;letter-spacing:.03em}
+.topnav a:hover{background:var(--surface);border-color:var(--hair)}
+.topnav a .dot{display:inline-block;width:7px;height:7px;border-radius:99px;margin-right:6px;vertical-align:middle;background:var(--c)}
+.theme-btn{flex:none;background:var(--surface);border:1px solid var(--hair);color:var(--ink);width:34px;height:34px;
+  border-radius:99px;cursor:pointer;font-size:15px;display:grid;place-items:center;transition:.2s}
+.theme-btn:hover{transform:rotate(-18deg)}
+.hero{padding:clamp(50px,9vw,110px) 0 40px;position:relative}
+.hero .stamp{position:absolute;top:clamp(40px,7vw,70px);right:0;width:clamp(96px,15vw,158px);height:clamp(96px,15vw,158px);
+  border:2px solid var(--l-seoul);border-radius:50%;display:grid;place-items:center;transform:rotate(-13deg);
+  color:var(--l-seoul);opacity:.85;text-align:center;padding:10px}
+.hero .stamp b{font-family:"Shippori Mincho",serif;font-size:clamp(15px,2.4vw,22px);line-height:1.1;letter-spacing:.02em}
+.hero .stamp span{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:.14em;margin-top:5px;display:block}
+.eyebrow{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--l-seoul);margin-bottom:18px}
+.hero h1{font-size:clamp(40px,8.5vw,92px);line-height:.98;font-weight:800;letter-spacing:-.01em}
+.hero h1 .jp{display:block;font-size:clamp(17px,3vw,26px);font-weight:500;color:var(--muted);letter-spacing:.14em;margin-top:14px}
+.hero .lede{max-width:60ch;margin-top:26px;font-size:clamp(15px,1.7vw,18px);color:var(--ink-soft)}
+.routebar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 4px;margin-top:30px;font-family:"DM Mono",monospace;font-size:13px}
+.routebar b{padding:5px 12px;border-radius:99px;border:1px solid var(--hair);background:var(--surface);font-weight:500;
+  display:inline-flex;align-items:center;gap:7px}
+.routebar b::before{content:"";width:8px;height:8px;border-radius:99px;background:var(--c)}
+.routebar i{color:var(--muted);font-style:normal;padding:0 2px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;margin-top:46px;
+  border:1px solid var(--hair);border-radius:18px;overflow:hidden;background:var(--hair)}
+.stat{background:var(--surface);padding:22px 20px}
+.stat b{font-family:"Shippori Mincho",serif;font-size:clamp(26px,4vw,40px);font-weight:700;display:block;line-height:1}
+.stat span{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:9px;display:block}
+section{padding:52px 0;scroll-margin-top:80px}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
+.sec-head .idx{font-family:"DM Mono",monospace;color:var(--gold);font-size:13px;letter-spacing:.1em}
+.sec-head h2{font-size:clamp(26px,4.4vw,42px);font-weight:700;letter-spacing:-.01em}
+.sec-sub{color:var(--muted);max-width:66ch;margin-bottom:30px;font-size:15px}
+.alert{border:1px solid var(--l-seoul);background:color-mix(in srgb,var(--l-seoul) 9%,var(--surface));
+  border-radius:18px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start}
+.alert .ic{font-size:26px;flex:none;line-height:1.2}
+.alert h3{font-size:18px;margin-bottom:6px;color:var(--l-seoul)}
+.alert ul{margin:10px 0 0 2px;padding-left:18px;color:var(--ink-soft);font-size:14.5px}
+.alert li{margin:7px 0}
+.alert b{color:var(--ink)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:var(--surface);border:1px solid var(--hair);border-radius:18px;padding:22px}
+.card h3{font-size:18px;margin-bottom:6px}
+.card p{font-size:14px;color:var(--ink-soft)}
+.card .k{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.pill{display:inline-block;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.06em;padding:3px 9px;border-radius:99px;border:1px solid currentColor}
+.pill.buy{color:#2f9e5f}.pill.skip{color:#c0563e}.pill.opt{color:var(--gold)}
+:root[data-theme="dark"] .pill.buy{color:#57c98a}:root[data-theme="dark"] .pill.skip{color:#ec8060}
+.jl{border:1px solid var(--hair);border-radius:20px;overflow:hidden;background:var(--surface)}
+.jl-row{display:grid;grid-template-columns:repeat(7,1fr)}
+.jl-cell{padding:14px 12px;border-right:1px solid var(--hair-2);min-height:96px;position:relative}
+.jl-cell:last-child{border-right:0}
+.jl-cell .d{font-family:"DM Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.jl-cell .t{font-size:13.5px;margin-top:8px;color:var(--ink-soft)}
+.jl-bar{height:6px;border-radius:99px;margin-top:10px;background:linear-gradient(90deg,var(--l-hokkaido),var(--l-tokyo))}
+@media(max-width:720px){.jl-row{grid-template-columns:repeat(2,1fr)}.jl-cell:nth-child(2n){border-right:0}}
+.filters{position:sticky;top:54px;z-index:40;display:flex;gap:8px;flex-wrap:wrap;padding:14px 0;
+  background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(8px);margin-bottom:6px}
+.chip{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.03em;padding:7px 13px;border-radius:99px;
+  border:1px solid var(--hair);background:var(--surface);color:var(--ink-soft);cursor:pointer;transition:.18s;white-space:nowrap}
+.chip:hover{border-color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip .emo{margin-right:5px}
+.phase{margin-top:14px}
+.phase-head{position:sticky;top:104px;z-index:30;background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(6px);padding:16px 0 14px;border-bottom:1px solid var(--hair);margin-bottom:6px}
+.phase-tag{display:inline-flex;align-items:center;gap:9px;font-family:"DM Mono",monospace;font-size:12px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--line);font-weight:500}
+.phase-tag .sq{width:11px;height:11px;border-radius:3px;background:var(--line)}
+.phase-head h2{font-size:clamp(23px,3.6vw,34px);margin-top:8px;font-weight:700}
+.phase-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px;font-size:13px;color:var(--ink-soft)}
+.phase-meta span{display:inline-flex;align-items:center;gap:6px}
+.rail{position:relative;padding-left:clamp(30px,5vw,58px);margin-top:12px}
+.rail::before{content:"";position:absolute;left:clamp(11px,2vw,22px);top:8px;bottom:34px;width:2px;
+  background:linear-gradient(var(--line),color-mix(in srgb,var(--line) 30%,transparent))}
+.day{position:relative;margin:0 0 14px}
+.day::before{content:"";position:absolute;left:calc(-1*clamp(30px,5vw,58px) + clamp(5px,1.4vw,16px));top:26px;
+  width:14px;height:14px;border-radius:99px;background:var(--paper);border:3px solid var(--line);z-index:2;transition:.25s}
+.day.open::before{background:var(--line);box-shadow:0 0 0 5px color-mix(in srgb,var(--line) 18%,transparent)}
+.day-btn{width:100%;text-align:left;background:var(--surface);border:1px solid var(--hair);border-radius:16px;
+  padding:16px 18px;cursor:pointer;display:flex;align-items:center;gap:16px;transition:.2s;font:inherit;color:inherit}
+.day-btn:hover{border-color:var(--line);transform:translateX(3px)}
+.day.open .day-btn{border-color:var(--line);border-bottom-left-radius:0;border-bottom-right-radius:0}
+.day-date{flex:none;text-align:center;min-width:52px}
+.day-date .num{font-family:"Shippori Mincho",serif;font-size:26px;font-weight:700;line-height:1}
+.day-date .mo{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.day-date .dow{font-family:"DM Mono",monospace;font-size:10px;color:var(--line);letter-spacing:.1em}
+.day-main{flex:1;min-width:0}
+.day-n{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.day-main h3{font-size:17px;font-weight:700;margin:3px 0 6px;line-height:1.25}
+.tagrow{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.04em;padding:2px 8px;border-radius:99px;
+  background:var(--surface-2);border:1px solid var(--hair-2);color:var(--ink-soft)}
+.tag.hl{background:color-mix(in srgb,var(--line) 16%,var(--surface));border-color:var(--line);color:var(--line)}
+.chev{flex:none;color:var(--muted);transition:.3s;font-size:20px}
+.day.open .chev{transform:rotate(90deg);color:var(--line)}
+.day-body{display:none;background:var(--surface);border:1px solid var(--line);border-top:0;
+  border-radius:0 0 16px 16px;padding:6px 20px 22px}
+.day.open .day-body{display:block;animation:drop .3s ease}
+@keyframes drop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.blk{display:flex;gap:14px;padding:13px 0;border-top:1px dashed var(--hair-2)}
+.blk:first-child{border-top:0}
+.blk .bi{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:15px;
+  background:color-mix(in srgb,var(--line) 12%,var(--surface-2));border:1px solid var(--hair-2)}
+.blk .bt{font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.blk .bx{font-size:14.5px;color:var(--ink-soft);margin-top:2px}
+.blk .bx a{color:var(--line);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--line) 40%,transparent)}
+.blk .bx a:hover{border-color:var(--line)}
+.blk .bx b{color:var(--ink)}
+.note{margin-top:14px;padding:12px 15px;border-radius:12px;font-size:13.5px;display:flex;gap:10px;align-items:flex-start}
+.note.book{background:color-mix(in srgb,var(--gold) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--gold) 40%,var(--hair))}
+.note.tip{background:var(--surface-2);border:1px solid var(--hair-2);color:var(--ink-soft)}
+.note.veg{background:color-mix(in srgb,#3fae6a 12%,var(--surface));border:1px solid color-mix(in srgb,#3fae6a 42%,var(--hair));color:var(--ink-soft)}
+.note.veg b{color:var(--ink)}
+.note.veg a{color:#2f9e5f;text-decoration:none;border-bottom:1px solid color-mix(in srgb,#2f9e5f 45%,transparent)}
+:root[data-theme="dark"] .note.veg a{color:#5fce8f}
+.note .ni{flex:none}
+.track{background:var(--surface);border:1px solid var(--hair);border-radius:18px;padding:6px 4px}
+.trk-item{display:flex;align-items:center;gap:14px;padding:13px 18px;border-bottom:1px solid var(--hair-2);cursor:pointer;transition:.15s}
+.trk-item:last-child{border-bottom:0}
+.trk-item:hover{background:var(--surface-2)}
+.box{flex:none;width:22px;height:22px;border-radius:7px;border:2px solid var(--muted);display:grid;place-items:center;transition:.2s;color:transparent;font-size:13px;font-weight:700}
+.trk-item.done .box{background:var(--gold);border-color:var(--gold);color:var(--paper)}
+.trk-item.done .tl{color:var(--muted);text-decoration:line-through}
+.trk-main{flex:1;min-width:0}
+.trk-main .tl{font-weight:500;font-size:15px}
+.trk-main .ts{font-size:12.5px;color:var(--muted)}
+.trk-main .ts a{color:var(--gold)}
+.trk-cat{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.05em;padding:3px 9px;border-radius:99px;
+  border:1px solid var(--hair);color:var(--ink-soft);white-space:nowrap;flex:none}
+.progress{height:8px;border-radius:99px;background:var(--hair);overflow:hidden;margin:0 14px 14px}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--l-seoul));width:0;transition:.4s}
+/* ---- trip map ---- */
+.map-wrap{border:1px solid var(--hair);border-radius:20px;background:
+  radial-gradient(120% 120% at 70% 15%,color-mix(in srgb,var(--l-hokkaido) 7%,var(--surface)),var(--surface) 60%);
+  padding:8px;overflow:hidden}
+.trip-map{width:100%;height:auto;display:block}
+.tm-land{fill:var(--surface-2);opacity:.75;stroke:var(--hair);stroke-width:1}
+:root[data-theme="dark"] .tm-land{fill:#241f16;opacity:.85;stroke:#2f2960}
+.tm-route{fill:none;stroke-width:2.6;stroke-linecap:round;opacity:.9}
+.tm-flight{stroke-dasharray:1 9;animation:tmflow 1.3s linear infinite}
+@keyframes tmflow{to{stroke-dashoffset:-20}}
+@media(prefers-reduced-motion:reduce){.tm-flight,.tm-brazil{animation:none;stroke-dasharray:3 6}}
+.tm-brazil{stroke:var(--muted);stroke-width:1.8;stroke-dasharray:1 8;opacity:.55;animation:tmflow 1.7s linear infinite}
+.tm-node{cursor:pointer}
+.tm-dot{stroke:var(--paper);stroke-width:3;transition:r .2s}
+.tm-node:hover .tm-dot,.tm-node:focus .tm-dot{r:12}
+.tm-name{font-family:"DM Mono",monospace;font-weight:500;font-size:14px;letter-spacing:.05em;fill:var(--ink)}
+.tm-sub{font-family:"DM Mono",monospace;font-size:11px;fill:var(--muted)}
+.tm-badge{fill:var(--ink)}
+.tm-badge-t{font-family:"DM Mono",monospace;fill:var(--paper);font-size:11px;font-weight:700;text-anchor:middle}
+.tm-node:focus{outline:none}
+.map-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-family:"DM Mono",monospace;font-size:12px;color:var(--muted)}
+.map-legend b{color:var(--ink-soft);font-weight:500}
+.map-legend i{display:inline-block;width:26px;height:0;vertical-align:middle;margin-right:7px;border-top:2px solid var(--ink-soft)}
+.map-legend i.dash{border-top:2px dashed var(--ink-soft)}
+/* ---- stay cards ---- */
+.stay-grid{display:grid;gap:16px}
+.stay{background:var(--surface);border:1px solid var(--hair);border-radius:18px;overflow:hidden}
+.stay-h{display:flex;align-items:center;gap:10px;padding:15px 18px;border-bottom:1px solid var(--hair)}
+.stay-h .sq{width:11px;height:11px;border-radius:3px;background:var(--c);flex:none}
+.stay-h h3{font-size:17px;margin:0}
+.stay-h .loc{margin-left:auto;font-family:"DM Mono",monospace;font-size:11px;color:var(--muted);text-align:right}
+.stay-row{display:flex;gap:12px;align-items:baseline;padding:11px 18px;border-bottom:1px dashed var(--hair-2);font-size:14px}
+.stay-row:last-child{border-bottom:0}
+.stay-row .nm{font-weight:500;min-width:0}
+.stay-row .nm b{font-weight:700}
+.stay-row .ty{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.04em;padding:2px 7px;border-radius:99px;border:1px solid var(--hair-2);color:var(--muted);white-space:nowrap;flex:none}
+.stay-row .pr{margin-left:auto;font-family:"DM Mono",monospace;font-size:12.5px;color:var(--ink-soft);white-space:nowrap;flex:none}
+.stay-row .nm a{color:var(--c);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--c) 40%,transparent)}
+/* ---- calendar ---- */
+.cal-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.cal h3{font-family:"Shippori Mincho",serif;font-size:19px;margin:0 0 12px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.cal-dow{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.04em;color:var(--muted);text-align:center;padding:2px 0}
+.cal-cell{aspect-ratio:1;border-radius:9px;position:relative;display:flex;flex-direction:column;padding:5px 6px;
+  border:1px solid transparent}
+.cal-cell.pad{border:0}
+.cal-cell.off{color:var(--muted);opacity:.5;border:1px solid var(--hair-2)}
+.cal-cell.trip{cursor:pointer;background:color-mix(in srgb,var(--c) 15%,var(--surface));
+  border:1px solid color-mix(in srgb,var(--c) 42%,var(--hair));transition:.15s}
+.cal-cell.trip:hover,.cal-cell.trip:focus{background:color-mix(in srgb,var(--c) 30%,var(--surface));
+  transform:translateY(-2px);outline:none}
+.cal-cell .dn{font-family:"Shippori Mincho",serif;font-weight:700;font-size:15px;line-height:1;color:var(--ink)}
+.cal-cell.off .dn{color:var(--muted);font-weight:400}
+.cal-cell .de{margin-top:auto;font-size:14px;line-height:1;align-self:flex-end}
+.cal-cell .cbar{position:absolute;left:6px;right:6px;bottom:4px;height:3px;border-radius:2px;background:var(--c)}
+.cal-cell.hol::after{content:"";position:absolute;top:5px;right:5px;width:6px;height:6px;border-radius:99px;
+  background:var(--l-seoul);box-shadow:0 0 0 2px var(--surface)}
+.cal-legend{display:flex;flex-wrap:wrap;gap:7px 14px;margin-top:20px;font-family:"DM Mono",monospace;font-size:11.5px}
+.cal-legend span{display:inline-flex;align-items:center;gap:7px;color:var(--ink-soft)}
+.cal-legend b{width:12px;height:12px;border-radius:3px;background:var(--c)}
+@media(max-width:640px){.cal-cell{padding:4px}.cal-cell .dn{font-size:13px}.cal-cell .de{font-size:11px}}
+.btable{width:100%;border-collapse:collapse;font-size:14px}
+.btable th,.btable td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--hair-2)}
+.btable th{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.btable td.num{font-family:"DM Mono",monospace;text-align:right;white-space:nowrap}
+.btable tr:last-child td{border-bottom:0}
+.btable .total td{font-weight:700;border-top:2px solid var(--hair)}
+footer{border-top:1px solid var(--hair);margin-top:40px;padding:40px 0 70px;color:var(--muted);font-size:13px}
+footer .fg{font-family:"Shippori Mincho",serif;font-size:20px;color:var(--ink);margin-bottom:10px}
+footer a{color:var(--ink-soft)}
+.disclaim{margin-top:16px;font-size:12px;line-height:1.7}
+.reveal{opacity:0;transform:translateY(18px)}
+.reveal.in{opacity:1;transform:none;transition:.7s cubic-bezier(.2,.7,.2,1)}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}*{scroll-behavior:auto}}
+@media(max-width:760px){
+  .topnav a{padding:6px 9px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:last-child{grid-column:1 / -1}
+}
+@media(max-width:640px){
+  .phase-head{top:96px}.filters{top:50px}
+  .topbar-in{gap:8px}.brand small{display:none}
+  .day-btn{gap:11px;padding:13px 12px}
+  .day-date{min-width:40px}.day-date .num{font-size:21px}
+  .day-body{padding:4px 14px 18px}
+  .blk{gap:11px}.blk .bi{width:28px;height:28px}
+  .alert{padding:18px 16px;gap:12px}.alert .ic{font-size:22px}
+  .card{padding:18px}
+  .trk-item{padding:12px 13px;gap:11px}.trk-cat{display:none}
+  section{padding:40px 0}
+}
+@media(max-width:600px){
+  .hero{padding-top:clamp(30px,9vw,54px)}
+  .hero .stamp{display:none}   /* decorative; "24 nights" stat already conveys duration */
+}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-in">
+  <div class="brand">&#26085;&#26412; &#183; &#38867;&#22269; <small>NOV 10 &#8211; DEC 4, 2026</small></div>
+  <nav class="topnav">
+    <a href="#map" style="--c:var(--l-final)"><span class="dot"></span>Map</a>
+    <a href="#calendar" style="--c:var(--gold)"><span class="dot"></span>Calendar</a>
+    <a href="#before" style="--c:var(--l-seoul)"><span class="dot"></span>Before You Book</a>
+    <a href="#jetlag" style="--c:var(--l-hokkaido)"><span class="dot"></span>Jet Lag</a>
+    <a href="#move" style="--c:var(--gold)"><span class="dot"></span>Transport</a>
+    <a href="#stay" style="--c:var(--l-tokyo)"><span class="dot"></span>Stay</a>
+    <a href="#p1" style="--c:var(--l-tokyo)"><span class="dot"></span>Tokyo I</a>
+    <a href="#p2" style="--c:var(--l-disney)"><span class="dot"></span>Disney</a>
+    <a href="#p3" style="--c:var(--l-hokkaido)"><span class="dot"></span>Hokkaido</a>
+    <a href="#p4" style="--c:var(--l-seoul)"><span class="dot"></span>Seoul</a>
+    <a href="#p5" style="--c:var(--l-final)"><span class="dot"></span>Tokyo II</a>
+    <a href="#track" style="--c:var(--gold)"><span class="dot"></span>Trackers</a>
+    <a href="#budget" style="--c:var(--l-disney)"><span class="dot"></span>Budget</a>
+  </nav>
+  <button class="theme-btn" id="themeBtn" title="Toggle theme" aria-label="Toggle theme">&#9680;</button>
+</div></div>
+<div class="wrap">
+<header class="hero">
+  <div class="stamp"><div><b>25<br>DAYS</b><span>&#20837;&#22269; &#183; &#20986;&#22269;</span></div></div>
+  <div class="eyebrow reveal">S&#227;o Paulo &#8594; Narita &#183; a winter passage</div>
+  <h1 class="reveal">Tokyo,&nbsp;Hokkaido<br>&amp; Seoul<span class="jp">&#12392;&#12358;&#12365;&#12423;&#12358; &#12539; &#12411;&#12387;&#12363;&#12356;&#12393;&#12358; &#12539; &#12477;&#12454;&#12523;</span></h1>
+  <p class="lede reveal">A 24-night loop for two, arriving Narita <b>Tue Nov 10 &#183; 16:15</b> and departing Narita <b>Fri Dec 4 &#183; 17:00</b>. Built around your jet-lag recovery, two days of Disney, snow-season Hokkaido, a Seoul side-trip, and every restaurant &amp; shop on your list &#8212; sequenced to erase backtracking.</p>
+  <div class="routebar reveal">
+    <b style="--c:var(--l-tokyo)">Tokyo I</b><i>&#9992; HND&#8594;CTS</i>
+    <b style="--c:var(--l-disney)">Disney</b><i>&#8212;</i>
+    <b style="--c:var(--l-hokkaido)">Sapporo &#183; Asahikawa</b><i>&#9992; CTS&#8594;ICN</i>
+    <b style="--c:var(--l-seoul)">Seoul</b><i>&#9992; ICN&#8594;HND</i>
+    <b style="--c:var(--l-final)">Tokyo II</b>
+  </div>
+  <div class="stats reveal">
+    <div class="stat"><b>24</b><span>nights</span></div>
+    <div class="stat"><b>2</b><span>countries</span></div>
+    <div class="stat"><b>3</b><span>intra-trip flights</span></div>
+    <div class="stat"><b>5</b><span>base cities</span></div>
+    <div class="stat"><b>&#165;0</b><span>on JR Pass &#8212; you skip it</span></div>
+  </div>
+</header>
+
+<section id="map">
+  <div class="sec-head"><span class="idx">01</span><h2>The journey, mapped</h2></div>
+  <p class="sec-sub">Three internal flights, one train hop, zero backtracking &#8212; the Sapporo&#8594;Seoul leg flies <b>direct</b>, so you never double back through Tokyo. <b>Tap any stop</b> to jump to its days.</p>
+  <div class="map-wrap">
+    <svg class="trip-map" viewBox="0 0 900 560" role="img" aria-label="Route map: Seoul, Tokyo, Disney, Sapporo, Asahikawa">
+      <path class="tm-land" d="M118,300 C104,338 116,398 150,438 C176,468 210,452 214,414 C222,372 206,326 190,304 C170,282 132,280 118,300 Z"/>
+      <path class="tm-land" d="M455,296 C516,352 604,404 676,448 C704,466 726,452 706,428 C648,362 556,304 500,282 C482,276 448,282 455,296 Z"/>
+      <path class="tm-land" d="M700,64 C688,104 706,158 756,176 C808,192 852,156 846,112 C840,74 800,44 758,50 C728,54 706,50 700,64 Z"/>
+      <path class="tm-route tm-brazil" d="M18,545 Q330,556 686,449"/>
+      <path class="tm-route tm-flight" style="stroke:var(--l-hokkaido)" d="M690,438 Q636,250 758,122"/>
+      <path class="tm-route" style="stroke:var(--l-hokkaido)" d="M758,120 L790,82"/>
+      <path class="tm-route tm-flight" style="stroke:var(--l-seoul)" d="M754,126 Q430,66 178,346"/>
+      <path class="tm-route tm-flight" style="stroke:var(--l-final)" d="M176,362 Q446,588 681,447"/>
+      <path class="tm-route" style="stroke:var(--l-disney);stroke-dasharray:2 6" d="M684,442 L706,456"/>
+      <text class="tm-sub" x="24" y="533">&#9992; from / to S&#227;o Paulo &#183; 12h east</text>
+      <g class="tm-node" data-goto="p4" style="color:var(--l-seoul)" tabindex="0" role="button" aria-label="Seoul, November 23 to 26">
+        <title>Seoul &#183; Nov 23&#8211;26 &#8212; jump to these days</title>
+        <circle class="tm-dot" cx="176" cy="354" r="9" fill="currentColor"/>
+        <circle class="tm-badge" cx="160" cy="338" r="9"/><text class="tm-badge-t" x="160" y="342">5</text>
+        <text class="tm-name" x="193" y="350">SEOUL</text><text class="tm-sub" x="193" y="366">Nov 23&#8211;26</text>
+      </g>
+      <g class="tm-node" data-goto="p1" style="color:var(--l-tokyo)" tabindex="0" role="button" aria-label="Tokyo, start and finish">
+        <title>Tokyo &#183; start &amp; finish &#8212; jump to these days</title>
+        <circle class="tm-dot" cx="683" cy="440" r="10" fill="currentColor"/>
+        <circle class="tm-badge" cx="666" cy="424" r="9"/><text class="tm-badge-t" x="666" y="428">1</text>
+        <text class="tm-name" x="668" y="437" text-anchor="end">TOKYO</text><text class="tm-sub" x="668" y="453" text-anchor="end">start &#183; finish</text>
+      </g>
+      <g class="tm-node" data-goto="p2" style="color:var(--l-disney)" tabindex="0" role="button" aria-label="Tokyo Disney, November 16 to 17">
+        <title>Tokyo Disney &#183; Nov 16&#8211;17 &#8212; jump to these days</title>
+        <circle class="tm-dot" cx="706" cy="456" r="8" fill="currentColor"/>
+        <circle class="tm-badge" cx="723" cy="470" r="9"/><text class="tm-badge-t" x="723" y="474">2</text>
+        <text class="tm-name" x="738" y="461">DISNEY</text><text class="tm-sub" x="738" y="477">Nov 16&#8211;17</text>
+      </g>
+      <g class="tm-node" data-goto="p3" style="color:var(--l-hokkaido)" tabindex="0" role="button" aria-label="Sapporo, November 18 to 20">
+        <title>Sapporo &#183; Nov 18&#8211;20 &#8212; jump to these days</title>
+        <circle class="tm-dot" cx="756" cy="120" r="9" fill="currentColor"/>
+        <circle class="tm-badge" cx="740" cy="105" r="9"/><text class="tm-badge-t" x="740" y="109">3</text>
+        <text class="tm-name" x="742" y="117" text-anchor="end">SAPPORO</text><text class="tm-sub" x="742" y="133" text-anchor="end">Nov 18&#8211;20</text>
+      </g>
+      <g class="tm-node" data-goto="p3" style="color:var(--l-hokkaido)" tabindex="0" role="button" aria-label="Asahikawa, November 21 to 22">
+        <title>Asahikawa &#183; Nov 21&#8211;22 &#8212; jump to these days</title>
+        <circle class="tm-dot" cx="792" cy="80" r="8" fill="currentColor"/>
+        <circle class="tm-badge" cx="792" cy="60" r="9"/><text class="tm-badge-t" x="792" y="64">4</text>
+        <text class="tm-name" x="806" y="80">ASAHIKAWA</text><text class="tm-sub" x="806" y="96">Nov 21&#8211;22</text>
+      </g>
+    </svg>
+  </div>
+  <div class="map-legend">
+    <span><i class="dash"></i><b>&#9992; Flight</b> &#215;3</span>
+    <span><i></i><b>&#128644; Train</b> &#183; Sapporo&#8646;Asahikawa</span>
+    <span><b>&#9312;&#8594;&#9316;</b> order of travel</span>
+    <span><b>Tap a stop</b> &#8594; its days</span>
+  </div>
+</section>
+
+<section id="calendar">
+  <div class="sec-head"><span class="idx">02</span><h2>The trip on a calendar</h2></div>
+  <p class="sec-sub">Every day colour-coded by where you are. <b>Tap a coloured day</b> to jump to it. The orange dot marks Japan's Nov 23 public holiday (Labor Thanksgiving) &#8212; a 3-day weekend you're dodging by being in Korea.</p>
+  <div class="cal-wrap"><div class="cal"><h3>November 2026</h3><div class="cal-grid"><div class="cal-dow">Su</div><div class="cal-dow">Mo</div><div class="cal-dow">Tu</div><div class="cal-dow">We</div><div class="cal-dow">Th</div><div class="cal-dow">Fr</div><div class="cal-dow">Sa</div><div class="cal-cell off"><span class="dn">1</span></div><div class="cal-cell off"><span class="dn">2</span></div><div class="cal-cell off"><span class="dn">3</span></div><div class="cal-cell off"><span class="dn">4</span></div><div class="cal-cell off"><span class="dn">5</span></div><div class="cal-cell off"><span class="dn">6</span></div><div class="cal-cell off"><span class="dn">7</span></div><div class="cal-cell off"><span class="dn">8</span></div><div class="cal-cell off"><span class="dn">9</span></div><div class="cal-cell trip" style="--c:var(--l-tokyo)" data-goto="p1" tabindex="0" role="button" title="Arrive Narita 16:15 · Shinjuku"><span class="dn">10</span><span class="de">✈</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-tokyo)" data-goto="p1" tabindex="0" role="button" title="Camera scout (Map Camera) + Harajuku"><span class="dn">11</span><span class="de">📷</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-tokyo)" data-goto="p1" tabindex="0" role="button" title="Buy the camera · Akihabara"><span class="dn">12</span><span class="de">📷</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-tokyo)" data-goto="p1" tabindex="0" role="button" title="teamLab Planets + Toyosu"><span class="dn">13</span><span class="de">🌌</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-tokyo)" data-goto="p1" tabindex="0" role="button" title="Ginza shopping + Shibuya night"><span class="dn">14</span><span class="de">🛍</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-disney)" data-goto="p2" tabindex="0" role="button" title="Transfer to Disney Bay"><span class="dn">15</span><span class="de">🧳</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-disney)" data-goto="p2" tabindex="0" role="button" title="Disneyland (Mon)"><span class="dn">16</span><span class="de">🏰</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-disney)" data-goto="p2" tabindex="0" role="button" title="DisneySea · Fantasy Springs (quiet Tue)"><span class="dn">17</span><span class="de">🎢</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-hokkaido)" data-goto="p3" tabindex="0" role="button" title="Fly Haneda→Sapporo"><span class="dn">18</span><span class="de">✈</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-hokkaido)" data-goto="p3" tabindex="0" role="button" title="Sapporo core + Moiwa"><span class="dn">19</span><span class="de">🍜</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-hokkaido)" data-goto="p3" tabindex="0" role="button" title="Otaru + White Illumination"><span class="dn">20</span><span class="de">🎄</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-hokkaido)" data-goto="p3" tabindex="0" role="button" title="Train to Asahikawa · zoo"><span class="dn">21</span><span class="de">🐧</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-hokkaido)" data-goto="p3" tabindex="0" role="button" title="Biei Blue Pond + sake"><span class="dn">22</span><span class="de">🔵</span><span class="cbar"></span></div><div class="cal-cell trip hol" style="--c:var(--l-seoul)" data-goto="p4" tabindex="0" role="button" title="Fly CTS→Seoul · JP holiday"><span class="dn">23</span><span class="de">✈</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-seoul)" data-goto="p4" tabindex="0" role="button" title="Seoul palaces & old town"><span class="dn">24</span><span class="de">👑</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-seoul)" data-goto="p4" tabindex="0" role="button" title="Seoul markets & Hongdae"><span class="dn">25</span><span class="de">🛍</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-seoul)" data-goto="p4" tabindex="0" role="button" title="Seoul — your pick"><span class="dn">26</span><span class="de">🧭</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-final)" data-goto="p5" tabindex="0" role="button" title="Fly Seoul→Tokyo"><span class="dn">27</span><span class="de">✈</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-final)" data-goto="p5" tabindex="0" role="button" title="Shinjuku day"><span class="dn">28</span><span class="de">🍁</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-final)" data-goto="p5" tabindex="0" role="button" title="Asakusa + Ueno"><span class="dn">29</span><span class="de">⛩</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-final)" data-goto="p5" tabindex="0" role="button" title="Shopping #2 · Shibuya"><span class="dn">30</span><span class="de">🛍</span><span class="cbar"></span></div></div></div><div class="cal"><h3>December 2026</h3><div class="cal-grid"><div class="cal-dow">Su</div><div class="cal-dow">Mo</div><div class="cal-dow">Tu</div><div class="cal-dow">We</div><div class="cal-dow">Th</div><div class="cal-dow">Fr</div><div class="cal-dow">Sa</div><div class="cal-cell pad"></div><div class="cal-cell pad"></div><div class="cal-cell trip" style="--c:var(--l-final)" data-goto="p5" tabindex="0" role="button" title="Shopping #3 · Ginza"><span class="dn">1</span><span class="de">🛍</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-final)" data-goto="p5" tabindex="0" role="button" title="Bassanova + Shimokitazawa"><span class="dn">2</span><span class="de">🍜</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-final)" data-goto="p5" tabindex="0" role="button" title="Buffer / last wishes"><span class="dn">3</span><span class="de">🎇</span><span class="cbar"></span></div><div class="cal-cell trip" style="--c:var(--l-final)" data-goto="p5" tabindex="0" role="button" title="Depart Narita 17:00"><span class="dn">4</span><span class="de">✈</span><span class="cbar"></span></div><div class="cal-cell off"><span class="dn">5</span></div><div class="cal-cell off"><span class="dn">6</span></div><div class="cal-cell off"><span class="dn">7</span></div><div class="cal-cell off"><span class="dn">8</span></div><div class="cal-cell off"><span class="dn">9</span></div><div class="cal-cell off"><span class="dn">10</span></div><div class="cal-cell off"><span class="dn">11</span></div><div class="cal-cell off"><span class="dn">12</span></div><div class="cal-cell off"><span class="dn">13</span></div><div class="cal-cell off"><span class="dn">14</span></div><div class="cal-cell off"><span class="dn">15</span></div><div class="cal-cell off"><span class="dn">16</span></div><div class="cal-cell off"><span class="dn">17</span></div><div class="cal-cell off"><span class="dn">18</span></div><div class="cal-cell off"><span class="dn">19</span></div><div class="cal-cell off"><span class="dn">20</span></div><div class="cal-cell off"><span class="dn">21</span></div><div class="cal-cell off"><span class="dn">22</span></div><div class="cal-cell off"><span class="dn">23</span></div><div class="cal-cell off"><span class="dn">24</span></div><div class="cal-cell off"><span class="dn">25</span></div><div class="cal-cell off"><span class="dn">26</span></div><div class="cal-cell off"><span class="dn">27</span></div><div class="cal-cell off"><span class="dn">28</span></div><div class="cal-cell off"><span class="dn">29</span></div><div class="cal-cell off"><span class="dn">30</span></div><div class="cal-cell off"><span class="dn">31</span></div></div></div></div>
+  <div class="cal-legend">
+    <span><b style="--c:var(--l-tokyo)"></b>Tokyo I</span>
+    <span><b style="--c:var(--l-disney)"></b>Disney</span>
+    <span><b style="--c:var(--l-hokkaido)"></b>Hokkaido</span>
+    <span><b style="--c:var(--l-seoul)"></b>Seoul</span>
+    <span><b style="--c:var(--l-final)"></b>Tokyo II</span>
+  </div>
+</section>
+
+<section id="before">
+  <div class="sec-head"><span class="idx">03</span><h2>Before you book anything</h2></div>
+  <p class="sec-sub">Two document issues are specific to a <b>Brazilian passport</b> in late 2026. Clear these first &#8212; they gate the whole trip.</p>
+  <div class="grid g2">
+    <div class="alert reveal"><div class="ic">&#128484;</div><div>
+      <h3>Japan visa-free status &#8212; verify it's still active</h3>
+      <p style="font-size:14.5px;color:var(--ink-soft)">The Brazil&#8211;Japan reciprocal 90-day visa waiver was signed for an initial term ending <b>Sep 30, 2026</b>. Your trip starts <b>Nov 10, 2026</b> &#8212; after that date.</p>
+      <ul><li>Confirm the waiver was <b>renewed</b> with the Japanese Embassy / MOFA before buying flights. If it lapsed, you'd need a tourist visa.</li>
+      <li>A <b>biometric (electronic) passport</b> is required for visa-free entry.</li></ul>
+    </div></div>
+    <div class="alert reveal" style="border-color:var(--l-hokkaido);background:color-mix(in srgb,var(--l-hokkaido) 9%,var(--surface))"><div class="ic">&#127472;&#127479;</div><div>
+      <h3 style="color:var(--l-hokkaido)">Korea needs a K-ETA (Brazil is not exempt)</h3>
+      <p style="font-size:14.5px;color:var(--ink-soft)">Brazilians are visa-free for Korea (90 days) but <b>must hold a K-ETA</b> &#8212; Brazil is not on the 22-country exemption list.</p>
+      <ul><li>Apply at <a href="https://www.k-eta.go.kr" style="color:var(--l-hokkaido)"><b>k-eta.go.kr</b></a> &#8212; ~&#8361;10,000 (&#8776; US$8), valid 3 years.</li>
+      <li>Processing takes <b>up to 72h</b> &#8212; do it at least a week before Nov 23.</li></ul>
+    </div></div>
+  </div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="card reveal"><span class="k">Book ~60 days out</span><h3>&#127915; Tokyo Disney tickets</h3><p>Fixed-date passports open ~2 months ahead (early-Sept 2026). Christmas-season weekends sell out in days. Buy Nov 16 &amp; 17 <b>(Mon/Tue, weekdays)</b>.</p></div>
+    <div class="card reveal"><span class="k">Sells out 2&#8211;3 wks ahead</span><h3>&#127756; teamLab Planets</h3><p>Timed-entry only, in peak-foliage season. Book the day tickets open (~90 days out) for your Nov 13 slot. Vegan Ramen UZU sits inside.</p></div>
+    <div class="card reveal"><span class="k">3 one-way tickets</span><h3>&#9992; The three flights</h3><p>HND&#8594;CTS &#183; CTS&#8594;ICN (direct) &#183; ICN&#8594;HND. LCC fares cheapest 2&#8211;3 months out. See <a href="#move" style="color:var(--gold)">Transport</a>.</p></div>
+  </div>
+</section>
+
+<section id="jetlag">
+  <div class="sec-head"><span class="idx">04</span><h2>The jet lag, handled</h2></div>
+  <p class="sec-sub">S&#227;o Paulo (UTC&#8722;3) &#8594; Tokyo (UTC+9) is a <b>12-hour eastward</b> jump &#8212; the harder direction, because your body clock resists <em>advancing</em>. Unaided it can take ~10 days; with light + melatonin discipline you'll feel largely normal by <b>Day 3</b>. That's why the first three days are deliberately gentle.</p>
+  <div class="grid g3" style="margin-bottom:20px">
+    <div class="card reveal"><span class="k">Your #1 tool</span><h3>&#9728;&#65039; Chase morning light</h3><p>You'll wake at 4&#8211;5am the first days. Get <b>outside within an hour of waking</b>, before 10:00, every day for 4 days. After 20:00, dim everything.</p></div>
+    <div class="card reveal"><span class="k">0.5&#8211;1 mg</span><h3>&#128137; Melatonin, low + early</h3><p>Take <b>0.5&#8211;1 mg ~30 min before bedtime</b> (22:00&#8211;23:00 JST), from arrival night, 3&#8211;5 nights. Never in daytime.</p></div>
+    <div class="card reveal"><span class="k">Cut-off 14:00</span><h3>&#9749; Caffeine &amp; meals</h3><p>Eat on Tokyo time from landing. Coffee mornings only; <b>hard stop at 2pm</b>. No alcohol first 2&#8211;3 days. Hydrate hard.</p></div>
+  </div>
+  <div class="jl reveal"><div class="jl-row">
+    <div class="jl-cell"><div class="d">NOV 10 &#183; ARRIVAL</div><div class="t">Land 16:15. No napping. Light dinner ~19:30, melatonin ~22:00, bed by 23:00.</div><div class="jl-bar" style="width:22%"></div></div>
+    <div class="jl-cell"><div class="d">NOV 11 &#183; DAY 1</div><div class="t">Wake ~4&#8211;5am &#8212; accept it. Morning light walk. Low-effort only (Meiji &#183; Harajuku).</div><div class="jl-bar" style="width:40%"></div></div>
+    <div class="jl-cell"><div class="d">NOV 12 &#183; DAY 2</div><div class="t">Wake ~5&#8211;6am. Moderate day (Ginza). Afternoon dip; one 20-min nap max.</div><div class="jl-bar" style="width:62%"></div></div>
+    <div class="jl-cell"><div class="d">NOV 13 &#183; DAY 3</div><div class="t">Wake ~6&#8211;7am. Near-normal. teamLab + Toyosu. Keep the light ritual 1&#8211;2 more days.</div><div class="jl-bar" style="width:82%"></div></div>
+    <div class="jl-cell"><div class="d">NOV 14 &#183; DAY 4</div><div class="t">Full pace. Shibuya day. Essentially adjusted.</div><div class="jl-bar" style="width:94%"></div></div>
+    <div class="jl-cell"><div class="d">NOV 16&#8211;17</div><div class="t">Disney lands on Day 6&#8211;7 on purpose &#8212; full energy for rope-drop.</div><div class="jl-bar" style="width:100%"></div></div>
+    <div class="jl-cell"><div class="d">DEC 4 &#183; RETURN</div><div class="t">Tokyo&#8594;Brazil is <b>westward = easier</b> (~3&#8211;5 days). Evening light at home, stay up late.</div><div class="jl-bar" style="width:100%;background:linear-gradient(90deg,var(--l-seoul),var(--gold))"></div></div>
+  </div></div>
+</section>
+
+<section id="move">
+  <div class="sec-head"><span class="idx">05</span><h2>Getting around &amp; the pass math</h2></div>
+  <p class="sec-sub">The headline: <b>skip the Japan Rail Pass entirely.</b> Because every long leg here is a <em>flight</em>, a nationwide pass (&#165;53,000+ pp on your Oct-2026 dates) can't recover more than ~&#165;14,000 of rail value. Same verdict for the JR Hokkaido pass.</p>
+  <div class="grid g2" style="margin-bottom:18px">
+    <div class="card reveal"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h3>&#128644; Nationwide JR Pass</h3><span class="pill skip">SKIP</span></div><p>&#165;53k / &#165;84k / &#165;105k (7/14/21-day, post-Oct-1-2026). You'd use ~&#165;14k of JR rail. Loses ~&#165;65k+ for two.</p></div>
+    <div class="card reveal"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h3>&#10052;&#65039; JR Hokkaido Pass</h3><span class="pill skip">SKIP</span></div><p>5-day &#165;22,000 pp. Your CTS&#8596;Sapporo&#8596;Asahikawa segments total only ~&#165;13,180 pp as singles (discounted on <b>Ekinet</b>).</p></div>
+    <div class="card reveal"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h3>&#128241; Mobile / Welcome Suica</h3><span class="pill buy">BUY</span></div><p>Your everyday tap card &#8212; metro, JR, buses, konbini. Add Suica to Apple Wallet, or grab a physical <b>Welcome Suica / Tourist PASMO</b> at the airport.</p></div>
+    <div class="card reveal"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h3>&#127915; Tokyo Subway 72h</h3><span class="pill opt">HEAVY DAYS</span></div><p>&#165;2,000 covers all 13 metro/Toei lines, breaks even at ~8 rides. Buy 2&#8211;3 for dense days; Suica otherwise.</p></div>
+  </div>
+  <div class="card reveal" style="padding:0;overflow:hidden">
+    <div style="padding:18px 22px;border-bottom:1px solid var(--hair)"><h3 style="margin:0">&#128748; Airport &amp; inter-city moves</h3></div>
+    <div class="tscroll"><table class="btable">
+      <tr><th>Leg</th><th>How</th><th class="num">Time</th><th class="num">&#8776; Fare (pp)</th></tr>
+      <tr><td>Narita &#8594; Shinjuku (arrival)</td><td>N'EX direct &#8212; comfiest with luggage, jet-lagged</td><td class="num">~80 min</td><td class="num">&#165;3,250</td></tr>
+      <tr><td><span style="color:var(--muted)">&#8627; faster/cheaper alt</span></td><td><span style="color:var(--muted)">Keisei Skyliner + transfer at Nippori</span></td><td class="num">~40+</td><td class="num">&#165;2,310</td></tr>
+      <tr><td>Shinjuku &#8594; Disney (Maihama)</td><td>JR to Tokyo Stn &#8594; Keiy&#333; Line, or bus</td><td class="num">~45 min</td><td class="num">&#165;400</td></tr>
+      <tr><td>Disney/Tokyo &#8594; Sapporo</td><td>&#9992; Haneda &#8594; New Chitose (Air Do / Skymark / JAL)</td><td class="num">~1h35</td><td class="num">&#165;8&#8211;20k</td></tr>
+      <tr><td>New Chitose &#8594; Sapporo</td><td>JR Airport Rapid</td><td class="num">~37 min</td><td class="num">&#165;1,430</td></tr>
+      <tr><td>Sapporo &#8646; Asahikawa</td><td>Ltd Exp Lilac / Kamui (reserved; Ekinet discount)</td><td class="num">~1h25</td><td class="num">&#165;5,440</td></tr>
+      <tr><td>Sapporo &#8594; Seoul</td><td>&#9992; New Chitose &#8594; Incheon <b>direct</b> (Jeju/Jin/T'way)</td><td class="num">~3h</td><td class="num">~US$120</td></tr>
+      <tr><td>Seoul &#8594; Tokyo</td><td>&#9992; Incheon &#8594; Haneda (Korean/Asiana, city-side)</td><td class="num">~2h20</td><td class="num">US$140&#8211;250</td></tr>
+      <tr><td>Shinjuku &#8594; Narita (departure)</td><td>N'EX direct &#8212; leave hotel ~13:00 for 17:00 flight</td><td class="num">~80 min</td><td class="num">&#165;3,250</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<section id="stay">
+  <div class="sec-head"><span class="idx">06</span><h2>Where to sleep &#183; good spot, low cost</h2></div>
+  <p class="sec-sub">Each base near the good stuff, sorted cheap&#8594;comfort &#8212; hostels &amp; capsules where they exist, tidy business hotels where they don't. Prices are for <b>2 people / night</b> (Nov 2026 estimates; book 2&#8211;4 months out, Disney-area 4&#8211;6). Tap a name for the map.</p>
+  <div class="stay-grid"><div class="stay reveal" style="--c:var(--l-tokyo)"><div class="stay-h"><span class="sq"></span><h3>Tokyo · Shinjuku</h3><span class="loc">Nov 10–14 &amp; Nov 27–Dec 3</span></div><div class="stay-row"><span class="nm"><a href="https://www.google.com/maps/search/?api=1&query=UNPLAN%20Shinjuku%20hostel%20Shin-Okubo" target="_blank">UNPLAN Shinjuku</a></span><span class="ty">hostel · dorm/private</span><span class="pr">¥8–14k dbl · $55–97</span></div><div class="stay-row"><span class="nm"><a href="https://www.google.com/maps/search/?api=1&query=Ace%20Inn%20Shinjuku%20Akebonobashi" target="_blank">Ace Inn Shinjuku</a></span><span class="ty">capsule/dorm</span><span class="pr">¥2.5–3k pp</span></div><div class="stay-row"><span class="nm"><a href="https://www.google.com/maps/search/?api=1&query=Sakura%20Hotel%20Ikebukuro" target="_blank">Sakura Hotel Ikebukuro</a></span><span class="ty">hostel · fallback</span><span class="pr">¥6.5–10k dbl</span></div><div class="stay-row"><span class="nm"><a href="https://www.google.com/maps/search/?api=1&query=Keio%20Plaza%20Hotel%20Tokyo%20Nishishinjuku" target="_blank">Keiō Plaza / JR Kyūshū Blossom</a></span><span class="ty">mid-range hotel</span><span class="pr">¥18–30k</span></div></div><div class="stay reveal" style="--c:var(--l-disney)"><div class="stay-h"><span class="sq"></span><h3>Tokyo Disney · Bay</h3><span class="loc">Nov 15–17 · Maihama / Urayasu</span></div><div class="stay-row"><span class="nm"><a href="https://www.google.com/maps/search/?api=1&query=MYSTAYS%20Shin-Urayasu%20Conference%20Center" target="_blank">MYSTAYS Shin-Urayasu</a></span><span class="ty">business · free park shuttle</span><span class="pr">¥13–19k</span></div><div class="stay-row"><span class="nm"><a href="https://www.google.com/maps/search/?api=1&query=Comfort%20Suites%20Tokyo%20Bay%20Urayasu" target="_blank">Comfort Suites Tokyo Bay</a></span><span class="ty">business · free shuttle</span><span class="pr">¥15–20k</span></div><div class="stay-row"><span class="nm"><a href="https://www.google.com/maps/search/?api=1&query=Henn%20na%20Hotel%20Maihama%20Tokyo%20Bay" target="_blank">Henn na Hotel Maihama</a></span><span class="ty">business · closest to parks</span><span class="pr">¥17–25k</span></div><div class="stay-row"><span class="nm"><b>💡 Or commute from Shinjuku</b></span><span class="ty">~40 min · ~¥1.1k/day for 2</span><span class="pr">saves ¥8–22k</span></div></div><div class="stay reveal" style="--c:var(--l-hokkaido)"><div class="stay-h"><span class="sq"></span><h3>Sapporo</h3><span class="loc">Nov 18–20 · Odori / Susukino</span></div><div class="stay-row"><span class="nm"><a href="https://www.google.com/maps/search/?api=1&query=Grand%20Hostel%20LDK%20Sapporo%20Susukino" target="_blank">Grand Hostel LDK</a></span><span class="ty">hostel · dorm/private</span><span class="pr">¥5–13k</span></div><div class="stay-row"><span class="nm"><a href="https://www.google.com/maps/search/?api=1&query=Dormy%20Inn%20Premium%20Sapporo%20Hot%20Spring" target="_blank">Dormy Inn Premium Sapporo ⭐</a></span><span class="ty">business · onsen + free night ramen</span><span class="pr">¥10.5–16k</span></div></div><div class="stay reveal" style="--c:var(--l-hokkaido)"><div class="stay-h"><span class="sq"></span><h3>Asahikawa</h3><span class="loc">Nov 21–22 · by the station</span></div><div class="stay-row"><span class="nm"><a href="https://www.google.com/maps/search/?api=1&query=Toyoko%20Inn%20Asahikawa%20Ekimae%20Ichijo%20Dori" target="_blank">Toyoko Inn Ekimae Ichijō-dōri</a></span><span class="ty">business · breakfast incl.</span><span class="pr">¥8–10k</span></div><div class="stay-row"><span class="nm"><a href="https://www.google.com/maps/search/?api=1&query=JR%20Inn%20Asahikawa" target="_blank">JR Inn Asahikawa</a></span><span class="ty">business · inside the station (snow!)</span><span class="pr">¥14–16k</span></div></div><div class="stay reveal" style="--c:var(--l-seoul)"><div class="stay-h"><span class="sq"></span><h3>Seoul</h3><span class="loc">Nov 23–26 · Hongdae / Myeongdong</span></div><div class="stay-row"><span class="nm"><a href="https://www.google.com/maps/search/?api=1&query=Zzzip%20Guesthouse%20Hongdae%20Seoul" target="_blank">Zzzip Guesthouse, Hongdae ⭐</a></span><span class="ty">hostel · 9.7★ · dorm/private</span><span class="pr">₩28–65k · $20–46</span></div><div class="stay-row"><span class="nm"><a href="https://www.google.com/maps/search/?api=1&query=Bluedot%20Poshtel%20Seoul%20Myeongdong" target="_blank">Bluedot Poshtel, Myeongdong</a></span><span class="ty">hostel · dorm/private</span><span class="pr">₩45–70k · $32–50</span></div></div></div>
+</section>
+
+<section id="days" style="padding-top:24px">
+  <div class="sec-head"><span class="idx">07</span><h2>The day-by-day</h2></div>
+  <p class="sec-sub">Tap any day to expand. Every restaurant &amp; shop from your list is slotted into the map-logical day, and <b>each day carries a 🌱 vegan pick</b> (with a maps link) so there's always a plant-based plan &#8212; even in ramen-heavy Hokkaido.</p>
+  <div class="filters">
+    <button class="chip" data-f="all" aria-pressed="true">All days</button>
+    <button class="chip" data-f="camera" aria-pressed="false"><span class="emo">&#128247;</span>Camera</button>
+    <button class="chip" data-f="food" aria-pressed="false"><span class="emo">&#127836;</span>Food list</button>
+    <button class="chip" data-f="shop" aria-pressed="false"><span class="emo">&#128717;</span>Shopping</button>
+    <button class="chip" data-f="book" aria-pressed="false"><span class="emo">&#128204;</span>Must pre-book</button>
+    <button class="chip" data-f="travel" aria-pressed="false"><span class="emo">&#9992;</span>Travel days</button>
+    <button class="chip" data-f="sight" aria-pressed="false"><span class="emo">&#9962;</span>Sights</button>
+  </div>
+  <div id="phases">
+<div class="phase" id="p1" style="--line:var(--l-tokyo)">
+      <div class="phase-head reveal">
+        <div class="phase-tag"><span class="sq"></span>Phase 01 · Tokyo</div>
+        <h2>Tokyo — arrival, jet-lag &amp; first shopping</h2>
+        <div class="phase-meta"><span>🏨 Base: Shinjuku (Keiō Plaza / JR Kyūshū Blossom / Daiwa Roynet)</span><span>🌡 11–17°C, crisp &amp; dry</span><span>🚇 Yamanote hub · N'EX from Narita</span></div>
+      </div>
+      <div class="rail"><div class="day" data-tags="travel jetlag">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">10</div><div class="mo">Nov</div><div class="dow">TUE</div></div>
+        <div class="day-main"><div class="day-n">Day 01</div><h3>Land at Narita · settle into Shinjuku</h3><div class="tagrow"><span class="tag ">✈ travel</span><span class="tag ">😴 jet lag</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">✈</div><div><div class="bt">Arrive</div><div class="bx">Narita <b>16:15</b>. Immigration + bags, grab a <b>Welcome Suica</b>, then <b>N'EX direct to Shinjuku</b> (~80 min). At the hotel ~19:00.</div></div></div><div class="blk"><div class="bi">🍜</div><div><div class="bt">Dinner — easy &amp; near</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Afuri%20Karakurenai%20Shinjuku%20Subnade" target="_blank">Afuri Karakurenai</a> — spicy yuzu-shio ramen in the Shinjuku Subnade arcade, 3 min from the JR East exit. Perfect low-effort first meal (from your list).</div></div></div><div class="blk"><div class="bi">💊</div><div><div class="bt">Jet-lag protocol begins</div><div class="bx"><b>No napping.</b> Melatonin 0.5–1 mg ~22:00, lights dim, in bed by 23:00.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=Ain%20Soph%20Ripple%20Shinjuku%20Kabukicho" target="_blank">Ain Soph. Ripple</a> — all-vegan comfort food in Kabukichō, a walk from your hotel</div></div><div class="note tip"><span class="ni">💡</span><div>You'll likely wake at 4–5am tomorrow — that's expected. Don't fight it; get into morning light.</div></div></div>
+    </div><div class="day" data-tags="jetlag camera sight shop food">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">11</div><div class="mo">Nov</div><div class="dow">WED</div></div>
+        <div class="day-main"><div class="day-n">Day 02</div><h3>Gentle reset + camera scouting</h3><div class="tagrow"><span class="tag ">😴 jet lag</span><span class="tag ">📷 camera</span><span class="tag ">⛩ sight</span><span class="tag ">🛍 shop</span><span class="tag ">🍜 food</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">📷</div><div><div class="bt">Scout the camera</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Map%20Camera%20Nishishinjuku" target="_blank">Map Camera</a> is a 2-min walk from your Shinjuku hotel (Nishi-Shinjuku, JR West exit) — Japan's best new &amp; used camera/lens house (from your list). Today: <b>compare bodies, lenses &amp; prices</b>, note tax-free eligibility. Buy tomorrow in Akihabara after you've seen both. Easy, low-effort — perfect for a jet-lag day.</div></div></div><div class="blk"><div class="bi">☀️</div><div><div class="bt">Morning light</div><div class="bx">Then reset the body clock in <a href="https://www.google.com/maps/search/?api=1&query=Meiji%20Jingu" target="_blank">Meiji Jingū</a>'s forest — calm and green.</div></div></div><div class="blk"><div class="bi">🛍</div><div><div class="bt">Harajuku</div><div class="bx">Takeshita-dōri + <a href="https://www.google.com/maps/search/?api=1&query=%40cosme%20TOKYO%20Harajuku" target="_blank">@cosme TOKYO</a>, the three-floor cosmetics flagship (from your list).</div></div></div><div class="blk"><div class="bi">🍜</div><div><div class="bt">Lunch</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Kyushu%20Jangara%20Ramen%20Harajuku%20Jingumae" target="_blank">Kyūshū Jangara Harajuku</a> — tonkotsu on Meiji-dōri (from your list). Home early, melatonin, sleep.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=Brown%20Rice%20by%20Neals%20Yard%20Omotesando" target="_blank">Brown Rice by Neal's Yard</a> — vegan-friendly macrobiotic set meals, Omotesandō</div></div><div class="note tip"><span class="ni">💡</span><div>Camera plan: scout Map Camera today (near the hotel), then buy in Akihabara tomorrow — so you have the camera for teamLab, Disney, Hokkaido snow & Seoul. Bring your passport for tax-free (≥¥5,000).</div></div></div>
+    </div><div class="day" data-tags="camera shop food sight">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">12</div><div class="mo">Nov</div><div class="dow">THU</div></div>
+        <div class="day-main"><div class="day-n">Day 03</div><h3>Buy the camera · Akihabara</h3><div class="tagrow"><span class="tag ">📷 camera</span><span class="tag ">🛍 shop</span><span class="tag ">🍜 food</span><span class="tag ">⛩ sight</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">📷</div><div><div class="bt">Compare & buy</div><div class="bx">Akihabara is Tokyo's camera bazaar. Hit <a href="https://www.google.com/maps/search/?api=1&query=Yodobashi%20Camera%20Akiba%20Akihabara" target="_blank">Yodobashi Camera Akiba</a> (vast, tax-free counter, accessories) and <a href="https://www.google.com/maps/search/?api=1&query=Akibaoo%20Camera%20Akihabara%20Sotokanda%203-1-12" target="_blank">Akibaoo Camera</a> (Sotokanda 3-1-12, used bodies/lenses &amp; deals — from your list). Cross-check against yesterday's Map Camera prices, then <b>buy</b>.</div></div></div><div class="blk"><div class="bi">🧾</div><div><div class="bt">Tax-free</div><div class="bx">Show your passport for <b>tax-free (10% off, ≥¥5,000)</b>. Compare Map Camera (used) vs Yodobashi points/warranty vs Akibaoo deals. Grab a spare battery + SD card here.</div></div></div><div class="blk"><div class="bi">🍜</div><div><div class="bt">Lunch</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Kyushu%20Jangara%20Akihabara%20Sotokanda" target="_blank">Kyūshū Jangara Akihabara</a> — 2 min from Electric Town exit (from your list).</div></div></div><div class="blk"><div class="bi">🔌</div><div><div class="bt">Browse</div><div class="bx">Electric Town — anime, retro games, gachapon. Test-shoot your new camera around the neon.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=Komaki%20Shokudo%20Chabara%20Akihabara" target="_blank">Komaki Shokudō</a> — shōjin / macrobiotic in Chabara, right by Akihabara Station</div></div><div class="note tip"><span class="ni">💡</span><div>Buying on Day 3 (not the end) means the camera is with you for teamLab, Disney's Christmas lights, Hokkaido snow and Seoul. Keep the receipt & tax-free slip with your passport — you show it again on departure.</div></div></div>
+    </div><div class="day" data-tags="sight book food">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">13</div><div class="mo">Nov</div><div class="dow">FRI</div></div>
+        <div class="day-main"><div class="day-n">Day 04</div><h3>teamLab Planets + Toyosu / Odaiba</h3><div class="tagrow"><span class="tag ">⛩ sight</span><span class="tag hl">📌 book</span><span class="tag ">🍜 food</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">🌌</div><div><div class="bt">Timed entry</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=teamLab%20Planets%20TOKYO%20Toyosu" target="_blank">teamLab Planets</a> — barefoot, water &amp; light rooms. <b>Pre-booked slot required</b> (~90–150 min). Toyosu Stn, 4-min walk.</div></div></div><div class="blk"><div class="bi">🍜</div><div><div class="bt">Lunch inside</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Vegan%20Ramen%20UZU%20Tokyo%20teamLab%20Planets" target="_blank">Vegan Ramen UZU</a> — in the teamLab plaza, ticket-holder access. Fully vegan (from your list).</div></div></div><div class="blk"><div class="bi">🌉</div><div><div class="bt">Afternoon</div><div class="bx">Yurikamome Line to <b>Odaiba</b> (waterfront, DiverCity, seaside views) or Toyosu Market.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=Vegan%20Ramen%20UZU%20Tokyo%20teamLab%20Planets" target="_blank">Vegan Ramen UZU</a> — 100% vegan — it's literally inside teamLab Planets</div></div><div class="note book"><span class="ni">📌</span><div><b>Pre-book:</b> Book teamLab timed tickets the day they release for Nov 13. Slots vanish 2–3 weeks out in foliage season. Take a morning/early-midday slot, then UZU for lunch.</div></div></div>
+    </div><div class="day" data-tags="shop sight food">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">14</div><div class="mo">Nov</div><div class="dow">SAT</div></div>
+        <div class="day-main"><div class="day-n">Day 05</div><h3>Beginning shopping · Ginza + Shibuya night</h3><div class="tagrow"><span class="tag ">🛍 shop</span><span class="tag ">⛩ sight</span><span class="tag ">🍜 food</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">✒️</div><div><div class="bt">Ginza</div><div class="bx">Your dedicated beginning-of-trip shopping day. <a href="https://www.google.com/maps/search/?api=1&query=Ginza%20Itoya" target="_blank">Ginza Itoya</a> (12 floors of stationery) + <a href="https://www.google.com/maps/search/?api=1&query=Uniqlo%20Ginza%20flagship" target="_blank">Uniqlo Ginza flagship</a>, with GINZA SIX &amp; the Muji flagship nearby (all from your list).</div></div></div><div class="blk"><div class="bi">☕</div><div><div class="bt">Break</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Excelsior%20Caffe%20Ginza" target="_blank">Excelsior Caffé</a> — your go-to chain, all over Ginza (from your list).</div></div></div><div class="blk"><div class="bi">🚦</div><div><div class="bt">Evening — Shibuya</div><div class="bx">Metro to Shibuya (~15 min): Scramble Crossing, Hachikō, PARCO, Shibuya Sky sunset (book ahead).</div></div></div><div class="blk"><div class="bi">🍶</div><div><div class="bt">Dinner</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Masaka%20vegan%20izakaya%20Shibuya%20PARCO" target="_blank">Masaka</a> vegan izakaya in Shibuya PARCO B1, or <a href="https://www.google.com/maps/search/?api=1&query=Shinbu%20Sakiya%20Ramen%20Dogenzaka%20Shibuya" target="_blank">Shinbu Sakiya</a> ramen on Dōgenzaka (both from your list).</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=Masaka%20vegan%20izakaya%20Shibuya%20PARCO" target="_blank">Masaka (or 2foods Ginza)</a> — vegan izakaya in Shibuya PARCO, or plant-based 2foods at Ginza Loft</div></div><div class="note tip"><span class="ni">💡</span><div>Ginza is flat, wide and relaxed for the daytime shop; by evening (Day 4 adjusted) a lively Shibuya Saturday is fair game.</div></div></div>
+    </div></div>
+    </div><div class="phase" id="p2" style="--line:var(--l-disney)">
+      <div class="phase-head reveal">
+        <div class="phase-tag"><span class="sq"></span>Phase 02 · Maihama</div>
+        <h2>Tokyo Disney Resort — two festive days</h2>
+        <div class="phase-meta"><span>🏨 Base: Maihama / Bay hotel (Disney official or Urayasu)</span><span>🎄 Fully Christmas-decorated</span><span>💴 Weekdays = cheapest tier (~¥7,900–8,400) &amp; quietest</span></div>
+      </div>
+      <div class="rail"><div class="day" data-tags="travel">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">15</div><div class="mo">Nov</div><div class="dow">SUN</div></div>
+        <div class="day-main"><div class="day-n">Day 06</div><h3>Transfer to the Bay · ease in</h3><div class="tagrow"><span class="tag ">✈ travel</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">🧳</div><div><div class="bt">Move</div><div class="bx">Check out of Shinjuku, JR to Tokyo Stn → Keiyō Line to <b>Maihama</b> (~45 min). Check into your Bay-area hotel.</div></div></div><div class="blk"><div class="bi">🎡</div><div><div class="bt">Light evening</div><div class="bx">Ikspiari mall &amp; the Disney Resort Line monorail loop; rest up. Rope-drop is tomorrow.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=T%27s%20TanTan%20Tokyo%20Station%20Keiyo%20Street" target="_blank">T's TanTan, Tokyo Station</a> — 100% vegan ramen on the Keiyō-line concourse — perfect en route to Maihama</div></div><div class="note tip"><span class="ni">💡</span><div>Staying at Maihama/Urayasu (¥15–30k) or a Disney official hotel (Happy Entry = 15 min early) makes a real rope-drop possible — the whole Fantasy Springs strategy depends on it.</div></div></div>
+    </div><div class="day" data-tags="sight">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">16</div><div class="mo">Nov</div><div class="dow">MON</div></div>
+        <div class="day-main"><div class="day-n">Day 07</div><h3>Disneyland — the classic castle park</h3><div class="tagrow"><span class="tag ">⛩ sight</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">🏰</div><div><div class="bt">Highlights</div><div class="bx">Pooh's Hunny Hunt (trackless, exclusive), Beauty &amp; the Beast, Haunted Mansion Holiday Nightmare, Space Mountain.</div></div></div><div class="blk"><div class="bi">🎄</div><div><div class="bt">Christmas</div><div class="bx">Full holiday overlays + the seasonal parade — late-Nov is peak festive décor.</div></div></div><div class="blk"><div class="bi">📱</div><div><div class="bt">App tactics</div><div class="bx">Set up the <b>Tokyo Disney Resort app</b> (Japan region) + Apple Pay in advance. Grab Standby Passes; buy <b>Premier Access</b> (¥1,500–2,000/ride) for headliners. <em>The free Priority Pass ends Aug 31 2026 — gone by your visit.</em></div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <b>Disneyland veg curry</b> — vegetable curry at Hungry Bear / Plaza Pavilion; filter the app's menu to plant-based</div></div><div class="note tip"><span class="ni">💡</span><div>Monday runs a touch busier than Tue/Wed but is still a low weekday — so do the higher-capacity park (Disneyland) today and save the quieter Tuesday for DisneySea's Fantasy Springs.</div></div></div>
+    </div><div class="day" data-tags="sight book">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">17</div><div class="mo">Nov</div><div class="dow">TUE</div></div>
+        <div class="day-main"><div class="day-n">Day 08</div><h3>DisneySea — Fantasy Springs (the quiet day)</h3><div class="tagrow"><span class="tag ">⛩ sight</span><span class="tag hl">📌 book</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">⏰</div><div><div class="bt">Rope drop</div><div class="bx">At the gate <b>45–60 min before open</b>. Straight to <b>Fantasy Springs</b> (Frozen / Tangled / Peter Pan) — queues hit 90+ min by 10:00.</div></div></div><div class="blk"><div class="bi">💴</div><div><div class="bt">Cheapest + quietest</div><div class="bx"><b>Tue/Wed are Tokyo Disney's least-crowded days</b>, and mid-Nov non-holiday weekdays sit in the <b>cheapest 1-day tier (~¥7,900–8,400</b> vs ¥10,000+ on weekends). You're also clear of the Nov 21–23 holiday spike.</div></div></div><div class="blk"><div class="bi">🌙</div><div><div class="bt">Evening</div><div class="bx">Night show + harbour views, then back to the Bay hotel. Pack tonight for tomorrow's flight north.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <b>DisneySea plant-based</b> — Zambini Bros. veg spaghetti · Restaurant Sakura veg tempura bowl · Sailing Day Buffet (reserve in-app)</div></div><div class="note book"><span class="ni">📌</span><div><b>Pre-book:</b> DisneySea sits on the quieter Tuesday with Fantasy Springs at rope-drop — the single biggest draw. Want the statistical minimum crowds? Shift both parks to Tue 17 + Wed 18 and fly to Hokkaido on the 19th (costs one Sapporo night). Re-check live forecasts on Thrill Data / TDR Explorer near your date.</div></div></div>
+    </div></div>
+    </div><div class="phase" id="p3" style="--line:var(--l-hokkaido)">
+      <div class="phase-head reveal">
+        <div class="phase-tag"><span class="sq"></span>Phase 03 · Hokkaido</div>
+        <h2>Sapporo &amp; Asahikawa — snow season</h2>
+        <div class="phase-meta"><span>🏨 Sapporo ×3 (near Ōdōri/Susukino) → Asahikawa ×2</span><span>🌡 ~2°C, first snow, icy — pack a real coat &amp; grippy boots</span><span>❄️ White Illumination is on</span></div>
+      </div>
+      <div class="rail"><div class="day" data-tags="travel food">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">18</div><div class="mo">Nov</div><div class="dow">WED</div></div>
+        <div class="day-main"><div class="day-n">Day 09</div><h3>Fly to Sapporo · Susukino night</h3><div class="tagrow"><span class="tag ">✈ travel</span><span class="tag ">🍜 food</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">✈</div><div><div class="bt">Morning flight</div><div class="bx">Bay/Tokyo → <b>Haneda → New Chitose</b> (~1h35). Then JR Airport Rapid to Sapporo (~37 min, ¥1,430).</div></div></div><div class="blk"><div class="bi">🍜</div><div><div class="bt">First bowl</div><div class="bx">Sapporo <b>miso ramen</b> at <a href="https://www.google.com/maps/search/?api=1&query=Ganso%20Sapporo%20Ramen%20Yokocho%20Susukino" target="_blank">Ganso Ramen Yokochō</a> (Ramen Alley), Susukino.</div></div></div><div class="blk"><div class="bi">🌃</div><div><div class="bt">Evening</div><div class="bx">Wander Susukino's neon; grab hand-warmers at any konbini.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=Rojiura%20Curry%20SAMURAI%20Sapporo" target="_blank">Rojiura Curry SAMURAI</a> — Hokkaido-veg soup curry — a warming first night in Sapporo</div></div><div class="note tip"><span class="ni">💡</span><div>Fly Haneda (not Narita) — far closer to town, and this is the world's 2nd-busiest air route, so departures run every 10–15 min.</div></div></div>
+    </div><div class="day" data-tags="sight food">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">19</div><div class="mo">Nov</div><div class="dow">THU</div></div>
+        <div class="day-main"><div class="day-n">Day 10</div><h3>Sapporo core + Moiwa night view</h3><div class="tagrow"><span class="tag ">⛩ sight</span><span class="tag ">🍜 food</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">🦀</div><div><div class="bt">Morning</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Nijo%20Market%20Sapporo" target="_blank">Nijō Market</a> (crab, uni, salmon roe — mornings), then the red-brick <a href="https://www.google.com/maps/search/?api=1&query=Former%20Hokkaido%20Government%20Office" target="_blank">Akarenga</a>.</div></div></div><div class="blk"><div class="bi">🗼</div><div><div class="bt">Midday</div><div class="bx">Ōdōri Park end-to-end + Sapporo TV Tower deck.</div></div></div><div class="blk"><div class="bi">🌱</div><div><div class="bt">Vegan lunch</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Rojiura%20Curry%20SAMURAI%20Sapporo" target="_blank">Rojiura Curry SAMURAI</a> soup curry (veg-friendly) or fully-vegan <a href="https://www.google.com/maps/search/?api=1&query=L%20Esperance%20vegan%20Sapporo" target="_blank">L'Espérance</a>.</div></div></div><div class="blk"><div class="bi">🚠</div><div><div class="bt">Night</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Mount%20Moiwa%20Ropeway%20Sapporo" target="_blank">Mt. Moiwa Ropeway</a> for the city panorama.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=L%20Esperance%20vegan%20Sapporo" target="_blank">L'Espérance</a> — fully-vegan French bistro, Sapporo (lunch Tue–Sat)</div></div></div>
+    </div><div class="day" data-tags="sight travel">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">20</div><div class="mo">Nov</div><div class="dow">FRI</div></div>
+        <div class="day-main"><div class="day-n">Day 11</div><h3>Otaru day trip · illumination opens</h3><div class="tagrow"><span class="tag ">⛩ sight</span><span class="tag ">✈ travel</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">🚂</div><div><div class="bt">Day trip</div><div class="bx">JR to <a href="https://www.google.com/maps/search/?api=1&query=Otaru%20Canal" target="_blank">Otaru</a> (~35–45 min): canal, glass &amp; music-box workshops, seafood, Kita-Ichi Hall lamps.</div></div></div><div class="blk"><div class="bi">🎄</div><div><div class="bt">Back for dusk</div><div class="bx">Return to Ōdōri for the <a href="https://www.google.com/maps/search/?api=1&query=Sapporo%20White%20Illumination%20Odori%20Park" target="_blank">White Illumination</a> + <b>Munich Christmas Market</b> — both open ~Nov 20–21, Glühwein &amp; bratwurst.</div></div></div><div class="blk"><div class="bi">🍫</div><div><div class="bt">Souvenirs</div><div class="bx">Shiroi Koibito &amp; Royce' chocolate (or grab at New Chitose on the way out).</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=Lohas%20Natural%20Food%20Dining%20Sapporo" target="_blank">Lohas Natural Food, Sapporo</a> — veg/macrobiotic back in the city; in Otaru, stick to avocado/veg sushi rolls</div></div><div class="note tip"><span class="ni">💡</span><div>Your dates are timed to catch the illumination opening — one of Sapporo's best winter moments.</div></div></div>
+    </div><div class="day" data-tags="travel sight food">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">21</div><div class="mo">Nov</div><div class="dow">SAT</div></div>
+        <div class="day-main"><div class="day-n">Day 12</div><h3>Train to Asahikawa · Asahiyama Zoo</h3><div class="tagrow"><span class="tag ">✈ travel</span><span class="tag ">⛩ sight</span><span class="tag ">🍜 food</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">🚆</div><div><div class="bt">Move</div><div class="bx">Ltd Exp <b>Lilac/Kamui</b> to Asahikawa (~1h25, reserved — pre-book on Ekinet for the discount).</div></div></div><div class="blk"><div class="bi">🐧</div><div><div class="bt">Zoo</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Asahiyama%20Zoo%20Asahikawa" target="_blank">Asahiyama Zoo</a> (winter hours from ~10:30) — famous tunnel enclosures. <em>Heads-up: the penguin walk starts Dec 18, so it's not running yet — but the animals &amp; enclosures are all open.</em></div></div></div><div class="blk"><div class="bi">🍜</div><div><div class="bt">Dinner</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Asahikawa%20Ramen%20Village" target="_blank">Asahikawa Ramen Mura</a> — soy-based double-broth shōyū ramen, distinct from Sapporo's miso.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <b>Veg curry / konbini</b> — Asahikawa is sparse — an Indian place's dal & chana, or ask Ramen Mura for a veg-broth bowl; konbini onigiri backup</div></div></div>
+    </div><div class="day" data-tags="sight food">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">22</div><div class="mo">Nov</div><div class="dow">SUN</div></div>
+        <div class="day-main"><div class="day-n">Day 13</div><h3>Biei Blue Pond &amp; sake</h3><div class="tagrow"><span class="tag ">⛩ sight</span><span class="tag ">🍜 food</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">🔵</div><div><div class="bt">Day out</div><div class="bx">JR to <a href="https://www.google.com/maps/search/?api=1&query=Shirogane%20Blue%20Pond%20Biei" target="_blank">Biei — Blue Pond</a> (~35 min + bus). Illuminated nightly Nov→Apr; ethereal in early snow.</div></div></div><div class="blk"><div class="bi">🍶</div><div><div class="bt">Brewery</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Otokoyama%20Sake%20Brewery%20Museum%20Asahikawa" target="_blank">Otokoyama Sake Museum</a> — free, ~350 yrs old, active winter brewing + tasting.</div></div></div><div class="blk"><div class="bi">🧳</div><div><div class="bt">Pack</div><div class="bx">Ready bags tonight — tomorrow is the international hop to Seoul.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <b>Biei farm cafés</b> — veg soup & curry at Biei's cafés; keep konbini onigiri/edamame as a backup</div></div><div class="note tip"><span class="ni">💡</span><div>Alt: swap Biei for a Sōunkyō gorge + onsen night if you want a ryokan soak in the mountains.</div></div></div>
+    </div></div>
+    </div><div class="phase" id="p4" style="--line:var(--l-seoul)">
+      <div class="phase-head reveal">
+        <div class="phase-tag"><span class="sq"></span>Phase 04 · Korea</div>
+        <h2>Seoul — the direct hop, no backtrack</h2>
+        <div class="phase-meta"><span>🏨 Base: Myeongdong / Jongno (palaces + metro)</span><span>🌡 ~0–9°C, cold &amp; dry</span><span>🛂 K-ETA required</span></div>
+      </div>
+      <div class="rail"><div class="day" data-tags="travel">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">23</div><div class="mo">Nov</div><div class="dow">MON</div></div>
+        <div class="day-main"><div class="day-n">Day 14</div><h3>Asahikawa → Seoul (direct from CTS)</h3><div class="tagrow"><span class="tag ">✈ travel</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">🚆</div><div><div class="bt">To the airport</div><div class="bx">Asahikawa → Sapporo → <b>New Chitose</b> (~2h15 total by JR).</div></div></div><div class="blk"><div class="bi">✈</div><div><div class="bt">Direct flight</div><div class="bx"><b>New Chitose → Incheon</b> nonstop (~3h, Jeju/Jin/T'way ~US$120). This is why we routed via Sapporo — <b>no flying back to Tokyo</b>.</div></div></div><div class="blk"><div class="bi">🌆</div><div><div class="bt">Evening</div><div class="bx">Airport rail to town; first Korean BBQ / bibimbap in Myeongdong.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=Osegyehyang%20vegan%20Insadong%20Seoul" target="_blank">Osegyehyang (오세계향)</a> — fully-vegan Korean-Chinese in Insadong — great first Seoul dinner</div></div><div class="note book"><span class="ni">📌</span><div><b>Pre-book:</b> Have your K-ETA approved before today (apply ≥72h ahead). Japan's Nov 23 holiday only affects Japan-side transit — start early.</div></div></div>
+    </div><div class="day" data-tags="sight food">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">24</div><div class="mo">Nov</div><div class="dow">TUE</div></div>
+        <div class="day-main"><div class="day-n">Day 15</div><h3>Palaces &amp; old Seoul</h3><div class="tagrow"><span class="tag ">⛩ sight</span><span class="tag ">🍜 food</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">👑</div><div><div class="bt">Morning</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Gyeongbokgung%20Palace%20Seoul" target="_blank">Gyeongbokgung</a> (guard-changing), then <a href="https://www.google.com/maps/search/?api=1&query=Bukchon%20Hanok%20Village" target="_blank">Bukchon Hanok Village</a>.</div></div></div><div class="blk"><div class="bi">🎨</div><div><div class="bt">Afternoon</div><div class="bx">Insa-dong for crafts &amp; tea; Jogyesa Temple.</div></div></div><div class="blk"><div class="bi">🌱</div><div><div class="bt">Vegan</div><div class="bx">Korean temple cuisine &amp; abundant veg options — look up Insa-dong's Buddhist-style restaurants.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=Balwoo%20Gongyang%20Seoul" target="_blank">Balwoo Gongyang / Sanchon</a> — Buddhist temple cuisine by Jogyesa & Insadong (reserve Balwoo ahead)</div></div></div>
+    </div><div class="day" data-tags="shop food sight">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">25</div><div class="mo">Nov</div><div class="dow">WED</div></div>
+        <div class="day-main"><div class="day-n">Day 16</div><h3>Markets, Gangnam &amp; Hongdae</h3><div class="tagrow"><span class="tag ">🛍 shop</span><span class="tag ">🍜 food</span><span class="tag ">⛩ sight</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">🛍</div><div><div class="bt">Shopping</div><div class="bx">Myeongdong beauty/skincare, Gwangjang Market street food, or Gangnam &amp; COEX.</div></div></div><div class="blk"><div class="bi">🌃</div><div><div class="bt">Night</div><div class="bx">Hongdae for youthful energy, buskers &amp; cafés — or an N-Seoul Tower sunset.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=Plant%20Cafe%20Seoul%20Hongdae" target="_blank">Plant Cafe Seoul</a> — hugely popular all-vegan café (Hongdae / Itaewon)</div></div></div>
+    </div><div class="day" data-tags="sight">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">26</div><div class="mo">Nov</div><div class="dow">THU</div></div>
+        <div class="day-main"><div class="day-n">Day 17</div><h3>Your pick — DMZ, Bukhansan or more palaces</h3><div class="tagrow"><span class="tag ">⛩ sight</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">🧭</div><div><div class="bt">Choose</div><div class="bx">DMZ half-day tour (book ahead), a Bukhansan hike, or Changdeokgung + its Secret Garden.</div></div></div><div class="blk"><div class="bi">🎒</div><div><div class="bt">Evening</div><div class="bx">Last-minute Korea shopping; pack for the flight back to Tokyo.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=Loving%20Hut%20Seoul" target="_blank">Loving Hut / Vegetus</a> — reliable vegan with several Seoul branches</div></div></div>
+    </div></div>
+    </div><div class="phase" id="p5" style="--line:var(--l-final)">
+      <div class="phase-head reveal">
+        <div class="phase-tag"><span class="sq"></span>Phase 05 · Tokyo</div>
+        <h2>Tokyo finale — the deep cuts &amp; final shopping</h2>
+        <div class="phase-meta"><span>🏨 Base: Shinjuku again (or Ginza/Marunouchi for the shops)</span><span>🌡 10–16°C, autumn colour</span><span>🛫 Narita departure Dec 4 · 17:00</span></div>
+      </div>
+      <div class="rail"><div class="day" data-tags="travel">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">27</div><div class="mo">Nov</div><div class="dow">FRI</div></div>
+        <div class="day-main"><div class="day-n">Day 18</div><h3>Fly back to Tokyo · soft landing</h3><div class="tagrow"><span class="tag ">✈ travel</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">✈</div><div><div class="bt">Return</div><div class="bx"><b>Incheon → Haneda</b> (~2h20, city-side). Keikyū to Shinagawa → Yamanote to Shinjuku.</div></div></div><div class="blk"><div class="bi">🍜</div><div><div class="bt">Evening</div><div class="bx">Easy night near the hotel — revisit Afuri, or Shinjuku's Omoide Yokochō / Golden Gai.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=Ain%20Soph%20Journey%20Shinjuku" target="_blank">Ain Soph. Journey</a> — vegan pancakes & burgers, Shinjuku-Sanchōme — easy first night back</div></div></div>
+    </div><div class="day" data-tags="sight food shop">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">28</div><div class="mo">Nov</div><div class="dow">SAT</div></div>
+        <div class="day-main"><div class="day-n">Day 19</div><h3>Shinjuku day — autumn & Golden Gai</h3><div class="tagrow"><span class="tag ">⛩ sight</span><span class="tag ">🍜 food</span><span class="tag ">🛍 shop</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">🍁</div><div><div class="bt">Autumn</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Shinjuku%20Gyoen%20National%20Garden" target="_blank">Shinjuku Gyoen</a> for late foliage; free Tokyo Metropolitan Gov't observatory for the skyline.</div></div></div><div class="blk"><div class="bi">📷</div><div><div class="bt">Optional</div><div class="bx">Swing back to <a href="https://www.google.com/maps/search/?api=1&query=Map%20Camera%20Nishishinjuku" target="_blank">Map Camera</a> (by the hotel) for any lens/accessory you decided you want after using the camera for two weeks.</div></div></div><div class="blk"><div class="bi">🍜</div><div><div class="bt">Dinner</div><div class="bx">Kabukichō &amp; another <a href="https://www.google.com/maps/search/?api=1&query=Afuri%20Karakurenai%20Shinjuku%20Subnade" target="_blank">Afuri</a> if you loved it, or explore Golden Gai / Omoide Yokochō.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=2foods%20Shinjuku" target="_blank">2foods, Shinjuku</a> — plant-based burgers & sweets; T's TanTan at Tokyo Stn if you fancy ramen</div></div></div>
+    </div><div class="day" data-tags="sight food">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">29</div><div class="mo">Nov</div><div class="dow">SUN</div></div>
+        <div class="day-main"><div class="day-n">Day 20</div><h3>Asakusa + Ueno (old-Tokyo day)</h3><div class="tagrow"><span class="tag ">⛩ sight</span><span class="tag ">🍜 food</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">⛩</div><div><div class="bt">Asakusa</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Senso-ji%20Temple%20Asakusa" target="_blank">Sensō-ji</a> &amp; Nakamise (go early to beat crowds), riverside views, Tokyo Skytree.</div></div></div><div class="blk"><div class="bi">🛍</div><div><div class="bt">Ueno</div><div class="bx">Ueno — Ameyoko market, Ueno Park &amp; museums. Great camera-walk territory.</div></div></div><div class="blk"><div class="bi">🔌</div><div><div class="bt">Optional loop</div><div class="bx">One metro stop to Akihabara if you want to revisit <a href="https://www.google.com/maps/search/?api=1&query=Akibaoo%20Camera%20Akihabara%20Sotokanda%203-1-12" target="_blank">Akibaoo</a> / Yodobashi for camera extras.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=shojin%20ryori%20Asakusa" target="_blank">Shōjin near Sensō-ji</a> — Buddhist veg sets around Asakusa, or veg tempura-soba; Ueno has veg options too</div></div></div>
+    </div><div class="day" data-tags="shop">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">30</div><div class="mo">Nov</div><div class="dow">MON</div></div>
+        <div class="day-main"><div class="day-n">Day 21</div><h3>Shopping day #2 — Shibuya &amp; Harajuku</h3><div class="tagrow"><span class="tag ">🛍 shop</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">🛍</div><div><div class="bt">Round two</div><div class="bx">Back to Shibuya/Harajuku/Omotesandō to actually <b>buy</b> — now relaxed, no jet lag, you know the lay of the land.</div></div></div><div class="blk"><div class="bi">💄</div><div><div class="bt">Refill</div><div class="bx">Return to <a href="https://www.google.com/maps/search/?api=1&query=%40cosme%20TOKYO%20Harajuku" target="_blank">@cosme TOKYO</a> for anything you clocked on Day 2.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=Nagi%20Shokudo%20Shibuya" target="_blank">Nagi Shokudō</a> — long-running vegan spot tucked behind Shibuya</div></div><div class="note tip"><span class="ni">💡</span><div>First of your two "end-of-trip" shopping days — deliberately late so purchases spend less time in the suitcase.</div></div></div>
+    </div><div class="day" data-tags="shop food">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">01</div><div class="mo">Dec</div><div class="dow">TUE</div></div>
+        <div class="day-main"><div class="day-n">Day 22</div><h3>Shopping day #3 — Ginza &amp; Shinjuku</h3><div class="tagrow"><span class="tag ">🛍 shop</span><span class="tag ">🍜 food</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">🛍</div><div><div class="bt">Final hauls</div><div class="bx">Ginza depachika (basement food halls) &amp; anything left on the list; last electronics/camera accessories in Shinjuku.</div></div></div><div class="blk"><div class="bi">✒️</div><div><div class="bt">Loop back</div><div class="bx">Second pass at <a href="https://www.google.com/maps/search/?api=1&query=Ginza%20Itoya" target="_blank">Itoya</a> / <a href="https://www.google.com/maps/search/?api=1&query=Uniqlo%20Ginza%20flagship" target="_blank">Uniqlo Ginza</a> for gifts.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=2foods%20Ginza%20Loft" target="_blank">2foods, Ginza Loft</a> — plant-based in Ginza; T's TanTan a stop away at Tokyo Station</div></div><div class="note tip"><span class="ni">💡</span><div>Your second reserved end-of-trip shopping day. Depachika are unbeatable for edible souvenirs.</div></div></div>
+    </div><div class="day" data-tags="food sight">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">02</div><div class="mo">Dec</div><div class="dow">WED</div></div>
+        <div class="day-main"><div class="day-n">Day 23</div><h3>The off-piste day — Bassanova &amp; Shimokita</h3><div class="tagrow"><span class="tag ">🍜 food</span><span class="tag ">⛩ sight</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">🍜</div><div><div class="bt">Cult ramen</div><div class="bx"><a href="https://www.google.com/maps/search/?api=1&query=Bassanova%20ramen%20Hanegi%20Setagaya" target="_blank">Bassanova</a> in Setagaya (Shin-Daita, Keiō Inokashira Line) — nouvelle tori-paitan. <b>Cash only, ~16 seats</b>; weekday lunch beats the queue (from your list).</div></div></div><div class="blk"><div class="bi">🎸</div><div><div class="bt">Neighbourhood</div><div class="bx">One stop on to <a href="https://www.google.com/maps/search/?api=1&query=Shimokitazawa" target="_blank">Shimokitazawa</a> — vintage, records, indie cafés &amp; live houses.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=Universal%20Bakes%20Nicome%20Shimokitazawa" target="_blank">Universal Bakes Nicome</a> — Bassanova's chicken-paitan isn't vegan — hop to this all-vegan bakery in Shimokitazawa (or Falafel Brothers)</div></div></div>
+    </div><div class="day" data-tags="sight shop">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">03</div><div class="mo">Dec</div><div class="dow">THU</div></div>
+        <div class="day-main"><div class="day-n">Day 24</div><h3>Buffer &amp; last wishes</h3><div class="tagrow"><span class="tag ">⛩ sight</span><span class="tag ">🛍 shop</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">🎇</div><div><div class="bt">Flex</div><div class="bx">teamLab Borderless (Azabudai), a Kamakura/Nikkō day trip, or simply anything the trip pushed aside.</div></div></div><div class="blk"><div class="bi">🧳</div><div><div class="bt">Pack</div><div class="bx">Final packing; weigh bags; set aside Narita-morning essentials.</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=Falafel%20Brothers%20Tokyo" target="_blank">Your pick</a> — 2foods, T's TanTan, Ain Soph. or Falafel Brothers — Tokyo's vegan scene is deep</div></div><div class="note tip"><span class="ni">💡</span><div>A real buffer day the night before an international flight absorbs any Hokkaido/Seoul schedule slip. Keep it loose.</div></div></div>
+    </div><div class="day" data-tags="travel">
+      <button class="day-btn" aria-expanded="false">
+        <div class="day-date"><div class="num">04</div><div class="mo">Dec</div><div class="dow">FRI</div></div>
+        <div class="day-main"><div class="day-n">Day 25</div><h3>Depart Narita · 17:00</h3><div class="tagrow"><span class="tag ">✈ travel</span></div></div>
+        <div class="chev">›</div>
+      </button>
+      <div class="day-body"><div class="blk"><div class="bi">🧳</div><div><div class="bt">Check out</div><div class="bx">Leave Shinjuku by <b>~13:00</b>; N'EX direct to Narita (~80 min).</div></div></div><div class="blk"><div class="bi">✈</div><div><div class="bt">Fly home</div><div class="bx">Departure <b>17:00</b>. The ride home is westward — the easy jet-lag direction. さようなら!</div></div></div><div class="note veg"><span class="ni">🌱</span><div><b>Vegan today:</b> <a href="https://www.google.com/maps/search/?api=1&query=T%27s%20TanTan%20Narita%20Airport%20Terminal%201" target="_blank">T's TanTan, Narita T1</a> — 100% vegan ramen inside Narita Terminal 1 — a great last bowl before boarding</div></div></div>
+    </div></div>
+    </div>  </div>
+</section>
+
+<section id="track">
+  <div class="sec-head"><span class="idx">08</span><h2>Your lists, as trackers</h2></div>
+  <p class="sec-sub">Check things off as you go &#8212; saved in this browser. Every place from your brief is here with a maps link.</p>
+  <div class="grid g2">
+    <div><h3 class="disp" style="font-size:19px;margin:6px 0 10px">&#127836; Restaurants</h3>
+      <div class="progress"><i id="pf"></i></div><div class="track" id="foodTrack"><div class="trk-item" data-i="0"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Masaka — Vegan Izakaya</div><div class="ts">Shibuya PARCO B1 · Day 5 · <a href="https://www.google.com/maps/search/?api=1&query=Masaka%20vegan%20izakaya%20Shibuya%20PARCO" target="_blank">map ↗</a></div></div></div><div class="trk-item" data-i="1"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Vegan Ramen UZU Tokyo</div><div class="ts">Inside teamLab Planets · Day 4 · <a href="https://www.google.com/maps/search/?api=1&query=Vegan%20Ramen%20UZU%20Tokyo%20teamLab%20Planets" target="_blank">map ↗</a></div></div></div><div class="trk-item" data-i="2"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Afuri Karakurenai</div><div class="ts">Shinjuku Subnade · Day 1 / 18 · <a href="https://www.google.com/maps/search/?api=1&query=Afuri%20Karakurenai%20Shinjuku%20Subnade" target="_blank">map ↗</a></div></div></div><div class="trk-item" data-i="3"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Kyūshū Jangara — Akihabara</div><div class="ts">Sotokanda · Day 3 · <a href="https://www.google.com/maps/search/?api=1&query=Kyushu%20Jangara%20Akihabara%20Sotokanda" target="_blank">map ↗</a></div></div></div><div class="trk-item" data-i="4"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Bassanova</div><div class="ts">Hanegi, Setagaya · Day 23 · cash only · <a href="https://www.google.com/maps/search/?api=1&query=Bassanova%20ramen%20Hanegi%20Setagaya" target="_blank">map ↗</a></div></div></div><div class="trk-item" data-i="5"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Shinbu Sakiya Ramen</div><div class="ts">Dōgenzaka, Shibuya · Day 5 · <a href="https://www.google.com/maps/search/?api=1&query=Shinbu%20Sakiya%20Ramen%20Dogenzaka%20Shibuya" target="_blank">map ↗</a></div></div></div><div class="trk-item" data-i="6"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Kyūshū Jangara — Harajuku</div><div class="ts">Jingūmae · Day 2 · <a href="https://www.google.com/maps/search/?api=1&query=Kyushu%20Jangara%20Ramen%20Harajuku%20Jingumae" target="_blank">map ↗</a></div></div></div></div></div>
+    <div><h3 class="disp" style="font-size:19px;margin:6px 0 10px">&#128717; Shops</h3>
+      <div class="progress"><i id="ps"></i></div><div class="track" id="shopTrack"><div class="trk-item" data-i="0"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Map Camera</div><div class="ts">📷 Cameras, Nishi-Shinjuku · scout Day 2 · <a href="https://www.google.com/maps/search/?api=1&query=Map%20Camera%20Nishishinjuku" target="_blank">map ↗</a></div></div></div><div class="trk-item" data-i="1"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Akibaoo Camera</div><div class="ts">📷 Akihabara / Sotokanda · buy Day 3 · <a href="https://www.google.com/maps/search/?api=1&query=Akibaoo%20Camera%20Akihabara%20Sotokanda%203-1-12" target="_blank">map ↗</a></div></div></div><div class="trk-item" data-i="2"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Ginza Itoya</div><div class="ts">Stationery, Ginza · Day 5 / 22 · <a href="https://www.google.com/maps/search/?api=1&query=Ginza%20Itoya" target="_blank">map ↗</a></div></div></div><div class="trk-item" data-i="3"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">@cosme TOKYO</div><div class="ts">Cosmetics, Harajuku · Day 2 / 21 · <a href="https://www.google.com/maps/search/?api=1&query=%40cosme%20TOKYO%20Harajuku" target="_blank">map ↗</a></div></div></div><div class="trk-item" data-i="4"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Uniqlo Ginza Flagship</div><div class="ts">Ginza · Day 5 / 22 · <a href="https://www.google.com/maps/search/?api=1&query=Uniqlo%20Ginza%20flagship" target="_blank">map ↗</a></div></div></div><div class="trk-item" data-i="5"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Excelsior Caffé</div><div class="ts">Coffee, many branches · <a href="https://www.google.com/maps/search/?api=1&query=Excelsior%20Caffe%20Tokyo" target="_blank">map ↗</a></div></div></div></div></div>
+  </div>
+  <h3 class="disp" style="font-size:19px;margin:34px 0 10px">&#9989; Pre-trip checklist</h3>
+  <div class="progress"><i id="pc"></i></div><div class="track" id="prepTrack"><div class="trk-item" data-i="0"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Confirm Japan visa-waiver renewal</div><div class="ts">Brazil–Japan deal expires Sep 30 2026 — verify with MOFA/Embassy</div></div><span class="trk-cat">CRITICAL</span></div><div class="trk-item" data-i="1"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Apply for K-ETA (×2)</div><div class="ts">k-eta.go.kr · ≥72h ahead · ~₩10,000 each</div></div><span class="trk-cat">CRITICAL</span></div><div class="trk-item" data-i="2"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Check biometric ePassports valid 6+ months</div><div class="ts">Required for visa-free Japan entry</div></div><span class="trk-cat">DOCS</span></div><div class="trk-item" data-i="3"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Book 3 flights</div><div class="ts">HND→CTS · CTS→ICN · ICN→HND · 2–3 months out</div></div><span class="trk-cat">FLIGHTS</span></div><div class="trk-item" data-i="4"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Buy Disney tickets (Nov 16 &amp; 17)</div><div class="ts">Opens ~early Sept 2026 · weekdays · via official app/site</div></div><span class="trk-cat">BOOK</span></div><div class="trk-item" data-i="5"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Book teamLab Planets (Nov 13)</div><div class="ts">Opens ~90 days out · sells out in foliage season</div></div><span class="trk-cat">BOOK</span></div><div class="trk-item" data-i="6"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Reserve hotels</div><div class="ts">Shinjuku ×2 blocks · Maihama Bay · Sapporo · Asahikawa · Seoul</div></div><span class="trk-cat">STAY</span></div><div class="trk-item" data-i="7"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Set up Tokyo Disney app + Apple Pay</div><div class="ts">Japan-region app; Priority Pass is gone — plan Premier Access</div></div><span class="trk-cat">BOOK</span></div><div class="trk-item" data-i="8"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Add Mobile Suica / plan Welcome Suica</div><div class="ts">Everyday tap card for Japan</div></div><span class="trk-cat">TRANSIT</span></div><div class="trk-item" data-i="9"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Pre-book Sapporo⇄Asahikawa on Ekinet</div><div class="ts">Reserved-seat only; advance = big discount</div></div><span class="trk-cat">TRANSIT</span></div><div class="trk-item" data-i="10"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Winter kit for Hokkaido &amp; Seoul</div><div class="ts">Down coat, grippy waterproof boots, gloves, hat</div></div><span class="trk-cat">PACK</span></div><div class="trk-item" data-i="11"><div class="box">✓</div>
+          <div class="trk-main"><div class="tl">Bilingual vegan/allergy card</div><div class="ts">Dashi &amp; shared oil are common hidden traps</div></div><span class="trk-cat">FOOD</span></div></div>
+</section>
+
+<section id="budget">
+  <div class="sec-head"><span class="idx">09</span><h2>Total cost &amp; breakdown</h2></div>
+  <p class="sec-sub">Two scenarios for <b>2 travelers, the full 25 days on the ground</b>, in US$. <b>Budget</b> = hostels/capsules + commuting to Disney from Shinjuku + LCC flights. <b>Comfort</b> = mid-range hotels + a Bay hotel for Disney + full-service flights. <b>Excludes</b> your international Brazil&#8646;Tokyo airfare and the camera purchase (see notes). A planning envelope, not a quote.</p>
+  <div class="card reveal" style="padding:0;overflow:hidden">
+    <div class="tscroll"><table class="btable">
+      <tr><th>Category</th><th>What it covers</th><th class="num">Budget</th><th class="num">Comfort</th></tr>
+      <tr><td>Lodging &#183; 24 nights</td><td>Shinjuku &#215;12&#8211;15 &#183; Disney &#183; Sapporo &#183; Asahikawa &#183; Seoul</td><td class="num">1,600&#8211;1,900</td><td class="num">3,600&#8211;4,300</td></tr>
+      <tr><td>Internal flights</td><td>HND&#8594;CTS &#183; CTS&#8594;ICN &#183; ICN&#8594;HND (LCC vs full-service)</td><td class="num">620&#8211;750</td><td class="num">850&#8211;1,000</td></tr>
+      <tr><td>Food</td><td>ramen/konbini &#8594; sit-down; ~$40 vs ~$75 a day for two</td><td class="num">1,000&#8211;1,250</td><td class="num">1,700&#8211;1,900</td></tr>
+      <tr><td>Tokyo Disney</td><td>2 &#215; 1-day passports &#215;2; Comfort adds Premier Access</td><td class="num">250&#8211;280</td><td class="num">360&#8211;440</td></tr>
+      <tr><td>Local transport</td><td>Suica &#183; subway passes &#183; Hokkaido trains &#183; Skyliner/N'EX</td><td class="num">230&#8211;280</td><td class="num">320&#8211;380</td></tr>
+      <tr><td>Attractions &amp; extras</td><td>teamLab, Moiwa &amp; Shibuya Sky, zoo, Otaru, Seoul sights</td><td class="num">180&#8211;260</td><td class="num">330&#8211;430</td></tr>
+      <tr><td>K-ETA + sundries</td><td>2 &#215; K-ETA, eSIM data, hand-warmers, lockers</td><td class="num">80&#8211;120</td><td class="num">110&#8211;150</td></tr>
+      <tr class="total"><td>Estimated total &#183; 2 people</td><td>on the ground, excl. int&#8217;l airfare &amp; camera</td><td class="num">&#8776; 4,000&#8211;4,800</td><td class="num">&#8776; 7,300&#8211;8,600</td></tr>
+      <tr><td colspan="2" style="color:var(--muted)">&#8776; per person</td><td class="num" style="color:var(--muted)">2,000&#8211;2,400</td><td class="num" style="color:var(--muted)">3,650&#8211;4,300</td></tr>
+    </table></div>
+  </div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="card reveal"><span class="k">Not in the total</span><h3>&#9992; Brazil &#8646; Tokyo</h3><p>Round-trip GRU/São Paulo&#8594;NRT runs roughly <b>US$1,100&#8211;1,900 per person</b> in Nov (1&#8211;2 stops via US/Middle East/Europe). Book early; this is your single biggest line.</p></div>
+    <div class="card reveal"><span class="k">Your call &#183; not in the total</span><h3>&#128247; The camera</h3><p>Whatever body/lens you choose. Buying in Japan gets you <b>10% tax-free</b> (passport, ≥¥5,000) &#8212; often cheaper than Brazil. Compare Map Camera (used) vs Yodobashi/Akibaoo (new) on Days 2&#8211;3.</p></div>
+    <div class="card reveal"><span class="k">Biggest levers</span><h3>&#128176; Where the money is</h3><p>Lodging and food are ~65% of the on-ground total and the easiest to flex. Hostels + commuting to Disney alone save <b>~$2,000</b> for two vs the Comfort plan.</p></div>
+  </div>
+</section>
+
+<footer><div class="wrap" style="padding:0">
+  <div class="fg">&#12424;&#12356;&#26053;&#12434; &#8212; have a wonderful trip.</div>
+  <p>Sequenced to catch the <b>Sapporo White Illumination &amp; Munich Christmas Market</b> (Odori Park, opens ~Nov 20&#8211;21) and full <b>Disney Christmas d&#233;cor</b> (from Nov 11), while keeping Disney on weekdays and dodging the Nov 21&#8211;23 holiday-weekend crowds.</p>
+  <p class="disclaim">Prices, hours &amp; schedules are 2025/2026 research estimates &#8212; reconfirm nearer travel, especially: the Japan visa-waiver renewal, exact flight times, Disney date-tier pricing, teamLab &amp; Disney ticket-release dates, and Hokkaido illumination dates. Vegan notes flag <em>friendly</em> options; cross-contamination (dashi, shared oil) is common in Japan &#8212; carry a bilingual vegan card. A personal, offline HTML file.</p>
+</div></footer>
+</div>
+<script>
+// theme
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  var saved=localStorage.getItem('theme'); if(saved) root.setAttribute('data-theme',saved);
+  btn.addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme');
+    var isDark = cur==='dark' || (cur==='auto' && matchMedia('(prefers-color-scheme:dark)').matches);
+    var next=isDark?'light':'dark'; root.setAttribute('data-theme',next); localStorage.setItem('theme',next);
+  });
+})();
+// accordion
+Array.prototype.forEach.call(document.querySelectorAll('.day-btn'),function(btn){
+  btn.addEventListener('click',function(){
+    var day=btn.closest('.day'); var open=day.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open?'true':'false');
+  });
+});
+// click-to-jump (map nodes + calendar cells)
+Array.prototype.forEach.call(document.querySelectorAll('[data-goto]'),function(el){
+  function go(){
+    var t=document.getElementById(el.getAttribute('data-goto'));
+    if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  el.addEventListener('click',go);
+  el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();go();} });
+});
+// filters
+(function(){
+  var chips=[].slice.call(document.querySelectorAll('.chip'));
+  chips.forEach(function(c){ c.addEventListener('click',function(){
+    chips.forEach(function(x){x.setAttribute('aria-pressed','false');});
+    c.setAttribute('aria-pressed','true');
+    var f=c.getAttribute('data-f');
+    Array.prototype.forEach.call(document.querySelectorAll('.day'),function(d){
+      var show = f==='all' || d.getAttribute('data-tags').split(' ').indexOf(f)>-1;
+      d.style.display = show?'':'none';
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.phase'),function(p){
+      var any=[].some.call(p.querySelectorAll('.day'),function(d){return d.style.display!=='none';});
+      p.style.display=any?'':'none';
+    });
+  });});
+})();
+// trackers
+function initTrack(elid,barid,key){
+  var el=document.getElementById(elid); if(!el)return;
+  var items=[].slice.call(el.querySelectorAll('.trk-item'));
+  var saved=JSON.parse(localStorage.getItem(key)||'{}');
+  items.forEach(function(it){ if(saved[it.getAttribute('data-i')]) it.classList.add('done'); });
+  var bar=document.getElementById(barid);
+  function upd(){ var n=items.filter(function(i){return i.classList.contains('done');}).length;
+    bar.style.width=(n/items.length*100)+'%'; }
+  items.forEach(function(it){ it.addEventListener('click',function(e){
+    if(e.target.tagName==='A')return;
+    it.classList.toggle('done');
+    var s=JSON.parse(localStorage.getItem(key)||'{}');
+    s[it.getAttribute('data-i')]=it.classList.contains('done');
+    localStorage.setItem(key,JSON.stringify(s)); upd();
+  });});
+  upd();
+}
+initTrack('foodTrack','pf','trk_food');
+initTrack('shopTrack','ps','trk_shop');
+initTrack('prepTrack','pc','trk_prep');
+// reveal
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  Array.prototype.forEach.call(document.querySelectorAll('.reveal'),function(el){io.observe(el);});
+})();
+// open first day of each phase on wide screens
+if(matchMedia('(min-width:900px)').matches){
+  Array.prototype.forEach.call(document.querySelectorAll('.phase'),function(p){
+    var d=p.querySelector('.day'); if(d){d.classList.add('open');d.querySelector('.day-btn').setAttribute('aria-expanded','true');}
+  });
+}
+</script>
+</body>
+</html>
