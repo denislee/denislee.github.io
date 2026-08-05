@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Denis Lee — DevOps Engineer</title>
+<meta name="description" content="Denis Lee — infrastructure and platform engineering for fintech. São Paulo, Brazil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* Monochrome. One column. Hairlines instead of boxes. */
+:root {
+  color-scheme: light;
+  --paper:    #ffffff;
+  --ink:      #111111;
+  --ink-2:    #4a4a4a;
+  --ink-3:    #8c8c8c;
+  --rule:     #e2e2e2;
+
+  --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+
+  --measure: 68ch;
+  --rail: 132px;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper:    #0d0d0d;
+  --ink:      #f2f2f2;
+  --ink-2:    #b4b4b4;
+  --ink-3:    #767676;
+  --rule:     #2a2a2a;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .001ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.shell { max-width: 820px; margin: 0 auto; padding: 0 clamp(22px, 6vw, 48px); }
+
+/* ── type ───────────────────────────────────────────────────── */
+.label {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 400;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--ink-3);
+}
+h1 {
+  font-weight: 300; font-size: clamp(34px, 6vw, 52px);
+  line-height: 1.05; letter-spacing: -.03em; margin: 0;
+}
+h2 {
+  font-weight: 400; font-size: 20px; letter-spacing: -.015em;
+  margin: 0 0 26px;
+}
+h3 { font-weight: 500; font-size: 16px; letter-spacing: -.005em; margin: 0 0 6px; }
+p { margin: 0 0 1em; max-width: var(--measure); color: var(--ink-2); }
+p:last-child { margin-bottom: 0; }
+p strong { color: var(--ink); font-weight: 500; }
+p em { font-style: italic; }
+a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); }
+a:hover { border-bottom-color: var(--ink); }
+
+/* ── theme toggle ───────────────────────────────────────────── */
+.toggle {
+  position: fixed; top: 16px; right: 16px; z-index: 10;
+  border: 0; background: none; padding: 6px;
+  color: var(--ink-3); font-family: var(--font-mono); font-size: 10.5px;
+  letter-spacing: .14em; text-transform: uppercase; cursor: pointer;
+  transition: color .18s;
+}
+.toggle:hover { color: var(--ink); }
+
+/* ── header ─────────────────────────────────────────────────── */
+.masthead { padding: clamp(64px, 12vh, 112px) 0 0; }
+.masthead h1 { margin-bottom: 14px; }
+.masthead .role { font-size: 17px; color: var(--ink); margin: 0; }
+.masthead .role span { color: var(--ink-3); }
+.masthead .place { margin: 2px 0 0; font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); letter-spacing: .04em; }
+
+.links { margin: 22px 0 0; font-family: var(--font-mono); font-size: 12px; letter-spacing: .02em; color: var(--ink-2); }
+.links a { margin-right: 18px; }
+
+.lede {
+  margin: clamp(30px, 5vw, 44px) 0 0;
+  font-size: clamp(18px, 2.2vw, 21px); line-height: 1.5;
+  letter-spacing: -.012em; color: var(--ink); max-width: 46ch;
+}
+
+/* ── sections ───────────────────────────────────────────────── */
+section {
+  margin-top: clamp(48px, 7vw, 80px);
+  padding-top: clamp(28px, 4vw, 40px);
+  border-top: 1px solid var(--rule);
+  display: grid; gap: 18px 32px;
+}
+@media (min-width: 820px) {
+  section { grid-template-columns: var(--rail) 1fr; }
+  section > .label { padding-top: 4px; }
+}
+
+/* ── focus list ─────────────────────────────────────────────── */
+.focus { display: grid; }
+.focus > div { padding: 20px 0; border-top: 1px solid var(--rule); }
+.focus > div:first-child { padding-top: 0; border-top: 0; }
+.focus .kicker { display: block; margin-bottom: 8px; }
+.focus p { font-size: 14.5px; line-height: 1.6; }
+
+/* ── experience ─────────────────────────────────────────────── */
+.xp { display: grid; }
+.xp > div { display: grid; gap: 2px 28px; padding: 20px 0; border-top: 1px solid var(--rule); }
+.xp > div:first-child { padding-top: 0; border-top: 0; }
+@media (min-width: 560px) { .xp > div { grid-template-columns: 128px 1fr; } }
+.xp .when { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .04em; color: var(--ink-3); padding-top: 4px; white-space: nowrap; }
+.xp .org { font-size: 14.5px; color: var(--ink-2); }
+.xp p { margin: 7px 0 0; font-size: 14.2px; line-height: 1.56; }
+
+/* ── stack ──────────────────────────────────────────────────── */
+.stack { display: grid; gap: 14px; }
+.stack > div { display: grid; gap: 2px 24px; }
+@media (min-width: 560px) { .stack > div { grid-template-columns: 116px 1fr; } }
+.stack .lab { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--ink-3); padding-top: 3px; }
+.stack .list { font-size: 14.5px; color: var(--ink-2); line-height: 1.55; }
+.stack .list b { font-weight: 500; color: var(--ink); }
+
+/* ── footer ─────────────────────────────────────────────────── */
+footer {
+  margin-top: clamp(48px, 7vw, 80px); padding: 22px 0 56px;
+  border-top: 1px solid var(--rule);
+  display: flex; flex-wrap: wrap; gap: 6px 24px; justify-content: space-between;
+  font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); letter-spacing: .05em;
+}
+
+/* ── print ──────────────────────────────────────────────────── */
+@media print {
+  :root { color-scheme: light; --paper: #fff; --ink: #000; --ink-2: #333; --ink-3: #555; --rule: #ccc; }
+  body { font-size: 10.5pt; line-height: 1.45; }
+  .toggle { display: none !important; }
+  .shell { max-width: none; padding: 0; }
+  .masthead { padding: 0; }
+  h1 { font-size: 30pt; }
+  section, footer { margin-top: 18pt; padding-top: 14pt; break-inside: avoid; }
+  .xp > div, .focus > div { break-inside: avoid; }
+  a { border-bottom: 0; }
+}
+</style>
+</head>
+<body>
+
+<button class="toggle" id="themeBtn" aria-label="Switch colour theme"><span id="themeLbl">Dark</span></button>
+
+<div class="shell">
+
+  <header class="masthead">
+    <h1>Denis Lee</h1>
+    <p class="role">DevOps / Platform Engineer <span>at</span> Nova</p>
+    <p class="place">DevOps · Platform · Fintech &nbsp;—&nbsp; São Paulo, Brazil</p>
+
+    <nav class="links" aria-label="Contact and profiles">
+      <a href="https://www.linkedin.com/in/denis-lee-b0538238">linkedin.com/in/denis-lee</a>
+      <a href="https://github.com/denislee">github.com/denislee</a>
+      <a href="https://denislee.github.io">denislee.github.io</a>
+    </nav>
+
+    <p class="lede">I build and run the platform underneath financial products &mdash;
+    the cloud, the clusters, the pipelines and the tooling everyone else ships on.</p>
+  </header>
+
+  <section id="work">
+    <div class="label">What I do</div>
+    <div>
+      <h2>Infrastructure, end to end.</h2>
+      <p>My work sits underneath the product: <strong>cloud and Kubernetes topology, the deployment
+      and CI substrate, observability and alerting, network and identity, compliance scope, the data
+      platform, and the internal tooling engineers use every day.</strong></p>
+
+      <p>Most of it is migration work on systems that move real money, executed without a maintenance
+      window &mdash; staged, reversible, staging first. The rest is a standing reliability and security
+      practice, and the developer platform that lets a small team ship safely across a large service
+      estate.</p>
+
+      <p>I work in the open and in writing. Every programme gets a plan document, a decision record and
+      a post-mortem trail &mdash; and when a decision gate says <em>don't migrate</em>, that gets written
+      down too.</p>
+    </div>
+  </section>
+
+  <section id="focus">
+    <div class="label">Focus areas</div>
+    <div>
+      <h2>Where the work goes.</h2>
+      <div class="focus">
+
+        <div>
+          <span class="label kicker">Developer platform</span>
+          <h3>Brokered, audited access</h3>
+          <p>An internal read-only CLI for cloud, clusters, databases and workflows &mdash; backed by an
+          identity-aware credential broker, so long-lived keys give way to short-lived, per-person
+          credentials that are audited by construction. Engineers and AI agents get the same surface,
+          the same allowlist and the same audit trail.</p>
+        </div>
+
+        <div>
+          <span class="label kicker">Network &amp; mesh</span>
+          <h3>Ingress onto a service mesh</h3>
+          <p>Moved production ingress off a legacy reverse proxy onto a mesh gateway, host by host, each
+          with its own cutover and rollback point &mdash; then into ambient mode, retiring per-service
+          network shims and enabling strict mutual TLS namespace by namespace.</p>
+        </div>
+
+        <div>
+          <span class="label kicker">Observability</span>
+          <h3>Signals you can act on</h3>
+          <p>A self-hosted metrics, logs and traces stack managed entirely as code, with per-workload
+          dashboards and alerting, and availability SLOs backed by multi-window burn-rate alerts. Also
+          ran a fully costed evaluation against the incumbent vendor &mdash; and recorded the honest
+          answer rather than the exciting one.</p>
+        </div>
+
+        <div>
+          <span class="label kicker">Security &amp; compliance</span>
+          <h3>Payment-card scope</h3>
+          <p>Card-data isolation and encrypted retrieval, sensitive values kept out of logs, reversible
+          crypto replaced where hashing was correct, authorisation gaps closed on money-movement
+          endpoints, and standing access reduced to least privilege across the organisation.</p>
+        </div>
+
+        <div>
+          <span class="label kicker">Delivery</span>
+          <h3>Guardrails, not gatekeeping</h3>
+          <p>A shared CI layer across every repository &mdash; static analysis, linting, migration-ordering
+          checks and mutation testing, reported inline on the diff. Canary deploys behind automated
+          latency gates, disruption budgets on the transaction hot path, and an automated review agent
+          that reads pull requests before a human does.</p>
+        </div>
+
+        <div>
+          <span class="label kicker">Migrations</span>
+          <h3>Moving the foundations</h3>
+          <p>A rebuilt network topology, the workflow engine brought in-house, the message broker
+          migrated, analytics moved onto a lakehouse, and a sustained cloud cost-reduction programme
+          &mdash; each one landed incrementally, alongside the system it replaced rather than instead
+          of it.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="label">Experience</div>
+    <div>
+      <h2>Where I've been.</h2>
+      <div class="xp">
+
+        <div>
+          <div class="when">2025 — present</div>
+          <div>
+            <h3>DevOps / Platform Engineer</h3>
+            <div class="org">Nova · São Paulo, Brazil</div>
+            <p>Own the platform behind a credit-card fintech &mdash; cloud and Kubernetes,
+            delivery and CI, observability, compliance scope and internal tooling.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="when">2020 — 2025</div>
+          <div>
+            <h3>DevOps / Platform Engineer</h3>
+            <div class="org">Cora · São Paulo, Brazil</div>
+            <p>Digital banking for small businesses, through its growth into a licensed
+            financial institution.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="when">Education</div>
+          <div>
+            <h3>Universidade Anhembi Morumbi</h3>
+            <div class="org">São Paulo, Brazil</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="label">Stack</div>
+    <div>
+      <h2>Tools in daily use.</h2>
+      <div class="stack">
+        <div>
+          <div class="lab">Cloud</div>
+          <div class="list"><b>AWS</b>, EKS, Aurora / RDS, MSK, SNS + SQS, IAM Identity Center, Athena, Graviton</div>
+        </div>
+        <div>
+          <div class="lab">Platform</div>
+          <div class="list"><b>Kubernetes</b>, <b>Istio</b>, ambient mesh, Karpenter, ArgoCD, Kustomize, Helm, Tailscale, Cloudflare</div>
+        </div>
+        <div>
+          <div class="lab">IaC &amp; CI</div>
+          <div class="list"><b>Pulumi</b>, <b>GitHub Actions</b>, Terraform, reviewdog, mutation testing, canary deploys</div>
+        </div>
+        <div>
+          <div class="lab">Runtime</div>
+          <div class="list"><b>Go</b>, Temporal, PostgreSQL, GraphQL federation, Flutter, Bash</div>
+        </div>
+        <div>
+          <div class="lab">Observability</div>
+          <div class="list"><b>Grafana</b>, Prometheus, Loki, Tempo, OpenTelemetry, Datadog</div>
+        </div>
+        <div>
+          <div class="lab">Data</div>
+          <div class="list">dbt, Trino, Dagster, Debezium, Metabase</div>
+        </div>
+        <div>
+          <div class="lab">AI</div>
+          <div class="list"><b>Claude Code</b>, MCP, agent tooling</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Denis Lee · São Paulo, Brazil</span>
+    <span>2026</span>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var root = document.documentElement;
+  var btn = document.getElementById("themeBtn");
+  var lbl = document.getElementById("themeLbl");
+  function sync() { lbl.textContent = root.dataset.theme === "dark" ? "Light" : "Dark"; }
+  if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    root.dataset.theme = "dark";
+  }
+  sync();
+  btn.addEventListener("click", function () {
+    root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+    sync();
+  });
+})();
+</script>
+</body>
+</html>
